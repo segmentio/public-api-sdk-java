@@ -23310,233 +23310,6 @@ components:
       - trigger
       title: DestinationMetadataSubscriptionPresetV1
       type: object
-    DestinationSubscription:
-      example:
-        actionSlug: actionSlug
-        settings: ""
-        name: name
-        actionId: actionId
-        id: id
-        trigger: trigger
-        destinationId: destinationId
-        enabled: true
-      properties:
-        id:
-          description: The unique identifier for the subscription.
-          title: id
-          type: string
-        name:
-          description: The name of the subscription.
-          title: name
-          type: string
-        actionId:
-          description: The unique identifier for the Destination action to trigger.
-          title: actionId
-          type: string
-        actionSlug:
-          description: The URL-friendly key for the associated Destination action.
-          title: actionSlug
-          type: string
-        destinationId:
-          description: The associated Destination instance id.
-          title: destinationId
-          type: string
-        enabled:
-          description: Is the subscription enabled.
-          title: enabled
-          type: boolean
-        settings:
-          allOf:
-          - $ref: '#/components/schemas/DestinationSubscriptionFields'
-          description: The customer settings for action fields.
-          title: settings
-        trigger:
-          description: FQL string that describes what events should trigger a Destination
-            action.
-          title: trigger
-          type: string
-      required:
-      - actionId
-      - actionSlug
-      - destinationId
-      - enabled
-      - id
-      - name
-      - settings
-      - trigger
-      title: DestinationSubscription
-      type: object
-    DestinationSubscriptionFields:
-      additionalProperties: {}
-      description: Represents settings used to configure an action subscription.
-      title: DestinationSubscriptionFields
-      type: object
-    ListSubscriptionsFromDestinationAlphaInput:
-      description: Input for ListDestinationSubscriptionsAlpha.
-      properties: {}
-      required:
-      - destinationId
-      title: ListSubscriptionsFromDestinationAlphaInput
-      type: object
-    ListSubscriptionsFromDestinationAlphaOutput:
-      description: Output for ListDestinationSubscriptionsAlpha.
-      example:
-        subscriptions:
-        - actionSlug: actionSlug
-          settings: ""
-          name: name
-          actionId: actionId
-          id: id
-          trigger: trigger
-          destinationId: destinationId
-          enabled: true
-        - actionSlug: actionSlug
-          settings: ""
-          name: name
-          actionId: actionId
-          id: id
-          trigger: trigger
-          destinationId: destinationId
-          enabled: true
-        pagination: null
-      properties:
-        subscriptions:
-          description: A list of Destination subscriptions.
-          items:
-            $ref: '#/components/schemas/DestinationSubscription'
-          title: subscriptions
-          type: array
-        pagination:
-          $ref: '#/components/schemas/pagination'
-      required:
-      - subscriptions
-      title: ListSubscriptionsFromDestinationAlphaOutput
-      type: object
-    GetSubscriptionFromDestinationAlphaInput:
-      description: Fetches a Destination subscription.
-      properties: {}
-      required:
-      - destinationId
-      title: GetSubscriptionFromDestinationAlphaInput
-      type: object
-    GetSubscriptionFromDestinationAlphaOutput:
-      description: Returns a subscription for a given subscription id.
-      example:
-        subscription: null
-      properties:
-        subscription:
-          $ref: '#/components/schemas/subscription'
-      required:
-      - subscription
-      title: GetSubscriptionFromDestinationAlphaOutput
-      type: object
-    CreateDestinationSubscriptionAlphaInput:
-      description: The basic input parameters for creating a Destination subscription.
-      properties:
-        name:
-          description: A user-defined name for the subscription.
-          title: name
-          type: string
-        actionId:
-          description: The associated action id the subscription should trigger.
-          title: actionId
-          type: string
-        trigger:
-          description: The FQL statement.
-          title: trigger
-          type: string
-        enabled:
-          description: Is the subscription enabled.
-          title: enabled
-          type: boolean
-        settings:
-          allOf:
-          - $ref: '#/components/schemas/DestinationSubscriptionFields'
-          description: The fields used for configuring this action.
-          title: settings
-      required:
-      - actionId
-      - enabled
-      - name
-      - trigger
-      title: CreateDestinationSubscriptionAlphaInput
-      type: object
-    CreateDestinationSubscriptionAlphaOutput:
-      description: Returns a newly created Destination subscription.
-      example:
-        destinationSubscription: null
-      properties:
-        destinationSubscription:
-          $ref: '#/components/schemas/destinationSubscription'
-      required:
-      - destinationSubscription
-      title: CreateDestinationSubscriptionAlphaOutput
-      type: object
-    DestinationSubscriptionUpdateInput:
-      description: The input parameters for updating a Destination subscription.
-      properties:
-        name:
-          description: The user-defined name for the subscription.
-          title: name
-          type: string
-        trigger:
-          description: The fql statement.
-          title: trigger
-          type: string
-        enabled:
-          description: Is the subscription enabled.
-          title: enabled
-          type: boolean
-        settings:
-          allOf:
-          - $ref: '#/components/schemas/DestinationSubscriptionFields'
-          description: The fields used for configuring this action.
-          title: settings
-      title: DestinationSubscriptionUpdateInput
-      type: object
-    UpdateSubscriptionForDestinationAlphaInput:
-      description: The basic input parameters for updating a Destination subscription.
-      properties:
-        input:
-          $ref: '#/components/schemas/input'
-      required:
-      - destinationId
-      - input
-      title: UpdateSubscriptionForDestinationAlphaInput
-      type: object
-    UpdateSubscriptionForDestinationAlphaOutput:
-      description: Returns the updated Destination subscription.
-      example:
-        subscription: null
-      properties:
-        subscription:
-          $ref: '#/components/schemas/subscription'
-      required:
-      - subscription
-      title: UpdateSubscriptionForDestinationAlphaOutput
-      type: object
-    RemoveSubscriptionFromDestinationAlphaInput:
-      description: Deletes a Destination by id.
-      properties: {}
-      required:
-      - destinationId
-      title: RemoveSubscriptionFromDestinationAlphaInput
-      type: object
-    RemoveSubscriptionFromDestinationAlphaOutput:
-      description: Returns a Destination deletion flag.
-      example:
-        status: SUCCESS
-      properties:
-        status:
-          description: The status of the operation.
-          enum:
-          - SUCCESS
-          title: status
-          type: string
-      required:
-      - status
-      title: RemoveSubscriptionFromDestinationAlphaOutput
-      type: object
     GetDestinationsCatalogV1Input:
       description: Contains filter parameters used for loading the Destinations public
         catalog.
@@ -23835,6 +23608,233 @@ components:
       required:
       - destinationMetadata
       title: GetDestinationMetadataV1Output
+      type: object
+    DestinationSubscription:
+      example:
+        actionSlug: actionSlug
+        settings: ""
+        name: name
+        actionId: actionId
+        id: id
+        trigger: trigger
+        destinationId: destinationId
+        enabled: true
+      properties:
+        id:
+          description: The unique identifier for the subscription.
+          title: id
+          type: string
+        name:
+          description: The name of the subscription.
+          title: name
+          type: string
+        actionId:
+          description: The unique identifier for the Destination action to trigger.
+          title: actionId
+          type: string
+        actionSlug:
+          description: The URL-friendly key for the associated Destination action.
+          title: actionSlug
+          type: string
+        destinationId:
+          description: The associated Destination instance id.
+          title: destinationId
+          type: string
+        enabled:
+          description: Is the subscription enabled.
+          title: enabled
+          type: boolean
+        settings:
+          allOf:
+          - $ref: '#/components/schemas/DestinationSubscriptionFields'
+          description: The customer settings for action fields.
+          title: settings
+        trigger:
+          description: FQL string that describes what events should trigger a Destination
+            action.
+          title: trigger
+          type: string
+      required:
+      - actionId
+      - actionSlug
+      - destinationId
+      - enabled
+      - id
+      - name
+      - settings
+      - trigger
+      title: DestinationSubscription
+      type: object
+    DestinationSubscriptionFields:
+      additionalProperties: {}
+      description: Represents settings used to configure an action subscription.
+      title: DestinationSubscriptionFields
+      type: object
+    ListSubscriptionsFromDestinationAlphaInput:
+      description: Input for ListDestinationSubscriptionsAlpha.
+      properties: {}
+      required:
+      - destinationId
+      title: ListSubscriptionsFromDestinationAlphaInput
+      type: object
+    ListSubscriptionsFromDestinationAlphaOutput:
+      description: Output for ListDestinationSubscriptionsAlpha.
+      example:
+        subscriptions:
+        - actionSlug: actionSlug
+          settings: ""
+          name: name
+          actionId: actionId
+          id: id
+          trigger: trigger
+          destinationId: destinationId
+          enabled: true
+        - actionSlug: actionSlug
+          settings: ""
+          name: name
+          actionId: actionId
+          id: id
+          trigger: trigger
+          destinationId: destinationId
+          enabled: true
+        pagination: null
+      properties:
+        subscriptions:
+          description: A list of Destination subscriptions.
+          items:
+            $ref: '#/components/schemas/DestinationSubscription'
+          title: subscriptions
+          type: array
+        pagination:
+          $ref: '#/components/schemas/pagination'
+      required:
+      - subscriptions
+      title: ListSubscriptionsFromDestinationAlphaOutput
+      type: object
+    GetSubscriptionFromDestinationAlphaInput:
+      description: Fetches a Destination subscription.
+      properties: {}
+      required:
+      - destinationId
+      title: GetSubscriptionFromDestinationAlphaInput
+      type: object
+    GetSubscriptionFromDestinationAlphaOutput:
+      description: Returns a subscription for a given subscription id.
+      example:
+        subscription: null
+      properties:
+        subscription:
+          $ref: '#/components/schemas/subscription'
+      required:
+      - subscription
+      title: GetSubscriptionFromDestinationAlphaOutput
+      type: object
+    CreateDestinationSubscriptionAlphaInput:
+      description: The basic input parameters for creating a Destination subscription.
+      properties:
+        name:
+          description: A user-defined name for the subscription.
+          title: name
+          type: string
+        actionId:
+          description: The associated action id the subscription should trigger.
+          title: actionId
+          type: string
+        trigger:
+          description: The FQL statement.
+          title: trigger
+          type: string
+        enabled:
+          description: Is the subscription enabled.
+          title: enabled
+          type: boolean
+        settings:
+          allOf:
+          - $ref: '#/components/schemas/DestinationSubscriptionFields'
+          description: The fields used for configuring this action.
+          title: settings
+      required:
+      - actionId
+      - enabled
+      - name
+      - trigger
+      title: CreateDestinationSubscriptionAlphaInput
+      type: object
+    CreateDestinationSubscriptionAlphaOutput:
+      description: Returns a newly created Destination subscription.
+      example:
+        destinationSubscription: null
+      properties:
+        destinationSubscription:
+          $ref: '#/components/schemas/destinationSubscription'
+      required:
+      - destinationSubscription
+      title: CreateDestinationSubscriptionAlphaOutput
+      type: object
+    DestinationSubscriptionUpdateInput:
+      description: The input parameters for updating a Destination subscription.
+      properties:
+        name:
+          description: The user-defined name for the subscription.
+          title: name
+          type: string
+        trigger:
+          description: The fql statement.
+          title: trigger
+          type: string
+        enabled:
+          description: Is the subscription enabled.
+          title: enabled
+          type: boolean
+        settings:
+          allOf:
+          - $ref: '#/components/schemas/DestinationSubscriptionFields'
+          description: The fields used for configuring this action.
+          title: settings
+      title: DestinationSubscriptionUpdateInput
+      type: object
+    UpdateSubscriptionForDestinationAlphaInput:
+      description: The basic input parameters for updating a Destination subscription.
+      properties:
+        input:
+          $ref: '#/components/schemas/input'
+      required:
+      - destinationId
+      - input
+      title: UpdateSubscriptionForDestinationAlphaInput
+      type: object
+    UpdateSubscriptionForDestinationAlphaOutput:
+      description: Returns the updated Destination subscription.
+      example:
+        subscription: null
+      properties:
+        subscription:
+          $ref: '#/components/schemas/subscription'
+      required:
+      - subscription
+      title: UpdateSubscriptionForDestinationAlphaOutput
+      type: object
+    RemoveSubscriptionFromDestinationAlphaInput:
+      description: Deletes a Destination by id.
+      properties: {}
+      required:
+      - destinationId
+      title: RemoveSubscriptionFromDestinationAlphaInput
+      type: object
+    RemoveSubscriptionFromDestinationAlphaOutput:
+      description: Returns a Destination deletion flag.
+      example:
+        status: SUCCESS
+      properties:
+        status:
+          description: The status of the operation.
+          enum:
+          - SUCCESS
+          title: status
+          type: string
+      required:
+      - status
+      title: RemoveSubscriptionFromDestinationAlphaOutput
       type: object
     ListDeliveryMetricsSummaryFromDestinationBetaInput:
       description: Input to retrieve event delivery metrics summary for a Destination.
@@ -32829,6 +32829,11 @@ components:
       description: "Platforms from which the Destination receives events.\n\nConfig\
         \ API note: equal to `platforms`."
       title: supportedPlatforms
+    destinationMetadata:
+      allOf:
+      - $ref: '#/components/schemas/DestinationMetadataV1'
+      description: The catalog item matched by id.
+      title: destinationMetadata
     subscription:
       allOf:
       - $ref: '#/components/schemas/DestinationSubscription'
@@ -32844,11 +32849,6 @@ components:
       - $ref: '#/components/schemas/DestinationSubscriptionUpdateInput'
       description: A set of valid Destination input params required for updating.
       title: input
-    destinationMetadata:
-      allOf:
-      - $ref: '#/components/schemas/DestinationMetadataV1'
-      description: The catalog item matched by id.
-      title: destinationMetadata
     deliveryMetricsSummary:
       allOf:
       - $ref: '#/components/schemas/DeliveryMetricsSummaryBeta'
