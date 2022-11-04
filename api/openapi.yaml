@@ -22247,305 +22247,6 @@ components:
       - value
       title: AllowedLabelBeta
       type: object
-    GetDestinationsCatalogV1Input:
-      description: Contains filter parameters used for loading the Destinations public
-        catalog.
-      properties: {}
-      required:
-      - pagination
-      title: GetDestinationsCatalogV1Input
-      type: object
-    GetDestinationsCatalogV1Output:
-      description: Returns a list of all Destination catalog items contained within
-        a given page.
-      example:
-        pagination: null
-        destinationsCatalog:
-        - website: website
-          components:
-          - owner: PARTNER
-            code: code
-            type: ANDROID
-          - owner: PARTNER
-            code: code
-            type: ANDROID
-          supportedFeatures: null
-          description: description
-          logos: null
-          presets:
-          - name: name
-            actionId: actionId
-            trigger: trigger
-            fields:
-              key: ""
-          - name: name
-            actionId: actionId
-            trigger: trigger
-            fields:
-              key: ""
-          supportedMethods: null
-          previousNames:
-          - previousNames
-          - previousNames
-          name: name
-          options:
-          - defaultValue: ""
-            name: name
-            description: description
-            label: label
-            type: type
-            required: true
-          - defaultValue: ""
-            name: name
-            description: description
-            label: label
-            type: type
-            required: true
-          id: id
-          categories:
-          - categories
-          - categories
-          supportedPlatforms: null
-          partnerOwned: true
-          actions:
-          - defaultTrigger: defaultTrigger
-            hidden: true
-            name: name
-            description: description
-            id: id
-            fields:
-            - fieldKey: fieldKey
-              defaultValue: ""
-              multiple: true
-              description: description
-              label: label
-              type: BOOLEAN
-              required: true
-              sortOrder: 0.8008281904610115
-              dynamic: true
-              allowNull: true
-              id: id
-              placeholder: placeholder
-              choices: ""
-            - fieldKey: fieldKey
-              defaultValue: ""
-              multiple: true
-              description: description
-              label: label
-              type: BOOLEAN
-              required: true
-              sortOrder: 0.8008281904610115
-              dynamic: true
-              allowNull: true
-              id: id
-              placeholder: placeholder
-              choices: ""
-            slug: slug
-            platform: CLOUD
-          - defaultTrigger: defaultTrigger
-            hidden: true
-            name: name
-            description: description
-            id: id
-            fields:
-            - fieldKey: fieldKey
-              defaultValue: ""
-              multiple: true
-              description: description
-              label: label
-              type: BOOLEAN
-              required: true
-              sortOrder: 0.8008281904610115
-              dynamic: true
-              allowNull: true
-              id: id
-              placeholder: placeholder
-              choices: ""
-            - fieldKey: fieldKey
-              defaultValue: ""
-              multiple: true
-              description: description
-              label: label
-              type: BOOLEAN
-              required: true
-              sortOrder: 0.8008281904610115
-              dynamic: true
-              allowNull: true
-              id: id
-              placeholder: placeholder
-              choices: ""
-            slug: slug
-            platform: CLOUD
-          slug: slug
-          contacts:
-          - role: role
-            isPrimary: true
-            name: name
-            email: email
-          - role: role
-            isPrimary: true
-            name: name
-            email: email
-          status: DEPRECATED
-        - website: website
-          components:
-          - owner: PARTNER
-            code: code
-            type: ANDROID
-          - owner: PARTNER
-            code: code
-            type: ANDROID
-          supportedFeatures: null
-          description: description
-          logos: null
-          presets:
-          - name: name
-            actionId: actionId
-            trigger: trigger
-            fields:
-              key: ""
-          - name: name
-            actionId: actionId
-            trigger: trigger
-            fields:
-              key: ""
-          supportedMethods: null
-          previousNames:
-          - previousNames
-          - previousNames
-          name: name
-          options:
-          - defaultValue: ""
-            name: name
-            description: description
-            label: label
-            type: type
-            required: true
-          - defaultValue: ""
-            name: name
-            description: description
-            label: label
-            type: type
-            required: true
-          id: id
-          categories:
-          - categories
-          - categories
-          supportedPlatforms: null
-          partnerOwned: true
-          actions:
-          - defaultTrigger: defaultTrigger
-            hidden: true
-            name: name
-            description: description
-            id: id
-            fields:
-            - fieldKey: fieldKey
-              defaultValue: ""
-              multiple: true
-              description: description
-              label: label
-              type: BOOLEAN
-              required: true
-              sortOrder: 0.8008281904610115
-              dynamic: true
-              allowNull: true
-              id: id
-              placeholder: placeholder
-              choices: ""
-            - fieldKey: fieldKey
-              defaultValue: ""
-              multiple: true
-              description: description
-              label: label
-              type: BOOLEAN
-              required: true
-              sortOrder: 0.8008281904610115
-              dynamic: true
-              allowNull: true
-              id: id
-              placeholder: placeholder
-              choices: ""
-            slug: slug
-            platform: CLOUD
-          - defaultTrigger: defaultTrigger
-            hidden: true
-            name: name
-            description: description
-            id: id
-            fields:
-            - fieldKey: fieldKey
-              defaultValue: ""
-              multiple: true
-              description: description
-              label: label
-              type: BOOLEAN
-              required: true
-              sortOrder: 0.8008281904610115
-              dynamic: true
-              allowNull: true
-              id: id
-              placeholder: placeholder
-              choices: ""
-            - fieldKey: fieldKey
-              defaultValue: ""
-              multiple: true
-              description: description
-              label: label
-              type: BOOLEAN
-              required: true
-              sortOrder: 0.8008281904610115
-              dynamic: true
-              allowNull: true
-              id: id
-              placeholder: placeholder
-              choices: ""
-            slug: slug
-            platform: CLOUD
-          slug: slug
-          contacts:
-          - role: role
-            isPrimary: true
-            name: name
-            email: email
-          - role: role
-            isPrimary: true
-            name: name
-            email: email
-          status: DEPRECATED
-      properties:
-        destinationsCatalog:
-          description: All Destination catalog items contained within the requested
-            page.
-          items:
-            $ref: '#/components/schemas/DestinationMetadataV1'
-          title: destinationsCatalog
-          type: array
-        pagination:
-          $ref: '#/components/schemas/pagination'
-      required:
-      - destinationsCatalog
-      - pagination
-      title: GetDestinationsCatalogV1Output
-      type: object
-    GetDestinationMetadataV1Input:
-      description: Loads a Destination catalog item by id.
-      properties: {}
-      required:
-      - destinationMetadataId
-      title: GetDestinationMetadataV1Input
-      type: object
-    GetDestinationMetadataV1Output:
-      description: Returns a Destination catalog item.
-      example:
-        destinationMetadata: null
-      properties:
-        destinationMetadata:
-          $ref: '#/components/schemas/destinationMetadata'
-      required:
-      - destinationMetadata
-      title: GetDestinationMetadataV1Output
-      type: object
     AuditEventV1:
       description: Represents an Audit Trail event.
       example:
@@ -23835,6 +23536,305 @@ components:
       required:
       - status
       title: RemoveSubscriptionFromDestinationAlphaOutput
+      type: object
+    GetDestinationsCatalogV1Input:
+      description: Contains filter parameters used for loading the Destinations public
+        catalog.
+      properties: {}
+      required:
+      - pagination
+      title: GetDestinationsCatalogV1Input
+      type: object
+    GetDestinationsCatalogV1Output:
+      description: Returns a list of all Destination catalog items contained within
+        a given page.
+      example:
+        pagination: null
+        destinationsCatalog:
+        - website: website
+          components:
+          - owner: PARTNER
+            code: code
+            type: ANDROID
+          - owner: PARTNER
+            code: code
+            type: ANDROID
+          supportedFeatures: null
+          description: description
+          logos: null
+          presets:
+          - name: name
+            actionId: actionId
+            trigger: trigger
+            fields:
+              key: ""
+          - name: name
+            actionId: actionId
+            trigger: trigger
+            fields:
+              key: ""
+          supportedMethods: null
+          previousNames:
+          - previousNames
+          - previousNames
+          name: name
+          options:
+          - defaultValue: ""
+            name: name
+            description: description
+            label: label
+            type: type
+            required: true
+          - defaultValue: ""
+            name: name
+            description: description
+            label: label
+            type: type
+            required: true
+          id: id
+          categories:
+          - categories
+          - categories
+          supportedPlatforms: null
+          partnerOwned: true
+          actions:
+          - defaultTrigger: defaultTrigger
+            hidden: true
+            name: name
+            description: description
+            id: id
+            fields:
+            - fieldKey: fieldKey
+              defaultValue: ""
+              multiple: true
+              description: description
+              label: label
+              type: BOOLEAN
+              required: true
+              sortOrder: 0.8008281904610115
+              dynamic: true
+              allowNull: true
+              id: id
+              placeholder: placeholder
+              choices: ""
+            - fieldKey: fieldKey
+              defaultValue: ""
+              multiple: true
+              description: description
+              label: label
+              type: BOOLEAN
+              required: true
+              sortOrder: 0.8008281904610115
+              dynamic: true
+              allowNull: true
+              id: id
+              placeholder: placeholder
+              choices: ""
+            slug: slug
+            platform: CLOUD
+          - defaultTrigger: defaultTrigger
+            hidden: true
+            name: name
+            description: description
+            id: id
+            fields:
+            - fieldKey: fieldKey
+              defaultValue: ""
+              multiple: true
+              description: description
+              label: label
+              type: BOOLEAN
+              required: true
+              sortOrder: 0.8008281904610115
+              dynamic: true
+              allowNull: true
+              id: id
+              placeholder: placeholder
+              choices: ""
+            - fieldKey: fieldKey
+              defaultValue: ""
+              multiple: true
+              description: description
+              label: label
+              type: BOOLEAN
+              required: true
+              sortOrder: 0.8008281904610115
+              dynamic: true
+              allowNull: true
+              id: id
+              placeholder: placeholder
+              choices: ""
+            slug: slug
+            platform: CLOUD
+          slug: slug
+          contacts:
+          - role: role
+            isPrimary: true
+            name: name
+            email: email
+          - role: role
+            isPrimary: true
+            name: name
+            email: email
+          status: DEPRECATED
+        - website: website
+          components:
+          - owner: PARTNER
+            code: code
+            type: ANDROID
+          - owner: PARTNER
+            code: code
+            type: ANDROID
+          supportedFeatures: null
+          description: description
+          logos: null
+          presets:
+          - name: name
+            actionId: actionId
+            trigger: trigger
+            fields:
+              key: ""
+          - name: name
+            actionId: actionId
+            trigger: trigger
+            fields:
+              key: ""
+          supportedMethods: null
+          previousNames:
+          - previousNames
+          - previousNames
+          name: name
+          options:
+          - defaultValue: ""
+            name: name
+            description: description
+            label: label
+            type: type
+            required: true
+          - defaultValue: ""
+            name: name
+            description: description
+            label: label
+            type: type
+            required: true
+          id: id
+          categories:
+          - categories
+          - categories
+          supportedPlatforms: null
+          partnerOwned: true
+          actions:
+          - defaultTrigger: defaultTrigger
+            hidden: true
+            name: name
+            description: description
+            id: id
+            fields:
+            - fieldKey: fieldKey
+              defaultValue: ""
+              multiple: true
+              description: description
+              label: label
+              type: BOOLEAN
+              required: true
+              sortOrder: 0.8008281904610115
+              dynamic: true
+              allowNull: true
+              id: id
+              placeholder: placeholder
+              choices: ""
+            - fieldKey: fieldKey
+              defaultValue: ""
+              multiple: true
+              description: description
+              label: label
+              type: BOOLEAN
+              required: true
+              sortOrder: 0.8008281904610115
+              dynamic: true
+              allowNull: true
+              id: id
+              placeholder: placeholder
+              choices: ""
+            slug: slug
+            platform: CLOUD
+          - defaultTrigger: defaultTrigger
+            hidden: true
+            name: name
+            description: description
+            id: id
+            fields:
+            - fieldKey: fieldKey
+              defaultValue: ""
+              multiple: true
+              description: description
+              label: label
+              type: BOOLEAN
+              required: true
+              sortOrder: 0.8008281904610115
+              dynamic: true
+              allowNull: true
+              id: id
+              placeholder: placeholder
+              choices: ""
+            - fieldKey: fieldKey
+              defaultValue: ""
+              multiple: true
+              description: description
+              label: label
+              type: BOOLEAN
+              required: true
+              sortOrder: 0.8008281904610115
+              dynamic: true
+              allowNull: true
+              id: id
+              placeholder: placeholder
+              choices: ""
+            slug: slug
+            platform: CLOUD
+          slug: slug
+          contacts:
+          - role: role
+            isPrimary: true
+            name: name
+            email: email
+          - role: role
+            isPrimary: true
+            name: name
+            email: email
+          status: DEPRECATED
+      properties:
+        destinationsCatalog:
+          description: All Destination catalog items contained within the requested
+            page.
+          items:
+            $ref: '#/components/schemas/DestinationMetadataV1'
+          title: destinationsCatalog
+          type: array
+        pagination:
+          $ref: '#/components/schemas/pagination'
+      required:
+      - destinationsCatalog
+      - pagination
+      title: GetDestinationsCatalogV1Output
+      type: object
+    GetDestinationMetadataV1Input:
+      description: Loads a Destination catalog item by id.
+      properties: {}
+      required:
+      - destinationMetadataId
+      title: GetDestinationMetadataV1Input
+      type: object
+    GetDestinationMetadataV1Output:
+      description: Returns a Destination catalog item.
+      example:
+        destinationMetadata: null
+      properties:
+        destinationMetadata:
+          $ref: '#/components/schemas/destinationMetadata'
+      required:
+      - destinationMetadata
+      title: GetDestinationMetadataV1Output
       type: object
     ListDeliveryMetricsSummaryFromDestinationBetaInput:
       description: Input to retrieve event delivery metrics summary for a Destination.
@@ -32786,11 +32786,6 @@ components:
       - $ref: '#/components/schemas/PaginationOutput'
       description: Information about the pagination of this response.
       title: pagination
-    destinationMetadata:
-      allOf:
-      - $ref: '#/components/schemas/DestinationMetadataV1'
-      description: The catalog item matched by id.
-      title: destinationMetadata
     filter:
       allOf:
       - $ref: '#/components/schemas/PreviewDestinationFilterV1'
@@ -32849,6 +32844,11 @@ components:
       - $ref: '#/components/schemas/DestinationSubscriptionUpdateInput'
       description: A set of valid Destination input params required for updating.
       title: input
+    destinationMetadata:
+      allOf:
+      - $ref: '#/components/schemas/DestinationMetadataV1'
+      description: The catalog item matched by id.
+      title: destinationMetadata
     deliveryMetricsSummary:
       allOf:
       - $ref: '#/components/schemas/DeliveryMetricsSummaryBeta'
