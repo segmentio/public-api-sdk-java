@@ -47,7 +47,7 @@ Add this dependency to your project's POM:
 
 ```xml
 <dependency>
-  <groupId>com.segment</groupId>
+  <groupId>com.segment.publicapi</groupId>
   <artifactId>segment-publicapi</artifactId>
   <version>32.0.2</version>
   <scope>compile</scope>
@@ -65,7 +65,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.segment:segment-publicapi:32.0.2"
+     implementation "com.segment.publicapi:segment-publicapi:32.0.2"
   }
 ```
 
