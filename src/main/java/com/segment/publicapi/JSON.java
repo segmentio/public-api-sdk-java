@@ -415,6 +415,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.segment.publicapi.models.PreviewDestinationFilterV1Input.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.segment.publicapi.models.PreviewDestinationFilterV1Output.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.segment.publicapi.models.PropertyRenameBeta.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.segment.publicapi.models.PropertyValueTransformationBeta.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.segment.publicapi.models.Regulation.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.segment.publicapi.models.RegulationListEntryV1.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.segment.publicapi.models.RemoveFilterFromDestination200Response.CustomTypeAdapterFactory());
