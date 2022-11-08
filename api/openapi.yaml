@@ -28857,15 +28857,6 @@ components:
       example:
         sourceId: sourceId
         newEventName: newEventName
-        propertyValueTransformations:
-        - propertyPaths:
-          - propertyPaths
-          - propertyPaths
-          propertyValue: propertyValue
-        - propertyPaths:
-          - propertyPaths
-          - propertyPaths
-          propertyValue: propertyValue
         name: name
         destinationMetadataId: destinationMetadataId
         id: id
@@ -28915,13 +28906,6 @@ components:
             $ref: '#/components/schemas/PropertyRenameBeta'
           title: propertyRenames
           type: array
-        propertyValueTransformations:
-          description: Optional array for transforming properties and values collected
-            by your events.
-          items:
-            $ref: '#/components/schemas/PropertyValueTransformationBeta'
-          title: propertyValueTransformations
-          type: array
       required:
       - enabled
       - id
@@ -28947,28 +28931,6 @@ components:
       - newName
       - oldName
       title: PropertyRenameBeta
-      type: object
-    PropertyValueTransformationBeta:
-      example:
-        propertyPaths:
-        - propertyPaths
-        - propertyPaths
-        propertyValue: propertyValue
-      properties:
-        propertyPaths:
-          description: The property paths.
-          items:
-            type: string
-          title: propertyPaths
-          type: array
-        propertyValue:
-          description: The new value of the property paths.
-          title: propertyValue
-          type: string
-      required:
-      - propertyPaths
-      - propertyValue
-      title: PropertyValueTransformationBeta
       type: object
     GetTransformationBetaOutput:
       description: The output of Transformation retrieval.
@@ -29002,15 +28964,6 @@ components:
         transformations:
         - sourceId: sourceId
           newEventName: newEventName
-          propertyValueTransformations:
-          - propertyPaths:
-            - propertyPaths
-            - propertyPaths
-            propertyValue: propertyValue
-          - propertyPaths:
-            - propertyPaths
-            - propertyPaths
-            propertyValue: propertyValue
           name: name
           destinationMetadataId: destinationMetadataId
           id: id
@@ -29023,15 +28976,6 @@ components:
             oldName: oldName
         - sourceId: sourceId
           newEventName: newEventName
-          propertyValueTransformations:
-          - propertyPaths:
-            - propertyPaths
-            - propertyPaths
-            propertyValue: propertyValue
-          - propertyPaths:
-            - propertyPaths
-            - propertyPaths
-            propertyValue: propertyValue
           name: name
           destinationMetadataId: destinationMetadataId
           id: id
@@ -29116,13 +29060,6 @@ components:
             $ref: '#/components/schemas/PropertyRenameBeta'
           title: propertyRenames
           type: array
-        propertyValueTransformations:
-          description: Optional array for transforming properties and values collected
-            by your events.
-          items:
-            $ref: '#/components/schemas/PropertyValueTransformationBeta'
-          title: propertyValueTransformations
-          type: array
       required:
       - transformationId
       title: UpdateTransformationBetaInput
@@ -29175,13 +29112,6 @@ components:
           items:
             $ref: '#/components/schemas/PropertyRenameBeta'
           title: propertyRenames
-          type: array
-        propertyValueTransformations:
-          description: Optional array for transforming properties and values collected
-            by your events.
-          items:
-            $ref: '#/components/schemas/PropertyValueTransformationBeta'
-          title: propertyValueTransformations
           type: array
       required:
       - enabled
@@ -31282,15 +31212,6 @@ components:
           transformations:
           - sourceId: sourceId
             newEventName: newEventName
-            propertyValueTransformations:
-            - propertyPaths:
-              - propertyPaths
-              - propertyPaths
-              propertyValue: propertyValue
-            - propertyPaths:
-              - propertyPaths
-              - propertyPaths
-              propertyValue: propertyValue
             name: name
             destinationMetadataId: destinationMetadataId
             id: id
@@ -31303,15 +31224,6 @@ components:
               oldName: oldName
           - sourceId: sourceId
             newEventName: newEventName
-            propertyValueTransformations:
-            - propertyPaths:
-              - propertyPaths
-              - propertyPaths
-              propertyValue: propertyValue
-            - propertyPaths:
-              - propertyPaths
-              - propertyPaths
-              propertyValue: propertyValue
             name: name
             destinationMetadataId: destinationMetadataId
             id: id
