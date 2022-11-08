@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.segment</groupId>
+    <groupId>com.segment.publicapi</groupId>
     <artifactId>segment-publicapi</artifactId>
     <packaging>jar</packaging>
     <name>segment-publicapi</name>
@@ -25,7 +25,7 @@
     <developers>
         <developer>
             <name>Segment</name>
-            <email>team@openapitools.org</email>
+            <email>friends@segment.com</email>
             <organization>Segment</organization>
             <organizationUrl>https://segment.com/</organizationUrl>
         </developer>
