@@ -157,8 +157,8 @@ public class ReplaceAdvancedSyncScheduleForWarehouseV1Input {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in"
-                                        + " ReplaceAdvancedSyncScheduleForWarehouseV1Input is not"
-                                        + " found in the empty JSON string",
+                                    + " ReplaceAdvancedSyncScheduleForWarehouseV1Input is not found"
+                                    + " in the empty JSON string",
                                 ReplaceAdvancedSyncScheduleForWarehouseV1Input.openapiRequiredFields
                                         .toString()));
             }

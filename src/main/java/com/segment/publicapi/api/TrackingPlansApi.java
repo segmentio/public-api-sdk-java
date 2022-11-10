@@ -133,10 +133,10 @@ public class TrackingPlansApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -144,9 +144,9 @@ public class TrackingPlansApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/vnd.segment.v1alpha+json",
+            "application/vnd.segment.v1+json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1+json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
@@ -335,10 +335,10 @@ public class TrackingPlansApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -346,9 +346,9 @@ public class TrackingPlansApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/vnd.segment.v1alpha+json",
+            "application/vnd.segment.v1+json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1+json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
@@ -515,10 +515,10 @@ public class TrackingPlansApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -688,10 +688,10 @@ public class TrackingPlansApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -817,7 +817,7 @@ public class TrackingPlansApi {
      * Build call for listRulesFromTrackingPlan
      *
      * @param trackingPlanId (required)
-     * @param pagination Pagination options. This parameter exists in alpha. (required)
+     * @param pagination Pagination options. This parameter exists in v1. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -866,10 +866,10 @@ public class TrackingPlansApi {
         }
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -933,7 +933,7 @@ public class TrackingPlansApi {
      * information.
      *
      * @param trackingPlanId (required)
-     * @param pagination Pagination options. This parameter exists in alpha. (required)
+     * @param pagination Pagination options. This parameter exists in v1. (required)
      * @return ListRulesFromTrackingPlan200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -963,7 +963,7 @@ public class TrackingPlansApi {
      * information.
      *
      * @param trackingPlanId (required)
-     * @param pagination Pagination options. This parameter exists in alpha. (required)
+     * @param pagination Pagination options. This parameter exists in v1. (required)
      * @return ApiResponse&lt;ListRulesFromTrackingPlan200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -995,7 +995,7 @@ public class TrackingPlansApi {
      * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param trackingPlanId (required)
-     * @param pagination Pagination options. This parameter exists in alpha. (required)
+     * @param pagination Pagination options. This parameter exists in v1. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -1026,7 +1026,7 @@ public class TrackingPlansApi {
      * Build call for listSourcesFromTrackingPlan
      *
      * @param trackingPlanId (required)
-     * @param pagination Pagination options. This parameter exists in alpha. (required)
+     * @param pagination Pagination options. This parameter exists in v1. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1075,10 +1075,10 @@ public class TrackingPlansApi {
         }
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1140,7 +1140,7 @@ public class TrackingPlansApi {
      * Tracking Plan Read-only
      *
      * @param trackingPlanId (required)
-     * @param pagination Pagination options. This parameter exists in alpha. (required)
+     * @param pagination Pagination options. This parameter exists in v1. (required)
      * @return ListSourcesFromTrackingPlan200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1168,7 +1168,7 @@ public class TrackingPlansApi {
      * Tracking Plan Read-only
      *
      * @param trackingPlanId (required)
-     * @param pagination Pagination options. This parameter exists in alpha. (required)
+     * @param pagination Pagination options. This parameter exists in v1. (required)
      * @return ApiResponse&lt;ListSourcesFromTrackingPlan200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1199,7 +1199,7 @@ public class TrackingPlansApi {
      * Source Read-only * Tracking Plan Read-only
      *
      * @param trackingPlanId (required)
-     * @param pagination Pagination options. This parameter exists in alpha. (required)
+     * @param pagination Pagination options. This parameter exists in v1. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -1230,9 +1230,9 @@ public class TrackingPlansApi {
     /**
      * Build call for listTrackingPlans
      *
-     * @param pagination Pagination options. This parameter exists in alpha. (required)
+     * @param pagination Pagination options. This parameter exists in v1. (required)
      * @param type Requests Tracking Plans of a certain type. If omitted, lists all types. This
-     *     parameter exists in alpha. (optional)
+     *     parameter exists in v1. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1281,10 +1281,10 @@ public class TrackingPlansApi {
         }
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1335,9 +1335,9 @@ public class TrackingPlansApi {
      * this endpoint, the specified Workspace needs to have the Protocols feature enabled. Please
      * reach out to your customer success manager for more information.
      *
-     * @param pagination Pagination options. This parameter exists in alpha. (required)
+     * @param pagination Pagination options. This parameter exists in v1. (required)
      * @param type Requests Tracking Plans of a certain type. If omitted, lists all types. This
-     *     parameter exists in alpha. (optional)
+     *     parameter exists in v1. (optional)
      * @return ListTrackingPlans200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1362,9 +1362,9 @@ public class TrackingPlansApi {
      * this endpoint, the specified Workspace needs to have the Protocols feature enabled. Please
      * reach out to your customer success manager for more information.
      *
-     * @param pagination Pagination options. This parameter exists in alpha. (required)
+     * @param pagination Pagination options. This parameter exists in v1. (required)
      * @param type Requests Tracking Plans of a certain type. If omitted, lists all types. This
-     *     parameter exists in alpha. (optional)
+     *     parameter exists in v1. (optional)
      * @return ApiResponse&lt;ListTrackingPlans200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1389,9 +1389,9 @@ public class TrackingPlansApi {
      * successfully call this endpoint, the specified Workspace needs to have the Protocols feature
      * enabled. Please reach out to your customer success manager for more information.
      *
-     * @param pagination Pagination options. This parameter exists in alpha. (required)
+     * @param pagination Pagination options. This parameter exists in v1. (required)
      * @param type Requests Tracking Plans of a certain type. If omitted, lists all types. This
-     *     parameter exists in alpha. (optional)
+     *     parameter exists in v1. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -1421,7 +1421,7 @@ public class TrackingPlansApi {
      * Build call for removeRulesFromTrackingPlan
      *
      * @param trackingPlanId (required)
-     * @param rules Rules to delete. This parameter exists in alpha. (required)
+     * @param rules Rules to delete. This parameter exists in v1. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1471,10 +1471,10 @@ public class TrackingPlansApi {
         }
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1534,7 +1534,7 @@ public class TrackingPlansApi {
      * enabled. Please reach out to your customer success manager for more information.
      *
      * @param trackingPlanId (required)
-     * @param rules Rules to delete. This parameter exists in alpha. (required)
+     * @param rules Rules to delete. This parameter exists in v1. (required)
      * @return RemoveRulesFromTrackingPlan200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1560,7 +1560,7 @@ public class TrackingPlansApi {
      * enabled. Please reach out to your customer success manager for more information.
      *
      * @param trackingPlanId (required)
-     * @param rules Rules to delete. This parameter exists in alpha. (required)
+     * @param rules Rules to delete. This parameter exists in v1. (required)
      * @return ApiResponse&lt;RemoveRulesFromTrackingPlan200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1589,7 +1589,7 @@ public class TrackingPlansApi {
      * feature enabled. Please reach out to your customer success manager for more information.
      *
      * @param trackingPlanId (required)
-     * @param rules Rules to delete. This parameter exists in alpha. (required)
+     * @param rules Rules to delete. This parameter exists in v1. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -1621,7 +1621,7 @@ public class TrackingPlansApi {
      *
      * @param trackingPlanId (required)
      * @param sourceId The id of the Source associated with the Tracking Plan. Config API note:
-     *     analogous to &#x60;sourceName&#x60;. This parameter exists in alpha. (required)
+     *     analogous to &#x60;sourceName&#x60;. This parameter exists in v1. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1670,10 +1670,10 @@ public class TrackingPlansApi {
         }
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1736,7 +1736,7 @@ public class TrackingPlansApi {
      *
      * @param trackingPlanId (required)
      * @param sourceId The id of the Source associated with the Tracking Plan. Config API note:
-     *     analogous to &#x60;sourceName&#x60;. This parameter exists in alpha. (required)
+     *     analogous to &#x60;sourceName&#x60;. This parameter exists in v1. (required)
      * @return RemoveSourceFromTrackingPlan200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1765,7 +1765,7 @@ public class TrackingPlansApi {
      *
      * @param trackingPlanId (required)
      * @param sourceId The id of the Source associated with the Tracking Plan. Config API note:
-     *     analogous to &#x60;sourceName&#x60;. This parameter exists in alpha. (required)
+     *     analogous to &#x60;sourceName&#x60;. This parameter exists in v1. (required)
      * @return ApiResponse&lt;RemoveSourceFromTrackingPlan200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1797,7 +1797,7 @@ public class TrackingPlansApi {
      *
      * @param trackingPlanId (required)
      * @param sourceId The id of the Source associated with the Tracking Plan. Config API note:
-     *     analogous to &#x60;sourceName&#x60;. This parameter exists in alpha. (required)
+     *     analogous to &#x60;sourceName&#x60;. This parameter exists in v1. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -1875,10 +1875,10 @@ public class TrackingPlansApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1886,9 +1886,9 @@ public class TrackingPlansApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/vnd.segment.v1alpha+json",
+            "application/vnd.segment.v1+json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1+json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
@@ -2084,10 +2084,10 @@ public class TrackingPlansApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -2095,9 +2095,9 @@ public class TrackingPlansApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/vnd.segment.v1alpha+json",
+            "application/vnd.segment.v1+json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1+json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
@@ -2137,8 +2137,8 @@ public class TrackingPlansApi {
         // verify the required parameter 'updateRulesInTrackingPlanV1Input' is set
         if (updateRulesInTrackingPlanV1Input == null) {
             throw new ApiException(
-                    "Missing the required parameter 'updateRulesInTrackingPlanV1Input' when"
-                            + " calling updateRulesInTrackingPlan(Async)");
+                    "Missing the required parameter 'updateRulesInTrackingPlanV1Input' when calling"
+                            + " updateRulesInTrackingPlan(Async)");
         }
 
         okhttp3.Call localVarCall =
@@ -2292,10 +2292,10 @@ public class TrackingPlansApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -2303,9 +2303,9 @@ public class TrackingPlansApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/vnd.segment.v1alpha+json",
+            "application/vnd.segment.v1+json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1+json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);

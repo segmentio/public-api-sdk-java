@@ -174,8 +174,8 @@ public class RemoveSourceConnectionFromWarehouseV1Output {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in"
-                                    + " RemoveSourceConnectionFromWarehouseV1Output is not found"
-                                    + " in the empty JSON string",
+                                    + " RemoveSourceConnectionFromWarehouseV1Output is not found in"
+                                    + " the empty JSON string",
                                 RemoveSourceConnectionFromWarehouseV1Output.openapiRequiredFields
                                         .toString()));
             }

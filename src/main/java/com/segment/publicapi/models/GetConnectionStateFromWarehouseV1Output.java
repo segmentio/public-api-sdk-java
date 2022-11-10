@@ -181,8 +181,8 @@ public class GetConnectionStateFromWarehouseV1Output {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in"
-                                        + " GetConnectionStateFromWarehouseV1Output is not found in"
-                                        + " the empty JSON string",
+                                    + " GetConnectionStateFromWarehouseV1Output is not found in the"
+                                    + " empty JSON string",
                                 GetConnectionStateFromWarehouseV1Output.openapiRequiredFields
                                         .toString()));
             }
@@ -195,8 +195,8 @@ public class GetConnectionStateFromWarehouseV1Output {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `GetConnectionStateFromWarehouseV1Output` properties."
-                                        + " JSON: %s",
+                                    + " `GetConnectionStateFromWarehouseV1Output` properties. JSON:"
+                                    + " %s",
                                 entry.getKey(), jsonObj.toString()));
             }
         }

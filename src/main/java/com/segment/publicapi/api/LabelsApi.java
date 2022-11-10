@@ -21,7 +21,7 @@ import com.segment.publicapi.ApiResponse;
 import com.segment.publicapi.Configuration;
 import com.segment.publicapi.Pair;
 import com.segment.publicapi.models.CreateLabel200Response;
-import com.segment.publicapi.models.CreateLabelAlphaInput;
+import com.segment.publicapi.models.CreateLabelV1Input;
 import com.segment.publicapi.models.DeleteLabel200Response;
 import com.segment.publicapi.models.ListLabels200Response;
 import java.lang.reflect.Type;
@@ -70,7 +70,7 @@ public class LabelsApi {
     /**
      * Build call for createLabel
      *
-     * @param createLabelAlphaInput (required)
+     * @param createLabelV1Input (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -84,7 +84,7 @@ public class LabelsApi {
      * </table>
      */
     public okhttp3.Call createLabelCall(
-            CreateLabelAlphaInput createLabelAlphaInput, final ApiCallback _callback)
+            CreateLabelV1Input createLabelV1Input, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -99,7 +99,7 @@ public class LabelsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = createLabelAlphaInput;
+        Object localVarPostBody = createLabelV1Input;
 
         // create path and map variables
         String localVarPath = "/labels";
@@ -111,10 +111,10 @@ public class LabelsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -122,9 +122,9 @@ public class LabelsApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/vnd.segment.v1alpha+json",
+            "application/vnd.segment.v1+json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1+json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
@@ -149,17 +149,17 @@ public class LabelsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createLabelValidateBeforeCall(
-            CreateLabelAlphaInput createLabelAlphaInput, final ApiCallback _callback)
+            CreateLabelV1Input createLabelV1Input, final ApiCallback _callback)
             throws ApiException {
 
-        // verify the required parameter 'createLabelAlphaInput' is set
-        if (createLabelAlphaInput == null) {
+        // verify the required parameter 'createLabelV1Input' is set
+        if (createLabelV1Input == null) {
             throw new ApiException(
-                    "Missing the required parameter 'createLabelAlphaInput' when calling"
+                    "Missing the required parameter 'createLabelV1Input' when calling"
                             + " createLabel(Async)");
         }
 
-        okhttp3.Call localVarCall = createLabelCall(createLabelAlphaInput, _callback);
+        okhttp3.Call localVarCall = createLabelCall(createLabelV1Input, _callback);
         return localVarCall;
     }
 
@@ -170,7 +170,7 @@ public class LabelsApi {
      * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
      * limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
-     * @param createLabelAlphaInput (required)
+     * @param createLabelV1Input (required)
      * @return CreateLabel200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -183,10 +183,10 @@ public class LabelsApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public CreateLabel200Response createLabel(CreateLabelAlphaInput createLabelAlphaInput)
+    public CreateLabel200Response createLabel(CreateLabelV1Input createLabelV1Input)
             throws ApiException {
         ApiResponse<CreateLabel200Response> localVarResp =
-                createLabelWithHttpInfo(createLabelAlphaInput);
+                createLabelWithHttpInfo(createLabelV1Input);
         return localVarResp.getData();
     }
 
@@ -197,7 +197,7 @@ public class LabelsApi {
      * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
      * limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
-     * @param createLabelAlphaInput (required)
+     * @param createLabelV1Input (required)
      * @return ApiResponse&lt;CreateLabel200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -211,8 +211,8 @@ public class LabelsApi {
      * </table>
      */
     public ApiResponse<CreateLabel200Response> createLabelWithHttpInfo(
-            CreateLabelAlphaInput createLabelAlphaInput) throws ApiException {
-        okhttp3.Call localVarCall = createLabelValidateBeforeCall(createLabelAlphaInput, null);
+            CreateLabelV1Input createLabelV1Input) throws ApiException {
+        okhttp3.Call localVarCall = createLabelValidateBeforeCall(createLabelV1Input, null);
         Type localVarReturnType = new TypeToken<CreateLabel200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -225,7 +225,7 @@ public class LabelsApi {
      * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
      * information.
      *
-     * @param createLabelAlphaInput (required)
+     * @param createLabelV1Input (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -240,11 +240,11 @@ public class LabelsApi {
      * </table>
      */
     public okhttp3.Call createLabelAsync(
-            CreateLabelAlphaInput createLabelAlphaInput,
+            CreateLabelV1Input createLabelV1Input,
             final ApiCallback<CreateLabel200Response> _callback)
             throws ApiException {
 
-        okhttp3.Call localVarCall = createLabelValidateBeforeCall(createLabelAlphaInput, _callback);
+        okhttp3.Call localVarCall = createLabelValidateBeforeCall(createLabelV1Input, _callback);
         Type localVarReturnType = new TypeToken<CreateLabel200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -300,10 +300,10 @@ public class LabelsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -480,10 +480,10 @@ public class LabelsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {

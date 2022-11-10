@@ -41,8 +41,8 @@ import java.util.Set;
  */
 @ApiModel(
         description =
-                "Represents a Destination within Segment.  A Destination is a target for Segment"
-                        + " to forward data to, and represents a tool or storage Destination.")
+                "Represents a Destination within Segment.  A Destination is a target for Segment to"
+                        + " forward data to, and represents a tool or storage Destination.")
 public class DestinationMetadataV1 {
     public static final String SERIALIZED_NAME_ID = "id";
 
@@ -835,8 +835,8 @@ public class DestinationMetadataV1 {
         if (!jsonObj.get("options").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `options` to be an array in the JSON string but"
-                                    + " got `%s`",
+                            "Expected the field `options` to be an array in the JSON string but got"
+                                    + " `%s`",
                             jsonObj.get("options").toString()));
         }
 
@@ -875,8 +875,8 @@ public class DestinationMetadataV1 {
         if (!jsonObj.get("website").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `website` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
+                            "Expected the field `website` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
                             jsonObj.get("website").toString()));
         }
         // ensure the json data is an array
@@ -893,8 +893,8 @@ public class DestinationMetadataV1 {
         if (!jsonObj.get("actions").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `actions` to be an array in the JSON string but"
-                                    + " got `%s`",
+                            "Expected the field `actions` to be an array in the JSON string but got"
+                                    + " `%s`",
                             jsonObj.get("actions").toString()));
         }
 
@@ -903,8 +903,8 @@ public class DestinationMetadataV1 {
         if (!jsonObj.get("presets").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `presets` to be an array in the JSON string but"
-                                    + " got `%s`",
+                            "Expected the field `presets` to be an array in the JSON string but got"
+                                    + " `%s`",
                             jsonObj.get("presets").toString()));
         }
 

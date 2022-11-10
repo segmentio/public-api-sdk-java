@@ -26,11 +26,13 @@ import com.segment.publicapi.JSON;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** The basic input parameters for creating a Destination subscription. */
 @ApiModel(description = "The basic input parameters for creating a Destination subscription.")
@@ -186,9 +188,25 @@ public class CreateDestinationSubscriptionAlphaInput {
                 && Objects.equals(this.settings, createDestinationSubscriptionAlphaInput.settings);
     }
 
+    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+        return a == b
+                || (a != null
+                        && b != null
+                        && a.isPresent()
+                        && b.isPresent()
+                        && Objects.deepEquals(a.get(), b.get()));
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(name, actionId, trigger, enabled, settings);
+    }
+
+    private static <T> int hashCodeNullable(JsonNullable<T> a) {
+        if (a == null) {
+            return 1;
+        }
+        return a.isPresent() ? Arrays.deepHashCode(new Object[] {a.get()}) : 31;
     }
 
     @Override
@@ -249,8 +267,8 @@ public class CreateDestinationSubscriptionAlphaInput {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in"
-                                        + " CreateDestinationSubscriptionAlphaInput is not found in"
-                                        + " the empty JSON string",
+                                    + " CreateDestinationSubscriptionAlphaInput is not found in the"
+                                    + " empty JSON string",
                                 CreateDestinationSubscriptionAlphaInput.openapiRequiredFields
                                         .toString()));
             }
@@ -263,8 +281,8 @@ public class CreateDestinationSubscriptionAlphaInput {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `CreateDestinationSubscriptionAlphaInput` properties."
-                                        + " JSON: %s",
+                                    + " `CreateDestinationSubscriptionAlphaInput` properties. JSON:"
+                                    + " %s",
                                 entry.getKey(), jsonObj.toString()));
             }
         }
@@ -295,8 +313,8 @@ public class CreateDestinationSubscriptionAlphaInput {
         if (!jsonObj.get("trigger").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `trigger` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
+                            "Expected the field `trigger` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
                             jsonObj.get("trigger").toString()));
         }
     }

@@ -178,8 +178,8 @@ public class CreateValidationInWarehouseV1Output {
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in CreateValidationInWarehouseV1Output"
-                                        + " is not found in the empty JSON string",
+                                "The required field(s) %s in CreateValidationInWarehouseV1Output is"
+                                        + " not found in the empty JSON string",
                                 CreateValidationInWarehouseV1Output.openapiRequiredFields
                                         .toString()));
             }
@@ -192,8 +192,7 @@ public class CreateValidationInWarehouseV1Output {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `CreateValidationInWarehouseV1Output` properties. JSON:"
-                                        + " %s",
+                                    + " `CreateValidationInWarehouseV1Output` properties. JSON: %s",
                                 entry.getKey(), jsonObj.toString()));
             }
         }

@@ -124,8 +124,8 @@ public class GetEventsVolumeFromWorkspace200Response {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in"
-                                        + " GetEventsVolumeFromWorkspace200Response is not found in"
-                                        + " the empty JSON string",
+                                    + " GetEventsVolumeFromWorkspace200Response is not found in the"
+                                    + " empty JSON string",
                                 GetEventsVolumeFromWorkspace200Response.openapiRequiredFields
                                         .toString()));
             }
@@ -138,8 +138,8 @@ public class GetEventsVolumeFromWorkspace200Response {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `GetEventsVolumeFromWorkspace200Response` properties."
-                                        + " JSON: %s",
+                                    + " `GetEventsVolumeFromWorkspace200Response` properties. JSON:"
+                                    + " %s",
                                 entry.getKey(), jsonObj.toString()));
             }
         }

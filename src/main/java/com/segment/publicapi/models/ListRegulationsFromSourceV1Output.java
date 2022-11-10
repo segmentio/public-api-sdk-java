@@ -169,8 +169,8 @@ public class ListRegulationsFromSourceV1Output {
         if (!jsonObj.get("regulations").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `regulations` to be an array in the JSON string"
-                                    + " but got `%s`",
+                            "Expected the field `regulations` to be an array in the JSON string but"
+                                    + " got `%s`",
                             jsonObj.get("regulations").toString()));
         }
 

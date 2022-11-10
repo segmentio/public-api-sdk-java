@@ -175,9 +175,8 @@ public class GetDailyPerSourceAPICallsUsageV1Output {
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in"
-                                    + " GetDailyPerSourceAPICallsUsageV1Output is not found in the"
-                                    + " empty JSON string",
+                                "The required field(s) %s in GetDailyPerSourceAPICallsUsageV1Output"
+                                        + " is not found in the empty JSON string",
                                 GetDailyPerSourceAPICallsUsageV1Output.openapiRequiredFields
                                         .toString()));
             }
@@ -209,8 +208,8 @@ public class GetDailyPerSourceAPICallsUsageV1Output {
         if (!jsonObj.get("dailyPerSourceAPICallsUsage").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `dailyPerSourceAPICallsUsage` to be an array in"
-                                    + " the JSON string but got `%s`",
+                            "Expected the field `dailyPerSourceAPICallsUsage` to be an array in the"
+                                    + " JSON string but got `%s`",
                             jsonObj.get("dailyPerSourceAPICallsUsage").toString()));
         }
 

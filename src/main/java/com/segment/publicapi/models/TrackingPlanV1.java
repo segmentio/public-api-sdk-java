@@ -245,8 +245,8 @@ public class TrackingPlanV1 {
     @javax.annotation.Nullable
     @ApiModelProperty(
             value =
-                    "The timestamp of the last change to the Tracking Plan.  Config API note:"
-                            + " equal to `updateTime`.")
+                    "The timestamp of the last change to the Tracking Plan.  Config API note: equal"
+                            + " to `updateTime`.")
     public String getUpdatedAt() {
         return updatedAt;
     }

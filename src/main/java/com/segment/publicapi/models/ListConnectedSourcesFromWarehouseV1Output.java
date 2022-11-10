@@ -202,8 +202,8 @@ public class ListConnectedSourcesFromWarehouseV1Output {
         if (!jsonObj.get("sources").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `sources` to be an array in the JSON string but"
-                                    + " got `%s`",
+                            "Expected the field `sources` to be an array in the JSON string but got"
+                                    + " `%s`",
                             jsonObj.get("sources").toString()));
         }
 

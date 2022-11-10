@@ -367,8 +367,8 @@ public class MtuSnapshotV1 {
         if (!jsonObj.get("anonymousIdentified").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `anonymousIdentified` to be a primitive type in"
-                                    + " the JSON string but got `%s`",
+                            "Expected the field `anonymousIdentified` to be a primitive type in the"
+                                    + " JSON string but got `%s`",
                             jsonObj.get("anonymousIdentified").toString()));
         }
         if (!jsonObj.get("identified").isJsonPrimitive()) {

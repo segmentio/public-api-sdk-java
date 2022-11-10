@@ -162,8 +162,8 @@ public class ListTrackingPlansV1Output {
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in ListTrackingPlansV1Output is not"
-                                        + " found in the empty JSON string",
+                                "The required field(s) %s in ListTrackingPlansV1Output is not found"
+                                        + " in the empty JSON string",
                                 ListTrackingPlansV1Output.openapiRequiredFields.toString()));
             }
         }

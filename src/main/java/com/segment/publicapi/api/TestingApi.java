@@ -69,19 +69,19 @@ public class TestingApi {
      * Build call for echo
      *
      * @param message Sets the response &#x60;message&#x60; field. The response contains this
-     *     field&#39;s entry. This parameter exists in v1. (required)
-     * @param delay The desired response delay, in milliseconds. This parameter exists in v1.
+     *     field&#39;s entry. This parameter exists in alpha. (required)
+     * @param delay The desired response delay, in milliseconds. This parameter exists in alpha.
      *     (optional)
      * @param triggerError If &#x60;true&#x60;, returns an HTTP &#x60;4xx&#x60; error that contains
-     *     the string in &#x60;message&#x60;. This parameter exists in v1. (optional)
+     *     the string in &#x60;message&#x60;. This parameter exists in alpha. (optional)
      * @param triggerMultipleErrors If &#x60;true&#x60;, returns an HTTP &#x60;4xx&#x60; error that
      *     contains the value of the &#x60;message&#x60; field in the error message array. This has
-     *     no effect if the request sets &#x60;triggerError&#x60;. This parameter exists in v1.
+     *     no effect if the request sets &#x60;triggerError&#x60;. This parameter exists in alpha.
      *     (optional)
      * @param triggerUnexpectedError If &#x60;true&#x60;, triggers a &#x60;500&#x60; error. This has
      *     no effect if the request sets either &#x60;triggerError&#x60; or
-     *     &#x60;triggerMultipleErrors&#x60;. This parameter exists in v1. (optional)
-     * @param statusCode Sets the HTTP status code to return. This parameter exists in v1.
+     *     &#x60;triggerMultipleErrors&#x60;. This parameter exists in alpha. (optional)
+     * @param statusCode Sets the HTTP status code to return. This parameter exists in alpha.
      *     (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -158,9 +158,9 @@ public class TestingApi {
         }
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -223,19 +223,19 @@ public class TestingApi {
      * Echo Public Echo endpoint.
      *
      * @param message Sets the response &#x60;message&#x60; field. The response contains this
-     *     field&#39;s entry. This parameter exists in v1. (required)
-     * @param delay The desired response delay, in milliseconds. This parameter exists in v1.
+     *     field&#39;s entry. This parameter exists in alpha. (required)
+     * @param delay The desired response delay, in milliseconds. This parameter exists in alpha.
      *     (optional)
      * @param triggerError If &#x60;true&#x60;, returns an HTTP &#x60;4xx&#x60; error that contains
-     *     the string in &#x60;message&#x60;. This parameter exists in v1. (optional)
+     *     the string in &#x60;message&#x60;. This parameter exists in alpha. (optional)
      * @param triggerMultipleErrors If &#x60;true&#x60;, returns an HTTP &#x60;4xx&#x60; error that
      *     contains the value of the &#x60;message&#x60; field in the error message array. This has
-     *     no effect if the request sets &#x60;triggerError&#x60;. This parameter exists in v1.
+     *     no effect if the request sets &#x60;triggerError&#x60;. This parameter exists in alpha.
      *     (optional)
      * @param triggerUnexpectedError If &#x60;true&#x60;, triggers a &#x60;500&#x60; error. This has
      *     no effect if the request sets either &#x60;triggerError&#x60; or
-     *     &#x60;triggerMultipleErrors&#x60;. This parameter exists in v1. (optional)
-     * @param statusCode Sets the HTTP status code to return. This parameter exists in v1.
+     *     &#x60;triggerMultipleErrors&#x60;. This parameter exists in alpha. (optional)
+     * @param statusCode Sets the HTTP status code to return. This parameter exists in alpha.
      *     (optional)
      * @return Echo200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -272,19 +272,19 @@ public class TestingApi {
      * Echo Public Echo endpoint.
      *
      * @param message Sets the response &#x60;message&#x60; field. The response contains this
-     *     field&#39;s entry. This parameter exists in v1. (required)
-     * @param delay The desired response delay, in milliseconds. This parameter exists in v1.
+     *     field&#39;s entry. This parameter exists in alpha. (required)
+     * @param delay The desired response delay, in milliseconds. This parameter exists in alpha.
      *     (optional)
      * @param triggerError If &#x60;true&#x60;, returns an HTTP &#x60;4xx&#x60; error that contains
-     *     the string in &#x60;message&#x60;. This parameter exists in v1. (optional)
+     *     the string in &#x60;message&#x60;. This parameter exists in alpha. (optional)
      * @param triggerMultipleErrors If &#x60;true&#x60;, returns an HTTP &#x60;4xx&#x60; error that
      *     contains the value of the &#x60;message&#x60; field in the error message array. This has
-     *     no effect if the request sets &#x60;triggerError&#x60;. This parameter exists in v1.
+     *     no effect if the request sets &#x60;triggerError&#x60;. This parameter exists in alpha.
      *     (optional)
      * @param triggerUnexpectedError If &#x60;true&#x60;, triggers a &#x60;500&#x60; error. This has
      *     no effect if the request sets either &#x60;triggerError&#x60; or
-     *     &#x60;triggerMultipleErrors&#x60;. This parameter exists in v1. (optional)
-     * @param statusCode Sets the HTTP status code to return. This parameter exists in v1.
+     *     &#x60;triggerMultipleErrors&#x60;. This parameter exists in alpha. (optional)
+     * @param statusCode Sets the HTTP status code to return. This parameter exists in alpha.
      *     (optional)
      * @return ApiResponse&lt;Echo200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -323,19 +323,19 @@ public class TestingApi {
      * Echo (asynchronously) Public Echo endpoint.
      *
      * @param message Sets the response &#x60;message&#x60; field. The response contains this
-     *     field&#39;s entry. This parameter exists in v1. (required)
-     * @param delay The desired response delay, in milliseconds. This parameter exists in v1.
+     *     field&#39;s entry. This parameter exists in alpha. (required)
+     * @param delay The desired response delay, in milliseconds. This parameter exists in alpha.
      *     (optional)
      * @param triggerError If &#x60;true&#x60;, returns an HTTP &#x60;4xx&#x60; error that contains
-     *     the string in &#x60;message&#x60;. This parameter exists in v1. (optional)
+     *     the string in &#x60;message&#x60;. This parameter exists in alpha. (optional)
      * @param triggerMultipleErrors If &#x60;true&#x60;, returns an HTTP &#x60;4xx&#x60; error that
      *     contains the value of the &#x60;message&#x60; field in the error message array. This has
-     *     no effect if the request sets &#x60;triggerError&#x60;. This parameter exists in v1.
+     *     no effect if the request sets &#x60;triggerError&#x60;. This parameter exists in alpha.
      *     (optional)
      * @param triggerUnexpectedError If &#x60;true&#x60;, triggers a &#x60;500&#x60; error. This has
      *     no effect if the request sets either &#x60;triggerError&#x60; or
-     *     &#x60;triggerMultipleErrors&#x60;. This parameter exists in v1. (optional)
-     * @param statusCode Sets the HTTP status code to return. This parameter exists in v1.
+     *     &#x60;triggerMultipleErrors&#x60;. This parameter exists in alpha. (optional)
+     * @param statusCode Sets the HTTP status code to return. This parameter exists in alpha.
      *     (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

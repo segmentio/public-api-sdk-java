@@ -203,8 +203,8 @@ public class GetDailyPerSourceMTUUsageV1Output {
         if (!jsonObj.get("dailyPerSourceMTUUsage").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `dailyPerSourceMTUUsage` to be an array in the"
-                                    + " JSON string but got `%s`",
+                            "Expected the field `dailyPerSourceMTUUsage` to be an array in the JSON"
+                                    + " string but got `%s`",
                             jsonObj.get("dailyPerSourceMTUUsage").toString()));
         }
 

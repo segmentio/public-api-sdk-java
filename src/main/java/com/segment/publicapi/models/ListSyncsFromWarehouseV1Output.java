@@ -197,8 +197,8 @@ public class ListSyncsFromWarehouseV1Output {
         if (!jsonObj.get("reports").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `reports` to be an array in the JSON string but"
-                                    + " got `%s`",
+                            "Expected the field `reports` to be an array in the JSON string but got"
+                                    + " `%s`",
                             jsonObj.get("reports").toString()));
         }
 

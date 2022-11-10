@@ -35,12 +35,12 @@ public class ListConnectedDestinationsFromSource200Response {
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    private ListConnectedDestinationsFromSourceAlphaOutput data;
+    private ListConnectedDestinationsFromSourceV1Output data;
 
     public ListConnectedDestinationsFromSource200Response() {}
 
     public ListConnectedDestinationsFromSource200Response data(
-            ListConnectedDestinationsFromSourceAlphaOutput data) {
+            ListConnectedDestinationsFromSourceV1Output data) {
 
         this.data = data;
         return this;
@@ -53,11 +53,11 @@ public class ListConnectedDestinationsFromSource200Response {
      */
     @javax.annotation.Nullable
     @ApiModelProperty(value = "")
-    public ListConnectedDestinationsFromSourceAlphaOutput getData() {
+    public ListConnectedDestinationsFromSourceV1Output getData() {
         return data;
     }
 
-    public void setData(ListConnectedDestinationsFromSourceAlphaOutput data) {
+    public void setData(ListConnectedDestinationsFromSourceV1Output data) {
         this.data = data;
     }
 
@@ -126,8 +126,8 @@ public class ListConnectedDestinationsFromSource200Response {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in"
-                                        + " ListConnectedDestinationsFromSource200Response is not"
-                                        + " found in the empty JSON string",
+                                    + " ListConnectedDestinationsFromSource200Response is not found"
+                                    + " in the empty JSON string",
                                 ListConnectedDestinationsFromSource200Response.openapiRequiredFields
                                         .toString()));
             }

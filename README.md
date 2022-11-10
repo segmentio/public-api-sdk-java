@@ -94,8 +94,8 @@ public class Example {
     token.setBearerToken("BEARER TOKEN");
 
     ApiCallsApi apiInstance = new ApiCallsApi(defaultClient);
-    String period = "period_example"; // String | The start of the usage month in the ISO-8601 format.  This parameter exists in alpha.
-    PaginationInput pagination = new HashMap(); // PaginationInput | Pagination input for per Source API calls counts.  This parameter exists in alpha.
+    String period = "period_example"; // String | The start of the usage month in the ISO-8601 format.  This parameter exists in v1.
+    PaginationInput pagination = new HashMap(); // PaginationInput | Pagination input for per Source API calls counts.  This parameter exists in v1.
     
     // Make an API call without Pagination
     try {

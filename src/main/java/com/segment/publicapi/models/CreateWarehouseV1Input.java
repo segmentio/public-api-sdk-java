@@ -135,7 +135,7 @@ public class CreateWarehouseV1Input {
      *
      * @return settings
      */
-    @javax.annotation.Nonnull
+    @javax.annotation.Nullable
     @ApiModelProperty(
             required = true,
             value =
@@ -225,8 +225,8 @@ public class CreateWarehouseV1Input {
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in CreateWarehouseV1Input is not found"
-                                        + " in the empty JSON string",
+                                "The required field(s) %s in CreateWarehouseV1Input is not found in"
+                                        + " the empty JSON string",
                                 CreateWarehouseV1Input.openapiRequiredFields.toString()));
             }
         }

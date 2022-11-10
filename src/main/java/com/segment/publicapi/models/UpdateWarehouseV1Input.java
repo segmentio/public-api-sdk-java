@@ -211,8 +211,8 @@ public class UpdateWarehouseV1Input {
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in UpdateWarehouseV1Input is not found"
-                                        + " in the empty JSON string",
+                                "The required field(s) %s in UpdateWarehouseV1Input is not found in"
+                                        + " the empty JSON string",
                                 UpdateWarehouseV1Input.openapiRequiredFields.toString()));
             }
         }

@@ -70,8 +70,8 @@ public class MonthlyTrackedUsersApi {
      * Build call for getDailyPerSourceMTUUsage
      *
      * @param period The start of the usage month, in the ISO-8601 format. This parameter exists in
-     *     alpha. (required)
-     * @param pagination Pagination input for per Source MTU counts. This parameter exists in alpha.
+     *     v1. (required)
+     * @param pagination Pagination input for per Source MTU counts. This parameter exists in v1.
      *     (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -121,10 +121,10 @@ public class MonthlyTrackedUsersApi {
         }
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -182,8 +182,8 @@ public class MonthlyTrackedUsersApi {
      * period.
      *
      * @param period The start of the usage month, in the ISO-8601 format. This parameter exists in
-     *     alpha. (required)
-     * @param pagination Pagination input for per Source MTU counts. This parameter exists in alpha.
+     *     v1. (required)
+     * @param pagination Pagination input for per Source MTU counts. This parameter exists in v1.
      *     (required)
      * @return GetDailyPerSourceMTUUsage200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -209,8 +209,8 @@ public class MonthlyTrackedUsersApi {
      * period.
      *
      * @param period The start of the usage month, in the ISO-8601 format. This parameter exists in
-     *     alpha. (required)
-     * @param pagination Pagination input for per Source MTU counts. This parameter exists in alpha.
+     *     v1. (required)
+     * @param pagination Pagination input for per Source MTU counts. This parameter exists in v1.
      *     (required)
      * @return ApiResponse&lt;GetDailyPerSourceMTUUsage200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -238,8 +238,8 @@ public class MonthlyTrackedUsersApi {
      * counts for a usage period.
      *
      * @param period The start of the usage month, in the ISO-8601 format. This parameter exists in
-     *     alpha. (required)
-     * @param pagination Pagination input for per Source MTU counts. This parameter exists in alpha.
+     *     v1. (required)
+     * @param pagination Pagination input for per Source MTU counts. This parameter exists in v1.
      *     (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -271,8 +271,8 @@ public class MonthlyTrackedUsersApi {
      * Build call for getDailyWorkspaceMTUUsage
      *
      * @param period The start of the usage month, in the ISO-8601 format. This parameter exists in
-     *     alpha. (required)
-     * @param pagination Pagination input for Workspace MTU counts. This parameter exists in alpha.
+     *     v1. (required)
+     * @param pagination Pagination input for Workspace MTU counts. This parameter exists in v1.
      *     (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -322,10 +322,10 @@ public class MonthlyTrackedUsersApi {
         }
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -382,8 +382,8 @@ public class MonthlyTrackedUsersApi {
      * Get Daily Workspace MTU Usage Provides daily cumulative MTU counts for a usage period.
      *
      * @param period The start of the usage month, in the ISO-8601 format. This parameter exists in
-     *     alpha. (required)
-     * @param pagination Pagination input for Workspace MTU counts. This parameter exists in alpha.
+     *     v1. (required)
+     * @param pagination Pagination input for Workspace MTU counts. This parameter exists in v1.
      *     (required)
      * @return GetDailyWorkspaceMTUUsage200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -408,8 +408,8 @@ public class MonthlyTrackedUsersApi {
      * Get Daily Workspace MTU Usage Provides daily cumulative MTU counts for a usage period.
      *
      * @param period The start of the usage month, in the ISO-8601 format. This parameter exists in
-     *     alpha. (required)
-     * @param pagination Pagination input for Workspace MTU counts. This parameter exists in alpha.
+     *     v1. (required)
+     * @param pagination Pagination input for Workspace MTU counts. This parameter exists in v1.
      *     (required)
      * @return ApiResponse&lt;GetDailyWorkspaceMTUUsage200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -437,8 +437,8 @@ public class MonthlyTrackedUsersApi {
      * usage period.
      *
      * @param period The start of the usage month, in the ISO-8601 format. This parameter exists in
-     *     alpha. (required)
-     * @param pagination Pagination input for Workspace MTU counts. This parameter exists in alpha.
+     *     v1. (required)
+     * @param pagination Pagination input for Workspace MTU counts. This parameter exists in v1.
      *     (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

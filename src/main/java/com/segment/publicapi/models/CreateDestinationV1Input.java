@@ -180,9 +180,9 @@ public class CreateDestinationV1Input {
     @ApiModelProperty(
             required = true,
             value =
-                    "An object that contains settings for the Destination based on the"
-                            + " \"required\" and \"advanced\" settings present in the Destination"
-                            + " metadata.  Config API note: equal to `config`.")
+                    "An object that contains settings for the Destination based on the \"required\""
+                        + " and \"advanced\" settings present in the Destination metadata.  Config"
+                        + " API note: equal to `config`.")
     public Map<String, Object> getSettings() {
         return settings;
     }

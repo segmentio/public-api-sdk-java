@@ -175,9 +175,8 @@ public class GetDailyWorkspaceAPICallsUsageV1Output {
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in"
-                                    + " GetDailyWorkspaceAPICallsUsageV1Output is not found in the"
-                                    + " empty JSON string",
+                                "The required field(s) %s in GetDailyWorkspaceAPICallsUsageV1Output"
+                                        + " is not found in the empty JSON string",
                                 GetDailyWorkspaceAPICallsUsageV1Output.openapiRequiredFields
                                         .toString()));
             }
@@ -209,8 +208,8 @@ public class GetDailyWorkspaceAPICallsUsageV1Output {
         if (!jsonObj.get("dailyWorkspaceAPICallsUsage").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `dailyWorkspaceAPICallsUsage` to be an array in"
-                                    + " the JSON string but got `%s`",
+                            "Expected the field `dailyWorkspaceAPICallsUsage` to be an array in the"
+                                    + " JSON string but got `%s`",
                             jsonObj.get("dailyWorkspaceAPICallsUsage").toString()));
         }
 

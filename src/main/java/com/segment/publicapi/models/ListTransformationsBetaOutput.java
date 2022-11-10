@@ -196,8 +196,8 @@ public class ListTransformationsBetaOutput {
         if (!jsonObj.get("transformations").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `transformations` to be an array in the JSON"
-                                    + " string but got `%s`",
+                            "Expected the field `transformations` to be an array in the JSON string"
+                                    + " but got `%s`",
                             jsonObj.get("transformations").toString()));
         }
 

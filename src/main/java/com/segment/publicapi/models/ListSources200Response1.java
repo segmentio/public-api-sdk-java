@@ -35,11 +35,11 @@ public class ListSources200Response1 {
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    private ListSourcesV1Output data;
+    private ListSourcesAlphaOutput data;
 
     public ListSources200Response1() {}
 
-    public ListSources200Response1 data(ListSourcesV1Output data) {
+    public ListSources200Response1 data(ListSourcesAlphaOutput data) {
 
         this.data = data;
         return this;
@@ -52,11 +52,11 @@ public class ListSources200Response1 {
      */
     @javax.annotation.Nullable
     @ApiModelProperty(value = "")
-    public ListSourcesV1Output getData() {
+    public ListSourcesAlphaOutput getData() {
         return data;
     }
 
-    public void setData(ListSourcesV1Output data) {
+    public void setData(ListSourcesAlphaOutput data) {
         this.data = data;
     }
 

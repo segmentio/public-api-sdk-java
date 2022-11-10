@@ -35,11 +35,11 @@ public class ReplaceLabelsInSource200Response1 {
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    private ReplaceLabelsInSourceV1Output data;
+    private ReplaceLabelsInSourceAlphaOutput data;
 
     public ReplaceLabelsInSource200Response1() {}
 
-    public ReplaceLabelsInSource200Response1 data(ReplaceLabelsInSourceV1Output data) {
+    public ReplaceLabelsInSource200Response1 data(ReplaceLabelsInSourceAlphaOutput data) {
 
         this.data = data;
         return this;
@@ -52,11 +52,11 @@ public class ReplaceLabelsInSource200Response1 {
      */
     @javax.annotation.Nullable
     @ApiModelProperty(value = "")
-    public ReplaceLabelsInSourceV1Output getData() {
+    public ReplaceLabelsInSourceAlphaOutput getData() {
         return data;
     }
 
-    public void setData(ReplaceLabelsInSourceV1Output data) {
+    public void setData(ReplaceLabelsInSourceAlphaOutput data) {
         this.data = data;
     }
 

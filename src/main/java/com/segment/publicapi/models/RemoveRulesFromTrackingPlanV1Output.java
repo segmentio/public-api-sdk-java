@@ -171,8 +171,8 @@ public class RemoveRulesFromTrackingPlanV1Output {
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in RemoveRulesFromTrackingPlanV1Output"
-                                        + " is not found in the empty JSON string",
+                                "The required field(s) %s in RemoveRulesFromTrackingPlanV1Output is"
+                                        + " not found in the empty JSON string",
                                 RemoveRulesFromTrackingPlanV1Output.openapiRequiredFields
                                         .toString()));
             }
@@ -185,8 +185,7 @@ public class RemoveRulesFromTrackingPlanV1Output {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `RemoveRulesFromTrackingPlanV1Output` properties. JSON:"
-                                        + " %s",
+                                    + " `RemoveRulesFromTrackingPlanV1Output` properties. JSON: %s",
                                 entry.getKey(), jsonObj.toString()));
             }
         }

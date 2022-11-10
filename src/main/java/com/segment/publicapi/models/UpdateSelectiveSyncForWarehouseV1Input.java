@@ -139,9 +139,8 @@ public class UpdateSelectiveSyncForWarehouseV1Input {
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in"
-                                    + " UpdateSelectiveSyncForWarehouseV1Input is not found in the"
-                                    + " empty JSON string",
+                                "The required field(s) %s in UpdateSelectiveSyncForWarehouseV1Input"
+                                        + " is not found in the empty JSON string",
                                 UpdateSelectiveSyncForWarehouseV1Input.openapiRequiredFields
                                         .toString()));
             }

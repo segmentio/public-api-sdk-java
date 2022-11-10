@@ -126,8 +126,8 @@ public class ReplaceUsersInUserGroupV1Output {
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in ReplaceUsersInUserGroupV1Output is"
-                                        + " not found in the empty JSON string",
+                                "The required field(s) %s in ReplaceUsersInUserGroupV1Output is not"
+                                        + " found in the empty JSON string",
                                 ReplaceUsersInUserGroupV1Output.openapiRequiredFields.toString()));
             }
         }

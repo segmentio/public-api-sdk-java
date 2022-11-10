@@ -828,8 +828,8 @@ public class DestinationMetadata {
         if (!jsonObj.get("options").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `options` to be an array in the JSON string but"
-                                    + " got `%s`",
+                            "Expected the field `options` to be an array in the JSON string but got"
+                                    + " `%s`",
                             jsonObj.get("options").toString()));
         }
 
@@ -868,8 +868,8 @@ public class DestinationMetadata {
         if (!jsonObj.get("website").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `website` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
+                            "Expected the field `website` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
                             jsonObj.get("website").toString()));
         }
         // ensure the json data is an array
@@ -886,8 +886,8 @@ public class DestinationMetadata {
         if (!jsonObj.get("actions").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `actions` to be an array in the JSON string but"
-                                    + " got `%s`",
+                            "Expected the field `actions` to be an array in the JSON string but got"
+                                    + " `%s`",
                             jsonObj.get("actions").toString()));
         }
 
@@ -896,8 +896,8 @@ public class DestinationMetadata {
         if (!jsonObj.get("presets").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `presets` to be an array in the JSON string but"
-                                    + " got `%s`",
+                            "Expected the field `presets` to be an array in the JSON string but got"
+                                    + " `%s`",
                             jsonObj.get("presets").toString()));
         }
 

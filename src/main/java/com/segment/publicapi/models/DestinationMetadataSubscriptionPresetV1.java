@@ -146,8 +146,8 @@ public class DestinationMetadataSubscriptionPresetV1 {
             required = true,
             value =
                     "FQL string that describes what events should trigger an action. See"
-                            + " https://segment.com/docs/config-api/fql/ for more information"
-                            + " regarding Segment's Filter Query Language (FQL).")
+                        + " https://segment.com/docs/config-api/fql/ for more information regarding"
+                        + " Segment's Filter Query Language (FQL).")
     public String getTrigger() {
         return trigger;
     }
@@ -233,8 +233,8 @@ public class DestinationMetadataSubscriptionPresetV1 {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in"
-                                        + " DestinationMetadataSubscriptionPresetV1 is not found in"
-                                        + " the empty JSON string",
+                                    + " DestinationMetadataSubscriptionPresetV1 is not found in the"
+                                    + " empty JSON string",
                                 DestinationMetadataSubscriptionPresetV1.openapiRequiredFields
                                         .toString()));
             }
@@ -247,8 +247,8 @@ public class DestinationMetadataSubscriptionPresetV1 {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `DestinationMetadataSubscriptionPresetV1` properties."
-                                        + " JSON: %s",
+                                    + " `DestinationMetadataSubscriptionPresetV1` properties. JSON:"
+                                    + " %s",
                                 entry.getKey(), jsonObj.toString()));
             }
         }
@@ -279,8 +279,8 @@ public class DestinationMetadataSubscriptionPresetV1 {
         if (!jsonObj.get("trigger").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `trigger` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
+                            "Expected the field `trigger` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
                             jsonObj.get("trigger").toString()));
         }
     }

@@ -178,8 +178,8 @@ public class Schedule {
             if (!Schedule.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
-                                "The field `%s` in the JSON string is not defined in the"
-                                        + " `Schedule` properties. JSON: %s",
+                                "The field `%s` in the JSON string is not defined in the `Schedule`"
+                                        + " properties. JSON: %s",
                                 entry.getKey(), jsonObj.toString()));
             }
         }

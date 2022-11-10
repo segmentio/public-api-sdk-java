@@ -126,8 +126,8 @@ public class DisableEdgeFunctionsAlphaOutput {
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in DisableEdgeFunctionsAlphaOutput is"
-                                        + " not found in the empty JSON string",
+                                "The required field(s) %s in DisableEdgeFunctionsAlphaOutput is not"
+                                        + " found in the empty JSON string",
                                 DisableEdgeFunctionsAlphaOutput.openapiRequiredFields.toString()));
             }
         }

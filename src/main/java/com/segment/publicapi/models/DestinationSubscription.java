@@ -218,7 +218,7 @@ public class DestinationSubscription {
      *
      * @return settings
      */
-    @javax.annotation.Nonnull
+    @javax.annotation.Nullable
     @ApiModelProperty(required = true, value = "The customer settings for action fields.")
     public Map getSettings() {
         return settings;
@@ -407,8 +407,8 @@ public class DestinationSubscription {
         if (!jsonObj.get("trigger").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `trigger` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
+                            "Expected the field `trigger` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
                             jsonObj.get("trigger").toString()));
         }
     }

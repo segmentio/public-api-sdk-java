@@ -21,9 +21,9 @@ import com.segment.publicapi.ApiResponse;
 import com.segment.publicapi.Configuration;
 import com.segment.publicapi.Pair;
 import com.segment.publicapi.models.AddLabelsToSource200Response;
-import com.segment.publicapi.models.AddLabelsToSourceAlphaInput;
+import com.segment.publicapi.models.AddLabelsToSourceV1Input;
 import com.segment.publicapi.models.CreateSource200Response;
-import com.segment.publicapi.models.CreateSourceAlphaInput;
+import com.segment.publicapi.models.CreateSourceV1Input;
 import com.segment.publicapi.models.DeleteSource200Response;
 import com.segment.publicapi.models.GetSource200Response;
 import com.segment.publicapi.models.ListConnectedDestinationsFromSource200Response;
@@ -32,11 +32,11 @@ import com.segment.publicapi.models.ListSchemaSettingsInSource200Response;
 import com.segment.publicapi.models.ListSources200Response;
 import com.segment.publicapi.models.PaginationInput;
 import com.segment.publicapi.models.ReplaceLabelsInSource200Response;
-import com.segment.publicapi.models.ReplaceLabelsInSourceAlphaInput;
+import com.segment.publicapi.models.ReplaceLabelsInSourceV1Input;
 import com.segment.publicapi.models.UpdateSchemaSettingsInSource200Response;
 import com.segment.publicapi.models.UpdateSchemaSettingsInSourceV1Input;
 import com.segment.publicapi.models.UpdateSource200Response;
-import com.segment.publicapi.models.UpdateSourceAlphaInput;
+import com.segment.publicapi.models.UpdateSourceV1Input;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -84,7 +84,7 @@ public class SourcesApi {
      * Build call for addLabelsToSource
      *
      * @param sourceId (required)
-     * @param addLabelsToSourceAlphaInput (required)
+     * @param addLabelsToSourceV1Input (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -99,7 +99,7 @@ public class SourcesApi {
      */
     public okhttp3.Call addLabelsToSourceCall(
             String sourceId,
-            AddLabelsToSourceAlphaInput addLabelsToSourceAlphaInput,
+            AddLabelsToSourceV1Input addLabelsToSourceV1Input,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -115,7 +115,7 @@ public class SourcesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = addLabelsToSourceAlphaInput;
+        Object localVarPostBody = addLabelsToSourceV1Input;
 
         // create path and map variables
         String localVarPath =
@@ -131,10 +131,10 @@ public class SourcesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -142,9 +142,9 @@ public class SourcesApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/vnd.segment.v1alpha+json",
+            "application/vnd.segment.v1+json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1+json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
@@ -170,7 +170,7 @@ public class SourcesApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call addLabelsToSourceValidateBeforeCall(
             String sourceId,
-            AddLabelsToSourceAlphaInput addLabelsToSourceAlphaInput,
+            AddLabelsToSourceV1Input addLabelsToSourceV1Input,
             final ApiCallback _callback)
             throws ApiException {
 
@@ -181,15 +181,15 @@ public class SourcesApi {
                             + " addLabelsToSource(Async)");
         }
 
-        // verify the required parameter 'addLabelsToSourceAlphaInput' is set
-        if (addLabelsToSourceAlphaInput == null) {
+        // verify the required parameter 'addLabelsToSourceV1Input' is set
+        if (addLabelsToSourceV1Input == null) {
             throw new ApiException(
-                    "Missing the required parameter 'addLabelsToSourceAlphaInput' when calling"
+                    "Missing the required parameter 'addLabelsToSourceV1Input' when calling"
                             + " addLabelsToSource(Async)");
         }
 
         okhttp3.Call localVarCall =
-                addLabelsToSourceCall(sourceId, addLabelsToSourceAlphaInput, _callback);
+                addLabelsToSourceCall(sourceId, addLabelsToSourceV1Input, _callback);
         return localVarCall;
     }
 
@@ -198,7 +198,7 @@ public class SourcesApi {
      * generate the &#x60;Source Modified&#x60; [Audit Trail](/tag/Audit-Trail) event.
      *
      * @param sourceId (required)
-     * @param addLabelsToSourceAlphaInput (required)
+     * @param addLabelsToSourceV1Input (required)
      * @return AddLabelsToSource200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -212,10 +212,10 @@ public class SourcesApi {
      * </table>
      */
     public AddLabelsToSource200Response addLabelsToSource(
-            String sourceId, AddLabelsToSourceAlphaInput addLabelsToSourceAlphaInput)
+            String sourceId, AddLabelsToSourceV1Input addLabelsToSourceV1Input)
             throws ApiException {
         ApiResponse<AddLabelsToSource200Response> localVarResp =
-                addLabelsToSourceWithHttpInfo(sourceId, addLabelsToSourceAlphaInput);
+                addLabelsToSourceWithHttpInfo(sourceId, addLabelsToSourceV1Input);
         return localVarResp.getData();
     }
 
@@ -224,7 +224,7 @@ public class SourcesApi {
      * generate the &#x60;Source Modified&#x60; [Audit Trail](/tag/Audit-Trail) event.
      *
      * @param sourceId (required)
-     * @param addLabelsToSourceAlphaInput (required)
+     * @param addLabelsToSourceV1Input (required)
      * @return ApiResponse&lt;AddLabelsToSource200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -238,10 +238,10 @@ public class SourcesApi {
      * </table>
      */
     public ApiResponse<AddLabelsToSource200Response> addLabelsToSourceWithHttpInfo(
-            String sourceId, AddLabelsToSourceAlphaInput addLabelsToSourceAlphaInput)
+            String sourceId, AddLabelsToSourceV1Input addLabelsToSourceV1Input)
             throws ApiException {
         okhttp3.Call localVarCall =
-                addLabelsToSourceValidateBeforeCall(sourceId, addLabelsToSourceAlphaInput, null);
+                addLabelsToSourceValidateBeforeCall(sourceId, addLabelsToSourceV1Input, null);
         Type localVarReturnType = new TypeToken<AddLabelsToSource200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -251,7 +251,7 @@ public class SourcesApi {
      * endpoint may generate the &#x60;Source Modified&#x60; [Audit Trail](/tag/Audit-Trail) event.
      *
      * @param sourceId (required)
-     * @param addLabelsToSourceAlphaInput (required)
+     * @param addLabelsToSourceV1Input (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -267,13 +267,12 @@ public class SourcesApi {
      */
     public okhttp3.Call addLabelsToSourceAsync(
             String sourceId,
-            AddLabelsToSourceAlphaInput addLabelsToSourceAlphaInput,
+            AddLabelsToSourceV1Input addLabelsToSourceV1Input,
             final ApiCallback<AddLabelsToSource200Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
-                addLabelsToSourceValidateBeforeCall(
-                        sourceId, addLabelsToSourceAlphaInput, _callback);
+                addLabelsToSourceValidateBeforeCall(sourceId, addLabelsToSourceV1Input, _callback);
         Type localVarReturnType = new TypeToken<AddLabelsToSource200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -281,7 +280,7 @@ public class SourcesApi {
     /**
      * Build call for createSource
      *
-     * @param createSourceAlphaInput (required)
+     * @param createSourceV1Input (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -295,7 +294,7 @@ public class SourcesApi {
      * </table>
      */
     public okhttp3.Call createSourceCall(
-            CreateSourceAlphaInput createSourceAlphaInput, final ApiCallback _callback)
+            CreateSourceV1Input createSourceV1Input, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -310,7 +309,7 @@ public class SourcesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = createSourceAlphaInput;
+        Object localVarPostBody = createSourceV1Input;
 
         // create path and map variables
         String localVarPath = "/sources";
@@ -322,10 +321,10 @@ public class SourcesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -333,9 +332,9 @@ public class SourcesApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/vnd.segment.v1alpha+json",
+            "application/vnd.segment.v1+json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1+json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
@@ -360,17 +359,17 @@ public class SourcesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createSourceValidateBeforeCall(
-            CreateSourceAlphaInput createSourceAlphaInput, final ApiCallback _callback)
+            CreateSourceV1Input createSourceV1Input, final ApiCallback _callback)
             throws ApiException {
 
-        // verify the required parameter 'createSourceAlphaInput' is set
-        if (createSourceAlphaInput == null) {
+        // verify the required parameter 'createSourceV1Input' is set
+        if (createSourceV1Input == null) {
             throw new ApiException(
-                    "Missing the required parameter 'createSourceAlphaInput' when calling"
+                    "Missing the required parameter 'createSourceV1Input' when calling"
                             + " createSource(Async)");
         }
 
-        okhttp3.Call localVarCall = createSourceCall(createSourceAlphaInput, _callback);
+        okhttp3.Call localVarCall = createSourceCall(createSourceV1Input, _callback);
         return localVarCall;
     }
 
@@ -378,7 +377,7 @@ public class SourcesApi {
      * Create Source Creates a new Source. When called, this endpoint may generate the &#x60;Source
      * Created&#x60; [Audit Trail](/tag/Audit-Trail) event.
      *
-     * @param createSourceAlphaInput (required)
+     * @param createSourceV1Input (required)
      * @return CreateSource200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -391,10 +390,10 @@ public class SourcesApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public CreateSource200Response createSource(CreateSourceAlphaInput createSourceAlphaInput)
+    public CreateSource200Response createSource(CreateSourceV1Input createSourceV1Input)
             throws ApiException {
         ApiResponse<CreateSource200Response> localVarResp =
-                createSourceWithHttpInfo(createSourceAlphaInput);
+                createSourceWithHttpInfo(createSourceV1Input);
         return localVarResp.getData();
     }
 
@@ -402,7 +401,7 @@ public class SourcesApi {
      * Create Source Creates a new Source. When called, this endpoint may generate the &#x60;Source
      * Created&#x60; [Audit Trail](/tag/Audit-Trail) event.
      *
-     * @param createSourceAlphaInput (required)
+     * @param createSourceV1Input (required)
      * @return ApiResponse&lt;CreateSource200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -416,8 +415,8 @@ public class SourcesApi {
      * </table>
      */
     public ApiResponse<CreateSource200Response> createSourceWithHttpInfo(
-            CreateSourceAlphaInput createSourceAlphaInput) throws ApiException {
-        okhttp3.Call localVarCall = createSourceValidateBeforeCall(createSourceAlphaInput, null);
+            CreateSourceV1Input createSourceV1Input) throws ApiException {
+        okhttp3.Call localVarCall = createSourceValidateBeforeCall(createSourceV1Input, null);
         Type localVarReturnType = new TypeToken<CreateSource200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -426,7 +425,7 @@ public class SourcesApi {
      * Create Source (asynchronously) Creates a new Source. When called, this endpoint may generate
      * the &#x60;Source Created&#x60; [Audit Trail](/tag/Audit-Trail) event.
      *
-     * @param createSourceAlphaInput (required)
+     * @param createSourceV1Input (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -441,12 +440,11 @@ public class SourcesApi {
      * </table>
      */
     public okhttp3.Call createSourceAsync(
-            CreateSourceAlphaInput createSourceAlphaInput,
+            CreateSourceV1Input createSourceV1Input,
             final ApiCallback<CreateSource200Response> _callback)
             throws ApiException {
 
-        okhttp3.Call localVarCall =
-                createSourceValidateBeforeCall(createSourceAlphaInput, _callback);
+        okhttp3.Call localVarCall = createSourceValidateBeforeCall(createSourceV1Input, _callback);
         Type localVarReturnType = new TypeToken<CreateSource200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -498,10 +496,10 @@ public class SourcesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -665,10 +663,10 @@ public class SourcesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -786,7 +784,7 @@ public class SourcesApi {
      * Build call for listConnectedDestinationsFromSource
      *
      * @param sourceId (required)
-     * @param pagination Required pagination params for the request. This parameter exists in beta.
+     * @param pagination Required pagination params for the request. This parameter exists in alpha.
      *     (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -836,10 +834,10 @@ public class SourcesApi {
         }
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -897,7 +895,7 @@ public class SourcesApi {
      * List Connected Destinations from Source Returns a list of Destinations connected to a Source.
      *
      * @param sourceId (required)
-     * @param pagination Required pagination params for the request. This parameter exists in beta.
+     * @param pagination Required pagination params for the request. This parameter exists in alpha.
      *     (required)
      * @return ListConnectedDestinationsFromSource200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -922,7 +920,7 @@ public class SourcesApi {
      * List Connected Destinations from Source Returns a list of Destinations connected to a Source.
      *
      * @param sourceId (required)
-     * @param pagination Required pagination params for the request. This parameter exists in beta.
+     * @param pagination Required pagination params for the request. This parameter exists in alpha.
      *     (required)
      * @return ApiResponse&lt;ListConnectedDestinationsFromSource200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -951,7 +949,7 @@ public class SourcesApi {
      * connected to a Source.
      *
      * @param sourceId (required)
-     * @param pagination Required pagination params for the request. This parameter exists in beta.
+     * @param pagination Required pagination params for the request. This parameter exists in alpha.
      *     (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -984,7 +982,7 @@ public class SourcesApi {
      * Build call for listConnectedWarehousesFromSource
      *
      * @param sourceId (required)
-     * @param pagination Required pagination params for the request. This parameter exists in beta.
+     * @param pagination Required pagination params for the request. This parameter exists in alpha.
      *     (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1034,10 +1032,10 @@ public class SourcesApi {
         }
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1095,7 +1093,7 @@ public class SourcesApi {
      * List Connected Warehouses from Source Returns a list of Warehouses connected to a Source.
      *
      * @param sourceId (required)
-     * @param pagination Required pagination params for the request. This parameter exists in beta.
+     * @param pagination Required pagination params for the request. This parameter exists in alpha.
      *     (required)
      * @return ListConnectedWarehousesFromSource200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -1120,7 +1118,7 @@ public class SourcesApi {
      * List Connected Warehouses from Source Returns a list of Warehouses connected to a Source.
      *
      * @param sourceId (required)
-     * @param pagination Required pagination params for the request. This parameter exists in beta.
+     * @param pagination Required pagination params for the request. This parameter exists in alpha.
      *     (required)
      * @return ApiResponse&lt;ListConnectedWarehousesFromSource200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -1149,7 +1147,7 @@ public class SourcesApi {
      * to a Source.
      *
      * @param sourceId (required)
-     * @param pagination Required pagination params for the request. This parameter exists in beta.
+     * @param pagination Required pagination params for the request. This parameter exists in alpha.
      *     (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1225,10 +1223,10 @@ public class SourcesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1357,7 +1355,7 @@ public class SourcesApi {
     /**
      * Build call for listSources
      *
-     * @param pagination Defines the pagination parameters. This parameter exists in beta.
+     * @param pagination Defines the pagination parameters. This parameter exists in alpha.
      *     (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1402,10 +1400,10 @@ public class SourcesApi {
         }
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1452,7 +1450,7 @@ public class SourcesApi {
     /**
      * List Sources Returns a list of Sources.
      *
-     * @param pagination Defines the pagination parameters. This parameter exists in beta.
+     * @param pagination Defines the pagination parameters. This parameter exists in alpha.
      *     (required)
      * @return ListSources200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -1474,7 +1472,7 @@ public class SourcesApi {
     /**
      * List Sources Returns a list of Sources.
      *
-     * @param pagination Defines the pagination parameters. This parameter exists in beta.
+     * @param pagination Defines the pagination parameters. This parameter exists in alpha.
      *     (required)
      * @return ApiResponse&lt;ListSources200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -1498,7 +1496,7 @@ public class SourcesApi {
     /**
      * List Sources (asynchronously) Returns a list of Sources.
      *
-     * @param pagination Defines the pagination parameters. This parameter exists in beta.
+     * @param pagination Defines the pagination parameters. This parameter exists in alpha.
      *     (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1526,7 +1524,7 @@ public class SourcesApi {
      * Build call for replaceLabelsInSource
      *
      * @param sourceId (required)
-     * @param replaceLabelsInSourceAlphaInput (required)
+     * @param replaceLabelsInSourceV1Input (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1541,7 +1539,7 @@ public class SourcesApi {
      */
     public okhttp3.Call replaceLabelsInSourceCall(
             String sourceId,
-            ReplaceLabelsInSourceAlphaInput replaceLabelsInSourceAlphaInput,
+            ReplaceLabelsInSourceV1Input replaceLabelsInSourceV1Input,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1557,7 +1555,7 @@ public class SourcesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = replaceLabelsInSourceAlphaInput;
+        Object localVarPostBody = replaceLabelsInSourceV1Input;
 
         // create path and map variables
         String localVarPath =
@@ -1573,10 +1571,10 @@ public class SourcesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1584,9 +1582,9 @@ public class SourcesApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/vnd.segment.v1alpha+json",
+            "application/vnd.segment.v1+json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1+json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
@@ -1612,7 +1610,7 @@ public class SourcesApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call replaceLabelsInSourceValidateBeforeCall(
             String sourceId,
-            ReplaceLabelsInSourceAlphaInput replaceLabelsInSourceAlphaInput,
+            ReplaceLabelsInSourceV1Input replaceLabelsInSourceV1Input,
             final ApiCallback _callback)
             throws ApiException {
 
@@ -1623,15 +1621,15 @@ public class SourcesApi {
                             + " replaceLabelsInSource(Async)");
         }
 
-        // verify the required parameter 'replaceLabelsInSourceAlphaInput' is set
-        if (replaceLabelsInSourceAlphaInput == null) {
+        // verify the required parameter 'replaceLabelsInSourceV1Input' is set
+        if (replaceLabelsInSourceV1Input == null) {
             throw new ApiException(
-                    "Missing the required parameter 'replaceLabelsInSourceAlphaInput' when calling"
+                    "Missing the required parameter 'replaceLabelsInSourceV1Input' when calling"
                             + " replaceLabelsInSource(Async)");
         }
 
         okhttp3.Call localVarCall =
-                replaceLabelsInSourceCall(sourceId, replaceLabelsInSourceAlphaInput, _callback);
+                replaceLabelsInSourceCall(sourceId, replaceLabelsInSourceV1Input, _callback);
         return localVarCall;
     }
 
@@ -1639,7 +1637,7 @@ public class SourcesApi {
      * Replace Labels in Source Replaces all labels in a Source.
      *
      * @param sourceId (required)
-     * @param replaceLabelsInSourceAlphaInput (required)
+     * @param replaceLabelsInSourceV1Input (required)
      * @return ReplaceLabelsInSource200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1653,10 +1651,10 @@ public class SourcesApi {
      * </table>
      */
     public ReplaceLabelsInSource200Response replaceLabelsInSource(
-            String sourceId, ReplaceLabelsInSourceAlphaInput replaceLabelsInSourceAlphaInput)
+            String sourceId, ReplaceLabelsInSourceV1Input replaceLabelsInSourceV1Input)
             throws ApiException {
         ApiResponse<ReplaceLabelsInSource200Response> localVarResp =
-                replaceLabelsInSourceWithHttpInfo(sourceId, replaceLabelsInSourceAlphaInput);
+                replaceLabelsInSourceWithHttpInfo(sourceId, replaceLabelsInSourceV1Input);
         return localVarResp.getData();
     }
 
@@ -1664,7 +1662,7 @@ public class SourcesApi {
      * Replace Labels in Source Replaces all labels in a Source.
      *
      * @param sourceId (required)
-     * @param replaceLabelsInSourceAlphaInput (required)
+     * @param replaceLabelsInSourceV1Input (required)
      * @return ApiResponse&lt;ReplaceLabelsInSource200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1678,11 +1676,11 @@ public class SourcesApi {
      * </table>
      */
     public ApiResponse<ReplaceLabelsInSource200Response> replaceLabelsInSourceWithHttpInfo(
-            String sourceId, ReplaceLabelsInSourceAlphaInput replaceLabelsInSourceAlphaInput)
+            String sourceId, ReplaceLabelsInSourceV1Input replaceLabelsInSourceV1Input)
             throws ApiException {
         okhttp3.Call localVarCall =
                 replaceLabelsInSourceValidateBeforeCall(
-                        sourceId, replaceLabelsInSourceAlphaInput, null);
+                        sourceId, replaceLabelsInSourceV1Input, null);
         Type localVarReturnType = new TypeToken<ReplaceLabelsInSource200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1691,7 +1689,7 @@ public class SourcesApi {
      * Replace Labels in Source (asynchronously) Replaces all labels in a Source.
      *
      * @param sourceId (required)
-     * @param replaceLabelsInSourceAlphaInput (required)
+     * @param replaceLabelsInSourceV1Input (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -1707,13 +1705,13 @@ public class SourcesApi {
      */
     public okhttp3.Call replaceLabelsInSourceAsync(
             String sourceId,
-            ReplaceLabelsInSourceAlphaInput replaceLabelsInSourceAlphaInput,
+            ReplaceLabelsInSourceV1Input replaceLabelsInSourceV1Input,
             final ApiCallback<ReplaceLabelsInSource200Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 replaceLabelsInSourceValidateBeforeCall(
-                        sourceId, replaceLabelsInSourceAlphaInput, _callback);
+                        sourceId, replaceLabelsInSourceV1Input, _callback);
         Type localVarReturnType = new TypeToken<ReplaceLabelsInSource200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1769,10 +1767,10 @@ public class SourcesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1780,9 +1778,9 @@ public class SourcesApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/vnd.segment.v1alpha+json",
+            "application/vnd.segment.v1+json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1+json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
@@ -1931,7 +1929,7 @@ public class SourcesApi {
      * Build call for updateSource
      *
      * @param sourceId (required)
-     * @param updateSourceAlphaInput (required)
+     * @param updateSourceV1Input (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1945,9 +1943,7 @@ public class SourcesApi {
      * </table>
      */
     public okhttp3.Call updateSourceCall(
-            String sourceId,
-            UpdateSourceAlphaInput updateSourceAlphaInput,
-            final ApiCallback _callback)
+            String sourceId, UpdateSourceV1Input updateSourceV1Input, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1962,7 +1958,7 @@ public class SourcesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = updateSourceAlphaInput;
+        Object localVarPostBody = updateSourceV1Input;
 
         // create path and map variables
         String localVarPath =
@@ -1978,10 +1974,10 @@ public class SourcesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1989,9 +1985,9 @@ public class SourcesApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/vnd.segment.v1alpha+json",
+            "application/vnd.segment.v1+json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1+json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
@@ -2016,9 +2012,7 @@ public class SourcesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateSourceValidateBeforeCall(
-            String sourceId,
-            UpdateSourceAlphaInput updateSourceAlphaInput,
-            final ApiCallback _callback)
+            String sourceId, UpdateSourceV1Input updateSourceV1Input, final ApiCallback _callback)
             throws ApiException {
 
         // verify the required parameter 'sourceId' is set
@@ -2027,14 +2021,14 @@ public class SourcesApi {
                     "Missing the required parameter 'sourceId' when calling updateSource(Async)");
         }
 
-        // verify the required parameter 'updateSourceAlphaInput' is set
-        if (updateSourceAlphaInput == null) {
+        // verify the required parameter 'updateSourceV1Input' is set
+        if (updateSourceV1Input == null) {
             throw new ApiException(
-                    "Missing the required parameter 'updateSourceAlphaInput' when calling"
+                    "Missing the required parameter 'updateSourceV1Input' when calling"
                             + " updateSource(Async)");
         }
 
-        okhttp3.Call localVarCall = updateSourceCall(sourceId, updateSourceAlphaInput, _callback);
+        okhttp3.Call localVarCall = updateSourceCall(sourceId, updateSourceV1Input, _callback);
         return localVarCall;
     }
 
@@ -2045,7 +2039,7 @@ public class SourcesApi {
      * &#x60;updateMask&#x60;
      *
      * @param sourceId (required)
-     * @param updateSourceAlphaInput (required)
+     * @param updateSourceV1Input (required)
      * @return UpdateSource200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -2059,9 +2053,9 @@ public class SourcesApi {
      * </table>
      */
     public UpdateSource200Response updateSource(
-            String sourceId, UpdateSourceAlphaInput updateSourceAlphaInput) throws ApiException {
+            String sourceId, UpdateSourceV1Input updateSourceV1Input) throws ApiException {
         ApiResponse<UpdateSource200Response> localVarResp =
-                updateSourceWithHttpInfo(sourceId, updateSourceAlphaInput);
+                updateSourceWithHttpInfo(sourceId, updateSourceV1Input);
         return localVarResp.getData();
     }
 
@@ -2072,7 +2066,7 @@ public class SourcesApi {
      * &#x60;updateMask&#x60;
      *
      * @param sourceId (required)
-     * @param updateSourceAlphaInput (required)
+     * @param updateSourceV1Input (required)
      * @return ApiResponse&lt;UpdateSource200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -2086,9 +2080,9 @@ public class SourcesApi {
      * </table>
      */
     public ApiResponse<UpdateSource200Response> updateSourceWithHttpInfo(
-            String sourceId, UpdateSourceAlphaInput updateSourceAlphaInput) throws ApiException {
+            String sourceId, UpdateSourceV1Input updateSourceV1Input) throws ApiException {
         okhttp3.Call localVarCall =
-                updateSourceValidateBeforeCall(sourceId, updateSourceAlphaInput, null);
+                updateSourceValidateBeforeCall(sourceId, updateSourceV1Input, null);
         Type localVarReturnType = new TypeToken<UpdateSource200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2100,7 +2094,7 @@ public class SourcesApi {
      * fields: - &#x60;updateMask&#x60;
      *
      * @param sourceId (required)
-     * @param updateSourceAlphaInput (required)
+     * @param updateSourceV1Input (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -2116,12 +2110,12 @@ public class SourcesApi {
      */
     public okhttp3.Call updateSourceAsync(
             String sourceId,
-            UpdateSourceAlphaInput updateSourceAlphaInput,
+            UpdateSourceV1Input updateSourceV1Input,
             final ApiCallback<UpdateSource200Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
-                updateSourceValidateBeforeCall(sourceId, updateSourceAlphaInput, _callback);
+                updateSourceValidateBeforeCall(sourceId, updateSourceV1Input, _callback);
         Type localVarReturnType = new TypeToken<UpdateSource200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

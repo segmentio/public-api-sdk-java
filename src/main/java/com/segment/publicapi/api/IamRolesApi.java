@@ -68,7 +68,7 @@ public class IamRolesApi {
     /**
      * Build call for listRoles
      *
-     * @param pagination Pagination for roles. This parameter exists in alpha. (required)
+     * @param pagination Pagination for roles. This parameter exists in v1. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -112,10 +112,10 @@ public class IamRolesApi {
         }
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -162,7 +162,7 @@ public class IamRolesApi {
     /**
      * List Roles Returns a list of Roles available to apply to permissions for users and/or groups.
      *
-     * @param pagination Pagination for roles. This parameter exists in alpha. (required)
+     * @param pagination Pagination for roles. This parameter exists in v1. (required)
      * @return ListRoles200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -183,7 +183,7 @@ public class IamRolesApi {
     /**
      * List Roles Returns a list of Roles available to apply to permissions for users and/or groups.
      *
-     * @param pagination Pagination for roles. This parameter exists in alpha. (required)
+     * @param pagination Pagination for roles. This parameter exists in v1. (required)
      * @return ApiResponse&lt;ListRoles200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -207,7 +207,7 @@ public class IamRolesApi {
      * List Roles (asynchronously) Returns a list of Roles available to apply to permissions for
      * users and/or groups.
      *
-     * @param pagination Pagination for roles. This parameter exists in alpha. (required)
+     * @param pagination Pagination for roles. This parameter exists in v1. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body

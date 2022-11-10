@@ -132,8 +132,8 @@ public class CreateLabelAlphaOutput {
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in CreateLabelAlphaOutput is not found"
-                                        + " in the empty JSON string",
+                                "The required field(s) %s in CreateLabelAlphaOutput is not found in"
+                                        + " the empty JSON string",
                                 CreateLabelAlphaOutput.openapiRequiredFields.toString()));
             }
         }

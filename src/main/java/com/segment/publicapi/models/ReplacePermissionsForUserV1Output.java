@@ -167,8 +167,8 @@ public class ReplacePermissionsForUserV1Output {
         if (!jsonObj.get("permissions").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `permissions` to be an array in the JSON string"
-                                    + " but got `%s`",
+                            "Expected the field `permissions` to be an array in the JSON string but"
+                                    + " got `%s`",
                             jsonObj.get("permissions").toString()));
         }
 

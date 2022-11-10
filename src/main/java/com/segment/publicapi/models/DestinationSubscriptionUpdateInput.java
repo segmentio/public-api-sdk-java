@@ -26,11 +26,13 @@ import com.segment.publicapi.JSON;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** The input parameters for updating a Destination subscription. */
 @ApiModel(description = "The input parameters for updating a Destination subscription.")
@@ -157,9 +159,25 @@ public class DestinationSubscriptionUpdateInput {
                 && Objects.equals(this.settings, destinationSubscriptionUpdateInput.settings);
     }
 
+    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+        return a == b
+                || (a != null
+                        && b != null
+                        && a.isPresent()
+                        && b.isPresent()
+                        && Objects.deepEquals(a.get(), b.get()));
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(name, trigger, enabled, settings);
+    }
+
+    private static <T> int hashCodeNullable(JsonNullable<T> a) {
+        if (a == null) {
+            return 1;
+        }
+        return a.isPresent() ? Arrays.deepHashCode(new Object[] {a.get()}) : 31;
     }
 
     @Override
@@ -243,8 +261,8 @@ public class DestinationSubscriptionUpdateInput {
                 && !jsonObj.get("trigger").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `trigger` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
+                            "Expected the field `trigger` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
                             jsonObj.get("trigger").toString()));
         }
     }

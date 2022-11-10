@@ -217,8 +217,8 @@ public class DestinationMetadataFeaturesV1 {
     @ApiModelProperty(
             value =
                     "This Destination's support level for device mode instances. Support for"
-                            + " multiple device mode instances is currently not planned. The values"
-                            + " '0' and 'NONE', and '1' and 'SINGLE' are equivalent.")
+                        + " multiple device mode instances is currently not planned. The values '0'"
+                        + " and 'NONE', and '1' and 'SINGLE' are equivalent.")
     public DeviceModeInstancesEnum getDeviceModeInstances() {
         return deviceModeInstances;
     }
@@ -414,8 +414,8 @@ public class DestinationMetadataFeaturesV1 {
                 && !jsonObj.get("deviceModeInstances").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `deviceModeInstances` to be a primitive type in"
-                                    + " the JSON string but got `%s`",
+                            "Expected the field `deviceModeInstances` to be a primitive type in the"
+                                    + " JSON string but got `%s`",
                             jsonObj.get("deviceModeInstances").toString()));
         }
     }

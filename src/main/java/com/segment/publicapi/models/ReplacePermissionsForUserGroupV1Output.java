@@ -136,9 +136,8 @@ public class ReplacePermissionsForUserGroupV1Output {
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in"
-                                    + " ReplacePermissionsForUserGroupV1Output is not found in the"
-                                    + " empty JSON string",
+                                "The required field(s) %s in ReplacePermissionsForUserGroupV1Output"
+                                        + " is not found in the empty JSON string",
                                 ReplacePermissionsForUserGroupV1Output.openapiRequiredFields
                                         .toString()));
             }
@@ -170,8 +169,8 @@ public class ReplacePermissionsForUserGroupV1Output {
         if (!jsonObj.get("permissions").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `permissions` to be an array in the JSON string"
-                                    + " but got `%s`",
+                            "Expected the field `permissions` to be an array in the JSON string but"
+                                    + " got `%s`",
                             jsonObj.get("permissions").toString()));
         }
 

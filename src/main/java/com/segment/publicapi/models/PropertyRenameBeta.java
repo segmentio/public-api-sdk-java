@@ -152,8 +152,8 @@ public class PropertyRenameBeta {
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in PropertyRenameBeta is not found in"
-                                        + " the empty JSON string",
+                                "The required field(s) %s in PropertyRenameBeta is not found in the"
+                                        + " empty JSON string",
                                 PropertyRenameBeta.openapiRequiredFields.toString()));
             }
         }
@@ -182,15 +182,15 @@ public class PropertyRenameBeta {
         if (!jsonObj.get("oldName").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `oldName` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
+                            "Expected the field `oldName` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
                             jsonObj.get("oldName").toString()));
         }
         if (!jsonObj.get("newName").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `newName` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
+                            "Expected the field `newName` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
                             jsonObj.get("newName").toString()));
         }
     }

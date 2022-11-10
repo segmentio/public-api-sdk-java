@@ -605,8 +605,8 @@ public class Function {
             if (!Function.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
-                                "The field `%s` in the JSON string is not defined in the"
-                                        + " `Function` properties. JSON: %s",
+                                "The field `%s` in the JSON string is not defined in the `Function`"
+                                        + " properties. JSON: %s",
                                 entry.getKey(), jsonObj.toString()));
             }
         }
@@ -691,8 +691,8 @@ public class Function {
                 && !jsonObj.get("logoUrl").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `logoUrl` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
+                            "Expected the field `logoUrl` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
                             jsonObj.get("logoUrl").toString()));
         }
         if ((jsonObj.get("previewWebhookUrl") != null

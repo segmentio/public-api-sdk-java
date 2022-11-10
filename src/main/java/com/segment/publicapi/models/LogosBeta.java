@@ -230,8 +230,8 @@ public class LogosBeta {
         if (!jsonObj.get("default").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `default` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
+                            "Expected the field `default` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
                             jsonObj.get("default").toString()));
         }
         if ((jsonObj.get("mark") != null && !jsonObj.get("mark").isJsonNull())
@@ -246,8 +246,8 @@ public class LogosBeta {
                 && !jsonObj.get("alt").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `alt` to be a primitive type in the JSON string"
-                                    + " but got `%s`",
+                            "Expected the field `alt` to be a primitive type in the JSON string but"
+                                    + " got `%s`",
                             jsonObj.get("alt").toString()));
         }
     }

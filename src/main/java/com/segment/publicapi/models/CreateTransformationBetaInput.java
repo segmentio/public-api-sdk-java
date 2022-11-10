@@ -184,8 +184,8 @@ public class CreateTransformationBetaInput {
             value =
                     "If statement ([FQL](https://segment.com/docs/config-api/fql/)) to match"
                         + " events.  For standard event matchers, use the following:   Track -\\>"
-                        + " \"event='\\<eventName\\>'\"   Identify -\\> \"type='identify'\"  "
-                        + " Group -\\> \"type='group'\"")
+                        + " \"event='\\<eventName\\>'\"   Identify -\\> \"type='identify'\"   Group"
+                        + " -\\> \"type='group'\"")
     public String getIf() {
         return _if;
     }

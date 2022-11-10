@@ -35,12 +35,12 @@ public class ListConnectedWarehousesFromSource200Response1 {
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    private ListConnectedWarehousesFromSourceV1Output data;
+    private ListConnectedWarehousesFromSourceAlphaOutput data;
 
     public ListConnectedWarehousesFromSource200Response1() {}
 
     public ListConnectedWarehousesFromSource200Response1 data(
-            ListConnectedWarehousesFromSourceV1Output data) {
+            ListConnectedWarehousesFromSourceAlphaOutput data) {
 
         this.data = data;
         return this;
@@ -53,11 +53,11 @@ public class ListConnectedWarehousesFromSource200Response1 {
      */
     @javax.annotation.Nullable
     @ApiModelProperty(value = "")
-    public ListConnectedWarehousesFromSourceV1Output getData() {
+    public ListConnectedWarehousesFromSourceAlphaOutput getData() {
         return data;
     }
 
-    public void setData(ListConnectedWarehousesFromSourceV1Output data) {
+    public void setData(ListConnectedWarehousesFromSourceAlphaOutput data) {
         this.data = data;
     }
 
@@ -141,8 +141,8 @@ public class ListConnectedWarehousesFromSource200Response1 {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `ListConnectedWarehousesFromSource200Response1`"
-                                        + " properties. JSON: %s",
+                                    + " `ListConnectedWarehousesFromSource200Response1` properties."
+                                    + " JSON: %s",
                                 entry.getKey(), jsonObj.toString()));
             }
         }

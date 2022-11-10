@@ -123,10 +123,10 @@ public class DestinationsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -134,9 +134,9 @@ public class DestinationsApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/vnd.segment.v1alpha+json",
+            "application/vnd.segment.v1+json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1+json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
@@ -496,10 +496,10 @@ public class DestinationsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -669,10 +669,10 @@ public class DestinationsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -982,15 +982,15 @@ public class DestinationsApi {
      *
      * @param destinationId (required)
      * @param sourceId The id of the Source linked to the Destination. Config API note: analogous to
-     *     &#x60;parent&#x60;. This parameter exists in alpha. (required)
+     *     &#x60;parent&#x60;. This parameter exists in beta. (required)
      * @param startTime Filter events that happened after this time. Defaults to: - 1 hour ago if
      *     granularity is &#x60;MINUTE&#x60;. - 7 days ago if granularity is &#x60;HOUR&#x60;. - 30
-     *     days ago if granularity is &#x60;DAY&#x60;. This parameter exists in alpha. (optional)
+     *     days ago if granularity is &#x60;DAY&#x60;. This parameter exists in beta. (optional)
      * @param endTime Filter events that happened before this time. Defaults to now if not set. This
-     *     parameter exists in alpha. (optional)
+     *     parameter exists in beta. (optional)
      * @param granularity The granularity to filter metrics to. Either &#x60;MINUTE&#x60;,
      *     &#x60;HOUR&#x60; or &#x60;DAY&#x60;. Defaults to &#x60;MINUTE&#x60; if not set. This
-     *     parameter exists in alpha. (optional)
+     *     parameter exists in beta. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1057,8 +1057,8 @@ public class DestinationsApi {
         }
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
             "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json",
             "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -1129,15 +1129,15 @@ public class DestinationsApi {
      *
      * @param destinationId (required)
      * @param sourceId The id of the Source linked to the Destination. Config API note: analogous to
-     *     &#x60;parent&#x60;. This parameter exists in alpha. (required)
+     *     &#x60;parent&#x60;. This parameter exists in beta. (required)
      * @param startTime Filter events that happened after this time. Defaults to: - 1 hour ago if
      *     granularity is &#x60;MINUTE&#x60;. - 7 days ago if granularity is &#x60;HOUR&#x60;. - 30
-     *     days ago if granularity is &#x60;DAY&#x60;. This parameter exists in alpha. (optional)
+     *     days ago if granularity is &#x60;DAY&#x60;. This parameter exists in beta. (optional)
      * @param endTime Filter events that happened before this time. Defaults to now if not set. This
-     *     parameter exists in alpha. (optional)
+     *     parameter exists in beta. (optional)
      * @param granularity The granularity to filter metrics to. Either &#x60;MINUTE&#x60;,
      *     &#x60;HOUR&#x60; or &#x60;DAY&#x60;. Defaults to &#x60;MINUTE&#x60; if not set. This
-     *     parameter exists in alpha. (optional)
+     *     parameter exists in beta. (optional)
      * @return ListDeliveryMetricsSummaryFromDestination200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1174,15 +1174,15 @@ public class DestinationsApi {
      *
      * @param destinationId (required)
      * @param sourceId The id of the Source linked to the Destination. Config API note: analogous to
-     *     &#x60;parent&#x60;. This parameter exists in alpha. (required)
+     *     &#x60;parent&#x60;. This parameter exists in beta. (required)
      * @param startTime Filter events that happened after this time. Defaults to: - 1 hour ago if
      *     granularity is &#x60;MINUTE&#x60;. - 7 days ago if granularity is &#x60;HOUR&#x60;. - 30
-     *     days ago if granularity is &#x60;DAY&#x60;. This parameter exists in alpha. (optional)
+     *     days ago if granularity is &#x60;DAY&#x60;. This parameter exists in beta. (optional)
      * @param endTime Filter events that happened before this time. Defaults to now if not set. This
-     *     parameter exists in alpha. (optional)
+     *     parameter exists in beta. (optional)
      * @param granularity The granularity to filter metrics to. Either &#x60;MINUTE&#x60;,
      *     &#x60;HOUR&#x60; or &#x60;DAY&#x60;. Defaults to &#x60;MINUTE&#x60; if not set. This
-     *     parameter exists in alpha. (optional)
+     *     parameter exists in beta. (optional)
      * @return ApiResponse&lt;ListDeliveryMetricsSummaryFromDestination200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1221,15 +1221,15 @@ public class DestinationsApi {
      *
      * @param destinationId (required)
      * @param sourceId The id of the Source linked to the Destination. Config API note: analogous to
-     *     &#x60;parent&#x60;. This parameter exists in alpha. (required)
+     *     &#x60;parent&#x60;. This parameter exists in beta. (required)
      * @param startTime Filter events that happened after this time. Defaults to: - 1 hour ago if
      *     granularity is &#x60;MINUTE&#x60;. - 7 days ago if granularity is &#x60;HOUR&#x60;. - 30
-     *     days ago if granularity is &#x60;DAY&#x60;. This parameter exists in alpha. (optional)
+     *     days ago if granularity is &#x60;DAY&#x60;. This parameter exists in beta. (optional)
      * @param endTime Filter events that happened before this time. Defaults to now if not set. This
-     *     parameter exists in alpha. (optional)
+     *     parameter exists in beta. (optional)
      * @param granularity The granularity to filter metrics to. Either &#x60;MINUTE&#x60;,
      *     &#x60;HOUR&#x60; or &#x60;DAY&#x60;. Defaults to &#x60;MINUTE&#x60; if not set. This
-     *     parameter exists in alpha. (optional)
+     *     parameter exists in beta. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -1263,7 +1263,7 @@ public class DestinationsApi {
     /**
      * Build call for listDestinations
      *
-     * @param pagination Required pagination params for the request. This parameter exists in alpha.
+     * @param pagination Required pagination params for the request. This parameter exists in v1.
      *     (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1308,10 +1308,10 @@ public class DestinationsApi {
         }
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1359,7 +1359,7 @@ public class DestinationsApi {
     /**
      * List Destinations Returns a list of Destinations.
      *
-     * @param pagination Required pagination params for the request. This parameter exists in alpha.
+     * @param pagination Required pagination params for the request. This parameter exists in v1.
      *     (required)
      * @return ListDestinations200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -1383,7 +1383,7 @@ public class DestinationsApi {
     /**
      * List Destinations Returns a list of Destinations.
      *
-     * @param pagination Required pagination params for the request. This parameter exists in alpha.
+     * @param pagination Required pagination params for the request. This parameter exists in v1.
      *     (required)
      * @return ApiResponse&lt;ListDestinations200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -1407,7 +1407,7 @@ public class DestinationsApi {
     /**
      * List Destinations (asynchronously) Returns a list of Destinations.
      *
-     * @param pagination Required pagination params for the request. This parameter exists in alpha.
+     * @param pagination Required pagination params for the request. This parameter exists in v1.
      *     (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1859,10 +1859,10 @@ public class DestinationsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1870,9 +1870,9 @@ public class DestinationsApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/vnd.segment.v1alpha+json",
+            "application/vnd.segment.v1+json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1+json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);

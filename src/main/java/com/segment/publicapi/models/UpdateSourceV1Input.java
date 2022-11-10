@@ -26,11 +26,13 @@ import com.segment.publicapi.JSON;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Updates an existing Source based on a set of parameters. */
 @ApiModel(description = "Updates an existing Source based on a set of parameters.")
@@ -146,8 +148,8 @@ public class UpdateSourceV1Input {
                     "A key-value object that contains instance-specific settings for the Source. "
                         + " Different kinds of Sources require different kinds of input. The"
                         + " settings input for a Source comes from the `options` object associated"
-                        + " with this instance of a Source.  You can find the full list of"
-                        + " required settings by accessing the Sources catalog endpoint under"
+                        + " with this instance of a Source.  You can find the full list of required"
+                        + " settings by accessing the Sources catalog endpoint under"
                         + " `/catalog/sources`.")
     public Map getSettings() {
         return settings;
@@ -172,9 +174,25 @@ public class UpdateSourceV1Input {
                 && Objects.equals(this.settings, updateSourceV1Input.settings);
     }
 
+    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+        return a == b
+                || (a != null
+                        && b != null
+                        && a.isPresent()
+                        && b.isPresent()
+                        && Objects.deepEquals(a.get(), b.get()));
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(name, enabled, slug, settings);
+    }
+
+    private static <T> int hashCodeNullable(JsonNullable<T> a) {
+        if (a == null) {
+            return 1;
+        }
+        return a.isPresent() ? Arrays.deepHashCode(new Object[] {a.get()}) : 31;
     }
 
     @Override

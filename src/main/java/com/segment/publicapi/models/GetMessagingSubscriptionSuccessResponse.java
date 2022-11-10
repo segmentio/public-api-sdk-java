@@ -206,8 +206,8 @@ public class GetMessagingSubscriptionSuccessResponse {
     @javax.annotation.Nullable
     @ApiModelProperty(
             value =
-                    "The user subscribed, unsubscribed, or on initial status. This is absent if"
-                            + " the phone number or email is not found.")
+                    "The user subscribed, unsubscribed, or on initial status. This is absent if the"
+                            + " phone number or email is not found.")
     public StatusEnum getStatus() {
         return status;
     }
@@ -288,8 +288,8 @@ public class GetMessagingSubscriptionSuccessResponse {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in"
-                                        + " GetMessagingSubscriptionSuccessResponse is not found in"
-                                        + " the empty JSON string",
+                                    + " GetMessagingSubscriptionSuccessResponse is not found in the"
+                                    + " empty JSON string",
                                 GetMessagingSubscriptionSuccessResponse.openapiRequiredFields
                                         .toString()));
             }
@@ -302,8 +302,8 @@ public class GetMessagingSubscriptionSuccessResponse {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `GetMessagingSubscriptionSuccessResponse` properties."
-                                        + " JSON: %s",
+                                    + " `GetMessagingSubscriptionSuccessResponse` properties. JSON:"
+                                    + " %s",
                                 entry.getKey(), jsonObj.toString()));
             }
         }
@@ -320,8 +320,8 @@ public class GetMessagingSubscriptionSuccessResponse {
         if (!jsonObj.get("key").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `key` to be a primitive type in the JSON string"
-                                    + " but got `%s`",
+                            "Expected the field `key` to be a primitive type in the JSON string but"
+                                    + " got `%s`",
                             jsonObj.get("key").toString()));
         }
         if (!jsonObj.get("type").isJsonPrimitive()) {

@@ -70,9 +70,9 @@ public class PreviewDestinationFilterV1 {
             required = true,
             value =
                     "A FQL statement which determines if the provided filter's actions will apply"
-                        + " to the provided JSON payload. The literal string \"all\" will result"
-                        + " in this filter to all events. For guidance on using FQL, see the"
-                        + " Segment documentation site.")
+                        + " to the provided JSON payload. The literal string \"all\" will result in"
+                        + " this filter to all events. For guidance on using FQL, see the Segment"
+                        + " documentation site.")
     public String getIf() {
         return _if;
     }
@@ -103,8 +103,8 @@ public class PreviewDestinationFilterV1 {
     @ApiModelProperty(
             required = true,
             value =
-                    "The filtering action to take on events that match the \"if\" statement."
-                            + " Action types must be one of: \"drop\", \"allow_properties\","
+                    "The filtering action to take on events that match the \"if\" statement. Action"
+                            + " types must be one of: \"drop\", \"allow_properties\","
                             + " \"drop_properties\" or \"sample\".")
     public List<DestinationFilterActionV1> getActions() {
         return actions;
@@ -218,8 +218,8 @@ public class PreviewDestinationFilterV1 {
         if (!jsonObj.get("actions").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `actions` to be an array in the JSON string but"
-                                    + " got `%s`",
+                            "Expected the field `actions` to be an array in the JSON string but got"
+                                    + " `%s`",
                             jsonObj.get("actions").toString()));
         }
 

@@ -303,8 +303,8 @@ public class UpdateFilterForDestinationV1Input {
                 if (!jsonObj.get("actions").isJsonArray()) {
                     throw new IllegalArgumentException(
                             String.format(
-                                    "Expected the field `actions` to be an array in the JSON"
-                                            + " string but got `%s`",
+                                    "Expected the field `actions` to be an array in the JSON string"
+                                            + " but got `%s`",
                                     jsonObj.get("actions").toString()));
                 }
             }

@@ -394,8 +394,8 @@ public class CreateFunctionV1Input {
                 && !jsonObj.get("logoUrl").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `logoUrl` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
+                            "Expected the field `logoUrl` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
                             jsonObj.get("logoUrl").toString()));
         }
         if (!jsonObj.get("resourceType").isJsonPrimitive()) {

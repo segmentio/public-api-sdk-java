@@ -35,12 +35,12 @@ public class ListConnectedWarehousesFromSource200Response {
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    private ListConnectedWarehousesFromSourceAlphaOutput data;
+    private ListConnectedWarehousesFromSourceV1Output data;
 
     public ListConnectedWarehousesFromSource200Response() {}
 
     public ListConnectedWarehousesFromSource200Response data(
-            ListConnectedWarehousesFromSourceAlphaOutput data) {
+            ListConnectedWarehousesFromSourceV1Output data) {
 
         this.data = data;
         return this;
@@ -53,11 +53,11 @@ public class ListConnectedWarehousesFromSource200Response {
      */
     @javax.annotation.Nullable
     @ApiModelProperty(value = "")
-    public ListConnectedWarehousesFromSourceAlphaOutput getData() {
+    public ListConnectedWarehousesFromSourceV1Output getData() {
         return data;
     }
 
-    public void setData(ListConnectedWarehousesFromSourceAlphaOutput data) {
+    public void setData(ListConnectedWarehousesFromSourceV1Output data) {
         this.data = data;
     }
 

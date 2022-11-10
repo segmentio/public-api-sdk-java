@@ -28,12 +28,14 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** The newly created Source. */
 @ApiModel(description = "The newly created Source.")
@@ -320,10 +322,26 @@ public class Source5 {
                 && Objects.equals(this.labels, source5.labels);
     }
 
+    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+        return a == b
+                || (a != null
+                        && b != null
+                        && a.isPresent()
+                        && b.isPresent()
+                        && Objects.deepEquals(a.get(), b.get()));
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(
                 id, slug, name, metadata, workspaceId, enabled, writeKeys, settings, labels);
+    }
+
+    private static <T> int hashCodeNullable(JsonNullable<T> a) {
+        if (a == null) {
+            return 1;
+        }
+        return a.isPresent() ? Arrays.deepHashCode(new Object[] {a.get()}) : 31;
     }
 
     @Override
@@ -393,8 +411,8 @@ public class Source5 {
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in Source5 is not found in the empty"
-                                        + " JSON string",
+                                "The required field(s) %s in Source5 is not found in the empty JSON"
+                                        + " string",
                                 Source5.openapiRequiredFields.toString()));
             }
         }

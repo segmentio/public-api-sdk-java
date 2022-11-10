@@ -164,8 +164,8 @@ public class GetSourcesCatalogV1Output {
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in GetSourcesCatalogV1Output is not"
-                                        + " found in the empty JSON string",
+                                "The required field(s) %s in GetSourcesCatalogV1Output is not found"
+                                        + " in the empty JSON string",
                                 GetSourcesCatalogV1Output.openapiRequiredFields.toString()));
             }
         }

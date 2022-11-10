@@ -126,8 +126,8 @@ public class CreateCloudSourceRegulationV1Output {
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in CreateCloudSourceRegulationV1Output"
-                                        + " is not found in the empty JSON string",
+                                "The required field(s) %s in CreateCloudSourceRegulationV1Output is"
+                                        + " not found in the empty JSON string",
                                 CreateCloudSourceRegulationV1Output.openapiRequiredFields
                                         .toString()));
             }
@@ -140,8 +140,7 @@ public class CreateCloudSourceRegulationV1Output {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `CreateCloudSourceRegulationV1Output` properties. JSON:"
-                                        + " %s",
+                                    + " `CreateCloudSourceRegulationV1Output` properties. JSON: %s",
                                 entry.getKey(), jsonObj.toString()));
             }
         }

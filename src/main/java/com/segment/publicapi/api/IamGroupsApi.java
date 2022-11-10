@@ -133,10 +133,10 @@ public class IamGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -144,9 +144,9 @@ public class IamGroupsApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/vnd.segment.v1alpha+json",
+            "application/vnd.segment.v1+json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1+json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
@@ -186,8 +186,8 @@ public class IamGroupsApi {
         // verify the required parameter 'addPermissionsToUserGroupV1Input' is set
         if (addPermissionsToUserGroupV1Input == null) {
             throw new ApiException(
-                    "Missing the required parameter 'addPermissionsToUserGroupV1Input' when"
-                            + " calling addPermissionsToUserGroup(Async)");
+                    "Missing the required parameter 'addPermissionsToUserGroupV1Input' when calling"
+                            + " addPermissionsToUserGroup(Async)");
         }
 
         okhttp3.Call localVarCall =
@@ -349,10 +349,10 @@ public class IamGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -360,9 +360,9 @@ public class IamGroupsApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/vnd.segment.v1alpha+json",
+            "application/vnd.segment.v1+json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1+json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
@@ -554,10 +554,10 @@ public class IamGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -565,9 +565,9 @@ public class IamGroupsApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/vnd.segment.v1alpha+json",
+            "application/vnd.segment.v1+json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1+json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
@@ -742,10 +742,10 @@ public class IamGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -923,10 +923,10 @@ public class IamGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1045,7 +1045,7 @@ public class IamGroupsApi {
      * Build call for listInvitesFromUserGroup
      *
      * @param userGroupId (required)
-     * @param pagination Pagination for invites to the group. This parameter exists in alpha.
+     * @param pagination Pagination for invites to the group. This parameter exists in v1.
      *     (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1095,10 +1095,10 @@ public class IamGroupsApi {
         }
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1156,7 +1156,7 @@ public class IamGroupsApi {
      * List Invites from User Group Returns the emails of invitees to a user group.
      *
      * @param userGroupId (required)
-     * @param pagination Pagination for invites to the group. This parameter exists in alpha.
+     * @param pagination Pagination for invites to the group. This parameter exists in v1.
      *     (required)
      * @return ListInvitesFromUserGroup200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -1181,7 +1181,7 @@ public class IamGroupsApi {
      * List Invites from User Group Returns the emails of invitees to a user group.
      *
      * @param userGroupId (required)
-     * @param pagination Pagination for invites to the group. This parameter exists in alpha.
+     * @param pagination Pagination for invites to the group. This parameter exists in v1.
      *     (required)
      * @return ApiResponse&lt;ListInvitesFromUserGroup200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -1207,7 +1207,7 @@ public class IamGroupsApi {
      * List Invites from User Group (asynchronously) Returns the emails of invitees to a user group.
      *
      * @param userGroupId (required)
-     * @param pagination Pagination for invites to the group. This parameter exists in alpha.
+     * @param pagination Pagination for invites to the group. This parameter exists in v1.
      *     (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1237,7 +1237,7 @@ public class IamGroupsApi {
     /**
      * Build call for listUserGroups
      *
-     * @param pagination Pagination for user groups. This parameter exists in alpha. (required)
+     * @param pagination Pagination for user groups. This parameter exists in v1. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1281,10 +1281,10 @@ public class IamGroupsApi {
         }
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1332,7 +1332,7 @@ public class IamGroupsApi {
     /**
      * List User Groups Returns all user groups.
      *
-     * @param pagination Pagination for user groups. This parameter exists in alpha. (required)
+     * @param pagination Pagination for user groups. This parameter exists in v1. (required)
      * @return ListUserGroups200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1355,7 +1355,7 @@ public class IamGroupsApi {
     /**
      * List User Groups Returns all user groups.
      *
-     * @param pagination Pagination for user groups. This parameter exists in alpha. (required)
+     * @param pagination Pagination for user groups. This parameter exists in v1. (required)
      * @return ApiResponse&lt;ListUserGroups200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1378,7 +1378,7 @@ public class IamGroupsApi {
     /**
      * List User Groups (asynchronously) Returns all user groups.
      *
-     * @param pagination Pagination for user groups. This parameter exists in alpha. (required)
+     * @param pagination Pagination for user groups. This parameter exists in v1. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -1405,8 +1405,7 @@ public class IamGroupsApi {
      * Build call for listUsersFromUserGroup
      *
      * @param userGroupId (required)
-     * @param pagination Pagination for members of a group. This parameter exists in alpha.
-     *     (required)
+     * @param pagination Pagination for members of a group. This parameter exists in v1. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1455,10 +1454,10 @@ public class IamGroupsApi {
         }
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1515,8 +1514,7 @@ public class IamGroupsApi {
      * List Users from User Group Returns users belonging to a user group.
      *
      * @param userGroupId (required)
-     * @param pagination Pagination for members of a group. This parameter exists in alpha.
-     *     (required)
+     * @param pagination Pagination for members of a group. This parameter exists in v1. (required)
      * @return ListUsersFromUserGroup200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1540,8 +1538,7 @@ public class IamGroupsApi {
      * List Users from User Group Returns users belonging to a user group.
      *
      * @param userGroupId (required)
-     * @param pagination Pagination for members of a group. This parameter exists in alpha.
-     *     (required)
+     * @param pagination Pagination for members of a group. This parameter exists in v1. (required)
      * @return ApiResponse&lt;ListUsersFromUserGroup200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1566,8 +1563,7 @@ public class IamGroupsApi {
      * List Users from User Group (asynchronously) Returns users belonging to a user group.
      *
      * @param userGroupId (required)
-     * @param pagination Pagination for members of a group. This parameter exists in alpha.
-     *     (required)
+     * @param pagination Pagination for members of a group. This parameter exists in v1. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -1597,8 +1593,8 @@ public class IamGroupsApi {
      * Build call for removeUsersFromUserGroup
      *
      * @param userGroupId (required)
-     * @param emails The list of emails to remove from the user group. This parameter exists in
-     *     alpha. (required)
+     * @param emails The list of emails to remove from the user group. This parameter exists in v1.
+     *     (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1648,10 +1644,10 @@ public class IamGroupsApi {
         }
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1714,8 +1710,8 @@ public class IamGroupsApi {
      * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param userGroupId (required)
-     * @param emails The list of emails to remove from the user group. This parameter exists in
-     *     alpha. (required)
+     * @param emails The list of emails to remove from the user group. This parameter exists in v1.
+     *     (required)
      * @return RemoveUsersFromUserGroup200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1745,8 +1741,8 @@ public class IamGroupsApi {
      * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param userGroupId (required)
-     * @param emails The list of emails to remove from the user group. This parameter exists in
-     *     alpha. (required)
+     * @param emails The list of emails to remove from the user group. This parameter exists in v1.
+     *     (required)
      * @return ApiResponse&lt;RemoveUsersFromUserGroup200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1777,8 +1773,8 @@ public class IamGroupsApi {
      * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param userGroupId (required)
-     * @param emails The list of emails to remove from the user group. This parameter exists in
-     *     alpha. (required)
+     * @param emails The list of emails to remove from the user group. This parameter exists in v1.
+     *     (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -1855,10 +1851,10 @@ public class IamGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1866,9 +1862,9 @@ public class IamGroupsApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/vnd.segment.v1alpha+json",
+            "application/vnd.segment.v1+json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1+json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
@@ -2073,10 +2069,10 @@ public class IamGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -2084,9 +2080,9 @@ public class IamGroupsApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/vnd.segment.v1alpha+json",
+            "application/vnd.segment.v1+json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1+json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
@@ -2287,10 +2283,10 @@ public class IamGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -2298,9 +2294,9 @@ public class IamGroupsApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/vnd.segment.v1alpha+json",
+            "application/vnd.segment.v1+json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1+json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);

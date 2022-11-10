@@ -154,8 +154,8 @@ public class MinimalUserGroupV1 {
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in MinimalUserGroupV1 is not found in"
-                                        + " the empty JSON string",
+                                "The required field(s) %s in MinimalUserGroupV1 is not found in the"
+                                        + " empty JSON string",
                                 MinimalUserGroupV1.openapiRequiredFields.toString()));
             }
         }

@@ -162,8 +162,8 @@ public class ListSourcesAlphaOutput {
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in ListSourcesAlphaOutput is not found"
-                                        + " in the empty JSON string",
+                                "The required field(s) %s in ListSourcesAlphaOutput is not found in"
+                                        + " the empty JSON string",
                                 ListSourcesAlphaOutput.openapiRequiredFields.toString()));
             }
         }
@@ -193,8 +193,8 @@ public class ListSourcesAlphaOutput {
         if (!jsonObj.get("sources").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `sources` to be an array in the JSON string but"
-                                    + " got `%s`",
+                            "Expected the field `sources` to be an array in the JSON string but got"
+                                    + " `%s`",
                             jsonObj.get("sources").toString()));
         }
 

@@ -198,8 +198,8 @@ public class ListFiltersFromDestinationV1Output {
         if (!jsonObj.get("filters").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `filters` to be an array in the JSON string but"
-                                    + " got `%s`",
+                            "Expected the field `filters` to be an array in the JSON string but got"
+                                    + " `%s`",
                             jsonObj.get("filters").toString()));
         }
 

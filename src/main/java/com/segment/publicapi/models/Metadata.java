@@ -787,8 +787,8 @@ public class Metadata {
             if (!Metadata.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
-                                "The field `%s` in the JSON string is not defined in the"
-                                        + " `Metadata` properties. JSON: %s",
+                                "The field `%s` in the JSON string is not defined in the `Metadata`"
+                                        + " properties. JSON: %s",
                                 entry.getKey(), jsonObj.toString()));
             }
         }
@@ -834,8 +834,8 @@ public class Metadata {
         if (!jsonObj.get("options").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `options` to be an array in the JSON string but"
-                                    + " got `%s`",
+                            "Expected the field `options` to be an array in the JSON string but got"
+                                    + " `%s`",
                             jsonObj.get("options").toString()));
         }
 
@@ -874,8 +874,8 @@ public class Metadata {
         if (!jsonObj.get("website").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `website` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
+                            "Expected the field `website` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
                             jsonObj.get("website").toString()));
         }
         // ensure the json data is an array
@@ -892,8 +892,8 @@ public class Metadata {
         if (!jsonObj.get("actions").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `actions` to be an array in the JSON string but"
-                                    + " got `%s`",
+                            "Expected the field `actions` to be an array in the JSON string but got"
+                                    + " `%s`",
                             jsonObj.get("actions").toString()));
         }
 
@@ -902,8 +902,8 @@ public class Metadata {
         if (!jsonObj.get("presets").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `presets` to be an array in the JSON string but"
-                                    + " got `%s`",
+                            "Expected the field `presets` to be an array in the JSON string but got"
+                                    + " `%s`",
                             jsonObj.get("presets").toString()));
         }
 

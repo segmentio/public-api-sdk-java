@@ -35,11 +35,11 @@ public class Echo200Response {
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    private EchoAlphaOutput data;
+    private EchoV1Output data;
 
     public Echo200Response() {}
 
-    public Echo200Response data(EchoAlphaOutput data) {
+    public Echo200Response data(EchoV1Output data) {
 
         this.data = data;
         return this;
@@ -52,11 +52,11 @@ public class Echo200Response {
      */
     @javax.annotation.Nullable
     @ApiModelProperty(value = "")
-    public EchoAlphaOutput getData() {
+    public EchoV1Output getData() {
         return data;
     }
 
-    public void setData(EchoAlphaOutput data) {
+    public void setData(EchoV1Output data) {
         this.data = data;
     }
 

@@ -245,8 +245,8 @@ public class TrackingPlan {
     @javax.annotation.Nullable
     @ApiModelProperty(
             value =
-                    "The timestamp of the last change to the Tracking Plan.  Config API note:"
-                            + " equal to `updateTime`.")
+                    "The timestamp of the last change to the Tracking Plan.  Config API note: equal"
+                            + " to `updateTime`.")
     public String getUpdatedAt() {
         return updatedAt;
     }
@@ -361,8 +361,8 @@ public class TrackingPlan {
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in TrackingPlan is not found in the"
-                                        + " empty JSON string",
+                                "The required field(s) %s in TrackingPlan is not found in the empty"
+                                        + " JSON string",
                                 TrackingPlan.openapiRequiredFields.toString()));
             }
         }

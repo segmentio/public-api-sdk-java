@@ -134,8 +134,8 @@ public class ReplaceLabelsInSourceAlphaInput {
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in ReplaceLabelsInSourceAlphaInput is"
-                                        + " not found in the empty JSON string",
+                                "The required field(s) %s in ReplaceLabelsInSourceAlphaInput is not"
+                                        + " found in the empty JSON string",
                                 ReplaceLabelsInSourceAlphaInput.openapiRequiredFields.toString()));
             }
         }

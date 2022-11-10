@@ -171,8 +171,8 @@ public class RemoveFilterFromDestinationV1Output {
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in RemoveFilterFromDestinationV1Output"
-                                        + " is not found in the empty JSON string",
+                                "The required field(s) %s in RemoveFilterFromDestinationV1Output is"
+                                        + " not found in the empty JSON string",
                                 RemoveFilterFromDestinationV1Output.openapiRequiredFields
                                         .toString()));
             }
@@ -185,8 +185,7 @@ public class RemoveFilterFromDestinationV1Output {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `RemoveFilterFromDestinationV1Output` properties. JSON:"
-                                        + " %s",
+                                    + " `RemoveFilterFromDestinationV1Output` properties. JSON: %s",
                                 entry.getKey(), jsonObj.toString()));
             }
         }

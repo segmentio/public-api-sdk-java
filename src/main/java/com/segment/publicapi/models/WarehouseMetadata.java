@@ -341,8 +341,8 @@ public class WarehouseMetadata {
         if (!jsonObj.get("options").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `options` to be an array in the JSON string but"
-                                    + " got `%s`",
+                            "Expected the field `options` to be an array in the JSON string but got"
+                                    + " `%s`",
                             jsonObj.get("options").toString()));
         }
 

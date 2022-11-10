@@ -35,11 +35,11 @@ public class ListLabels200Response1 {
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    private ListLabelsV1Output data;
+    private ListLabelsAlphaOutput data;
 
     public ListLabels200Response1() {}
 
-    public ListLabels200Response1 data(ListLabelsV1Output data) {
+    public ListLabels200Response1 data(ListLabelsAlphaOutput data) {
 
         this.data = data;
         return this;
@@ -52,11 +52,11 @@ public class ListLabels200Response1 {
      */
     @javax.annotation.Nullable
     @ApiModelProperty(value = "")
-    public ListLabelsV1Output getData() {
+    public ListLabelsAlphaOutput getData() {
         return data;
     }
 
-    public void setData(ListLabelsV1Output data) {
+    public void setData(ListLabelsAlphaOutput data) {
         this.data = data;
     }
 
@@ -121,8 +121,8 @@ public class ListLabels200Response1 {
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in ListLabels200Response1 is not found"
-                                        + " in the empty JSON string",
+                                "The required field(s) %s in ListLabels200Response1 is not found in"
+                                        + " the empty JSON string",
                                 ListLabels200Response1.openapiRequiredFields.toString()));
             }
         }

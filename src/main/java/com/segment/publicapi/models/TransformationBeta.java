@@ -206,8 +206,8 @@ public class TransformationBeta {
             value =
                     "If statement ([FQL](https://segment.com/docs/config-api/fql/)) to match"
                         + " events.  For standard event matchers, use the following:   Track -\\>"
-                        + " \"event='\\<eventName\\>'\"   Identify -\\> \"type='identify'\"  "
-                        + " Group -\\> \"type='group'\"")
+                        + " \"event='\\<eventName\\>'\"   Identify -\\> \"type='identify'\"   Group"
+                        + " -\\> \"type='group'\"")
     public String getIf() {
         return _if;
     }
@@ -367,8 +367,8 @@ public class TransformationBeta {
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in TransformationBeta is not found in"
-                                        + " the empty JSON string",
+                                "The required field(s) %s in TransformationBeta is not found in the"
+                                        + " empty JSON string",
                                 TransformationBeta.openapiRequiredFields.toString()));
             }
         }

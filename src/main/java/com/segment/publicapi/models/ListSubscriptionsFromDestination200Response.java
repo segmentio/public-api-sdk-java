@@ -125,8 +125,8 @@ public class ListSubscriptionsFromDestination200Response {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in"
-                                    + " ListSubscriptionsFromDestination200Response is not found"
-                                    + " in the empty JSON string",
+                                    + " ListSubscriptionsFromDestination200Response is not found in"
+                                    + " the empty JSON string",
                                 ListSubscriptionsFromDestination200Response.openapiRequiredFields
                                         .toString()));
             }

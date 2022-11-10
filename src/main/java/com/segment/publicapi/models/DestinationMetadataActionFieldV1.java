@@ -228,8 +228,8 @@ public class DestinationMetadataActionFieldV1 {
     @ApiModelProperty(
             required = true,
             value =
-                    "A unique machine-readable key for the field. Should ideally match the"
-                            + " expected key in the action\\'s API request.")
+                    "A unique machine-readable key for the field. Should ideally match the expected"
+                            + " key in the action\\'s API request.")
     public String getFieldKey() {
         return fieldKey;
     }

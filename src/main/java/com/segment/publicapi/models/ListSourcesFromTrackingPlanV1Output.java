@@ -166,8 +166,8 @@ public class ListSourcesFromTrackingPlanV1Output {
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in ListSourcesFromTrackingPlanV1Output"
-                                        + " is not found in the empty JSON string",
+                                "The required field(s) %s in ListSourcesFromTrackingPlanV1Output is"
+                                        + " not found in the empty JSON string",
                                 ListSourcesFromTrackingPlanV1Output.openapiRequiredFields
                                         .toString()));
             }
@@ -180,8 +180,7 @@ public class ListSourcesFromTrackingPlanV1Output {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `ListSourcesFromTrackingPlanV1Output` properties. JSON:"
-                                        + " %s",
+                                    + " `ListSourcesFromTrackingPlanV1Output` properties. JSON: %s",
                                 entry.getKey(), jsonObj.toString()));
             }
         }
@@ -199,8 +198,8 @@ public class ListSourcesFromTrackingPlanV1Output {
         if (!jsonObj.get("sources").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `sources` to be an array in the JSON string but"
-                                    + " got `%s`",
+                            "Expected the field `sources` to be an array in the JSON string but got"
+                                    + " `%s`",
                             jsonObj.get("sources").toString()));
         }
 

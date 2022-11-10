@@ -117,10 +117,10 @@ public class CatalogApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -244,7 +244,7 @@ public class CatalogApi {
      * Build call for getDestinationsCatalog
      *
      * @param pagination Required pagination parameters used to filter the Destinations catalog.
-     *     This parameter exists in alpha. (required)
+     *     This parameter exists in v1. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -288,10 +288,10 @@ public class CatalogApi {
         }
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -340,7 +340,7 @@ public class CatalogApi {
      * Get Destinations Catalog Returns a list of all available Destinations in the Segment catalog.
      *
      * @param pagination Required pagination parameters used to filter the Destinations catalog.
-     *     This parameter exists in alpha. (required)
+     *     This parameter exists in v1. (required)
      * @return GetDestinationsCatalog200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -364,7 +364,7 @@ public class CatalogApi {
      * Get Destinations Catalog Returns a list of all available Destinations in the Segment catalog.
      *
      * @param pagination Required pagination parameters used to filter the Destinations catalog.
-     *     This parameter exists in alpha. (required)
+     *     This parameter exists in v1. (required)
      * @return ApiResponse&lt;GetDestinationsCatalog200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -389,7 +389,7 @@ public class CatalogApi {
      * Segment catalog.
      *
      * @param pagination Required pagination parameters used to filter the Destinations catalog.
-     *     This parameter exists in alpha. (required)
+     *     This parameter exists in v1. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -460,10 +460,10 @@ public class CatalogApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -584,8 +584,7 @@ public class CatalogApi {
     /**
      * Build call for getSourcesCatalog
      *
-     * @param pagination Defines the pagination parameters. This parameter exists in alpha.
-     *     (required)
+     * @param pagination Defines the pagination parameters. This parameter exists in v1. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -629,10 +628,10 @@ public class CatalogApi {
         }
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -680,8 +679,7 @@ public class CatalogApi {
     /**
      * Get Sources Catalog Returns a list of all available Sources in the Segment catalog.
      *
-     * @param pagination Defines the pagination parameters. This parameter exists in alpha.
-     *     (required)
+     * @param pagination Defines the pagination parameters. This parameter exists in v1. (required)
      * @return GetSourcesCatalog200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -704,8 +702,7 @@ public class CatalogApi {
     /**
      * Get Sources Catalog Returns a list of all available Sources in the Segment catalog.
      *
-     * @param pagination Defines the pagination parameters. This parameter exists in alpha.
-     *     (required)
+     * @param pagination Defines the pagination parameters. This parameter exists in v1. (required)
      * @return ApiResponse&lt;GetSourcesCatalog200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -729,8 +726,7 @@ public class CatalogApi {
      * Get Sources Catalog (asynchronously) Returns a list of all available Sources in the Segment
      * catalog.
      *
-     * @param pagination Defines the pagination parameters. This parameter exists in alpha.
-     *     (required)
+     * @param pagination Defines the pagination parameters. This parameter exists in v1. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -800,10 +796,10 @@ public class CatalogApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -927,7 +923,7 @@ public class CatalogApi {
      * Build call for getWarehousesCatalog
      *
      * @param pagination Required pagination params used to filter the Warehouses catalog. This
-     *     parameter exists in alpha. (required)
+     *     parameter exists in v1. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -971,10 +967,10 @@ public class CatalogApi {
         }
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1023,7 +1019,7 @@ public class CatalogApi {
      * Get Warehouses Catalog Returns a list of all available Warehouses in the Segment catalog.
      *
      * @param pagination Required pagination params used to filter the Warehouses catalog. This
-     *     parameter exists in alpha. (required)
+     *     parameter exists in v1. (required)
      * @return GetWarehousesCatalog200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1047,7 +1043,7 @@ public class CatalogApi {
      * Get Warehouses Catalog Returns a list of all available Warehouses in the Segment catalog.
      *
      * @param pagination Required pagination params used to filter the Warehouses catalog. This
-     *     parameter exists in alpha. (required)
+     *     parameter exists in v1. (required)
      * @return ApiResponse&lt;GetWarehousesCatalog200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1072,7 +1068,7 @@ public class CatalogApi {
      * Segment catalog.
      *
      * @param pagination Required pagination params used to filter the Warehouses catalog. This
-     *     parameter exists in alpha. (required)
+     *     parameter exists in v1. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body

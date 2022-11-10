@@ -121,8 +121,8 @@ public class ListInvites200Response {
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in ListInvites200Response is not found"
-                                        + " in the empty JSON string",
+                                "The required field(s) %s in ListInvites200Response is not found in"
+                                        + " the empty JSON string",
                                 ListInvites200Response.openapiRequiredFields.toString()));
             }
         }

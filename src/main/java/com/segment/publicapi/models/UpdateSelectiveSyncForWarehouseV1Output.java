@@ -211,8 +211,8 @@ public class UpdateSelectiveSyncForWarehouseV1Output {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in"
-                                        + " UpdateSelectiveSyncForWarehouseV1Output is not found in"
-                                        + " the empty JSON string",
+                                    + " UpdateSelectiveSyncForWarehouseV1Output is not found in the"
+                                    + " empty JSON string",
                                 UpdateSelectiveSyncForWarehouseV1Output.openapiRequiredFields
                                         .toString()));
             }
@@ -225,8 +225,8 @@ public class UpdateSelectiveSyncForWarehouseV1Output {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `UpdateSelectiveSyncForWarehouseV1Output` properties."
-                                        + " JSON: %s",
+                                    + " `UpdateSelectiveSyncForWarehouseV1Output` properties. JSON:"
+                                    + " %s",
                                 entry.getKey(), jsonObj.toString()));
             }
         }

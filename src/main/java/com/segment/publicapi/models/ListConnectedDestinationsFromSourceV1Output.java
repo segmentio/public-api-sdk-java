@@ -171,8 +171,8 @@ public class ListConnectedDestinationsFromSourceV1Output {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in"
-                                    + " ListConnectedDestinationsFromSourceV1Output is not found"
-                                    + " in the empty JSON string",
+                                    + " ListConnectedDestinationsFromSourceV1Output is not found in"
+                                    + " the empty JSON string",
                                 ListConnectedDestinationsFromSourceV1Output.openapiRequiredFields
                                         .toString()));
             }

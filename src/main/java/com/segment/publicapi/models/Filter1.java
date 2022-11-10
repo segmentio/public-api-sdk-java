@@ -415,8 +415,8 @@ public class Filter1 {
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in Filter1 is not found in the empty"
-                                        + " JSON string",
+                                "The required field(s) %s in Filter1 is not found in the empty JSON"
+                                        + " string",
                                 Filter1.openapiRequiredFields.toString()));
             }
         }
@@ -474,8 +474,8 @@ public class Filter1 {
         if (!jsonObj.get("actions").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `actions` to be an array in the JSON string but"
-                                    + " got `%s`",
+                            "Expected the field `actions` to be an array in the JSON string but got"
+                                    + " `%s`",
                             jsonObj.get("actions").toString()));
         }
 

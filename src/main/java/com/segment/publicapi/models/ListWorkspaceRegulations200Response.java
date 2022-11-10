@@ -123,8 +123,8 @@ public class ListWorkspaceRegulations200Response {
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in ListWorkspaceRegulations200Response"
-                                        + " is not found in the empty JSON string",
+                                "The required field(s) %s in ListWorkspaceRegulations200Response is"
+                                        + " not found in the empty JSON string",
                                 ListWorkspaceRegulations200Response.openapiRequiredFields
                                         .toString()));
             }
@@ -137,8 +137,7 @@ public class ListWorkspaceRegulations200Response {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `ListWorkspaceRegulations200Response` properties. JSON:"
-                                        + " %s",
+                                    + " `ListWorkspaceRegulations200Response` properties. JSON: %s",
                                 entry.getKey(), jsonObj.toString()));
             }
         }

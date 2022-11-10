@@ -173,8 +173,8 @@ public class ListConnectedDestinationsFromSourceAlphaOutput {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in"
-                                        + " ListConnectedDestinationsFromSourceAlphaOutput is not"
-                                        + " found in the empty JSON string",
+                                    + " ListConnectedDestinationsFromSourceAlphaOutput is not found"
+                                    + " in the empty JSON string",
                                 ListConnectedDestinationsFromSourceAlphaOutput.openapiRequiredFields
                                         .toString()));
             }

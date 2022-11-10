@@ -116,8 +116,8 @@ public class TransformationsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
             "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json",
             "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -126,7 +126,7 @@ public class TransformationsApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/vnd.segment.v1alpha+json", "application/vnd.segment.v1beta+json"
+            "application/vnd.segment.v1beta+json", "application/vnd.segment.v1alpha+json"
         };
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
@@ -299,8 +299,8 @@ public class TransformationsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
             "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json",
             "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -476,8 +476,8 @@ public class TransformationsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
             "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json",
             "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -605,7 +605,7 @@ public class TransformationsApi {
     /**
      * Build call for listTransformations
      *
-     * @param pagination Pagination options. This parameter exists in alpha. (required)
+     * @param pagination Pagination options. This parameter exists in beta. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -649,8 +649,8 @@ public class TransformationsApi {
         }
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
             "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json",
             "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -701,7 +701,7 @@ public class TransformationsApi {
      * successfully call this endpoint, the specified Workspace needs to have the Protocols feature
      * enabled. Please reach out to your customer success manager for more information.
      *
-     * @param pagination Pagination options. This parameter exists in alpha. (required)
+     * @param pagination Pagination options. This parameter exists in beta. (required)
      * @return ListTransformations200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -726,7 +726,7 @@ public class TransformationsApi {
      * successfully call this endpoint, the specified Workspace needs to have the Protocols feature
      * enabled. Please reach out to your customer success manager for more information.
      *
-     * @param pagination Pagination options. This parameter exists in alpha. (required)
+     * @param pagination Pagination options. This parameter exists in beta. (required)
      * @return ApiResponse&lt;ListTransformations200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -752,7 +752,7 @@ public class TransformationsApi {
      * Protocols feature enabled. Please reach out to your customer success manager for more
      * information.
      *
-     * @param pagination Pagination options. This parameter exists in alpha. (required)
+     * @param pagination Pagination options. This parameter exists in beta. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -826,8 +826,8 @@ public class TransformationsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
             "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json",
             "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -836,7 +836,7 @@ public class TransformationsApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/vnd.segment.v1alpha+json", "application/vnd.segment.v1beta+json"
+            "application/vnd.segment.v1beta+json", "application/vnd.segment.v1alpha+json"
         };
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);

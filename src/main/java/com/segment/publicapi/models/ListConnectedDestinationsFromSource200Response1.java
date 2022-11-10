@@ -35,12 +35,12 @@ public class ListConnectedDestinationsFromSource200Response1 {
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    private ListConnectedDestinationsFromSourceV1Output data;
+    private ListConnectedDestinationsFromSourceAlphaOutput data;
 
     public ListConnectedDestinationsFromSource200Response1() {}
 
     public ListConnectedDestinationsFromSource200Response1 data(
-            ListConnectedDestinationsFromSourceV1Output data) {
+            ListConnectedDestinationsFromSourceAlphaOutput data) {
 
         this.data = data;
         return this;
@@ -53,11 +53,11 @@ public class ListConnectedDestinationsFromSource200Response1 {
      */
     @javax.annotation.Nullable
     @ApiModelProperty(value = "")
-    public ListConnectedDestinationsFromSourceV1Output getData() {
+    public ListConnectedDestinationsFromSourceAlphaOutput getData() {
         return data;
     }
 
-    public void setData(ListConnectedDestinationsFromSourceV1Output data) {
+    public void setData(ListConnectedDestinationsFromSourceAlphaOutput data) {
         this.data = data;
     }
 

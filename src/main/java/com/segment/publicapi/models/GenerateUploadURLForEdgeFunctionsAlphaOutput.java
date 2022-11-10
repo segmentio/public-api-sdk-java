@@ -56,8 +56,8 @@ public class GenerateUploadURLForEdgeFunctionsAlphaOutput {
     @ApiModelProperty(
             required = true,
             value =
-                    "A temporary URL that can be used to upload your Edge Functions bundle."
-                            + " Expires in 15 minutes.")
+                    "A temporary URL that can be used to upload your Edge Functions bundle. Expires"
+                            + " in 15 minutes.")
     public String getUploadURL() {
         return uploadURL;
     }

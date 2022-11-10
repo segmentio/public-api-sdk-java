@@ -199,8 +199,8 @@ public class DeliveryMetricsSummary {
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in DeliveryMetricsSummary is not found"
-                                        + " in the empty JSON string",
+                                "The required field(s) %s in DeliveryMetricsSummary is not found in"
+                                        + " the empty JSON string",
                                 DeliveryMetricsSummary.openapiRequiredFields.toString()));
             }
         }
@@ -244,8 +244,8 @@ public class DeliveryMetricsSummary {
         if (!jsonObj.get("metrics").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `metrics` to be an array in the JSON string but"
-                                    + " got `%s`",
+                            "Expected the field `metrics` to be an array in the JSON string but got"
+                                    + " `%s`",
                             jsonObj.get("metrics").toString()));
         }
 

@@ -169,8 +169,8 @@ public class DeleteFunctionV1Output {
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in DeleteFunctionV1Output is not found"
-                                        + " in the empty JSON string",
+                                "The required field(s) %s in DeleteFunctionV1Output is not found in"
+                                        + " the empty JSON string",
                                 DeleteFunctionV1Output.openapiRequiredFields.toString()));
             }
         }

@@ -41,10 +41,10 @@ import org.openapitools.jackson.nullable.JsonNullable;
  */
 @ApiModel(
         description =
-                "Pagination metadata for a list response.  Responses return this object alongside"
-                    + " a list of resources, which provides the necessary metadata for"
-                    + " manipulating a paginated collection. In operations that return lists, it's"
-                    + " always present, though some of its fields might not be.")
+                "Pagination metadata for a list response.  Responses return this object alongside a"
+                    + " list of resources, which provides the necessary metadata for manipulating a"
+                    + " paginated collection. In operations that return lists, it's always present,"
+                    + " though some of its fields might not be.")
 public class PaginationOutput {
     public static final String SERIALIZED_NAME_CURRENT = "current";
 
@@ -285,8 +285,8 @@ public class PaginationOutput {
         if (!jsonObj.get("current").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `current` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
+                            "Expected the field `current` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
                             jsonObj.get("current").toString()));
         }
         if ((jsonObj.get("next") != null && !jsonObj.get("next").isJsonNull())

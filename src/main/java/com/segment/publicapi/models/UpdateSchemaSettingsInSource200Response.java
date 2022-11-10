@@ -124,8 +124,8 @@ public class UpdateSchemaSettingsInSource200Response {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in"
-                                        + " UpdateSchemaSettingsInSource200Response is not found in"
-                                        + " the empty JSON string",
+                                    + " UpdateSchemaSettingsInSource200Response is not found in the"
+                                    + " empty JSON string",
                                 UpdateSchemaSettingsInSource200Response.openapiRequiredFields
                                         .toString()));
             }
@@ -138,8 +138,8 @@ public class UpdateSchemaSettingsInSource200Response {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `UpdateSchemaSettingsInSource200Response` properties."
-                                        + " JSON: %s",
+                                    + " `UpdateSchemaSettingsInSource200Response` properties. JSON:"
+                                    + " %s",
                                 entry.getKey(), jsonObj.toString()));
             }
         }

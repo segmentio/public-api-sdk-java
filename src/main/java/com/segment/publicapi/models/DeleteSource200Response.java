@@ -35,11 +35,11 @@ public class DeleteSource200Response {
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    private DeleteSourceAlphaOutput data;
+    private DeleteSourceV1Output data;
 
     public DeleteSource200Response() {}
 
-    public DeleteSource200Response data(DeleteSourceAlphaOutput data) {
+    public DeleteSource200Response data(DeleteSourceV1Output data) {
 
         this.data = data;
         return this;
@@ -52,11 +52,11 @@ public class DeleteSource200Response {
      */
     @javax.annotation.Nullable
     @ApiModelProperty(value = "")
-    public DeleteSourceAlphaOutput getData() {
+    public DeleteSourceV1Output getData() {
         return data;
     }
 
-    public void setData(DeleteSourceAlphaOutput data) {
+    public void setData(DeleteSourceV1Output data) {
         this.data = data;
     }
 

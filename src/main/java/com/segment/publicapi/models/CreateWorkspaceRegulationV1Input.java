@@ -219,8 +219,8 @@ public class CreateWorkspaceRegulationV1Input {
     @ApiModelProperty(
             required = true,
             value =
-                    "The user or object ids of the subjects to regulate.  Config API note: equal"
-                            + " to `parent` but allows an array.")
+                    "The user or object ids of the subjects to regulate.  Config API note: equal to"
+                            + " `parent` but allows an array.")
     public List<String> getSubjectIds() {
         return subjectIds;
     }
@@ -331,8 +331,8 @@ public class CreateWorkspaceRegulationV1Input {
         if (!jsonObj.get("regulationType").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `regulationType` to be a primitive type in the"
-                                    + " JSON string but got `%s`",
+                            "Expected the field `regulationType` to be a primitive type in the JSON"
+                                    + " string but got `%s`",
                             jsonObj.get("regulationType").toString()));
         }
         if (!jsonObj.get("subjectType").isJsonPrimitive()) {

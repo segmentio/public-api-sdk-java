@@ -42,8 +42,7 @@ import java.util.Set;
 @ApiModel(
         description =
                 "SourceEventVolume represents a time series of event volume for a Workspace broken"
-                        + " down by the dimensions which the customer specifies (optional"
-                        + " parameters).")
+                    + " down by the dimensions which the customer specifies (optional parameters).")
 public class SourceEventVolumeV1 {
     public static final String SERIALIZED_NAME_SOURCE = "source";
 

@@ -384,8 +384,8 @@ public class UpsertRuleV1 {
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in UpsertRuleV1 is not found in the"
-                                        + " empty JSON string",
+                                "The required field(s) %s in UpsertRuleV1 is not found in the empty"
+                                        + " JSON string",
                                 UpsertRuleV1.openapiRequiredFields.toString()));
             }
         }
@@ -430,8 +430,8 @@ public class UpsertRuleV1 {
                 && !jsonObj.get("key").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `key` to be a primitive type in the JSON string"
-                                    + " but got `%s`",
+                            "Expected the field `key` to be a primitive type in the JSON string but"
+                                    + " got `%s`",
                             jsonObj.get("key").toString()));
         }
         if ((jsonObj.get("createdAt") != null && !jsonObj.get("createdAt").isJsonNull())

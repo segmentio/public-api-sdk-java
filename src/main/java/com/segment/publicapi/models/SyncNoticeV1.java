@@ -186,8 +186,8 @@ public class SyncNoticeV1 {
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in SyncNoticeV1 is not found in the"
-                                        + " empty JSON string",
+                                "The required field(s) %s in SyncNoticeV1 is not found in the empty"
+                                        + " JSON string",
                                 SyncNoticeV1.openapiRequiredFields.toString()));
             }
         }
@@ -223,8 +223,8 @@ public class SyncNoticeV1 {
         if (!jsonObj.get("message").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `message` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
+                            "Expected the field `message` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
                             jsonObj.get("message").toString()));
         }
         if (!jsonObj.get("createdAt").isJsonPrimitive()) {

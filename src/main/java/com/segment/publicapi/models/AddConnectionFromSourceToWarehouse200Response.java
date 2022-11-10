@@ -141,8 +141,8 @@ public class AddConnectionFromSourceToWarehouse200Response {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `AddConnectionFromSourceToWarehouse200Response`"
-                                        + " properties. JSON: %s",
+                                    + " `AddConnectionFromSourceToWarehouse200Response` properties."
+                                    + " JSON: %s",
                                 entry.getKey(), jsonObj.toString()));
             }
         }

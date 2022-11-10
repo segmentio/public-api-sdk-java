@@ -301,8 +301,8 @@ public class Destination2 {
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in Destination2 is not found in the"
-                                        + " empty JSON string",
+                                "The required field(s) %s in Destination2 is not found in the empty"
+                                        + " JSON string",
                                 Destination2.openapiRequiredFields.toString()));
             }
         }

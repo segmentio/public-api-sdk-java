@@ -158,7 +158,7 @@ public class Warehouse2 {
      *
      * @return settings
      */
-    @javax.annotation.Nonnull
+    @javax.annotation.Nullable
     @ApiModelProperty(
             required = true,
             value =

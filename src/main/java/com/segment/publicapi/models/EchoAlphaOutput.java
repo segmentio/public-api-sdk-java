@@ -283,8 +283,8 @@ public class EchoAlphaOutput {
         if (!jsonObj.get("message").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `message` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
+                            "Expected the field `message` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
                             jsonObj.get("message").toString()));
         }
     }

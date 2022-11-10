@@ -79,7 +79,7 @@ public class CreateValidationInWarehouseV1Input {
      *
      * @return settings
      */
-    @javax.annotation.Nonnull
+    @javax.annotation.Nullable
     @ApiModelProperty(required = true, value = "The settings to check.")
     public Map getSettings() {
         return settings;

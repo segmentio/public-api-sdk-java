@@ -70,9 +70,9 @@ public class ApiCallsApi {
      * Build call for getDailyPerSourceAPICallsUsage
      *
      * @param period The start of the usage month in the ISO-8601 format. This parameter exists in
-     *     alpha. (required)
+     *     v1. (required)
      * @param pagination Pagination input for per Source API calls counts. This parameter exists in
-     *     alpha. (required)
+     *     v1. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -121,10 +121,10 @@ public class ApiCallsApi {
         }
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -183,9 +183,9 @@ public class ApiCallsApi {
      * a usage period.
      *
      * @param period The start of the usage month in the ISO-8601 format. This parameter exists in
-     *     alpha. (required)
+     *     v1. (required)
      * @param pagination Pagination input for per Source API calls counts. This parameter exists in
-     *     alpha. (required)
+     *     v1. (required)
      * @return GetDailyPerSourceAPICallsUsage200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -210,9 +210,9 @@ public class ApiCallsApi {
      * a usage period.
      *
      * @param period The start of the usage month in the ISO-8601 format. This parameter exists in
-     *     alpha. (required)
+     *     v1. (required)
      * @param pagination Pagination input for per Source API calls counts. This parameter exists in
-     *     alpha. (required)
+     *     v1. (required)
      * @return ApiResponse&lt;GetDailyPerSourceAPICallsUsage200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -240,9 +240,9 @@ public class ApiCallsApi {
      * API call counts for a usage period.
      *
      * @param period The start of the usage month in the ISO-8601 format. This parameter exists in
-     *     alpha. (required)
+     *     v1. (required)
      * @param pagination Pagination input for per Source API calls counts. This parameter exists in
-     *     alpha. (required)
+     *     v1. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -273,9 +273,9 @@ public class ApiCallsApi {
      * Build call for getDailyWorkspaceAPICallsUsage
      *
      * @param period The start of the usage month in the ISO-8601 format. This parameter exists in
-     *     alpha. (required)
+     *     v1. (required)
      * @param pagination Pagination input for Workspace API call counts. This parameter exists in
-     *     alpha. (required)
+     *     v1. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -324,10 +324,10 @@ public class ApiCallsApi {
         }
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -386,9 +386,9 @@ public class ApiCallsApi {
      * period.
      *
      * @param period The start of the usage month in the ISO-8601 format. This parameter exists in
-     *     alpha. (required)
+     *     v1. (required)
      * @param pagination Pagination input for Workspace API call counts. This parameter exists in
-     *     alpha. (required)
+     *     v1. (required)
      * @return GetDailyWorkspaceAPICallsUsage200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -413,9 +413,9 @@ public class ApiCallsApi {
      * period.
      *
      * @param period The start of the usage month in the ISO-8601 format. This parameter exists in
-     *     alpha. (required)
+     *     v1. (required)
      * @param pagination Pagination input for Workspace API call counts. This parameter exists in
-     *     alpha. (required)
+     *     v1. (required)
      * @return ApiResponse&lt;GetDailyWorkspaceAPICallsUsage200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -443,9 +443,9 @@ public class ApiCallsApi {
      * counts for a usage period.
      *
      * @param period The start of the usage month in the ISO-8601 format. This parameter exists in
-     *     alpha. (required)
+     *     v1. (required)
      * @param pagination Pagination input for Workspace API call counts. This parameter exists in
-     *     alpha. (required)
+     *     v1. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body

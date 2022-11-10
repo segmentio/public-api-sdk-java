@@ -169,8 +169,8 @@ public class ListSubscriptionsFromDestinationAlphaOutput {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in"
-                                    + " ListSubscriptionsFromDestinationAlphaOutput is not found"
-                                    + " in the empty JSON string",
+                                    + " ListSubscriptionsFromDestinationAlphaOutput is not found in"
+                                    + " the empty JSON string",
                                 ListSubscriptionsFromDestinationAlphaOutput.openapiRequiredFields
                                         .toString()));
             }

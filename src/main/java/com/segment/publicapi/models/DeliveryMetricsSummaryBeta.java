@@ -245,8 +245,8 @@ public class DeliveryMetricsSummaryBeta {
         if (!jsonObj.get("metrics").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `metrics` to be an array in the JSON string but"
-                                    + " got `%s`",
+                            "Expected the field `metrics` to be an array in the JSON string but got"
+                                    + " `%s`",
                             jsonObj.get("metrics").toString()));
         }
 

@@ -276,8 +276,8 @@ public class Pagination {
         if (!jsonObj.get("current").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `current` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
+                            "Expected the field `current` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
                             jsonObj.get("current").toString()));
         }
         if ((jsonObj.get("next") != null && !jsonObj.get("next").isJsonNull())

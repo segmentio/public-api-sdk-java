@@ -402,8 +402,8 @@ public class SyncV1 {
         if (!jsonObj.get("end").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `end` to be a primitive type in the JSON string"
-                                    + " but got `%s`",
+                            "Expected the field `end` to be a primitive type in the JSON string but"
+                                    + " got `%s`",
                             jsonObj.get("end").toString()));
         }
         if (!jsonObj.get("status").isJsonPrimitive()) {
@@ -424,8 +424,8 @@ public class SyncV1 {
         if (!jsonObj.get("notices").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `notices` to be an array in the JSON string but"
-                                    + " got `%s`",
+                            "Expected the field `notices` to be an array in the JSON string but got"
+                                    + " `%s`",
                             jsonObj.get("notices").toString()));
         }
 

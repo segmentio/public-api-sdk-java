@@ -360,8 +360,8 @@ public class TrackSourceSettingsV1 {
                 && !jsonObj.get("commonEventOnViolations").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `commonEventOnViolations` to be a primitive type"
-                                    + " in the JSON string but got `%s`",
+                            "Expected the field `commonEventOnViolations` to be a primitive type in"
+                                    + " the JSON string but got `%s`",
                             jsonObj.get("commonEventOnViolations").toString()));
         }
     }

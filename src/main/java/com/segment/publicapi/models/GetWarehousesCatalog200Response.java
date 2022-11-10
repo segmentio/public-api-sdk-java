@@ -123,8 +123,8 @@ public class GetWarehousesCatalog200Response {
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in GetWarehousesCatalog200Response is"
-                                        + " not found in the empty JSON string",
+                                "The required field(s) %s in GetWarehousesCatalog200Response is not"
+                                        + " found in the empty JSON string",
                                 GetWarehousesCatalog200Response.openapiRequiredFields.toString()));
             }
         }

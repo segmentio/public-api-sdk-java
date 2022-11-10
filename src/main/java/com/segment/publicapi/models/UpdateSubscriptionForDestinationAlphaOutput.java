@@ -128,8 +128,8 @@ public class UpdateSubscriptionForDestinationAlphaOutput {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in"
-                                    + " UpdateSubscriptionForDestinationAlphaOutput is not found"
-                                    + " in the empty JSON string",
+                                    + " UpdateSubscriptionForDestinationAlphaOutput is not found in"
+                                    + " the empty JSON string",
                                 UpdateSubscriptionForDestinationAlphaOutput.openapiRequiredFields
                                         .toString()));
             }

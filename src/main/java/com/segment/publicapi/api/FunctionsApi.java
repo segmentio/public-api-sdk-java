@@ -116,10 +116,10 @@ public class FunctionsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -127,9 +127,9 @@ public class FunctionsApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/vnd.segment.v1alpha+json",
+            "application/vnd.segment.v1+json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1+json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
@@ -295,10 +295,10 @@ public class FunctionsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -472,10 +472,10 @@ public class FunctionsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -644,10 +644,10 @@ public class FunctionsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -770,9 +770,9 @@ public class FunctionsApi {
     /**
      * Build call for listFunctions
      *
-     * @param pagination Pagination parameters. This parameter exists in alpha. (required)
+     * @param pagination Pagination parameters. This parameter exists in v1. (required)
      * @param resourceType The Function type. Config API note: equal to &#x60;type&#x60;. This
-     *     parameter exists in alpha. (required)
+     *     parameter exists in v1. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -822,10 +822,10 @@ public class FunctionsApi {
         }
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -883,9 +883,9 @@ public class FunctionsApi {
      * this endpoint, the specified Workspace needs to have the Functions feature enabled. Please
      * reach out to your customer success manager for more information.
      *
-     * @param pagination Pagination parameters. This parameter exists in alpha. (required)
+     * @param pagination Pagination parameters. This parameter exists in v1. (required)
      * @param resourceType The Function type. Config API note: equal to &#x60;type&#x60;. This
-     *     parameter exists in alpha. (required)
+     *     parameter exists in v1. (required)
      * @return ListFunctions200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -910,9 +910,9 @@ public class FunctionsApi {
      * this endpoint, the specified Workspace needs to have the Functions feature enabled. Please
      * reach out to your customer success manager for more information.
      *
-     * @param pagination Pagination parameters. This parameter exists in alpha. (required)
+     * @param pagination Pagination parameters. This parameter exists in v1. (required)
      * @param resourceType The Function type. Config API note: equal to &#x60;type&#x60;. This
-     *     parameter exists in alpha. (required)
+     *     parameter exists in v1. (required)
      * @return ApiResponse&lt;ListFunctions200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -937,9 +937,9 @@ public class FunctionsApi {
      * successfully call this endpoint, the specified Workspace needs to have the Functions feature
      * enabled. Please reach out to your customer success manager for more information.
      *
-     * @param pagination Pagination parameters. This parameter exists in alpha. (required)
+     * @param pagination Pagination parameters. This parameter exists in v1. (required)
      * @param resourceType The Function type. Config API note: equal to &#x60;type&#x60;. This
-     *     parameter exists in alpha. (required)
+     *     parameter exists in v1. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -1016,10 +1016,10 @@ public class FunctionsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1+json",
-            "application/json"
+            "application/json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1027,9 +1027,9 @@ public class FunctionsApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/vnd.segment.v1alpha+json",
+            "application/vnd.segment.v1+json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1+json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);

@@ -235,8 +235,8 @@ public class PermissionV1 {
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in PermissionV1 is not found in the"
-                                        + " empty JSON string",
+                                "The required field(s) %s in PermissionV1 is not found in the empty"
+                                        + " JSON string",
                                 PermissionV1.openapiRequiredFields.toString()));
             }
         }

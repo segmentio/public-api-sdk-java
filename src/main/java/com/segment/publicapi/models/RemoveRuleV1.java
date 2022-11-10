@@ -239,8 +239,8 @@ public class RemoveRuleV1 {
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in RemoveRuleV1 is not found in the"
-                                        + " empty JSON string",
+                                "The required field(s) %s in RemoveRuleV1 is not found in the empty"
+                                        + " JSON string",
                                 RemoveRuleV1.openapiRequiredFields.toString()));
             }
         }
@@ -277,8 +277,8 @@ public class RemoveRuleV1 {
                 && !jsonObj.get("key").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `key` to be a primitive type in the JSON string"
-                                    + " but got `%s`",
+                            "Expected the field `key` to be a primitive type in the JSON string but"
+                                    + " got `%s`",
                             jsonObj.get("key").toString()));
         }
     }

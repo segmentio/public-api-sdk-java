@@ -381,8 +381,8 @@ public class ListFunctionItemV1 {
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in ListFunctionItemV1 is not found in"
-                                        + " the empty JSON string",
+                                "The required field(s) %s in ListFunctionItemV1 is not found in the"
+                                        + " empty JSON string",
                                 ListFunctionItemV1.openapiRequiredFields.toString()));
             }
         }
@@ -450,8 +450,8 @@ public class ListFunctionItemV1 {
                 && !jsonObj.get("logoUrl").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `logoUrl` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
+                            "Expected the field `logoUrl` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
                             jsonObj.get("logoUrl").toString()));
         }
         if ((jsonObj.get("catalogId") != null && !jsonObj.get("catalogId").isJsonNull())

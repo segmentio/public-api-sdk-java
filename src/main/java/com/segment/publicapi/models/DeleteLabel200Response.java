@@ -35,11 +35,11 @@ public class DeleteLabel200Response {
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    private DeleteLabelAlphaOutput data;
+    private DeleteLabelV1Output data;
 
     public DeleteLabel200Response() {}
 
-    public DeleteLabel200Response data(DeleteLabelAlphaOutput data) {
+    public DeleteLabel200Response data(DeleteLabelV1Output data) {
 
         this.data = data;
         return this;
@@ -52,11 +52,11 @@ public class DeleteLabel200Response {
      */
     @javax.annotation.Nullable
     @ApiModelProperty(value = "")
-    public DeleteLabelAlphaOutput getData() {
+    public DeleteLabelV1Output getData() {
         return data;
     }
 
-    public void setData(DeleteLabelAlphaOutput data) {
+    public void setData(DeleteLabelV1Output data) {
         this.data = data;
     }
 
@@ -121,8 +121,8 @@ public class DeleteLabel200Response {
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in DeleteLabel200Response is not found"
-                                        + " in the empty JSON string",
+                                "The required field(s) %s in DeleteLabel200Response is not found in"
+                                        + " the empty JSON string",
                                 DeleteLabel200Response.openapiRequiredFields.toString()));
             }
         }

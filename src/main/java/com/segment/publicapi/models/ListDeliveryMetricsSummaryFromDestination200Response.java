@@ -126,8 +126,8 @@ public class ListDeliveryMetricsSummaryFromDestination200Response {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in"
-                                        + " ListDeliveryMetricsSummaryFromDestination200Response is"
-                                        + " not found in the empty JSON string",
+                                    + " ListDeliveryMetricsSummaryFromDestination200Response is not"
+                                    + " found in the empty JSON string",
                                 ListDeliveryMetricsSummaryFromDestination200Response
                                         .openapiRequiredFields
                                         .toString()));

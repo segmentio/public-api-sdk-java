@@ -262,8 +262,8 @@ public class RequestError {
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in RequestError is not found in the"
-                                        + " empty JSON string",
+                                "The required field(s) %s in RequestError is not found in the empty"
+                                        + " JSON string",
                                 RequestError.openapiRequiredFields.toString()));
             }
         }
@@ -300,8 +300,8 @@ public class RequestError {
                 && !jsonObj.get("message").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `message` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
+                            "Expected the field `message` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
                             jsonObj.get("message").toString()));
         }
         if ((jsonObj.get("field") != null && !jsonObj.get("field").isJsonNull())

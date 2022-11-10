@@ -124,8 +124,8 @@ public class RemoveSourceFromTrackingPlan200Response {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in"
-                                        + " RemoveSourceFromTrackingPlan200Response is not found in"
-                                        + " the empty JSON string",
+                                    + " RemoveSourceFromTrackingPlan200Response is not found in the"
+                                    + " empty JSON string",
                                 RemoveSourceFromTrackingPlan200Response.openapiRequiredFields
                                         .toString()));
             }
@@ -138,8 +138,8 @@ public class RemoveSourceFromTrackingPlan200Response {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `RemoveSourceFromTrackingPlan200Response` properties."
-                                        + " JSON: %s",
+                                    + " `RemoveSourceFromTrackingPlan200Response` properties. JSON:"
+                                    + " %s",
                                 entry.getKey(), jsonObj.toString()));
             }
         }

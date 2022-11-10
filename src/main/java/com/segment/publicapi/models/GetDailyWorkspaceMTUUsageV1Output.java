@@ -203,8 +203,8 @@ public class GetDailyWorkspaceMTUUsageV1Output {
         if (!jsonObj.get("dailyWorkspaceMTUUsage").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `dailyWorkspaceMTUUsage` to be an array in the"
-                                    + " JSON string but got `%s`",
+                            "Expected the field `dailyWorkspaceMTUUsage` to be an array in the JSON"
+                                    + " string but got `%s`",
                             jsonObj.get("dailyWorkspaceMTUUsage").toString()));
         }
 

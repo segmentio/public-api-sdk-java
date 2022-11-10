@@ -163,8 +163,8 @@ public class CreateInvitesV1Input {
         if (!jsonObj.get("invites").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `invites` to be an array in the JSON string but"
-                                    + " got `%s`",
+                            "Expected the field `invites` to be an array in the JSON string but got"
+                                    + " `%s`",
                             jsonObj.get("invites").toString()));
         }
 

@@ -132,8 +132,8 @@ public class ListLabelsV1Output {
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in ListLabelsV1Output is not found in"
-                                        + " the empty JSON string",
+                                "The required field(s) %s in ListLabelsV1Output is not found in the"
+                                        + " empty JSON string",
                                 ListLabelsV1Output.openapiRequiredFields.toString()));
             }
         }

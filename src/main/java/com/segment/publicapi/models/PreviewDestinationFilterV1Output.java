@@ -39,8 +39,8 @@ import java.util.Set;
  */
 @ApiModel(
         description =
-                "Preview output from applying the Destination filter. Segment modifies or"
-                        + " nullifies payloads depending on the provided filter actions.")
+                "Preview output from applying the Destination filter. Segment modifies or nullifies"
+                        + " payloads depending on the provided filter actions.")
 public class PreviewDestinationFilterV1Output {
     public static final String SERIALIZED_NAME_INPUT_PAYLOAD = "inputPayload";
 

@@ -176,8 +176,8 @@ public class ListSyncsFromWarehouseAndSourceV1Output {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in"
-                                        + " ListSyncsFromWarehouseAndSourceV1Output is not found in"
-                                        + " the empty JSON string",
+                                    + " ListSyncsFromWarehouseAndSourceV1Output is not found in the"
+                                    + " empty JSON string",
                                 ListSyncsFromWarehouseAndSourceV1Output.openapiRequiredFields
                                         .toString()));
             }
@@ -190,8 +190,8 @@ public class ListSyncsFromWarehouseAndSourceV1Output {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `ListSyncsFromWarehouseAndSourceV1Output` properties."
-                                        + " JSON: %s",
+                                    + " `ListSyncsFromWarehouseAndSourceV1Output` properties. JSON:"
+                                    + " %s",
                                 entry.getKey(), jsonObj.toString()));
             }
         }
@@ -209,8 +209,8 @@ public class ListSyncsFromWarehouseAndSourceV1Output {
         if (!jsonObj.get("reports").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `reports` to be an array in the JSON string but"
-                                    + " got `%s`",
+                            "Expected the field `reports` to be an array in the JSON string but got"
+                                    + " `%s`",
                             jsonObj.get("reports").toString()));
         }
 

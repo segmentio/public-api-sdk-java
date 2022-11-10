@@ -467,8 +467,8 @@ public class DestinationMetadataActionV1 {
         if (!jsonObj.get("defaultTrigger").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `defaultTrigger` to be a primitive type in the"
-                                    + " JSON string but got `%s`",
+                            "Expected the field `defaultTrigger` to be a primitive type in the JSON"
+                                    + " string but got `%s`",
                             jsonObj.get("defaultTrigger").toString()));
         }
         // ensure the json data is an array

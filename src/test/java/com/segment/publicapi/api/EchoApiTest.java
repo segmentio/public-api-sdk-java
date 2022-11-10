@@ -16,7 +16,7 @@ package com.segment.publicapi.api;
 import com.google.gson.Gson;
 import com.segment.publicapi.ApiException;
 import com.segment.publicapi.models.Echo200Response;
-import com.segment.publicapi.models.EchoAlphaOutput;
+import com.segment.publicapi.models.EchoV1Output;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
@@ -53,9 +53,9 @@ public class EchoApiTest {
                         Echo200Response echo200Response =
                                 new Echo200Response()
                                         .data(
-                                                new EchoAlphaOutput()
+                                                new EchoV1Output()
                                                         .headers(new HashMap<>())
-                                                        .method(EchoAlphaOutput.MethodEnum.GET)
+                                                        .method(EchoV1Output.MethodEnum.GET)
                                                         .message(message));
                         byte[] response = gson.toJson(echo200Response).getBytes();
                         exchange.sendResponseHeaders(HttpURLConnection.HTTP_OK, response.length);
