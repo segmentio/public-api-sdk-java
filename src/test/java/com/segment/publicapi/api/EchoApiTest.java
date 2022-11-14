@@ -10,28 +10,23 @@
  * Do not edit the class manually.
  */
 
-
 package com.segment.publicapi.api;
+
 
 import com.google.gson.Gson;
 import com.segment.publicapi.ApiException;
 import com.segment.publicapi.models.Echo200Response;
-import com.segment.publicapi.models.EchoAlphaOutput;
+import com.segment.publicapi.models.EchoV1Output;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
-import org.junit.jupiter.api.Test;
-
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
 import java.util.HashMap;
-import java.util.Map;
+import org.junit.jupiter.api.Test;
 
-/**
- * API tests for TestingApi
- */
-
+/** API tests for TestingApi */
 public class EchoApiTest {
 
     private final TestingApi api = new TestingApi();
@@ -39,7 +34,7 @@ public class EchoApiTest {
     /**
      * Echo
      *
-     * Public Echo endpoint.
+     * <p>Public Echo endpoint.
      *
      * @throws ApiException if the Api call fails
      */
@@ -49,18 +44,25 @@ public class EchoApiTest {
 
         int port = 8000;
         HttpServer httpServer = HttpServer.create(new InetSocketAddress(port), 0);
-        httpServer.createContext("/echo", new HttpHandler() {
-            @Override
-            public void handle(HttpExchange exchange) throws IOException {
-                Gson gson = new Gson();
-                Echo200Response echo200Response = new Echo200Response().data(
-                        new EchoAlphaOutput().headers(new HashMap<>()).method(EchoAlphaOutput.MethodEnum.GET).message(message));
-                byte[] response = gson.toJson(echo200Response).getBytes();
-                exchange.sendResponseHeaders(HttpURLConnection.HTTP_OK, response.length);
-                exchange.getResponseBody().write(response);
-                exchange.close();
-            }
-        });
+        httpServer.createContext(
+                "/echo",
+                new HttpHandler() {
+                    @Override
+                    public void handle(HttpExchange exchange) throws IOException {
+                        Gson gson = new Gson();
+                        Echo200Response echo200Response =
+                                new Echo200Response()
+                                        .data(
+                                                new EchoV1Output()
+                                                        .headers(new HashMap<>())
+                                                        .method(EchoV1Output.MethodEnum.GET)
+                                                        .message(message));
+                        byte[] response = gson.toJson(echo200Response).getBytes();
+                        exchange.sendResponseHeaders(HttpURLConnection.HTTP_OK, response.length);
+                        exchange.getResponseBody().write(response);
+                        exchange.close();
+                    }
+                });
         httpServer.start();
 
         try {
