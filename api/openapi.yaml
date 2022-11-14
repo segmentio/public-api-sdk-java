@@ -13,7 +13,7 @@ info:
     \ in a Workspace.\n\nSee the next sections for more information on how to use\
     \ the Segment Public API.\n"
   title: Segment Public API
-  version: 32.0.4
+  version: 32.0.5
   x-logo:
     url: https://brand.segment.com/site-assets/images/brand-guidelines/content/twilio/twilio-segment-logo.png
     backgroundColor: '#ebf4ff'
