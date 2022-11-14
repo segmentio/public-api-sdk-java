@@ -4844,7 +4844,6 @@ paths:
           description: The regulation types on which to filter returned regulations.
           items:
             enum:
-            - BULK_DELETE_ONLY
             - DELETE_INTERNAL
             - DELETE_ONLY
             - SUPPRESS_ONLY
@@ -6587,7 +6586,6 @@ paths:
           description: The regulation types on which to filter returned regulations.
           items:
             enum:
-            - BULK_DELETE_ONLY
             - DELETE_INTERNAL
             - DELETE_ONLY
             - SUPPRESS_ONLY
@@ -26720,7 +26718,6 @@ components:
         regulationType:
           description: The regulation type to create.
           enum:
-          - BULK_DELETE_ONLY
           - DELETE_INTERNAL
           - DELETE_ONLY
           - SUPPRESS_ONLY
@@ -26855,7 +26852,6 @@ components:
         regulationType:
           description: The regulation type to create.
           enum:
-          - BULK_DELETE_ONLY
           - DELETE_INTERNAL
           - DELETE_ONLY
           - SUPPRESS_ONLY
@@ -26899,7 +26895,6 @@ components:
         regulationType:
           description: The regulation type to create.
           enum:
-          - BULK_DELETE_ONLY
           - DELETE_INTERNAL
           - DELETE_ONLY
           - SUPPRESS_ONLY

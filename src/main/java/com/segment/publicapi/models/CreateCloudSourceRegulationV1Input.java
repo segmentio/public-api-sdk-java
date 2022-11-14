@@ -40,8 +40,6 @@ public class CreateCloudSourceRegulationV1Input {
     /** The regulation type to create. */
     @JsonAdapter(RegulationTypeEnum.Adapter.class)
     public enum RegulationTypeEnum {
-        BULK_DELETE_ONLY("BULK_DELETE_ONLY"),
-
         DELETE_INTERNAL("DELETE_INTERNAL"),
 
         DELETE_ONLY("DELETE_ONLY"),
