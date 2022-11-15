@@ -77,6 +77,12 @@ public class Transformation2 {
     @SerializedName(SERIALIZED_NAME_PROPERTY_RENAMES)
     private List<PropertyRenameBeta> propertyRenames = null;
 
+    public static final String SERIALIZED_NAME_PROPERTY_VALUE_TRANSFORMATIONS =
+            "propertyValueTransformations";
+
+    @SerializedName(SERIALIZED_NAME_PROPERTY_VALUE_TRANSFORMATIONS)
+    private List<PropertyValueTransformationBeta> propertyValueTransformations = null;
+
     public Transformation2() {}
 
     public Transformation2 id(String id) {
@@ -269,6 +275,42 @@ public class Transformation2 {
         this.propertyRenames = propertyRenames;
     }
 
+    public Transformation2 propertyValueTransformations(
+            List<PropertyValueTransformationBeta> propertyValueTransformations) {
+
+        this.propertyValueTransformations = propertyValueTransformations;
+        return this;
+    }
+
+    public Transformation2 addPropertyValueTransformationsItem(
+            PropertyValueTransformationBeta propertyValueTransformationsItem) {
+        if (this.propertyValueTransformations == null) {
+            this.propertyValueTransformations = new ArrayList<>();
+        }
+        this.propertyValueTransformations.add(propertyValueTransformationsItem);
+        return this;
+    }
+
+    /**
+     * Optional array for transforming properties and values collected by your events. Limited to 10
+     * properties.
+     *
+     * @return propertyValueTransformations
+     */
+    @javax.annotation.Nullable
+    @ApiModelProperty(
+            value =
+                    "Optional array for transforming properties and values collected by your"
+                            + " events. Limited to 10 properties.")
+    public List<PropertyValueTransformationBeta> getPropertyValueTransformations() {
+        return propertyValueTransformations;
+    }
+
+    public void setPropertyValueTransformations(
+            List<PropertyValueTransformationBeta> propertyValueTransformations) {
+        this.propertyValueTransformations = propertyValueTransformations;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -285,7 +327,10 @@ public class Transformation2 {
                 && Objects.equals(this.enabled, transformation2.enabled)
                 && Objects.equals(this._if, transformation2._if)
                 && Objects.equals(this.newEventName, transformation2.newEventName)
-                && Objects.equals(this.propertyRenames, transformation2.propertyRenames);
+                && Objects.equals(this.propertyRenames, transformation2.propertyRenames)
+                && Objects.equals(
+                        this.propertyValueTransformations,
+                        transformation2.propertyValueTransformations);
     }
 
     @Override
@@ -298,7 +343,8 @@ public class Transformation2 {
                 enabled,
                 _if,
                 newEventName,
-                propertyRenames);
+                propertyRenames,
+                propertyValueTransformations);
     }
 
     @Override
@@ -315,6 +361,9 @@ public class Transformation2 {
         sb.append("    _if: ").append(toIndentedString(_if)).append("\n");
         sb.append("    newEventName: ").append(toIndentedString(newEventName)).append("\n");
         sb.append("    propertyRenames: ").append(toIndentedString(propertyRenames)).append("\n");
+        sb.append("    propertyValueTransformations: ")
+                .append(toIndentedString(propertyValueTransformations))
+                .append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -344,6 +393,7 @@ public class Transformation2 {
         openapiFields.add("if");
         openapiFields.add("newEventName");
         openapiFields.add("propertyRenames");
+        openapiFields.add("propertyValueTransformations");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
@@ -449,6 +499,21 @@ public class Transformation2 {
                                     "Expected the field `propertyRenames` to be an array in the"
                                             + " JSON string but got `%s`",
                                     jsonObj.get("propertyRenames").toString()));
+                }
+            }
+        }
+        if (jsonObj.get("propertyValueTransformations") != null
+                && !jsonObj.get("propertyValueTransformations").isJsonNull()) {
+            JsonArray jsonArraypropertyValueTransformations =
+                    jsonObj.getAsJsonArray("propertyValueTransformations");
+            if (jsonArraypropertyValueTransformations != null) {
+                // ensure the json data is an array
+                if (!jsonObj.get("propertyValueTransformations").isJsonArray()) {
+                    throw new IllegalArgumentException(
+                            String.format(
+                                    "Expected the field `propertyValueTransformations` to be an"
+                                            + " array in the JSON string but got `%s`",
+                                    jsonObj.get("propertyValueTransformations").toString()));
                 }
             }
         }
