@@ -22247,305 +22247,6 @@ components:
       - value
       title: AllowedLabelBeta
       type: object
-    GetDestinationsCatalogV1Input:
-      description: Contains filter parameters used for loading the Destinations public
-        catalog.
-      properties: {}
-      required:
-      - pagination
-      title: GetDestinationsCatalogV1Input
-      type: object
-    GetDestinationsCatalogV1Output:
-      description: Returns a list of all Destination catalog items contained within
-        a given page.
-      example:
-        pagination: null
-        destinationsCatalog:
-        - website: website
-          components:
-          - owner: PARTNER
-            code: code
-            type: ANDROID
-          - owner: PARTNER
-            code: code
-            type: ANDROID
-          supportedFeatures: null
-          description: description
-          logos: null
-          presets:
-          - name: name
-            actionId: actionId
-            trigger: trigger
-            fields:
-              key: ""
-          - name: name
-            actionId: actionId
-            trigger: trigger
-            fields:
-              key: ""
-          supportedMethods: null
-          previousNames:
-          - previousNames
-          - previousNames
-          name: name
-          options:
-          - defaultValue: ""
-            name: name
-            description: description
-            label: label
-            type: type
-            required: true
-          - defaultValue: ""
-            name: name
-            description: description
-            label: label
-            type: type
-            required: true
-          id: id
-          categories:
-          - categories
-          - categories
-          supportedPlatforms: null
-          partnerOwned: true
-          actions:
-          - defaultTrigger: defaultTrigger
-            hidden: true
-            name: name
-            description: description
-            id: id
-            fields:
-            - fieldKey: fieldKey
-              defaultValue: ""
-              multiple: true
-              description: description
-              label: label
-              type: BOOLEAN
-              required: true
-              sortOrder: 0.8008281904610115
-              dynamic: true
-              allowNull: true
-              id: id
-              placeholder: placeholder
-              choices: ""
-            - fieldKey: fieldKey
-              defaultValue: ""
-              multiple: true
-              description: description
-              label: label
-              type: BOOLEAN
-              required: true
-              sortOrder: 0.8008281904610115
-              dynamic: true
-              allowNull: true
-              id: id
-              placeholder: placeholder
-              choices: ""
-            slug: slug
-            platform: CLOUD
-          - defaultTrigger: defaultTrigger
-            hidden: true
-            name: name
-            description: description
-            id: id
-            fields:
-            - fieldKey: fieldKey
-              defaultValue: ""
-              multiple: true
-              description: description
-              label: label
-              type: BOOLEAN
-              required: true
-              sortOrder: 0.8008281904610115
-              dynamic: true
-              allowNull: true
-              id: id
-              placeholder: placeholder
-              choices: ""
-            - fieldKey: fieldKey
-              defaultValue: ""
-              multiple: true
-              description: description
-              label: label
-              type: BOOLEAN
-              required: true
-              sortOrder: 0.8008281904610115
-              dynamic: true
-              allowNull: true
-              id: id
-              placeholder: placeholder
-              choices: ""
-            slug: slug
-            platform: CLOUD
-          slug: slug
-          contacts:
-          - role: role
-            isPrimary: true
-            name: name
-            email: email
-          - role: role
-            isPrimary: true
-            name: name
-            email: email
-          status: DEPRECATED
-        - website: website
-          components:
-          - owner: PARTNER
-            code: code
-            type: ANDROID
-          - owner: PARTNER
-            code: code
-            type: ANDROID
-          supportedFeatures: null
-          description: description
-          logos: null
-          presets:
-          - name: name
-            actionId: actionId
-            trigger: trigger
-            fields:
-              key: ""
-          - name: name
-            actionId: actionId
-            trigger: trigger
-            fields:
-              key: ""
-          supportedMethods: null
-          previousNames:
-          - previousNames
-          - previousNames
-          name: name
-          options:
-          - defaultValue: ""
-            name: name
-            description: description
-            label: label
-            type: type
-            required: true
-          - defaultValue: ""
-            name: name
-            description: description
-            label: label
-            type: type
-            required: true
-          id: id
-          categories:
-          - categories
-          - categories
-          supportedPlatforms: null
-          partnerOwned: true
-          actions:
-          - defaultTrigger: defaultTrigger
-            hidden: true
-            name: name
-            description: description
-            id: id
-            fields:
-            - fieldKey: fieldKey
-              defaultValue: ""
-              multiple: true
-              description: description
-              label: label
-              type: BOOLEAN
-              required: true
-              sortOrder: 0.8008281904610115
-              dynamic: true
-              allowNull: true
-              id: id
-              placeholder: placeholder
-              choices: ""
-            - fieldKey: fieldKey
-              defaultValue: ""
-              multiple: true
-              description: description
-              label: label
-              type: BOOLEAN
-              required: true
-              sortOrder: 0.8008281904610115
-              dynamic: true
-              allowNull: true
-              id: id
-              placeholder: placeholder
-              choices: ""
-            slug: slug
-            platform: CLOUD
-          - defaultTrigger: defaultTrigger
-            hidden: true
-            name: name
-            description: description
-            id: id
-            fields:
-            - fieldKey: fieldKey
-              defaultValue: ""
-              multiple: true
-              description: description
-              label: label
-              type: BOOLEAN
-              required: true
-              sortOrder: 0.8008281904610115
-              dynamic: true
-              allowNull: true
-              id: id
-              placeholder: placeholder
-              choices: ""
-            - fieldKey: fieldKey
-              defaultValue: ""
-              multiple: true
-              description: description
-              label: label
-              type: BOOLEAN
-              required: true
-              sortOrder: 0.8008281904610115
-              dynamic: true
-              allowNull: true
-              id: id
-              placeholder: placeholder
-              choices: ""
-            slug: slug
-            platform: CLOUD
-          slug: slug
-          contacts:
-          - role: role
-            isPrimary: true
-            name: name
-            email: email
-          - role: role
-            isPrimary: true
-            name: name
-            email: email
-          status: DEPRECATED
-      properties:
-        destinationsCatalog:
-          description: All Destination catalog items contained within the requested
-            page.
-          items:
-            $ref: '#/components/schemas/DestinationMetadataV1'
-          title: destinationsCatalog
-          type: array
-        pagination:
-          $ref: '#/components/schemas/pagination'
-      required:
-      - destinationsCatalog
-      - pagination
-      title: GetDestinationsCatalogV1Output
-      type: object
-    GetDestinationMetadataV1Input:
-      description: Loads a Destination catalog item by id.
-      properties: {}
-      required:
-      - destinationMetadataId
-      title: GetDestinationMetadataV1Input
-      type: object
-    GetDestinationMetadataV1Output:
-      description: Returns a Destination catalog item.
-      example:
-        destinationMetadata: null
-      properties:
-        destinationMetadata:
-          $ref: '#/components/schemas/destinationMetadata'
-      required:
-      - destinationMetadata
-      title: GetDestinationMetadataV1Output
-      type: object
     AuditEventV1:
       description: Represents an Audit Trail event.
       example:
@@ -23006,518 +22707,304 @@ components:
       - filter
       title: UpdateFilterForDestinationV1Output
       type: object
-    DestinationSubscription:
-      example:
-        actionSlug: actionSlug
-        settings: ""
-        name: name
-        actionId: actionId
-        id: id
-        trigger: trigger
-        destinationId: destinationId
-        enabled: true
-      properties:
-        id:
-          description: The unique identifier for the subscription.
-          title: id
-          type: string
-        name:
-          description: The name of the subscription.
-          title: name
-          type: string
-        actionId:
-          description: The unique identifier for the Destination action to trigger.
-          title: actionId
-          type: string
-        actionSlug:
-          description: The URL-friendly key for the associated Destination action.
-          title: actionSlug
-          type: string
-        destinationId:
-          description: The associated Destination instance id.
-          title: destinationId
-          type: string
-        enabled:
-          description: Is the subscription enabled.
-          title: enabled
-          type: boolean
-        settings:
-          allOf:
-          - $ref: '#/components/schemas/DestinationSubscriptionFields'
-          description: The customer settings for action fields.
-          title: settings
-        trigger:
-          description: FQL string that describes what events should trigger a Destination
-            action.
-          title: trigger
-          type: string
-      required:
-      - actionId
-      - actionSlug
-      - destinationId
-      - enabled
-      - id
-      - name
-      - settings
-      - trigger
-      title: DestinationSubscription
-      type: object
-    DestinationSubscriptionFields:
-      additionalProperties: {}
-      description: Represents settings used to configure an action subscription.
-      title: DestinationSubscriptionFields
-      type: object
-    ListSubscriptionsFromDestinationAlphaInput:
-      description: Input for ListDestinationSubscriptionsAlpha.
+    GetDestinationsCatalogV1Input:
+      description: Contains filter parameters used for loading the Destinations public
+        catalog.
       properties: {}
       required:
-      - destinationId
-      title: ListSubscriptionsFromDestinationAlphaInput
+      - pagination
+      title: GetDestinationsCatalogV1Input
       type: object
-    ListSubscriptionsFromDestinationAlphaOutput:
-      description: Output for ListDestinationSubscriptionsAlpha.
+    GetDestinationsCatalogV1Output:
+      description: Returns a list of all Destination catalog items contained within
+        a given page.
       example:
-        subscriptions:
-        - actionSlug: actionSlug
-          settings: ""
-          name: name
-          actionId: actionId
-          id: id
-          trigger: trigger
-          destinationId: destinationId
-          enabled: true
-        - actionSlug: actionSlug
-          settings: ""
-          name: name
-          actionId: actionId
-          id: id
-          trigger: trigger
-          destinationId: destinationId
-          enabled: true
         pagination: null
+        destinationsCatalog:
+        - website: website
+          components:
+          - owner: PARTNER
+            code: code
+            type: ANDROID
+          - owner: PARTNER
+            code: code
+            type: ANDROID
+          supportedFeatures: null
+          description: description
+          logos: null
+          presets:
+          - name: name
+            actionId: actionId
+            trigger: trigger
+            fields:
+              key: ""
+          - name: name
+            actionId: actionId
+            trigger: trigger
+            fields:
+              key: ""
+          supportedMethods: null
+          previousNames:
+          - previousNames
+          - previousNames
+          name: name
+          options:
+          - defaultValue: ""
+            name: name
+            description: description
+            label: label
+            type: type
+            required: true
+          - defaultValue: ""
+            name: name
+            description: description
+            label: label
+            type: type
+            required: true
+          id: id
+          categories:
+          - categories
+          - categories
+          supportedPlatforms: null
+          partnerOwned: true
+          actions:
+          - defaultTrigger: defaultTrigger
+            hidden: true
+            name: name
+            description: description
+            id: id
+            fields:
+            - fieldKey: fieldKey
+              defaultValue: ""
+              multiple: true
+              description: description
+              label: label
+              type: BOOLEAN
+              required: true
+              sortOrder: 0.8008281904610115
+              dynamic: true
+              allowNull: true
+              id: id
+              placeholder: placeholder
+              choices: ""
+            - fieldKey: fieldKey
+              defaultValue: ""
+              multiple: true
+              description: description
+              label: label
+              type: BOOLEAN
+              required: true
+              sortOrder: 0.8008281904610115
+              dynamic: true
+              allowNull: true
+              id: id
+              placeholder: placeholder
+              choices: ""
+            slug: slug
+            platform: CLOUD
+          - defaultTrigger: defaultTrigger
+            hidden: true
+            name: name
+            description: description
+            id: id
+            fields:
+            - fieldKey: fieldKey
+              defaultValue: ""
+              multiple: true
+              description: description
+              label: label
+              type: BOOLEAN
+              required: true
+              sortOrder: 0.8008281904610115
+              dynamic: true
+              allowNull: true
+              id: id
+              placeholder: placeholder
+              choices: ""
+            - fieldKey: fieldKey
+              defaultValue: ""
+              multiple: true
+              description: description
+              label: label
+              type: BOOLEAN
+              required: true
+              sortOrder: 0.8008281904610115
+              dynamic: true
+              allowNull: true
+              id: id
+              placeholder: placeholder
+              choices: ""
+            slug: slug
+            platform: CLOUD
+          slug: slug
+          contacts:
+          - role: role
+            isPrimary: true
+            name: name
+            email: email
+          - role: role
+            isPrimary: true
+            name: name
+            email: email
+          status: DEPRECATED
+        - website: website
+          components:
+          - owner: PARTNER
+            code: code
+            type: ANDROID
+          - owner: PARTNER
+            code: code
+            type: ANDROID
+          supportedFeatures: null
+          description: description
+          logos: null
+          presets:
+          - name: name
+            actionId: actionId
+            trigger: trigger
+            fields:
+              key: ""
+          - name: name
+            actionId: actionId
+            trigger: trigger
+            fields:
+              key: ""
+          supportedMethods: null
+          previousNames:
+          - previousNames
+          - previousNames
+          name: name
+          options:
+          - defaultValue: ""
+            name: name
+            description: description
+            label: label
+            type: type
+            required: true
+          - defaultValue: ""
+            name: name
+            description: description
+            label: label
+            type: type
+            required: true
+          id: id
+          categories:
+          - categories
+          - categories
+          supportedPlatforms: null
+          partnerOwned: true
+          actions:
+          - defaultTrigger: defaultTrigger
+            hidden: true
+            name: name
+            description: description
+            id: id
+            fields:
+            - fieldKey: fieldKey
+              defaultValue: ""
+              multiple: true
+              description: description
+              label: label
+              type: BOOLEAN
+              required: true
+              sortOrder: 0.8008281904610115
+              dynamic: true
+              allowNull: true
+              id: id
+              placeholder: placeholder
+              choices: ""
+            - fieldKey: fieldKey
+              defaultValue: ""
+              multiple: true
+              description: description
+              label: label
+              type: BOOLEAN
+              required: true
+              sortOrder: 0.8008281904610115
+              dynamic: true
+              allowNull: true
+              id: id
+              placeholder: placeholder
+              choices: ""
+            slug: slug
+            platform: CLOUD
+          - defaultTrigger: defaultTrigger
+            hidden: true
+            name: name
+            description: description
+            id: id
+            fields:
+            - fieldKey: fieldKey
+              defaultValue: ""
+              multiple: true
+              description: description
+              label: label
+              type: BOOLEAN
+              required: true
+              sortOrder: 0.8008281904610115
+              dynamic: true
+              allowNull: true
+              id: id
+              placeholder: placeholder
+              choices: ""
+            - fieldKey: fieldKey
+              defaultValue: ""
+              multiple: true
+              description: description
+              label: label
+              type: BOOLEAN
+              required: true
+              sortOrder: 0.8008281904610115
+              dynamic: true
+              allowNull: true
+              id: id
+              placeholder: placeholder
+              choices: ""
+            slug: slug
+            platform: CLOUD
+          slug: slug
+          contacts:
+          - role: role
+            isPrimary: true
+            name: name
+            email: email
+          - role: role
+            isPrimary: true
+            name: name
+            email: email
+          status: DEPRECATED
       properties:
-        subscriptions:
-          description: A list of Destination subscriptions.
+        destinationsCatalog:
+          description: All Destination catalog items contained within the requested
+            page.
           items:
-            $ref: '#/components/schemas/DestinationSubscription'
-          title: subscriptions
+            $ref: '#/components/schemas/DestinationMetadataV1'
+          title: destinationsCatalog
           type: array
         pagination:
           $ref: '#/components/schemas/pagination'
       required:
-      - subscriptions
-      title: ListSubscriptionsFromDestinationAlphaOutput
+      - destinationsCatalog
+      - pagination
+      title: GetDestinationsCatalogV1Output
       type: object
-    GetSubscriptionFromDestinationAlphaInput:
-      description: Fetches a Destination subscription.
+    GetDestinationMetadataV1Input:
+      description: Loads a Destination catalog item by id.
       properties: {}
-      required:
-      - destinationId
-      title: GetSubscriptionFromDestinationAlphaInput
-      type: object
-    GetSubscriptionFromDestinationAlphaOutput:
-      description: Returns a subscription for a given subscription id.
-      example:
-        subscription: null
-      properties:
-        subscription:
-          $ref: '#/components/schemas/subscription'
-      required:
-      - subscription
-      title: GetSubscriptionFromDestinationAlphaOutput
-      type: object
-    CreateDestinationSubscriptionAlphaInput:
-      description: The basic input parameters for creating a Destination subscription.
-      properties:
-        name:
-          description: A user-defined name for the subscription.
-          title: name
-          type: string
-        actionId:
-          description: The associated action id the subscription should trigger.
-          title: actionId
-          type: string
-        trigger:
-          description: The FQL statement.
-          title: trigger
-          type: string
-        enabled:
-          description: Is the subscription enabled.
-          title: enabled
-          type: boolean
-        settings:
-          allOf:
-          - $ref: '#/components/schemas/DestinationSubscriptionFields'
-          description: The fields used for configuring this action.
-          title: settings
-      required:
-      - actionId
-      - enabled
-      - name
-      - trigger
-      title: CreateDestinationSubscriptionAlphaInput
-      type: object
-    CreateDestinationSubscriptionAlphaOutput:
-      description: Returns a newly created Destination subscription.
-      example:
-        destinationSubscription: null
-      properties:
-        destinationSubscription:
-          $ref: '#/components/schemas/destinationSubscription'
-      required:
-      - destinationSubscription
-      title: CreateDestinationSubscriptionAlphaOutput
-      type: object
-    DestinationSubscriptionUpdateInput:
-      description: The input parameters for updating a Destination subscription.
-      properties:
-        name:
-          description: The user-defined name for the subscription.
-          title: name
-          type: string
-        trigger:
-          description: The fql statement.
-          title: trigger
-          type: string
-        enabled:
-          description: Is the subscription enabled.
-          title: enabled
-          type: boolean
-        settings:
-          allOf:
-          - $ref: '#/components/schemas/DestinationSubscriptionFields'
-          description: The fields used for configuring this action.
-          title: settings
-      title: DestinationSubscriptionUpdateInput
-      type: object
-    UpdateSubscriptionForDestinationAlphaInput:
-      description: The basic input parameters for updating a Destination subscription.
-      properties:
-        input:
-          $ref: '#/components/schemas/input'
-      required:
-      - destinationId
-      - input
-      title: UpdateSubscriptionForDestinationAlphaInput
-      type: object
-    UpdateSubscriptionForDestinationAlphaOutput:
-      description: Returns the updated Destination subscription.
-      example:
-        subscription: null
-      properties:
-        subscription:
-          $ref: '#/components/schemas/subscription'
-      required:
-      - subscription
-      title: UpdateSubscriptionForDestinationAlphaOutput
-      type: object
-    RemoveSubscriptionFromDestinationAlphaInput:
-      description: Deletes a Destination by id.
-      properties: {}
-      required:
-      - destinationId
-      title: RemoveSubscriptionFromDestinationAlphaInput
-      type: object
-    RemoveSubscriptionFromDestinationAlphaOutput:
-      description: Returns a Destination deletion flag.
-      example:
-        status: SUCCESS
-      properties:
-        status:
-          description: The status of the operation.
-          enum:
-          - SUCCESS
-          title: status
-          type: string
-      required:
-      - status
-      title: RemoveSubscriptionFromDestinationAlphaOutput
-      type: object
-    ListDeliveryMetricsSummaryFromDestinationBetaInput:
-      description: Input to retrieve event delivery metrics summary for a Destination.
-      properties: {}
-      title: ListDeliveryMetricsSummaryFromDestinationBetaInput
-      type: object
-    ListDeliveryMetricsSummaryFromDestinationBetaOutput:
-      description: Output to retrieve event delivery metrics summary for a Destination.
-      example:
-        deliveryMetricsSummary: null
-      properties:
-        deliveryMetricsSummary:
-          $ref: '#/components/schemas/deliveryMetricsSummary'
-      required:
-      - deliveryMetricsSummary
-      title: ListDeliveryMetricsSummaryFromDestinationBetaOutput
-      type: object
-    DeliveryMetricsSummaryBeta:
-      description: Defines the summary of delivery metrics for a Destination.
-      properties:
-        sourceId:
-          description: "The Source id.\n\nConfig API note: analogous to `parent`."
-          title: sourceId
-          type: string
-        destinationMetadataId:
-          description: The Destination metadata id.
-          title: destinationMetadataId
-          type: string
-        metrics:
-          description: The summary of event delivery metrics for the requested Destination.
-          items:
-            $ref: '#/components/schemas/MetricBeta'
-          title: metrics
-          type: array
       required:
       - destinationMetadataId
-      - metrics
-      - sourceId
-      title: DeliveryMetricsSummaryBeta
+      title: GetDestinationMetadataV1Input
       type: object
-    MetricBeta:
-      description: The event delivery metric.
-      properties:
-        metricName:
-          description: The name of the metric.
-          title: metricName
-          type: string
-        total:
-          description: Number of occurrences of the metric.
-          title: total
-          type: number
-        breakdown:
-          description: Breakdown of metrics within a metric.
-          items:
-            $ref: '#/components/schemas/BreakdownBeta'
-          title: breakdown
-          type: array
-      required:
-      - metricName
-      - total
-      title: MetricBeta
-      type: object
-    BreakdownBeta:
-      description: The breakdown of a metric.
-      properties:
-        metricName:
-          description: The name of the metric.
-          title: metricName
-          type: string
-        value:
-          description: Number of occurrences of the metric.
-          title: value
-          type: number
-      required:
-      - metricName
-      - value
-      title: BreakdownBeta
-      type: object
-    DestinationV1:
-      description: "Business tools or apps that you can connect to the data flowing\
-        \ through Segment.\n\nThis is equal to the Destination object in Config API,\
-        \ with the following fields omitted:\n- catalogId\n- createTime\n- updateTime\n\
-        - connectionMode."
+    GetDestinationMetadataV1Output:
+      description: Returns a Destination catalog item.
       example:
-        sourceId: sourceId
-        settings:
-          key: ""
-        metadata: null
-        name: name
-        id: id
-        enabled: true
+        destinationMetadata: null
       properties:
-        id:
-          description: "The unique identifier of this instance of a Destination.\n\
-            \nConfig API note: analogous to `name`."
-          title: id
-          type: string
-        name:
-          description: "The name of this instance of a Destination.\n\nConfig API\
-            \ note: equal to `displayName`."
-          title: name
-          type: string
-        enabled:
-          description: Whether this instance of a Destination receives data.
-          title: enabled
-          type: boolean
-        metadata:
-          $ref: '#/components/schemas/metadata'
-        sourceId:
-          description: "The id of a Source connected to this instance of a Destination.\n\
-            \nConfig API note: analogous to `parent`."
-          title: sourceId
-          type: string
-        settings:
-          additionalProperties: true
-          description: "The collection of settings associated with a Destination.\n\
-            \nConfig API note: equal to `config`."
-          title: settings
-          type: object
+        destinationMetadata:
+          $ref: '#/components/schemas/destinationMetadata'
       required:
-      - enabled
-      - id
-      - metadata
-      - settings
-      - sourceId
-      title: DestinationV1
-      type: object
-    ListDestinationsV1Input:
-      description: Loads all Destinations connected to the current Workspace.
-      properties: {}
-      required:
-      - pagination
-      title: ListDestinationsV1Input
-      type: object
-    ListDestinationsV1Output:
-      description: Returns all Destinations connected to the current Workspace.
-      example:
-        pagination: null
-        destinations:
-        - sourceId: sourceId
-          settings:
-            key: ""
-          metadata: null
-          name: name
-          id: id
-          enabled: true
-        - sourceId: sourceId
-          settings:
-            key: ""
-          metadata: null
-          name: name
-          id: id
-          enabled: true
-      properties:
-        destinations:
-          description: The list that contains the Destinations connected to the Workspace.
-          items:
-            $ref: '#/components/schemas/DestinationV1'
-          title: destinations
-          type: array
-        pagination:
-          $ref: '#/components/schemas/pagination'
-      required:
-      - destinations
-      - pagination
-      title: ListDestinationsV1Output
-      type: object
-    GetDestinationV1Input:
-      description: Looks up a single Destination by its id.
-      properties: {}
-      required:
-      - destinationId
-      title: GetDestinationV1Input
-      type: object
-    GetDestinationV1Output:
-      description: Returns a single Destination by its id.
-      example:
-        destination: null
-      properties:
-        destination:
-          $ref: '#/components/schemas/destination'
-      required:
-      - destination
-      title: GetDestinationV1Output
-      type: object
-    DeleteDestinationV1Input:
-      description: Deletes a single Destination by its id.
-      properties: {}
-      required:
-      - destinationId
-      title: DeleteDestinationV1Input
-      type: object
-    DeleteDestinationV1Output:
-      description: Returns the status of a Destination deletion.
-      example:
-        status: SUCCESS
-      properties:
-        status:
-          description: The status of the Warehouse deletion operation.
-          enum:
-          - SUCCESS
-          title: status
-          type: string
-      required:
-      - status
-      title: DeleteDestinationV1Output
-      type: object
-    UpdateDestinationV1Output:
-      description: Returns the updated Destination.
-      example:
-        destination: null
-      properties:
-        destination:
-          $ref: '#/components/schemas/destination_1'
-      required:
-      - destination
-      title: UpdateDestinationV1Output
-      type: object
-    UpdateDestinationV1Input:
-      description: Updates a single Destination by its id.
-      properties:
-        name:
-          description: "Defines the display name of the Destination.\n\nConfig API\
-            \ note: equal to `displayName`."
-          nullable: true
-          title: name
-          type: string
-        enabled:
-          description: Whether this Destination should receive data.
-          title: enabled
-          type: boolean
-        settings:
-          additionalProperties: true
-          description: "An optional object that contains settings for the Destination\
-            \ based on the \"required\" and \"advanced\" settings present\nin the\
-            \ Destination metadata.\n\nConfig API note: equal to `config`."
-          title: settings
-          type: object
-      required:
-      - destinationId
-      title: UpdateDestinationV1Input
-      type: object
-    CreateDestinationV1Output:
-      description: Creates a new Destination.
-      example:
-        destination: null
-      properties:
-        destination:
-          $ref: '#/components/schemas/destination_2'
-      required:
-      - destination
-      title: CreateDestinationV1Output
-      type: object
-    CreateDestinationV1Input:
-      description: Creates a new Destination.
-      properties:
-        sourceId:
-          description: "The id of the Source to connect to this Destination instance.\n\
-            \nConfig API note: analogous to `parent`."
-          title: sourceId
-          type: string
-        metadataId:
-          description: The id of the metadata to link to the new Destination.
-          title: metadataId
-          type: string
-        enabled:
-          description: Whether this Destination should receive data.
-          title: enabled
-          type: boolean
-        name:
-          description: "Defines the display name of the Destination.\n\nConfig API\
-            \ note: equal to `displayName`."
-          title: name
-          type: string
-        settings:
-          additionalProperties: true
-          description: "An object that contains settings for the Destination based\
-            \ on the \"required\" and \"advanced\" settings present in the\nDestination\
-            \ metadata.\n\nConfig API note: equal to `config`."
-          title: settings
-          type: object
-      required:
-      - metadataId
-      - settings
-      - sourceId
-      title: CreateDestinationV1Input
+      - destinationMetadata
+      title: GetDestinationMetadataV1Output
       type: object
     DestinationMetadataV1:
       description: "Represents a Destination within Segment.\n\nA Destination is a\
@@ -24122,6 +23609,233 @@ components:
       - trigger
       title: DestinationMetadataSubscriptionPresetV1
       type: object
+    DestinationSubscription:
+      example:
+        actionSlug: actionSlug
+        settings: ""
+        name: name
+        actionId: actionId
+        id: id
+        trigger: trigger
+        destinationId: destinationId
+        enabled: true
+      properties:
+        id:
+          description: The unique identifier for the subscription.
+          title: id
+          type: string
+        name:
+          description: The name of the subscription.
+          title: name
+          type: string
+        actionId:
+          description: The unique identifier for the Destination action to trigger.
+          title: actionId
+          type: string
+        actionSlug:
+          description: The URL-friendly key for the associated Destination action.
+          title: actionSlug
+          type: string
+        destinationId:
+          description: The associated Destination instance id.
+          title: destinationId
+          type: string
+        enabled:
+          description: Is the subscription enabled.
+          title: enabled
+          type: boolean
+        settings:
+          allOf:
+          - $ref: '#/components/schemas/DestinationSubscriptionFields'
+          description: The customer settings for action fields.
+          title: settings
+        trigger:
+          description: FQL string that describes what events should trigger a Destination
+            action.
+          title: trigger
+          type: string
+      required:
+      - actionId
+      - actionSlug
+      - destinationId
+      - enabled
+      - id
+      - name
+      - settings
+      - trigger
+      title: DestinationSubscription
+      type: object
+    DestinationSubscriptionFields:
+      additionalProperties: {}
+      description: Represents settings used to configure an action subscription.
+      title: DestinationSubscriptionFields
+      type: object
+    ListSubscriptionsFromDestinationAlphaInput:
+      description: Input for ListDestinationSubscriptionsAlpha.
+      properties: {}
+      required:
+      - destinationId
+      title: ListSubscriptionsFromDestinationAlphaInput
+      type: object
+    ListSubscriptionsFromDestinationAlphaOutput:
+      description: Output for ListDestinationSubscriptionsAlpha.
+      example:
+        subscriptions:
+        - actionSlug: actionSlug
+          settings: ""
+          name: name
+          actionId: actionId
+          id: id
+          trigger: trigger
+          destinationId: destinationId
+          enabled: true
+        - actionSlug: actionSlug
+          settings: ""
+          name: name
+          actionId: actionId
+          id: id
+          trigger: trigger
+          destinationId: destinationId
+          enabled: true
+        pagination: null
+      properties:
+        subscriptions:
+          description: A list of Destination subscriptions.
+          items:
+            $ref: '#/components/schemas/DestinationSubscription'
+          title: subscriptions
+          type: array
+        pagination:
+          $ref: '#/components/schemas/pagination'
+      required:
+      - subscriptions
+      title: ListSubscriptionsFromDestinationAlphaOutput
+      type: object
+    GetSubscriptionFromDestinationAlphaInput:
+      description: Fetches a Destination subscription.
+      properties: {}
+      required:
+      - destinationId
+      title: GetSubscriptionFromDestinationAlphaInput
+      type: object
+    GetSubscriptionFromDestinationAlphaOutput:
+      description: Returns a subscription for a given subscription id.
+      example:
+        subscription: null
+      properties:
+        subscription:
+          $ref: '#/components/schemas/subscription'
+      required:
+      - subscription
+      title: GetSubscriptionFromDestinationAlphaOutput
+      type: object
+    CreateDestinationSubscriptionAlphaInput:
+      description: The basic input parameters for creating a Destination subscription.
+      properties:
+        name:
+          description: A user-defined name for the subscription.
+          title: name
+          type: string
+        actionId:
+          description: The associated action id the subscription should trigger.
+          title: actionId
+          type: string
+        trigger:
+          description: The FQL statement.
+          title: trigger
+          type: string
+        enabled:
+          description: Is the subscription enabled.
+          title: enabled
+          type: boolean
+        settings:
+          allOf:
+          - $ref: '#/components/schemas/DestinationSubscriptionFields'
+          description: The fields used for configuring this action.
+          title: settings
+      required:
+      - actionId
+      - enabled
+      - name
+      - trigger
+      title: CreateDestinationSubscriptionAlphaInput
+      type: object
+    CreateDestinationSubscriptionAlphaOutput:
+      description: Returns a newly created Destination subscription.
+      example:
+        destinationSubscription: null
+      properties:
+        destinationSubscription:
+          $ref: '#/components/schemas/destinationSubscription'
+      required:
+      - destinationSubscription
+      title: CreateDestinationSubscriptionAlphaOutput
+      type: object
+    DestinationSubscriptionUpdateInput:
+      description: The input parameters for updating a Destination subscription.
+      properties:
+        name:
+          description: The user-defined name for the subscription.
+          title: name
+          type: string
+        trigger:
+          description: The fql statement.
+          title: trigger
+          type: string
+        enabled:
+          description: Is the subscription enabled.
+          title: enabled
+          type: boolean
+        settings:
+          allOf:
+          - $ref: '#/components/schemas/DestinationSubscriptionFields'
+          description: The fields used for configuring this action.
+          title: settings
+      title: DestinationSubscriptionUpdateInput
+      type: object
+    UpdateSubscriptionForDestinationAlphaInput:
+      description: The basic input parameters for updating a Destination subscription.
+      properties:
+        input:
+          $ref: '#/components/schemas/input'
+      required:
+      - destinationId
+      - input
+      title: UpdateSubscriptionForDestinationAlphaInput
+      type: object
+    UpdateSubscriptionForDestinationAlphaOutput:
+      description: Returns the updated Destination subscription.
+      example:
+        subscription: null
+      properties:
+        subscription:
+          $ref: '#/components/schemas/subscription'
+      required:
+      - subscription
+      title: UpdateSubscriptionForDestinationAlphaOutput
+      type: object
+    RemoveSubscriptionFromDestinationAlphaInput:
+      description: Deletes a Destination by id.
+      properties: {}
+      required:
+      - destinationId
+      title: RemoveSubscriptionFromDestinationAlphaInput
+      type: object
+    RemoveSubscriptionFromDestinationAlphaOutput:
+      description: Returns a Destination deletion flag.
+      example:
+        status: SUCCESS
+      properties:
+        status:
+          description: The status of the operation.
+          enum:
+          - SUCCESS
+          title: status
+          type: string
+      required:
+      - status
+      title: RemoveSubscriptionFromDestinationAlphaOutput
+      type: object
     EchoAlphaInput:
       description: "EchoAlphaInput and EchoAlphaOutput are needed by unit tests in\
         \ the generated Go code.\n\nIf you change these, make sure `make clients`\
@@ -24191,123 +23905,6 @@ components:
       - message
       - method
       title: EchoV1Output
-      type: object
-    GenerateUploadURLForEdgeFunctionsAlphaInput:
-      description: Input for GenerateSignedUrl.
-      properties: {}
-      required:
-      - sourceId
-      title: GenerateUploadURLForEdgeFunctionsAlphaInput
-      type: object
-    GenerateUploadURLForEdgeFunctionsAlphaOutput:
-      description: Output for GenerateSignedUrl.
-      example:
-        uploadURL: uploadURL
-      properties:
-        uploadURL:
-          description: A temporary URL that can be used to upload your Edge Functions
-            bundle. Expires in 15 minutes.
-          title: uploadURL
-          type: string
-      required:
-      - uploadURL
-      title: GenerateUploadURLForEdgeFunctionsAlphaOutput
-      type: object
-    CreateEdgeFunctionsAlphaInput:
-      description: Input for CreateEdgeFunctions.
-      properties:
-        uploadURL:
-          description: The id of the Source associated with this Edge Function.
-          title: uploadURL
-          type: string
-      required:
-      - sourceId
-      - uploadURL
-      title: CreateEdgeFunctionsAlphaInput
-      type: object
-    CreateEdgeFunctionsAlphaOutput:
-      description: Output for CreateEdgeFunctions.
-      example:
-        edgeFunctions: null
-      properties:
-        edgeFunctions:
-          $ref: '#/components/schemas/edgeFunctions'
-      required:
-      - edgeFunctions
-      title: CreateEdgeFunctionsAlphaOutput
-      type: object
-    GetLatestFromEdgeFunctionsAlphaInput:
-      description: Input for GetLatestFromEdgeFunctions.
-      properties: {}
-      required:
-      - sourceId
-      title: GetLatestFromEdgeFunctionsAlphaInput
-      type: object
-    GetLatestFromEdgeFunctionsAlphaOutput:
-      description: Output for GetLatestFromEdgeFunctions.
-      example:
-        edgeFunctions: null
-      properties:
-        edgeFunctions:
-          $ref: '#/components/schemas/edgeFunctions_1'
-      required:
-      - edgeFunctions
-      title: GetLatestFromEdgeFunctionsAlphaOutput
-      type: object
-    DisableEdgeFunctionsAlphaInput:
-      description: Input for DisableEdgeFunctions.
-      properties: {}
-      required:
-      - sourceId
-      title: DisableEdgeFunctionsAlphaInput
-      type: object
-    DisableEdgeFunctionsAlphaOutput:
-      description: Output for DisableEdgeFunctions.
-      example:
-        edgeFunctions: null
-      properties:
-        edgeFunctions:
-          $ref: '#/components/schemas/edgeFunctions_1'
-      required:
-      - edgeFunctions
-      title: DisableEdgeFunctionsAlphaOutput
-      type: object
-    EdgeFunctionsAlpha:
-      description: Represents an Edge Function bundle.
-      properties:
-        id:
-          description: The Edge Function id.
-          title: id
-          type: string
-        sourceId:
-          description: The Source id.
-          title: sourceId
-          type: string
-        createdAt:
-          description: Creation date.
-          title: createdAt
-          type: string
-        createdBy:
-          description: Creating user's id.
-          title: createdBy
-          type: string
-        downloadURL:
-          description: The CDN URL that can be used to fetch your latest EdgeFunctions
-            bundle.
-          title: downloadURL
-          type: string
-        version:
-          description: Revision number associated with the latest Edge Function.
-          title: version
-          type: number
-      required:
-      - createdAt
-      - createdBy
-      - downloadURL
-      - id
-      - sourceId
-      - version
-      title: EdgeFunctionsAlpha
       type: object
     FunctionSettingV1:
       properties:
@@ -24657,6 +24254,409 @@ components:
       required:
       - functionDeployment
       title: CreateFunctionDeploymentV1Output
+      type: object
+    ListDeliveryMetricsSummaryFromDestinationBetaInput:
+      description: Input to retrieve event delivery metrics summary for a Destination.
+      properties: {}
+      title: ListDeliveryMetricsSummaryFromDestinationBetaInput
+      type: object
+    ListDeliveryMetricsSummaryFromDestinationBetaOutput:
+      description: Output to retrieve event delivery metrics summary for a Destination.
+      example:
+        deliveryMetricsSummary: null
+      properties:
+        deliveryMetricsSummary:
+          $ref: '#/components/schemas/deliveryMetricsSummary'
+      required:
+      - deliveryMetricsSummary
+      title: ListDeliveryMetricsSummaryFromDestinationBetaOutput
+      type: object
+    DeliveryMetricsSummaryBeta:
+      description: Defines the summary of delivery metrics for a Destination.
+      properties:
+        sourceId:
+          description: "The Source id.\n\nConfig API note: analogous to `parent`."
+          title: sourceId
+          type: string
+        destinationMetadataId:
+          description: The Destination metadata id.
+          title: destinationMetadataId
+          type: string
+        metrics:
+          description: The summary of event delivery metrics for the requested Destination.
+          items:
+            $ref: '#/components/schemas/MetricBeta'
+          title: metrics
+          type: array
+      required:
+      - destinationMetadataId
+      - metrics
+      - sourceId
+      title: DeliveryMetricsSummaryBeta
+      type: object
+    MetricBeta:
+      description: The event delivery metric.
+      properties:
+        metricName:
+          description: The name of the metric.
+          title: metricName
+          type: string
+        total:
+          description: Number of occurrences of the metric.
+          title: total
+          type: number
+        breakdown:
+          description: Breakdown of metrics within a metric.
+          items:
+            $ref: '#/components/schemas/BreakdownBeta'
+          title: breakdown
+          type: array
+      required:
+      - metricName
+      - total
+      title: MetricBeta
+      type: object
+    BreakdownBeta:
+      description: The breakdown of a metric.
+      properties:
+        metricName:
+          description: The name of the metric.
+          title: metricName
+          type: string
+        value:
+          description: Number of occurrences of the metric.
+          title: value
+          type: number
+      required:
+      - metricName
+      - value
+      title: BreakdownBeta
+      type: object
+    DestinationV1:
+      description: "Business tools or apps that you can connect to the data flowing\
+        \ through Segment.\n\nThis is equal to the Destination object in Config API,\
+        \ with the following fields omitted:\n- catalogId\n- createTime\n- updateTime\n\
+        - connectionMode."
+      example:
+        sourceId: sourceId
+        settings:
+          key: ""
+        metadata: null
+        name: name
+        id: id
+        enabled: true
+      properties:
+        id:
+          description: "The unique identifier of this instance of a Destination.\n\
+            \nConfig API note: analogous to `name`."
+          title: id
+          type: string
+        name:
+          description: "The name of this instance of a Destination.\n\nConfig API\
+            \ note: equal to `displayName`."
+          title: name
+          type: string
+        enabled:
+          description: Whether this instance of a Destination receives data.
+          title: enabled
+          type: boolean
+        metadata:
+          $ref: '#/components/schemas/metadata'
+        sourceId:
+          description: "The id of a Source connected to this instance of a Destination.\n\
+            \nConfig API note: analogous to `parent`."
+          title: sourceId
+          type: string
+        settings:
+          additionalProperties: true
+          description: "The collection of settings associated with a Destination.\n\
+            \nConfig API note: equal to `config`."
+          title: settings
+          type: object
+      required:
+      - enabled
+      - id
+      - metadata
+      - settings
+      - sourceId
+      title: DestinationV1
+      type: object
+    ListDestinationsV1Input:
+      description: Loads all Destinations connected to the current Workspace.
+      properties: {}
+      required:
+      - pagination
+      title: ListDestinationsV1Input
+      type: object
+    ListDestinationsV1Output:
+      description: Returns all Destinations connected to the current Workspace.
+      example:
+        pagination: null
+        destinations:
+        - sourceId: sourceId
+          settings:
+            key: ""
+          metadata: null
+          name: name
+          id: id
+          enabled: true
+        - sourceId: sourceId
+          settings:
+            key: ""
+          metadata: null
+          name: name
+          id: id
+          enabled: true
+      properties:
+        destinations:
+          description: The list that contains the Destinations connected to the Workspace.
+          items:
+            $ref: '#/components/schemas/DestinationV1'
+          title: destinations
+          type: array
+        pagination:
+          $ref: '#/components/schemas/pagination'
+      required:
+      - destinations
+      - pagination
+      title: ListDestinationsV1Output
+      type: object
+    GetDestinationV1Input:
+      description: Looks up a single Destination by its id.
+      properties: {}
+      required:
+      - destinationId
+      title: GetDestinationV1Input
+      type: object
+    GetDestinationV1Output:
+      description: Returns a single Destination by its id.
+      example:
+        destination: null
+      properties:
+        destination:
+          $ref: '#/components/schemas/destination'
+      required:
+      - destination
+      title: GetDestinationV1Output
+      type: object
+    DeleteDestinationV1Input:
+      description: Deletes a single Destination by its id.
+      properties: {}
+      required:
+      - destinationId
+      title: DeleteDestinationV1Input
+      type: object
+    DeleteDestinationV1Output:
+      description: Returns the status of a Destination deletion.
+      example:
+        status: SUCCESS
+      properties:
+        status:
+          description: The status of the Warehouse deletion operation.
+          enum:
+          - SUCCESS
+          title: status
+          type: string
+      required:
+      - status
+      title: DeleteDestinationV1Output
+      type: object
+    UpdateDestinationV1Output:
+      description: Returns the updated Destination.
+      example:
+        destination: null
+      properties:
+        destination:
+          $ref: '#/components/schemas/destination_1'
+      required:
+      - destination
+      title: UpdateDestinationV1Output
+      type: object
+    UpdateDestinationV1Input:
+      description: Updates a single Destination by its id.
+      properties:
+        name:
+          description: "Defines the display name of the Destination.\n\nConfig API\
+            \ note: equal to `displayName`."
+          nullable: true
+          title: name
+          type: string
+        enabled:
+          description: Whether this Destination should receive data.
+          title: enabled
+          type: boolean
+        settings:
+          additionalProperties: true
+          description: "An optional object that contains settings for the Destination\
+            \ based on the \"required\" and \"advanced\" settings present\nin the\
+            \ Destination metadata.\n\nConfig API note: equal to `config`."
+          title: settings
+          type: object
+      required:
+      - destinationId
+      title: UpdateDestinationV1Input
+      type: object
+    CreateDestinationV1Output:
+      description: Creates a new Destination.
+      example:
+        destination: null
+      properties:
+        destination:
+          $ref: '#/components/schemas/destination_2'
+      required:
+      - destination
+      title: CreateDestinationV1Output
+      type: object
+    CreateDestinationV1Input:
+      description: Creates a new Destination.
+      properties:
+        sourceId:
+          description: "The id of the Source to connect to this Destination instance.\n\
+            \nConfig API note: analogous to `parent`."
+          title: sourceId
+          type: string
+        metadataId:
+          description: The id of the metadata to link to the new Destination.
+          title: metadataId
+          type: string
+        enabled:
+          description: Whether this Destination should receive data.
+          title: enabled
+          type: boolean
+        name:
+          description: "Defines the display name of the Destination.\n\nConfig API\
+            \ note: equal to `displayName`."
+          title: name
+          type: string
+        settings:
+          additionalProperties: true
+          description: "An object that contains settings for the Destination based\
+            \ on the \"required\" and \"advanced\" settings present in the\nDestination\
+            \ metadata.\n\nConfig API note: equal to `config`."
+          title: settings
+          type: object
+      required:
+      - metadataId
+      - settings
+      - sourceId
+      title: CreateDestinationV1Input
+      type: object
+    GenerateUploadURLForEdgeFunctionsAlphaInput:
+      description: Input for GenerateSignedUrl.
+      properties: {}
+      required:
+      - sourceId
+      title: GenerateUploadURLForEdgeFunctionsAlphaInput
+      type: object
+    GenerateUploadURLForEdgeFunctionsAlphaOutput:
+      description: Output for GenerateSignedUrl.
+      example:
+        uploadURL: uploadURL
+      properties:
+        uploadURL:
+          description: A temporary URL that can be used to upload your Edge Functions
+            bundle. Expires in 15 minutes.
+          title: uploadURL
+          type: string
+      required:
+      - uploadURL
+      title: GenerateUploadURLForEdgeFunctionsAlphaOutput
+      type: object
+    CreateEdgeFunctionsAlphaInput:
+      description: Input for CreateEdgeFunctions.
+      properties:
+        uploadURL:
+          description: The id of the Source associated with this Edge Function.
+          title: uploadURL
+          type: string
+      required:
+      - sourceId
+      - uploadURL
+      title: CreateEdgeFunctionsAlphaInput
+      type: object
+    CreateEdgeFunctionsAlphaOutput:
+      description: Output for CreateEdgeFunctions.
+      example:
+        edgeFunctions: null
+      properties:
+        edgeFunctions:
+          $ref: '#/components/schemas/edgeFunctions'
+      required:
+      - edgeFunctions
+      title: CreateEdgeFunctionsAlphaOutput
+      type: object
+    GetLatestFromEdgeFunctionsAlphaInput:
+      description: Input for GetLatestFromEdgeFunctions.
+      properties: {}
+      required:
+      - sourceId
+      title: GetLatestFromEdgeFunctionsAlphaInput
+      type: object
+    GetLatestFromEdgeFunctionsAlphaOutput:
+      description: Output for GetLatestFromEdgeFunctions.
+      example:
+        edgeFunctions: null
+      properties:
+        edgeFunctions:
+          $ref: '#/components/schemas/edgeFunctions_1'
+      required:
+      - edgeFunctions
+      title: GetLatestFromEdgeFunctionsAlphaOutput
+      type: object
+    DisableEdgeFunctionsAlphaInput:
+      description: Input for DisableEdgeFunctions.
+      properties: {}
+      required:
+      - sourceId
+      title: DisableEdgeFunctionsAlphaInput
+      type: object
+    DisableEdgeFunctionsAlphaOutput:
+      description: Output for DisableEdgeFunctions.
+      example:
+        edgeFunctions: null
+      properties:
+        edgeFunctions:
+          $ref: '#/components/schemas/edgeFunctions_1'
+      required:
+      - edgeFunctions
+      title: DisableEdgeFunctionsAlphaOutput
+      type: object
+    EdgeFunctionsAlpha:
+      description: Represents an Edge Function bundle.
+      properties:
+        id:
+          description: The Edge Function id.
+          title: id
+          type: string
+        sourceId:
+          description: The Source id.
+          title: sourceId
+          type: string
+        createdAt:
+          description: Creation date.
+          title: createdAt
+          type: string
+        createdBy:
+          description: Creating user's id.
+          title: createdBy
+          type: string
+        downloadURL:
+          description: The CDN URL that can be used to fetch your latest EdgeFunctions
+            bundle.
+          title: downloadURL
+          type: string
+        version:
+          description: Revision number associated with the latest Edge Function.
+          title: version
+          type: number
+      required:
+      - createdAt
+      - createdBy
+      - downloadURL
+      - id
+      - sourceId
+      - version
+      title: EdgeFunctionsAlpha
       type: object
     ResourceV1:
       description: Represents a permission's resource.
@@ -26080,50 +26080,6 @@ components:
       - users
       title: ListUsersFromUserGroupV1Output
       type: object
-    IntegrationOptionBeta:
-      description: "Describes an Integration option field required to set up a Segment\
-        \ Integration such as Sources, Destinations, or\nwarehouses."
-      example:
-        defaultValue: ""
-        name: name
-        description: description
-        label: label
-        type: type
-        required: true
-      properties:
-        name:
-          description: The name identifying this option in the context of a Segment
-            Integration.
-          title: name
-          type: string
-        type:
-          description: "Defines the type for this option in the schema. Types are\
-            \ most commonly strings, but may also represent other\nprimitive types,\
-            \ such as booleans, and numbers, as well as complex types, such as objects\
-            \ and arrays."
-          title: type
-          type: string
-        required:
-          description: Whether this is a required option when setting up the Integration.
-          title: required
-          type: boolean
-        description:
-          description: An optional short text description of the field.
-          title: description
-          type: string
-        defaultValue:
-          description: An optional default value for the field.
-          title: defaultValue
-        label:
-          description: An optional label for this field.
-          title: label
-          type: string
-      required:
-      - name
-      - required
-      - type
-      title: IntegrationOptionBeta
-      type: object
     LabelAlpha:
       description: "A label lets Workspace owners assign permissions to users, and\
         \ grant these users access to groups.\n\nA Workspace owner may use labels\
@@ -26421,6 +26377,50 @@ components:
       required:
       - labels
       title: ReplaceLabelsInSourceV1Output
+      type: object
+    IntegrationOptionBeta:
+      description: "Describes an Integration option field required to set up a Segment\
+        \ Integration such as Sources, Destinations, or\nwarehouses."
+      example:
+        defaultValue: ""
+        name: name
+        description: description
+        label: label
+        type: type
+        required: true
+      properties:
+        name:
+          description: The name identifying this option in the context of a Segment
+            Integration.
+          title: name
+          type: string
+        type:
+          description: "Defines the type for this option in the schema. Types are\
+            \ most commonly strings, but may also represent other\nprimitive types,\
+            \ such as booleans, and numbers, as well as complex types, such as objects\
+            \ and arrays."
+          title: type
+          type: string
+        required:
+          description: Whether this is a required option when setting up the Integration.
+          title: required
+          type: boolean
+        description:
+          description: An optional short text description of the field.
+          title: description
+          type: string
+        defaultValue:
+          description: An optional default value for the field.
+          title: defaultValue
+        label:
+          description: An optional label for this field.
+          title: label
+          type: string
+      required:
+      - name
+      - required
+      - type
+      title: IntegrationOptionBeta
       type: object
     LogosBeta:
       description: Represents a logo.
@@ -32752,11 +32752,6 @@ components:
       - $ref: '#/components/schemas/PaginationOutput'
       description: Information about the pagination of this response.
       title: pagination
-    destinationMetadata:
-      allOf:
-      - $ref: '#/components/schemas/DestinationMetadataV1'
-      description: The catalog item matched by id.
-      title: destinationMetadata
     filter:
       allOf:
       - $ref: '#/components/schemas/PreviewDestinationFilterV1'
@@ -32777,47 +32772,11 @@ components:
       - $ref: '#/components/schemas/DestinationFilterV1'
       description: The updated Destination filter.
       title: filter
-    subscription:
-      allOf:
-      - $ref: '#/components/schemas/DestinationSubscription'
-      description: The Destination subscription.
-      title: subscription
-    destinationSubscription:
-      allOf:
-      - $ref: '#/components/schemas/DestinationSubscription'
-      description: The Destination subscription.
-      title: destinationSubscription
-    input:
-      allOf:
-      - $ref: '#/components/schemas/DestinationSubscriptionUpdateInput'
-      description: A set of valid Destination input params required for updating.
-      title: input
-    deliveryMetricsSummary:
-      allOf:
-      - $ref: '#/components/schemas/DeliveryMetricsSummaryBeta'
-      description: The delivery metrics summary returned.
-      title: deliveryMetricsSummary
-    metadata:
+    destinationMetadata:
       allOf:
       - $ref: '#/components/schemas/DestinationMetadataV1'
-      description: "The metadata of the Destination of which this Destination is an\
-        \ instance of. For example, Google Analytics or Amplitude."
-      title: metadata
-    destination:
-      allOf:
-      - $ref: '#/components/schemas/DestinationV1'
-      description: The Destination looked up.
-      title: destination
-    destination_1:
-      allOf:
-      - $ref: '#/components/schemas/DestinationV1'
-      description: The updated Destination.
-      title: destination
-    destination_2:
-      allOf:
-      - $ref: '#/components/schemas/DestinationV1'
-      description: The created Destination.
-      title: destination
+      description: The catalog item matched by id.
+      title: destinationMetadata
     logos:
       allOf:
       - $ref: '#/components/schemas/LogosBeta'
@@ -32841,16 +32800,21 @@ components:
       description: "Platforms from which the Destination receives events.\n\nConfig\
         \ API note: equal to `platforms`."
       title: supportedPlatforms
-    edgeFunctions:
+    subscription:
       allOf:
-      - $ref: '#/components/schemas/EdgeFunctionsAlpha'
-      description: The created Edge Function.
-      title: edgeFunctions
-    edgeFunctions_1:
+      - $ref: '#/components/schemas/DestinationSubscription'
+      description: The Destination subscription.
+      title: subscription
+    destinationSubscription:
       allOf:
-      - $ref: '#/components/schemas/EdgeFunctionsAlpha'
-      description: The latest version of Edge Function bundle.
-      title: edgeFunctions
+      - $ref: '#/components/schemas/DestinationSubscription'
+      description: The Destination subscription.
+      title: destinationSubscription
+    input:
+      allOf:
+      - $ref: '#/components/schemas/DestinationSubscriptionUpdateInput'
+      description: A set of valid Destination input params required for updating.
+      title: input
     function:
       allOf:
       - $ref: '#/components/schemas/FunctionV1'
@@ -32881,6 +32845,42 @@ components:
       - status
       title: functionDeployment
       type: object
+    deliveryMetricsSummary:
+      allOf:
+      - $ref: '#/components/schemas/DeliveryMetricsSummaryBeta'
+      description: The delivery metrics summary returned.
+      title: deliveryMetricsSummary
+    metadata:
+      allOf:
+      - $ref: '#/components/schemas/DestinationMetadataV1'
+      description: "The metadata of the Destination of which this Destination is an\
+        \ instance of. For example, Google Analytics or Amplitude."
+      title: metadata
+    destination:
+      allOf:
+      - $ref: '#/components/schemas/DestinationV1'
+      description: The Destination looked up.
+      title: destination
+    destination_1:
+      allOf:
+      - $ref: '#/components/schemas/DestinationV1'
+      description: The updated Destination.
+      title: destination
+    destination_2:
+      allOf:
+      - $ref: '#/components/schemas/DestinationV1'
+      description: The created Destination.
+      title: destination
+    edgeFunctions:
+      allOf:
+      - $ref: '#/components/schemas/EdgeFunctionsAlpha'
+      description: The created Edge Function.
+      title: edgeFunctions
+    edgeFunctions_1:
+      allOf:
+      - $ref: '#/components/schemas/EdgeFunctionsAlpha'
+      description: The latest version of Edge Function bundle.
+      title: edgeFunctions
     user:
       allOf:
       - $ref: '#/components/schemas/UserV1'
