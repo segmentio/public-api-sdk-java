@@ -1,7 +1,7 @@
 name: Publish package to the Maven Central Repository
 on:
   push:
-    branches: [APICS-602/ci-mvn, master]
+    branches: [master]
 jobs:
   publish:
     runs-on: ubuntu-latest
