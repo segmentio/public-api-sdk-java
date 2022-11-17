@@ -5,7 +5,7 @@
     <artifactId>segment-publicapi</artifactId>
     <packaging>jar</packaging>
     <name>segment-publicapi</name>
-    <version>32.0.7</version>
+    <version>32.0.8</version>
     <url>https://segment.com/docs/api/public-api/</url>
     <description>Segment Public API</description>
     <scm>
@@ -251,7 +251,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.6</version>
+                <version>1.5</version>
                 <executions>
                     <execution>
                         <id>sign-artifacts</id>
@@ -259,12 +259,6 @@
                         <goals>
                             <goal>sign</goal>
                         </goals>
-                        <configuration>
-                            <gpgArguments>
-                                <arg>--pinentry-mode</arg>
-                                <arg>loopback</arg>
-                            </gpgArguments>
-                        </configuration>
                         </execution>
                     </executions>
                 </plugin>
