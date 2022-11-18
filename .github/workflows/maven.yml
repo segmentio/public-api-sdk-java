@@ -1,12 +1,18 @@
 name: Publish package to the Maven Central Repository
 on:
   push:
-    branches: [master]
+    branches: [APICS-611/mvn-publish-on-changed-pom, master]
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Get changed files in the docs folder
+        id: changed-files-specific
+        uses: tj-actions/changed-files@v34
+        with:
+          files: |
+            pom.xml
       - name: Set up Maven Central Repository
         uses: actions/setup-java@v3
         with:
@@ -18,6 +24,7 @@ jobs:
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
           gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
       - name: Publish package
+        if: steps.changed-files-specific.outputs.any_changed == 'true'
         run: mvn --batch-mode clean deploy
         env:
           MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
