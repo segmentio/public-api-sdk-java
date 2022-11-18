@@ -1,14 +1,24 @@
 name: Publish package to the Maven Central Repository
 on:
   push:
-    branches: [master]
+    branches: [APICS-611/mvn-publish-on-changed-pom,master]
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+      - shell: pwsh
+        id: check_pom_changed
+        run: |
+          $diff = git diff --name-only HEAD^ HEAD
+          $SourceDiff = $diff | Where-Object { $_ -match 'pom.xml' }
+          $HasDiff = $SourceDiff.Length -gt 0
+          "echo pom_changed=$HasDiff" >> $POM_CHANGED
       - name: Set up Maven Central Repository
         uses: actions/setup-java@v3
+        if: steps.check_pom_changed.outputs.pom_changed == 'True'
         with:
           java-version: '11'
           distribution: 'adopt'
@@ -19,6 +29,7 @@ jobs:
           gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
       - name: Publish package
         run: mvn --batch-mode clean deploy
+        if: steps.check_pom_changed.outputs.pom_changed == 'True'
         env:
           MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}
