@@ -49,7 +49,7 @@ public class PreviewDestinationFilterV1Output {
     public static final String SERIALIZED_NAME_RESULT = "result";
 
     @SerializedName(SERIALIZED_NAME_RESULT)
-    private Map result;
+    private Object result;
 
     public PreviewDestinationFilterV1Output() {}
 
@@ -80,7 +80,7 @@ public class PreviewDestinationFilterV1Output {
         this.inputPayload = inputPayload;
     }
 
-    public PreviewDestinationFilterV1Output result(Map result) {
+    public PreviewDestinationFilterV1Output result(Object result) {
 
         this.result = result;
         return this;
@@ -93,11 +93,11 @@ public class PreviewDestinationFilterV1Output {
      */
     @javax.annotation.Nullable
     @ApiModelProperty(required = true, value = "The filtered JSON output.")
-    public Map getResult() {
+    public Object getResult() {
         return result;
     }
 
-    public void setResult(Map result) {
+    public void setResult(Object result) {
         this.result = result;
     }
 
