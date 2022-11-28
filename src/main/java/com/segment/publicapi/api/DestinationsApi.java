@@ -176,7 +176,7 @@ public class DestinationsApi {
 
     /**
      * Create Destination Creates a new Destination. When called, this endpoint may generate the
-     * &#x60;Integration Created&#x60; [Audit Trail](/tag/Audit-Trail) event.
+     * &#x60;Integration Created&#x60; event in the [audit trail](/tag/Audit-Trail).
      *
      * @param createDestinationV1Input (required)
      * @return CreateDestination200Response
@@ -200,7 +200,7 @@ public class DestinationsApi {
 
     /**
      * Create Destination Creates a new Destination. When called, this endpoint may generate the
-     * &#x60;Integration Created&#x60; [Audit Trail](/tag/Audit-Trail) event.
+     * &#x60;Integration Created&#x60; event in the [audit trail](/tag/Audit-Trail).
      *
      * @param createDestinationV1Input (required)
      * @return ApiResponse&lt;CreateDestination200Response&gt;
@@ -225,7 +225,7 @@ public class DestinationsApi {
 
     /**
      * Create Destination (asynchronously) Creates a new Destination. When called, this endpoint may
-     * generate the &#x60;Integration Created&#x60; [Audit Trail](/tag/Audit-Trail) event.
+     * generate the &#x60;Integration Created&#x60; event in the [audit trail](/tag/Audit-Trail).
      *
      * @param createDestinationV1Input (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -545,8 +545,8 @@ public class DestinationsApi {
 
     /**
      * Delete Destination Deletes an existing Destination. When called, this endpoint may generate
-     * the &#x60;Integration Deleted&#x60; [Audit Trail](/tag/Audit-Trail) event. Config API omitted
-     * fields: - &#x60;catalogId&#x60;
+     * the &#x60;Integration Deleted&#x60; event in the [audit trail](/tag/Audit-Trail). Config API
+     * omitted fields: - &#x60;catalogId&#x60;
      *
      * @param destinationId (required)
      * @return DeleteDestination200Response
@@ -570,8 +570,8 @@ public class DestinationsApi {
 
     /**
      * Delete Destination Deletes an existing Destination. When called, this endpoint may generate
-     * the &#x60;Integration Deleted&#x60; [Audit Trail](/tag/Audit-Trail) event. Config API omitted
-     * fields: - &#x60;catalogId&#x60;
+     * the &#x60;Integration Deleted&#x60; event in the [audit trail](/tag/Audit-Trail). Config API
+     * omitted fields: - &#x60;catalogId&#x60;
      *
      * @param destinationId (required)
      * @return ApiResponse&lt;DeleteDestination200Response&gt;
@@ -595,8 +595,8 @@ public class DestinationsApi {
 
     /**
      * Delete Destination (asynchronously) Deletes an existing Destination. When called, this
-     * endpoint may generate the &#x60;Integration Deleted&#x60; [Audit Trail](/tag/Audit-Trail)
-     * event. Config API omitted fields: - &#x60;catalogId&#x60;
+     * endpoint may generate the &#x60;Integration Deleted&#x60; event in the [audit
+     * trail](/tag/Audit-Trail). Config API omitted fields: - &#x60;catalogId&#x60;
      *
      * @param destinationId (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1926,8 +1926,8 @@ public class DestinationsApi {
      * only read-only properties are being updated, the endpoint will return an HTTP 400 error. * If
      * there&#39;s a mix of writable and read-only properties in the payload, the request will be
      * accepted, the writable properties will be updated and the read-only properties ignored. When
-     * called, this endpoint may generate the &#x60;Integration Disabled&#x60; [Audit
-     * Trail](/tag/Audit-Trail) event. Config API omitted fields: - &#x60;updateMask&#x60;
+     * called, this endpoint may generate the &#x60;Integration Disabled&#x60; event in the [audit
+     * trail](/tag/Audit-Trail). Config API omitted fields: - &#x60;updateMask&#x60;
      *
      * @param destinationId (required)
      * @param updateDestinationV1Input (required)
@@ -1957,8 +1957,8 @@ public class DestinationsApi {
      * only read-only properties are being updated, the endpoint will return an HTTP 400 error. * If
      * there&#39;s a mix of writable and read-only properties in the payload, the request will be
      * accepted, the writable properties will be updated and the read-only properties ignored. When
-     * called, this endpoint may generate the &#x60;Integration Disabled&#x60; [Audit
-     * Trail](/tag/Audit-Trail) event. Config API omitted fields: - &#x60;updateMask&#x60;
+     * called, this endpoint may generate the &#x60;Integration Disabled&#x60; event in the [audit
+     * trail](/tag/Audit-Trail). Config API omitted fields: - &#x60;updateMask&#x60;
      *
      * @param destinationId (required)
      * @param updateDestinationV1Input (required)
@@ -1990,7 +1990,7 @@ public class DestinationsApi {
      * 400 error. * If there&#39;s a mix of writable and read-only properties in the payload, the
      * request will be accepted, the writable properties will be updated and the read-only
      * properties ignored. When called, this endpoint may generate the &#x60;Integration
-     * Disabled&#x60; [Audit Trail](/tag/Audit-Trail) event. Config API omitted fields: -
+     * Disabled&#x60; event in the [audit trail](/tag/Audit-Trail). Config API omitted fields: -
      * &#x60;updateMask&#x60;
      *
      * @param destinationId (required)

@@ -197,7 +197,7 @@ public class IamGroupsApi {
 
     /**
      * Add Permissions to User Group Adds a list of access permissions to a user group. When called,
-     * this endpoint may generate one or more of the following [Audit Trail](/tag/Audit-Trail)
+     * this endpoint may generate one or more of the following [audit trail](/tag/Audit-Trail)
      * events: * Policy Created * User Group Policy Updated The rate limit for this endpoint is 60
      * requests per minute, which is lower than the default due to access pattern restrictions. Once
      * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
@@ -228,7 +228,7 @@ public class IamGroupsApi {
 
     /**
      * Add Permissions to User Group Adds a list of access permissions to a user group. When called,
-     * this endpoint may generate one or more of the following [Audit Trail](/tag/Audit-Trail)
+     * this endpoint may generate one or more of the following [audit trail](/tag/Audit-Trail)
      * events: * Policy Created * User Group Policy Updated The rate limit for this endpoint is 60
      * requests per minute, which is lower than the default due to access pattern restrictions. Once
      * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
@@ -261,8 +261,8 @@ public class IamGroupsApi {
 
     /**
      * Add Permissions to User Group (asynchronously) Adds a list of access permissions to a user
-     * group. When called, this endpoint may generate one or more of the following [Audit
-     * Trail](/tag/Audit-Trail) events: * Policy Created * User Group Policy Updated The rate limit
+     * group. When called, this endpoint may generate one or more of the following [audit
+     * trail](/tag/Audit-Trail) events: * Policy Created * User Group Policy Updated The rate limit
      * for this endpoint is 60 requests per minute, which is lower than the default due to access
      * pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code
      * with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
@@ -412,7 +412,7 @@ public class IamGroupsApi {
 
     /**
      * Add Users to User Group Adds a list of users or invites to a user group. When called, this
-     * endpoint may generate one or more of the following [Audit Trail](/tag/Audit-Trail) events: *
+     * endpoint may generate one or more of the following [audit trail](/tag/Audit-Trail) events: *
      * Subjects Added to Group * User Added To User Group The rate limit for this endpoint is 60
      * requests per minute, which is lower than the default due to access pattern restrictions. Once
      * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
@@ -442,7 +442,7 @@ public class IamGroupsApi {
 
     /**
      * Add Users to User Group Adds a list of users or invites to a user group. When called, this
-     * endpoint may generate one or more of the following [Audit Trail](/tag/Audit-Trail) events: *
+     * endpoint may generate one or more of the following [audit trail](/tag/Audit-Trail) events: *
      * Subjects Added to Group * User Added To User Group The rate limit for this endpoint is 60
      * requests per minute, which is lower than the default due to access pattern restrictions. Once
      * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
@@ -474,8 +474,8 @@ public class IamGroupsApi {
 
     /**
      * Add Users to User Group (asynchronously) Adds a list of users or invites to a user group.
-     * When called, this endpoint may generate one or more of the following [Audit
-     * Trail](/tag/Audit-Trail) events: * Subjects Added to Group * User Added To User Group The
+     * When called, this endpoint may generate one or more of the following [audit
+     * trail](/tag/Audit-Trail) events: * Subjects Added to Group * User Added To User Group The
      * rate limit for this endpoint is 60 requests per minute, which is lower than the default due
      * to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
      * status code with headers indicating the limit parameters. See [Rate
@@ -607,7 +607,7 @@ public class IamGroupsApi {
 
     /**
      * Create User Group Creates a user group. When called, this endpoint may generate one or more
-     * of the following [Audit Trail](/tag/Audit-Trail) events: * User Group Created * Policy
+     * of the following [audit trail](/tag/Audit-Trail) events: * User Group Created * Policy
      * Created The rate limit for this endpoint is 60 requests per minute, which is lower than the
      * default due to access pattern restrictions. Once reached, this endpoint will respond with the
      * 429 HTTP status code with headers indicating the limit parameters. See [Rate
@@ -635,7 +635,7 @@ public class IamGroupsApi {
 
     /**
      * Create User Group Creates a user group. When called, this endpoint may generate one or more
-     * of the following [Audit Trail](/tag/Audit-Trail) events: * User Group Created * Policy
+     * of the following [audit trail](/tag/Audit-Trail) events: * User Group Created * Policy
      * Created The rate limit for this endpoint is 60 requests per minute, which is lower than the
      * default due to access pattern restrictions. Once reached, this endpoint will respond with the
      * 429 HTTP status code with headers indicating the limit parameters. See [Rate
@@ -663,7 +663,7 @@ public class IamGroupsApi {
 
     /**
      * Create User Group (asynchronously) Creates a user group. When called, this endpoint may
-     * generate one or more of the following [Audit Trail](/tag/Audit-Trail) events: * User Group
+     * generate one or more of the following [audit trail](/tag/Audit-Trail) events: * User Group
      * Created * Policy Created The rate limit for this endpoint is 60 requests per minute, which is
      * lower than the default due to access pattern restrictions. Once reached, this endpoint will
      * respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate
@@ -791,9 +791,9 @@ public class IamGroupsApi {
 
     /**
      * Delete User Group Removes a user group from a Workspace. When called, this endpoint may
-     * generate the &#x60;User Group Deleted&#x60; [Audit Trail](/tag/Audit-Trail) event. The rate
-     * limit for this endpoint is 60 requests per minute, which is lower than the default due to
-     * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
+     * generate the &#x60;User Group Deleted&#x60; event in the [audit trail](/tag/Audit-Trail). The
+     * rate limit for this endpoint is 60 requests per minute, which is lower than the default due
+     * to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
      * status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.
      *
@@ -818,9 +818,9 @@ public class IamGroupsApi {
 
     /**
      * Delete User Group Removes a user group from a Workspace. When called, this endpoint may
-     * generate the &#x60;User Group Deleted&#x60; [Audit Trail](/tag/Audit-Trail) event. The rate
-     * limit for this endpoint is 60 requests per minute, which is lower than the default due to
-     * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
+     * generate the &#x60;User Group Deleted&#x60; event in the [audit trail](/tag/Audit-Trail). The
+     * rate limit for this endpoint is 60 requests per minute, which is lower than the default due
+     * to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
      * status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.
      *
@@ -846,11 +846,11 @@ public class IamGroupsApi {
 
     /**
      * Delete User Group (asynchronously) Removes a user group from a Workspace. When called, this
-     * endpoint may generate the &#x60;User Group Deleted&#x60; [Audit Trail](/tag/Audit-Trail)
-     * event. The rate limit for this endpoint is 60 requests per minute, which is lower than the
-     * default due to access pattern restrictions. Once reached, this endpoint will respond with the
-     * 429 HTTP status code with headers indicating the limit parameters. See [Rate
-     * Limiting](/#tag/Rate-Limits) for more information.
+     * endpoint may generate the &#x60;User Group Deleted&#x60; event in the [audit
+     * trail](/tag/Audit-Trail). The rate limit for this endpoint is 60 requests per minute, which
+     * is lower than the default due to access pattern restrictions. Once reached, this endpoint
+     * will respond with the 429 HTTP status code with headers indicating the limit parameters. See
+     * [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param userGroupId (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1701,8 +1701,8 @@ public class IamGroupsApi {
 
     /**
      * Remove Users from User Group Removes one or multiple users or invites from a user group by
-     * email. When called, this endpoint may generate one or more of the following [Audit
-     * Trail](/tag/Audit-Trail) events: * Group Memberships Deleted * User Removed From User Group
+     * email. When called, this endpoint may generate one or more of the following [audit
+     * trail](/tag/Audit-Trail) events: * Group Memberships Deleted * User Removed From User Group
      * The rate limit for this endpoint is 60 requests per minute, which is lower than the default
      * due to access pattern restrictions. Once reached, this endpoint will respond with the 429
      * HTTP status code with headers indicating the limit parameters. See [Rate
@@ -1732,8 +1732,8 @@ public class IamGroupsApi {
 
     /**
      * Remove Users from User Group Removes one or multiple users or invites from a user group by
-     * email. When called, this endpoint may generate one or more of the following [Audit
-     * Trail](/tag/Audit-Trail) events: * Group Memberships Deleted * User Removed From User Group
+     * email. When called, this endpoint may generate one or more of the following [audit
+     * trail](/tag/Audit-Trail) events: * Group Memberships Deleted * User Removed From User Group
      * The rate limit for this endpoint is 60 requests per minute, which is lower than the default
      * due to access pattern restrictions. Once reached, this endpoint will respond with the 429
      * HTTP status code with headers indicating the limit parameters. See [Rate
@@ -1765,7 +1765,7 @@ public class IamGroupsApi {
     /**
      * Remove Users from User Group (asynchronously) Removes one or multiple users or invites from a
      * user group by email. When called, this endpoint may generate one or more of the following
-     * [Audit Trail](/tag/Audit-Trail) events: * Group Memberships Deleted * User Removed From User
+     * [audit trail](/tag/Audit-Trail) events: * Group Memberships Deleted * User Removed From User
      * Group The rate limit for this endpoint is 60 requests per minute, which is lower than the
      * default due to access pattern restrictions. Once reached, this endpoint will respond with the
      * 429 HTTP status code with headers indicating the limit parameters. See [Rate
@@ -1915,11 +1915,11 @@ public class IamGroupsApi {
 
     /**
      * Replace Permissions for User Group Updates the list of access permissions for a user group.
-     * When called, this endpoint may generate the &#x60;Policy Deleted&#x60; [Audit
-     * Trail](/tag/Audit-Trail) event. The rate limit for this endpoint is 60 requests per minute,
-     * which is lower than the default due to access pattern restrictions. Once reached, this
-     * endpoint will respond with the 429 HTTP status code with headers indicating the limit
-     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * When called, this endpoint may generate the &#x60;Policy Deleted&#x60; event in the [audit
+     * trail](/tag/Audit-Trail). The rate limit for this endpoint is 60 requests per minute, which
+     * is lower than the default due to access pattern restrictions. Once reached, this endpoint
+     * will respond with the 429 HTTP status code with headers indicating the limit parameters. See
+     * [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param userGroupId (required)
      * @param replacePermissionsForUserGroupV1Input (required)
@@ -1947,11 +1947,11 @@ public class IamGroupsApi {
 
     /**
      * Replace Permissions for User Group Updates the list of access permissions for a user group.
-     * When called, this endpoint may generate the &#x60;Policy Deleted&#x60; [Audit
-     * Trail](/tag/Audit-Trail) event. The rate limit for this endpoint is 60 requests per minute,
-     * which is lower than the default due to access pattern restrictions. Once reached, this
-     * endpoint will respond with the 429 HTTP status code with headers indicating the limit
-     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * When called, this endpoint may generate the &#x60;Policy Deleted&#x60; event in the [audit
+     * trail](/tag/Audit-Trail). The rate limit for this endpoint is 60 requests per minute, which
+     * is lower than the default due to access pattern restrictions. Once reached, this endpoint
+     * will respond with the 429 HTTP status code with headers indicating the limit parameters. See
+     * [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param userGroupId (required)
      * @param replacePermissionsForUserGroupV1Input (required)
@@ -1983,8 +1983,8 @@ public class IamGroupsApi {
     /**
      * Replace Permissions for User Group (asynchronously) Updates the list of access permissions
      * for a user group. When called, this endpoint may generate the &#x60;Policy Deleted&#x60;
-     * [Audit Trail](/tag/Audit-Trail) event. The rate limit for this endpoint is 60 requests per
-     * minute, which is lower than the default due to access pattern restrictions. Once reached,
+     * event in the [audit trail](/tag/Audit-Trail). The rate limit for this endpoint is 60 requests
+     * per minute, which is lower than the default due to access pattern restrictions. Once reached,
      * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
      * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
@@ -2132,7 +2132,7 @@ public class IamGroupsApi {
 
     /**
      * Replace Users in User Group Replaces the members of a user group by email. When called, this
-     * endpoint may generate one or more of the following [Audit Trail](/tag/Audit-Trail) events: *
+     * endpoint may generate one or more of the following [audit trail](/tag/Audit-Trail) events: *
      * Subjects Added to Group * User Added To User Group * Group Memberships Deleted The rate limit
      * for this endpoint is 60 requests per minute, which is lower than the default due to access
      * pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code
@@ -2163,7 +2163,7 @@ public class IamGroupsApi {
 
     /**
      * Replace Users in User Group Replaces the members of a user group by email. When called, this
-     * endpoint may generate one or more of the following [Audit Trail](/tag/Audit-Trail) events: *
+     * endpoint may generate one or more of the following [audit trail](/tag/Audit-Trail) events: *
      * Subjects Added to Group * User Added To User Group * Group Memberships Deleted The rate limit
      * for this endpoint is 60 requests per minute, which is lower than the default due to access
      * pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code
@@ -2196,8 +2196,8 @@ public class IamGroupsApi {
 
     /**
      * Replace Users in User Group (asynchronously) Replaces the members of a user group by email.
-     * When called, this endpoint may generate one or more of the following [Audit
-     * Trail](/tag/Audit-Trail) events: * Subjects Added to Group * User Added To User Group * Group
+     * When called, this endpoint may generate one or more of the following [audit
+     * trail](/tag/Audit-Trail) events: * Subjects Added to Group * User Added To User Group * Group
      * Memberships Deleted The rate limit for this endpoint is 60 requests per minute, which is
      * lower than the default due to access pattern restrictions. Once reached, this endpoint will
      * respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate
@@ -2346,9 +2346,9 @@ public class IamGroupsApi {
 
     /**
      * Update User Group Updates a user group for a Workspace. When called, this endpoint may
-     * generate the &#x60;User Group Updated&#x60; [Audit Trail](/tag/Audit-Trail) event. The rate
-     * limit for this endpoint is 60 requests per minute, which is lower than the default due to
-     * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
+     * generate the &#x60;User Group Updated&#x60; event in the [audit trail](/tag/Audit-Trail). The
+     * rate limit for this endpoint is 60 requests per minute, which is lower than the default due
+     * to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
      * status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.
      *
@@ -2375,9 +2375,9 @@ public class IamGroupsApi {
 
     /**
      * Update User Group Updates a user group for a Workspace. When called, this endpoint may
-     * generate the &#x60;User Group Updated&#x60; [Audit Trail](/tag/Audit-Trail) event. The rate
-     * limit for this endpoint is 60 requests per minute, which is lower than the default due to
-     * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
+     * generate the &#x60;User Group Updated&#x60; event in the [audit trail](/tag/Audit-Trail). The
+     * rate limit for this endpoint is 60 requests per minute, which is lower than the default due
+     * to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
      * status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.
      *
@@ -2405,11 +2405,11 @@ public class IamGroupsApi {
 
     /**
      * Update User Group (asynchronously) Updates a user group for a Workspace. When called, this
-     * endpoint may generate the &#x60;User Group Updated&#x60; [Audit Trail](/tag/Audit-Trail)
-     * event. The rate limit for this endpoint is 60 requests per minute, which is lower than the
-     * default due to access pattern restrictions. Once reached, this endpoint will respond with the
-     * 429 HTTP status code with headers indicating the limit parameters. See [Rate
-     * Limiting](/#tag/Rate-Limits) for more information.
+     * endpoint may generate the &#x60;User Group Updated&#x60; event in the [audit
+     * trail](/tag/Audit-Trail). The rate limit for this endpoint is 60 requests per minute, which
+     * is lower than the default due to access pattern restrictions. Once reached, this endpoint
+     * will respond with the 429 HTTP status code with headers indicating the limit parameters. See
+     * [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param userGroupId (required)
      * @param updateUserGroupV1Input (required)

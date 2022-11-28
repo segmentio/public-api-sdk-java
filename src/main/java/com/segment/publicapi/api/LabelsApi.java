@@ -164,10 +164,11 @@ public class LabelsApi {
 
     /**
      * Create Label Creates a new label. When called, this endpoint may generate the &#x60;Label
-     * Created&#x60; [Audit Trail](/tag/Audit-Trail) event. The rate limit for this endpoint is 60
-     * requests per minute, which is lower than the default due to access pattern restrictions. Once
-     * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
-     * limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * Created&#x60; event in the [audit trail](/tag/Audit-Trail). The rate limit for this endpoint
+     * is 60 requests per minute, which is lower than the default due to access pattern
+     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
+     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
+     * information.
      *
      * @param createLabelV1Input (required)
      * @return CreateLabel200Response
@@ -191,10 +192,11 @@ public class LabelsApi {
 
     /**
      * Create Label Creates a new label. When called, this endpoint may generate the &#x60;Label
-     * Created&#x60; [Audit Trail](/tag/Audit-Trail) event. The rate limit for this endpoint is 60
-     * requests per minute, which is lower than the default due to access pattern restrictions. Once
-     * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
-     * limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * Created&#x60; event in the [audit trail](/tag/Audit-Trail). The rate limit for this endpoint
+     * is 60 requests per minute, which is lower than the default due to access pattern
+     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
+     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
+     * information.
      *
      * @param createLabelV1Input (required)
      * @return ApiResponse&lt;CreateLabel200Response&gt;
@@ -218,10 +220,10 @@ public class LabelsApi {
 
     /**
      * Create Label (asynchronously) Creates a new label. When called, this endpoint may generate
-     * the &#x60;Label Created&#x60; [Audit Trail](/tag/Audit-Trail) event. The rate limit for this
-     * endpoint is 60 requests per minute, which is lower than the default due to access pattern
-     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
-     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
+     * the &#x60;Label Created&#x60; event in the [audit trail](/tag/Audit-Trail). The rate limit
+     * for this endpoint is 60 requests per minute, which is lower than the default due to access
+     * pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code
+     * with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
      * information.
      *
      * @param createLabelV1Input (required)
@@ -354,10 +356,11 @@ public class LabelsApi {
 
     /**
      * Delete Label Deletes a label. When called, this endpoint may generate the &#x60;Label
-     * Deleted&#x60; [Audit Trail](/tag/Audit-Trail) event. The rate limit for this endpoint is 60
-     * requests per minute, which is lower than the default due to access pattern restrictions. Once
-     * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
-     * limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * Deleted&#x60; event in the [audit trail](/tag/Audit-Trail). The rate limit for this endpoint
+     * is 60 requests per minute, which is lower than the default due to access pattern
+     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
+     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
+     * information.
      *
      * @param key (required)
      * @param value (required)
@@ -380,10 +383,11 @@ public class LabelsApi {
 
     /**
      * Delete Label Deletes a label. When called, this endpoint may generate the &#x60;Label
-     * Deleted&#x60; [Audit Trail](/tag/Audit-Trail) event. The rate limit for this endpoint is 60
-     * requests per minute, which is lower than the default due to access pattern restrictions. Once
-     * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
-     * limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * Deleted&#x60; event in the [audit trail](/tag/Audit-Trail). The rate limit for this endpoint
+     * is 60 requests per minute, which is lower than the default due to access pattern
+     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
+     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
+     * information.
      *
      * @param key (required)
      * @param value (required)
@@ -408,10 +412,10 @@ public class LabelsApi {
 
     /**
      * Delete Label (asynchronously) Deletes a label. When called, this endpoint may generate the
-     * &#x60;Label Deleted&#x60; [Audit Trail](/tag/Audit-Trail) event. The rate limit for this
-     * endpoint is 60 requests per minute, which is lower than the default due to access pattern
-     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
-     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
+     * &#x60;Label Deleted&#x60; event in the [audit trail](/tag/Audit-Trail). The rate limit for
+     * this endpoint is 60 requests per minute, which is lower than the default due to access
+     * pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code
+     * with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
      * information.
      *
      * @param key (required)
