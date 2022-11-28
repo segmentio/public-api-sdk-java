@@ -188,8 +188,8 @@ public class DestinationFiltersApi {
 
     /**
      * Create Filter for Destination Creates a filter in a Destination. When called, this endpoint
-     * may generate the &#x60;Destination Filter Created&#x60; [Audit Trail](/tag/Audit-Trail)
-     * event.
+     * may generate the &#x60;Destination Filter Created&#x60; event in the [audit
+     * trail](/tag/Audit-Trail).
      *
      * @param destinationId (required)
      * @param createFilterForDestinationV1Input (required)
@@ -217,8 +217,8 @@ public class DestinationFiltersApi {
 
     /**
      * Create Filter for Destination Creates a filter in a Destination. When called, this endpoint
-     * may generate the &#x60;Destination Filter Created&#x60; [Audit Trail](/tag/Audit-Trail)
-     * event.
+     * may generate the &#x60;Destination Filter Created&#x60; event in the [audit
+     * trail](/tag/Audit-Trail).
      *
      * @param destinationId (required)
      * @param createFilterForDestinationV1Input (required)
@@ -249,8 +249,8 @@ public class DestinationFiltersApi {
 
     /**
      * Create Filter for Destination (asynchronously) Creates a filter in a Destination. When
-     * called, this endpoint may generate the &#x60;Destination Filter Created&#x60; [Audit
-     * Trail](/tag/Audit-Trail) event.
+     * called, this endpoint may generate the &#x60;Destination Filter Created&#x60; event in the
+     * [audit trail](/tag/Audit-Trail).
      *
      * @param destinationId (required)
      * @param createFilterForDestinationV1Input (required)
@@ -949,7 +949,8 @@ public class DestinationFiltersApi {
 
     /**
      * Remove Filter from Destination Deletes a Destination filter. When called, this endpoint may
-     * generate the &#x60;Destination Filter Deleted&#x60; [Audit Trail](/tag/Audit-Trail) event.
+     * generate the &#x60;Destination Filter Deleted&#x60; event in the [audit
+     * trail](/tag/Audit-Trail).
      *
      * @param destinationId (required)
      * @param filterId (required)
@@ -974,7 +975,8 @@ public class DestinationFiltersApi {
 
     /**
      * Remove Filter from Destination Deletes a Destination filter. When called, this endpoint may
-     * generate the &#x60;Destination Filter Deleted&#x60; [Audit Trail](/tag/Audit-Trail) event.
+     * generate the &#x60;Destination Filter Deleted&#x60; event in the [audit
+     * trail](/tag/Audit-Trail).
      *
      * @param destinationId (required)
      * @param filterId (required)
@@ -1002,8 +1004,8 @@ public class DestinationFiltersApi {
 
     /**
      * Remove Filter from Destination (asynchronously) Deletes a Destination filter. When called,
-     * this endpoint may generate the &#x60;Destination Filter Deleted&#x60; [Audit
-     * Trail](/tag/Audit-Trail) event.
+     * this endpoint may generate the &#x60;Destination Filter Deleted&#x60; event in the [audit
+     * trail](/tag/Audit-Trail).
      *
      * @param destinationId (required)
      * @param filterId (required)
@@ -1162,7 +1164,7 @@ public class DestinationFiltersApi {
 
     /**
      * Update Filter for Destination Updates a filter in a Destination. When called, this endpoint
-     * may generate one or more of the following [Audit Trail](/tag/Audit-Trail) events: *
+     * may generate one or more of the following [audit trail](/tag/Audit-Trail) events: *
      * Destination Filter Enabled * Destination Filter Disabled
      *
      * @param destinationId (required)
@@ -1193,7 +1195,7 @@ public class DestinationFiltersApi {
 
     /**
      * Update Filter for Destination Updates a filter in a Destination. When called, this endpoint
-     * may generate one or more of the following [Audit Trail](/tag/Audit-Trail) events: *
+     * may generate one or more of the following [audit trail](/tag/Audit-Trail) events: *
      * Destination Filter Enabled * Destination Filter Disabled
      *
      * @param destinationId (required)
@@ -1227,8 +1229,8 @@ public class DestinationFiltersApi {
 
     /**
      * Update Filter for Destination (asynchronously) Updates a filter in a Destination. When
-     * called, this endpoint may generate one or more of the following [Audit
-     * Trail](/tag/Audit-Trail) events: * Destination Filter Enabled * Destination Filter Disabled
+     * called, this endpoint may generate one or more of the following [audit
+     * trail](/tag/Audit-Trail) events: * Destination Filter Enabled * Destination Filter Disabled
      *
      * @param destinationId (required)
      * @param filterId (required)

@@ -194,7 +194,7 @@ public class SourcesApi {
 
     /**
      * Add Labels to Source Adds an existing label to a Source. When called, this endpoint may
-     * generate the &#x60;Source Modified&#x60; [Audit Trail](/tag/Audit-Trail) event.
+     * generate the &#x60;Source Modified&#x60; event in the [audit trail](/tag/Audit-Trail).
      *
      * @param sourceId (required)
      * @param addLabelsToSourceV1Input (required)
@@ -220,7 +220,7 @@ public class SourcesApi {
 
     /**
      * Add Labels to Source Adds an existing label to a Source. When called, this endpoint may
-     * generate the &#x60;Source Modified&#x60; [Audit Trail](/tag/Audit-Trail) event.
+     * generate the &#x60;Source Modified&#x60; event in the [audit trail](/tag/Audit-Trail).
      *
      * @param sourceId (required)
      * @param addLabelsToSourceV1Input (required)
@@ -247,7 +247,8 @@ public class SourcesApi {
 
     /**
      * Add Labels to Source (asynchronously) Adds an existing label to a Source. When called, this
-     * endpoint may generate the &#x60;Source Modified&#x60; [Audit Trail](/tag/Audit-Trail) event.
+     * endpoint may generate the &#x60;Source Modified&#x60; event in the [audit
+     * trail](/tag/Audit-Trail).
      *
      * @param sourceId (required)
      * @param addLabelsToSourceV1Input (required)
@@ -374,7 +375,7 @@ public class SourcesApi {
 
     /**
      * Create Source Creates a new Source. When called, this endpoint may generate the &#x60;Source
-     * Created&#x60; [Audit Trail](/tag/Audit-Trail) event.
+     * Created&#x60; event in the [audit trail](/tag/Audit-Trail).
      *
      * @param createSourceV1Input (required)
      * @return CreateSource200Response
@@ -398,7 +399,7 @@ public class SourcesApi {
 
     /**
      * Create Source Creates a new Source. When called, this endpoint may generate the &#x60;Source
-     * Created&#x60; [Audit Trail](/tag/Audit-Trail) event.
+     * Created&#x60; event in the [audit trail](/tag/Audit-Trail).
      *
      * @param createSourceV1Input (required)
      * @return ApiResponse&lt;CreateSource200Response&gt;
@@ -422,7 +423,7 @@ public class SourcesApi {
 
     /**
      * Create Source (asynchronously) Creates a new Source. When called, this endpoint may generate
-     * the &#x60;Source Created&#x60; [Audit Trail](/tag/Audit-Trail) event.
+     * the &#x60;Source Created&#x60; event in the [audit trail](/tag/Audit-Trail).
      *
      * @param createSourceV1Input (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -544,7 +545,7 @@ public class SourcesApi {
 
     /**
      * Delete Source Deletes an existing Source. When called, this endpoint may generate the
-     * &#x60;Source Deleted&#x60; [Audit Trail](/tag/Audit-Trail) event.
+     * &#x60;Source Deleted&#x60; event in the [audit trail](/tag/Audit-Trail).
      *
      * @param sourceId (required)
      * @return DeleteSource200Response
@@ -566,7 +567,7 @@ public class SourcesApi {
 
     /**
      * Delete Source Deletes an existing Source. When called, this endpoint may generate the
-     * &#x60;Source Deleted&#x60; [Audit Trail](/tag/Audit-Trail) event.
+     * &#x60;Source Deleted&#x60; event in the [audit trail](/tag/Audit-Trail).
      *
      * @param sourceId (required)
      * @return ApiResponse&lt;DeleteSource200Response&gt;
@@ -590,7 +591,7 @@ public class SourcesApi {
 
     /**
      * Delete Source (asynchronously) Deletes an existing Source. When called, this endpoint may
-     * generate the &#x60;Source Deleted&#x60; [Audit Trail](/tag/Audit-Trail) event.
+     * generate the &#x60;Source Deleted&#x60; event in the [audit trail](/tag/Audit-Trail).
      *
      * @param sourceId (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -2033,7 +2034,7 @@ public class SourcesApi {
 
     /**
      * Update Source Updates an existing Source. When called, this endpoint may generate one or more
-     * of the following [Audit Trail](/tag/Audit-Trail) events: * Source Modified * Source Enabled *
+     * of the following [audit trail](/tag/Audit-Trail) events: * Source Modified * Source Enabled *
      * Source Settings Modified * Source Disabled Config API omitted fields: -
      * &#x60;updateMask&#x60;
      *
@@ -2060,7 +2061,7 @@ public class SourcesApi {
 
     /**
      * Update Source Updates an existing Source. When called, this endpoint may generate one or more
-     * of the following [Audit Trail](/tag/Audit-Trail) events: * Source Modified * Source Enabled *
+     * of the following [audit trail](/tag/Audit-Trail) events: * Source Modified * Source Enabled *
      * Source Settings Modified * Source Disabled Config API omitted fields: -
      * &#x60;updateMask&#x60;
      *
@@ -2088,7 +2089,7 @@ public class SourcesApi {
 
     /**
      * Update Source (asynchronously) Updates an existing Source. When called, this endpoint may
-     * generate one or more of the following [Audit Trail](/tag/Audit-Trail) events: * Source
+     * generate one or more of the following [audit trail](/tag/Audit-Trail) events: * Source
      * Modified * Source Enabled * Source Settings Modified * Source Disabled Config API omitted
      * fields: - &#x60;updateMask&#x60;
      *

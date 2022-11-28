@@ -1257,8 +1257,8 @@ public class SelectiveSyncApi {
     /**
      * Update Selective Sync for Warehouse Configures the schema for a Warehouse, including Sources,
      * Collections, and Properties. When called, this endpoint may generate the &#x60;Storage
-     * Destination Modified&#x60; [Audit Trail](/tag/Audit-Trail) event. The rate limit for this
-     * endpoint is 2 requests per minute, which is lower than the default due to access pattern
+     * Destination Modified&#x60; event in the [audit trail](/tag/Audit-Trail). The rate limit for
+     * this endpoint is 2 requests per minute, which is lower than the default due to access pattern
      * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
      * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
      * information.
@@ -1290,8 +1290,8 @@ public class SelectiveSyncApi {
     /**
      * Update Selective Sync for Warehouse Configures the schema for a Warehouse, including Sources,
      * Collections, and Properties. When called, this endpoint may generate the &#x60;Storage
-     * Destination Modified&#x60; [Audit Trail](/tag/Audit-Trail) event. The rate limit for this
-     * endpoint is 2 requests per minute, which is lower than the default due to access pattern
+     * Destination Modified&#x60; event in the [audit trail](/tag/Audit-Trail). The rate limit for
+     * this endpoint is 2 requests per minute, which is lower than the default due to access pattern
      * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
      * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
      * information.
@@ -1326,8 +1326,8 @@ public class SelectiveSyncApi {
     /**
      * Update Selective Sync for Warehouse (asynchronously) Configures the schema for a Warehouse,
      * including Sources, Collections, and Properties. When called, this endpoint may generate the
-     * &#x60;Storage Destination Modified&#x60; [Audit Trail](/tag/Audit-Trail) event. The rate
-     * limit for this endpoint is 2 requests per minute, which is lower than the default due to
+     * &#x60;Storage Destination Modified&#x60; event in the [audit trail](/tag/Audit-Trail). The
+     * rate limit for this endpoint is 2 requests per minute, which is lower than the default due to
      * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
      * status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.

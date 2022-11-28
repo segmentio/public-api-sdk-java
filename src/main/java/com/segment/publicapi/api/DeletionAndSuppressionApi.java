@@ -394,8 +394,9 @@ public class DeletionAndSuppressionApi {
 
     /**
      * Create Source Regulation Creates a Source-scoped regulation. When called, this endpoint may
-     * generate the &#x60;Source Regulation Created&#x60; [Audit Trail](/tag/Audit-Trail) event.
-     * Config API omitted fields: - &#x60;attributes&#x60;, - &#x60;userAgent&#x60;
+     * generate the &#x60;Source Regulation Created&#x60; event in the [audit
+     * trail](/tag/Audit-Trail). Config API omitted fields: - &#x60;attributes&#x60;, -
+     * &#x60;userAgent&#x60;
      *
      * @param sourceId (required)
      * @param createSourceRegulationV1Input (required)
@@ -421,8 +422,9 @@ public class DeletionAndSuppressionApi {
 
     /**
      * Create Source Regulation Creates a Source-scoped regulation. When called, this endpoint may
-     * generate the &#x60;Source Regulation Created&#x60; [Audit Trail](/tag/Audit-Trail) event.
-     * Config API omitted fields: - &#x60;attributes&#x60;, - &#x60;userAgent&#x60;
+     * generate the &#x60;Source Regulation Created&#x60; event in the [audit
+     * trail](/tag/Audit-Trail). Config API omitted fields: - &#x60;attributes&#x60;, -
+     * &#x60;userAgent&#x60;
      *
      * @param sourceId (required)
      * @param createSourceRegulationV1Input (required)
@@ -450,8 +452,8 @@ public class DeletionAndSuppressionApi {
 
     /**
      * Create Source Regulation (asynchronously) Creates a Source-scoped regulation. When called,
-     * this endpoint may generate the &#x60;Source Regulation Created&#x60; [Audit
-     * Trail](/tag/Audit-Trail) event. Config API omitted fields: - &#x60;attributes&#x60;, -
+     * this endpoint may generate the &#x60;Source Regulation Created&#x60; event in the [audit
+     * trail](/tag/Audit-Trail). Config API omitted fields: - &#x60;attributes&#x60;, -
      * &#x60;userAgent&#x60;
      *
      * @param sourceId (required)
@@ -583,8 +585,9 @@ public class DeletionAndSuppressionApi {
 
     /**
      * Create Workspace Regulation Creates a Workspace-scoped regulation. When called, this endpoint
-     * may generate the &#x60;Workspace Regulation Created&#x60; [Audit Trail](/tag/Audit-Trail)
-     * event. Config API omitted fields: - &#x60;attributes&#x60;, - &#x60;userAgent&#x60;
+     * may generate the &#x60;Workspace Regulation Created&#x60; event in the [audit
+     * trail](/tag/Audit-Trail). Config API omitted fields: - &#x60;attributes&#x60;, -
+     * &#x60;userAgent&#x60;
      *
      * @param createWorkspaceRegulationV1Input (required)
      * @return CreateWorkspaceRegulation200Response
@@ -608,8 +611,9 @@ public class DeletionAndSuppressionApi {
 
     /**
      * Create Workspace Regulation Creates a Workspace-scoped regulation. When called, this endpoint
-     * may generate the &#x60;Workspace Regulation Created&#x60; [Audit Trail](/tag/Audit-Trail)
-     * event. Config API omitted fields: - &#x60;attributes&#x60;, - &#x60;userAgent&#x60;
+     * may generate the &#x60;Workspace Regulation Created&#x60; event in the [audit
+     * trail](/tag/Audit-Trail). Config API omitted fields: - &#x60;attributes&#x60;, -
+     * &#x60;userAgent&#x60;
      *
      * @param createWorkspaceRegulationV1Input (required)
      * @return ApiResponse&lt;CreateWorkspaceRegulation200Response&gt;
@@ -635,8 +639,8 @@ public class DeletionAndSuppressionApi {
 
     /**
      * Create Workspace Regulation (asynchronously) Creates a Workspace-scoped regulation. When
-     * called, this endpoint may generate the &#x60;Workspace Regulation Created&#x60; [Audit
-     * Trail](/tag/Audit-Trail) event. Config API omitted fields: - &#x60;attributes&#x60;, -
+     * called, this endpoint may generate the &#x60;Workspace Regulation Created&#x60; event in the
+     * [audit trail](/tag/Audit-Trail). Config API omitted fields: - &#x60;attributes&#x60;, -
      * &#x60;userAgent&#x60;
      *
      * @param createWorkspaceRegulationV1Input (required)
@@ -764,7 +768,7 @@ public class DeletionAndSuppressionApi {
     /**
      * Delete Regulation Deletes a regulation from the Workspace. The regulation must be in the
      * initialized state to be deleted. When called, this endpoint may generate the &#x60;Regulation
-     * Deleted&#x60; [Audit Trail](/tag/Audit-Trail) event.
+     * Deleted&#x60; event in the [audit trail](/tag/Audit-Trail).
      *
      * @param regulateId (required)
      * @return DeleteRegulation200Response
@@ -788,7 +792,7 @@ public class DeletionAndSuppressionApi {
     /**
      * Delete Regulation Deletes a regulation from the Workspace. The regulation must be in the
      * initialized state to be deleted. When called, this endpoint may generate the &#x60;Regulation
-     * Deleted&#x60; [Audit Trail](/tag/Audit-Trail) event.
+     * Deleted&#x60; event in the [audit trail](/tag/Audit-Trail).
      *
      * @param regulateId (required)
      * @return ApiResponse&lt;DeleteRegulation200Response&gt;
@@ -813,7 +817,7 @@ public class DeletionAndSuppressionApi {
     /**
      * Delete Regulation (asynchronously) Deletes a regulation from the Workspace. The regulation
      * must be in the initialized state to be deleted. When called, this endpoint may generate the
-     * &#x60;Regulation Deleted&#x60; [Audit Trail](/tag/Audit-Trail) event.
+     * &#x60;Regulation Deleted&#x60; event in the [audit trail](/tag/Audit-Trail).
      *
      * @param regulateId (required)
      * @param _callback The callback to be executed when the API call finishes
