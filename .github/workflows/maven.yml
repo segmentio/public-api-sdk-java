@@ -7,6 +7,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Get changes in pom.xml
+        id: changed-pom
+        uses: tj-actions/changed-files@v34
+        with:
+          files: |
+            pom.xml
       - name: Set up Maven Central Repository
         uses: actions/setup-java@v3
         with:
@@ -18,6 +24,7 @@ jobs:
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
           gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
       - name: Publish package
+        if: steps.changed-pom.outputs.any_changed == 'true'
         run: mvn --batch-mode clean deploy
         env:
           MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
