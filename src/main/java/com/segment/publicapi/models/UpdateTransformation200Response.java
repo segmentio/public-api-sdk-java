@@ -34,11 +34,11 @@ public class UpdateTransformation200Response {
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    private UpdateTransformationBetaOutput data;
+    private UpdateTransformationV1Output data;
 
     public UpdateTransformation200Response() {}
 
-    public UpdateTransformation200Response data(UpdateTransformationBetaOutput data) {
+    public UpdateTransformation200Response data(UpdateTransformationV1Output data) {
 
         this.data = data;
         return this;
@@ -51,11 +51,11 @@ public class UpdateTransformation200Response {
      */
     @javax.annotation.Nullable
     @ApiModelProperty(value = "")
-    public UpdateTransformationBetaOutput getData() {
+    public UpdateTransformationV1Output getData() {
         return data;
     }
 
-    public void setData(UpdateTransformationBetaOutput data) {
+    public void setData(UpdateTransformationV1Output data) {
         this.data = data;
     }
 

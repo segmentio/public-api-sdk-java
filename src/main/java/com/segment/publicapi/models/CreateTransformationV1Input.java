@@ -33,14 +33,9 @@ import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
-/** The input to update a Transformation. */
-@ApiModel(description = "The input to update a Transformation.")
-public class UpdateTransformationBetaInput {
-    public static final String SERIALIZED_NAME_TRANSFORMATION_ID = "transformationId";
-
-    @SerializedName(SERIALIZED_NAME_TRANSFORMATION_ID)
-    private String transformationId;
-
+/** The input to create a Transformation. */
+@ApiModel(description = "The input to create a Transformation.")
+public class CreateTransformationV1Input {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
@@ -74,38 +69,17 @@ public class UpdateTransformationBetaInput {
     public static final String SERIALIZED_NAME_PROPERTY_RENAMES = "propertyRenames";
 
     @SerializedName(SERIALIZED_NAME_PROPERTY_RENAMES)
-    private List<PropertyRenameBeta> propertyRenames = null;
+    private List<PropertyRenameV1> propertyRenames = null;
 
     public static final String SERIALIZED_NAME_PROPERTY_VALUE_TRANSFORMATIONS =
             "propertyValueTransformations";
 
     @SerializedName(SERIALIZED_NAME_PROPERTY_VALUE_TRANSFORMATIONS)
-    private List<PropertyValueTransformationBeta> propertyValueTransformations = null;
+    private List<PropertyValueTransformationV1> propertyValueTransformations = null;
 
-    public UpdateTransformationBetaInput() {}
+    public CreateTransformationV1Input() {}
 
-    public UpdateTransformationBetaInput transformationId(String transformationId) {
-
-        this.transformationId = transformationId;
-        return this;
-    }
-
-    /**
-     * ID of the Transformation to update.
-     *
-     * @return transformationId
-     */
-    @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "ID of the Transformation to update.")
-    public String getTransformationId() {
-        return transformationId;
-    }
-
-    public void setTransformationId(String transformationId) {
-        this.transformationId = transformationId;
-    }
-
-    public UpdateTransformationBetaInput name(String name) {
+    public CreateTransformationV1Input name(String name) {
 
         this.name = name;
         return this;
@@ -116,8 +90,8 @@ public class UpdateTransformationBetaInput {
      *
      * @return name
      */
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The name of the Transformation.")
+    @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "The name of the Transformation.")
     public String getName() {
         return name;
     }
@@ -126,19 +100,21 @@ public class UpdateTransformationBetaInput {
         this.name = name;
     }
 
-    public UpdateTransformationBetaInput sourceId(String sourceId) {
+    public CreateTransformationV1Input sourceId(String sourceId) {
 
         this.sourceId = sourceId;
         return this;
     }
 
     /**
-     * The optional Source to be associated with the Transformation.
+     * The Source to be associated with the Transformation.
      *
      * @return sourceId
      */
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The optional Source to be associated with the Transformation.")
+    @javax.annotation.Nonnull
+    @ApiModelProperty(
+            required = true,
+            value = "The Source to be associated with the Transformation.")
     public String getSourceId() {
         return sourceId;
     }
@@ -147,20 +123,22 @@ public class UpdateTransformationBetaInput {
         this.sourceId = sourceId;
     }
 
-    public UpdateTransformationBetaInput destinationMetadataId(String destinationMetadataId) {
+    public CreateTransformationV1Input destinationMetadataId(String destinationMetadataId) {
 
         this.destinationMetadataId = destinationMetadataId;
         return this;
     }
 
     /**
-     * The optional Destination metadata to be associated with the Transformation.
+     * The optional Destination metadata id to be associated with the Transformation.
      *
      * @return destinationMetadataId
      */
     @javax.annotation.Nullable
     @ApiModelProperty(
-            value = "The optional Destination metadata to be associated with the Transformation.")
+            value =
+                    "The optional Destination metadata id to be associated with the"
+                            + " Transformation.")
     public String getDestinationMetadataId() {
         return destinationMetadataId;
     }
@@ -169,7 +147,7 @@ public class UpdateTransformationBetaInput {
         this.destinationMetadataId = destinationMetadataId;
     }
 
-    public UpdateTransformationBetaInput enabled(Boolean enabled) {
+    public CreateTransformationV1Input enabled(Boolean enabled) {
 
         this.enabled = enabled;
         return this;
@@ -180,8 +158,8 @@ public class UpdateTransformationBetaInput {
      *
      * @return enabled
      */
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "If the Transformation should be enabled.")
+    @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "If the Transformation should be enabled.")
     public Boolean getEnabled() {
         return enabled;
     }
@@ -190,7 +168,7 @@ public class UpdateTransformationBetaInput {
         this.enabled = enabled;
     }
 
-    public UpdateTransformationBetaInput _if(String _if) {
+    public CreateTransformationV1Input _if(String _if) {
 
         this._if = _if;
         return this;
@@ -205,8 +183,9 @@ public class UpdateTransformationBetaInput {
      *
      * @return _if
      */
-    @javax.annotation.Nullable
+    @javax.annotation.Nonnull
     @ApiModelProperty(
+            required = true,
             value =
                     "If statement ([FQL](https://segment.com/docs/config-api/fql/)) to match"
                         + " events.  For standard event matchers, use the following:   Track -\\>"
@@ -220,7 +199,7 @@ public class UpdateTransformationBetaInput {
         this._if = _if;
     }
 
-    public UpdateTransformationBetaInput newEventName(String newEventName) {
+    public CreateTransformationV1Input newEventName(String newEventName) {
 
         this.newEventName = newEventName;
         return this;
@@ -244,14 +223,14 @@ public class UpdateTransformationBetaInput {
         this.newEventName = newEventName;
     }
 
-    public UpdateTransformationBetaInput propertyRenames(List<PropertyRenameBeta> propertyRenames) {
+    public CreateTransformationV1Input propertyRenames(List<PropertyRenameV1> propertyRenames) {
 
         this.propertyRenames = propertyRenames;
         return this;
     }
 
-    public UpdateTransformationBetaInput addPropertyRenamesItem(
-            PropertyRenameBeta propertyRenamesItem) {
+    public CreateTransformationV1Input addPropertyRenamesItem(
+            PropertyRenameV1 propertyRenamesItem) {
         if (this.propertyRenames == null) {
             this.propertyRenames = new ArrayList<>();
         }
@@ -266,23 +245,23 @@ public class UpdateTransformationBetaInput {
      */
     @javax.annotation.Nullable
     @ApiModelProperty(value = "Optional array for renaming properties collected by your events.")
-    public List<PropertyRenameBeta> getPropertyRenames() {
+    public List<PropertyRenameV1> getPropertyRenames() {
         return propertyRenames;
     }
 
-    public void setPropertyRenames(List<PropertyRenameBeta> propertyRenames) {
+    public void setPropertyRenames(List<PropertyRenameV1> propertyRenames) {
         this.propertyRenames = propertyRenames;
     }
 
-    public UpdateTransformationBetaInput propertyValueTransformations(
-            List<PropertyValueTransformationBeta> propertyValueTransformations) {
+    public CreateTransformationV1Input propertyValueTransformations(
+            List<PropertyValueTransformationV1> propertyValueTransformations) {
 
         this.propertyValueTransformations = propertyValueTransformations;
         return this;
     }
 
-    public UpdateTransformationBetaInput addPropertyValueTransformationsItem(
-            PropertyValueTransformationBeta propertyValueTransformationsItem) {
+    public CreateTransformationV1Input addPropertyValueTransformationsItem(
+            PropertyValueTransformationV1 propertyValueTransformationsItem) {
         if (this.propertyValueTransformations == null) {
             this.propertyValueTransformations = new ArrayList<>();
         }
@@ -301,12 +280,12 @@ public class UpdateTransformationBetaInput {
             value =
                     "Optional array for transforming properties and values collected by your"
                             + " events. Limited to 10 properties.")
-    public List<PropertyValueTransformationBeta> getPropertyValueTransformations() {
+    public List<PropertyValueTransformationV1> getPropertyValueTransformations() {
         return propertyValueTransformations;
     }
 
     public void setPropertyValueTransformations(
-            List<PropertyValueTransformationBeta> propertyValueTransformations) {
+            List<PropertyValueTransformationV1> propertyValueTransformations) {
         this.propertyValueTransformations = propertyValueTransformations;
     }
 
@@ -318,28 +297,24 @@ public class UpdateTransformationBetaInput {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        UpdateTransformationBetaInput updateTransformationBetaInput =
-                (UpdateTransformationBetaInput) o;
-        return Objects.equals(this.transformationId, updateTransformationBetaInput.transformationId)
-                && Objects.equals(this.name, updateTransformationBetaInput.name)
-                && Objects.equals(this.sourceId, updateTransformationBetaInput.sourceId)
+        CreateTransformationV1Input createTransformationV1Input = (CreateTransformationV1Input) o;
+        return Objects.equals(this.name, createTransformationV1Input.name)
+                && Objects.equals(this.sourceId, createTransformationV1Input.sourceId)
                 && Objects.equals(
                         this.destinationMetadataId,
-                        updateTransformationBetaInput.destinationMetadataId)
-                && Objects.equals(this.enabled, updateTransformationBetaInput.enabled)
-                && Objects.equals(this._if, updateTransformationBetaInput._if)
-                && Objects.equals(this.newEventName, updateTransformationBetaInput.newEventName)
-                && Objects.equals(
-                        this.propertyRenames, updateTransformationBetaInput.propertyRenames)
+                        createTransformationV1Input.destinationMetadataId)
+                && Objects.equals(this.enabled, createTransformationV1Input.enabled)
+                && Objects.equals(this._if, createTransformationV1Input._if)
+                && Objects.equals(this.newEventName, createTransformationV1Input.newEventName)
+                && Objects.equals(this.propertyRenames, createTransformationV1Input.propertyRenames)
                 && Objects.equals(
                         this.propertyValueTransformations,
-                        updateTransformationBetaInput.propertyValueTransformations);
+                        createTransformationV1Input.propertyValueTransformations);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(
-                transformationId,
                 name,
                 sourceId,
                 destinationMetadataId,
@@ -353,8 +328,7 @@ public class UpdateTransformationBetaInput {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class UpdateTransformationBetaInput {\n");
-        sb.append("    transformationId: ").append(toIndentedString(transformationId)).append("\n");
+        sb.append("class CreateTransformationV1Input {\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
         sb.append("    destinationMetadataId: ")
@@ -388,7 +362,6 @@ public class UpdateTransformationBetaInput {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("transformationId");
         openapiFields.add("name");
         openapiFields.add("sourceId");
         openapiFields.add("destinationMetadataId");
@@ -400,42 +373,44 @@ public class UpdateTransformationBetaInput {
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("transformationId");
+        openapiRequiredFields.add("name");
+        openapiRequiredFields.add("sourceId");
+        openapiRequiredFields.add("enabled");
+        openapiRequiredFields.add("if");
     }
 
     /**
      * Validates the JSON Object and throws an exception if issues found
      *
      * @param jsonObj JSON Object
-     * @throws IOException if the JSON Object is invalid with respect to
-     *     UpdateTransformationBetaInput
+     * @throws IOException if the JSON Object is invalid with respect to CreateTransformationV1Input
      */
     public static void validateJsonObject(JsonObject jsonObj) throws IOException {
         if (jsonObj == null) {
-            if (!UpdateTransformationBetaInput.openapiRequiredFields
+            if (!CreateTransformationV1Input.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in UpdateTransformationBetaInput is not"
+                                "The required field(s) %s in CreateTransformationV1Input is not"
                                         + " found in the empty JSON string",
-                                UpdateTransformationBetaInput.openapiRequiredFields.toString()));
+                                CreateTransformationV1Input.openapiRequiredFields.toString()));
             }
         }
 
         Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
         for (Entry<String, JsonElement> entry : entries) {
-            if (!UpdateTransformationBetaInput.openapiFields.contains(entry.getKey())) {
+            if (!CreateTransformationV1Input.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `UpdateTransformationBetaInput` properties. JSON: %s",
+                                        + " `CreateTransformationV1Input` properties. JSON: %s",
                                 entry.getKey(), jsonObj.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : UpdateTransformationBetaInput.openapiRequiredFields) {
+        for (String requiredField : CreateTransformationV1Input.openapiRequiredFields) {
             if (jsonObj.get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -443,23 +418,14 @@ public class UpdateTransformationBetaInput {
                                 requiredField, jsonObj.toString()));
             }
         }
-        if (!jsonObj.get("transformationId").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `transformationId` to be a primitive type in the"
-                                    + " JSON string but got `%s`",
-                            jsonObj.get("transformationId").toString()));
-        }
-        if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull())
-                && !jsonObj.get("name").isJsonPrimitive()) {
+        if (!jsonObj.get("name").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             "Expected the field `name` to be a primitive type in the JSON string"
                                     + " but got `%s`",
                             jsonObj.get("name").toString()));
         }
-        if ((jsonObj.get("sourceId") != null && !jsonObj.get("sourceId").isJsonNull())
-                && !jsonObj.get("sourceId").isJsonPrimitive()) {
+        if (!jsonObj.get("sourceId").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             "Expected the field `sourceId` to be a primitive type in the JSON"
@@ -475,8 +441,7 @@ public class UpdateTransformationBetaInput {
                                     + " the JSON string but got `%s`",
                             jsonObj.get("destinationMetadataId").toString()));
         }
-        if ((jsonObj.get("if") != null && !jsonObj.get("if").isJsonNull())
-                && !jsonObj.get("if").isJsonPrimitive()) {
+        if (!jsonObj.get("if").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             "Expected the field `if` to be a primitive type in the JSON string but"
@@ -526,27 +491,25 @@ public class UpdateTransformationBetaInput {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!UpdateTransformationBetaInput.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'UpdateTransformationBetaInput' and its
+            if (!CreateTransformationV1Input.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'CreateTransformationV1Input' and its
                 // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<UpdateTransformationBetaInput> thisAdapter =
-                    gson.getDelegateAdapter(
-                            this, TypeToken.get(UpdateTransformationBetaInput.class));
+            final TypeAdapter<CreateTransformationV1Input> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(CreateTransformationV1Input.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<UpdateTransformationBetaInput>() {
+                    new TypeAdapter<CreateTransformationV1Input>() {
                         @Override
-                        public void write(JsonWriter out, UpdateTransformationBetaInput value)
+                        public void write(JsonWriter out, CreateTransformationV1Input value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public UpdateTransformationBetaInput read(JsonReader in)
-                                throws IOException {
+                        public CreateTransformationV1Input read(JsonReader in) throws IOException {
                             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
                             validateJsonObject(jsonObj);
                             return thisAdapter.fromJsonTree(jsonObj);
@@ -556,19 +519,18 @@ public class UpdateTransformationBetaInput {
     }
 
     /**
-     * Create an instance of UpdateTransformationBetaInput given an JSON string
+     * Create an instance of CreateTransformationV1Input given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of UpdateTransformationBetaInput
-     * @throws IOException if the JSON string is invalid with respect to
-     *     UpdateTransformationBetaInput
+     * @return An instance of CreateTransformationV1Input
+     * @throws IOException if the JSON string is invalid with respect to CreateTransformationV1Input
      */
-    public static UpdateTransformationBetaInput fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, UpdateTransformationBetaInput.class);
+    public static CreateTransformationV1Input fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, CreateTransformationV1Input.class);
     }
 
     /**
-     * Convert an instance of UpdateTransformationBetaInput to an JSON string
+     * Convert an instance of CreateTransformationV1Input to an JSON string
      *
      * @return JSON string
      */

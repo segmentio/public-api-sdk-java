@@ -20,13 +20,13 @@ import com.segment.publicapi.ApiResponse;
 import com.segment.publicapi.Configuration;
 import com.segment.publicapi.Pair;
 import com.segment.publicapi.models.CreateTransformation200Response;
-import com.segment.publicapi.models.CreateTransformationBetaInput;
+import com.segment.publicapi.models.CreateTransformationV1Input;
 import com.segment.publicapi.models.DeleteTransformation200Response;
 import com.segment.publicapi.models.GetTransformation200Response;
 import com.segment.publicapi.models.ListTransformations200Response;
 import com.segment.publicapi.models.PaginationInput;
 import com.segment.publicapi.models.UpdateTransformation200Response;
-import com.segment.publicapi.models.UpdateTransformationBetaInput;
+import com.segment.publicapi.models.UpdateTransformationV1Input;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -73,7 +73,7 @@ public class TransformationsApi {
     /**
      * Build call for createTransformation
      *
-     * @param createTransformationBetaInput (required)
+     * @param createTransformationV1Input (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -87,8 +87,7 @@ public class TransformationsApi {
      * </table>
      */
     public okhttp3.Call createTransformationCall(
-            CreateTransformationBetaInput createTransformationBetaInput,
-            final ApiCallback _callback)
+            CreateTransformationV1Input createTransformationV1Input, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -103,7 +102,7 @@ public class TransformationsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = createTransformationBetaInput;
+        Object localVarPostBody = createTransformationV1Input;
 
         // create path and map variables
         String localVarPath = "/transformations";
@@ -115,9 +114,10 @@ public class TransformationsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
+            "application/vnd.segment.v1+json",
+            "application/json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1alpha+json",
-            "application/json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -125,7 +125,9 @@ public class TransformationsApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/vnd.segment.v1beta+json", "application/vnd.segment.v1alpha+json"
+            "application/vnd.segment.v1+json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
@@ -150,19 +152,18 @@ public class TransformationsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createTransformationValidateBeforeCall(
-            CreateTransformationBetaInput createTransformationBetaInput,
-            final ApiCallback _callback)
+            CreateTransformationV1Input createTransformationV1Input, final ApiCallback _callback)
             throws ApiException {
 
-        // verify the required parameter 'createTransformationBetaInput' is set
-        if (createTransformationBetaInput == null) {
+        // verify the required parameter 'createTransformationV1Input' is set
+        if (createTransformationV1Input == null) {
             throw new ApiException(
-                    "Missing the required parameter 'createTransformationBetaInput' when calling"
+                    "Missing the required parameter 'createTransformationV1Input' when calling"
                             + " createTransformation(Async)");
         }
 
         okhttp3.Call localVarCall =
-                createTransformationCall(createTransformationBetaInput, _callback);
+                createTransformationCall(createTransformationV1Input, _callback);
         return localVarCall;
     }
 
@@ -173,7 +174,7 @@ public class TransformationsApi {
      * the Protocols feature enabled. Please reach out to your customer success manager for more
      * information.
      *
-     * @param createTransformationBetaInput (required)
+     * @param createTransformationV1Input (required)
      * @return CreateTransformation200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -187,9 +188,9 @@ public class TransformationsApi {
      * </table>
      */
     public CreateTransformation200Response createTransformation(
-            CreateTransformationBetaInput createTransformationBetaInput) throws ApiException {
+            CreateTransformationV1Input createTransformationV1Input) throws ApiException {
         ApiResponse<CreateTransformation200Response> localVarResp =
-                createTransformationWithHttpInfo(createTransformationBetaInput);
+                createTransformationWithHttpInfo(createTransformationV1Input);
         return localVarResp.getData();
     }
 
@@ -200,7 +201,7 @@ public class TransformationsApi {
      * the Protocols feature enabled. Please reach out to your customer success manager for more
      * information.
      *
-     * @param createTransformationBetaInput (required)
+     * @param createTransformationV1Input (required)
      * @return ApiResponse&lt;CreateTransformation200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -214,9 +215,9 @@ public class TransformationsApi {
      * </table>
      */
     public ApiResponse<CreateTransformation200Response> createTransformationWithHttpInfo(
-            CreateTransformationBetaInput createTransformationBetaInput) throws ApiException {
+            CreateTransformationV1Input createTransformationV1Input) throws ApiException {
         okhttp3.Call localVarCall =
-                createTransformationValidateBeforeCall(createTransformationBetaInput, null);
+                createTransformationValidateBeforeCall(createTransformationV1Input, null);
         Type localVarReturnType = new TypeToken<CreateTransformation200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -228,7 +229,7 @@ public class TransformationsApi {
      * specified Workspace needs to have the Protocols feature enabled. Please reach out to your
      * customer success manager for more information.
      *
-     * @param createTransformationBetaInput (required)
+     * @param createTransformationV1Input (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -243,12 +244,12 @@ public class TransformationsApi {
      * </table>
      */
     public okhttp3.Call createTransformationAsync(
-            CreateTransformationBetaInput createTransformationBetaInput,
+            CreateTransformationV1Input createTransformationV1Input,
             final ApiCallback<CreateTransformation200Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
-                createTransformationValidateBeforeCall(createTransformationBetaInput, _callback);
+                createTransformationValidateBeforeCall(createTransformationV1Input, _callback);
         Type localVarReturnType = new TypeToken<CreateTransformation200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -300,9 +301,10 @@ public class TransformationsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
+            "application/vnd.segment.v1+json",
+            "application/json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1alpha+json",
-            "application/json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -477,9 +479,10 @@ public class TransformationsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
+            "application/vnd.segment.v1+json",
+            "application/json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1alpha+json",
-            "application/json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -606,7 +609,7 @@ public class TransformationsApi {
     /**
      * Build call for listTransformations
      *
-     * @param pagination Pagination options. This parameter exists in beta. (required)
+     * @param pagination Pagination options. This parameter exists in v1. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -650,9 +653,10 @@ public class TransformationsApi {
         }
 
         final String[] localVarAccepts = {
+            "application/vnd.segment.v1+json",
+            "application/json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1alpha+json",
-            "application/json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -702,7 +706,7 @@ public class TransformationsApi {
      * successfully call this endpoint, the specified Workspace needs to have the Protocols feature
      * enabled. Please reach out to your customer success manager for more information.
      *
-     * @param pagination Pagination options. This parameter exists in beta. (required)
+     * @param pagination Pagination options. This parameter exists in v1. (required)
      * @return ListTransformations200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -727,7 +731,7 @@ public class TransformationsApi {
      * successfully call this endpoint, the specified Workspace needs to have the Protocols feature
      * enabled. Please reach out to your customer success manager for more information.
      *
-     * @param pagination Pagination options. This parameter exists in beta. (required)
+     * @param pagination Pagination options. This parameter exists in v1. (required)
      * @return ApiResponse&lt;ListTransformations200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -753,7 +757,7 @@ public class TransformationsApi {
      * Protocols feature enabled. Please reach out to your customer success manager for more
      * information.
      *
-     * @param pagination Pagination options. This parameter exists in beta. (required)
+     * @param pagination Pagination options. This parameter exists in v1. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -780,7 +784,7 @@ public class TransformationsApi {
      * Build call for updateTransformation
      *
      * @param transformationId (required)
-     * @param updateTransformationBetaInput (required)
+     * @param updateTransformationV1Input (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -795,7 +799,7 @@ public class TransformationsApi {
      */
     public okhttp3.Call updateTransformationCall(
             String transformationId,
-            UpdateTransformationBetaInput updateTransformationBetaInput,
+            UpdateTransformationV1Input updateTransformationV1Input,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -811,7 +815,7 @@ public class TransformationsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = updateTransformationBetaInput;
+        Object localVarPostBody = updateTransformationV1Input;
 
         // create path and map variables
         String localVarPath =
@@ -827,9 +831,10 @@ public class TransformationsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
+            "application/vnd.segment.v1+json",
+            "application/json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1alpha+json",
-            "application/json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -837,7 +842,9 @@ public class TransformationsApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/vnd.segment.v1beta+json", "application/vnd.segment.v1alpha+json"
+            "application/vnd.segment.v1+json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
@@ -863,7 +870,7 @@ public class TransformationsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateTransformationValidateBeforeCall(
             String transformationId,
-            UpdateTransformationBetaInput updateTransformationBetaInput,
+            UpdateTransformationV1Input updateTransformationV1Input,
             final ApiCallback _callback)
             throws ApiException {
 
@@ -874,16 +881,15 @@ public class TransformationsApi {
                             + " updateTransformation(Async)");
         }
 
-        // verify the required parameter 'updateTransformationBetaInput' is set
-        if (updateTransformationBetaInput == null) {
+        // verify the required parameter 'updateTransformationV1Input' is set
+        if (updateTransformationV1Input == null) {
             throw new ApiException(
-                    "Missing the required parameter 'updateTransformationBetaInput' when calling"
+                    "Missing the required parameter 'updateTransformationV1Input' when calling"
                             + " updateTransformation(Async)");
         }
 
         okhttp3.Call localVarCall =
-                updateTransformationCall(
-                        transformationId, updateTransformationBetaInput, _callback);
+                updateTransformationCall(transformationId, updateTransformationV1Input, _callback);
         return localVarCall;
     }
 
@@ -895,7 +901,7 @@ public class TransformationsApi {
      * information.
      *
      * @param transformationId (required)
-     * @param updateTransformationBetaInput (required)
+     * @param updateTransformationV1Input (required)
      * @return UpdateTransformation200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -909,10 +915,10 @@ public class TransformationsApi {
      * </table>
      */
     public UpdateTransformation200Response updateTransformation(
-            String transformationId, UpdateTransformationBetaInput updateTransformationBetaInput)
+            String transformationId, UpdateTransformationV1Input updateTransformationV1Input)
             throws ApiException {
         ApiResponse<UpdateTransformation200Response> localVarResp =
-                updateTransformationWithHttpInfo(transformationId, updateTransformationBetaInput);
+                updateTransformationWithHttpInfo(transformationId, updateTransformationV1Input);
         return localVarResp.getData();
     }
 
@@ -924,7 +930,7 @@ public class TransformationsApi {
      * information.
      *
      * @param transformationId (required)
-     * @param updateTransformationBetaInput (required)
+     * @param updateTransformationV1Input (required)
      * @return ApiResponse&lt;UpdateTransformation200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -938,11 +944,11 @@ public class TransformationsApi {
      * </table>
      */
     public ApiResponse<UpdateTransformation200Response> updateTransformationWithHttpInfo(
-            String transformationId, UpdateTransformationBetaInput updateTransformationBetaInput)
+            String transformationId, UpdateTransformationV1Input updateTransformationV1Input)
             throws ApiException {
         okhttp3.Call localVarCall =
                 updateTransformationValidateBeforeCall(
-                        transformationId, updateTransformationBetaInput, null);
+                        transformationId, updateTransformationV1Input, null);
         Type localVarReturnType = new TypeToken<UpdateTransformation200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -955,7 +961,7 @@ public class TransformationsApi {
      * customer success manager for more information.
      *
      * @param transformationId (required)
-     * @param updateTransformationBetaInput (required)
+     * @param updateTransformationV1Input (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -971,13 +977,13 @@ public class TransformationsApi {
      */
     public okhttp3.Call updateTransformationAsync(
             String transformationId,
-            UpdateTransformationBetaInput updateTransformationBetaInput,
+            UpdateTransformationV1Input updateTransformationV1Input,
             final ApiCallback<UpdateTransformation200Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 updateTransformationValidateBeforeCall(
-                        transformationId, updateTransformationBetaInput, _callback);
+                        transformationId, updateTransformationV1Input, _callback);
         Type localVarReturnType = new TypeToken<UpdateTransformation200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

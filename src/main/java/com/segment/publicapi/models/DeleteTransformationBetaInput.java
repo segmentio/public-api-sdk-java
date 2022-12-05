@@ -22,6 +22,7 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.HashSet;
@@ -29,34 +30,35 @@ import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
-/** CreateTransformation200Response */
-public class CreateTransformation200Response {
-    public static final String SERIALIZED_NAME_DATA = "data";
+/** The input of delete Transformation. */
+@ApiModel(description = "The input of delete Transformation.")
+public class DeleteTransformationBetaInput {
+    public static final String SERIALIZED_NAME_TRANSFORMATION_ID = "transformationId";
 
-    @SerializedName(SERIALIZED_NAME_DATA)
-    private CreateTransformationV1Output data;
+    @SerializedName(SERIALIZED_NAME_TRANSFORMATION_ID)
+    private String transformationId;
 
-    public CreateTransformation200Response() {}
+    public DeleteTransformationBetaInput() {}
 
-    public CreateTransformation200Response data(CreateTransformationV1Output data) {
+    public DeleteTransformationBetaInput transformationId(String transformationId) {
 
-        this.data = data;
+        this.transformationId = transformationId;
         return this;
     }
 
     /**
-     * Get data
+     * The Transformation id.
      *
-     * @return data
+     * @return transformationId
      */
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    public CreateTransformationV1Output getData() {
-        return data;
+    @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "The Transformation id.")
+    public String getTransformationId() {
+        return transformationId;
     }
 
-    public void setData(CreateTransformationV1Output data) {
-        this.data = data;
+    public void setTransformationId(String transformationId) {
+        this.transformationId = transformationId;
     }
 
     @Override
@@ -67,21 +69,22 @@ public class CreateTransformation200Response {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        CreateTransformation200Response createTransformation200Response =
-                (CreateTransformation200Response) o;
-        return Objects.equals(this.data, createTransformation200Response.data);
+        DeleteTransformationBetaInput deleteTransformationBetaInput =
+                (DeleteTransformationBetaInput) o;
+        return Objects.equals(
+                this.transformationId, deleteTransformationBetaInput.transformationId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(data);
+        return Objects.hash(transformationId);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CreateTransformation200Response {\n");
-        sb.append("    data: ").append(toIndentedString(data)).append("\n");
+        sb.append("class DeleteTransformationBetaInput {\n");
+        sb.append("    transformationId: ").append(toIndentedString(transformationId)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -103,10 +106,11 @@ public class CreateTransformation200Response {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("data");
+        openapiFields.add("transformationId");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
+        openapiRequiredFields.add("transformationId");
     }
 
     /**
@@ -114,30 +118,47 @@ public class CreateTransformation200Response {
      *
      * @param jsonObj JSON Object
      * @throws IOException if the JSON Object is invalid with respect to
-     *     CreateTransformation200Response
+     *     DeleteTransformationBetaInput
      */
     public static void validateJsonObject(JsonObject jsonObj) throws IOException {
         if (jsonObj == null) {
-            if (!CreateTransformation200Response.openapiRequiredFields
+            if (!DeleteTransformationBetaInput.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in CreateTransformation200Response is not"
+                                "The required field(s) %s in DeleteTransformationBetaInput is not"
                                         + " found in the empty JSON string",
-                                CreateTransformation200Response.openapiRequiredFields.toString()));
+                                DeleteTransformationBetaInput.openapiRequiredFields.toString()));
             }
         }
 
         Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
         for (Entry<String, JsonElement> entry : entries) {
-            if (!CreateTransformation200Response.openapiFields.contains(entry.getKey())) {
+            if (!DeleteTransformationBetaInput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `CreateTransformation200Response` properties. JSON: %s",
+                                        + " `DeleteTransformationBetaInput` properties. JSON: %s",
                                 entry.getKey(), jsonObj.toString()));
             }
+        }
+
+        // check to make sure all required properties/fields are present in the JSON string
+        for (String requiredField : DeleteTransformationBetaInput.openapiRequiredFields) {
+            if (jsonObj.get(requiredField) == null) {
+                throw new IllegalArgumentException(
+                        String.format(
+                                "The required field `%s` is not found in the JSON string: %s",
+                                requiredField, jsonObj.toString()));
+            }
+        }
+        if (!jsonObj.get("transformationId").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `transformationId` to be a primitive type in the"
+                                    + " JSON string but got `%s`",
+                            jsonObj.get("transformationId").toString()));
         }
     }
 
@@ -145,26 +166,26 @@ public class CreateTransformation200Response {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!CreateTransformation200Response.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'CreateTransformation200Response' and its
+            if (!DeleteTransformationBetaInput.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'DeleteTransformationBetaInput' and its
                 // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<CreateTransformation200Response> thisAdapter =
+            final TypeAdapter<DeleteTransformationBetaInput> thisAdapter =
                     gson.getDelegateAdapter(
-                            this, TypeToken.get(CreateTransformation200Response.class));
+                            this, TypeToken.get(DeleteTransformationBetaInput.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<CreateTransformation200Response>() {
+                    new TypeAdapter<DeleteTransformationBetaInput>() {
                         @Override
-                        public void write(JsonWriter out, CreateTransformation200Response value)
+                        public void write(JsonWriter out, DeleteTransformationBetaInput value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public CreateTransformation200Response read(JsonReader in)
+                        public DeleteTransformationBetaInput read(JsonReader in)
                                 throws IOException {
                             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
                             validateJsonObject(jsonObj);
@@ -175,19 +196,19 @@ public class CreateTransformation200Response {
     }
 
     /**
-     * Create an instance of CreateTransformation200Response given an JSON string
+     * Create an instance of DeleteTransformationBetaInput given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of CreateTransformation200Response
+     * @return An instance of DeleteTransformationBetaInput
      * @throws IOException if the JSON string is invalid with respect to
-     *     CreateTransformation200Response
+     *     DeleteTransformationBetaInput
      */
-    public static CreateTransformation200Response fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, CreateTransformation200Response.class);
+    public static DeleteTransformationBetaInput fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, DeleteTransformationBetaInput.class);
     }
 
     /**
-     * Convert an instance of CreateTransformation200Response to an JSON string
+     * Convert an instance of DeleteTransformationBetaInput to an JSON string
      *
      * @return JSON string
      */
