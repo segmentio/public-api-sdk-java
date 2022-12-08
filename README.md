@@ -1,5 +1,7 @@
 # Segment Public API Java SDK
 
+> :warning: **Note**: This SDK is currently released as [Public Beta](https://segment.com/legal/first-access-beta-preview/). Its use in critical systems is discouraged, but [feedback is welcome](#contributing).
+
 ## Overview
 
 The Segment Public API helps you manage your Segment Workspaces and its resources. You can use the API to perform CRUD (create, read, update, delete) operations at no extra charge. This includes working with resources such as Sources, Destinations, Warehouses, Tracking Plans, and the Segment Destinations and Sources Catalogs. The full documentation is available at [https://docs.segmentapis.com](https://docs.segmentapis.com).
@@ -8,7 +10,7 @@ All endpoints in the API follow REST conventions and use standard HTTP methods. 
 
 See the next sections for more information on how to use the Segment Public API Java SDK.
 
-Latest API and SDK version: 33.0.2
+Latest API and SDK version: 33.0.4
 
 ## Requirements
 
@@ -26,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.segment.publicapi</groupId>
   <artifactId>segment-publicapi</artifactId>
-  <version>33.0.2</version>
+  <version>33.0.4</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -42,7 +44,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.segment.publicapi:segment-publicapi:33.0.2"
+     implementation "com.segment.publicapi:segment-publicapi:33.0.4"
   }
 ```
 
@@ -56,7 +58,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/segment-publicapi-33.0.2.jar`
+* `target/segment-publicapi-33.0.4.jar`
 * `target/lib/*.jar`
 
 You are now ready to start making calls to Public API!

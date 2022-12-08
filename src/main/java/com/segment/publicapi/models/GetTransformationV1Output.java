@@ -22,6 +22,7 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.HashSet;
@@ -29,34 +30,35 @@ import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
-/** CreateTransformation200Response */
-public class CreateTransformation200Response {
-    public static final String SERIALIZED_NAME_DATA = "data";
+/** The output of Transformation retrieval. */
+@ApiModel(description = "The output of Transformation retrieval.")
+public class GetTransformationV1Output {
+    public static final String SERIALIZED_NAME_TRANSFORMATION = "transformation";
 
-    @SerializedName(SERIALIZED_NAME_DATA)
-    private CreateTransformationV1Output data;
+    @SerializedName(SERIALIZED_NAME_TRANSFORMATION)
+    private Transformation3 transformation;
 
-    public CreateTransformation200Response() {}
+    public GetTransformationV1Output() {}
 
-    public CreateTransformation200Response data(CreateTransformationV1Output data) {
+    public GetTransformationV1Output transformation(Transformation3 transformation) {
 
-        this.data = data;
+        this.transformation = transformation;
         return this;
     }
 
     /**
-     * Get data
+     * Get transformation
      *
-     * @return data
+     * @return transformation
      */
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    public CreateTransformationV1Output getData() {
-        return data;
+    @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "")
+    public Transformation3 getTransformation() {
+        return transformation;
     }
 
-    public void setData(CreateTransformationV1Output data) {
-        this.data = data;
+    public void setTransformation(Transformation3 transformation) {
+        this.transformation = transformation;
     }
 
     @Override
@@ -67,21 +69,20 @@ public class CreateTransformation200Response {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        CreateTransformation200Response createTransformation200Response =
-                (CreateTransformation200Response) o;
-        return Objects.equals(this.data, createTransformation200Response.data);
+        GetTransformationV1Output getTransformationV1Output = (GetTransformationV1Output) o;
+        return Objects.equals(this.transformation, getTransformationV1Output.transformation);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(data);
+        return Objects.hash(transformation);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CreateTransformation200Response {\n");
-        sb.append("    data: ").append(toIndentedString(data)).append("\n");
+        sb.append("class GetTransformationV1Output {\n");
+        sb.append("    transformation: ").append(toIndentedString(transformation)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -103,40 +104,50 @@ public class CreateTransformation200Response {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("data");
+        openapiFields.add("transformation");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
+        openapiRequiredFields.add("transformation");
     }
 
     /**
      * Validates the JSON Object and throws an exception if issues found
      *
      * @param jsonObj JSON Object
-     * @throws IOException if the JSON Object is invalid with respect to
-     *     CreateTransformation200Response
+     * @throws IOException if the JSON Object is invalid with respect to GetTransformationV1Output
      */
     public static void validateJsonObject(JsonObject jsonObj) throws IOException {
         if (jsonObj == null) {
-            if (!CreateTransformation200Response.openapiRequiredFields
+            if (!GetTransformationV1Output.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in CreateTransformation200Response is not"
-                                        + " found in the empty JSON string",
-                                CreateTransformation200Response.openapiRequiredFields.toString()));
+                                "The required field(s) %s in GetTransformationV1Output is not found"
+                                        + " in the empty JSON string",
+                                GetTransformationV1Output.openapiRequiredFields.toString()));
             }
         }
 
         Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
         for (Entry<String, JsonElement> entry : entries) {
-            if (!CreateTransformation200Response.openapiFields.contains(entry.getKey())) {
+            if (!GetTransformationV1Output.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `CreateTransformation200Response` properties. JSON: %s",
+                                        + " `GetTransformationV1Output` properties. JSON: %s",
                                 entry.getKey(), jsonObj.toString()));
+            }
+        }
+
+        // check to make sure all required properties/fields are present in the JSON string
+        for (String requiredField : GetTransformationV1Output.openapiRequiredFields) {
+            if (jsonObj.get(requiredField) == null) {
+                throw new IllegalArgumentException(
+                        String.format(
+                                "The required field `%s` is not found in the JSON string: %s",
+                                requiredField, jsonObj.toString()));
             }
         }
     }
@@ -145,27 +156,25 @@ public class CreateTransformation200Response {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!CreateTransformation200Response.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'CreateTransformation200Response' and its
+            if (!GetTransformationV1Output.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'GetTransformationV1Output' and its
                 // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<CreateTransformation200Response> thisAdapter =
-                    gson.getDelegateAdapter(
-                            this, TypeToken.get(CreateTransformation200Response.class));
+            final TypeAdapter<GetTransformationV1Output> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(GetTransformationV1Output.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<CreateTransformation200Response>() {
+                    new TypeAdapter<GetTransformationV1Output>() {
                         @Override
-                        public void write(JsonWriter out, CreateTransformation200Response value)
+                        public void write(JsonWriter out, GetTransformationV1Output value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public CreateTransformation200Response read(JsonReader in)
-                                throws IOException {
+                        public GetTransformationV1Output read(JsonReader in) throws IOException {
                             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
                             validateJsonObject(jsonObj);
                             return thisAdapter.fromJsonTree(jsonObj);
@@ -175,19 +184,18 @@ public class CreateTransformation200Response {
     }
 
     /**
-     * Create an instance of CreateTransformation200Response given an JSON string
+     * Create an instance of GetTransformationV1Output given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of CreateTransformation200Response
-     * @throws IOException if the JSON string is invalid with respect to
-     *     CreateTransformation200Response
+     * @return An instance of GetTransformationV1Output
+     * @throws IOException if the JSON string is invalid with respect to GetTransformationV1Output
      */
-    public static CreateTransformation200Response fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, CreateTransformation200Response.class);
+    public static GetTransformationV1Output fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, GetTransformationV1Output.class);
     }
 
     /**
-     * Convert an instance of CreateTransformation200Response to an JSON string
+     * Convert an instance of GetTransformationV1Output to an JSON string
      *
      * @return JSON string
      */
