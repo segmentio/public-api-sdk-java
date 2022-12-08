@@ -189,6 +189,16 @@ public class DestinationMetadataV1 {
     @SerializedName(SERIALIZED_NAME_PARTNER_OWNED)
     private Boolean partnerOwned;
 
+    public static final String SERIALIZED_NAME_SUPPORTED_REGIONS = "supportedRegions";
+
+    @SerializedName(SERIALIZED_NAME_SUPPORTED_REGIONS)
+    private List<String> supportedRegions = null;
+
+    public static final String SERIALIZED_NAME_REGION_ENDPOINTS = "regionEndpoints";
+
+    @SerializedName(SERIALIZED_NAME_REGION_ENDPOINTS)
+    private List<String> regionEndpoints = null;
+
     public DestinationMetadataV1() {}
 
     public DestinationMetadataV1 id(String id) {
@@ -625,6 +635,64 @@ public class DestinationMetadataV1 {
         this.partnerOwned = partnerOwned;
     }
 
+    public DestinationMetadataV1 supportedRegions(List<String> supportedRegions) {
+
+        this.supportedRegions = supportedRegions;
+        return this;
+    }
+
+    public DestinationMetadataV1 addSupportedRegionsItem(String supportedRegionsItem) {
+        if (this.supportedRegions == null) {
+            this.supportedRegions = new ArrayList<>();
+        }
+        this.supportedRegions.add(supportedRegionsItem);
+        return this;
+    }
+
+    /**
+     * A list of supported regions for this Destination.
+     *
+     * @return supportedRegions
+     */
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "A list of supported regions for this Destination.")
+    public List<String> getSupportedRegions() {
+        return supportedRegions;
+    }
+
+    public void setSupportedRegions(List<String> supportedRegions) {
+        this.supportedRegions = supportedRegions;
+    }
+
+    public DestinationMetadataV1 regionEndpoints(List<String> regionEndpoints) {
+
+        this.regionEndpoints = regionEndpoints;
+        return this;
+    }
+
+    public DestinationMetadataV1 addRegionEndpointsItem(String regionEndpointsItem) {
+        if (this.regionEndpoints == null) {
+            this.regionEndpoints = new ArrayList<>();
+        }
+        this.regionEndpoints.add(regionEndpointsItem);
+        return this;
+    }
+
+    /**
+     * The list of regional endpoints for this Destination.
+     *
+     * @return regionEndpoints
+     */
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "The list of regional endpoints for this Destination.")
+    public List<String> getRegionEndpoints() {
+        return regionEndpoints;
+    }
+
+    public void setRegionEndpoints(List<String> regionEndpoints) {
+        this.regionEndpoints = regionEndpoints;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -651,7 +719,9 @@ public class DestinationMetadataV1 {
                 && Objects.equals(this.actions, destinationMetadataV1.actions)
                 && Objects.equals(this.presets, destinationMetadataV1.presets)
                 && Objects.equals(this.contacts, destinationMetadataV1.contacts)
-                && Objects.equals(this.partnerOwned, destinationMetadataV1.partnerOwned);
+                && Objects.equals(this.partnerOwned, destinationMetadataV1.partnerOwned)
+                && Objects.equals(this.supportedRegions, destinationMetadataV1.supportedRegions)
+                && Objects.equals(this.regionEndpoints, destinationMetadataV1.regionEndpoints);
     }
 
     @Override
@@ -674,7 +744,9 @@ public class DestinationMetadataV1 {
                 actions,
                 presets,
                 contacts,
-                partnerOwned);
+                partnerOwned,
+                supportedRegions,
+                regionEndpoints);
     }
 
     @Override
@@ -703,6 +775,8 @@ public class DestinationMetadataV1 {
         sb.append("    presets: ").append(toIndentedString(presets)).append("\n");
         sb.append("    contacts: ").append(toIndentedString(contacts)).append("\n");
         sb.append("    partnerOwned: ").append(toIndentedString(partnerOwned)).append("\n");
+        sb.append("    supportedRegions: ").append(toIndentedString(supportedRegions)).append("\n");
+        sb.append("    regionEndpoints: ").append(toIndentedString(regionEndpoints)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -742,6 +816,8 @@ public class DestinationMetadataV1 {
         openapiFields.add("presets");
         openapiFields.add("contacts");
         openapiFields.add("partnerOwned");
+        openapiFields.add("supportedRegions");
+        openapiFields.add("regionEndpoints");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
@@ -920,6 +996,24 @@ public class DestinationMetadataV1 {
                                     jsonObj.get("contacts").toString()));
                 }
             }
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("supportedRegions") != null
+                && !jsonObj.get("supportedRegions").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `supportedRegions` to be an array in the JSON"
+                                    + " string but got `%s`",
+                            jsonObj.get("supportedRegions").toString()));
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("regionEndpoints") != null
+                && !jsonObj.get("regionEndpoints").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `regionEndpoints` to be an array in the JSON string"
+                                    + " but got `%s`",
+                            jsonObj.get("regionEndpoints").toString()));
         }
     }
 
