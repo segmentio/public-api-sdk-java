@@ -39,7 +39,7 @@ public class ReplacePermissionsForUserGroupV1Input {
     public static final String SERIALIZED_NAME_PERMISSIONS = "permissions";
 
     @SerializedName(SERIALIZED_NAME_PERMISSIONS)
-    private List<PermissionInputV1> permissions = null;
+    private List<PermissionInputV1> permissions = new ArrayList<>();
 
     public ReplacePermissionsForUserGroupV1Input() {}
 
@@ -51,9 +51,6 @@ public class ReplacePermissionsForUserGroupV1Input {
 
     public ReplacePermissionsForUserGroupV1Input addPermissionsItem(
             PermissionInputV1 permissionsItem) {
-        if (this.permissions == null) {
-            this.permissions = new ArrayList<>();
-        }
         this.permissions.add(permissionsItem);
         return this;
     }
@@ -63,8 +60,8 @@ public class ReplacePermissionsForUserGroupV1Input {
      *
      * @return permissions
      */
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The permissions to replace with.")
+    @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "The permissions to replace with.")
     public List<PermissionInputV1> getPermissions() {
         return permissions;
     }
@@ -121,6 +118,7 @@ public class ReplacePermissionsForUserGroupV1Input {
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
+        openapiRequiredFields.add("permissions");
     }
 
     /**
@@ -155,19 +153,26 @@ public class ReplacePermissionsForUserGroupV1Input {
                                 entry.getKey(), jsonObj.toString()));
             }
         }
-        if (jsonObj.get("permissions") != null && !jsonObj.get("permissions").isJsonNull()) {
-            JsonArray jsonArraypermissions = jsonObj.getAsJsonArray("permissions");
-            if (jsonArraypermissions != null) {
-                // ensure the json data is an array
-                if (!jsonObj.get("permissions").isJsonArray()) {
-                    throw new IllegalArgumentException(
-                            String.format(
-                                    "Expected the field `permissions` to be an array in the JSON"
-                                            + " string but got `%s`",
-                                    jsonObj.get("permissions").toString()));
-                }
+
+        // check to make sure all required properties/fields are present in the JSON string
+        for (String requiredField : ReplacePermissionsForUserGroupV1Input.openapiRequiredFields) {
+            if (jsonObj.get(requiredField) == null) {
+                throw new IllegalArgumentException(
+                        String.format(
+                                "The required field `%s` is not found in the JSON string: %s",
+                                requiredField, jsonObj.toString()));
             }
         }
+        // ensure the json data is an array
+        if (!jsonObj.get("permissions").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `permissions` to be an array in the JSON string but"
+                                    + " got `%s`",
+                            jsonObj.get("permissions").toString()));
+        }
+
+        JsonArray jsonArraypermissions = jsonObj.getAsJsonArray("permissions");
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

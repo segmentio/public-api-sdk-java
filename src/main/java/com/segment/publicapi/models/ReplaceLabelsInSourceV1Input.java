@@ -39,7 +39,7 @@ public class ReplaceLabelsInSourceV1Input {
     public static final String SERIALIZED_NAME_LABELS = "labels";
 
     @SerializedName(SERIALIZED_NAME_LABELS)
-    private List<LabelV1> labels = null;
+    private List<LabelV1> labels = new ArrayList<>();
 
     public ReplaceLabelsInSourceV1Input() {}
 
@@ -50,9 +50,6 @@ public class ReplaceLabelsInSourceV1Input {
     }
 
     public ReplaceLabelsInSourceV1Input addLabelsItem(LabelV1 labelsItem) {
-        if (this.labels == null) {
-            this.labels = new ArrayList<>();
-        }
         this.labels.add(labelsItem);
         return this;
     }
@@ -62,8 +59,8 @@ public class ReplaceLabelsInSourceV1Input {
      *
      * @return labels
      */
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The list of labels to replace in the Source.")
+    @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "The list of labels to replace in the Source.")
     public List<LabelV1> getLabels() {
         return labels;
     }
@@ -120,6 +117,7 @@ public class ReplaceLabelsInSourceV1Input {
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
+        openapiRequiredFields.add("labels");
     }
 
     /**
@@ -152,19 +150,26 @@ public class ReplaceLabelsInSourceV1Input {
                                 entry.getKey(), jsonObj.toString()));
             }
         }
-        if (jsonObj.get("labels") != null && !jsonObj.get("labels").isJsonNull()) {
-            JsonArray jsonArraylabels = jsonObj.getAsJsonArray("labels");
-            if (jsonArraylabels != null) {
-                // ensure the json data is an array
-                if (!jsonObj.get("labels").isJsonArray()) {
-                    throw new IllegalArgumentException(
-                            String.format(
-                                    "Expected the field `labels` to be an array in the JSON string"
-                                            + " but got `%s`",
-                                    jsonObj.get("labels").toString()));
-                }
+
+        // check to make sure all required properties/fields are present in the JSON string
+        for (String requiredField : ReplaceLabelsInSourceV1Input.openapiRequiredFields) {
+            if (jsonObj.get(requiredField) == null) {
+                throw new IllegalArgumentException(
+                        String.format(
+                                "The required field `%s` is not found in the JSON string: %s",
+                                requiredField, jsonObj.toString()));
             }
         }
+        // ensure the json data is an array
+        if (!jsonObj.get("labels").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `labels` to be an array in the JSON string but got"
+                                    + " `%s`",
+                            jsonObj.get("labels").toString()));
+        }
+
+        JsonArray jsonArraylabels = jsonObj.getAsJsonArray("labels");
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

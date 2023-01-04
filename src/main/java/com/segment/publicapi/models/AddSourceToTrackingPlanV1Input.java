@@ -52,8 +52,9 @@ public class AddSourceToTrackingPlanV1Input {
      *
      * @return sourceId
      */
-    @javax.annotation.Nullable
+    @javax.annotation.Nonnull
     @ApiModelProperty(
+            required = true,
             value =
                     "The id of the Source associated with the Tracking Plan.  Config API note:"
                             + " analogous to `sourceName`.")
@@ -113,6 +114,7 @@ public class AddSourceToTrackingPlanV1Input {
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
+        openapiRequiredFields.add("sourceId");
     }
 
     /**
@@ -145,8 +147,17 @@ public class AddSourceToTrackingPlanV1Input {
                                 entry.getKey(), jsonObj.toString()));
             }
         }
-        if ((jsonObj.get("sourceId") != null && !jsonObj.get("sourceId").isJsonNull())
-                && !jsonObj.get("sourceId").isJsonPrimitive()) {
+
+        // check to make sure all required properties/fields are present in the JSON string
+        for (String requiredField : AddSourceToTrackingPlanV1Input.openapiRequiredFields) {
+            if (jsonObj.get(requiredField) == null) {
+                throw new IllegalArgumentException(
+                        String.format(
+                                "The required field `%s` is not found in the JSON string: %s",
+                                requiredField, jsonObj.toString()));
+            }
+        }
+        if (!jsonObj.get("sourceId").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             "Expected the field `sourceId` to be a primitive type in the JSON"

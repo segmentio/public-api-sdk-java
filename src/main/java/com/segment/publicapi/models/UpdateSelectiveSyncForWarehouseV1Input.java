@@ -39,7 +39,7 @@ public class UpdateSelectiveSyncForWarehouseV1Input {
     public static final String SERIALIZED_NAME_SYNC_OVERRIDES = "syncOverrides";
 
     @SerializedName(SERIALIZED_NAME_SYNC_OVERRIDES)
-    private List<WarehouseSyncOverrideV1> syncOverrides = null;
+    private List<WarehouseSyncOverrideV1> syncOverrides = new ArrayList<>();
 
     public UpdateSelectiveSyncForWarehouseV1Input() {}
 
@@ -52,9 +52,6 @@ public class UpdateSelectiveSyncForWarehouseV1Input {
 
     public UpdateSelectiveSyncForWarehouseV1Input addSyncOverridesItem(
             WarehouseSyncOverrideV1 syncOverridesItem) {
-        if (this.syncOverrides == null) {
-            this.syncOverrides = new ArrayList<>();
-        }
         this.syncOverrides.add(syncOverridesItem);
         return this;
     }
@@ -64,8 +61,10 @@ public class UpdateSelectiveSyncForWarehouseV1Input {
      *
      * @return syncOverrides
      */
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "A list of sync schema overrides to apply to this Warehouse.")
+    @javax.annotation.Nonnull
+    @ApiModelProperty(
+            required = true,
+            value = "A list of sync schema overrides to apply to this Warehouse.")
     public List<WarehouseSyncOverrideV1> getSyncOverrides() {
         return syncOverrides;
     }
@@ -123,6 +122,7 @@ public class UpdateSelectiveSyncForWarehouseV1Input {
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
+        openapiRequiredFields.add("syncOverrides");
     }
 
     /**
@@ -157,19 +157,26 @@ public class UpdateSelectiveSyncForWarehouseV1Input {
                                 entry.getKey(), jsonObj.toString()));
             }
         }
-        if (jsonObj.get("syncOverrides") != null && !jsonObj.get("syncOverrides").isJsonNull()) {
-            JsonArray jsonArraysyncOverrides = jsonObj.getAsJsonArray("syncOverrides");
-            if (jsonArraysyncOverrides != null) {
-                // ensure the json data is an array
-                if (!jsonObj.get("syncOverrides").isJsonArray()) {
-                    throw new IllegalArgumentException(
-                            String.format(
-                                    "Expected the field `syncOverrides` to be an array in the JSON"
-                                            + " string but got `%s`",
-                                    jsonObj.get("syncOverrides").toString()));
-                }
+
+        // check to make sure all required properties/fields are present in the JSON string
+        for (String requiredField : UpdateSelectiveSyncForWarehouseV1Input.openapiRequiredFields) {
+            if (jsonObj.get(requiredField) == null) {
+                throw new IllegalArgumentException(
+                        String.format(
+                                "The required field `%s` is not found in the JSON string: %s",
+                                requiredField, jsonObj.toString()));
             }
         }
+        // ensure the json data is an array
+        if (!jsonObj.get("syncOverrides").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `syncOverrides` to be an array in the JSON string"
+                                    + " but got `%s`",
+                            jsonObj.get("syncOverrides").toString()));
+        }
+
+        JsonArray jsonArraysyncOverrides = jsonObj.getAsJsonArray("syncOverrides");
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
