@@ -38,7 +38,7 @@ public class ReplaceUsersInUserGroupV1Input {
     public static final String SERIALIZED_NAME_EMAILS = "emails";
 
     @SerializedName(SERIALIZED_NAME_EMAILS)
-    private List<String> emails = null;
+    private List<String> emails = new ArrayList<>();
 
     public ReplaceUsersInUserGroupV1Input() {}
 
@@ -49,9 +49,6 @@ public class ReplaceUsersInUserGroupV1Input {
     }
 
     public ReplaceUsersInUserGroupV1Input addEmailsItem(String emailsItem) {
-        if (this.emails == null) {
-            this.emails = new ArrayList<>();
-        }
         this.emails.add(emailsItem);
         return this;
     }
@@ -61,8 +58,10 @@ public class ReplaceUsersInUserGroupV1Input {
      *
      * @return emails
      */
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The email addresses of the users and invites to replace.")
+    @javax.annotation.Nonnull
+    @ApiModelProperty(
+            required = true,
+            value = "The email addresses of the users and invites to replace.")
     public List<String> getEmails() {
         return emails;
     }
@@ -119,6 +118,7 @@ public class ReplaceUsersInUserGroupV1Input {
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
+        openapiRequiredFields.add("emails");
     }
 
     /**
@@ -151,8 +151,22 @@ public class ReplaceUsersInUserGroupV1Input {
                                 entry.getKey(), jsonObj.toString()));
             }
         }
-        // ensure the optional json data is an array if present
-        if (jsonObj.get("emails") != null && !jsonObj.get("emails").isJsonArray()) {
+
+        // check to make sure all required properties/fields are present in the JSON string
+        for (String requiredField : ReplaceUsersInUserGroupV1Input.openapiRequiredFields) {
+            if (jsonObj.get(requiredField) == null) {
+                throw new IllegalArgumentException(
+                        String.format(
+                                "The required field `%s` is not found in the JSON string: %s",
+                                requiredField, jsonObj.toString()));
+            }
+        }
+        // ensure the required json array is present
+        if (jsonObj.get("emails") == null) {
+            throw new IllegalArgumentException(
+                    "Expected the field `linkedContent` to be an array in the JSON string but got"
+                            + " `null`");
+        } else if (!jsonObj.get("emails").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
                             "Expected the field `emails` to be an array in the JSON string but got"

@@ -79,8 +79,8 @@ public class CreateFilterForDestinationV1Input {
      *
      * @return sourceId
      */
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The id of the Source associated with this filter.")
+    @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "The id of the Source associated with this filter.")
     public String getSourceId() {
         return sourceId;
     }
@@ -147,8 +147,8 @@ public class CreateFilterForDestinationV1Input {
      *
      * @return title
      */
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The title of the filter.")
+    @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "The title of the filter.")
     public String getTitle() {
         return title;
     }
@@ -264,8 +264,10 @@ public class CreateFilterForDestinationV1Input {
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
+        openapiRequiredFields.add("sourceId");
         openapiRequiredFields.add("if");
         openapiRequiredFields.add("actions");
+        openapiRequiredFields.add("title");
         openapiRequiredFields.add("enabled");
     }
 
@@ -310,8 +312,7 @@ public class CreateFilterForDestinationV1Input {
                                 requiredField, jsonObj.toString()));
             }
         }
-        if ((jsonObj.get("sourceId") != null && !jsonObj.get("sourceId").isJsonNull())
-                && !jsonObj.get("sourceId").isJsonPrimitive()) {
+        if (!jsonObj.get("sourceId").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             "Expected the field `sourceId` to be a primitive type in the JSON"
@@ -335,8 +336,7 @@ public class CreateFilterForDestinationV1Input {
         }
 
         JsonArray jsonArrayactions = jsonObj.getAsJsonArray("actions");
-        if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull())
-                && !jsonObj.get("title").isJsonPrimitive()) {
+        if (!jsonObj.get("title").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             "Expected the field `title` to be a primitive type in the JSON string"

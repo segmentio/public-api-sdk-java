@@ -51,8 +51,8 @@ public class UpdateUserGroupV1Input {
      *
      * @return name
      */
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The intended value to rename the user group to.")
+    @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "The intended value to rename the user group to.")
     public String getName() {
         return name;
     }
@@ -108,6 +108,7 @@ public class UpdateUserGroupV1Input {
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
+        openapiRequiredFields.add("name");
     }
 
     /**
@@ -139,8 +140,17 @@ public class UpdateUserGroupV1Input {
                                 entry.getKey(), jsonObj.toString()));
             }
         }
-        if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull())
-                && !jsonObj.get("name").isJsonPrimitive()) {
+
+        // check to make sure all required properties/fields are present in the JSON string
+        for (String requiredField : UpdateUserGroupV1Input.openapiRequiredFields) {
+            if (jsonObj.get(requiredField) == null) {
+                throw new IllegalArgumentException(
+                        String.format(
+                                "The required field `%s` is not found in the JSON string: %s",
+                                requiredField, jsonObj.toString()));
+            }
+        }
+        if (!jsonObj.get("name").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             "Expected the field `name` to be a primitive type in the JSON string"

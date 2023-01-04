@@ -145,7 +145,7 @@ public class CreateSourceRegulationV1Input {
     public static final String SERIALIZED_NAME_SUBJECT_IDS = "subjectIds";
 
     @SerializedName(SERIALIZED_NAME_SUBJECT_IDS)
-    private List<String> subjectIds = null;
+    private List<String> subjectIds = new ArrayList<>();
 
     public CreateSourceRegulationV1Input() {}
 
@@ -181,8 +181,8 @@ public class CreateSourceRegulationV1Input {
      *
      * @return subjectType
      */
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The subject type.")
+    @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "The subject type.")
     public SubjectTypeEnum getSubjectType() {
         return subjectType;
     }
@@ -198,9 +198,6 @@ public class CreateSourceRegulationV1Input {
     }
 
     public CreateSourceRegulationV1Input addSubjectIdsItem(String subjectIdsItem) {
-        if (this.subjectIds == null) {
-            this.subjectIds = new ArrayList<>();
-        }
         this.subjectIds.add(subjectIdsItem);
         return this;
     }
@@ -211,8 +208,9 @@ public class CreateSourceRegulationV1Input {
      *
      * @return subjectIds
      */
-    @javax.annotation.Nullable
+    @javax.annotation.Nonnull
     @ApiModelProperty(
+            required = true,
             value =
                     "The user or object ids of the subjects to regulate.  Config API note: equal to"
                             + " `parent` but allows an array.")
@@ -279,6 +277,8 @@ public class CreateSourceRegulationV1Input {
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
         openapiRequiredFields.add("regulationType");
+        openapiRequiredFields.add("subjectType");
+        openapiRequiredFields.add("subjectIds");
     }
 
     /**
@@ -328,16 +328,19 @@ public class CreateSourceRegulationV1Input {
                                     + " string but got `%s`",
                             jsonObj.get("regulationType").toString()));
         }
-        if ((jsonObj.get("subjectType") != null && !jsonObj.get("subjectType").isJsonNull())
-                && !jsonObj.get("subjectType").isJsonPrimitive()) {
+        if (!jsonObj.get("subjectType").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             "Expected the field `subjectType` to be a primitive type in the JSON"
                                     + " string but got `%s`",
                             jsonObj.get("subjectType").toString()));
         }
-        // ensure the optional json data is an array if present
-        if (jsonObj.get("subjectIds") != null && !jsonObj.get("subjectIds").isJsonArray()) {
+        // ensure the required json array is present
+        if (jsonObj.get("subjectIds") == null) {
+            throw new IllegalArgumentException(
+                    "Expected the field `linkedContent` to be an array in the JSON string but got"
+                            + " `null`");
+        } else if (!jsonObj.get("subjectIds").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
                             "Expected the field `subjectIds` to be an array in the JSON string but"

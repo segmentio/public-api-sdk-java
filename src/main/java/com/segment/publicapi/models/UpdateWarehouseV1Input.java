@@ -112,6 +112,7 @@ public class UpdateWarehouseV1Input {
      */
     @javax.annotation.Nullable
     @ApiModelProperty(
+            required = true,
             value =
                     "A key-value object that contains instance-specific settings for a Warehouse. "
                         + " Different kinds of Warehouses require different settings. The required"
@@ -196,6 +197,7 @@ public class UpdateWarehouseV1Input {
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
+        openapiRequiredFields.add("settings");
     }
 
     /**
@@ -225,6 +227,16 @@ public class UpdateWarehouseV1Input {
                                 "The field `%s` in the JSON string is not defined in the"
                                         + " `UpdateWarehouseV1Input` properties. JSON: %s",
                                 entry.getKey(), jsonObj.toString()));
+            }
+        }
+
+        // check to make sure all required properties/fields are present in the JSON string
+        for (String requiredField : UpdateWarehouseV1Input.openapiRequiredFields) {
+            if (jsonObj.get(requiredField) == null) {
+                throw new IllegalArgumentException(
+                        String.format(
+                                "The required field `%s` is not found in the JSON string: %s",
+                                requiredField, jsonObj.toString()));
             }
         }
         if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull())

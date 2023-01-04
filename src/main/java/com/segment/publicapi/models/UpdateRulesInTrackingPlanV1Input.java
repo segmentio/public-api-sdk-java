@@ -39,7 +39,7 @@ public class UpdateRulesInTrackingPlanV1Input {
     public static final String SERIALIZED_NAME_RULES = "rules";
 
     @SerializedName(SERIALIZED_NAME_RULES)
-    private List<UpsertRuleV1> rules = null;
+    private List<UpsertRuleV1> rules = new ArrayList<>();
 
     public UpdateRulesInTrackingPlanV1Input() {}
 
@@ -50,9 +50,6 @@ public class UpdateRulesInTrackingPlanV1Input {
     }
 
     public UpdateRulesInTrackingPlanV1Input addRulesItem(UpsertRuleV1 rulesItem) {
-        if (this.rules == null) {
-            this.rules = new ArrayList<>();
-        }
         this.rules.add(rulesItem);
         return this;
     }
@@ -62,8 +59,8 @@ public class UpdateRulesInTrackingPlanV1Input {
      *
      * @return rules
      */
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Rules to update or insert.")
+    @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "Rules to update or insert.")
     public List<UpsertRuleV1> getRules() {
         return rules;
     }
@@ -120,6 +117,7 @@ public class UpdateRulesInTrackingPlanV1Input {
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
+        openapiRequiredFields.add("rules");
     }
 
     /**
@@ -152,19 +150,26 @@ public class UpdateRulesInTrackingPlanV1Input {
                                 entry.getKey(), jsonObj.toString()));
             }
         }
-        if (jsonObj.get("rules") != null && !jsonObj.get("rules").isJsonNull()) {
-            JsonArray jsonArrayrules = jsonObj.getAsJsonArray("rules");
-            if (jsonArrayrules != null) {
-                // ensure the json data is an array
-                if (!jsonObj.get("rules").isJsonArray()) {
-                    throw new IllegalArgumentException(
-                            String.format(
-                                    "Expected the field `rules` to be an array in the JSON string"
-                                            + " but got `%s`",
-                                    jsonObj.get("rules").toString()));
-                }
+
+        // check to make sure all required properties/fields are present in the JSON string
+        for (String requiredField : UpdateRulesInTrackingPlanV1Input.openapiRequiredFields) {
+            if (jsonObj.get(requiredField) == null) {
+                throw new IllegalArgumentException(
+                        String.format(
+                                "The required field `%s` is not found in the JSON string: %s",
+                                requiredField, jsonObj.toString()));
             }
         }
+        // ensure the json data is an array
+        if (!jsonObj.get("rules").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `rules` to be an array in the JSON string but got"
+                                    + " `%s`",
+                            jsonObj.get("rules").toString()));
+        }
+
+        JsonArray jsonArrayrules = jsonObj.getAsJsonArray("rules");
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

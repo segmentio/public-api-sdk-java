@@ -56,8 +56,10 @@ public class ReplaceAdvancedSyncScheduleForWarehouseV1Input {
      *
      * @return enabled
      */
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Enable to turn on an advanced sync schedule for the Warehouse.")
+    @javax.annotation.Nonnull
+    @ApiModelProperty(
+            required = true,
+            value = "Enable to turn on an advanced sync schedule for the Warehouse.")
     public Boolean getEnabled() {
         return enabled;
     }
@@ -140,6 +142,7 @@ public class ReplaceAdvancedSyncScheduleForWarehouseV1Input {
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
+        openapiRequiredFields.add("enabled");
     }
 
     /**
@@ -174,6 +177,17 @@ public class ReplaceAdvancedSyncScheduleForWarehouseV1Input {
                                         + " `ReplaceAdvancedSyncScheduleForWarehouseV1Input`"
                                         + " properties. JSON: %s",
                                 entry.getKey(), jsonObj.toString()));
+            }
+        }
+
+        // check to make sure all required properties/fields are present in the JSON string
+        for (String requiredField :
+                ReplaceAdvancedSyncScheduleForWarehouseV1Input.openapiRequiredFields) {
+            if (jsonObj.get(requiredField) == null) {
+                throw new IllegalArgumentException(
+                        String.format(
+                                "The required field `%s` is not found in the JSON string: %s",
+                                requiredField, jsonObj.toString()));
             }
         }
     }
