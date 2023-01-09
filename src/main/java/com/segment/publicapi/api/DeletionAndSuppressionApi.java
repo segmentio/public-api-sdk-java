@@ -1014,11 +1014,11 @@ public class DeletionAndSuppressionApi {
      * Build call for listRegulationsFromSource
      *
      * @param sourceId (required)
-     * @param pagination Pagination parameters. This parameter exists in v1. (required)
      * @param status The status on which to filter returned regulations. This parameter exists in
      *     v1. (optional)
      * @param regulationTypes The regulation types on which to filter returned regulations. This
      *     parameter exists in v1. (optional)
+     * @param pagination Pagination parameters. This parameter exists in v1. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1033,9 +1033,9 @@ public class DeletionAndSuppressionApi {
      */
     public okhttp3.Call listRegulationsFromSourceCall(
             String sourceId,
-            PaginationInput pagination,
             String status,
             List<String> regulationTypes,
+            PaginationInput pagination,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1116,9 +1116,9 @@ public class DeletionAndSuppressionApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listRegulationsFromSourceValidateBeforeCall(
             String sourceId,
-            PaginationInput pagination,
             String status,
             List<String> regulationTypes,
+            PaginationInput pagination,
             final ApiCallback _callback)
             throws ApiException {
 
@@ -1138,7 +1138,7 @@ public class DeletionAndSuppressionApi {
 
         okhttp3.Call localVarCall =
                 listRegulationsFromSourceCall(
-                        sourceId, pagination, status, regulationTypes, _callback);
+                        sourceId, status, regulationTypes, pagination, _callback);
         return localVarCall;
     }
 
@@ -1146,11 +1146,11 @@ public class DeletionAndSuppressionApi {
      * List Regulations from Source Lists all Source-scoped regulations.
      *
      * @param sourceId (required)
-     * @param pagination Pagination parameters. This parameter exists in v1. (required)
      * @param status The status on which to filter returned regulations. This parameter exists in
      *     v1. (optional)
      * @param regulationTypes The regulation types on which to filter returned regulations. This
      *     parameter exists in v1. (optional)
+     * @param pagination Pagination parameters. This parameter exists in v1. (required)
      * @return ListRegulationsFromSource200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1165,13 +1165,13 @@ public class DeletionAndSuppressionApi {
      */
     public ListRegulationsFromSource200Response listRegulationsFromSource(
             String sourceId,
-            PaginationInput pagination,
             String status,
-            List<String> regulationTypes)
+            List<String> regulationTypes,
+            PaginationInput pagination)
             throws ApiException {
         ApiResponse<ListRegulationsFromSource200Response> localVarResp =
                 listRegulationsFromSourceWithHttpInfo(
-                        sourceId, pagination, status, regulationTypes);
+                        sourceId, status, regulationTypes, pagination);
         return localVarResp.getData();
     }
 
@@ -1179,11 +1179,11 @@ public class DeletionAndSuppressionApi {
      * List Regulations from Source Lists all Source-scoped regulations.
      *
      * @param sourceId (required)
-     * @param pagination Pagination parameters. This parameter exists in v1. (required)
      * @param status The status on which to filter returned regulations. This parameter exists in
      *     v1. (optional)
      * @param regulationTypes The regulation types on which to filter returned regulations. This
      *     parameter exists in v1. (optional)
+     * @param pagination Pagination parameters. This parameter exists in v1. (required)
      * @return ApiResponse&lt;ListRegulationsFromSource200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1198,13 +1198,13 @@ public class DeletionAndSuppressionApi {
      */
     public ApiResponse<ListRegulationsFromSource200Response> listRegulationsFromSourceWithHttpInfo(
             String sourceId,
-            PaginationInput pagination,
             String status,
-            List<String> regulationTypes)
+            List<String> regulationTypes,
+            PaginationInput pagination)
             throws ApiException {
         okhttp3.Call localVarCall =
                 listRegulationsFromSourceValidateBeforeCall(
-                        sourceId, pagination, status, regulationTypes, null);
+                        sourceId, status, regulationTypes, pagination, null);
         Type localVarReturnType =
                 new TypeToken<ListRegulationsFromSource200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1214,11 +1214,11 @@ public class DeletionAndSuppressionApi {
      * List Regulations from Source (asynchronously) Lists all Source-scoped regulations.
      *
      * @param sourceId (required)
-     * @param pagination Pagination parameters. This parameter exists in v1. (required)
      * @param status The status on which to filter returned regulations. This parameter exists in
      *     v1. (optional)
      * @param regulationTypes The regulation types on which to filter returned regulations. This
      *     parameter exists in v1. (optional)
+     * @param pagination Pagination parameters. This parameter exists in v1. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -1234,15 +1234,15 @@ public class DeletionAndSuppressionApi {
      */
     public okhttp3.Call listRegulationsFromSourceAsync(
             String sourceId,
-            PaginationInput pagination,
             String status,
             List<String> regulationTypes,
+            PaginationInput pagination,
             final ApiCallback<ListRegulationsFromSource200Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 listRegulationsFromSourceValidateBeforeCall(
-                        sourceId, pagination, status, regulationTypes, _callback);
+                        sourceId, status, regulationTypes, pagination, _callback);
         Type localVarReturnType =
                 new TypeToken<ListRegulationsFromSource200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
@@ -1418,11 +1418,11 @@ public class DeletionAndSuppressionApi {
     /**
      * Build call for listWorkspaceRegulations
      *
-     * @param pagination Pagination parameters. This parameter exists in v1. (required)
      * @param status The status on which to filter the returned regulations. This parameter exists
      *     in v1. (optional)
      * @param regulationTypes The regulation types on which to filter returned regulations. This
      *     parameter exists in v1. (optional)
+     * @param pagination Pagination parameters. This parameter exists in v1. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1436,9 +1436,9 @@ public class DeletionAndSuppressionApi {
      * </table>
      */
     public okhttp3.Call listWorkspaceRegulationsCall(
-            PaginationInput pagination,
             String status,
             List<String> regulationTypes,
+            PaginationInput pagination,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1514,9 +1514,9 @@ public class DeletionAndSuppressionApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listWorkspaceRegulationsValidateBeforeCall(
-            PaginationInput pagination,
             String status,
             List<String> regulationTypes,
+            PaginationInput pagination,
             final ApiCallback _callback)
             throws ApiException {
 
@@ -1528,18 +1528,18 @@ public class DeletionAndSuppressionApi {
         }
 
         okhttp3.Call localVarCall =
-                listWorkspaceRegulationsCall(pagination, status, regulationTypes, _callback);
+                listWorkspaceRegulationsCall(status, regulationTypes, pagination, _callback);
         return localVarCall;
     }
 
     /**
      * List Workspace Regulations Lists all Workspace-scoped regulations.
      *
-     * @param pagination Pagination parameters. This parameter exists in v1. (required)
      * @param status The status on which to filter the returned regulations. This parameter exists
      *     in v1. (optional)
      * @param regulationTypes The regulation types on which to filter returned regulations. This
      *     parameter exists in v1. (optional)
+     * @param pagination Pagination parameters. This parameter exists in v1. (required)
      * @return ListWorkspaceRegulations200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1553,21 +1553,21 @@ public class DeletionAndSuppressionApi {
      * </table>
      */
     public ListWorkspaceRegulations200Response listWorkspaceRegulations(
-            PaginationInput pagination, String status, List<String> regulationTypes)
+            String status, List<String> regulationTypes, PaginationInput pagination)
             throws ApiException {
         ApiResponse<ListWorkspaceRegulations200Response> localVarResp =
-                listWorkspaceRegulationsWithHttpInfo(pagination, status, regulationTypes);
+                listWorkspaceRegulationsWithHttpInfo(status, regulationTypes, pagination);
         return localVarResp.getData();
     }
 
     /**
      * List Workspace Regulations Lists all Workspace-scoped regulations.
      *
-     * @param pagination Pagination parameters. This parameter exists in v1. (required)
      * @param status The status on which to filter the returned regulations. This parameter exists
      *     in v1. (optional)
      * @param regulationTypes The regulation types on which to filter returned regulations. This
      *     parameter exists in v1. (optional)
+     * @param pagination Pagination parameters. This parameter exists in v1. (required)
      * @return ApiResponse&lt;ListWorkspaceRegulations200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1581,11 +1581,11 @@ public class DeletionAndSuppressionApi {
      * </table>
      */
     public ApiResponse<ListWorkspaceRegulations200Response> listWorkspaceRegulationsWithHttpInfo(
-            PaginationInput pagination, String status, List<String> regulationTypes)
+            String status, List<String> regulationTypes, PaginationInput pagination)
             throws ApiException {
         okhttp3.Call localVarCall =
                 listWorkspaceRegulationsValidateBeforeCall(
-                        pagination, status, regulationTypes, null);
+                        status, regulationTypes, pagination, null);
         Type localVarReturnType = new TypeToken<ListWorkspaceRegulations200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1593,11 +1593,11 @@ public class DeletionAndSuppressionApi {
     /**
      * List Workspace Regulations (asynchronously) Lists all Workspace-scoped regulations.
      *
-     * @param pagination Pagination parameters. This parameter exists in v1. (required)
      * @param status The status on which to filter the returned regulations. This parameter exists
      *     in v1. (optional)
      * @param regulationTypes The regulation types on which to filter returned regulations. This
      *     parameter exists in v1. (optional)
+     * @param pagination Pagination parameters. This parameter exists in v1. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -1612,15 +1612,15 @@ public class DeletionAndSuppressionApi {
      * </table>
      */
     public okhttp3.Call listWorkspaceRegulationsAsync(
-            PaginationInput pagination,
             String status,
             List<String> regulationTypes,
+            PaginationInput pagination,
             final ApiCallback<ListWorkspaceRegulations200Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 listWorkspaceRegulationsValidateBeforeCall(
-                        pagination, status, regulationTypes, _callback);
+                        status, regulationTypes, pagination, _callback);
         Type localVarReturnType = new TypeToken<ListWorkspaceRegulations200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
