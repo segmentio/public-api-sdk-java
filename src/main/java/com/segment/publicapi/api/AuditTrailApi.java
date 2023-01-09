@@ -67,7 +67,6 @@ public class AuditTrailApi {
     /**
      * Build call for listAuditEvents
      *
-     * @param pagination Defines the pagination parameters. This parameter exists in v1. (required)
      * @param startTime Filter response to events that happened after this time. This parameter
      *     exists in v1. (optional)
      * @param endTime Filter response to events that happened before this time. Defaults to the
@@ -77,6 +76,7 @@ public class AuditTrailApi {
      *     single Source. This parameter exists in v1. (optional)
      * @param resourceType Filter response to events that affect a specific type, for example,
      *     Sources, Warehouses, and Tracking Plans. This parameter exists in v1. (optional)
+     * @param pagination Defines the pagination parameters. This parameter exists in v1. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -90,11 +90,11 @@ public class AuditTrailApi {
      * </table>
      */
     public okhttp3.Call listAuditEventsCall(
-            PaginationInput pagination,
             String startTime,
             String endTime,
             String resourceId,
             String resourceType,
+            PaginationInput pagination,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -178,11 +178,11 @@ public class AuditTrailApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listAuditEventsValidateBeforeCall(
-            PaginationInput pagination,
             String startTime,
             String endTime,
             String resourceId,
             String resourceType,
+            PaginationInput pagination,
             final ApiCallback _callback)
             throws ApiException {
 
@@ -195,14 +195,13 @@ public class AuditTrailApi {
 
         okhttp3.Call localVarCall =
                 listAuditEventsCall(
-                        pagination, startTime, endTime, resourceId, resourceType, _callback);
+                        startTime, endTime, resourceId, resourceType, pagination, _callback);
         return localVarCall;
     }
 
     /**
      * List Audit Events Returns a list of Audit Trail events.
      *
-     * @param pagination Defines the pagination parameters. This parameter exists in v1. (required)
      * @param startTime Filter response to events that happened after this time. This parameter
      *     exists in v1. (optional)
      * @param endTime Filter response to events that happened before this time. Defaults to the
@@ -212,6 +211,7 @@ public class AuditTrailApi {
      *     single Source. This parameter exists in v1. (optional)
      * @param resourceType Filter response to events that affect a specific type, for example,
      *     Sources, Warehouses, and Tracking Plans. This parameter exists in v1. (optional)
+     * @param pagination Defines the pagination parameters. This parameter exists in v1. (required)
      * @return ListAuditEvents200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -225,22 +225,21 @@ public class AuditTrailApi {
      * </table>
      */
     public ListAuditEvents200Response listAuditEvents(
-            PaginationInput pagination,
             String startTime,
             String endTime,
             String resourceId,
-            String resourceType)
+            String resourceType,
+            PaginationInput pagination)
             throws ApiException {
         ApiResponse<ListAuditEvents200Response> localVarResp =
                 listAuditEventsWithHttpInfo(
-                        pagination, startTime, endTime, resourceId, resourceType);
+                        startTime, endTime, resourceId, resourceType, pagination);
         return localVarResp.getData();
     }
 
     /**
      * List Audit Events Returns a list of Audit Trail events.
      *
-     * @param pagination Defines the pagination parameters. This parameter exists in v1. (required)
      * @param startTime Filter response to events that happened after this time. This parameter
      *     exists in v1. (optional)
      * @param endTime Filter response to events that happened before this time. Defaults to the
@@ -250,6 +249,7 @@ public class AuditTrailApi {
      *     single Source. This parameter exists in v1. (optional)
      * @param resourceType Filter response to events that affect a specific type, for example,
      *     Sources, Warehouses, and Tracking Plans. This parameter exists in v1. (optional)
+     * @param pagination Defines the pagination parameters. This parameter exists in v1. (required)
      * @return ApiResponse&lt;ListAuditEvents200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -263,15 +263,15 @@ public class AuditTrailApi {
      * </table>
      */
     public ApiResponse<ListAuditEvents200Response> listAuditEventsWithHttpInfo(
-            PaginationInput pagination,
             String startTime,
             String endTime,
             String resourceId,
-            String resourceType)
+            String resourceType,
+            PaginationInput pagination)
             throws ApiException {
         okhttp3.Call localVarCall =
                 listAuditEventsValidateBeforeCall(
-                        pagination, startTime, endTime, resourceId, resourceType, null);
+                        startTime, endTime, resourceId, resourceType, pagination, null);
         Type localVarReturnType = new TypeToken<ListAuditEvents200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -279,7 +279,6 @@ public class AuditTrailApi {
     /**
      * List Audit Events (asynchronously) Returns a list of Audit Trail events.
      *
-     * @param pagination Defines the pagination parameters. This parameter exists in v1. (required)
      * @param startTime Filter response to events that happened after this time. This parameter
      *     exists in v1. (optional)
      * @param endTime Filter response to events that happened before this time. Defaults to the
@@ -289,6 +288,7 @@ public class AuditTrailApi {
      *     single Source. This parameter exists in v1. (optional)
      * @param resourceType Filter response to events that affect a specific type, for example,
      *     Sources, Warehouses, and Tracking Plans. This parameter exists in v1. (optional)
+     * @param pagination Defines the pagination parameters. This parameter exists in v1. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -303,17 +303,17 @@ public class AuditTrailApi {
      * </table>
      */
     public okhttp3.Call listAuditEventsAsync(
-            PaginationInput pagination,
             String startTime,
             String endTime,
             String resourceId,
             String resourceType,
+            PaginationInput pagination,
             final ApiCallback<ListAuditEvents200Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 listAuditEventsValidateBeforeCall(
-                        pagination, startTime, endTime, resourceId, resourceType, _callback);
+                        startTime, endTime, resourceId, resourceType, pagination, _callback);
         Type localVarReturnType = new TypeToken<ListAuditEvents200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
