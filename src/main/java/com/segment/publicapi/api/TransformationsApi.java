@@ -168,11 +168,10 @@ public class TransformationsApi {
     }
 
     /**
-     * Create Transformation Creates a new Transformation. When called, this endpoint may generate
-     * the &#x60;Transformation Created&#x60; event in the [audit trail](/tag/Audit-Trail).
-     * **Note**: In order to successfully call this endpoint, the specified Workspace needs to have
-     * the Protocols feature enabled. Please reach out to your customer success manager for more
-     * information.
+     * Create Transformation Creates a new Transformation. • When called, this endpoint may generate
+     * the &#x60;Transformation Created&#x60; event in the [audit trail](/tag/Audit-Trail). • In
+     * order to successfully call this endpoint, the specified Workspace needs to have the Protocols
+     * feature enabled. Please reach out to your customer success manager for more information.
      *
      * @param createTransformationV1Input (required)
      * @return CreateTransformation200Response
@@ -195,11 +194,10 @@ public class TransformationsApi {
     }
 
     /**
-     * Create Transformation Creates a new Transformation. When called, this endpoint may generate
-     * the &#x60;Transformation Created&#x60; event in the [audit trail](/tag/Audit-Trail).
-     * **Note**: In order to successfully call this endpoint, the specified Workspace needs to have
-     * the Protocols feature enabled. Please reach out to your customer success manager for more
-     * information.
+     * Create Transformation Creates a new Transformation. • When called, this endpoint may generate
+     * the &#x60;Transformation Created&#x60; event in the [audit trail](/tag/Audit-Trail). • In
+     * order to successfully call this endpoint, the specified Workspace needs to have the Protocols
+     * feature enabled. Please reach out to your customer success manager for more information.
      *
      * @param createTransformationV1Input (required)
      * @return ApiResponse&lt;CreateTransformation200Response&gt;
@@ -223,11 +221,11 @@ public class TransformationsApi {
     }
 
     /**
-     * Create Transformation (asynchronously) Creates a new Transformation. When called, this
+     * Create Transformation (asynchronously) Creates a new Transformation. • When called, this
      * endpoint may generate the &#x60;Transformation Created&#x60; event in the [audit
-     * trail](/tag/Audit-Trail). **Note**: In order to successfully call this endpoint, the
-     * specified Workspace needs to have the Protocols feature enabled. Please reach out to your
-     * customer success manager for more information.
+     * trail](/tag/Audit-Trail). • In order to successfully call this endpoint, the specified
+     * Workspace needs to have the Protocols feature enabled. Please reach out to your customer
+     * success manager for more information.
      *
      * @param createTransformationV1Input (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -350,9 +348,9 @@ public class TransformationsApi {
     }
 
     /**
-     * Delete Transformation Deletes a Transformation. When called, this endpoint may generate the
-     * &#x60;Transformation Deleted&#x60; event in the [audit trail](/tag/Audit-Trail). **Note**: In
-     * order to successfully call this endpoint, the specified Workspace needs to have the Protocols
+     * Delete Transformation Deletes a Transformation. • When called, this endpoint may generate the
+     * &#x60;Transformation Deleted&#x60; event in the [audit trail](/tag/Audit-Trail). • In order
+     * to successfully call this endpoint, the specified Workspace needs to have the Protocols
      * feature enabled. Please reach out to your customer success manager for more information.
      *
      * @param transformationId (required)
@@ -376,9 +374,9 @@ public class TransformationsApi {
     }
 
     /**
-     * Delete Transformation Deletes a Transformation. When called, this endpoint may generate the
-     * &#x60;Transformation Deleted&#x60; event in the [audit trail](/tag/Audit-Trail). **Note**: In
-     * order to successfully call this endpoint, the specified Workspace needs to have the Protocols
+     * Delete Transformation Deletes a Transformation. • When called, this endpoint may generate the
+     * &#x60;Transformation Deleted&#x60; event in the [audit trail](/tag/Audit-Trail). • In order
+     * to successfully call this endpoint, the specified Workspace needs to have the Protocols
      * feature enabled. Please reach out to your customer success manager for more information.
      *
      * @param transformationId (required)
@@ -402,11 +400,11 @@ public class TransformationsApi {
     }
 
     /**
-     * Delete Transformation (asynchronously) Deletes a Transformation. When called, this endpoint
+     * Delete Transformation (asynchronously) Deletes a Transformation. • When called, this endpoint
      * may generate the &#x60;Transformation Deleted&#x60; event in the [audit
-     * trail](/tag/Audit-Trail). **Note**: In order to successfully call this endpoint, the
-     * specified Workspace needs to have the Protocols feature enabled. Please reach out to your
-     * customer success manager for more information.
+     * trail](/tag/Audit-Trail). • In order to successfully call this endpoint, the specified
+     * Workspace needs to have the Protocols feature enabled. Please reach out to your customer
+     * success manager for more information.
      *
      * @param transformationId (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -528,9 +526,9 @@ public class TransformationsApi {
     }
 
     /**
-     * Get Transformation Gets a Transformation. **Note**: In order to successfully call this
-     * endpoint, the specified Workspace needs to have the Protocols feature enabled. Please reach
-     * out to your customer success manager for more information.
+     * Get Transformation Gets a Transformation. • In order to successfully call this endpoint, the
+     * specified Workspace needs to have the Protocols feature enabled. Please reach out to your
+     * customer success manager for more information.
      *
      * @param transformationId (required)
      * @return GetTransformation200Response
@@ -553,9 +551,9 @@ public class TransformationsApi {
     }
 
     /**
-     * Get Transformation Gets a Transformation. **Note**: In order to successfully call this
-     * endpoint, the specified Workspace needs to have the Protocols feature enabled. Please reach
-     * out to your customer success manager for more information.
+     * Get Transformation Gets a Transformation. • In order to successfully call this endpoint, the
+     * specified Workspace needs to have the Protocols feature enabled. Please reach out to your
+     * customer success manager for more information.
      *
      * @param transformationId (required)
      * @return ApiResponse&lt;GetTransformation200Response&gt;
@@ -578,9 +576,9 @@ public class TransformationsApi {
     }
 
     /**
-     * Get Transformation (asynchronously) Gets a Transformation. **Note**: In order to successfully
-     * call this endpoint, the specified Workspace needs to have the Protocols feature enabled.
-     * Please reach out to your customer success manager for more information.
+     * Get Transformation (asynchronously) Gets a Transformation. • In order to successfully call
+     * this endpoint, the specified Workspace needs to have the Protocols feature enabled. Please
+     * reach out to your customer success manager for more information.
      *
      * @param transformationId (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -702,9 +700,9 @@ public class TransformationsApi {
     }
 
     /**
-     * List Transformations Lists all Transformations in the Workspace. **Note**: In order to
-     * successfully call this endpoint, the specified Workspace needs to have the Protocols feature
-     * enabled. Please reach out to your customer success manager for more information.
+     * List Transformations Lists all Transformations in the Workspace. • In order to successfully
+     * call this endpoint, the specified Workspace needs to have the Protocols feature enabled.
+     * Please reach out to your customer success manager for more information.
      *
      * @param pagination Pagination options. This parameter exists in v1. (required)
      * @return ListTransformations200Response
@@ -727,9 +725,9 @@ public class TransformationsApi {
     }
 
     /**
-     * List Transformations Lists all Transformations in the Workspace. **Note**: In order to
-     * successfully call this endpoint, the specified Workspace needs to have the Protocols feature
-     * enabled. Please reach out to your customer success manager for more information.
+     * List Transformations Lists all Transformations in the Workspace. • In order to successfully
+     * call this endpoint, the specified Workspace needs to have the Protocols feature enabled.
+     * Please reach out to your customer success manager for more information.
      *
      * @param pagination Pagination options. This parameter exists in v1. (required)
      * @return ApiResponse&lt;ListTransformations200Response&gt;
@@ -752,10 +750,9 @@ public class TransformationsApi {
     }
 
     /**
-     * List Transformations (asynchronously) Lists all Transformations in the Workspace. **Note**:
-     * In order to successfully call this endpoint, the specified Workspace needs to have the
-     * Protocols feature enabled. Please reach out to your customer success manager for more
-     * information.
+     * List Transformations (asynchronously) Lists all Transformations in the Workspace. • In order
+     * to successfully call this endpoint, the specified Workspace needs to have the Protocols
+     * feature enabled. Please reach out to your customer success manager for more information.
      *
      * @param pagination Pagination options. This parameter exists in v1. (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -894,10 +891,10 @@ public class TransformationsApi {
     }
 
     /**
-     * Update Transformation Updates an existing Transformation. When called, this endpoint may
+     * Update Transformation Updates an existing Transformation. • When called, this endpoint may
      * generate the &#x60;Transformation Updated&#x60; event in the [audit trail](/tag/Audit-Trail).
-     * **Note**: In order to successfully call this endpoint, the specified Workspace needs to have
-     * the Protocols feature enabled. Please reach out to your customer success manager for more
+     * • In order to successfully call this endpoint, the specified Workspace needs to have the
+     * Protocols feature enabled. Please reach out to your customer success manager for more
      * information.
      *
      * @param transformationId (required)
@@ -923,10 +920,10 @@ public class TransformationsApi {
     }
 
     /**
-     * Update Transformation Updates an existing Transformation. When called, this endpoint may
+     * Update Transformation Updates an existing Transformation. • When called, this endpoint may
      * generate the &#x60;Transformation Updated&#x60; event in the [audit trail](/tag/Audit-Trail).
-     * **Note**: In order to successfully call this endpoint, the specified Workspace needs to have
-     * the Protocols feature enabled. Please reach out to your customer success manager for more
+     * • In order to successfully call this endpoint, the specified Workspace needs to have the
+     * Protocols feature enabled. Please reach out to your customer success manager for more
      * information.
      *
      * @param transformationId (required)
@@ -954,11 +951,11 @@ public class TransformationsApi {
     }
 
     /**
-     * Update Transformation (asynchronously) Updates an existing Transformation. When called, this
-     * endpoint may generate the &#x60;Transformation Updated&#x60; event in the [audit
-     * trail](/tag/Audit-Trail). **Note**: In order to successfully call this endpoint, the
-     * specified Workspace needs to have the Protocols feature enabled. Please reach out to your
-     * customer success manager for more information.
+     * Update Transformation (asynchronously) Updates an existing Transformation. • When called,
+     * this endpoint may generate the &#x60;Transformation Updated&#x60; event in the [audit
+     * trail](/tag/Audit-Trail). • In order to successfully call this endpoint, the specified
+     * Workspace needs to have the Protocols feature enabled. Please reach out to your customer
+     * success manager for more information.
      *
      * @param transformationId (required)
      * @param updateTransformationV1Input (required)

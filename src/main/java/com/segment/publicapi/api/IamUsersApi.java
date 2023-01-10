@@ -189,8 +189,8 @@ public class IamUsersApi {
     }
 
     /**
-     * Add Permissions to User Adds a list of access permissions to a user. When called, this
-     * endpoint may generate one or more of the following [audit trail](/tag/Audit-Trail) events: *
+     * Add Permissions to User Adds a list of access permissions to a user. • When called, this
+     * endpoint may generate one or more of the following [audit trail](/tag/Audit-Trail) events:*
      * Policy Created * User Policy Updated The rate limit for this endpoint is 60 requests per
      * minute, which is lower than the default due to access pattern restrictions. Once reached,
      * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
@@ -219,8 +219,8 @@ public class IamUsersApi {
     }
 
     /**
-     * Add Permissions to User Adds a list of access permissions to a user. When called, this
-     * endpoint may generate one or more of the following [audit trail](/tag/Audit-Trail) events: *
+     * Add Permissions to User Adds a list of access permissions to a user. • When called, this
+     * endpoint may generate one or more of the following [audit trail](/tag/Audit-Trail) events:*
      * Policy Created * User Policy Updated The rate limit for this endpoint is 60 requests per
      * minute, which is lower than the default due to access pattern restrictions. Once reached,
      * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
@@ -250,9 +250,9 @@ public class IamUsersApi {
     }
 
     /**
-     * Add Permissions to User (asynchronously) Adds a list of access permissions to a user. When
+     * Add Permissions to User (asynchronously) Adds a list of access permissions to a user. • When
      * called, this endpoint may generate one or more of the following [audit
-     * trail](/tag/Audit-Trail) events: * Policy Created * User Policy Updated The rate limit for
+     * trail](/tag/Audit-Trail) events:* Policy Created * User Policy Updated The rate limit for
      * this endpoint is 60 requests per minute, which is lower than the default due to access
      * pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code
      * with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
@@ -383,8 +383,8 @@ public class IamUsersApi {
     }
 
     /**
-     * Create Invites Invites a list of users to join a Workspace. When called, this endpoint may
-     * generate one or more of the following [audit trail](/tag/Audit-Trail) events: * Non-Segment
+     * Create Invites Invites a list of users to join a Workspace. • When called, this endpoint may
+     * generate one or more of the following [audit trail](/tag/Audit-Trail) events:* Non-Segment
      * User Invited to Workspace * Policy Created * New Segment User Invited to Workspace Config API
      * omitted fields: - &#x60;parent&#x60; The rate limit for this endpoint is 60 requests per
      * minute, which is lower than the default due to access pattern restrictions. Once reached,
@@ -412,8 +412,8 @@ public class IamUsersApi {
     }
 
     /**
-     * Create Invites Invites a list of users to join a Workspace. When called, this endpoint may
-     * generate one or more of the following [audit trail](/tag/Audit-Trail) events: * Non-Segment
+     * Create Invites Invites a list of users to join a Workspace. • When called, this endpoint may
+     * generate one or more of the following [audit trail](/tag/Audit-Trail) events:* Non-Segment
      * User Invited to Workspace * Policy Created * New Segment User Invited to Workspace Config API
      * omitted fields: - &#x60;parent&#x60; The rate limit for this endpoint is 60 requests per
      * minute, which is lower than the default due to access pattern restrictions. Once reached,
@@ -441,14 +441,13 @@ public class IamUsersApi {
     }
 
     /**
-     * Create Invites (asynchronously) Invites a list of users to join a Workspace. When called,
+     * Create Invites (asynchronously) Invites a list of users to join a Workspace. • When called,
      * this endpoint may generate one or more of the following [audit trail](/tag/Audit-Trail)
-     * events: * Non-Segment User Invited to Workspace * Policy Created * New Segment User Invited
-     * to Workspace Config API omitted fields: - &#x60;parent&#x60; The rate limit for this endpoint
-     * is 60 requests per minute, which is lower than the default due to access pattern
-     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
-     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
-     * information.
+     * events:* Non-Segment User Invited to Workspace * Policy Created * New Segment User Invited to
+     * Workspace Config API omitted fields: - &#x60;parent&#x60; The rate limit for this endpoint is
+     * 60 requests per minute, which is lower than the default due to access pattern restrictions.
+     * Once reached, this endpoint will respond with the 429 HTTP status code with headers
+     * indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param createInvitesV1Input (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -572,10 +571,10 @@ public class IamUsersApi {
     }
 
     /**
-     * Delete Invites Removes a list of invitations to join a Workspace. When called, this endpoint
-     * may generate one or more of the following [audit trail](/tag/Audit-Trail) events: * Invite
-     * Deleted * Group Memberships Deleted The rate limit for this endpoint is 60 requests per
-     * minute, which is lower than the default due to access pattern restrictions. Once reached,
+     * Delete Invites Removes a list of invitations to join a Workspace. • When called, this
+     * endpoint may generate one or more of the following [audit trail](/tag/Audit-Trail) events:*
+     * Invite Deleted * Group Memberships Deleted The rate limit for this endpoint is 60 requests
+     * per minute, which is lower than the default due to access pattern restrictions. Once reached,
      * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
      * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
@@ -599,10 +598,10 @@ public class IamUsersApi {
     }
 
     /**
-     * Delete Invites Removes a list of invitations to join a Workspace. When called, this endpoint
-     * may generate one or more of the following [audit trail](/tag/Audit-Trail) events: * Invite
-     * Deleted * Group Memberships Deleted The rate limit for this endpoint is 60 requests per
-     * minute, which is lower than the default due to access pattern restrictions. Once reached,
+     * Delete Invites Removes a list of invitations to join a Workspace. • When called, this
+     * endpoint may generate one or more of the following [audit trail](/tag/Audit-Trail) events:*
+     * Invite Deleted * Group Memberships Deleted The rate limit for this endpoint is 60 requests
+     * per minute, which is lower than the default due to access pattern restrictions. Once reached,
      * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
      * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
@@ -628,9 +627,9 @@ public class IamUsersApi {
     }
 
     /**
-     * Delete Invites (asynchronously) Removes a list of invitations to join a Workspace. When
+     * Delete Invites (asynchronously) Removes a list of invitations to join a Workspace. • When
      * called, this endpoint may generate one or more of the following [audit
-     * trail](/tag/Audit-Trail) events: * Invite Deleted * Group Memberships Deleted The rate limit
+     * trail](/tag/Audit-Trail) events:* Invite Deleted * Group Memberships Deleted The rate limit
      * for this endpoint is 60 requests per minute, which is lower than the default due to access
      * pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code
      * with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
@@ -756,7 +755,7 @@ public class IamUsersApi {
     }
 
     /**
-     * Delete Users Removes one or multiple users. When called, this endpoint may generate the
+     * Delete Users Removes one or multiple users. • When called, this endpoint may generate the
      * &#x60;Group Memberships Deleted&#x60; event in the [audit trail](/tag/Audit-Trail). The rate
      * limit for this endpoint is 60 requests per minute, which is lower than the default due to
      * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
@@ -782,7 +781,7 @@ public class IamUsersApi {
     }
 
     /**
-     * Delete Users Removes one or multiple users. When called, this endpoint may generate the
+     * Delete Users Removes one or multiple users. • When called, this endpoint may generate the
      * &#x60;Group Memberships Deleted&#x60; event in the [audit trail](/tag/Audit-Trail). The rate
      * limit for this endpoint is 60 requests per minute, which is lower than the default due to
      * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
@@ -810,7 +809,7 @@ public class IamUsersApi {
     }
 
     /**
-     * Delete Users (asynchronously) Removes one or multiple users. When called, this endpoint may
+     * Delete Users (asynchronously) Removes one or multiple users. • When called, this endpoint may
      * generate the &#x60;Group Memberships Deleted&#x60; event in the [audit
      * trail](/tag/Audit-Trail). The rate limit for this endpoint is 60 requests per minute, which
      * is lower than the default due to access pattern restrictions. Once reached, this endpoint
@@ -1635,8 +1634,8 @@ public class IamUsersApi {
     }
 
     /**
-     * Replace Permissions for User Updates the list of access permissions for a user. When called,
-     * this endpoint may generate the &#x60;Policy Deleted&#x60; event in the [audit
+     * Replace Permissions for User Updates the list of access permissions for a user. • When
+     * called, this endpoint may generate the &#x60;Policy Deleted&#x60; event in the [audit
      * trail](/tag/Audit-Trail). The rate limit for this endpoint is 60 requests per minute, which
      * is lower than the default due to access pattern restrictions. Once reached, this endpoint
      * will respond with the 429 HTTP status code with headers indicating the limit parameters. See
@@ -1665,8 +1664,8 @@ public class IamUsersApi {
     }
 
     /**
-     * Replace Permissions for User Updates the list of access permissions for a user. When called,
-     * this endpoint may generate the &#x60;Policy Deleted&#x60; event in the [audit
+     * Replace Permissions for User Updates the list of access permissions for a user. • When
+     * called, this endpoint may generate the &#x60;Policy Deleted&#x60; event in the [audit
      * trail](/tag/Audit-Trail). The rate limit for this endpoint is 60 requests per minute, which
      * is lower than the default due to access pattern restrictions. Once reached, this endpoint
      * will respond with the 429 HTTP status code with headers indicating the limit parameters. See
@@ -1699,7 +1698,7 @@ public class IamUsersApi {
 
     /**
      * Replace Permissions for User (asynchronously) Updates the list of access permissions for a
-     * user. When called, this endpoint may generate the &#x60;Policy Deleted&#x60; event in the
+     * user. • When called, this endpoint may generate the &#x60;Policy Deleted&#x60; event in the
      * [audit trail](/tag/Audit-Trail). The rate limit for this endpoint is 60 requests per minute,
      * which is lower than the default due to access pattern restrictions. Once reached, this
      * endpoint will respond with the 429 HTTP status code with headers indicating the limit

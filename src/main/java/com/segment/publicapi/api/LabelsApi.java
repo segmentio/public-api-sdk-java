@@ -163,7 +163,7 @@ public class LabelsApi {
     }
 
     /**
-     * Create Label Creates a new label. When called, this endpoint may generate the &#x60;Label
+     * Create Label Creates a new label. • When called, this endpoint may generate the &#x60;Label
      * Created&#x60; event in the [audit trail](/tag/Audit-Trail). The rate limit for this endpoint
      * is 60 requests per minute, which is lower than the default due to access pattern
      * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
@@ -191,7 +191,7 @@ public class LabelsApi {
     }
 
     /**
-     * Create Label Creates a new label. When called, this endpoint may generate the &#x60;Label
+     * Create Label Creates a new label. • When called, this endpoint may generate the &#x60;Label
      * Created&#x60; event in the [audit trail](/tag/Audit-Trail). The rate limit for this endpoint
      * is 60 requests per minute, which is lower than the default due to access pattern
      * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
@@ -219,7 +219,7 @@ public class LabelsApi {
     }
 
     /**
-     * Create Label (asynchronously) Creates a new label. When called, this endpoint may generate
+     * Create Label (asynchronously) Creates a new label. • When called, this endpoint may generate
      * the &#x60;Label Created&#x60; event in the [audit trail](/tag/Audit-Trail). The rate limit
      * for this endpoint is 60 requests per minute, which is lower than the default due to access
      * pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code
@@ -355,7 +355,7 @@ public class LabelsApi {
     }
 
     /**
-     * Delete Label Deletes a label. When called, this endpoint may generate the &#x60;Label
+     * Delete Label Deletes a label. • When called, this endpoint may generate the &#x60;Label
      * Deleted&#x60; event in the [audit trail](/tag/Audit-Trail). The rate limit for this endpoint
      * is 60 requests per minute, which is lower than the default due to access pattern
      * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
@@ -382,7 +382,7 @@ public class LabelsApi {
     }
 
     /**
-     * Delete Label Deletes a label. When called, this endpoint may generate the &#x60;Label
+     * Delete Label Deletes a label. • When called, this endpoint may generate the &#x60;Label
      * Deleted&#x60; event in the [audit trail](/tag/Audit-Trail). The rate limit for this endpoint
      * is 60 requests per minute, which is lower than the default due to access pattern
      * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
@@ -411,7 +411,7 @@ public class LabelsApi {
     }
 
     /**
-     * Delete Label (asynchronously) Deletes a label. When called, this endpoint may generate the
+     * Delete Label (asynchronously) Deletes a label. • When called, this endpoint may generate the
      * &#x60;Label Deleted&#x60; event in the [audit trail](/tag/Audit-Trail). The rate limit for
      * this endpoint is 60 requests per minute, which is lower than the default due to access
      * pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code
