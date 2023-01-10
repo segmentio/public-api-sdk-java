@@ -1229,9 +1229,9 @@ public class TrackingPlansApi {
     /**
      * Build call for listTrackingPlans
      *
-     * @param pagination Pagination options. This parameter exists in v1. (required)
      * @param type Requests Tracking Plans of a certain type. If omitted, lists all types. This
      *     parameter exists in v1. (optional)
+     * @param pagination Pagination options. This parameter exists in v1. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1245,7 +1245,7 @@ public class TrackingPlansApi {
      * </table>
      */
     public okhttp3.Call listTrackingPlansCall(
-            PaginationInput pagination, String type, final ApiCallback _callback)
+            String type, PaginationInput pagination, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1315,7 +1315,7 @@ public class TrackingPlansApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listTrackingPlansValidateBeforeCall(
-            PaginationInput pagination, String type, final ApiCallback _callback)
+            String type, PaginationInput pagination, final ApiCallback _callback)
             throws ApiException {
 
         // verify the required parameter 'pagination' is set
@@ -1325,7 +1325,7 @@ public class TrackingPlansApi {
                             + " listTrackingPlans(Async)");
         }
 
-        okhttp3.Call localVarCall = listTrackingPlansCall(pagination, type, _callback);
+        okhttp3.Call localVarCall = listTrackingPlansCall(type, pagination, _callback);
         return localVarCall;
     }
 
@@ -1334,9 +1334,9 @@ public class TrackingPlansApi {
      * endpoint, the specified Workspace needs to have the Protocols feature enabled. Please reach
      * out to your customer success manager for more information.
      *
-     * @param pagination Pagination options. This parameter exists in v1. (required)
      * @param type Requests Tracking Plans of a certain type. If omitted, lists all types. This
      *     parameter exists in v1. (optional)
+     * @param pagination Pagination options. This parameter exists in v1. (required)
      * @return ListTrackingPlans200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1349,10 +1349,10 @@ public class TrackingPlansApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public ListTrackingPlans200Response listTrackingPlans(PaginationInput pagination, String type)
+    public ListTrackingPlans200Response listTrackingPlans(String type, PaginationInput pagination)
             throws ApiException {
         ApiResponse<ListTrackingPlans200Response> localVarResp =
-                listTrackingPlansWithHttpInfo(pagination, type);
+                listTrackingPlansWithHttpInfo(type, pagination);
         return localVarResp.getData();
     }
 
@@ -1361,9 +1361,9 @@ public class TrackingPlansApi {
      * endpoint, the specified Workspace needs to have the Protocols feature enabled. Please reach
      * out to your customer success manager for more information.
      *
-     * @param pagination Pagination options. This parameter exists in v1. (required)
      * @param type Requests Tracking Plans of a certain type. If omitted, lists all types. This
      *     parameter exists in v1. (optional)
+     * @param pagination Pagination options. This parameter exists in v1. (required)
      * @return ApiResponse&lt;ListTrackingPlans200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1377,8 +1377,8 @@ public class TrackingPlansApi {
      * </table>
      */
     public ApiResponse<ListTrackingPlans200Response> listTrackingPlansWithHttpInfo(
-            PaginationInput pagination, String type) throws ApiException {
-        okhttp3.Call localVarCall = listTrackingPlansValidateBeforeCall(pagination, type, null);
+            String type, PaginationInput pagination) throws ApiException {
+        okhttp3.Call localVarCall = listTrackingPlansValidateBeforeCall(type, pagination, null);
         Type localVarReturnType = new TypeToken<ListTrackingPlans200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1388,9 +1388,9 @@ public class TrackingPlansApi {
      * successfully call this endpoint, the specified Workspace needs to have the Protocols feature
      * enabled. Please reach out to your customer success manager for more information.
      *
-     * @param pagination Pagination options. This parameter exists in v1. (required)
      * @param type Requests Tracking Plans of a certain type. If omitted, lists all types. This
      *     parameter exists in v1. (optional)
+     * @param pagination Pagination options. This parameter exists in v1. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -1405,13 +1405,13 @@ public class TrackingPlansApi {
      * </table>
      */
     public okhttp3.Call listTrackingPlansAsync(
-            PaginationInput pagination,
             String type,
+            PaginationInput pagination,
             final ApiCallback<ListTrackingPlans200Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
-                listTrackingPlansValidateBeforeCall(pagination, type, _callback);
+                listTrackingPlansValidateBeforeCall(type, pagination, _callback);
         Type localVarReturnType = new TypeToken<ListTrackingPlans200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
