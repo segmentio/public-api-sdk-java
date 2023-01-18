@@ -178,7 +178,11 @@ public class SpacesApi {
     }
 
     /**
-     * Batch Query Messaging Subscriptions for Space Get Messaging Subscriptions for space.
+     * Batch Query Messaging Subscriptions for Space Get Messaging Subscriptions for space. • This
+     * endpoint is in **Alpha** testing. Please submit any feedback by sending email to
+     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
+     * needs to have the Spaces feature enabled. Please reach out to your customer success manager
+     * for more information.
      *
      * @param spaceId (required)
      * @param batchQueryMessagingSubscriptionsForSpaceAlphaInput (required)
@@ -207,7 +211,11 @@ public class SpacesApi {
     }
 
     /**
-     * Batch Query Messaging Subscriptions for Space Get Messaging Subscriptions for space.
+     * Batch Query Messaging Subscriptions for Space Get Messaging Subscriptions for space. • This
+     * endpoint is in **Alpha** testing. Please submit any feedback by sending email to
+     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
+     * needs to have the Spaces feature enabled. Please reach out to your customer success manager
+     * for more information.
      *
      * @param spaceId (required)
      * @param batchQueryMessagingSubscriptionsForSpaceAlphaInput (required)
@@ -239,7 +247,10 @@ public class SpacesApi {
 
     /**
      * Batch Query Messaging Subscriptions for Space (asynchronously) Get Messaging Subscriptions
-     * for space.
+     * for space. • This endpoint is in **Alpha** testing. Please submit any feedback by sending
+     * email to friends@segment.com. • In order to successfully call this endpoint, the specified
+     * Workspace needs to have the Spaces feature enabled. Please reach out to your customer success
+     * manager for more information.
      *
      * @param spaceId (required)
      * @param batchQueryMessagingSubscriptionsForSpaceAlphaInput (required)
@@ -363,7 +374,10 @@ public class SpacesApi {
     }
 
     /**
-     * Get Space Returns the Space by id.
+     * Get Space Returns the Space by id. • This endpoint is in **Alpha** testing. Please submit any
+     * feedback by sending email to friends@segment.com. • In order to successfully call this
+     * endpoint, the specified Workspace needs to have the Spaces feature enabled. Please reach out
+     * to your customer success manager for more information.
      *
      * @param spaceId (required)
      * @return GetSpace200Response
@@ -384,7 +398,10 @@ public class SpacesApi {
     }
 
     /**
-     * Get Space Returns the Space by id.
+     * Get Space Returns the Space by id. • This endpoint is in **Alpha** testing. Please submit any
+     * feedback by sending email to friends@segment.com. • In order to successfully call this
+     * endpoint, the specified Workspace needs to have the Spaces feature enabled. Please reach out
+     * to your customer success manager for more information.
      *
      * @param spaceId (required)
      * @return ApiResponse&lt;GetSpace200Response&gt;
@@ -407,7 +424,10 @@ public class SpacesApi {
     }
 
     /**
-     * Get Space (asynchronously) Returns the Space by id.
+     * Get Space (asynchronously) Returns the Space by id. • This endpoint is in **Alpha** testing.
+     * Please submit any feedback by sending email to friends@segment.com. • In order to
+     * successfully call this endpoint, the specified Workspace needs to have the Spaces feature
+     * enabled. Please reach out to your customer success manager for more information.
      *
      * @param spaceId (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -542,10 +562,13 @@ public class SpacesApi {
     }
 
     /**
-     * Replace Messaging Subscriptions in Spaces Replace Messaging Subscriptions in Spaces. The rate
-     * limit for this endpoint is 60 requests per minute, which is lower than the default due to
-     * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
-     * status code with headers indicating the limit parameters. See [Rate
+     * Replace Messaging Subscriptions in Spaces Replace Messaging Subscriptions in Spaces. • This
+     * endpoint is in **Alpha** testing. Please submit any feedback by sending email to
+     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
+     * needs to have the Spaces feature enabled. Please reach out to your customer success manager
+     * for more information. The rate limit for this endpoint is 60 requests per minute, which is
+     * lower than the default due to access pattern restrictions. Once reached, this endpoint will
+     * respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
@@ -574,10 +597,13 @@ public class SpacesApi {
     }
 
     /**
-     * Replace Messaging Subscriptions in Spaces Replace Messaging Subscriptions in Spaces. The rate
-     * limit for this endpoint is 60 requests per minute, which is lower than the default due to
-     * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
-     * status code with headers indicating the limit parameters. See [Rate
+     * Replace Messaging Subscriptions in Spaces Replace Messaging Subscriptions in Spaces. • This
+     * endpoint is in **Alpha** testing. Please submit any feedback by sending email to
+     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
+     * needs to have the Spaces feature enabled. Please reach out to your customer success manager
+     * for more information. The rate limit for this endpoint is 60 requests per minute, which is
+     * lower than the default due to access pattern restrictions. Once reached, this endpoint will
+     * respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
@@ -610,10 +636,13 @@ public class SpacesApi {
 
     /**
      * Replace Messaging Subscriptions in Spaces (asynchronously) Replace Messaging Subscriptions in
-     * Spaces. The rate limit for this endpoint is 60 requests per minute, which is lower than the
-     * default due to access pattern restrictions. Once reached, this endpoint will respond with the
-     * 429 HTTP status code with headers indicating the limit parameters. See [Rate
-     * Limiting](/#tag/Rate-Limits) for more information.
+     * Spaces. • This endpoint is in **Alpha** testing. Please submit any feedback by sending email
+     * to friends@segment.com. • In order to successfully call this endpoint, the specified
+     * Workspace needs to have the Spaces feature enabled. Please reach out to your customer success
+     * manager for more information. The rate limit for this endpoint is 60 requests per minute,
+     * which is lower than the default due to access pattern restrictions. Once reached, this
+     * endpoint will respond with the 429 HTTP status code with headers indicating the limit
+     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
      * @param replaceMessagingSubscriptionsInSpacesAlphaInput (required)

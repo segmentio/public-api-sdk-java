@@ -175,7 +175,7 @@ public class DestinationsApi {
     }
 
     /**
-     * Create Destination Creates a new Destination. When called, this endpoint may generate the
+     * Create Destination Creates a new Destination. • When called, this endpoint may generate the
      * &#x60;Integration Created&#x60; event in the [audit trail](/tag/Audit-Trail).
      *
      * @param createDestinationV1Input (required)
@@ -199,7 +199,7 @@ public class DestinationsApi {
     }
 
     /**
-     * Create Destination Creates a new Destination. When called, this endpoint may generate the
+     * Create Destination Creates a new Destination. • When called, this endpoint may generate the
      * &#x60;Integration Created&#x60; event in the [audit trail](/tag/Audit-Trail).
      *
      * @param createDestinationV1Input (required)
@@ -224,8 +224,9 @@ public class DestinationsApi {
     }
 
     /**
-     * Create Destination (asynchronously) Creates a new Destination. When called, this endpoint may
-     * generate the &#x60;Integration Created&#x60; event in the [audit trail](/tag/Audit-Trail).
+     * Create Destination (asynchronously) Creates a new Destination. • When called, this endpoint
+     * may generate the &#x60;Integration Created&#x60; event in the [audit
+     * trail](/tag/Audit-Trail).
      *
      * @param createDestinationV1Input (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -360,7 +361,11 @@ public class DestinationsApi {
     }
 
     /**
-     * Create Destination Subscription Creates a new Destination subscription.
+     * Create Destination Subscription Creates a new Destination subscription. • This endpoint is in
+     * **Alpha** testing. Please submit any feedback by sending email to friends@segment.com. • In
+     * order to successfully call this endpoint, the specified Workspace needs to have the
+     * Destination Subscriptions feature enabled. Please reach out to your customer success manager
+     * for more information.
      *
      * @param destinationId (required)
      * @param createDestinationSubscriptionAlphaInput (required)
@@ -387,7 +392,11 @@ public class DestinationsApi {
     }
 
     /**
-     * Create Destination Subscription Creates a new Destination subscription.
+     * Create Destination Subscription Creates a new Destination subscription. • This endpoint is in
+     * **Alpha** testing. Please submit any feedback by sending email to friends@segment.com. • In
+     * order to successfully call this endpoint, the specified Workspace needs to have the
+     * Destination Subscriptions feature enabled. Please reach out to your customer success manager
+     * for more information.
      *
      * @param destinationId (required)
      * @param createDestinationSubscriptionAlphaInput (required)
@@ -417,7 +426,11 @@ public class DestinationsApi {
     }
 
     /**
-     * Create Destination Subscription (asynchronously) Creates a new Destination subscription.
+     * Create Destination Subscription (asynchronously) Creates a new Destination subscription. •
+     * This endpoint is in **Alpha** testing. Please submit any feedback by sending email to
+     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
+     * needs to have the Destination Subscriptions feature enabled. Please reach out to your
+     * customer success manager for more information.
      *
      * @param destinationId (required)
      * @param createDestinationSubscriptionAlphaInput (required)
@@ -544,7 +557,7 @@ public class DestinationsApi {
     }
 
     /**
-     * Delete Destination Deletes an existing Destination. When called, this endpoint may generate
+     * Delete Destination Deletes an existing Destination. • When called, this endpoint may generate
      * the &#x60;Integration Deleted&#x60; event in the [audit trail](/tag/Audit-Trail). Config API
      * omitted fields: - &#x60;catalogId&#x60;
      *
@@ -569,7 +582,7 @@ public class DestinationsApi {
     }
 
     /**
-     * Delete Destination Deletes an existing Destination. When called, this endpoint may generate
+     * Delete Destination Deletes an existing Destination. • When called, this endpoint may generate
      * the &#x60;Integration Deleted&#x60; event in the [audit trail](/tag/Audit-Trail). Config API
      * omitted fields: - &#x60;catalogId&#x60;
      *
@@ -594,7 +607,7 @@ public class DestinationsApi {
     }
 
     /**
-     * Delete Destination (asynchronously) Deletes an existing Destination. When called, this
+     * Delete Destination (asynchronously) Deletes an existing Destination. • When called, this
      * endpoint may generate the &#x60;Integration Deleted&#x60; event in the [audit
      * trail](/tag/Audit-Trail). Config API omitted fields: - &#x60;catalogId&#x60;
      *
@@ -895,7 +908,11 @@ public class DestinationsApi {
     }
 
     /**
-     * Get Subscription from Destination Gets a Destination subscription by id.
+     * Get Subscription from Destination Gets a Destination subscription by id. • This endpoint is
+     * in **Alpha** testing. Please submit any feedback by sending email to friends@segment.com. •
+     * In order to successfully call this endpoint, the specified Workspace needs to have the
+     * Destination Subscriptions feature enabled. Please reach out to your customer success manager
+     * for more information.
      *
      * @param destinationId (required)
      * @param id (required)
@@ -919,7 +936,11 @@ public class DestinationsApi {
     }
 
     /**
-     * Get Subscription from Destination Gets a Destination subscription by id.
+     * Get Subscription from Destination Gets a Destination subscription by id. • This endpoint is
+     * in **Alpha** testing. Please submit any feedback by sending email to friends@segment.com. •
+     * In order to successfully call this endpoint, the specified Workspace needs to have the
+     * Destination Subscriptions feature enabled. Please reach out to your customer success manager
+     * for more information.
      *
      * @param destinationId (required)
      * @param id (required)
@@ -946,7 +967,11 @@ public class DestinationsApi {
     }
 
     /**
-     * Get Subscription from Destination (asynchronously) Gets a Destination subscription by id.
+     * Get Subscription from Destination (asynchronously) Gets a Destination subscription by id. •
+     * This endpoint is in **Alpha** testing. Please submit any feedback by sending email to
+     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
+     * needs to have the Destination Subscriptions feature enabled. Please reach out to your
+     * customer success manager for more information.
      *
      * @param destinationId (required)
      * @param id (required)
@@ -1538,7 +1563,11 @@ public class DestinationsApi {
     }
 
     /**
-     * List Subscriptions from Destination Lists subscriptions for a Destination.
+     * List Subscriptions from Destination Lists subscriptions for a Destination. • This endpoint is
+     * in **Alpha** testing. Please submit any feedback by sending email to friends@segment.com. •
+     * In order to successfully call this endpoint, the specified Workspace needs to have the
+     * Destination Subscriptions feature enabled. Please reach out to your customer success manager
+     * for more information.
      *
      * @param destinationId (required)
      * @param pagination Pagination options. This parameter exists in alpha. (required)
@@ -1562,7 +1591,11 @@ public class DestinationsApi {
     }
 
     /**
-     * List Subscriptions from Destination Lists subscriptions for a Destination.
+     * List Subscriptions from Destination Lists subscriptions for a Destination. • This endpoint is
+     * in **Alpha** testing. Please submit any feedback by sending email to friends@segment.com. •
+     * In order to successfully call this endpoint, the specified Workspace needs to have the
+     * Destination Subscriptions feature enabled. Please reach out to your customer success manager
+     * for more information.
      *
      * @param destinationId (required)
      * @param pagination Pagination options. This parameter exists in alpha. (required)
@@ -1589,7 +1622,11 @@ public class DestinationsApi {
     }
 
     /**
-     * List Subscriptions from Destination (asynchronously) Lists subscriptions for a Destination.
+     * List Subscriptions from Destination (asynchronously) Lists subscriptions for a Destination. •
+     * This endpoint is in **Alpha** testing. Please submit any feedback by sending email to
+     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
+     * needs to have the Destination Subscriptions feature enabled. Please reach out to your
+     * customer success manager for more information.
      *
      * @param destinationId (required)
      * @param pagination Pagination options. This parameter exists in alpha. (required)
@@ -1725,7 +1762,11 @@ public class DestinationsApi {
     }
 
     /**
-     * Remove Subscription from Destination Deletes an existing Destination subscription.
+     * Remove Subscription from Destination Deletes an existing Destination subscription. • This
+     * endpoint is in **Alpha** testing. Please submit any feedback by sending email to
+     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
+     * needs to have the Destination Subscriptions feature enabled. Please reach out to your
+     * customer success manager for more information.
      *
      * @param destinationId (required)
      * @param id (required)
@@ -1749,7 +1790,11 @@ public class DestinationsApi {
     }
 
     /**
-     * Remove Subscription from Destination Deletes an existing Destination subscription.
+     * Remove Subscription from Destination Deletes an existing Destination subscription. • This
+     * endpoint is in **Alpha** testing. Please submit any feedback by sending email to
+     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
+     * needs to have the Destination Subscriptions feature enabled. Please reach out to your
+     * customer success manager for more information.
      *
      * @param destinationId (required)
      * @param id (required)
@@ -1777,7 +1822,10 @@ public class DestinationsApi {
 
     /**
      * Remove Subscription from Destination (asynchronously) Deletes an existing Destination
-     * subscription.
+     * subscription. • This endpoint is in **Alpha** testing. Please submit any feedback by sending
+     * email to friends@segment.com. • In order to successfully call this endpoint, the specified
+     * Workspace needs to have the Destination Subscriptions feature enabled. Please reach out to
+     * your customer success manager for more information.
      *
      * @param destinationId (required)
      * @param id (required)
@@ -1925,9 +1973,9 @@ public class DestinationsApi {
      * read-only settings for your destination you&#39;ll encounter the following behavior: * If
      * only read-only properties are being updated, the endpoint will return an HTTP 400 error. * If
      * there&#39;s a mix of writable and read-only properties in the payload, the request will be
-     * accepted, the writable properties will be updated and the read-only properties ignored. When
-     * called, this endpoint may generate the &#x60;Integration Disabled&#x60; event in the [audit
-     * trail](/tag/Audit-Trail). Config API omitted fields: - &#x60;updateMask&#x60;
+     * accepted, the writable properties will be updated and the read-only properties ignored. •
+     * When called, this endpoint may generate the &#x60;Integration Disabled&#x60; event in the
+     * [audit trail](/tag/Audit-Trail). Config API omitted fields: - &#x60;updateMask&#x60;
      *
      * @param destinationId (required)
      * @param updateDestinationV1Input (required)
@@ -1956,9 +2004,9 @@ public class DestinationsApi {
      * read-only settings for your destination you&#39;ll encounter the following behavior: * If
      * only read-only properties are being updated, the endpoint will return an HTTP 400 error. * If
      * there&#39;s a mix of writable and read-only properties in the payload, the request will be
-     * accepted, the writable properties will be updated and the read-only properties ignored. When
-     * called, this endpoint may generate the &#x60;Integration Disabled&#x60; event in the [audit
-     * trail](/tag/Audit-Trail). Config API omitted fields: - &#x60;updateMask&#x60;
+     * accepted, the writable properties will be updated and the read-only properties ignored. •
+     * When called, this endpoint may generate the &#x60;Integration Disabled&#x60; event in the
+     * [audit trail](/tag/Audit-Trail). Config API omitted fields: - &#x60;updateMask&#x60;
      *
      * @param destinationId (required)
      * @param updateDestinationV1Input (required)
@@ -1989,7 +2037,7 @@ public class DestinationsApi {
      * behavior: * If only read-only properties are being updated, the endpoint will return an HTTP
      * 400 error. * If there&#39;s a mix of writable and read-only properties in the payload, the
      * request will be accepted, the writable properties will be updated and the read-only
-     * properties ignored. When called, this endpoint may generate the &#x60;Integration
+     * properties ignored. • When called, this endpoint may generate the &#x60;Integration
      * Disabled&#x60; event in the [audit trail](/tag/Audit-Trail). Config API omitted fields: -
      * &#x60;updateMask&#x60;
      *
@@ -2142,7 +2190,11 @@ public class DestinationsApi {
     }
 
     /**
-     * Update Subscription for Destination Updates an existing Destination subscription.
+     * Update Subscription for Destination Updates an existing Destination subscription. • This
+     * endpoint is in **Alpha** testing. Please submit any feedback by sending email to
+     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
+     * needs to have the Destination Subscriptions feature enabled. Please reach out to your
+     * customer success manager for more information.
      *
      * @param destinationId (required)
      * @param id (required)
@@ -2171,7 +2223,11 @@ public class DestinationsApi {
     }
 
     /**
-     * Update Subscription for Destination Updates an existing Destination subscription.
+     * Update Subscription for Destination Updates an existing Destination subscription. • This
+     * endpoint is in **Alpha** testing. Please submit any feedback by sending email to
+     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
+     * needs to have the Destination Subscriptions feature enabled. Please reach out to your
+     * customer success manager for more information.
      *
      * @param destinationId (required)
      * @param id (required)
@@ -2205,7 +2261,10 @@ public class DestinationsApi {
 
     /**
      * Update Subscription for Destination (asynchronously) Updates an existing Destination
-     * subscription.
+     * subscription. • This endpoint is in **Alpha** testing. Please submit any feedback by sending
+     * email to friends@segment.com. • In order to successfully call this endpoint, the specified
+     * Workspace needs to have the Destination Subscriptions feature enabled. Please reach out to
+     * your customer success manager for more information.
      *
      * @param destinationId (required)
      * @param id (required)

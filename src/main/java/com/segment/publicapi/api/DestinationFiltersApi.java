@@ -187,7 +187,7 @@ public class DestinationFiltersApi {
     }
 
     /**
-     * Create Filter for Destination Creates a filter in a Destination. When called, this endpoint
+     * Create Filter for Destination Creates a filter in a Destination. • When called, this endpoint
      * may generate the &#x60;Destination Filter Created&#x60; event in the [audit
      * trail](/tag/Audit-Trail).
      *
@@ -216,7 +216,7 @@ public class DestinationFiltersApi {
     }
 
     /**
-     * Create Filter for Destination Creates a filter in a Destination. When called, this endpoint
+     * Create Filter for Destination Creates a filter in a Destination. • When called, this endpoint
      * may generate the &#x60;Destination Filter Created&#x60; event in the [audit
      * trail](/tag/Audit-Trail).
      *
@@ -248,7 +248,7 @@ public class DestinationFiltersApi {
     }
 
     /**
-     * Create Filter for Destination (asynchronously) Creates a filter in a Destination. When
+     * Create Filter for Destination (asynchronously) Creates a filter in a Destination. • When
      * called, this endpoint may generate the &#x60;Destination Filter Created&#x60; event in the
      * [audit trail](/tag/Audit-Trail).
      *
@@ -948,7 +948,7 @@ public class DestinationFiltersApi {
     }
 
     /**
-     * Remove Filter from Destination Deletes a Destination filter. When called, this endpoint may
+     * Remove Filter from Destination Deletes a Destination filter. • When called, this endpoint may
      * generate the &#x60;Destination Filter Deleted&#x60; event in the [audit
      * trail](/tag/Audit-Trail).
      *
@@ -974,7 +974,7 @@ public class DestinationFiltersApi {
     }
 
     /**
-     * Remove Filter from Destination Deletes a Destination filter. When called, this endpoint may
+     * Remove Filter from Destination Deletes a Destination filter. • When called, this endpoint may
      * generate the &#x60;Destination Filter Deleted&#x60; event in the [audit
      * trail](/tag/Audit-Trail).
      *
@@ -1003,7 +1003,7 @@ public class DestinationFiltersApi {
     }
 
     /**
-     * Remove Filter from Destination (asynchronously) Deletes a Destination filter. When called,
+     * Remove Filter from Destination (asynchronously) Deletes a Destination filter. • When called,
      * this endpoint may generate the &#x60;Destination Filter Deleted&#x60; event in the [audit
      * trail](/tag/Audit-Trail).
      *
@@ -1163,8 +1163,8 @@ public class DestinationFiltersApi {
     }
 
     /**
-     * Update Filter for Destination Updates a filter in a Destination. When called, this endpoint
-     * may generate one or more of the following [audit trail](/tag/Audit-Trail) events: *
+     * Update Filter for Destination Updates a filter in a Destination. • When called, this endpoint
+     * may generate one or more of the following [audit trail](/tag/Audit-Trail) events:*
      * Destination Filter Enabled * Destination Filter Disabled
      *
      * @param destinationId (required)
@@ -1194,8 +1194,8 @@ public class DestinationFiltersApi {
     }
 
     /**
-     * Update Filter for Destination Updates a filter in a Destination. When called, this endpoint
-     * may generate one or more of the following [audit trail](/tag/Audit-Trail) events: *
+     * Update Filter for Destination Updates a filter in a Destination. • When called, this endpoint
+     * may generate one or more of the following [audit trail](/tag/Audit-Trail) events:*
      * Destination Filter Enabled * Destination Filter Disabled
      *
      * @param destinationId (required)
@@ -1228,9 +1228,9 @@ public class DestinationFiltersApi {
     }
 
     /**
-     * Update Filter for Destination (asynchronously) Updates a filter in a Destination. When
+     * Update Filter for Destination (asynchronously) Updates a filter in a Destination. • When
      * called, this endpoint may generate one or more of the following [audit
-     * trail](/tag/Audit-Trail) events: * Destination Filter Enabled * Destination Filter Disabled
+     * trail](/tag/Audit-Trail) events:* Destination Filter Enabled * Destination Filter Disabled
      *
      * @param destinationId (required)
      * @param filterId (required)

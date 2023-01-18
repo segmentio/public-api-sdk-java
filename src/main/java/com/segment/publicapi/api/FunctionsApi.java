@@ -168,8 +168,8 @@ public class FunctionsApi {
     }
 
     /**
-     * Create Function Creates a Function. **Note**: In order to successfully call this endpoint,
-     * the specified Workspace needs to have the Functions feature enabled. Please reach out to your
+     * Create Function Creates a Function. • In order to successfully call this endpoint, the
+     * specified Workspace needs to have the Functions feature enabled. Please reach out to your
      * customer success manager for more information.
      *
      * @param createFunctionV1Input (required)
@@ -193,8 +193,8 @@ public class FunctionsApi {
     }
 
     /**
-     * Create Function Creates a Function. **Note**: In order to successfully call this endpoint,
-     * the specified Workspace needs to have the Functions feature enabled. Please reach out to your
+     * Create Function Creates a Function. • In order to successfully call this endpoint, the
+     * specified Workspace needs to have the Functions feature enabled. Please reach out to your
      * customer success manager for more information.
      *
      * @param createFunctionV1Input (required)
@@ -218,9 +218,9 @@ public class FunctionsApi {
     }
 
     /**
-     * Create Function (asynchronously) Creates a Function. **Note**: In order to successfully call
-     * this endpoint, the specified Workspace needs to have the Functions feature enabled. Please
-     * reach out to your customer success manager for more information.
+     * Create Function (asynchronously) Creates a Function. • In order to successfully call this
+     * endpoint, the specified Workspace needs to have the Functions feature enabled. Please reach
+     * out to your customer success manager for more information.
      *
      * @param createFunctionV1Input (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -344,8 +344,8 @@ public class FunctionsApi {
 
     /**
      * Create Function Deployment Deploys a Function. Only applicable to Source Function instances.
-     * **Note**: In order to successfully call this endpoint, the specified Workspace needs to have
-     * the Functions feature enabled. Please reach out to your customer success manager for more
+     * • In order to successfully call this endpoint, the specified Workspace needs to have the
+     * Functions feature enabled. Please reach out to your customer success manager for more
      * information.
      *
      * @param functionId (required)
@@ -370,8 +370,8 @@ public class FunctionsApi {
 
     /**
      * Create Function Deployment Deploys a Function. Only applicable to Source Function instances.
-     * **Note**: In order to successfully call this endpoint, the specified Workspace needs to have
-     * the Functions feature enabled. Please reach out to your customer success manager for more
+     * • In order to successfully call this endpoint, the specified Workspace needs to have the
+     * Functions feature enabled. Please reach out to your customer success manager for more
      * information.
      *
      * @param functionId (required)
@@ -396,9 +396,9 @@ public class FunctionsApi {
 
     /**
      * Create Function Deployment (asynchronously) Deploys a Function. Only applicable to Source
-     * Function instances. **Note**: In order to successfully call this endpoint, the specified
-     * Workspace needs to have the Functions feature enabled. Please reach out to your customer
-     * success manager for more information.
+     * Function instances. • In order to successfully call this endpoint, the specified Workspace
+     * needs to have the Functions feature enabled. Please reach out to your customer success
+     * manager for more information.
      *
      * @param functionId (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -520,8 +520,8 @@ public class FunctionsApi {
     }
 
     /**
-     * Delete Function Deletes a Function. **Note**: In order to successfully call this endpoint,
-     * the specified Workspace needs to have the Functions feature enabled. Please reach out to your
+     * Delete Function Deletes a Function. • In order to successfully call this endpoint, the
+     * specified Workspace needs to have the Functions feature enabled. Please reach out to your
      * customer success manager for more information.
      *
      * @param functionId (required)
@@ -544,8 +544,8 @@ public class FunctionsApi {
     }
 
     /**
-     * Delete Function Deletes a Function. **Note**: In order to successfully call this endpoint,
-     * the specified Workspace needs to have the Functions feature enabled. Please reach out to your
+     * Delete Function Deletes a Function. • In order to successfully call this endpoint, the
+     * specified Workspace needs to have the Functions feature enabled. Please reach out to your
      * customer success manager for more information.
      *
      * @param functionId (required)
@@ -569,9 +569,9 @@ public class FunctionsApi {
     }
 
     /**
-     * Delete Function (asynchronously) Deletes a Function. **Note**: In order to successfully call
-     * this endpoint, the specified Workspace needs to have the Functions feature enabled. Please
-     * reach out to your customer success manager for more information.
+     * Delete Function (asynchronously) Deletes a Function. • In order to successfully call this
+     * endpoint, the specified Workspace needs to have the Functions feature enabled. Please reach
+     * out to your customer success manager for more information.
      *
      * @param functionId (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -691,9 +691,9 @@ public class FunctionsApi {
     }
 
     /**
-     * Get Function Gets a Function. **Note**: In order to successfully call this endpoint, the
-     * specified Workspace needs to have the Functions feature enabled. Please reach out to your
-     * customer success manager for more information.
+     * Get Function Gets a Function. • In order to successfully call this endpoint, the specified
+     * Workspace needs to have the Functions feature enabled. Please reach out to your customer
+     * success manager for more information.
      *
      * @param functionId (required)
      * @return GetFunction200Response
@@ -714,9 +714,9 @@ public class FunctionsApi {
     }
 
     /**
-     * Get Function Gets a Function. **Note**: In order to successfully call this endpoint, the
-     * specified Workspace needs to have the Functions feature enabled. Please reach out to your
-     * customer success manager for more information.
+     * Get Function Gets a Function. • In order to successfully call this endpoint, the specified
+     * Workspace needs to have the Functions feature enabled. Please reach out to your customer
+     * success manager for more information.
      *
      * @param functionId (required)
      * @return ApiResponse&lt;GetFunction200Response&gt;
@@ -739,9 +739,9 @@ public class FunctionsApi {
     }
 
     /**
-     * Get Function (asynchronously) Gets a Function. **Note**: In order to successfully call this
-     * endpoint, the specified Workspace needs to have the Functions feature enabled. Please reach
-     * out to your customer success manager for more information.
+     * Get Function (asynchronously) Gets a Function. • In order to successfully call this endpoint,
+     * the specified Workspace needs to have the Functions feature enabled. Please reach out to your
+     * customer success manager for more information.
      *
      * @param functionId (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -878,9 +878,9 @@ public class FunctionsApi {
     }
 
     /**
-     * List Functions Lists all Functions in a Workspace. **Note**: In order to successfully call
-     * this endpoint, the specified Workspace needs to have the Functions feature enabled. Please
-     * reach out to your customer success manager for more information.
+     * List Functions Lists all Functions in a Workspace. • In order to successfully call this
+     * endpoint, the specified Workspace needs to have the Functions feature enabled. Please reach
+     * out to your customer success manager for more information.
      *
      * @param pagination Pagination parameters. This parameter exists in v1. (required)
      * @param resourceType The Function type. Config API note: equal to &#x60;type&#x60;. This
@@ -905,9 +905,9 @@ public class FunctionsApi {
     }
 
     /**
-     * List Functions Lists all Functions in a Workspace. **Note**: In order to successfully call
-     * this endpoint, the specified Workspace needs to have the Functions feature enabled. Please
-     * reach out to your customer success manager for more information.
+     * List Functions Lists all Functions in a Workspace. • In order to successfully call this
+     * endpoint, the specified Workspace needs to have the Functions feature enabled. Please reach
+     * out to your customer success manager for more information.
      *
      * @param pagination Pagination parameters. This parameter exists in v1. (required)
      * @param resourceType The Function type. Config API note: equal to &#x60;type&#x60;. This
@@ -932,7 +932,7 @@ public class FunctionsApi {
     }
 
     /**
-     * List Functions (asynchronously) Lists all Functions in a Workspace. **Note**: In order to
+     * List Functions (asynchronously) Lists all Functions in a Workspace. • In order to
      * successfully call this endpoint, the specified Workspace needs to have the Functions feature
      * enabled. Please reach out to your customer success manager for more information.
      *
@@ -1078,8 +1078,8 @@ public class FunctionsApi {
     }
 
     /**
-     * Update Function Updates a Function. **Note**: In order to successfully call this endpoint,
-     * the specified Workspace needs to have the Functions feature enabled. Please reach out to your
+     * Update Function Updates a Function. • In order to successfully call this endpoint, the
+     * specified Workspace needs to have the Functions feature enabled. Please reach out to your
      * customer success manager for more information. Config API omitted fields: -
      * &#x60;updateMask&#x60;
      *
@@ -1105,8 +1105,8 @@ public class FunctionsApi {
     }
 
     /**
-     * Update Function Updates a Function. **Note**: In order to successfully call this endpoint,
-     * the specified Workspace needs to have the Functions feature enabled. Please reach out to your
+     * Update Function Updates a Function. • In order to successfully call this endpoint, the
+     * specified Workspace needs to have the Functions feature enabled. Please reach out to your
      * customer success manager for more information. Config API omitted fields: -
      * &#x60;updateMask&#x60;
      *
@@ -1133,9 +1133,9 @@ public class FunctionsApi {
     }
 
     /**
-     * Update Function (asynchronously) Updates a Function. **Note**: In order to successfully call
-     * this endpoint, the specified Workspace needs to have the Functions feature enabled. Please
-     * reach out to your customer success manager for more information. Config API omitted fields: -
+     * Update Function (asynchronously) Updates a Function. • In order to successfully call this
+     * endpoint, the specified Workspace needs to have the Functions feature enabled. Please reach
+     * out to your customer success manager for more information. Config API omitted fields: -
      * &#x60;updateMask&#x60;
      *
      * @param functionId (required)

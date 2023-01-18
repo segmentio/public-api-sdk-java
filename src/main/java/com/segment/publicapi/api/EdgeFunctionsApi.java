@@ -174,10 +174,11 @@ public class EdgeFunctionsApi {
     }
 
     /**
-     * Create Edge Functions Create EdgeFunctions for your Source, given a valid upload URL for an
-     * Edge Functions bundle. **Note**: In order to successfully call this endpoint, the specified
-     * Workspace needs to have the Edge Functions feature enabled. Please reach out to your customer
-     * success manager for more information.
+     * Create Edge Functions Create EdgeFunctions for your Source given a valid upload URL for an
+     * Edge Functions bundle. • This endpoint is in **Alpha** testing. Please submit any feedback by
+     * sending email to friends@segment.com. • In order to successfully call this endpoint, the
+     * specified Workspace needs to have the Edge Functions feature enabled. Please reach out to
+     * your customer success manager for more information.
      *
      * @param sourceId (required)
      * @param createEdgeFunctionsAlphaInput (required)
@@ -202,10 +203,11 @@ public class EdgeFunctionsApi {
     }
 
     /**
-     * Create Edge Functions Create EdgeFunctions for your Source, given a valid upload URL for an
-     * Edge Functions bundle. **Note**: In order to successfully call this endpoint, the specified
-     * Workspace needs to have the Edge Functions feature enabled. Please reach out to your customer
-     * success manager for more information.
+     * Create Edge Functions Create EdgeFunctions for your Source given a valid upload URL for an
+     * Edge Functions bundle. • This endpoint is in **Alpha** testing. Please submit any feedback by
+     * sending email to friends@segment.com. • In order to successfully call this endpoint, the
+     * specified Workspace needs to have the Edge Functions feature enabled. Please reach out to
+     * your customer success manager for more information.
      *
      * @param sourceId (required)
      * @param createEdgeFunctionsAlphaInput (required)
@@ -232,10 +234,11 @@ public class EdgeFunctionsApi {
     }
 
     /**
-     * Create Edge Functions (asynchronously) Create EdgeFunctions for your Source, given a valid
-     * upload URL for an Edge Functions bundle. **Note**: In order to successfully call this
-     * endpoint, the specified Workspace needs to have the Edge Functions feature enabled. Please
-     * reach out to your customer success manager for more information.
+     * Create Edge Functions (asynchronously) Create EdgeFunctions for your Source given a valid
+     * upload URL for an Edge Functions bundle. • This endpoint is in **Alpha** testing. Please
+     * submit any feedback by sending email to friends@segment.com. • In order to successfully call
+     * this endpoint, the specified Workspace needs to have the Edge Functions feature enabled.
+     * Please reach out to your customer success manager for more information.
      *
      * @param sourceId (required)
      * @param createEdgeFunctionsAlphaInput (required)
@@ -358,9 +361,11 @@ public class EdgeFunctionsApi {
     }
 
     /**
-     * Disable Edge Functions Disable Edge Functions for your Source. **Note**: In order to
-     * successfully call this endpoint, the specified Workspace needs to have the Edge Functions
-     * feature enabled. Please reach out to your customer success manager for more information.
+     * Disable Edge Functions Disable Edge Functions for your Source. • This endpoint is in
+     * **Alpha** testing. Please submit any feedback by sending email to friends@segment.com. • In
+     * order to successfully call this endpoint, the specified Workspace needs to have the Edge
+     * Functions feature enabled. Please reach out to your customer success manager for more
+     * information.
      *
      * @param sourceId (required)
      * @return DisableEdgeFunctions200Response
@@ -383,9 +388,11 @@ public class EdgeFunctionsApi {
     }
 
     /**
-     * Disable Edge Functions Disable Edge Functions for your Source. **Note**: In order to
-     * successfully call this endpoint, the specified Workspace needs to have the Edge Functions
-     * feature enabled. Please reach out to your customer success manager for more information.
+     * Disable Edge Functions Disable Edge Functions for your Source. • This endpoint is in
+     * **Alpha** testing. Please submit any feedback by sending email to friends@segment.com. • In
+     * order to successfully call this endpoint, the specified Workspace needs to have the Edge
+     * Functions feature enabled. Please reach out to your customer success manager for more
+     * information.
      *
      * @param sourceId (required)
      * @return ApiResponse&lt;DisableEdgeFunctions200Response&gt;
@@ -408,10 +415,11 @@ public class EdgeFunctionsApi {
     }
 
     /**
-     * Disable Edge Functions (asynchronously) Disable Edge Functions for your Source. **Note**: In
-     * order to successfully call this endpoint, the specified Workspace needs to have the Edge
-     * Functions feature enabled. Please reach out to your customer success manager for more
-     * information.
+     * Disable Edge Functions (asynchronously) Disable Edge Functions for your Source. • This
+     * endpoint is in **Alpha** testing. Please submit any feedback by sending email to
+     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
+     * needs to have the Edge Functions feature enabled. Please reach out to your customer success
+     * manager for more information.
      *
      * @param sourceId (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -529,10 +537,11 @@ public class EdgeFunctionsApi {
     }
 
     /**
-     * Generate Upload URL for Edge Functions Generate a temporary upload URL, that can be used to
-     * upload an Edge Functions bundle. **Note**: In order to successfully call this endpoint, the
-     * specified Workspace needs to have the Edge Functions feature enabled. Please reach out to
-     * your customer success manager for more information.
+     * Generate Upload URL for Edge Functions Generate a temporary upload URL that can be used to
+     * upload an Edge Functions bundle. • This endpoint is in **Alpha** testing. Please submit any
+     * feedback by sending email to friends@segment.com. • In order to successfully call this
+     * endpoint, the specified Workspace needs to have the Edge Functions feature enabled. Please
+     * reach out to your customer success manager for more information.
      *
      * @param sourceId (required)
      * @return GenerateUploadURLForEdgeFunctions200Response
@@ -555,10 +564,11 @@ public class EdgeFunctionsApi {
     }
 
     /**
-     * Generate Upload URL for Edge Functions Generate a temporary upload URL, that can be used to
-     * upload an Edge Functions bundle. **Note**: In order to successfully call this endpoint, the
-     * specified Workspace needs to have the Edge Functions feature enabled. Please reach out to
-     * your customer success manager for more information.
+     * Generate Upload URL for Edge Functions Generate a temporary upload URL that can be used to
+     * upload an Edge Functions bundle. • This endpoint is in **Alpha** testing. Please submit any
+     * feedback by sending email to friends@segment.com. • In order to successfully call this
+     * endpoint, the specified Workspace needs to have the Edge Functions feature enabled. Please
+     * reach out to your customer success manager for more information.
      *
      * @param sourceId (required)
      * @return ApiResponse&lt;GenerateUploadURLForEdgeFunctions200Response&gt;
@@ -583,10 +593,11 @@ public class EdgeFunctionsApi {
     }
 
     /**
-     * Generate Upload URL for Edge Functions (asynchronously) Generate a temporary upload URL, that
-     * can be used to upload an Edge Functions bundle. **Note**: In order to successfully call this
-     * endpoint, the specified Workspace needs to have the Edge Functions feature enabled. Please
-     * reach out to your customer success manager for more information.
+     * Generate Upload URL for Edge Functions (asynchronously) Generate a temporary upload URL that
+     * can be used to upload an Edge Functions bundle. • This endpoint is in **Alpha** testing.
+     * Please submit any feedback by sending email to friends@segment.com. • In order to
+     * successfully call this endpoint, the specified Workspace needs to have the Edge Functions
+     * feature enabled. Please reach out to your customer success manager for more information.
      *
      * @param sourceId (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -707,8 +718,9 @@ public class EdgeFunctionsApi {
     }
 
     /**
-     * Get Latest from Edge Functions Get the latest Edge Functions for your Source. **Note**: In
-     * order to successfully call this endpoint, the specified Workspace needs to have the Edge
+     * Get Latest from Edge Functions Get the latest Edge Functions for your Source. • This endpoint
+     * is in **Alpha** testing. Please submit any feedback by sending email to friends@segment.com.
+     * • In order to successfully call this endpoint, the specified Workspace needs to have the Edge
      * Functions feature enabled. Please reach out to your customer success manager for more
      * information.
      *
@@ -733,8 +745,9 @@ public class EdgeFunctionsApi {
     }
 
     /**
-     * Get Latest from Edge Functions Get the latest Edge Functions for your Source. **Note**: In
-     * order to successfully call this endpoint, the specified Workspace needs to have the Edge
+     * Get Latest from Edge Functions Get the latest Edge Functions for your Source. • This endpoint
+     * is in **Alpha** testing. Please submit any feedback by sending email to friends@segment.com.
+     * • In order to successfully call this endpoint, the specified Workspace needs to have the Edge
      * Functions feature enabled. Please reach out to your customer success manager for more
      * information.
      *
@@ -761,9 +774,10 @@ public class EdgeFunctionsApi {
 
     /**
      * Get Latest from Edge Functions (asynchronously) Get the latest Edge Functions for your
-     * Source. **Note**: In order to successfully call this endpoint, the specified Workspace needs
-     * to have the Edge Functions feature enabled. Please reach out to your customer success manager
-     * for more information.
+     * Source. • This endpoint is in **Alpha** testing. Please submit any feedback by sending email
+     * to friends@segment.com. • In order to successfully call this endpoint, the specified
+     * Workspace needs to have the Edge Functions feature enabled. Please reach out to your customer
+     * success manager for more information.
      *
      * @param sourceId (required)
      * @param _callback The callback to be executed when the API call finishes
