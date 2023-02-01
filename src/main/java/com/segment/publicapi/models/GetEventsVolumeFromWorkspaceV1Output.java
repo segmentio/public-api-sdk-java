@@ -39,6 +39,16 @@ import java.util.Set;
                 "GetEventsVolumeFromWorkspaceV1Output represents the results given the input"
                         + " query.")
 public class GetEventsVolumeFromWorkspaceV1Output {
+    public static final String SERIALIZED_NAME_PATH = "path";
+
+    @SerializedName(SERIALIZED_NAME_PATH)
+    private String path;
+
+    public static final String SERIALIZED_NAME_QUERY = "query";
+
+    @SerializedName(SERIALIZED_NAME_QUERY)
+    private Query query;
+
     public static final String SERIALIZED_NAME_RESULT = "result";
 
     @SerializedName(SERIALIZED_NAME_RESULT)
@@ -50,6 +60,48 @@ public class GetEventsVolumeFromWorkspaceV1Output {
     private Pagination pagination;
 
     public GetEventsVolumeFromWorkspaceV1Output() {}
+
+    public GetEventsVolumeFromWorkspaceV1Output path(String path) {
+
+        this.path = path;
+        return this;
+    }
+
+    /**
+     * Observability event volume path
+     *
+     * @return path
+     */
+    @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "Observability event volume path")
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    public GetEventsVolumeFromWorkspaceV1Output query(Query query) {
+
+        this.query = query;
+        return this;
+    }
+
+    /**
+     * Get query
+     *
+     * @return query
+     */
+    @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "")
+    public Query getQuery() {
+        return query;
+    }
+
+    public void setQuery(Query query) {
+        this.query = query;
+    }
 
     public GetEventsVolumeFromWorkspaceV1Output result(List<SourceEventVolumeV1> result) {
 
@@ -115,19 +167,23 @@ public class GetEventsVolumeFromWorkspaceV1Output {
         }
         GetEventsVolumeFromWorkspaceV1Output getEventsVolumeFromWorkspaceV1Output =
                 (GetEventsVolumeFromWorkspaceV1Output) o;
-        return Objects.equals(this.result, getEventsVolumeFromWorkspaceV1Output.result)
+        return Objects.equals(this.path, getEventsVolumeFromWorkspaceV1Output.path)
+                && Objects.equals(this.query, getEventsVolumeFromWorkspaceV1Output.query)
+                && Objects.equals(this.result, getEventsVolumeFromWorkspaceV1Output.result)
                 && Objects.equals(this.pagination, getEventsVolumeFromWorkspaceV1Output.pagination);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(result, pagination);
+        return Objects.hash(path, query, result, pagination);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class GetEventsVolumeFromWorkspaceV1Output {\n");
+        sb.append("    path: ").append(toIndentedString(path)).append("\n");
+        sb.append("    query: ").append(toIndentedString(query)).append("\n");
         sb.append("    result: ").append(toIndentedString(result)).append("\n");
         sb.append("    pagination: ").append(toIndentedString(pagination)).append("\n");
         sb.append("}");
@@ -151,11 +207,15 @@ public class GetEventsVolumeFromWorkspaceV1Output {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
+        openapiFields.add("path");
+        openapiFields.add("query");
         openapiFields.add("result");
         openapiFields.add("pagination");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
+        openapiRequiredFields.add("path");
+        openapiRequiredFields.add("query");
         openapiRequiredFields.add("result");
     }
 
@@ -200,6 +260,13 @@ public class GetEventsVolumeFromWorkspaceV1Output {
                                 "The required field `%s` is not found in the JSON string: %s",
                                 requiredField, jsonObj.toString()));
             }
+        }
+        if (!jsonObj.get("path").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `path` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
+                            jsonObj.get("path").toString()));
         }
         // ensure the json data is an array
         if (!jsonObj.get("result").isJsonArray()) {
