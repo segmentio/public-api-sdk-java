@@ -81,8 +81,8 @@ public class SourceEventVolumeV1 {
      *
      * @return source
      */
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
+    @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "")
     public Source getSource() {
         return source;
     }
@@ -243,6 +243,7 @@ public class SourceEventVolumeV1 {
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
+        openapiRequiredFields.add("source");
         openapiRequiredFields.add("total");
         openapiRequiredFields.add("series");
     }
