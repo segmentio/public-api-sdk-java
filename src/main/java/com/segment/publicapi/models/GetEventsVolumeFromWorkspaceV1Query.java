@@ -45,11 +45,11 @@ public class GetEventsVolumeFromWorkspaceV1Query {
     /** Granularity corresponds to the requested bucket granularity. */
     @JsonAdapter(GranularityEnum.Adapter.class)
     public enum GranularityEnum {
-        DAY("day"),
+        DAY("DAY"),
 
-        HOUR("hour"),
+        HOUR("HOUR"),
 
-        MINUTE("minute");
+        MINUTE("MINUTE");
 
         private String value;
 
