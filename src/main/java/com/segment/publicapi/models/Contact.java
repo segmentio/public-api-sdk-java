@@ -66,8 +66,8 @@ public class Contact {
      *
      * @return name
      */
-    @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "Name of this contact.")
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Name of this contact.")
     public String getName() {
         return name;
     }
@@ -108,8 +108,8 @@ public class Contact {
      *
      * @return role
      */
-    @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "Role of this contact.")
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Role of this contact.")
     public String getRole() {
         return role;
     }
@@ -129,8 +129,8 @@ public class Contact {
      *
      * @return isPrimary
      */
-    @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "Whether this is a primary contact.")
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Whether this is a primary contact.")
     public Boolean getIsPrimary() {
         return isPrimary;
     }
@@ -195,10 +195,7 @@ public class Contact {
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("name");
         openapiRequiredFields.add("email");
-        openapiRequiredFields.add("role");
-        openapiRequiredFields.add("isPrimary");
     }
 
     /**
@@ -240,7 +237,8 @@ public class Contact {
                                 requiredField, jsonObj.toString()));
             }
         }
-        if (!jsonObj.get("name").isJsonPrimitive()) {
+        if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull())
+                && !jsonObj.get("name").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             "Expected the field `name` to be a primitive type in the JSON string"
@@ -254,7 +252,8 @@ public class Contact {
                                     + " but got `%s`",
                             jsonObj.get("email").toString()));
         }
-        if (!jsonObj.get("role").isJsonPrimitive()) {
+        if ((jsonObj.get("role") != null && !jsonObj.get("role").isJsonNull())
+                && !jsonObj.get("role").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             "Expected the field `role` to be a primitive type in the JSON string"
