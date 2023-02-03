@@ -124,7 +124,7 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("Public API SDK 34.0.0 (Java)");
+        setUserAgent("Public API SDK 34.0.1 (Java)");
 
         authentications = new HashMap<String, Authentication>();
     }
@@ -686,13 +686,20 @@ public class ApiClient {
             delimiter = escapeString("|");
         }
 
+        boolean quotesNeeded =
+                !value.isEmpty() && value.iterator().next().getClass().equals(String.class);
+
         StringBuilder sb = new StringBuilder();
         for (Object item : value) {
             sb.append(delimiter);
-            sb.append(escapeString(parameterToString(item)));
+            if (quotesNeeded) {
+                sb.append(escapeString("\"" + parameterToString(item) + "\""));
+            } else {
+                sb.append(escapeString(parameterToString(item)));
+            }
         }
 
-        params.add(new Pair(name, sb.substring(delimiter.length())));
+        params.add(new Pair(name, "[".concat(sb.substring(delimiter.length())).concat("]")));
 
         return params;
     }
