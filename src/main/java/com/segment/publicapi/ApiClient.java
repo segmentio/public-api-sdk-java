@@ -687,9 +687,7 @@ public class ApiClient {
         }
 
         boolean quotesNeeded =
-                (!value.isEmpty() && value.iterator().next().getClass().equals(String.class))
-                        ? true
-                        : false;
+                !value.isEmpty() && value.iterator().next().getClass().equals(String.class);
 
         StringBuilder sb = new StringBuilder();
         for (Object item : value) {
