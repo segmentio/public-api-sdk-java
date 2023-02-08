@@ -61,6 +61,11 @@ public class CreateDestinationSubscriptionAlphaInput {
     @SerializedName(SERIALIZED_NAME_SETTINGS)
     private Map settings;
 
+    public static final String SERIALIZED_NAME_MODEL_ID = "modelId";
+
+    @SerializedName(SERIALIZED_NAME_MODEL_ID)
+    private String modelId;
+
     public CreateDestinationSubscriptionAlphaInput() {}
 
     public CreateDestinationSubscriptionAlphaInput name(String name) {
@@ -170,6 +175,30 @@ public class CreateDestinationSubscriptionAlphaInput {
         this.settings = settings;
     }
 
+    public CreateDestinationSubscriptionAlphaInput modelId(String modelId) {
+
+        this.modelId = modelId;
+        return this;
+    }
+
+    /**
+     * When creating a Reverse ETL connection, indicates the Model being used to extract data.
+     *
+     * @return modelId
+     */
+    @javax.annotation.Nullable
+    @ApiModelProperty(
+            value =
+                    "When creating a Reverse ETL connection, indicates the Model being used to"
+                            + " extract data.")
+    public String getModelId() {
+        return modelId;
+    }
+
+    public void setModelId(String modelId) {
+        this.modelId = modelId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -184,7 +213,8 @@ public class CreateDestinationSubscriptionAlphaInput {
                 && Objects.equals(this.actionId, createDestinationSubscriptionAlphaInput.actionId)
                 && Objects.equals(this.trigger, createDestinationSubscriptionAlphaInput.trigger)
                 && Objects.equals(this.enabled, createDestinationSubscriptionAlphaInput.enabled)
-                && Objects.equals(this.settings, createDestinationSubscriptionAlphaInput.settings);
+                && Objects.equals(this.settings, createDestinationSubscriptionAlphaInput.settings)
+                && Objects.equals(this.modelId, createDestinationSubscriptionAlphaInput.modelId);
     }
 
     private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -198,7 +228,7 @@ public class CreateDestinationSubscriptionAlphaInput {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, actionId, trigger, enabled, settings);
+        return Objects.hash(name, actionId, trigger, enabled, settings, modelId);
     }
 
     private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -217,6 +247,7 @@ public class CreateDestinationSubscriptionAlphaInput {
         sb.append("    trigger: ").append(toIndentedString(trigger)).append("\n");
         sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
         sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
+        sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -243,6 +274,7 @@ public class CreateDestinationSubscriptionAlphaInput {
         openapiFields.add("trigger");
         openapiFields.add("enabled");
         openapiFields.add("settings");
+        openapiFields.add("modelId");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
@@ -315,6 +347,14 @@ public class CreateDestinationSubscriptionAlphaInput {
                             "Expected the field `trigger` to be a primitive type in the JSON string"
                                     + " but got `%s`",
                             jsonObj.get("trigger").toString()));
+        }
+        if ((jsonObj.get("modelId") != null && !jsonObj.get("modelId").isJsonNull())
+                && !jsonObj.get("modelId").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `modelId` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
+                            jsonObj.get("modelId").toString()));
         }
     }
 
