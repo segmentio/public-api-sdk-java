@@ -50,6 +50,8 @@ public class Function2 {
     public enum ResourceTypeEnum {
         DESTINATION("DESTINATION"),
 
+        INSERT_DESTINATION("INSERT_DESTINATION"),
+
         SOURCE("SOURCE");
 
         private String value;

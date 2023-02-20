@@ -74,6 +74,11 @@ public class DestinationSubscription {
     @SerializedName(SERIALIZED_NAME_TRIGGER)
     private String trigger;
 
+    public static final String SERIALIZED_NAME_MODEL_ID = "modelId";
+
+    @SerializedName(SERIALIZED_NAME_MODEL_ID)
+    private String modelId;
+
     public DestinationSubscription() {}
 
     public DestinationSubscription id(String id) {
@@ -250,6 +255,31 @@ public class DestinationSubscription {
         this.trigger = trigger;
     }
 
+    public DestinationSubscription modelId(String modelId) {
+
+        this.modelId = modelId;
+        return this;
+    }
+
+    /**
+     * The unique identifier for the linked ReverseETLModel, if this part of a Reverse ETL
+     * connection.
+     *
+     * @return modelId
+     */
+    @javax.annotation.Nullable
+    @ApiModelProperty(
+            value =
+                    "The unique identifier for the linked ReverseETLModel, if this part of a"
+                            + " Reverse ETL connection.")
+    public String getModelId() {
+        return modelId;
+    }
+
+    public void setModelId(String modelId) {
+        this.modelId = modelId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -266,13 +296,14 @@ public class DestinationSubscription {
                 && Objects.equals(this.destinationId, destinationSubscription.destinationId)
                 && Objects.equals(this.enabled, destinationSubscription.enabled)
                 && Objects.equals(this.settings, destinationSubscription.settings)
-                && Objects.equals(this.trigger, destinationSubscription.trigger);
+                && Objects.equals(this.trigger, destinationSubscription.trigger)
+                && Objects.equals(this.modelId, destinationSubscription.modelId);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(
-                id, name, actionId, actionSlug, destinationId, enabled, settings, trigger);
+                id, name, actionId, actionSlug, destinationId, enabled, settings, trigger, modelId);
     }
 
     @Override
@@ -287,6 +318,7 @@ public class DestinationSubscription {
         sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
         sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
         sb.append("    trigger: ").append(toIndentedString(trigger)).append("\n");
+        sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -316,6 +348,7 @@ public class DestinationSubscription {
         openapiFields.add("enabled");
         openapiFields.add("settings");
         openapiFields.add("trigger");
+        openapiFields.add("modelId");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
@@ -409,6 +442,14 @@ public class DestinationSubscription {
                             "Expected the field `trigger` to be a primitive type in the JSON string"
                                     + " but got `%s`",
                             jsonObj.get("trigger").toString()));
+        }
+        if ((jsonObj.get("modelId") != null && !jsonObj.get("modelId").isJsonNull())
+                && !jsonObj.get("modelId").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `modelId` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
+                            jsonObj.get("modelId").toString()));
         }
     }
 
