@@ -82,6 +82,11 @@ public class TransformationV1 {
     @SerializedName(SERIALIZED_NAME_PROPERTY_VALUE_TRANSFORMATIONS)
     private List<PropertyValueTransformationV1> propertyValueTransformations = null;
 
+    public static final String SERIALIZED_NAME_FQL_DEFINED_PROPERTIES = "fqlDefinedProperties";
+
+    @SerializedName(SERIALIZED_NAME_FQL_DEFINED_PROPERTIES)
+    private List<FQLDefinedPropertyV1> fqlDefinedProperties = null;
+
     public TransformationV1() {}
 
     public TransformationV1 id(String id) {
@@ -310,6 +315,39 @@ public class TransformationV1 {
         this.propertyValueTransformations = propertyValueTransformations;
     }
 
+    public TransformationV1 fqlDefinedProperties(List<FQLDefinedPropertyV1> fqlDefinedProperties) {
+
+        this.fqlDefinedProperties = fqlDefinedProperties;
+        return this;
+    }
+
+    public TransformationV1 addFqlDefinedPropertiesItem(
+            FQLDefinedPropertyV1 fqlDefinedPropertiesItem) {
+        if (this.fqlDefinedProperties == null) {
+            this.fqlDefinedProperties = new ArrayList<>();
+        }
+        this.fqlDefinedProperties.add(fqlDefinedPropertiesItem);
+        return this;
+    }
+
+    /**
+     * Optional array for defining new properties in FQL. Limited to 1 property right now.
+     *
+     * @return fqlDefinedProperties
+     */
+    @javax.annotation.Nullable
+    @ApiModelProperty(
+            value =
+                    "Optional array for defining new properties in FQL. Limited to 1 property right"
+                            + " now.")
+    public List<FQLDefinedPropertyV1> getFqlDefinedProperties() {
+        return fqlDefinedProperties;
+    }
+
+    public void setFqlDefinedProperties(List<FQLDefinedPropertyV1> fqlDefinedProperties) {
+        this.fqlDefinedProperties = fqlDefinedProperties;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -330,7 +368,8 @@ public class TransformationV1 {
                 && Objects.equals(this.propertyRenames, transformationV1.propertyRenames)
                 && Objects.equals(
                         this.propertyValueTransformations,
-                        transformationV1.propertyValueTransformations);
+                        transformationV1.propertyValueTransformations)
+                && Objects.equals(this.fqlDefinedProperties, transformationV1.fqlDefinedProperties);
     }
 
     @Override
@@ -344,7 +383,8 @@ public class TransformationV1 {
                 _if,
                 newEventName,
                 propertyRenames,
-                propertyValueTransformations);
+                propertyValueTransformations,
+                fqlDefinedProperties);
     }
 
     @Override
@@ -363,6 +403,9 @@ public class TransformationV1 {
         sb.append("    propertyRenames: ").append(toIndentedString(propertyRenames)).append("\n");
         sb.append("    propertyValueTransformations: ")
                 .append(toIndentedString(propertyValueTransformations))
+                .append("\n");
+        sb.append("    fqlDefinedProperties: ")
+                .append(toIndentedString(fqlDefinedProperties))
                 .append("\n");
         sb.append("}");
         return sb.toString();
@@ -394,6 +437,7 @@ public class TransformationV1 {
         openapiFields.add("newEventName");
         openapiFields.add("propertyRenames");
         openapiFields.add("propertyValueTransformations");
+        openapiFields.add("fqlDefinedProperties");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
@@ -514,6 +558,21 @@ public class TransformationV1 {
                                     "Expected the field `propertyValueTransformations` to be an"
                                             + " array in the JSON string but got `%s`",
                                     jsonObj.get("propertyValueTransformations").toString()));
+                }
+            }
+        }
+        if (jsonObj.get("fqlDefinedProperties") != null
+                && !jsonObj.get("fqlDefinedProperties").isJsonNull()) {
+            JsonArray jsonArrayfqlDefinedProperties =
+                    jsonObj.getAsJsonArray("fqlDefinedProperties");
+            if (jsonArrayfqlDefinedProperties != null) {
+                // ensure the json data is an array
+                if (!jsonObj.get("fqlDefinedProperties").isJsonArray()) {
+                    throw new IllegalArgumentException(
+                            String.format(
+                                    "Expected the field `fqlDefinedProperties` to be an array in"
+                                            + " the JSON string but got `%s`",
+                                    jsonObj.get("fqlDefinedProperties").toString()));
                 }
             }
         }
