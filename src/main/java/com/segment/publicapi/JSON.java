@@ -506,6 +506,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.EventSourceV1.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.FQLDefinedPropertyV1.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.Filter.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.Filter1.CustomTypeAdapterFactory());
