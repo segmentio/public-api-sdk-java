@@ -311,15 +311,17 @@ public class CreateTransformationV1Input {
     }
 
     /**
-     * Optional array for defining new properties in FQL. Currently limited to 1 property.
+     * Optional array for defining new properties in
+     * [FQL](https://segment.com/docs/config-api/fql/). Currently limited to 1 property.
      *
      * @return fqlDefinedProperties
      */
     @javax.annotation.Nullable
     @ApiModelProperty(
             value =
-                    "Optional array for defining new properties in FQL. Currently limited to 1"
-                            + " property.")
+                    "Optional array for defining new properties in"
+                        + " [FQL](https://segment.com/docs/config-api/fql/). Currently limited to 1"
+                        + " property.")
     public List<FQLDefinedPropertyV1> getFqlDefinedProperties() {
         return fqlDefinedProperties;
     }
