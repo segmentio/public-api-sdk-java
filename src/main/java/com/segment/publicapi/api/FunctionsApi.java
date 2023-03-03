@@ -24,6 +24,8 @@ import com.segment.publicapi.models.CreateFunctionDeployment200Response;
 import com.segment.publicapi.models.CreateFunctionV1Input;
 import com.segment.publicapi.models.DeleteFunction200Response;
 import com.segment.publicapi.models.GetFunction200Response;
+import com.segment.publicapi.models.HandleWebhook200Response;
+import com.segment.publicapi.models.HandleWebhookInput;
 import com.segment.publicapi.models.ListFunctions200Response;
 import com.segment.publicapi.models.PaginationInput;
 import com.segment.publicapi.models.UpdateFunction200Response;
@@ -763,6 +765,174 @@ public class FunctionsApi {
 
         okhttp3.Call localVarCall = getFunctionValidateBeforeCall(functionId, _callback);
         Type localVarReturnType = new TypeToken<GetFunction200Response>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for handleWebhook
+     *
+     * @param handleWebhookInput (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call handleWebhookCall(
+            HandleWebhookInput handleWebhookInput, final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = handleWebhookInput;
+
+        // create path and map variables
+        String localVarPath = "/functions/webhook";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.segment.v1alpha+json", "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/vnd.segment.v1alpha+json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"token"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call handleWebhookValidateBeforeCall(
+            HandleWebhookInput handleWebhookInput, final ApiCallback _callback)
+            throws ApiException {
+
+        // verify the required parameter 'handleWebhookInput' is set
+        if (handleWebhookInput == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'handleWebhookInput' when calling"
+                            + " handleWebhook(Async)");
+        }
+
+        okhttp3.Call localVarCall = handleWebhookCall(handleWebhookInput, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Handle Webhook Handles Function webhook calls. • In order to successfully call this endpoint,
+     * the specified Workspace needs to have the Functions feature enabled. Please reach out to your
+     * customer success manager for more information.
+     *
+     * @param handleWebhookInput (required)
+     * @return HandleWebhook200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public HandleWebhook200Response handleWebhook(HandleWebhookInput handleWebhookInput)
+            throws ApiException {
+        ApiResponse<HandleWebhook200Response> localVarResp =
+                handleWebhookWithHttpInfo(handleWebhookInput);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Handle Webhook Handles Function webhook calls. • In order to successfully call this endpoint,
+     * the specified Workspace needs to have the Functions feature enabled. Please reach out to your
+     * customer success manager for more information.
+     *
+     * @param handleWebhookInput (required)
+     * @return ApiResponse&lt;HandleWebhook200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<HandleWebhook200Response> handleWebhookWithHttpInfo(
+            HandleWebhookInput handleWebhookInput) throws ApiException {
+        okhttp3.Call localVarCall = handleWebhookValidateBeforeCall(handleWebhookInput, null);
+        Type localVarReturnType = new TypeToken<HandleWebhook200Response>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Handle Webhook (asynchronously) Handles Function webhook calls. • In order to successfully
+     * call this endpoint, the specified Workspace needs to have the Functions feature enabled.
+     * Please reach out to your customer success manager for more information.
+     *
+     * @param handleWebhookInput (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body
+     *     object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call handleWebhookAsync(
+            HandleWebhookInput handleWebhookInput,
+            final ApiCallback<HandleWebhook200Response> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall = handleWebhookValidateBeforeCall(handleWebhookInput, _callback);
+        Type localVarReturnType = new TypeToken<HandleWebhook200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
