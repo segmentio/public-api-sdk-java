@@ -31,13 +31,18 @@ import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
-/** The updated Warehouse. */
-@ApiModel(description = "The updated Warehouse.")
-public class Warehouse2 {
+/** The newly created Warehouse. */
+@ApiModel(description = "The newly created Warehouse.")
+public class ProfilesWarehouse {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
     private String id;
+
+    public static final String SERIALIZED_NAME_SPACE_ID = "spaceId";
+
+    @SerializedName(SERIALIZED_NAME_SPACE_ID)
+    private String spaceId;
 
     public static final String SERIALIZED_NAME_METADATA = "metadata";
 
@@ -59,9 +64,14 @@ public class Warehouse2 {
     @SerializedName(SERIALIZED_NAME_SETTINGS)
     private Map settings;
 
-    public Warehouse2() {}
+    public static final String SERIALIZED_NAME_SCHEMA_NAME = "schemaName";
 
-    public Warehouse2 id(String id) {
+    @SerializedName(SERIALIZED_NAME_SCHEMA_NAME)
+    private String schemaName;
+
+    public ProfilesWarehouse() {}
+
+    public ProfilesWarehouse id(String id) {
 
         this.id = id;
         return this;
@@ -82,7 +92,28 @@ public class Warehouse2 {
         this.id = id;
     }
 
-    public Warehouse2 metadata(Metadata1 metadata) {
+    public ProfilesWarehouse spaceId(String spaceId) {
+
+        this.spaceId = spaceId;
+        return this;
+    }
+
+    /**
+     * The Space id.
+     *
+     * @return spaceId
+     */
+    @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "The Space id.")
+    public String getSpaceId() {
+        return spaceId;
+    }
+
+    public void setSpaceId(String spaceId) {
+        this.spaceId = spaceId;
+    }
+
+    public ProfilesWarehouse metadata(Metadata1 metadata) {
 
         this.metadata = metadata;
         return this;
@@ -103,7 +134,7 @@ public class Warehouse2 {
         this.metadata = metadata;
     }
 
-    public Warehouse2 workspaceId(String workspaceId) {
+    public ProfilesWarehouse workspaceId(String workspaceId) {
 
         this.workspaceId = workspaceId;
         return this;
@@ -124,7 +155,7 @@ public class Warehouse2 {
         this.workspaceId = workspaceId;
     }
 
-    public Warehouse2 enabled(Boolean enabled) {
+    public ProfilesWarehouse enabled(Boolean enabled) {
 
         this.enabled = enabled;
         return this;
@@ -145,7 +176,7 @@ public class Warehouse2 {
         this.enabled = enabled;
     }
 
-    public Warehouse2 settings(Map settings) {
+    public ProfilesWarehouse settings(Map settings) {
 
         this.settings = settings;
         return this;
@@ -172,6 +203,28 @@ public class Warehouse2 {
         this.settings = settings;
     }
 
+    public ProfilesWarehouse schemaName(String schemaName) {
+
+        this.schemaName = schemaName;
+        return this;
+    }
+
+    /**
+     * The custom schema name that is going to be use on the Warehouse side.
+     *
+     * @return schemaName
+     */
+    @javax.annotation.Nullable
+    @ApiModelProperty(
+            value = "The custom schema name that is going to be use on the Warehouse side.")
+    public String getSchemaName() {
+        return schemaName;
+    }
+
+    public void setSchemaName(String schemaName) {
+        this.schemaName = schemaName;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -180,28 +233,32 @@ public class Warehouse2 {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Warehouse2 warehouse2 = (Warehouse2) o;
-        return Objects.equals(this.id, warehouse2.id)
-                && Objects.equals(this.metadata, warehouse2.metadata)
-                && Objects.equals(this.workspaceId, warehouse2.workspaceId)
-                && Objects.equals(this.enabled, warehouse2.enabled)
-                && Objects.equals(this.settings, warehouse2.settings);
+        ProfilesWarehouse profilesWarehouse = (ProfilesWarehouse) o;
+        return Objects.equals(this.id, profilesWarehouse.id)
+                && Objects.equals(this.spaceId, profilesWarehouse.spaceId)
+                && Objects.equals(this.metadata, profilesWarehouse.metadata)
+                && Objects.equals(this.workspaceId, profilesWarehouse.workspaceId)
+                && Objects.equals(this.enabled, profilesWarehouse.enabled)
+                && Objects.equals(this.settings, profilesWarehouse.settings)
+                && Objects.equals(this.schemaName, profilesWarehouse.schemaName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, metadata, workspaceId, enabled, settings);
+        return Objects.hash(id, spaceId, metadata, workspaceId, enabled, settings, schemaName);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class Warehouse2 {\n");
+        sb.append("class ProfilesWarehouse {\n");
         sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    spaceId: ").append(toIndentedString(spaceId)).append("\n");
         sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
         sb.append("    workspaceId: ").append(toIndentedString(workspaceId)).append("\n");
         sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
         sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
+        sb.append("    schemaName: ").append(toIndentedString(schemaName)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -224,14 +281,17 @@ public class Warehouse2 {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
         openapiFields.add("id");
+        openapiFields.add("spaceId");
         openapiFields.add("metadata");
         openapiFields.add("workspaceId");
         openapiFields.add("enabled");
         openapiFields.add("settings");
+        openapiFields.add("schemaName");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
         openapiRequiredFields.add("id");
+        openapiRequiredFields.add("spaceId");
         openapiRequiredFields.add("metadata");
         openapiRequiredFields.add("workspaceId");
         openapiRequiredFields.add("enabled");
@@ -242,34 +302,34 @@ public class Warehouse2 {
      * Validates the JSON Object and throws an exception if issues found
      *
      * @param jsonObj JSON Object
-     * @throws IOException if the JSON Object is invalid with respect to Warehouse2
+     * @throws IOException if the JSON Object is invalid with respect to ProfilesWarehouse
      */
     public static void validateJsonObject(JsonObject jsonObj) throws IOException {
         if (jsonObj == null) {
-            if (!Warehouse2.openapiRequiredFields
+            if (!ProfilesWarehouse.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in Warehouse2 is not found in the empty"
-                                        + " JSON string",
-                                Warehouse2.openapiRequiredFields.toString()));
+                                "The required field(s) %s in ProfilesWarehouse is not found in the"
+                                        + " empty JSON string",
+                                ProfilesWarehouse.openapiRequiredFields.toString()));
             }
         }
 
         Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
         for (Entry<String, JsonElement> entry : entries) {
-            if (!Warehouse2.openapiFields.contains(entry.getKey())) {
+            if (!ProfilesWarehouse.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `Warehouse2` properties. JSON: %s",
+                                        + " `ProfilesWarehouse` properties. JSON: %s",
                                 entry.getKey(), jsonObj.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : Warehouse2.openapiRequiredFields) {
+        for (String requiredField : ProfilesWarehouse.openapiRequiredFields) {
             if (jsonObj.get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -284,6 +344,13 @@ public class Warehouse2 {
                                     + " got `%s`",
                             jsonObj.get("id").toString()));
         }
+        if (!jsonObj.get("spaceId").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `spaceId` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
+                            jsonObj.get("spaceId").toString()));
+        }
         if (!jsonObj.get("workspaceId").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -291,29 +358,38 @@ public class Warehouse2 {
                                     + " string but got `%s`",
                             jsonObj.get("workspaceId").toString()));
         }
+        if ((jsonObj.get("schemaName") != null && !jsonObj.get("schemaName").isJsonNull())
+                && !jsonObj.get("schemaName").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `schemaName` to be a primitive type in the JSON"
+                                    + " string but got `%s`",
+                            jsonObj.get("schemaName").toString()));
+        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!Warehouse2.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'Warehouse2' and its subtypes
+            if (!ProfilesWarehouse.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'ProfilesWarehouse' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<Warehouse2> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(Warehouse2.class));
+            final TypeAdapter<ProfilesWarehouse> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(ProfilesWarehouse.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<Warehouse2>() {
+                    new TypeAdapter<ProfilesWarehouse>() {
                         @Override
-                        public void write(JsonWriter out, Warehouse2 value) throws IOException {
+                        public void write(JsonWriter out, ProfilesWarehouse value)
+                                throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public Warehouse2 read(JsonReader in) throws IOException {
+                        public ProfilesWarehouse read(JsonReader in) throws IOException {
                             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
                             validateJsonObject(jsonObj);
                             return thisAdapter.fromJsonTree(jsonObj);
@@ -323,18 +399,18 @@ public class Warehouse2 {
     }
 
     /**
-     * Create an instance of Warehouse2 given an JSON string
+     * Create an instance of ProfilesWarehouse given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of Warehouse2
-     * @throws IOException if the JSON string is invalid with respect to Warehouse2
+     * @return An instance of ProfilesWarehouse
+     * @throws IOException if the JSON string is invalid with respect to ProfilesWarehouse
      */
-    public static Warehouse2 fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, Warehouse2.class);
+    public static ProfilesWarehouse fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, ProfilesWarehouse.class);
     }
 
     /**
-     * Convert an instance of Warehouse2 to an JSON string
+     * Convert an instance of ProfilesWarehouse to an JSON string
      *
      * @return JSON string
      */
