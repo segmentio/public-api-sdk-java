@@ -33,14 +33,8 @@ import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
-/**
- * The metadata for the Source. Config API note: includes &#x60;catalogName&#x60; and
- * &#x60;catalogId&#x60;.
- */
-@ApiModel(
-        description =
-                "The metadata for the Source.  Config API note: includes `catalogName` and"
-                        + " `catalogId`.")
+/** The metadata for the Warehouse. */
+@ApiModel(description = "The metadata for the Warehouse.")
 public class Metadata1 {
     public static final String SERIALIZED_NAME_ID = "id";
 
@@ -65,22 +59,12 @@ public class Metadata1 {
     public static final String SERIALIZED_NAME_LOGOS = "logos";
 
     @SerializedName(SERIALIZED_NAME_LOGOS)
-    private Logos1 logos;
+    private Logos2 logos;
 
     public static final String SERIALIZED_NAME_OPTIONS = "options";
 
     @SerializedName(SERIALIZED_NAME_OPTIONS)
     private List<IntegrationOptionBeta> options = new ArrayList<>();
-
-    public static final String SERIALIZED_NAME_CATEGORIES = "categories";
-
-    @SerializedName(SERIALIZED_NAME_CATEGORIES)
-    private List<String> categories = new ArrayList<>();
-
-    public static final String SERIALIZED_NAME_IS_CLOUD_EVENT_SOURCE = "isCloudEventSource";
-
-    @SerializedName(SERIALIZED_NAME_IS_CLOUD_EVENT_SOURCE)
-    private Boolean isCloudEventSource;
 
     public Metadata1() {}
 
@@ -91,17 +75,12 @@ public class Metadata1 {
     }
 
     /**
-     * The id for this Source metadata in the Segment catalog. Config API note: analogous to
-     * &#x60;name&#x60;.
+     * The id of this object.
      *
      * @return id
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(
-            required = true,
-            value =
-                    "The id for this Source metadata in the Segment catalog.  Config API note:"
-                            + " analogous to `name`.")
+    @ApiModelProperty(required = true, value = "The id of this object.")
     public String getId() {
         return id;
     }
@@ -117,16 +96,12 @@ public class Metadata1 {
     }
 
     /**
-     * The user-friendly name of this Source. Config API note: equal to &#x60;displayName&#x60;.
+     * The name of this object.
      *
      * @return name
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(
-            required = true,
-            value =
-                    "The user-friendly name of this Source.  Config API note: equal to"
-                            + " `displayName`.")
+    @ApiModelProperty(required = true, value = "The name of this object.")
     public String getName() {
         return name;
     }
@@ -142,17 +117,12 @@ public class Metadata1 {
     }
 
     /**
-     * The slug that identifies this Source in the Segment app. Config API note: equal to
-     * &#x60;name&#x60;.
+     * A human-readable, unique identifier for object.
      *
      * @return slug
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(
-            required = true,
-            value =
-                    "The slug that identifies this Source in the Segment app.  Config API note:"
-                            + " equal to `name`.")
+    @ApiModelProperty(required = true, value = "A human-readable, unique identifier for object.")
     public String getSlug() {
         return slug;
     }
@@ -168,12 +138,12 @@ public class Metadata1 {
     }
 
     /**
-     * The description of this Source.
+     * A description, in English, of this object.
      *
      * @return description
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "The description of this Source.")
+    @ApiModelProperty(required = true, value = "A description, in English, of this object.")
     public String getDescription() {
         return description;
     }
@@ -182,7 +152,7 @@ public class Metadata1 {
         this.description = description;
     }
 
-    public Metadata1 logos(Logos1 logos) {
+    public Metadata1 logos(Logos2 logos) {
 
         this.logos = logos;
         return this;
@@ -195,11 +165,11 @@ public class Metadata1 {
      */
     @javax.annotation.Nonnull
     @ApiModelProperty(required = true, value = "")
-    public Logos1 getLogos() {
+    public Logos2 getLogos() {
         return logos;
     }
 
-    public void setLogos(Logos1 logos) {
+    public void setLogos(Logos2 logos) {
         this.logos = logos;
     }
 
@@ -215,65 +185,18 @@ public class Metadata1 {
     }
 
     /**
-     * Options for this Source.
+     * The Integration options for this object.
      *
      * @return options
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "Options for this Source.")
+    @ApiModelProperty(required = true, value = "The Integration options for this object.")
     public List<IntegrationOptionBeta> getOptions() {
         return options;
     }
 
     public void setOptions(List<IntegrationOptionBeta> options) {
         this.options = options;
-    }
-
-    public Metadata1 categories(List<String> categories) {
-
-        this.categories = categories;
-        return this;
-    }
-
-    public Metadata1 addCategoriesItem(String categoriesItem) {
-        this.categories.add(categoriesItem);
-        return this;
-    }
-
-    /**
-     * A list of categories this Source belongs to.
-     *
-     * @return categories
-     */
-    @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "A list of categories this Source belongs to.")
-    public List<String> getCategories() {
-        return categories;
-    }
-
-    public void setCategories(List<String> categories) {
-        this.categories = categories;
-    }
-
-    public Metadata1 isCloudEventSource(Boolean isCloudEventSource) {
-
-        this.isCloudEventSource = isCloudEventSource;
-        return this;
-    }
-
-    /**
-     * True if this is a Cloud Event Source.
-     *
-     * @return isCloudEventSource
-     */
-    @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "True if this is a Cloud Event Source.")
-    public Boolean getIsCloudEventSource() {
-        return isCloudEventSource;
-    }
-
-    public void setIsCloudEventSource(Boolean isCloudEventSource) {
-        this.isCloudEventSource = isCloudEventSource;
     }
 
     @Override
@@ -290,15 +213,12 @@ public class Metadata1 {
                 && Objects.equals(this.slug, metadata1.slug)
                 && Objects.equals(this.description, metadata1.description)
                 && Objects.equals(this.logos, metadata1.logos)
-                && Objects.equals(this.options, metadata1.options)
-                && Objects.equals(this.categories, metadata1.categories)
-                && Objects.equals(this.isCloudEventSource, metadata1.isCloudEventSource);
+                && Objects.equals(this.options, metadata1.options);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(
-                id, name, slug, description, logos, options, categories, isCloudEventSource);
+        return Objects.hash(id, name, slug, description, logos, options);
     }
 
     @Override
@@ -311,10 +231,6 @@ public class Metadata1 {
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    logos: ").append(toIndentedString(logos)).append("\n");
         sb.append("    options: ").append(toIndentedString(options)).append("\n");
-        sb.append("    categories: ").append(toIndentedString(categories)).append("\n");
-        sb.append("    isCloudEventSource: ")
-                .append(toIndentedString(isCloudEventSource))
-                .append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -342,8 +258,6 @@ public class Metadata1 {
         openapiFields.add("description");
         openapiFields.add("logos");
         openapiFields.add("options");
-        openapiFields.add("categories");
-        openapiFields.add("isCloudEventSource");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
@@ -353,8 +267,6 @@ public class Metadata1 {
         openapiRequiredFields.add("description");
         openapiRequiredFields.add("logos");
         openapiRequiredFields.add("options");
-        openapiRequiredFields.add("categories");
-        openapiRequiredFields.add("isCloudEventSource");
     }
 
     /**
@@ -434,18 +346,6 @@ public class Metadata1 {
         }
 
         JsonArray jsonArrayoptions = jsonObj.getAsJsonArray("options");
-        // ensure the required json array is present
-        if (jsonObj.get("categories") == null) {
-            throw new IllegalArgumentException(
-                    "Expected the field `linkedContent` to be an array in the JSON string but got"
-                            + " `null`");
-        } else if (!jsonObj.get("categories").isJsonArray()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `categories` to be an array in the JSON string but"
-                                    + " got `%s`",
-                            jsonObj.get("categories").toString()));
-        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

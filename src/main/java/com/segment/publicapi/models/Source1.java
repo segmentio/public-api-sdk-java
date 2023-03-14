@@ -57,7 +57,7 @@ public class Source1 {
     public static final String SERIALIZED_NAME_METADATA = "metadata";
 
     @SerializedName(SERIALIZED_NAME_METADATA)
-    private Metadata1 metadata;
+    private Metadata2 metadata;
 
     public static final String SERIALIZED_NAME_WORKSPACE_ID = "workspaceId";
 
@@ -156,7 +156,7 @@ public class Source1 {
         this.name = name;
     }
 
-    public Source1 metadata(Metadata1 metadata) {
+    public Source1 metadata(Metadata2 metadata) {
 
         this.metadata = metadata;
         return this;
@@ -169,11 +169,11 @@ public class Source1 {
      */
     @javax.annotation.Nonnull
     @ApiModelProperty(required = true, value = "")
-    public Metadata1 getMetadata() {
+    public Metadata2 getMetadata() {
         return metadata;
     }
 
-    public void setMetadata(Metadata1 metadata) {
+    public void setMetadata(Metadata2 metadata) {
         this.metadata = metadata;
     }
 
