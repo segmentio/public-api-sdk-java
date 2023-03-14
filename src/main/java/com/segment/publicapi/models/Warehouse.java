@@ -42,7 +42,7 @@ public class Warehouse {
     public static final String SERIALIZED_NAME_METADATA = "metadata";
 
     @SerializedName(SERIALIZED_NAME_METADATA)
-    private Metadata2 metadata;
+    private Metadata1 metadata;
 
     public static final String SERIALIZED_NAME_WORKSPACE_ID = "workspaceId";
 
@@ -82,7 +82,7 @@ public class Warehouse {
         this.id = id;
     }
 
-    public Warehouse metadata(Metadata2 metadata) {
+    public Warehouse metadata(Metadata1 metadata) {
 
         this.metadata = metadata;
         return this;
@@ -95,11 +95,11 @@ public class Warehouse {
      */
     @javax.annotation.Nonnull
     @ApiModelProperty(required = true, value = "")
-    public Metadata2 getMetadata() {
+    public Metadata1 getMetadata() {
         return metadata;
     }
 
-    public void setMetadata(Metadata2 metadata) {
+    public void setMetadata(Metadata1 metadata) {
         this.metadata = metadata;
     }
 
