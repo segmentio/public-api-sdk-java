@@ -164,7 +164,7 @@ public class CreateProfilesWarehouseAlphaInput {
     }
 
     /**
-     * The custom schema name that is going to be use on the Warehouse side, space slug value is
+     * The custom schema name that Segment uses on the Warehouse side. The space slug value is
      * default otherwise.
      *
      * @return schemaName
@@ -172,8 +172,8 @@ public class CreateProfilesWarehouseAlphaInput {
     @javax.annotation.Nullable
     @ApiModelProperty(
             value =
-                    "The custom schema name that is going to be use on the Warehouse side, space"
-                            + " slug value is default otherwise.")
+                    "The custom schema name that Segment uses on the Warehouse side. The space slug"
+                            + " value is default otherwise.")
     public String getSchemaName() {
         return schemaName;
     }

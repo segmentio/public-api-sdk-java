@@ -210,13 +210,12 @@ public class ProfilesWarehouse {
     }
 
     /**
-     * The custom schema name that is going to be use on the Warehouse side.
+     * The custom schema name that Segment uses on the Warehouse side.
      *
      * @return schemaName
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(
-            value = "The custom schema name that is going to be use on the Warehouse side.")
+    @ApiModelProperty(value = "The custom schema name that Segment uses on the Warehouse side.")
     public String getSchemaName() {
         return schemaName;
     }

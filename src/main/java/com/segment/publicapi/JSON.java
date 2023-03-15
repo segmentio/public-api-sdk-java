@@ -1032,6 +1032,12 @@ public class JSON {
                 new com.segment.publicapi.models.RemoveFilterFromDestinationV1Output
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.RemoveProfilesWarehouseFromSpace200Response
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.RemoveProfilesWarehouseFromSpaceAlphaOutput
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.RemoveRuleV1.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.RemoveRulesFromTrackingPlan200Response
