@@ -29,16 +29,17 @@ import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
-/** RestoreFunctionVersion200Response */
-public class RestoreFunctionVersion200Response {
+/** UpdateProfilesWarehouseForSpaceWarehouse200Response */
+public class UpdateProfilesWarehouseForSpaceWarehouse200Response {
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    private RestoreFunctionVersionAlphaOutput data;
+    private UpdateProfilesWarehouseForSpaceWarehouseAlphaOutput data;
 
-    public RestoreFunctionVersion200Response() {}
+    public UpdateProfilesWarehouseForSpaceWarehouse200Response() {}
 
-    public RestoreFunctionVersion200Response data(RestoreFunctionVersionAlphaOutput data) {
+    public UpdateProfilesWarehouseForSpaceWarehouse200Response data(
+            UpdateProfilesWarehouseForSpaceWarehouseAlphaOutput data) {
 
         this.data = data;
         return this;
@@ -51,11 +52,11 @@ public class RestoreFunctionVersion200Response {
      */
     @javax.annotation.Nullable
     @ApiModelProperty(value = "")
-    public RestoreFunctionVersionAlphaOutput getData() {
+    public UpdateProfilesWarehouseForSpaceWarehouseAlphaOutput getData() {
         return data;
     }
 
-    public void setData(RestoreFunctionVersionAlphaOutput data) {
+    public void setData(UpdateProfilesWarehouseForSpaceWarehouseAlphaOutput data) {
         this.data = data;
     }
 
@@ -67,9 +68,10 @@ public class RestoreFunctionVersion200Response {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        RestoreFunctionVersion200Response restoreFunctionVersion200Response =
-                (RestoreFunctionVersion200Response) o;
-        return Objects.equals(this.data, restoreFunctionVersion200Response.data);
+        UpdateProfilesWarehouseForSpaceWarehouse200Response
+                updateProfilesWarehouseForSpaceWarehouse200Response =
+                        (UpdateProfilesWarehouseForSpaceWarehouse200Response) o;
+        return Objects.equals(this.data, updateProfilesWarehouseForSpaceWarehouse200Response.data);
     }
 
     @Override
@@ -80,7 +82,7 @@ public class RestoreFunctionVersion200Response {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class RestoreFunctionVersion200Response {\n");
+        sb.append("class UpdateProfilesWarehouseForSpaceWarehouse200Response {\n");
         sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -114,17 +116,19 @@ public class RestoreFunctionVersion200Response {
      *
      * @param jsonObj JSON Object
      * @throws IOException if the JSON Object is invalid with respect to
-     *     RestoreFunctionVersion200Response
+     *     UpdateProfilesWarehouseForSpaceWarehouse200Response
      */
     public static void validateJsonObject(JsonObject jsonObj) throws IOException {
         if (jsonObj == null) {
-            if (!RestoreFunctionVersion200Response.openapiRequiredFields
+            if (!UpdateProfilesWarehouseForSpaceWarehouse200Response.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in RestoreFunctionVersion200Response is"
-                                        + " not found in the empty JSON string",
-                                RestoreFunctionVersion200Response.openapiRequiredFields
+                                "The required field(s) %s in"
+                                    + " UpdateProfilesWarehouseForSpaceWarehouse200Response is not"
+                                    + " found in the empty JSON string",
+                                UpdateProfilesWarehouseForSpaceWarehouse200Response
+                                        .openapiRequiredFields
                                         .toString()));
             }
         }
@@ -132,11 +136,13 @@ public class RestoreFunctionVersion200Response {
         Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
         for (Entry<String, JsonElement> entry : entries) {
-            if (!RestoreFunctionVersion200Response.openapiFields.contains(entry.getKey())) {
+            if (!UpdateProfilesWarehouseForSpaceWarehouse200Response.openapiFields.contains(
+                    entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                    + " `RestoreFunctionVersion200Response` properties. JSON: %s",
+                                        + " `UpdateProfilesWarehouseForSpaceWarehouse200Response`"
+                                        + " properties. JSON: %s",
                                 entry.getKey(), jsonObj.toString()));
             }
         }
@@ -146,27 +152,33 @@ public class RestoreFunctionVersion200Response {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!RestoreFunctionVersion200Response.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'RestoreFunctionVersion200Response' and
-                // its subtypes
+            if (!UpdateProfilesWarehouseForSpaceWarehouse200Response.class.isAssignableFrom(
+                    type.getRawType())) {
+                return null; // this class only serializes
+                // 'UpdateProfilesWarehouseForSpaceWarehouse200Response' and its
+                // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<RestoreFunctionVersion200Response> thisAdapter =
+            final TypeAdapter<UpdateProfilesWarehouseForSpaceWarehouse200Response> thisAdapter =
                     gson.getDelegateAdapter(
-                            this, TypeToken.get(RestoreFunctionVersion200Response.class));
+                            this,
+                            TypeToken.get(
+                                    UpdateProfilesWarehouseForSpaceWarehouse200Response.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<RestoreFunctionVersion200Response>() {
+                    new TypeAdapter<UpdateProfilesWarehouseForSpaceWarehouse200Response>() {
                         @Override
-                        public void write(JsonWriter out, RestoreFunctionVersion200Response value)
+                        public void write(
+                                JsonWriter out,
+                                UpdateProfilesWarehouseForSpaceWarehouse200Response value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public RestoreFunctionVersion200Response read(JsonReader in)
-                                throws IOException {
+                        public UpdateProfilesWarehouseForSpaceWarehouse200Response read(
+                                JsonReader in) throws IOException {
                             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
                             validateJsonObject(jsonObj);
                             return thisAdapter.fromJsonTree(jsonObj);
@@ -176,19 +188,22 @@ public class RestoreFunctionVersion200Response {
     }
 
     /**
-     * Create an instance of RestoreFunctionVersion200Response given an JSON string
+     * Create an instance of UpdateProfilesWarehouseForSpaceWarehouse200Response given an JSON
+     * string
      *
      * @param jsonString JSON string
-     * @return An instance of RestoreFunctionVersion200Response
+     * @return An instance of UpdateProfilesWarehouseForSpaceWarehouse200Response
      * @throws IOException if the JSON string is invalid with respect to
-     *     RestoreFunctionVersion200Response
+     *     UpdateProfilesWarehouseForSpaceWarehouse200Response
      */
-    public static RestoreFunctionVersion200Response fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, RestoreFunctionVersion200Response.class);
+    public static UpdateProfilesWarehouseForSpaceWarehouse200Response fromJson(String jsonString)
+            throws IOException {
+        return JSON.getGson()
+                .fromJson(jsonString, UpdateProfilesWarehouseForSpaceWarehouse200Response.class);
     }
 
     /**
-     * Convert an instance of RestoreFunctionVersion200Response to an JSON string
+     * Convert an instance of UpdateProfilesWarehouseForSpaceWarehouse200Response to an JSON string
      *
      * @return JSON string
      */
