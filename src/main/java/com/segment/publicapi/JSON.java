@@ -615,6 +615,12 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.GetFunctionV1Output.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.GetFunctionVersion200Response
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.GetFunctionVersionAlphaOutput
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.GetLatestFromEdgeFunctions200Response
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
@@ -806,6 +812,12 @@ public class JSON {
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.ListFunctionItemV1.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.ListFunctionVersions200Response
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.ListFunctionVersionsAlphaOutput
+                        .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.ListFunctions200Response
                         .CustomTypeAdapterFactory());
@@ -1160,6 +1172,15 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.ResourceV1.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.RestoreFunctionVersion200Response
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.RestoreFunctionVersionAlphaInput
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.RestoreFunctionVersionAlphaOutput
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.ReverseEtlModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.ReverseEtlModel1.CustomTypeAdapterFactory());
@@ -1406,6 +1427,10 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.UsersPerSourceSnapshotV1
                         .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.Version.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.Version1.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.Warehouse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(

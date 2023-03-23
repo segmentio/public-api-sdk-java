@@ -24,8 +24,12 @@ import com.segment.publicapi.models.CreateFunctionDeployment200Response;
 import com.segment.publicapi.models.CreateFunctionV1Input;
 import com.segment.publicapi.models.DeleteFunction200Response;
 import com.segment.publicapi.models.GetFunction200Response;
+import com.segment.publicapi.models.GetFunctionVersion200Response;
+import com.segment.publicapi.models.ListFunctionVersions200Response;
 import com.segment.publicapi.models.ListFunctions200Response;
 import com.segment.publicapi.models.PaginationInput;
+import com.segment.publicapi.models.RestoreFunctionVersion200Response;
+import com.segment.publicapi.models.RestoreFunctionVersionAlphaInput;
 import com.segment.publicapi.models.UpdateFunction200Response;
 import com.segment.publicapi.models.UpdateFunctionV1Input;
 import java.lang.reflect.Type;
@@ -767,6 +771,385 @@ public class FunctionsApi {
         return localVarCall;
     }
     /**
+     * Build call for getFunctionVersion
+     *
+     * @param functionId (required)
+     * @param versionId (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getFunctionVersionCall(
+            String functionId, String versionId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/functions/{functionId}/versions/{versionId}"
+                        .replaceAll(
+                                "\\{" + "functionId" + "\\}",
+                                localVarApiClient.escapeString(functionId.toString()))
+                        .replaceAll(
+                                "\\{" + "versionId" + "\\}",
+                                localVarApiClient.escapeString(versionId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.segment.v1alpha+json", "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"token"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getFunctionVersionValidateBeforeCall(
+            String functionId, String versionId, final ApiCallback _callback) throws ApiException {
+
+        // verify the required parameter 'functionId' is set
+        if (functionId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'functionId' when calling"
+                            + " getFunctionVersion(Async)");
+        }
+
+        // verify the required parameter 'versionId' is set
+        if (versionId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'versionId' when calling"
+                            + " getFunctionVersion(Async)");
+        }
+
+        okhttp3.Call localVarCall = getFunctionVersionCall(functionId, versionId, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Get Function Version Gets a Function version. • In order to successfully call this endpoint,
+     * the specified Workspace needs to have the Functions feature enabled. Please reach out to your
+     * customer success manager for more information.
+     *
+     * @param functionId (required)
+     * @param versionId (required)
+     * @return GetFunctionVersion200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public GetFunctionVersion200Response getFunctionVersion(String functionId, String versionId)
+            throws ApiException {
+        ApiResponse<GetFunctionVersion200Response> localVarResp =
+                getFunctionVersionWithHttpInfo(functionId, versionId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get Function Version Gets a Function version. • In order to successfully call this endpoint,
+     * the specified Workspace needs to have the Functions feature enabled. Please reach out to your
+     * customer success manager for more information.
+     *
+     * @param functionId (required)
+     * @param versionId (required)
+     * @return ApiResponse&lt;GetFunctionVersion200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<GetFunctionVersion200Response> getFunctionVersionWithHttpInfo(
+            String functionId, String versionId) throws ApiException {
+        okhttp3.Call localVarCall =
+                getFunctionVersionValidateBeforeCall(functionId, versionId, null);
+        Type localVarReturnType = new TypeToken<GetFunctionVersion200Response>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get Function Version (asynchronously) Gets a Function version. • In order to successfully
+     * call this endpoint, the specified Workspace needs to have the Functions feature enabled.
+     * Please reach out to your customer success manager for more information.
+     *
+     * @param functionId (required)
+     * @param versionId (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body
+     *     object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getFunctionVersionAsync(
+            String functionId,
+            String versionId,
+            final ApiCallback<GetFunctionVersion200Response> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                getFunctionVersionValidateBeforeCall(functionId, versionId, _callback);
+        Type localVarReturnType = new TypeToken<GetFunctionVersion200Response>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listFunctionVersions
+     *
+     * @param functionId (required)
+     * @param pagination Pagination parameters. This parameter exists in alpha. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listFunctionVersionsCall(
+            String functionId, PaginationInput pagination, final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/functions/{functionId}/versions"
+                        .replaceAll(
+                                "\\{" + "functionId" + "\\}",
+                                localVarApiClient.escapeString(functionId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (pagination != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pagination", pagination));
+        }
+
+        final String[] localVarAccepts = {
+            "application/vnd.segment.v1alpha+json", "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"token"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listFunctionVersionsValidateBeforeCall(
+            String functionId, PaginationInput pagination, final ApiCallback _callback)
+            throws ApiException {
+
+        // verify the required parameter 'functionId' is set
+        if (functionId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'functionId' when calling"
+                            + " listFunctionVersions(Async)");
+        }
+
+        // verify the required parameter 'pagination' is set
+        if (pagination == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'pagination' when calling"
+                            + " listFunctionVersions(Async)");
+        }
+
+        okhttp3.Call localVarCall = listFunctionVersionsCall(functionId, pagination, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * List Function Versions Lists versions for a Function in a Workspace. • In order to
+     * successfully call this endpoint, the specified Workspace needs to have the Functions feature
+     * enabled. Please reach out to your customer success manager for more information.
+     *
+     * @param functionId (required)
+     * @param pagination Pagination parameters. This parameter exists in alpha. (required)
+     * @return ListFunctionVersions200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ListFunctionVersions200Response listFunctionVersions(
+            String functionId, PaginationInput pagination) throws ApiException {
+        ApiResponse<ListFunctionVersions200Response> localVarResp =
+                listFunctionVersionsWithHttpInfo(functionId, pagination);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List Function Versions Lists versions for a Function in a Workspace. • In order to
+     * successfully call this endpoint, the specified Workspace needs to have the Functions feature
+     * enabled. Please reach out to your customer success manager for more information.
+     *
+     * @param functionId (required)
+     * @param pagination Pagination parameters. This parameter exists in alpha. (required)
+     * @return ApiResponse&lt;ListFunctionVersions200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<ListFunctionVersions200Response> listFunctionVersionsWithHttpInfo(
+            String functionId, PaginationInput pagination) throws ApiException {
+        okhttp3.Call localVarCall =
+                listFunctionVersionsValidateBeforeCall(functionId, pagination, null);
+        Type localVarReturnType = new TypeToken<ListFunctionVersions200Response>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List Function Versions (asynchronously) Lists versions for a Function in a Workspace. • In
+     * order to successfully call this endpoint, the specified Workspace needs to have the Functions
+     * feature enabled. Please reach out to your customer success manager for more information.
+     *
+     * @param functionId (required)
+     * @param pagination Pagination parameters. This parameter exists in alpha. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body
+     *     object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listFunctionVersionsAsync(
+            String functionId,
+            PaginationInput pagination,
+            final ApiCallback<ListFunctionVersions200Response> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                listFunctionVersionsValidateBeforeCall(functionId, pagination, _callback);
+        Type localVarReturnType = new TypeToken<ListFunctionVersions200Response>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for listFunctions
      *
      * @param pagination Pagination parameters. This parameter exists in v1. (required)
@@ -961,6 +1344,202 @@ public class FunctionsApi {
         okhttp3.Call localVarCall =
                 listFunctionsValidateBeforeCall(pagination, resourceType, _callback);
         Type localVarReturnType = new TypeToken<ListFunctions200Response>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for restoreFunctionVersion
+     *
+     * @param functionId (required)
+     * @param restoreFunctionVersionAlphaInput (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call restoreFunctionVersionCall(
+            String functionId,
+            RestoreFunctionVersionAlphaInput restoreFunctionVersionAlphaInput,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = restoreFunctionVersionAlphaInput;
+
+        // create path and map variables
+        String localVarPath =
+                "/functions/{functionId}/versions"
+                        .replaceAll(
+                                "\\{" + "functionId" + "\\}",
+                                localVarApiClient.escapeString(functionId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.segment.v1alpha+json", "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/vnd.segment.v1alpha+json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"token"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call restoreFunctionVersionValidateBeforeCall(
+            String functionId,
+            RestoreFunctionVersionAlphaInput restoreFunctionVersionAlphaInput,
+            final ApiCallback _callback)
+            throws ApiException {
+
+        // verify the required parameter 'functionId' is set
+        if (functionId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'functionId' when calling"
+                            + " restoreFunctionVersion(Async)");
+        }
+
+        // verify the required parameter 'restoreFunctionVersionAlphaInput' is set
+        if (restoreFunctionVersionAlphaInput == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'restoreFunctionVersionAlphaInput' when calling"
+                            + " restoreFunctionVersion(Async)");
+        }
+
+        okhttp3.Call localVarCall =
+                restoreFunctionVersionCall(functionId, restoreFunctionVersionAlphaInput, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Restore Function Version Restore an old Function version as a latest version. • In order to
+     * successfully call this endpoint, the specified Workspace needs to have the Functions feature
+     * enabled. Please reach out to your customer success manager for more information.
+     *
+     * @param functionId (required)
+     * @param restoreFunctionVersionAlphaInput (required)
+     * @return RestoreFunctionVersion200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public RestoreFunctionVersion200Response restoreFunctionVersion(
+            String functionId, RestoreFunctionVersionAlphaInput restoreFunctionVersionAlphaInput)
+            throws ApiException {
+        ApiResponse<RestoreFunctionVersion200Response> localVarResp =
+                restoreFunctionVersionWithHttpInfo(functionId, restoreFunctionVersionAlphaInput);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Restore Function Version Restore an old Function version as a latest version. • In order to
+     * successfully call this endpoint, the specified Workspace needs to have the Functions feature
+     * enabled. Please reach out to your customer success manager for more information.
+     *
+     * @param functionId (required)
+     * @param restoreFunctionVersionAlphaInput (required)
+     * @return ApiResponse&lt;RestoreFunctionVersion200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<RestoreFunctionVersion200Response> restoreFunctionVersionWithHttpInfo(
+            String functionId, RestoreFunctionVersionAlphaInput restoreFunctionVersionAlphaInput)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                restoreFunctionVersionValidateBeforeCall(
+                        functionId, restoreFunctionVersionAlphaInput, null);
+        Type localVarReturnType = new TypeToken<RestoreFunctionVersion200Response>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Restore Function Version (asynchronously) Restore an old Function version as a latest
+     * version. • In order to successfully call this endpoint, the specified Workspace needs to have
+     * the Functions feature enabled. Please reach out to your customer success manager for more
+     * information.
+     *
+     * @param functionId (required)
+     * @param restoreFunctionVersionAlphaInput (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body
+     *     object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call restoreFunctionVersionAsync(
+            String functionId,
+            RestoreFunctionVersionAlphaInput restoreFunctionVersionAlphaInput,
+            final ApiCallback<RestoreFunctionVersion200Response> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                restoreFunctionVersionValidateBeforeCall(
+                        functionId, restoreFunctionVersionAlphaInput, _callback);
+        Type localVarReturnType = new TypeToken<RestoreFunctionVersion200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
