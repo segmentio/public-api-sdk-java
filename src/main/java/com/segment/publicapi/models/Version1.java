@@ -30,9 +30,9 @@ import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
-/** Functions version. */
-@ApiModel(description = "Functions version.")
-public class Version {
+/** Restored version. */
+@ApiModel(description = "Restored version.")
+public class Version1 {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
@@ -68,9 +68,9 @@ public class Version {
     @SerializedName(SERIALIZED_NAME_DEPLOYED_AT)
     private String deployedAt;
 
-    public Version() {}
+    public Version1() {}
 
-    public Version id(String id) {
+    public Version1 id(String id) {
 
         this.id = id;
         return this;
@@ -91,7 +91,7 @@ public class Version {
         this.id = id;
     }
 
-    public Version author(String author) {
+    public Version1 author(String author) {
 
         this.author = author;
         return this;
@@ -112,7 +112,7 @@ public class Version {
         this.author = author;
     }
 
-    public Version code(String code) {
+    public Version1 code(String code) {
 
         this.code = code;
         return this;
@@ -133,7 +133,7 @@ public class Version {
         this.code = code;
     }
 
-    public Version isDeployed(Boolean isDeployed) {
+    public Version1 isDeployed(Boolean isDeployed) {
 
         this.isDeployed = isDeployed;
         return this;
@@ -154,7 +154,7 @@ public class Version {
         this.isDeployed = isDeployed;
     }
 
-    public Version createdAt(String createdAt) {
+    public Version1 createdAt(String createdAt) {
 
         this.createdAt = createdAt;
         return this;
@@ -175,7 +175,7 @@ public class Version {
         this.createdAt = createdAt;
     }
 
-    public Version updatedAt(String updatedAt) {
+    public Version1 updatedAt(String updatedAt) {
 
         this.updatedAt = updatedAt;
         return this;
@@ -196,7 +196,7 @@ public class Version {
         this.updatedAt = updatedAt;
     }
 
-    public Version deployedAt(String deployedAt) {
+    public Version1 deployedAt(String deployedAt) {
 
         this.deployedAt = deployedAt;
         return this;
@@ -225,14 +225,14 @@ public class Version {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Version version = (Version) o;
-        return Objects.equals(this.id, version.id)
-                && Objects.equals(this.author, version.author)
-                && Objects.equals(this.code, version.code)
-                && Objects.equals(this.isDeployed, version.isDeployed)
-                && Objects.equals(this.createdAt, version.createdAt)
-                && Objects.equals(this.updatedAt, version.updatedAt)
-                && Objects.equals(this.deployedAt, version.deployedAt);
+        Version1 version1 = (Version1) o;
+        return Objects.equals(this.id, version1.id)
+                && Objects.equals(this.author, version1.author)
+                && Objects.equals(this.code, version1.code)
+                && Objects.equals(this.isDeployed, version1.isDeployed)
+                && Objects.equals(this.createdAt, version1.createdAt)
+                && Objects.equals(this.updatedAt, version1.updatedAt)
+                && Objects.equals(this.deployedAt, version1.deployedAt);
     }
 
     @Override
@@ -243,7 +243,7 @@ public class Version {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class Version {\n");
+        sb.append("class Version1 {\n");
         sb.append("    id: ").append(toIndentedString(id)).append("\n");
         sb.append("    author: ").append(toIndentedString(author)).append("\n");
         sb.append("    code: ").append(toIndentedString(code)).append("\n");
@@ -290,34 +290,34 @@ public class Version {
      * Validates the JSON Object and throws an exception if issues found
      *
      * @param jsonObj JSON Object
-     * @throws IOException if the JSON Object is invalid with respect to Version
+     * @throws IOException if the JSON Object is invalid with respect to Version1
      */
     public static void validateJsonObject(JsonObject jsonObj) throws IOException {
         if (jsonObj == null) {
-            if (!Version.openapiRequiredFields
+            if (!Version1.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in Version is not found in the empty JSON"
-                                        + " string",
-                                Version.openapiRequiredFields.toString()));
+                                "The required field(s) %s in Version1 is not found in the empty"
+                                        + " JSON string",
+                                Version1.openapiRequiredFields.toString()));
             }
         }
 
         Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
         for (Entry<String, JsonElement> entry : entries) {
-            if (!Version.openapiFields.contains(entry.getKey())) {
+            if (!Version1.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
-                                "The field `%s` in the JSON string is not defined in the `Version`"
+                                "The field `%s` in the JSON string is not defined in the `Version1`"
                                         + " properties. JSON: %s",
                                 entry.getKey(), jsonObj.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : Version.openapiRequiredFields) {
+        for (String requiredField : Version1.openapiRequiredFields) {
             if (jsonObj.get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -377,23 +377,23 @@ public class Version {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!Version.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'Version' and its subtypes
+            if (!Version1.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'Version1' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<Version> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(Version.class));
+            final TypeAdapter<Version1> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(Version1.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<Version>() {
+                    new TypeAdapter<Version1>() {
                         @Override
-                        public void write(JsonWriter out, Version value) throws IOException {
+                        public void write(JsonWriter out, Version1 value) throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public Version read(JsonReader in) throws IOException {
+                        public Version1 read(JsonReader in) throws IOException {
                             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
                             validateJsonObject(jsonObj);
                             return thisAdapter.fromJsonTree(jsonObj);
@@ -403,18 +403,18 @@ public class Version {
     }
 
     /**
-     * Create an instance of Version given an JSON string
+     * Create an instance of Version1 given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of Version
-     * @throws IOException if the JSON string is invalid with respect to Version
+     * @return An instance of Version1
+     * @throws IOException if the JSON string is invalid with respect to Version1
      */
-    public static Version fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, Version.class);
+    public static Version1 fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, Version1.class);
     }
 
     /**
-     * Convert an instance of Version to an JSON string
+     * Convert an instance of Version1 to an JSON string
      *
      * @return JSON string
      */

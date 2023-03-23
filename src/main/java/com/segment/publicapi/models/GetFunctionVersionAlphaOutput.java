@@ -13,7 +13,6 @@ package com.segment.publicapi.models;
 
 
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
@@ -26,73 +25,40 @@ import com.segment.publicapi.JSON;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
-/** Lists Versions of a Function. */
-@ApiModel(description = "Lists Versions of a Function.")
-public class ListVersionsAlphaOutput {
-    public static final String SERIALIZED_NAME_VERSIONS = "versions";
+/** Get Function version output. */
+@ApiModel(description = "Get Function version output.")
+public class GetFunctionVersionAlphaOutput {
+    public static final String SERIALIZED_NAME_VERSION = "version";
 
-    @SerializedName(SERIALIZED_NAME_VERSIONS)
-    private List<Version> versions = new ArrayList<>();
+    @SerializedName(SERIALIZED_NAME_VERSION)
+    private Version version;
 
-    public static final String SERIALIZED_NAME_PAGINATION = "pagination";
+    public GetFunctionVersionAlphaOutput() {}
 
-    @SerializedName(SERIALIZED_NAME_PAGINATION)
-    private Pagination pagination;
+    public GetFunctionVersionAlphaOutput version(Version version) {
 
-    public ListVersionsAlphaOutput() {}
-
-    public ListVersionsAlphaOutput versions(List<Version> versions) {
-
-        this.versions = versions;
-        return this;
-    }
-
-    public ListVersionsAlphaOutput addVersionsItem(Version versionsItem) {
-        this.versions.add(versionsItem);
+        this.version = version;
         return this;
     }
 
     /**
-     * An array of Functions.
+     * Get version
      *
-     * @return versions
-     */
-    @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "An array of Functions.")
-    public List<Version> getVersions() {
-        return versions;
-    }
-
-    public void setVersions(List<Version> versions) {
-        this.versions = versions;
-    }
-
-    public ListVersionsAlphaOutput pagination(Pagination pagination) {
-
-        this.pagination = pagination;
-        return this;
-    }
-
-    /**
-     * Get pagination
-     *
-     * @return pagination
+     * @return version
      */
     @javax.annotation.Nonnull
     @ApiModelProperty(required = true, value = "")
-    public Pagination getPagination() {
-        return pagination;
+    public Version getVersion() {
+        return version;
     }
 
-    public void setPagination(Pagination pagination) {
-        this.pagination = pagination;
+    public void setVersion(Version version) {
+        this.version = version;
     }
 
     @Override
@@ -103,22 +69,21 @@ public class ListVersionsAlphaOutput {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        ListVersionsAlphaOutput listVersionsAlphaOutput = (ListVersionsAlphaOutput) o;
-        return Objects.equals(this.versions, listVersionsAlphaOutput.versions)
-                && Objects.equals(this.pagination, listVersionsAlphaOutput.pagination);
+        GetFunctionVersionAlphaOutput getFunctionVersionAlphaOutput =
+                (GetFunctionVersionAlphaOutput) o;
+        return Objects.equals(this.version, getFunctionVersionAlphaOutput.version);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(versions, pagination);
+        return Objects.hash(version);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ListVersionsAlphaOutput {\n");
-        sb.append("    versions: ").append(toIndentedString(versions)).append("\n");
-        sb.append("    pagination: ").append(toIndentedString(pagination)).append("\n");
+        sb.append("class GetFunctionVersionAlphaOutput {\n");
+        sb.append("    version: ").append(toIndentedString(version)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -140,47 +105,46 @@ public class ListVersionsAlphaOutput {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("versions");
-        openapiFields.add("pagination");
+        openapiFields.add("version");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("versions");
-        openapiRequiredFields.add("pagination");
+        openapiRequiredFields.add("version");
     }
 
     /**
      * Validates the JSON Object and throws an exception if issues found
      *
      * @param jsonObj JSON Object
-     * @throws IOException if the JSON Object is invalid with respect to ListVersionsAlphaOutput
+     * @throws IOException if the JSON Object is invalid with respect to
+     *     GetFunctionVersionAlphaOutput
      */
     public static void validateJsonObject(JsonObject jsonObj) throws IOException {
         if (jsonObj == null) {
-            if (!ListVersionsAlphaOutput.openapiRequiredFields
+            if (!GetFunctionVersionAlphaOutput.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in ListVersionsAlphaOutput is not found"
-                                        + " in the empty JSON string",
-                                ListVersionsAlphaOutput.openapiRequiredFields.toString()));
+                                "The required field(s) %s in GetFunctionVersionAlphaOutput is not"
+                                        + " found in the empty JSON string",
+                                GetFunctionVersionAlphaOutput.openapiRequiredFields.toString()));
             }
         }
 
         Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
         for (Entry<String, JsonElement> entry : entries) {
-            if (!ListVersionsAlphaOutput.openapiFields.contains(entry.getKey())) {
+            if (!GetFunctionVersionAlphaOutput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `ListVersionsAlphaOutput` properties. JSON: %s",
+                                        + " `GetFunctionVersionAlphaOutput` properties. JSON: %s",
                                 entry.getKey(), jsonObj.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : ListVersionsAlphaOutput.openapiRequiredFields) {
+        for (String requiredField : GetFunctionVersionAlphaOutput.openapiRequiredFields) {
             if (jsonObj.get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -188,41 +152,33 @@ public class ListVersionsAlphaOutput {
                                 requiredField, jsonObj.toString()));
             }
         }
-        // ensure the json data is an array
-        if (!jsonObj.get("versions").isJsonArray()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `versions` to be an array in the JSON string but"
-                                    + " got `%s`",
-                            jsonObj.get("versions").toString()));
-        }
-
-        JsonArray jsonArrayversions = jsonObj.getAsJsonArray("versions");
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!ListVersionsAlphaOutput.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'ListVersionsAlphaOutput' and its
+            if (!GetFunctionVersionAlphaOutput.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'GetFunctionVersionAlphaOutput' and its
                 // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<ListVersionsAlphaOutput> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(ListVersionsAlphaOutput.class));
+            final TypeAdapter<GetFunctionVersionAlphaOutput> thisAdapter =
+                    gson.getDelegateAdapter(
+                            this, TypeToken.get(GetFunctionVersionAlphaOutput.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<ListVersionsAlphaOutput>() {
+                    new TypeAdapter<GetFunctionVersionAlphaOutput>() {
                         @Override
-                        public void write(JsonWriter out, ListVersionsAlphaOutput value)
+                        public void write(JsonWriter out, GetFunctionVersionAlphaOutput value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public ListVersionsAlphaOutput read(JsonReader in) throws IOException {
+                        public GetFunctionVersionAlphaOutput read(JsonReader in)
+                                throws IOException {
                             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
                             validateJsonObject(jsonObj);
                             return thisAdapter.fromJsonTree(jsonObj);
@@ -232,18 +188,19 @@ public class ListVersionsAlphaOutput {
     }
 
     /**
-     * Create an instance of ListVersionsAlphaOutput given an JSON string
+     * Create an instance of GetFunctionVersionAlphaOutput given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of ListVersionsAlphaOutput
-     * @throws IOException if the JSON string is invalid with respect to ListVersionsAlphaOutput
+     * @return An instance of GetFunctionVersionAlphaOutput
+     * @throws IOException if the JSON string is invalid with respect to
+     *     GetFunctionVersionAlphaOutput
      */
-    public static ListVersionsAlphaOutput fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, ListVersionsAlphaOutput.class);
+    public static GetFunctionVersionAlphaOutput fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, GetFunctionVersionAlphaOutput.class);
     }
 
     /**
-     * Convert an instance of ListVersionsAlphaOutput to an JSON string
+     * Convert an instance of GetFunctionVersionAlphaOutput to an JSON string
      *
      * @return JSON string
      */

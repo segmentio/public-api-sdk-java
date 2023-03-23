@@ -17,6 +17,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
@@ -30,35 +31,79 @@ import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
-/** Restore version output. */
-@ApiModel(description = "Restore version output.")
-public class RestoreFunctionVersionAlphaOutput {
-    public static final String SERIALIZED_NAME_VERSION = "version";
+/** Returns the status of a Warehouse deletion. */
+@ApiModel(description = "Returns the status of a Warehouse deletion.")
+public class RemoveProfilesWarehouseFromSpaceAlphaOutput {
+    /** The status of the Warehouse deletion operation. */
+    @JsonAdapter(StatusEnum.Adapter.class)
+    public enum StatusEnum {
+        SUCCESS("SUCCESS");
 
-    @SerializedName(SERIALIZED_NAME_VERSION)
-    private Version1 version;
+        private String value;
 
-    public RestoreFunctionVersionAlphaOutput() {}
+        StatusEnum(String value) {
+            this.value = value;
+        }
 
-    public RestoreFunctionVersionAlphaOutput version(Version1 version) {
+        public String getValue() {
+            return value;
+        }
 
-        this.version = version;
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static StatusEnum fromValue(String value) {
+            for (StatusEnum b : StatusEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<StatusEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final StatusEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public StatusEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return StatusEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_STATUS = "status";
+
+    @SerializedName(SERIALIZED_NAME_STATUS)
+    private StatusEnum status;
+
+    public RemoveProfilesWarehouseFromSpaceAlphaOutput() {}
+
+    public RemoveProfilesWarehouseFromSpaceAlphaOutput status(StatusEnum status) {
+
+        this.status = status;
         return this;
     }
 
     /**
-     * Get version
+     * The status of the Warehouse deletion operation.
      *
-     * @return version
+     * @return status
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "")
-    public Version1 getVersion() {
-        return version;
+    @ApiModelProperty(required = true, value = "The status of the Warehouse deletion operation.")
+    public StatusEnum getStatus() {
+        return status;
     }
 
-    public void setVersion(Version1 version) {
-        this.version = version;
+    public void setStatus(StatusEnum status) {
+        this.status = status;
     }
 
     @Override
@@ -69,21 +114,21 @@ public class RestoreFunctionVersionAlphaOutput {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        RestoreFunctionVersionAlphaOutput restoreFunctionVersionAlphaOutput =
-                (RestoreFunctionVersionAlphaOutput) o;
-        return Objects.equals(this.version, restoreFunctionVersionAlphaOutput.version);
+        RemoveProfilesWarehouseFromSpaceAlphaOutput removeProfilesWarehouseFromSpaceAlphaOutput =
+                (RemoveProfilesWarehouseFromSpaceAlphaOutput) o;
+        return Objects.equals(this.status, removeProfilesWarehouseFromSpaceAlphaOutput.status);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(version);
+        return Objects.hash(status);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class RestoreFunctionVersionAlphaOutput {\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
+        sb.append("class RemoveProfilesWarehouseFromSpaceAlphaOutput {\n");
+        sb.append("    status: ").append(toIndentedString(status)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -105,11 +150,11 @@ public class RestoreFunctionVersionAlphaOutput {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("version");
+        openapiFields.add("status");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("version");
+        openapiRequiredFields.add("status");
     }
 
     /**
@@ -117,17 +162,18 @@ public class RestoreFunctionVersionAlphaOutput {
      *
      * @param jsonObj JSON Object
      * @throws IOException if the JSON Object is invalid with respect to
-     *     RestoreFunctionVersionAlphaOutput
+     *     RemoveProfilesWarehouseFromSpaceAlphaOutput
      */
     public static void validateJsonObject(JsonObject jsonObj) throws IOException {
         if (jsonObj == null) {
-            if (!RestoreFunctionVersionAlphaOutput.openapiRequiredFields
+            if (!RemoveProfilesWarehouseFromSpaceAlphaOutput.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in RestoreFunctionVersionAlphaOutput is"
-                                        + " not found in the empty JSON string",
-                                RestoreFunctionVersionAlphaOutput.openapiRequiredFields
+                                "The required field(s) %s in"
+                                    + " RemoveProfilesWarehouseFromSpaceAlphaOutput is not found in"
+                                    + " the empty JSON string",
+                                RemoveProfilesWarehouseFromSpaceAlphaOutput.openapiRequiredFields
                                         .toString()));
             }
         }
@@ -135,17 +181,20 @@ public class RestoreFunctionVersionAlphaOutput {
         Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
         for (Entry<String, JsonElement> entry : entries) {
-            if (!RestoreFunctionVersionAlphaOutput.openapiFields.contains(entry.getKey())) {
+            if (!RemoveProfilesWarehouseFromSpaceAlphaOutput.openapiFields.contains(
+                    entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                    + " `RestoreFunctionVersionAlphaOutput` properties. JSON: %s",
+                                    + " `RemoveProfilesWarehouseFromSpaceAlphaOutput` properties."
+                                    + " JSON: %s",
                                 entry.getKey(), jsonObj.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : RestoreFunctionVersionAlphaOutput.openapiRequiredFields) {
+        for (String requiredField :
+                RemoveProfilesWarehouseFromSpaceAlphaOutput.openapiRequiredFields) {
             if (jsonObj.get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -153,32 +202,41 @@ public class RestoreFunctionVersionAlphaOutput {
                                 requiredField, jsonObj.toString()));
             }
         }
+        if (!jsonObj.get("status").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `status` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
+                            jsonObj.get("status").toString()));
+        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!RestoreFunctionVersionAlphaOutput.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'RestoreFunctionVersionAlphaOutput' and
-                // its subtypes
+            if (!RemoveProfilesWarehouseFromSpaceAlphaOutput.class.isAssignableFrom(
+                    type.getRawType())) {
+                return null; // this class only serializes
+                // 'RemoveProfilesWarehouseFromSpaceAlphaOutput' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<RestoreFunctionVersionAlphaOutput> thisAdapter =
+            final TypeAdapter<RemoveProfilesWarehouseFromSpaceAlphaOutput> thisAdapter =
                     gson.getDelegateAdapter(
-                            this, TypeToken.get(RestoreFunctionVersionAlphaOutput.class));
+                            this, TypeToken.get(RemoveProfilesWarehouseFromSpaceAlphaOutput.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<RestoreFunctionVersionAlphaOutput>() {
+                    new TypeAdapter<RemoveProfilesWarehouseFromSpaceAlphaOutput>() {
                         @Override
-                        public void write(JsonWriter out, RestoreFunctionVersionAlphaOutput value)
+                        public void write(
+                                JsonWriter out, RemoveProfilesWarehouseFromSpaceAlphaOutput value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public RestoreFunctionVersionAlphaOutput read(JsonReader in)
+                        public RemoveProfilesWarehouseFromSpaceAlphaOutput read(JsonReader in)
                                 throws IOException {
                             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
                             validateJsonObject(jsonObj);
@@ -189,19 +247,21 @@ public class RestoreFunctionVersionAlphaOutput {
     }
 
     /**
-     * Create an instance of RestoreFunctionVersionAlphaOutput given an JSON string
+     * Create an instance of RemoveProfilesWarehouseFromSpaceAlphaOutput given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of RestoreFunctionVersionAlphaOutput
+     * @return An instance of RemoveProfilesWarehouseFromSpaceAlphaOutput
      * @throws IOException if the JSON string is invalid with respect to
-     *     RestoreFunctionVersionAlphaOutput
+     *     RemoveProfilesWarehouseFromSpaceAlphaOutput
      */
-    public static RestoreFunctionVersionAlphaOutput fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, RestoreFunctionVersionAlphaOutput.class);
+    public static RemoveProfilesWarehouseFromSpaceAlphaOutput fromJson(String jsonString)
+            throws IOException {
+        return JSON.getGson()
+                .fromJson(jsonString, RemoveProfilesWarehouseFromSpaceAlphaOutput.class);
     }
 
     /**
-     * Convert an instance of RestoreFunctionVersionAlphaOutput to an JSON string
+     * Convert an instance of RemoveProfilesWarehouseFromSpaceAlphaOutput to an JSON string
      *
      * @return JSON string
      */

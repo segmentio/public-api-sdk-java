@@ -22,7 +22,6 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.HashSet;
@@ -30,35 +29,35 @@ import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
-/** Restore version output. */
-@ApiModel(description = "Restore version output.")
-public class RestoreFunctionVersionAlphaOutput {
-    public static final String SERIALIZED_NAME_VERSION = "version";
+/** RemoveProfilesWarehouseFromSpace200Response */
+public class RemoveProfilesWarehouseFromSpace200Response {
+    public static final String SERIALIZED_NAME_DATA = "data";
 
-    @SerializedName(SERIALIZED_NAME_VERSION)
-    private Version1 version;
+    @SerializedName(SERIALIZED_NAME_DATA)
+    private RemoveProfilesWarehouseFromSpaceAlphaOutput data;
 
-    public RestoreFunctionVersionAlphaOutput() {}
+    public RemoveProfilesWarehouseFromSpace200Response() {}
 
-    public RestoreFunctionVersionAlphaOutput version(Version1 version) {
+    public RemoveProfilesWarehouseFromSpace200Response data(
+            RemoveProfilesWarehouseFromSpaceAlphaOutput data) {
 
-        this.version = version;
+        this.data = data;
         return this;
     }
 
     /**
-     * Get version
+     * Get data
      *
-     * @return version
+     * @return data
      */
-    @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "")
-    public Version1 getVersion() {
-        return version;
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
+    public RemoveProfilesWarehouseFromSpaceAlphaOutput getData() {
+        return data;
     }
 
-    public void setVersion(Version1 version) {
-        this.version = version;
+    public void setData(RemoveProfilesWarehouseFromSpaceAlphaOutput data) {
+        this.data = data;
     }
 
     @Override
@@ -69,21 +68,21 @@ public class RestoreFunctionVersionAlphaOutput {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        RestoreFunctionVersionAlphaOutput restoreFunctionVersionAlphaOutput =
-                (RestoreFunctionVersionAlphaOutput) o;
-        return Objects.equals(this.version, restoreFunctionVersionAlphaOutput.version);
+        RemoveProfilesWarehouseFromSpace200Response removeProfilesWarehouseFromSpace200Response =
+                (RemoveProfilesWarehouseFromSpace200Response) o;
+        return Objects.equals(this.data, removeProfilesWarehouseFromSpace200Response.data);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(version);
+        return Objects.hash(data);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class RestoreFunctionVersionAlphaOutput {\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
+        sb.append("class RemoveProfilesWarehouseFromSpace200Response {\n");
+        sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -105,11 +104,10 @@ public class RestoreFunctionVersionAlphaOutput {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("version");
+        openapiFields.add("data");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("version");
     }
 
     /**
@@ -117,17 +115,18 @@ public class RestoreFunctionVersionAlphaOutput {
      *
      * @param jsonObj JSON Object
      * @throws IOException if the JSON Object is invalid with respect to
-     *     RestoreFunctionVersionAlphaOutput
+     *     RemoveProfilesWarehouseFromSpace200Response
      */
     public static void validateJsonObject(JsonObject jsonObj) throws IOException {
         if (jsonObj == null) {
-            if (!RestoreFunctionVersionAlphaOutput.openapiRequiredFields
+            if (!RemoveProfilesWarehouseFromSpace200Response.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in RestoreFunctionVersionAlphaOutput is"
-                                        + " not found in the empty JSON string",
-                                RestoreFunctionVersionAlphaOutput.openapiRequiredFields
+                                "The required field(s) %s in"
+                                    + " RemoveProfilesWarehouseFromSpace200Response is not found in"
+                                    + " the empty JSON string",
+                                RemoveProfilesWarehouseFromSpace200Response.openapiRequiredFields
                                         .toString()));
             }
         }
@@ -135,22 +134,14 @@ public class RestoreFunctionVersionAlphaOutput {
         Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
         for (Entry<String, JsonElement> entry : entries) {
-            if (!RestoreFunctionVersionAlphaOutput.openapiFields.contains(entry.getKey())) {
+            if (!RemoveProfilesWarehouseFromSpace200Response.openapiFields.contains(
+                    entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                    + " `RestoreFunctionVersionAlphaOutput` properties. JSON: %s",
+                                    + " `RemoveProfilesWarehouseFromSpace200Response` properties."
+                                    + " JSON: %s",
                                 entry.getKey(), jsonObj.toString()));
-            }
-        }
-
-        // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : RestoreFunctionVersionAlphaOutput.openapiRequiredFields) {
-            if (jsonObj.get(requiredField) == null) {
-                throw new IllegalArgumentException(
-                        String.format(
-                                "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonObj.toString()));
             }
         }
     }
@@ -159,26 +150,28 @@ public class RestoreFunctionVersionAlphaOutput {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!RestoreFunctionVersionAlphaOutput.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'RestoreFunctionVersionAlphaOutput' and
-                // its subtypes
+            if (!RemoveProfilesWarehouseFromSpace200Response.class.isAssignableFrom(
+                    type.getRawType())) {
+                return null; // this class only serializes
+                // 'RemoveProfilesWarehouseFromSpace200Response' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<RestoreFunctionVersionAlphaOutput> thisAdapter =
+            final TypeAdapter<RemoveProfilesWarehouseFromSpace200Response> thisAdapter =
                     gson.getDelegateAdapter(
-                            this, TypeToken.get(RestoreFunctionVersionAlphaOutput.class));
+                            this, TypeToken.get(RemoveProfilesWarehouseFromSpace200Response.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<RestoreFunctionVersionAlphaOutput>() {
+                    new TypeAdapter<RemoveProfilesWarehouseFromSpace200Response>() {
                         @Override
-                        public void write(JsonWriter out, RestoreFunctionVersionAlphaOutput value)
+                        public void write(
+                                JsonWriter out, RemoveProfilesWarehouseFromSpace200Response value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public RestoreFunctionVersionAlphaOutput read(JsonReader in)
+                        public RemoveProfilesWarehouseFromSpace200Response read(JsonReader in)
                                 throws IOException {
                             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
                             validateJsonObject(jsonObj);
@@ -189,19 +182,21 @@ public class RestoreFunctionVersionAlphaOutput {
     }
 
     /**
-     * Create an instance of RestoreFunctionVersionAlphaOutput given an JSON string
+     * Create an instance of RemoveProfilesWarehouseFromSpace200Response given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of RestoreFunctionVersionAlphaOutput
+     * @return An instance of RemoveProfilesWarehouseFromSpace200Response
      * @throws IOException if the JSON string is invalid with respect to
-     *     RestoreFunctionVersionAlphaOutput
+     *     RemoveProfilesWarehouseFromSpace200Response
      */
-    public static RestoreFunctionVersionAlphaOutput fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, RestoreFunctionVersionAlphaOutput.class);
+    public static RemoveProfilesWarehouseFromSpace200Response fromJson(String jsonString)
+            throws IOException {
+        return JSON.getGson()
+                .fromJson(jsonString, RemoveProfilesWarehouseFromSpace200Response.class);
     }
 
     /**
-     * Convert an instance of RestoreFunctionVersionAlphaOutput to an JSON string
+     * Convert an instance of RemoveProfilesWarehouseFromSpace200Response to an JSON string
      *
      * @return JSON string
      */

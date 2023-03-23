@@ -33,48 +33,50 @@ import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
-/** Lists Versions of a Function. */
-@ApiModel(description = "Lists Versions of a Function.")
-public class ListVersionsAlphaOutput {
-    public static final String SERIALIZED_NAME_VERSIONS = "versions";
+/** Returns all Profiles Warehouse based on spaceID and pagination. */
+@ApiModel(description = "Returns all Profiles Warehouse based on spaceID and pagination.")
+public class ListProfilesWarehouseInSpaceAlphaOutput {
+    public static final String SERIALIZED_NAME_PROFILES_WAREHOUSES = "profilesWarehouses";
 
-    @SerializedName(SERIALIZED_NAME_VERSIONS)
-    private List<Version> versions = new ArrayList<>();
+    @SerializedName(SERIALIZED_NAME_PROFILES_WAREHOUSES)
+    private List<ProfilesWarehouseAlpha> profilesWarehouses = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_PAGINATION = "pagination";
 
     @SerializedName(SERIALIZED_NAME_PAGINATION)
     private Pagination pagination;
 
-    public ListVersionsAlphaOutput() {}
+    public ListProfilesWarehouseInSpaceAlphaOutput() {}
 
-    public ListVersionsAlphaOutput versions(List<Version> versions) {
+    public ListProfilesWarehouseInSpaceAlphaOutput profilesWarehouses(
+            List<ProfilesWarehouseAlpha> profilesWarehouses) {
 
-        this.versions = versions;
+        this.profilesWarehouses = profilesWarehouses;
         return this;
     }
 
-    public ListVersionsAlphaOutput addVersionsItem(Version versionsItem) {
-        this.versions.add(versionsItem);
+    public ListProfilesWarehouseInSpaceAlphaOutput addProfilesWarehousesItem(
+            ProfilesWarehouseAlpha profilesWarehousesItem) {
+        this.profilesWarehouses.add(profilesWarehousesItem);
         return this;
     }
 
     /**
-     * An array of Functions.
+     * A list of Warehouses that belong to the Workspace.
      *
-     * @return versions
+     * @return profilesWarehouses
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "An array of Functions.")
-    public List<Version> getVersions() {
-        return versions;
+    @ApiModelProperty(required = true, value = "A list of Warehouses that belong to the Workspace.")
+    public List<ProfilesWarehouseAlpha> getProfilesWarehouses() {
+        return profilesWarehouses;
     }
 
-    public void setVersions(List<Version> versions) {
-        this.versions = versions;
+    public void setProfilesWarehouses(List<ProfilesWarehouseAlpha> profilesWarehouses) {
+        this.profilesWarehouses = profilesWarehouses;
     }
 
-    public ListVersionsAlphaOutput pagination(Pagination pagination) {
+    public ListProfilesWarehouseInSpaceAlphaOutput pagination(Pagination pagination) {
 
         this.pagination = pagination;
         return this;
@@ -85,8 +87,8 @@ public class ListVersionsAlphaOutput {
      *
      * @return pagination
      */
-    @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "")
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "")
     public Pagination getPagination() {
         return pagination;
     }
@@ -103,21 +105,27 @@ public class ListVersionsAlphaOutput {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        ListVersionsAlphaOutput listVersionsAlphaOutput = (ListVersionsAlphaOutput) o;
-        return Objects.equals(this.versions, listVersionsAlphaOutput.versions)
-                && Objects.equals(this.pagination, listVersionsAlphaOutput.pagination);
+        ListProfilesWarehouseInSpaceAlphaOutput listProfilesWarehouseInSpaceAlphaOutput =
+                (ListProfilesWarehouseInSpaceAlphaOutput) o;
+        return Objects.equals(
+                        this.profilesWarehouses,
+                        listProfilesWarehouseInSpaceAlphaOutput.profilesWarehouses)
+                && Objects.equals(
+                        this.pagination, listProfilesWarehouseInSpaceAlphaOutput.pagination);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(versions, pagination);
+        return Objects.hash(profilesWarehouses, pagination);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ListVersionsAlphaOutput {\n");
-        sb.append("    versions: ").append(toIndentedString(versions)).append("\n");
+        sb.append("class ListProfilesWarehouseInSpaceAlphaOutput {\n");
+        sb.append("    profilesWarehouses: ")
+                .append(toIndentedString(profilesWarehouses))
+                .append("\n");
         sb.append("    pagination: ").append(toIndentedString(pagination)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -140,47 +148,50 @@ public class ListVersionsAlphaOutput {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("versions");
+        openapiFields.add("profilesWarehouses");
         openapiFields.add("pagination");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("versions");
-        openapiRequiredFields.add("pagination");
+        openapiRequiredFields.add("profilesWarehouses");
     }
 
     /**
      * Validates the JSON Object and throws an exception if issues found
      *
      * @param jsonObj JSON Object
-     * @throws IOException if the JSON Object is invalid with respect to ListVersionsAlphaOutput
+     * @throws IOException if the JSON Object is invalid with respect to
+     *     ListProfilesWarehouseInSpaceAlphaOutput
      */
     public static void validateJsonObject(JsonObject jsonObj) throws IOException {
         if (jsonObj == null) {
-            if (!ListVersionsAlphaOutput.openapiRequiredFields
+            if (!ListProfilesWarehouseInSpaceAlphaOutput.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in ListVersionsAlphaOutput is not found"
-                                        + " in the empty JSON string",
-                                ListVersionsAlphaOutput.openapiRequiredFields.toString()));
+                                "The required field(s) %s in"
+                                    + " ListProfilesWarehouseInSpaceAlphaOutput is not found in the"
+                                    + " empty JSON string",
+                                ListProfilesWarehouseInSpaceAlphaOutput.openapiRequiredFields
+                                        .toString()));
             }
         }
 
         Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
         for (Entry<String, JsonElement> entry : entries) {
-            if (!ListVersionsAlphaOutput.openapiFields.contains(entry.getKey())) {
+            if (!ListProfilesWarehouseInSpaceAlphaOutput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `ListVersionsAlphaOutput` properties. JSON: %s",
+                                    + " `ListProfilesWarehouseInSpaceAlphaOutput` properties. JSON:"
+                                    + " %s",
                                 entry.getKey(), jsonObj.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : ListVersionsAlphaOutput.openapiRequiredFields) {
+        for (String requiredField : ListProfilesWarehouseInSpaceAlphaOutput.openapiRequiredFields) {
             if (jsonObj.get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -189,40 +200,44 @@ public class ListVersionsAlphaOutput {
             }
         }
         // ensure the json data is an array
-        if (!jsonObj.get("versions").isJsonArray()) {
+        if (!jsonObj.get("profilesWarehouses").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `versions` to be an array in the JSON string but"
-                                    + " got `%s`",
-                            jsonObj.get("versions").toString()));
+                            "Expected the field `profilesWarehouses` to be an array in the JSON"
+                                    + " string but got `%s`",
+                            jsonObj.get("profilesWarehouses").toString()));
         }
 
-        JsonArray jsonArrayversions = jsonObj.getAsJsonArray("versions");
+        JsonArray jsonArrayprofilesWarehouses = jsonObj.getAsJsonArray("profilesWarehouses");
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!ListVersionsAlphaOutput.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'ListVersionsAlphaOutput' and its
-                // subtypes
+            if (!ListProfilesWarehouseInSpaceAlphaOutput.class.isAssignableFrom(
+                    type.getRawType())) {
+                return null; // this class only serializes 'ListProfilesWarehouseInSpaceAlphaOutput'
+                // and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<ListVersionsAlphaOutput> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(ListVersionsAlphaOutput.class));
+            final TypeAdapter<ListProfilesWarehouseInSpaceAlphaOutput> thisAdapter =
+                    gson.getDelegateAdapter(
+                            this, TypeToken.get(ListProfilesWarehouseInSpaceAlphaOutput.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<ListVersionsAlphaOutput>() {
+                    new TypeAdapter<ListProfilesWarehouseInSpaceAlphaOutput>() {
                         @Override
-                        public void write(JsonWriter out, ListVersionsAlphaOutput value)
+                        public void write(
+                                JsonWriter out, ListProfilesWarehouseInSpaceAlphaOutput value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public ListVersionsAlphaOutput read(JsonReader in) throws IOException {
+                        public ListProfilesWarehouseInSpaceAlphaOutput read(JsonReader in)
+                                throws IOException {
                             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
                             validateJsonObject(jsonObj);
                             return thisAdapter.fromJsonTree(jsonObj);
@@ -232,18 +247,20 @@ public class ListVersionsAlphaOutput {
     }
 
     /**
-     * Create an instance of ListVersionsAlphaOutput given an JSON string
+     * Create an instance of ListProfilesWarehouseInSpaceAlphaOutput given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of ListVersionsAlphaOutput
-     * @throws IOException if the JSON string is invalid with respect to ListVersionsAlphaOutput
+     * @return An instance of ListProfilesWarehouseInSpaceAlphaOutput
+     * @throws IOException if the JSON string is invalid with respect to
+     *     ListProfilesWarehouseInSpaceAlphaOutput
      */
-    public static ListVersionsAlphaOutput fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, ListVersionsAlphaOutput.class);
+    public static ListProfilesWarehouseInSpaceAlphaOutput fromJson(String jsonString)
+            throws IOException {
+        return JSON.getGson().fromJson(jsonString, ListProfilesWarehouseInSpaceAlphaOutput.class);
     }
 
     /**
-     * Convert an instance of ListVersionsAlphaOutput to an JSON string
+     * Convert an instance of ListProfilesWarehouseInSpaceAlphaOutput to an JSON string
      *
      * @return JSON string
      */
