@@ -47,7 +47,7 @@ public class FunctionSettingV1 {
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
     private String description;
 
-    /** The Function type. */
+    /** The type of this Function Setting. */
     @JsonAdapter(TypeEnum.Adapter.class)
     public enum TypeEnum {
         ARRAY("ARRAY"),
@@ -121,12 +121,12 @@ public class FunctionSettingV1 {
     }
 
     /**
-     * The name of this Function.
+     * The name of this Function Setting.
      *
      * @return name
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "The name of this Function.")
+    @ApiModelProperty(required = true, value = "The name of this Function Setting.")
     public String getName() {
         return name;
     }
@@ -142,12 +142,12 @@ public class FunctionSettingV1 {
     }
 
     /**
-     * The label for this Function.
+     * The label for this Function Setting.
      *
      * @return label
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "The label for this Function.")
+    @ApiModelProperty(required = true, value = "The label for this Function Setting.")
     public String getLabel() {
         return label;
     }
@@ -163,12 +163,12 @@ public class FunctionSettingV1 {
     }
 
     /**
-     * A description of this Function.
+     * A description of this Function Setting.
      *
      * @return description
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "A description of this Function.")
+    @ApiModelProperty(required = true, value = "A description of this Function Setting.")
     public String getDescription() {
         return description;
     }
@@ -184,12 +184,12 @@ public class FunctionSettingV1 {
     }
 
     /**
-     * The Function type.
+     * The type of this Function Setting.
      *
      * @return type
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "The Function type.")
+    @ApiModelProperty(required = true, value = "The type of this Function Setting.")
     public TypeEnum getType() {
         return type;
     }
@@ -205,12 +205,12 @@ public class FunctionSettingV1 {
     }
 
     /**
-     * Whether this Function is required.
+     * Whether this Function Setting is required.
      *
      * @return required
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "Whether this Function is required.")
+    @ApiModelProperty(required = true, value = "Whether this Function Setting is required.")
     public Boolean getRequired() {
         return required;
     }
@@ -226,14 +226,14 @@ public class FunctionSettingV1 {
     }
 
     /**
-     * Whether this Function contains sensitive information.
+     * Whether this Function Setting contains sensitive information.
      *
      * @return sensitive
      */
     @javax.annotation.Nonnull
     @ApiModelProperty(
             required = true,
-            value = "Whether this Function contains sensitive information.")
+            value = "Whether this Function Setting contains sensitive information.")
     public Boolean getSensitive() {
         return sensitive;
     }
