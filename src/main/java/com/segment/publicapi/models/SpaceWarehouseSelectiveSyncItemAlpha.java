@@ -55,6 +55,16 @@ public class SpaceWarehouseSelectiveSyncItemAlpha {
     @SerializedName(SERIALIZED_NAME_WAREHOUSE_ID)
     private String warehouseId;
 
+    public static final String SERIALIZED_NAME_SOURCE = "source";
+
+    @SerializedName(SERIALIZED_NAME_SOURCE)
+    private String source;
+
+    public static final String SERIALIZED_NAME_ENABLED = "enabled";
+
+    @SerializedName(SERIALIZED_NAME_ENABLED)
+    private Boolean enabled;
+
     public static final String SERIALIZED_NAME_PROPERTIES = "properties";
 
     @SerializedName(SERIALIZED_NAME_PROPERTIES)
@@ -125,6 +135,50 @@ public class SpaceWarehouseSelectiveSyncItemAlpha {
         this.warehouseId = warehouseId;
     }
 
+    public SpaceWarehouseSelectiveSyncItemAlpha source(String source) {
+
+        this.source = source;
+        return this;
+    }
+
+    /**
+     * The Source of the collection in this Space Warehouse.
+     *
+     * @return source
+     */
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "The Source of the collection in this Space Warehouse.")
+    public String getSource() {
+        return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
+    }
+
+    public SpaceWarehouseSelectiveSyncItemAlpha enabled(Boolean enabled) {
+
+        this.enabled = enabled;
+        return this;
+    }
+
+    /**
+     * The Enabled flag ok telling whether the Collection is enabled or not.
+     *
+     * @return enabled
+     */
+    @javax.annotation.Nonnull
+    @ApiModelProperty(
+            required = true,
+            value = "The Enabled flag ok telling whether the Collection is enabled or not.")
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
     public SpaceWarehouseSelectiveSyncItemAlpha properties(Map<String, Object> properties) {
 
         this.properties = properties;
@@ -170,12 +224,14 @@ public class SpaceWarehouseSelectiveSyncItemAlpha {
                 && Objects.equals(this.collection, spaceWarehouseSelectiveSyncItemAlpha.collection)
                 && Objects.equals(
                         this.warehouseId, spaceWarehouseSelectiveSyncItemAlpha.warehouseId)
+                && Objects.equals(this.source, spaceWarehouseSelectiveSyncItemAlpha.source)
+                && Objects.equals(this.enabled, spaceWarehouseSelectiveSyncItemAlpha.enabled)
                 && Objects.equals(this.properties, spaceWarehouseSelectiveSyncItemAlpha.properties);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(spaceId, collection, warehouseId, properties);
+        return Objects.hash(spaceId, collection, warehouseId, source, enabled, properties);
     }
 
     @Override
@@ -185,6 +241,8 @@ public class SpaceWarehouseSelectiveSyncItemAlpha {
         sb.append("    spaceId: ").append(toIndentedString(spaceId)).append("\n");
         sb.append("    collection: ").append(toIndentedString(collection)).append("\n");
         sb.append("    warehouseId: ").append(toIndentedString(warehouseId)).append("\n");
+        sb.append("    source: ").append(toIndentedString(source)).append("\n");
+        sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
         sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -210,6 +268,8 @@ public class SpaceWarehouseSelectiveSyncItemAlpha {
         openapiFields.add("spaceId");
         openapiFields.add("collection");
         openapiFields.add("warehouseId");
+        openapiFields.add("source");
+        openapiFields.add("enabled");
         openapiFields.add("properties");
 
         // a set of required properties/fields (JSON key names)
@@ -217,6 +277,7 @@ public class SpaceWarehouseSelectiveSyncItemAlpha {
         openapiRequiredFields.add("spaceId");
         openapiRequiredFields.add("collection");
         openapiRequiredFields.add("warehouseId");
+        openapiRequiredFields.add("enabled");
         openapiRequiredFields.add("properties");
     }
 
@@ -282,6 +343,14 @@ public class SpaceWarehouseSelectiveSyncItemAlpha {
                             "Expected the field `warehouseId` to be a primitive type in the JSON"
                                     + " string but got `%s`",
                             jsonObj.get("warehouseId").toString()));
+        }
+        if ((jsonObj.get("source") != null && !jsonObj.get("source").isJsonNull())
+                && !jsonObj.get("source").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `source` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
+                            jsonObj.get("source").toString()));
         }
     }
 

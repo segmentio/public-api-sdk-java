@@ -585,7 +585,7 @@ public class ProfilesSyncApi {
 
     /**
      * List Selective Syncs from Warehouse And Space Returns the schema for a Space Warehouse
-     * connection, including Sources, Collections, and Properties.. • When called, this endpoint may
+     * connection, including Sources, Collections, and Properties. • When called, this endpoint may
      * generate the &#x60;Profiles Sync Warehouse Schema Retrieved&#x60; event in the [audit
      * trail](/tag/Audit-Trail). The rate limit for this endpoint is 2 requests per minute, which is
      * lower than the default due to access pattern restrictions. Once reached, this endpoint will
@@ -620,7 +620,7 @@ public class ProfilesSyncApi {
 
     /**
      * List Selective Syncs from Warehouse And Space Returns the schema for a Space Warehouse
-     * connection, including Sources, Collections, and Properties.. • When called, this endpoint may
+     * connection, including Sources, Collections, and Properties. • When called, this endpoint may
      * generate the &#x60;Profiles Sync Warehouse Schema Retrieved&#x60; event in the [audit
      * trail](/tag/Audit-Trail). The rate limit for this endpoint is 2 requests per minute, which is
      * lower than the default due to access pattern restrictions. Once reached, this endpoint will
@@ -657,7 +657,7 @@ public class ProfilesSyncApi {
 
     /**
      * List Selective Syncs from Warehouse And Space (asynchronously) Returns the schema for a Space
-     * Warehouse connection, including Sources, Collections, and Properties.. • When called, this
+     * Warehouse connection, including Sources, Collections, and Properties. • When called, this
      * endpoint may generate the &#x60;Profiles Sync Warehouse Schema Retrieved&#x60; event in the
      * [audit trail](/tag/Audit-Trail). The rate limit for this endpoint is 2 requests per minute,
      * which is lower than the default due to access pattern restrictions. Once reached, this
