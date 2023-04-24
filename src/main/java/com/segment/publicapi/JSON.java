@@ -882,6 +882,12 @@ public class JSON {
                 new com.segment.publicapi.models.ListSelectiveSyncsFromWarehouseAndSourceV1Output
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.ListSelectiveSyncsFromWarehouseAndSpace200Response
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.ListSources200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.ListSources200Response1
@@ -1232,6 +1238,9 @@ public class JSON {
                 new com.segment.publicapi.models.SourceV1.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.Space.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.SpaceWarehouseSelectiveSyncItemAlpha
+                        .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.StreamStatusV1.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
