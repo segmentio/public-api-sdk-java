@@ -66,7 +66,9 @@ public class UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput {
 
     /**
      * A list of sync schema overrides to apply to this Space Warehouse. Note: Selective enabling of
-     * the tables under disabled all event tables conditions is not currently supported.
+     * Event tables under disabled all event tables conditions is not currently supported.
+     * EnableEventTables flag need to be set to true before any selective operation on the event
+     * tables.
      *
      * @return syncOverrides
      */
@@ -74,8 +76,9 @@ public class UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput {
     @ApiModelProperty(
             value =
                     "A list of sync schema overrides to apply to this Space Warehouse. Note:"
-                            + " Selective enabling of the tables under disabled all event tables"
-                            + " conditions is not currently supported.")
+                        + " Selective enabling of Event tables under disabled all event tables"
+                        + " conditions is not currently supported. EnableEventTables flag need to"
+                        + " be set to true before any selective operation on the event tables.")
     public List<SpaceWarehouseSchemaOverride> getSyncOverrides() {
         return syncOverrides;
     }
@@ -92,12 +95,13 @@ public class UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput {
     }
 
     /**
-     * A flag that indicates to enable or disable all event Tables.
+     * A flag that indicates an event to enable or disable all event Tables.
      *
      * @return enableEventTables
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(value = "A flag that indicates to enable or disable all event Tables.")
+    @ApiModelProperty(
+            value = "A flag that indicates an event to enable or disable all event Tables.")
     public Boolean getEnableEventTables() {
         return enableEventTables;
     }
