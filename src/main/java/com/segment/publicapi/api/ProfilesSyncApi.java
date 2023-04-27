@@ -27,6 +27,8 @@ import com.segment.publicapi.models.PaginationInput;
 import com.segment.publicapi.models.RemoveProfilesWarehouseFromSpace200Response;
 import com.segment.publicapi.models.UpdateProfilesWarehouseForSpaceWarehouse200Response;
 import com.segment.publicapi.models.UpdateProfilesWarehouseForSpaceWarehouseAlphaInput;
+import com.segment.publicapi.models.UpdateSelectiveSyncForWarehouseAndSpace200Response;
+import com.segment.publicapi.models.UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -1113,6 +1115,243 @@ public class ProfilesSyncApi {
                         _callback);
         Type localVarReturnType =
                 new TypeToken<UpdateProfilesWarehouseForSpaceWarehouse200Response>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateSelectiveSyncForWarehouseAndSpace
+     *
+     * @param spaceId (required)
+     * @param warehouseId (required)
+     * @param updateSelectiveSyncForWarehouseAndSpaceAlphaInput (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call updateSelectiveSyncForWarehouseAndSpaceCall(
+            String spaceId,
+            String warehouseId,
+            UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput
+                    updateSelectiveSyncForWarehouseAndSpaceAlphaInput,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = updateSelectiveSyncForWarehouseAndSpaceAlphaInput;
+
+        // create path and map variables
+        String localVarPath =
+                "/spaces/{spaceId}/profiles-warehouses/{warehouseId}/selective-syncs"
+                        .replaceAll(
+                                "\\{" + "spaceId" + "\\}",
+                                localVarApiClient.escapeString(spaceId.toString()))
+                        .replaceAll(
+                                "\\{" + "warehouseId" + "\\}",
+                                localVarApiClient.escapeString(warehouseId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.segment.v1alpha+json", "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/vnd.segment.v1alpha+json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"token"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "PATCH",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateSelectiveSyncForWarehouseAndSpaceValidateBeforeCall(
+            String spaceId,
+            String warehouseId,
+            UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput
+                    updateSelectiveSyncForWarehouseAndSpaceAlphaInput,
+            final ApiCallback _callback)
+            throws ApiException {
+
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'spaceId' when calling"
+                            + " updateSelectiveSyncForWarehouseAndSpace(Async)");
+        }
+
+        // verify the required parameter 'warehouseId' is set
+        if (warehouseId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'warehouseId' when calling"
+                            + " updateSelectiveSyncForWarehouseAndSpace(Async)");
+        }
+
+        // verify the required parameter 'updateSelectiveSyncForWarehouseAndSpaceAlphaInput' is set
+        if (updateSelectiveSyncForWarehouseAndSpaceAlphaInput == null) {
+            throw new ApiException(
+                    "Missing the required parameter"
+                            + " 'updateSelectiveSyncForWarehouseAndSpaceAlphaInput' when calling"
+                            + " updateSelectiveSyncForWarehouseAndSpace(Async)");
+        }
+
+        okhttp3.Call localVarCall =
+                updateSelectiveSyncForWarehouseAndSpaceCall(
+                        spaceId,
+                        warehouseId,
+                        updateSelectiveSyncForWarehouseAndSpaceAlphaInput,
+                        _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Update Selective Sync for Warehouse And Space Updates an existing Profiles Warehouse. • When
+     * called, this endpoint may generate the &#x60;Profiles Sync Schema Updated&#x60; event in the
+     * [audit trail](/tag/Audit-Trail).
+     *
+     * @param spaceId (required)
+     * @param warehouseId (required)
+     * @param updateSelectiveSyncForWarehouseAndSpaceAlphaInput (required)
+     * @return UpdateSelectiveSyncForWarehouseAndSpace200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public UpdateSelectiveSyncForWarehouseAndSpace200Response
+            updateSelectiveSyncForWarehouseAndSpace(
+                    String spaceId,
+                    String warehouseId,
+                    UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput
+                            updateSelectiveSyncForWarehouseAndSpaceAlphaInput)
+                    throws ApiException {
+        ApiResponse<UpdateSelectiveSyncForWarehouseAndSpace200Response> localVarResp =
+                updateSelectiveSyncForWarehouseAndSpaceWithHttpInfo(
+                        spaceId, warehouseId, updateSelectiveSyncForWarehouseAndSpaceAlphaInput);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update Selective Sync for Warehouse And Space Updates an existing Profiles Warehouse. • When
+     * called, this endpoint may generate the &#x60;Profiles Sync Schema Updated&#x60; event in the
+     * [audit trail](/tag/Audit-Trail).
+     *
+     * @param spaceId (required)
+     * @param warehouseId (required)
+     * @param updateSelectiveSyncForWarehouseAndSpaceAlphaInput (required)
+     * @return ApiResponse&lt;UpdateSelectiveSyncForWarehouseAndSpace200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<UpdateSelectiveSyncForWarehouseAndSpace200Response>
+            updateSelectiveSyncForWarehouseAndSpaceWithHttpInfo(
+                    String spaceId,
+                    String warehouseId,
+                    UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput
+                            updateSelectiveSyncForWarehouseAndSpaceAlphaInput)
+                    throws ApiException {
+        okhttp3.Call localVarCall =
+                updateSelectiveSyncForWarehouseAndSpaceValidateBeforeCall(
+                        spaceId,
+                        warehouseId,
+                        updateSelectiveSyncForWarehouseAndSpaceAlphaInput,
+                        null);
+        Type localVarReturnType =
+                new TypeToken<UpdateSelectiveSyncForWarehouseAndSpace200Response>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update Selective Sync for Warehouse And Space (asynchronously) Updates an existing Profiles
+     * Warehouse. • When called, this endpoint may generate the &#x60;Profiles Sync Schema
+     * Updated&#x60; event in the [audit trail](/tag/Audit-Trail).
+     *
+     * @param spaceId (required)
+     * @param warehouseId (required)
+     * @param updateSelectiveSyncForWarehouseAndSpaceAlphaInput (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body
+     *     object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call updateSelectiveSyncForWarehouseAndSpaceAsync(
+            String spaceId,
+            String warehouseId,
+            UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput
+                    updateSelectiveSyncForWarehouseAndSpaceAlphaInput,
+            final ApiCallback<UpdateSelectiveSyncForWarehouseAndSpace200Response> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                updateSelectiveSyncForWarehouseAndSpaceValidateBeforeCall(
+                        spaceId,
+                        warehouseId,
+                        updateSelectiveSyncForWarehouseAndSpaceAlphaInput,
+                        _callback);
+        Type localVarReturnType =
+                new TypeToken<UpdateSelectiveSyncForWarehouseAndSpace200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
