@@ -95,13 +95,12 @@ public class UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput {
     }
 
     /**
-     * A flag that indicates an event to enable or disable all event Tables.
+     * A flag to enable or disable all event Tables.
      *
      * @return enableEventTables
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(
-            value = "A flag that indicates an event to enable or disable all event Tables.")
+    @ApiModelProperty(value = "A flag to enable or disable all event Tables.")
     public Boolean getEnableEventTables() {
         return enableEventTables;
     }
