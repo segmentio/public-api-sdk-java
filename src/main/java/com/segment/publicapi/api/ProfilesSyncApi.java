@@ -587,9 +587,7 @@ public class ProfilesSyncApi {
 
     /**
      * List Selective Syncs from Warehouse And Space Returns the schema for a Space Warehouse
-     * connection, including Sources, Collections, and Properties. • When called, this endpoint may
-     * generate the &#x60;Profiles Sync Warehouse Schema Retrieved&#x60; event in the [audit
-     * trail](/tag/Audit-Trail).
+     * connection, including Collections and Properties.
      *
      * @param spaceId (required)
      * @param warehouseId (required)
@@ -619,9 +617,7 @@ public class ProfilesSyncApi {
 
     /**
      * List Selective Syncs from Warehouse And Space Returns the schema for a Space Warehouse
-     * connection, including Sources, Collections, and Properties. • When called, this endpoint may
-     * generate the &#x60;Profiles Sync Warehouse Schema Retrieved&#x60; event in the [audit
-     * trail](/tag/Audit-Trail).
+     * connection, including Collections and Properties.
      *
      * @param spaceId (required)
      * @param warehouseId (required)
@@ -653,9 +649,7 @@ public class ProfilesSyncApi {
 
     /**
      * List Selective Syncs from Warehouse And Space (asynchronously) Returns the schema for a Space
-     * Warehouse connection, including Sources, Collections, and Properties. • When called, this
-     * endpoint may generate the &#x60;Profiles Sync Warehouse Schema Retrieved&#x60; event in the
-     * [audit trail](/tag/Audit-Trail).
+     * Warehouse connection, including Collections and Properties.
      *
      * @param spaceId (required)
      * @param warehouseId (required)
@@ -1245,9 +1239,10 @@ public class ProfilesSyncApi {
     }
 
     /**
-     * Update Selective Sync for Warehouse And Space Updates an existing Profiles Warehouse. • When
-     * called, this endpoint may generate the &#x60;Profiles Sync Schema Updated&#x60; event in the
-     * [audit trail](/tag/Audit-Trail).
+     * Update Selective Sync for Warehouse And Space Updates the schema for a Space Warehouse
+     * connection, including Collections and Properties. • When called, this endpoint may generate
+     * the &#x60;Profiles Sync Warehouse Modified&#x60; event in the [audit
+     * trail](/tag/Audit-Trail).
      *
      * @param spaceId (required)
      * @param warehouseId (required)
@@ -1278,9 +1273,10 @@ public class ProfilesSyncApi {
     }
 
     /**
-     * Update Selective Sync for Warehouse And Space Updates an existing Profiles Warehouse. • When
-     * called, this endpoint may generate the &#x60;Profiles Sync Schema Updated&#x60; event in the
-     * [audit trail](/tag/Audit-Trail).
+     * Update Selective Sync for Warehouse And Space Updates the schema for a Space Warehouse
+     * connection, including Collections and Properties. • When called, this endpoint may generate
+     * the &#x60;Profiles Sync Warehouse Modified&#x60; event in the [audit
+     * trail](/tag/Audit-Trail).
      *
      * @param spaceId (required)
      * @param warehouseId (required)
@@ -1316,9 +1312,10 @@ public class ProfilesSyncApi {
     }
 
     /**
-     * Update Selective Sync for Warehouse And Space (asynchronously) Updates an existing Profiles
-     * Warehouse. • When called, this endpoint may generate the &#x60;Profiles Sync Schema
-     * Updated&#x60; event in the [audit trail](/tag/Audit-Trail).
+     * Update Selective Sync for Warehouse And Space (asynchronously) Updates the schema for a Space
+     * Warehouse connection, including Collections and Properties. • When called, this endpoint may
+     * generate the &#x60;Profiles Sync Warehouse Modified&#x60; event in the [audit
+     * trail](/tag/Audit-Trail).
      *
      * @param spaceId (required)
      * @param warehouseId (required)
