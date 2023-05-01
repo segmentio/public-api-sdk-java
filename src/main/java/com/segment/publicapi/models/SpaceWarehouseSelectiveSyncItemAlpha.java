@@ -40,11 +40,6 @@ import java.util.Set;
                 "Represents an entry in the Space Warehouse Selective Sync schema for a Warehouse"
                         + " and Space pair.")
 public class SpaceWarehouseSelectiveSyncItemAlpha {
-    public static final String SERIALIZED_NAME_SPACE_ID = "spaceId";
-
-    @SerializedName(SERIALIZED_NAME_SPACE_ID)
-    private String spaceId;
-
     public static final String SERIALIZED_NAME_COLLECTION = "collection";
 
     @SerializedName(SERIALIZED_NAME_COLLECTION)
@@ -54,11 +49,6 @@ public class SpaceWarehouseSelectiveSyncItemAlpha {
 
     @SerializedName(SERIALIZED_NAME_WAREHOUSE_ID)
     private String warehouseId;
-
-    public static final String SERIALIZED_NAME_SOURCE = "source";
-
-    @SerializedName(SERIALIZED_NAME_SOURCE)
-    private String source;
 
     public static final String SERIALIZED_NAME_ENABLED = "enabled";
 
@@ -71,27 +61,6 @@ public class SpaceWarehouseSelectiveSyncItemAlpha {
     private Map<String, Object> properties = new HashMap<>();
 
     public SpaceWarehouseSelectiveSyncItemAlpha() {}
-
-    public SpaceWarehouseSelectiveSyncItemAlpha spaceId(String spaceId) {
-
-        this.spaceId = spaceId;
-        return this;
-    }
-
-    /**
-     * The space id attached to this Warehouse.
-     *
-     * @return spaceId
-     */
-    @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "The space id attached to this Warehouse.")
-    public String getSpaceId() {
-        return spaceId;
-    }
-
-    public void setSpaceId(String spaceId) {
-        this.spaceId = spaceId;
-    }
 
     public SpaceWarehouseSelectiveSyncItemAlpha collection(String collection) {
 
@@ -133,27 +102,6 @@ public class SpaceWarehouseSelectiveSyncItemAlpha {
 
     public void setWarehouseId(String warehouseId) {
         this.warehouseId = warehouseId;
-    }
-
-    public SpaceWarehouseSelectiveSyncItemAlpha source(String source) {
-
-        this.source = source;
-        return this;
-    }
-
-    /**
-     * The Source of the collection in this Space Warehouse.
-     *
-     * @return source
-     */
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "The Source of the collection in this Space Warehouse.")
-    public String getSource() {
-        return source;
-    }
-
-    public void setSource(String source) {
-        this.source = source;
     }
 
     public SpaceWarehouseSelectiveSyncItemAlpha enabled(Boolean enabled) {
@@ -220,28 +168,24 @@ public class SpaceWarehouseSelectiveSyncItemAlpha {
         }
         SpaceWarehouseSelectiveSyncItemAlpha spaceWarehouseSelectiveSyncItemAlpha =
                 (SpaceWarehouseSelectiveSyncItemAlpha) o;
-        return Objects.equals(this.spaceId, spaceWarehouseSelectiveSyncItemAlpha.spaceId)
-                && Objects.equals(this.collection, spaceWarehouseSelectiveSyncItemAlpha.collection)
+        return Objects.equals(this.collection, spaceWarehouseSelectiveSyncItemAlpha.collection)
                 && Objects.equals(
                         this.warehouseId, spaceWarehouseSelectiveSyncItemAlpha.warehouseId)
-                && Objects.equals(this.source, spaceWarehouseSelectiveSyncItemAlpha.source)
                 && Objects.equals(this.enabled, spaceWarehouseSelectiveSyncItemAlpha.enabled)
                 && Objects.equals(this.properties, spaceWarehouseSelectiveSyncItemAlpha.properties);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(spaceId, collection, warehouseId, source, enabled, properties);
+        return Objects.hash(collection, warehouseId, enabled, properties);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class SpaceWarehouseSelectiveSyncItemAlpha {\n");
-        sb.append("    spaceId: ").append(toIndentedString(spaceId)).append("\n");
         sb.append("    collection: ").append(toIndentedString(collection)).append("\n");
         sb.append("    warehouseId: ").append(toIndentedString(warehouseId)).append("\n");
-        sb.append("    source: ").append(toIndentedString(source)).append("\n");
         sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
         sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
         sb.append("}");
@@ -265,16 +209,13 @@ public class SpaceWarehouseSelectiveSyncItemAlpha {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("spaceId");
         openapiFields.add("collection");
         openapiFields.add("warehouseId");
-        openapiFields.add("source");
         openapiFields.add("enabled");
         openapiFields.add("properties");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("spaceId");
         openapiRequiredFields.add("collection");
         openapiRequiredFields.add("warehouseId");
         openapiRequiredFields.add("enabled");
@@ -323,13 +264,6 @@ public class SpaceWarehouseSelectiveSyncItemAlpha {
                                 requiredField, jsonObj.toString()));
             }
         }
-        if (!jsonObj.get("spaceId").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `spaceId` to be a primitive type in the JSON string"
-                                    + " but got `%s`",
-                            jsonObj.get("spaceId").toString()));
-        }
         if (!jsonObj.get("collection").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -343,14 +277,6 @@ public class SpaceWarehouseSelectiveSyncItemAlpha {
                             "Expected the field `warehouseId` to be a primitive type in the JSON"
                                     + " string but got `%s`",
                             jsonObj.get("warehouseId").toString()));
-        }
-        if ((jsonObj.get("source") != null && !jsonObj.get("source").isJsonNull())
-                && !jsonObj.get("source").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `source` to be a primitive type in the JSON string"
-                                    + " but got `%s`",
-                            jsonObj.get("source").toString()));
         }
     }
 

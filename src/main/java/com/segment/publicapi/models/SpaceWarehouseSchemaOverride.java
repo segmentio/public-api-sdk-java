@@ -36,20 +36,10 @@ import java.util.Set;
                 "Represents the override for a Source/collection/property? path to apply to a Space"
                         + " Warehouse.")
 public class SpaceWarehouseSchemaOverride {
-    public static final String SERIALIZED_NAME_SPACE_ID = "spaceId";
-
-    @SerializedName(SERIALIZED_NAME_SPACE_ID)
-    private String spaceId;
-
     public static final String SERIALIZED_NAME_COLLECTION = "collection";
 
     @SerializedName(SERIALIZED_NAME_COLLECTION)
     private String collection;
-
-    public static final String SERIALIZED_NAME_SOURCE = "source";
-
-    @SerializedName(SERIALIZED_NAME_SOURCE)
-    private String source;
 
     public static final String SERIALIZED_NAME_ENABLED = "enabled";
 
@@ -62,29 +52,6 @@ public class SpaceWarehouseSchemaOverride {
     private String property;
 
     public SpaceWarehouseSchemaOverride() {}
-
-    public SpaceWarehouseSchemaOverride spaceId(String spaceId) {
-
-        this.spaceId = spaceId;
-        return this;
-    }
-
-    /**
-     * The id of the space this schema item should apply to.
-     *
-     * @return spaceId
-     */
-    @javax.annotation.Nonnull
-    @ApiModelProperty(
-            required = true,
-            value = "The id of the space this schema item should apply to.")
-    public String getSpaceId() {
-        return spaceId;
-    }
-
-    public void setSpaceId(String spaceId) {
-        this.spaceId = spaceId;
-    }
 
     public SpaceWarehouseSchemaOverride collection(String collection) {
 
@@ -105,29 +72,6 @@ public class SpaceWarehouseSchemaOverride {
 
     public void setCollection(String collection) {
         this.collection = collection;
-    }
-
-    public SpaceWarehouseSchemaOverride source(String source) {
-
-        this.source = source;
-        return this;
-    }
-
-    /**
-     * The Source of the collection in this Space Warehouse.
-     *
-     * @return source
-     */
-    @javax.annotation.Nonnull
-    @ApiModelProperty(
-            required = true,
-            value = "The Source of the collection in this Space Warehouse.")
-    public String getSource() {
-        return source;
-    }
-
-    public void setSource(String source) {
-        this.source = source;
     }
 
     public SpaceWarehouseSchemaOverride enabled(Boolean enabled) {
@@ -188,25 +132,21 @@ public class SpaceWarehouseSchemaOverride {
         }
         SpaceWarehouseSchemaOverride spaceWarehouseSchemaOverride =
                 (SpaceWarehouseSchemaOverride) o;
-        return Objects.equals(this.spaceId, spaceWarehouseSchemaOverride.spaceId)
-                && Objects.equals(this.collection, spaceWarehouseSchemaOverride.collection)
-                && Objects.equals(this.source, spaceWarehouseSchemaOverride.source)
+        return Objects.equals(this.collection, spaceWarehouseSchemaOverride.collection)
                 && Objects.equals(this.enabled, spaceWarehouseSchemaOverride.enabled)
                 && Objects.equals(this.property, spaceWarehouseSchemaOverride.property);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(spaceId, collection, source, enabled, property);
+        return Objects.hash(collection, enabled, property);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class SpaceWarehouseSchemaOverride {\n");
-        sb.append("    spaceId: ").append(toIndentedString(spaceId)).append("\n");
         sb.append("    collection: ").append(toIndentedString(collection)).append("\n");
-        sb.append("    source: ").append(toIndentedString(source)).append("\n");
         sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
         sb.append("    property: ").append(toIndentedString(property)).append("\n");
         sb.append("}");
@@ -230,17 +170,13 @@ public class SpaceWarehouseSchemaOverride {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("spaceId");
         openapiFields.add("collection");
-        openapiFields.add("source");
         openapiFields.add("enabled");
         openapiFields.add("property");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("spaceId");
         openapiRequiredFields.add("collection");
-        openapiRequiredFields.add("source");
         openapiRequiredFields.add("enabled");
         openapiRequiredFields.add("property");
     }
@@ -285,26 +221,12 @@ public class SpaceWarehouseSchemaOverride {
                                 requiredField, jsonObj.toString()));
             }
         }
-        if (!jsonObj.get("spaceId").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `spaceId` to be a primitive type in the JSON string"
-                                    + " but got `%s`",
-                            jsonObj.get("spaceId").toString()));
-        }
         if (!jsonObj.get("collection").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             "Expected the field `collection` to be a primitive type in the JSON"
                                     + " string but got `%s`",
                             jsonObj.get("collection").toString()));
-        }
-        if (!jsonObj.get("source").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `source` to be a primitive type in the JSON string"
-                                    + " but got `%s`",
-                            jsonObj.get("source").toString()));
         }
         if (!jsonObj.get("property").isJsonPrimitive()) {
             throw new IllegalArgumentException(
