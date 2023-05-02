@@ -33,8 +33,8 @@ import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
-/** Updates the schema for a Warehouse/sources pair. */
-@ApiModel(description = "Updates the schema for a Warehouse/sources pair.")
+/** Updates the schema for a Space Warehouse connection. */
+@ApiModel(description = "Updates the schema for a Space Warehouse connection.")
 public class UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput {
     public static final String SERIALIZED_NAME_SYNC_OVERRIDES = "syncOverrides";
 

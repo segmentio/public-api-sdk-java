@@ -30,10 +30,10 @@ import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
-/** Represents the override for a Source/collection/property? path to apply to a Space Warehouse. */
+/** Represents the override for a collection/property? path to apply to a Space Warehouse. */
 @ApiModel(
         description =
-                "Represents the override for a Source/collection/property? path to apply to a Space"
+                "Represents the override for a collection/property? path to apply to a Space"
                         + " Warehouse.")
 public class SpaceWarehouseSchemaOverride {
     public static final String SERIALIZED_NAME_COLLECTION = "collection";
