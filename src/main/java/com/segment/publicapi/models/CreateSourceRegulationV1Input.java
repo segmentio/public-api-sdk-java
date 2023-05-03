@@ -203,8 +203,8 @@ public class CreateSourceRegulationV1Input {
     }
 
     /**
-     * The user or object ids of the subjects to regulate. Config API note: equal to
-     * &#x60;parent&#x60; but allows an array.
+     * The list of &#x60;userId&#x60; or &#x60;objectId&#x60; values of the subjects to regulate.
+     * Config API note: equal to &#x60;parent&#x60; but allows an array.
      *
      * @return subjectIds
      */
@@ -212,8 +212,8 @@ public class CreateSourceRegulationV1Input {
     @ApiModelProperty(
             required = true,
             value =
-                    "The user or object ids of the subjects to regulate.  Config API note: equal to"
-                            + " `parent` but allows an array.")
+                    "The list of `userId` or `objectId` values of the subjects to regulate.  Config"
+                            + " API note: equal to `parent` but allows an array.")
     public List<String> getSubjectIds() {
         return subjectIds;
     }
