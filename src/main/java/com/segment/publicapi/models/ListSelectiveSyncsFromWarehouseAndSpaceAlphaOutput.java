@@ -70,14 +70,14 @@ public class ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput {
     }
 
     /**
-     * Represents a list of collection and properties synced to the Warehouse.
+     * Represents a list of collections and properties synced to the Warehouse.
      *
      * @return items
      */
     @javax.annotation.Nonnull
     @ApiModelProperty(
             required = true,
-            value = "Represents a list of collection and properties synced to the Warehouse.")
+            value = "Represents a list of collections and properties synced to the Warehouse.")
     public List<SpaceWarehouseSelectiveSyncItemAlpha> getItems() {
         return items;
     }
