@@ -33,8 +33,8 @@ import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
-/** Updates the schema for a Warehouse/sources pair. */
-@ApiModel(description = "Updates the schema for a Warehouse/sources pair.")
+/** Updates the schema for a Space Warehouse connection. */
+@ApiModel(description = "Updates the schema for a Space Warehouse connection.")
 public class UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput {
     public static final String SERIALIZED_NAME_SYNC_OVERRIDES = "syncOverrides";
 
@@ -65,20 +65,17 @@ public class UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput {
     }
 
     /**
-     * A list of sync schema overrides to apply to this Space Warehouse. Note: Selective enabling of
-     * Event tables under disabled all event tables conditions is not currently supported.
-     * EnableEventTables flag need to be set to true before any selective operation on the event
-     * tables.
+     * A list of sync Schema overrides to apply to this Space Warehouse. Note: Selective Sync is not
+     * supported if the enableEventTables flag is false.
      *
      * @return syncOverrides
      */
     @javax.annotation.Nullable
     @ApiModelProperty(
             value =
-                    "A list of sync schema overrides to apply to this Space Warehouse. Note:"
-                        + " Selective enabling of Event tables under disabled all event tables"
-                        + " conditions is not currently supported. EnableEventTables flag need to"
-                        + " be set to true before any selective operation on the event tables.")
+                    "A list of sync Schema overrides to apply to this Space Warehouse. Note:"
+                            + " Selective Sync is not supported if the enableEventTables flag is"
+                            + " false.")
     public List<SpaceWarehouseSchemaOverride> getSyncOverrides() {
         return syncOverrides;
     }

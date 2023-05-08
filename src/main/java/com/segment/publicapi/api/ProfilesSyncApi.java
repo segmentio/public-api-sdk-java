@@ -587,7 +587,7 @@ public class ProfilesSyncApi {
 
     /**
      * List Selective Syncs from Warehouse And Space Returns the schema for a Space Warehouse
-     * connection, including Sources, Collections, and Properties.
+     * connection, including Collections and Properties.
      *
      * @param spaceId (required)
      * @param warehouseId (required)
@@ -617,7 +617,7 @@ public class ProfilesSyncApi {
 
     /**
      * List Selective Syncs from Warehouse And Space Returns the schema for a Space Warehouse
-     * connection, including Sources, Collections, and Properties.
+     * connection, including Collections and Properties.
      *
      * @param spaceId (required)
      * @param warehouseId (required)
@@ -649,7 +649,7 @@ public class ProfilesSyncApi {
 
     /**
      * List Selective Syncs from Warehouse And Space (asynchronously) Returns the schema for a Space
-     * Warehouse connection, including Sources, Collections, and Properties.
+     * Warehouse connection, including Collections and Properties.
      *
      * @param spaceId (required)
      * @param warehouseId (required)

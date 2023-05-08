@@ -26,15 +26,13 @@ import com.segment.publicapi.JSON;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
-/** Results from a selectiveSync patch to a Warehouse/Space pair. */
-@ApiModel(description = "Results from a selectiveSync patch to a Warehouse/Space pair.")
+/** Results from a selectiveSync patch to a Space Warehouse connection. */
+@ApiModel(description = "Results from a selectiveSync patch to a Space Warehouse connection.")
 public class UpdateSelectiveSyncForWarehouseAndSpaceAlphaOutput {
     /** Status of the update operation. */
     @JsonAdapter(StatusEnum.Adapter.class)
@@ -87,11 +85,6 @@ public class UpdateSelectiveSyncForWarehouseAndSpaceAlphaOutput {
     @SerializedName(SERIALIZED_NAME_STATUS)
     private StatusEnum status;
 
-    public static final String SERIALIZED_NAME_WARNINGS = "warnings";
-
-    @SerializedName(SERIALIZED_NAME_WARNINGS)
-    private List<String> warnings = new ArrayList<>();
-
     public UpdateSelectiveSyncForWarehouseAndSpaceAlphaOutput() {}
 
     public UpdateSelectiveSyncForWarehouseAndSpaceAlphaOutput status(StatusEnum status) {
@@ -115,32 +108,6 @@ public class UpdateSelectiveSyncForWarehouseAndSpaceAlphaOutput {
         this.status = status;
     }
 
-    public UpdateSelectiveSyncForWarehouseAndSpaceAlphaOutput warnings(List<String> warnings) {
-
-        this.warnings = warnings;
-        return this;
-    }
-
-    public UpdateSelectiveSyncForWarehouseAndSpaceAlphaOutput addWarningsItem(String warningsItem) {
-        this.warnings.add(warningsItem);
-        return this;
-    }
-
-    /**
-     * Warnings returned by the operation.
-     *
-     * @return warnings
-     */
-    @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "Warnings returned by the operation.")
-    public List<String> getWarnings() {
-        return warnings;
-    }
-
-    public void setWarnings(List<String> warnings) {
-        this.warnings = warnings;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -153,14 +120,12 @@ public class UpdateSelectiveSyncForWarehouseAndSpaceAlphaOutput {
                 updateSelectiveSyncForWarehouseAndSpaceAlphaOutput =
                         (UpdateSelectiveSyncForWarehouseAndSpaceAlphaOutput) o;
         return Objects.equals(
-                        this.status, updateSelectiveSyncForWarehouseAndSpaceAlphaOutput.status)
-                && Objects.equals(
-                        this.warnings, updateSelectiveSyncForWarehouseAndSpaceAlphaOutput.warnings);
+                this.status, updateSelectiveSyncForWarehouseAndSpaceAlphaOutput.status);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(status, warnings);
+        return Objects.hash(status);
     }
 
     @Override
@@ -168,7 +133,6 @@ public class UpdateSelectiveSyncForWarehouseAndSpaceAlphaOutput {
         StringBuilder sb = new StringBuilder();
         sb.append("class UpdateSelectiveSyncForWarehouseAndSpaceAlphaOutput {\n");
         sb.append("    status: ").append(toIndentedString(status)).append("\n");
-        sb.append("    warnings: ").append(toIndentedString(warnings)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -191,12 +155,10 @@ public class UpdateSelectiveSyncForWarehouseAndSpaceAlphaOutput {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
         openapiFields.add("status");
-        openapiFields.add("warnings");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
         openapiRequiredFields.add("status");
-        openapiRequiredFields.add("warnings");
     }
 
     /**
@@ -251,18 +213,6 @@ public class UpdateSelectiveSyncForWarehouseAndSpaceAlphaOutput {
                             "Expected the field `status` to be a primitive type in the JSON string"
                                     + " but got `%s`",
                             jsonObj.get("status").toString()));
-        }
-        // ensure the required json array is present
-        if (jsonObj.get("warnings") == null) {
-            throw new IllegalArgumentException(
-                    "Expected the field `linkedContent` to be an array in the JSON string but got"
-                            + " `null`");
-        } else if (!jsonObj.get("warnings").isJsonArray()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `warnings` to be an array in the JSON string but"
-                                    + " got `%s`",
-                            jsonObj.get("warnings").toString()));
         }
     }
 

@@ -30,10 +30,10 @@ import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
-/** Represents the override for a Source/collection/property? path to apply to a Space Warehouse. */
+/** Represents the override for a collection/property? path to apply to a Space Warehouse. */
 @ApiModel(
         description =
-                "Represents the override for a Source/collection/property? path to apply to a Space"
+                "Represents the override for a collection/property? path to apply to a Space"
                         + " Warehouse.")
 public class SpaceWarehouseSchemaOverride {
     public static final String SERIALIZED_NAME_COLLECTION = "collection";
@@ -108,9 +108,8 @@ public class SpaceWarehouseSchemaOverride {
      *
      * @return property
      */
-    @javax.annotation.Nonnull
+    @javax.annotation.Nullable
     @ApiModelProperty(
-            required = true,
             value =
                     "A map that contains the properties within the collection to which the"
                             + " Warehouse should sync.")
@@ -178,7 +177,6 @@ public class SpaceWarehouseSchemaOverride {
         openapiRequiredFields = new HashSet<String>();
         openapiRequiredFields.add("collection");
         openapiRequiredFields.add("enabled");
-        openapiRequiredFields.add("property");
     }
 
     /**
@@ -228,7 +226,8 @@ public class SpaceWarehouseSchemaOverride {
                                     + " string but got `%s`",
                             jsonObj.get("collection").toString()));
         }
-        if (!jsonObj.get("property").isJsonPrimitive()) {
+        if ((jsonObj.get("property") != null && !jsonObj.get("property").isJsonNull())
+                && !jsonObj.get("property").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             "Expected the field `property` to be a primitive type in the JSON"

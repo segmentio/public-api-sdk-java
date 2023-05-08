@@ -44,6 +44,11 @@ public class ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput {
     @SerializedName(SERIALIZED_NAME_ITEMS)
     private List<SpaceWarehouseSelectiveSyncItemAlpha> items = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_ENABLE_EVENT_TABLES = "enableEventTables";
+
+    @SerializedName(SERIALIZED_NAME_ENABLE_EVENT_TABLES)
+    private Boolean enableEventTables;
+
     public static final String SERIALIZED_NAME_PAGINATION = "pagination";
 
     @SerializedName(SERIALIZED_NAME_PAGINATION)
@@ -65,22 +70,42 @@ public class ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput {
     }
 
     /**
-     * Represents a list of Source, collection, and properties synced to the Warehouse.
+     * Represents a list of collections and properties synced to the Warehouse.
      *
      * @return items
      */
     @javax.annotation.Nonnull
     @ApiModelProperty(
             required = true,
-            value =
-                    "Represents a list of Source, collection, and properties synced to the"
-                            + " Warehouse.")
+            value = "Represents a list of collections and properties synced to the Warehouse.")
     public List<SpaceWarehouseSelectiveSyncItemAlpha> getItems() {
         return items;
     }
 
     public void setItems(List<SpaceWarehouseSelectiveSyncItemAlpha> items) {
         this.items = items;
+    }
+
+    public ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput enableEventTables(
+            Boolean enableEventTables) {
+
+        this.enableEventTables = enableEventTables;
+        return this;
+    }
+
+    /**
+     * A flag that represent if all event Tables are enable or disable.
+     *
+     * @return enableEventTables
+     */
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "A flag that represent if all event Tables are enable or disable.")
+    public Boolean getEnableEventTables() {
+        return enableEventTables;
+    }
+
+    public void setEnableEventTables(Boolean enableEventTables) {
+        this.enableEventTables = enableEventTables;
     }
 
     public ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput pagination(Pagination pagination) {
@@ -117,13 +142,16 @@ public class ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput {
                         (ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput) o;
         return Objects.equals(this.items, listSelectiveSyncsFromWarehouseAndSpaceAlphaOutput.items)
                 && Objects.equals(
+                        this.enableEventTables,
+                        listSelectiveSyncsFromWarehouseAndSpaceAlphaOutput.enableEventTables)
+                && Objects.equals(
                         this.pagination,
                         listSelectiveSyncsFromWarehouseAndSpaceAlphaOutput.pagination);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(items, pagination);
+        return Objects.hash(items, enableEventTables, pagination);
     }
 
     @Override
@@ -131,6 +159,9 @@ public class ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput {
         StringBuilder sb = new StringBuilder();
         sb.append("class ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput {\n");
         sb.append("    items: ").append(toIndentedString(items)).append("\n");
+        sb.append("    enableEventTables: ")
+                .append(toIndentedString(enableEventTables))
+                .append("\n");
         sb.append("    pagination: ").append(toIndentedString(pagination)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -154,6 +185,7 @@ public class ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
         openapiFields.add("items");
+        openapiFields.add("enableEventTables");
         openapiFields.add("pagination");
 
         // a set of required properties/fields (JSON key names)
