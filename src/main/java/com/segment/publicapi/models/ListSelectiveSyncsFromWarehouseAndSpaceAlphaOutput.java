@@ -94,12 +94,15 @@ public class ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput {
     }
 
     /**
-     * A flag that represent if all event Tables are enable or disable.
+     * A flag that represent if all event Tables are enable or disable. This field is optional.
      *
      * @return enableEventTables
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(value = "A flag that represent if all event Tables are enable or disable.")
+    @ApiModelProperty(
+            value =
+                    "A flag that represent if all event Tables are enable or disable. This field is"
+                            + " optional.")
     public Boolean getEnableEventTables() {
         return enableEventTables;
     }
