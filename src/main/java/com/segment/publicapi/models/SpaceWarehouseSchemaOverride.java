@@ -30,11 +30,14 @@ import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
-/** Represents the override for a collection/property? path to apply to a Space Warehouse. */
+/**
+ * Overrides the enabled or disabled state of the specified collection and / or properties within
+ * the schema.
+ */
 @ApiModel(
         description =
-                "Represents the override for a collection/property? path to apply to a Space"
-                        + " Warehouse.")
+                "Overrides the enabled or disabled state of the specified collection and / or"
+                        + " properties within the schema.")
 public class SpaceWarehouseSchemaOverride {
     public static final String SERIALIZED_NAME_COLLECTION = "collection";
 
@@ -81,14 +84,16 @@ public class SpaceWarehouseSchemaOverride {
     }
 
     /**
-     * The Enabled flag ok telling whether the Collection is enabled or not.
+     * Represents the overridden enabled state for the listed collection and / or properties.
      *
      * @return enabled
      */
     @javax.annotation.Nonnull
     @ApiModelProperty(
             required = true,
-            value = "The Enabled flag ok telling whether the Collection is enabled or not.")
+            value =
+                    "Represents the overridden enabled state for the listed collection and / or"
+                            + " properties.")
     public Boolean getEnabled() {
         return enabled;
     }
