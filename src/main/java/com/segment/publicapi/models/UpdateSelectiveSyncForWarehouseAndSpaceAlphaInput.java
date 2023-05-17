@@ -33,60 +33,58 @@ import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
-/** Results containing the Selective Sync configuration for a Space Warehouse Connection. */
-@ApiModel(
-        description =
-                "Results containing the Selective Sync configuration for a Space Warehouse"
-                        + " Connection.")
-public class ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput {
-    public static final String SERIALIZED_NAME_ITEMS = "items";
+/** Updates the schema for a Space Warehouse connection. */
+@ApiModel(description = "Updates the schema for a Space Warehouse connection.")
+public class UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput {
+    public static final String SERIALIZED_NAME_SYNC_OVERRIDES = "syncOverrides";
 
-    @SerializedName(SERIALIZED_NAME_ITEMS)
-    private List<SpaceWarehouseSelectiveSyncItemAlpha> items = new ArrayList<>();
+    @SerializedName(SERIALIZED_NAME_SYNC_OVERRIDES)
+    private List<SpaceWarehouseSchemaOverride> syncOverrides = null;
 
     public static final String SERIALIZED_NAME_ENABLE_EVENT_TABLES = "enableEventTables";
 
     @SerializedName(SERIALIZED_NAME_ENABLE_EVENT_TABLES)
     private Boolean enableEventTables;
 
-    public static final String SERIALIZED_NAME_PAGINATION = "pagination";
+    public UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput() {}
 
-    @SerializedName(SERIALIZED_NAME_PAGINATION)
-    private Pagination pagination;
+    public UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput syncOverrides(
+            List<SpaceWarehouseSchemaOverride> syncOverrides) {
 
-    public ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput() {}
-
-    public ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput items(
-            List<SpaceWarehouseSelectiveSyncItemAlpha> items) {
-
-        this.items = items;
+        this.syncOverrides = syncOverrides;
         return this;
     }
 
-    public ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput addItemsItem(
-            SpaceWarehouseSelectiveSyncItemAlpha itemsItem) {
-        this.items.add(itemsItem);
+    public UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput addSyncOverridesItem(
+            SpaceWarehouseSchemaOverride syncOverridesItem) {
+        if (this.syncOverrides == null) {
+            this.syncOverrides = new ArrayList<>();
+        }
+        this.syncOverrides.add(syncOverridesItem);
         return this;
     }
 
     /**
-     * Represents a list of collections and properties synced to the Warehouse.
+     * A list of sync Schema overrides to apply to this Space Warehouse. Note: Selective Sync is not
+     * supported if the enableEventTables flag is false.
      *
-     * @return items
+     * @return syncOverrides
      */
-    @javax.annotation.Nonnull
+    @javax.annotation.Nullable
     @ApiModelProperty(
-            required = true,
-            value = "Represents a list of collections and properties synced to the Warehouse.")
-    public List<SpaceWarehouseSelectiveSyncItemAlpha> getItems() {
-        return items;
+            value =
+                    "A list of sync Schema overrides to apply to this Space Warehouse. Note:"
+                            + " Selective Sync is not supported if the enableEventTables flag is"
+                            + " false.")
+    public List<SpaceWarehouseSchemaOverride> getSyncOverrides() {
+        return syncOverrides;
     }
 
-    public void setItems(List<SpaceWarehouseSelectiveSyncItemAlpha> items) {
-        this.items = items;
+    public void setSyncOverrides(List<SpaceWarehouseSchemaOverride> syncOverrides) {
+        this.syncOverrides = syncOverrides;
     }
 
-    public ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput enableEventTables(
+    public UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput enableEventTables(
             Boolean enableEventTables) {
 
         this.enableEventTables = enableEventTables;
@@ -94,39 +92,19 @@ public class ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput {
     }
 
     /**
-     * Optional. Represents the enabled state of all event tables.
+     * A flag to enable or disable all event Tables. This field is optional.
      *
      * @return enableEventTables
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(value = "Optional. Represents the enabled state of all event tables.")
+    @ApiModelProperty(
+            value = "A flag to enable or disable all event Tables. This field is optional.")
     public Boolean getEnableEventTables() {
         return enableEventTables;
     }
 
     public void setEnableEventTables(Boolean enableEventTables) {
         this.enableEventTables = enableEventTables;
-    }
-
-    public ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput pagination(Pagination pagination) {
-
-        this.pagination = pagination;
-        return this;
-    }
-
-    /**
-     * Get pagination
-     *
-     * @return pagination
-     */
-    @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "")
-    public Pagination getPagination() {
-        return pagination;
-    }
-
-    public void setPagination(Pagination pagination) {
-        this.pagination = pagination;
     }
 
     @Override
@@ -137,32 +115,30 @@ public class ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput
-                listSelectiveSyncsFromWarehouseAndSpaceAlphaOutput =
-                        (ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput) o;
-        return Objects.equals(this.items, listSelectiveSyncsFromWarehouseAndSpaceAlphaOutput.items)
+        UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput
+                updateSelectiveSyncForWarehouseAndSpaceAlphaInput =
+                        (UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput) o;
+        return Objects.equals(
+                        this.syncOverrides,
+                        updateSelectiveSyncForWarehouseAndSpaceAlphaInput.syncOverrides)
                 && Objects.equals(
                         this.enableEventTables,
-                        listSelectiveSyncsFromWarehouseAndSpaceAlphaOutput.enableEventTables)
-                && Objects.equals(
-                        this.pagination,
-                        listSelectiveSyncsFromWarehouseAndSpaceAlphaOutput.pagination);
+                        updateSelectiveSyncForWarehouseAndSpaceAlphaInput.enableEventTables);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(items, enableEventTables, pagination);
+        return Objects.hash(syncOverrides, enableEventTables);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput {\n");
-        sb.append("    items: ").append(toIndentedString(items)).append("\n");
+        sb.append("class UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput {\n");
+        sb.append("    syncOverrides: ").append(toIndentedString(syncOverrides)).append("\n");
         sb.append("    enableEventTables: ")
                 .append(toIndentedString(enableEventTables))
                 .append("\n");
-        sb.append("    pagination: ").append(toIndentedString(pagination)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -184,14 +160,11 @@ public class ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("items");
+        openapiFields.add("syncOverrides");
         openapiFields.add("enableEventTables");
-        openapiFields.add("pagination");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("items");
-        openapiRequiredFields.add("pagination");
     }
 
     /**
@@ -199,18 +172,18 @@ public class ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput {
      *
      * @param jsonObj JSON Object
      * @throws IOException if the JSON Object is invalid with respect to
-     *     ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput
+     *     UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput
      */
     public static void validateJsonObject(JsonObject jsonObj) throws IOException {
         if (jsonObj == null) {
-            if (!ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput.openapiRequiredFields
+            if (!UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in"
-                                    + " ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput is not"
+                                    + " UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput is not"
                                     + " found in the empty JSON string",
-                                ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput
+                                UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput
                                         .openapiRequiredFields
                                         .toString()));
             }
@@ -219,70 +192,60 @@ public class ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput {
         Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
         for (Entry<String, JsonElement> entry : entries) {
-            if (!ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput.openapiFields.contains(
+            if (!UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput.openapiFields.contains(
                     entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput`"
+                                        + " `UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput`"
                                         + " properties. JSON: %s",
                                 entry.getKey(), jsonObj.toString()));
             }
         }
-
-        // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField :
-                ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput.openapiRequiredFields) {
-            if (jsonObj.get(requiredField) == null) {
-                throw new IllegalArgumentException(
-                        String.format(
-                                "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonObj.toString()));
+        if (jsonObj.get("syncOverrides") != null && !jsonObj.get("syncOverrides").isJsonNull()) {
+            JsonArray jsonArraysyncOverrides = jsonObj.getAsJsonArray("syncOverrides");
+            if (jsonArraysyncOverrides != null) {
+                // ensure the json data is an array
+                if (!jsonObj.get("syncOverrides").isJsonArray()) {
+                    throw new IllegalArgumentException(
+                            String.format(
+                                    "Expected the field `syncOverrides` to be an array in the JSON"
+                                            + " string but got `%s`",
+                                    jsonObj.get("syncOverrides").toString()));
+                }
             }
         }
-        // ensure the json data is an array
-        if (!jsonObj.get("items").isJsonArray()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `items` to be an array in the JSON string but got"
-                                    + " `%s`",
-                            jsonObj.get("items").toString()));
-        }
-
-        JsonArray jsonArrayitems = jsonObj.getAsJsonArray("items");
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput.class.isAssignableFrom(
+            if (!UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput.class.isAssignableFrom(
                     type.getRawType())) {
                 return null; // this class only serializes
-                // 'ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput' and its
-                // subtypes
+                // 'UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput> thisAdapter =
+            final TypeAdapter<UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput> thisAdapter =
                     gson.getDelegateAdapter(
                             this,
-                            TypeToken.get(
-                                    ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput.class));
+                            TypeToken.get(UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput>() {
+                    new TypeAdapter<UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput>() {
                         @Override
                         public void write(
                                 JsonWriter out,
-                                ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput value)
+                                UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput read(
-                                JsonReader in) throws IOException {
+                        public UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput read(JsonReader in)
+                                throws IOException {
                             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
                             validateJsonObject(jsonObj);
                             return thisAdapter.fromJsonTree(jsonObj);
@@ -292,21 +255,21 @@ public class ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput {
     }
 
     /**
-     * Create an instance of ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput given an JSON string
+     * Create an instance of UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput
+     * @return An instance of UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput
      * @throws IOException if the JSON string is invalid with respect to
-     *     ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput
+     *     UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput
      */
-    public static ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput fromJson(String jsonString)
+    public static UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput fromJson(String jsonString)
             throws IOException {
         return JSON.getGson()
-                .fromJson(jsonString, ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput.class);
+                .fromJson(jsonString, UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput.class);
     }
 
     /**
-     * Convert an instance of ListSelectiveSyncsFromWarehouseAndSpaceAlphaOutput to an JSON string
+     * Convert an instance of UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput to an JSON string
      *
      * @return JSON string
      */

@@ -25,44 +25,38 @@ import com.segment.publicapi.JSON;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
 /**
- * Represents an entry in the Space Warehouse Selective Sync schema for a Warehouse and Space pair.
+ * Overrides the enabled or disabled state of the specified collection and / or properties within
+ * the schema.
  */
 @ApiModel(
         description =
-                "Represents an entry in the Space Warehouse Selective Sync schema for a Warehouse"
-                        + " and Space pair.")
-public class SpaceWarehouseSelectiveSyncItemAlpha {
+                "Overrides the enabled or disabled state of the specified collection and / or"
+                        + " properties within the schema.")
+public class SpaceWarehouseSchemaOverride {
     public static final String SERIALIZED_NAME_COLLECTION = "collection";
 
     @SerializedName(SERIALIZED_NAME_COLLECTION)
     private String collection;
-
-    public static final String SERIALIZED_NAME_WAREHOUSE_ID = "warehouseId";
-
-    @SerializedName(SERIALIZED_NAME_WAREHOUSE_ID)
-    private String warehouseId;
 
     public static final String SERIALIZED_NAME_ENABLED = "enabled";
 
     @SerializedName(SERIALIZED_NAME_ENABLED)
     private Boolean enabled;
 
-    public static final String SERIALIZED_NAME_PROPERTIES = "properties";
+    public static final String SERIALIZED_NAME_PROPERTY = "property";
 
-    @SerializedName(SERIALIZED_NAME_PROPERTIES)
-    private Map<String, Object> properties = new HashMap<>();
+    @SerializedName(SERIALIZED_NAME_PROPERTY)
+    private String property;
 
-    public SpaceWarehouseSelectiveSyncItemAlpha() {}
+    public SpaceWarehouseSchemaOverride() {}
 
-    public SpaceWarehouseSelectiveSyncItemAlpha collection(String collection) {
+    public SpaceWarehouseSchemaOverride collection(String collection) {
 
         this.collection = collection;
         return this;
@@ -83,42 +77,23 @@ public class SpaceWarehouseSelectiveSyncItemAlpha {
         this.collection = collection;
     }
 
-    public SpaceWarehouseSelectiveSyncItemAlpha warehouseId(String warehouseId) {
-
-        this.warehouseId = warehouseId;
-        return this;
-    }
-
-    /**
-     * The id of the Warehouse this sync belongs to.
-     *
-     * @return warehouseId
-     */
-    @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "The id of the Warehouse this sync belongs to.")
-    public String getWarehouseId() {
-        return warehouseId;
-    }
-
-    public void setWarehouseId(String warehouseId) {
-        this.warehouseId = warehouseId;
-    }
-
-    public SpaceWarehouseSelectiveSyncItemAlpha enabled(Boolean enabled) {
+    public SpaceWarehouseSchemaOverride enabled(Boolean enabled) {
 
         this.enabled = enabled;
         return this;
     }
 
     /**
-     * The Enabled flag ok telling whether the Collection is enabled or not.
+     * Represents the overridden enabled state for the listed collection and / or properties.
      *
      * @return enabled
      */
     @javax.annotation.Nonnull
     @ApiModelProperty(
             required = true,
-            value = "The Enabled flag ok telling whether the Collection is enabled or not.")
+            value =
+                    "Represents the overridden enabled state for the listed collection and / or"
+                            + " properties.")
     public Boolean getEnabled() {
         return enabled;
     }
@@ -127,35 +102,28 @@ public class SpaceWarehouseSelectiveSyncItemAlpha {
         this.enabled = enabled;
     }
 
-    public SpaceWarehouseSelectiveSyncItemAlpha properties(Map<String, Object> properties) {
+    public SpaceWarehouseSchemaOverride property(String property) {
 
-        this.properties = properties;
-        return this;
-    }
-
-    public SpaceWarehouseSelectiveSyncItemAlpha putPropertiesItem(
-            String key, Object propertiesItem) {
-        this.properties.put(key, propertiesItem);
+        this.property = property;
         return this;
     }
 
     /**
      * A map that contains the properties within the collection to which the Warehouse should sync.
      *
-     * @return properties
+     * @return property
      */
-    @javax.annotation.Nonnull
+    @javax.annotation.Nullable
     @ApiModelProperty(
-            required = true,
             value =
                     "A map that contains the properties within the collection to which the"
                             + " Warehouse should sync.")
-    public Map<String, Object> getProperties() {
-        return properties;
+    public String getProperty() {
+        return property;
     }
 
-    public void setProperties(Map<String, Object> properties) {
-        this.properties = properties;
+    public void setProperty(String property) {
+        this.property = property;
     }
 
     @Override
@@ -166,28 +134,25 @@ public class SpaceWarehouseSelectiveSyncItemAlpha {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        SpaceWarehouseSelectiveSyncItemAlpha spaceWarehouseSelectiveSyncItemAlpha =
-                (SpaceWarehouseSelectiveSyncItemAlpha) o;
-        return Objects.equals(this.collection, spaceWarehouseSelectiveSyncItemAlpha.collection)
-                && Objects.equals(
-                        this.warehouseId, spaceWarehouseSelectiveSyncItemAlpha.warehouseId)
-                && Objects.equals(this.enabled, spaceWarehouseSelectiveSyncItemAlpha.enabled)
-                && Objects.equals(this.properties, spaceWarehouseSelectiveSyncItemAlpha.properties);
+        SpaceWarehouseSchemaOverride spaceWarehouseSchemaOverride =
+                (SpaceWarehouseSchemaOverride) o;
+        return Objects.equals(this.collection, spaceWarehouseSchemaOverride.collection)
+                && Objects.equals(this.enabled, spaceWarehouseSchemaOverride.enabled)
+                && Objects.equals(this.property, spaceWarehouseSchemaOverride.property);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(collection, warehouseId, enabled, properties);
+        return Objects.hash(collection, enabled, property);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class SpaceWarehouseSelectiveSyncItemAlpha {\n");
+        sb.append("class SpaceWarehouseSchemaOverride {\n");
         sb.append("    collection: ").append(toIndentedString(collection)).append("\n");
-        sb.append("    warehouseId: ").append(toIndentedString(warehouseId)).append("\n");
         sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
-        sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
+        sb.append("    property: ").append(toIndentedString(property)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -210,16 +175,13 @@ public class SpaceWarehouseSelectiveSyncItemAlpha {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
         openapiFields.add("collection");
-        openapiFields.add("warehouseId");
         openapiFields.add("enabled");
-        openapiFields.add("properties");
+        openapiFields.add("property");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
         openapiRequiredFields.add("collection");
-        openapiRequiredFields.add("warehouseId");
         openapiRequiredFields.add("enabled");
-        openapiRequiredFields.add("properties");
     }
 
     /**
@@ -227,36 +189,34 @@ public class SpaceWarehouseSelectiveSyncItemAlpha {
      *
      * @param jsonObj JSON Object
      * @throws IOException if the JSON Object is invalid with respect to
-     *     SpaceWarehouseSelectiveSyncItemAlpha
+     *     SpaceWarehouseSchemaOverride
      */
     public static void validateJsonObject(JsonObject jsonObj) throws IOException {
         if (jsonObj == null) {
-            if (!SpaceWarehouseSelectiveSyncItemAlpha.openapiRequiredFields
+            if (!SpaceWarehouseSchemaOverride.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in SpaceWarehouseSelectiveSyncItemAlpha"
-                                        + " is not found in the empty JSON string",
-                                SpaceWarehouseSelectiveSyncItemAlpha.openapiRequiredFields
-                                        .toString()));
+                                "The required field(s) %s in SpaceWarehouseSchemaOverride is not"
+                                        + " found in the empty JSON string",
+                                SpaceWarehouseSchemaOverride.openapiRequiredFields.toString()));
             }
         }
 
         Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
         for (Entry<String, JsonElement> entry : entries) {
-            if (!SpaceWarehouseSelectiveSyncItemAlpha.openapiFields.contains(entry.getKey())) {
+            if (!SpaceWarehouseSchemaOverride.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                    + " `SpaceWarehouseSelectiveSyncItemAlpha` properties. JSON:"
-                                    + " %s",
+                                        + " `SpaceWarehouseSchemaOverride` properties. JSON: %s",
                                 entry.getKey(), jsonObj.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : SpaceWarehouseSelectiveSyncItemAlpha.openapiRequiredFields) {
+        for (String requiredField : SpaceWarehouseSchemaOverride.openapiRequiredFields) {
             if (jsonObj.get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -271,12 +231,13 @@ public class SpaceWarehouseSelectiveSyncItemAlpha {
                                     + " string but got `%s`",
                             jsonObj.get("collection").toString()));
         }
-        if (!jsonObj.get("warehouseId").isJsonPrimitive()) {
+        if ((jsonObj.get("property") != null && !jsonObj.get("property").isJsonNull())
+                && !jsonObj.get("property").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `warehouseId` to be a primitive type in the JSON"
+                            "Expected the field `property` to be a primitive type in the JSON"
                                     + " string but got `%s`",
-                            jsonObj.get("warehouseId").toString()));
+                            jsonObj.get("property").toString()));
         }
     }
 
@@ -284,28 +245,26 @@ public class SpaceWarehouseSelectiveSyncItemAlpha {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!SpaceWarehouseSelectiveSyncItemAlpha.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'SpaceWarehouseSelectiveSyncItemAlpha'
-                // and its subtypes
+            if (!SpaceWarehouseSchemaOverride.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'SpaceWarehouseSchemaOverride' and its
+                // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<SpaceWarehouseSelectiveSyncItemAlpha> thisAdapter =
+            final TypeAdapter<SpaceWarehouseSchemaOverride> thisAdapter =
                     gson.getDelegateAdapter(
-                            this, TypeToken.get(SpaceWarehouseSelectiveSyncItemAlpha.class));
+                            this, TypeToken.get(SpaceWarehouseSchemaOverride.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<SpaceWarehouseSelectiveSyncItemAlpha>() {
+                    new TypeAdapter<SpaceWarehouseSchemaOverride>() {
                         @Override
-                        public void write(
-                                JsonWriter out, SpaceWarehouseSelectiveSyncItemAlpha value)
+                        public void write(JsonWriter out, SpaceWarehouseSchemaOverride value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public SpaceWarehouseSelectiveSyncItemAlpha read(JsonReader in)
-                                throws IOException {
+                        public SpaceWarehouseSchemaOverride read(JsonReader in) throws IOException {
                             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
                             validateJsonObject(jsonObj);
                             return thisAdapter.fromJsonTree(jsonObj);
@@ -315,20 +274,19 @@ public class SpaceWarehouseSelectiveSyncItemAlpha {
     }
 
     /**
-     * Create an instance of SpaceWarehouseSelectiveSyncItemAlpha given an JSON string
+     * Create an instance of SpaceWarehouseSchemaOverride given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of SpaceWarehouseSelectiveSyncItemAlpha
+     * @return An instance of SpaceWarehouseSchemaOverride
      * @throws IOException if the JSON string is invalid with respect to
-     *     SpaceWarehouseSelectiveSyncItemAlpha
+     *     SpaceWarehouseSchemaOverride
      */
-    public static SpaceWarehouseSelectiveSyncItemAlpha fromJson(String jsonString)
-            throws IOException {
-        return JSON.getGson().fromJson(jsonString, SpaceWarehouseSelectiveSyncItemAlpha.class);
+    public static SpaceWarehouseSchemaOverride fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, SpaceWarehouseSchemaOverride.class);
     }
 
     /**
-     * Convert an instance of SpaceWarehouseSelectiveSyncItemAlpha to an JSON string
+     * Convert an instance of SpaceWarehouseSchemaOverride to an JSON string
      *
      * @return JSON string
      */
