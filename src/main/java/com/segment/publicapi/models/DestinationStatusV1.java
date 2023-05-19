@@ -51,21 +51,15 @@ public class DestinationStatusV1 {
 
         FINISHED("FINISHED"),
 
-        FORWARDED("FORWARDED"),
-
         INITIALIZED("INITIALIZED"),
 
         INVALID("INVALID"),
-
-        IN_PROGRESS("IN_PROGRESS"),
 
         NOT_SUPPORTED("NOT_SUPPORTED"),
 
         PARTIAL_SUCCESS("PARTIAL_SUCCESS"),
 
-        RUNNING("RUNNING"),
-
-        SUCCESS("SUCCESS");
+        RUNNING("RUNNING");
 
         private String value;
 
