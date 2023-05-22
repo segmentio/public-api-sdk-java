@@ -35,7 +35,7 @@ import java.util.Set;
 /** Represents the parameters needed to identify a rule on the backend-side. */
 @ApiModel(description = "Represents the parameters needed to identify a rule on the backend-side.")
 public class RemoveRuleV1 {
-    /** Gets or Sets type */
+    /** The type for this Tracking Plan rule. */
     @JsonAdapter(TypeEnum.Adapter.class)
     public enum TypeEnum {
         COMMON("COMMON"),
@@ -113,12 +113,12 @@ public class RemoveRuleV1 {
     }
 
     /**
-     * Get type
+     * The type for this Tracking Plan rule.
      *
      * @return type
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "")
+    @ApiModelProperty(required = true, value = "The type for this Tracking Plan rule.")
     public TypeEnum getType() {
         return type;
     }
@@ -134,12 +134,12 @@ public class RemoveRuleV1 {
     }
 
     /**
-     * Get key
+     * Key to this rule (free-form string like &#39;Button clicked&#39;).
      *
      * @return key
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
+    @ApiModelProperty(value = "Key to this rule (free-form string like 'Button clicked').")
     public String getKey() {
         return key;
     }
@@ -155,12 +155,12 @@ public class RemoveRuleV1 {
     }
 
     /**
-     * Get version
+     * Version of this rule.
      *
      * @return version
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "")
+    @ApiModelProperty(required = true, value = "Version of this rule.")
     public BigDecimal getVersion() {
         return version;
     }
