@@ -47,8 +47,6 @@ public class CreateTrackingPlanV1Input {
     /** The Tracking Plan&#39;s type. */
     @JsonAdapter(TypeEnum.Adapter.class)
     public enum TypeEnum {
-        ENGAGE("ENGAGE"),
-
         LIVE("LIVE"),
 
         PROPERTY_LIBRARY("PROPERTY_LIBRARY"),
