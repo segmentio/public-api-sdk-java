@@ -36,11 +36,11 @@ public class CreateLabelV1Output {
     public static final String SERIALIZED_NAME_LABEL = "label";
 
     @SerializedName(SERIALIZED_NAME_LABEL)
-    private Label2 label;
+    private Label1 label;
 
     public CreateLabelV1Output() {}
 
-    public CreateLabelV1Output label(Label2 label) {
+    public CreateLabelV1Output label(Label1 label) {
 
         this.label = label;
         return this;
@@ -53,11 +53,11 @@ public class CreateLabelV1Output {
      */
     @javax.annotation.Nonnull
     @ApiModelProperty(required = true, value = "")
-    public Label2 getLabel() {
+    public Label1 getLabel() {
         return label;
     }
 
-    public void setLabel(Label2 label) {
+    public void setLabel(Label1 label) {
         this.label = label;
     }
 

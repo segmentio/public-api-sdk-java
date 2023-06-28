@@ -30,8 +30,8 @@ import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
-/** The new label to create in the Workspace. */
-@ApiModel(description = "The new label to create in the Workspace.")
+/** The newly created label. */
+@ApiModel(description = "The newly created label.")
 public class Label1 {
     public static final String SERIALIZED_NAME_KEY = "key";
 
