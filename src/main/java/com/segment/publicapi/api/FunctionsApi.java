@@ -1454,7 +1454,7 @@ public class FunctionsApi {
     }
 
     /**
-     * Restore Function Version Restore an old Function version as the latest version. • In order to
+     * Restore Function Version Restore an old Function version as a latest version. • In order to
      * successfully call this endpoint, the specified Workspace needs to have the Functions feature
      * enabled. Please reach out to your customer success manager for more information.
      *
@@ -1481,7 +1481,7 @@ public class FunctionsApi {
     }
 
     /**
-     * Restore Function Version Restore an old Function version as the latest version. • In order to
+     * Restore Function Version Restore an old Function version as a latest version. • In order to
      * successfully call this endpoint, the specified Workspace needs to have the Functions feature
      * enabled. Please reach out to your customer success manager for more information.
      *
@@ -1510,7 +1510,7 @@ public class FunctionsApi {
     }
 
     /**
-     * Restore Function Version (asynchronously) Restore an old Function version as the latest
+     * Restore Function Version (asynchronously) Restore an old Function version as a latest
      * version. • In order to successfully call this endpoint, the specified Workspace needs to have
      * the Functions feature enabled. Please reach out to your customer success manager for more
      * information.
