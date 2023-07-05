@@ -27,12 +27,10 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Represents a rule from a Tracking Plan. */
 @ApiModel(description = "Represents a rule from a Tracking Plan.")
@@ -182,7 +180,7 @@ public class RuleV1 {
      * @return jsonSchema
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(value = "JSON Schema of this rule.")
+    @ApiModelProperty(required = true, value = "JSON Schema of this rule.")
     public Object getJsonSchema() {
         return jsonSchema;
     }
@@ -202,8 +200,8 @@ public class RuleV1 {
      *
      * @return version
      */
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Version of this rule.")
+    @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "Version of this rule.")
     public BigDecimal getVersion() {
         return version;
     }
@@ -293,25 +291,9 @@ public class RuleV1 {
                 && Objects.equals(this.deprecatedAt, ruleV1.deprecatedAt);
     }
 
-    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-        return a == b
-                || (a != null
-                        && b != null
-                        && a.isPresent()
-                        && b.isPresent()
-                        && Objects.deepEquals(a.get(), b.get()));
-    }
-
     @Override
     public int hashCode() {
         return Objects.hash(type, key, jsonSchema, version, createdAt, updatedAt, deprecatedAt);
-    }
-
-    private static <T> int hashCodeNullable(JsonNullable<T> a) {
-        if (a == null) {
-            return 1;
-        }
-        return a.isPresent() ? Arrays.deepHashCode(new Object[] {a.get()}) : 31;
     }
 
     @Override
@@ -357,6 +339,8 @@ public class RuleV1 {
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
         openapiRequiredFields.add("type");
+        openapiRequiredFields.add("jsonSchema");
+        openapiRequiredFields.add("version");
     }
 
     /**

@@ -31,8 +31,8 @@ import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
-/** Results from a selectiveSync patch to a Space Warehouse connection. */
-@ApiModel(description = "Results from a selectiveSync patch to a Space Warehouse connection.")
+/** Results from a SelectiveSync patch to a Space Warehouse connection. */
+@ApiModel(description = "Results from a SelectiveSync patch to a Space Warehouse connection.")
 public class UpdateSelectiveSyncForWarehouseAndSpaceAlphaOutput {
     /** Status of the update operation. */
     @JsonAdapter(StatusEnum.Adapter.class)
