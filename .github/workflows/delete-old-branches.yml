@@ -1,0 +1,39 @@
+name: Delete old branches
+on:
+  schedule:
+    - cron: "0 0 * * *"  # Runs every day at midnight (UTC)
+
+jobs:
+  list-stale-branches:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Fetch All Branches
+        run: git fetch --prune --all
+
+      - name: Delete branches older than 7 days
+        run: |
+          # Get the current date in Unix timestamp format
+          current_date=$(date +%s)
+          
+          # Get the list of remote branches and iterate over each branch
+          git branch -r | while read branch; do
+            # Extract the branch name from the full reference (e.g., "origin/branch-name")
+            branch_name=${branch#"origin/"}
+          
+            # Get the last commit date of the branch in Unix timestamp format
+            last_commit_date=$(git show -s --format=%ct "origin/$branch_name")
+          
+            # Calculate the time difference in seconds between the current date and last commit date
+            time_difference=$((current_date - last_commit_date))
+          
+            # Define the threshold in seconds (7 days: 7 days * 24 hours/day * 60 minutes/hour * 60 seconds/minute)
+            threshold=$((7 * 24 * 60 * 60))
+          
+            # Check if the branch is stale (not updated in the last 7 days) and list it if so
+            if [ "$time_difference" -gt "$threshold" ]; then
+              echo "Stale branch: $branch_name"
+            fi
+          done
