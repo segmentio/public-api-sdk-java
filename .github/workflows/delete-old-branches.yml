@@ -6,7 +6,7 @@ name: Delete old branches
 on: [push]
 
 jobs:
-  list-stale-branches:
+  delete-old-branches:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
