@@ -42,5 +42,7 @@ jobs:
             # Check if the branch is stale (not updated in the last 7 days) and list it if so
             if [ "$time_difference" -gt "$threshold" ]; then
               echo "Stale branch: $branch_name"
+              # git push --delete origin "$branch_name"
+              # git branch -d "$branch_name"
             fi
           done
