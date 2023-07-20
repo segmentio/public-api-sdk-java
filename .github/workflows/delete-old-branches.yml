@@ -1,7 +1,9 @@
 name: Delete old branches
-on:
-  schedule:
-    - cron: "0 0 * * *"  # Runs every day at midnight (UTC)
+#on:
+#  schedule:
+#    - cron: "0 0 * * *"  # Runs every day at midnight (UTC)
+
+on: [push]
 
 jobs:
   list-stale-branches:
