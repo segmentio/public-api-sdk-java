@@ -25,6 +25,11 @@ jobs:
             # Extract the branch name from the full reference (e.g., "origin/branch-name")
             branch_name=${branch#"origin/"}
           
+            # Skip the 'master' branch
+            if [ "$branch_name" = "master" ]; then
+              continue
+            fi
+          
             # Get the last commit date of the branch in Unix timestamp format
             last_commit_date=$(git show -s --format=%ct "origin/$branch_name")
           
