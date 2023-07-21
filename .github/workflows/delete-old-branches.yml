@@ -1,7 +1,8 @@
 name: Delete old branches
 on:
-  schedule:
-    - cron: "0 0 * * *"  # Runs every day at midnight (UTC)
+  push:
+    branches:
+      - master
 
 jobs:
   delete-old-branches:
