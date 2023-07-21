@@ -16,5 +16,6 @@ jobs:
         with:
           repo_token: ${{ github.token }}
           date: '7 days ago'
+          dry_run: false
           default_branches: main,master,staging
           exclude_open_pr_branches: true
