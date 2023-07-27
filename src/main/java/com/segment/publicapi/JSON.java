@@ -722,6 +722,12 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.GroupSourceSettingsV1.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.GroupSubscriptionStatus
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.GroupSubscriptionStatusResponse
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.HandleWebhookInput.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.HandleWebhookOutput.CustomTypeAdapterFactory());
@@ -1302,6 +1308,9 @@ public class JSON {
                 new com.segment.publicapi.models.UpdateFunctionV1Input.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.UpdateFunctionV1Output.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.UpdateGroupSubscriptionStatusResponse
+                        .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.UpdateProfilesWarehouseForSpaceWarehouse200Response
                         .CustomTypeAdapterFactory());

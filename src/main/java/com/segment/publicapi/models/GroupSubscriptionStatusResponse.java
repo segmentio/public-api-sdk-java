@@ -13,7 +13,6 @@ package com.segment.publicapi.models;
 
 
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
@@ -26,77 +25,19 @@ import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
-/** GetMessagingSubscriptionSuccessResponse */
-public class GetMessagingSubscriptionSuccessResponse {
-    public static final String SERIALIZED_NAME_KEY = "key";
+/** GroupSubscriptionStatusResponse */
+public class GroupSubscriptionStatusResponse {
+    public static final String SERIALIZED_NAME_NAME = "name";
 
-    @SerializedName(SERIALIZED_NAME_KEY)
-    private String key;
+    @SerializedName(SERIALIZED_NAME_NAME)
+    private String name;
 
-    /** Type is communication medium used. */
-    @JsonAdapter(TypeEnum.Adapter.class)
-    public enum TypeEnum {
-        EMAIL("EMAIL"),
-
-        SMS("SMS"),
-
-        WHATSAPP("WHATSAPP");
-
-        private String value;
-
-        TypeEnum(String value) {
-            this.value = value;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        public static TypeEnum fromValue(String value) {
-            for (TypeEnum b : TypeEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
-        }
-
-        public static class Adapter extends TypeAdapter<TypeEnum> {
-            @Override
-            public void write(final JsonWriter jsonWriter, final TypeEnum enumeration)
-                    throws IOException {
-                jsonWriter.value(enumeration.getValue());
-            }
-
-            @Override
-            public TypeEnum read(final JsonReader jsonReader) throws IOException {
-                String value = jsonReader.nextString();
-                return TypeEnum.fromValue(value);
-            }
-        }
-    }
-
-    public static final String SERIALIZED_NAME_TYPE = "type";
-
-    @SerializedName(SERIALIZED_NAME_TYPE)
-    private TypeEnum type;
-
-    /**
-     * The user subscribed, unsubscribed, or on initial status. This is absent if the phone number
-     * or email is not found.
-     */
+    /** The user subscribed, unsubscribed, or on initial status. */
     @JsonAdapter(StatusEnum.Adapter.class)
     public enum StatusEnum {
         DID_NOT_SUBSCRIBE("DID_NOT_SUBSCRIBE"),
@@ -149,77 +90,54 @@ public class GetMessagingSubscriptionSuccessResponse {
     @SerializedName(SERIALIZED_NAME_STATUS)
     private StatusEnum status;
 
-    public static final String SERIALIZED_NAME_GROUPS = "groups";
+    public static final String SERIALIZED_NAME_ID = "id";
 
-    @SerializedName(SERIALIZED_NAME_GROUPS)
-    private List<GroupSubscriptionStatusResponse> groups = null;
+    @SerializedName(SERIALIZED_NAME_ID)
+    private String id;
 
     public static final String SERIALIZED_NAME_UPDATED_AT = "updatedAt";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
     private String updatedAt;
 
-    public GetMessagingSubscriptionSuccessResponse() {}
+    public GroupSubscriptionStatusResponse() {}
 
-    public GetMessagingSubscriptionSuccessResponse key(String key) {
+    public GroupSubscriptionStatusResponse name(String name) {
 
-        this.key = key;
+        this.name = name;
         return this;
     }
 
     /**
-     * Key is the phone number or email.
+     * Name of the group.
      *
-     * @return key
+     * @return name
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "Key is the phone number or email.")
-    public String getKey() {
-        return key;
+    @ApiModelProperty(required = true, value = "Name of the group.")
+    public String getName() {
+        return name;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public GetMessagingSubscriptionSuccessResponse type(TypeEnum type) {
-
-        this.type = type;
-        return this;
-    }
-
-    /**
-     * Type is communication medium used.
-     *
-     * @return type
-     */
-    @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "Type is communication medium used.")
-    public TypeEnum getType() {
-        return type;
-    }
-
-    public void setType(TypeEnum type) {
-        this.type = type;
-    }
-
-    public GetMessagingSubscriptionSuccessResponse status(StatusEnum status) {
+    public GroupSubscriptionStatusResponse status(StatusEnum status) {
 
         this.status = status;
         return this;
     }
 
     /**
-     * The user subscribed, unsubscribed, or on initial status. This is absent if the phone number
-     * or email is not found.
+     * The user subscribed, unsubscribed, or on initial status.
      *
      * @return status
      */
-    @javax.annotation.Nullable
+    @javax.annotation.Nonnull
     @ApiModelProperty(
-            value =
-                    "The user subscribed, unsubscribed, or on initial status. This is absent if the"
-                            + " phone number or email is not found.")
+            required = true,
+            value = "The user subscribed, unsubscribed, or on initial status.")
     public StatusEnum getStatus() {
         return status;
     }
@@ -228,38 +146,28 @@ public class GetMessagingSubscriptionSuccessResponse {
         this.status = status;
     }
 
-    public GetMessagingSubscriptionSuccessResponse groups(
-            List<GroupSubscriptionStatusResponse> groups) {
+    public GroupSubscriptionStatusResponse id(String id) {
 
-        this.groups = groups;
-        return this;
-    }
-
-    public GetMessagingSubscriptionSuccessResponse addGroupsItem(
-            GroupSubscriptionStatusResponse groupsItem) {
-        if (this.groups == null) {
-            this.groups = new ArrayList<>();
-        }
-        this.groups.add(groupsItem);
+        this.id = id;
         return this;
     }
 
     /**
-     * Optional subscription groups.
+     * The group id.
      *
-     * @return groups
+     * @return id
      */
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "Optional subscription groups.")
-    public List<GroupSubscriptionStatusResponse> getGroups() {
-        return groups;
+    @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "The group id.")
+    public String getId() {
+        return id;
     }
 
-    public void setGroups(List<GroupSubscriptionStatusResponse> groups) {
-        this.groups = groups;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public GetMessagingSubscriptionSuccessResponse updatedAt(String updatedAt) {
+    public GroupSubscriptionStatusResponse updatedAt(String updatedAt) {
 
         this.updatedAt = updatedAt;
         return this;
@@ -288,29 +196,26 @@ public class GetMessagingSubscriptionSuccessResponse {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        GetMessagingSubscriptionSuccessResponse getMessagingSubscriptionSuccessResponse =
-                (GetMessagingSubscriptionSuccessResponse) o;
-        return Objects.equals(this.key, getMessagingSubscriptionSuccessResponse.key)
-                && Objects.equals(this.type, getMessagingSubscriptionSuccessResponse.type)
-                && Objects.equals(this.status, getMessagingSubscriptionSuccessResponse.status)
-                && Objects.equals(this.groups, getMessagingSubscriptionSuccessResponse.groups)
-                && Objects.equals(
-                        this.updatedAt, getMessagingSubscriptionSuccessResponse.updatedAt);
+        GroupSubscriptionStatusResponse groupSubscriptionStatusResponse =
+                (GroupSubscriptionStatusResponse) o;
+        return Objects.equals(this.name, groupSubscriptionStatusResponse.name)
+                && Objects.equals(this.status, groupSubscriptionStatusResponse.status)
+                && Objects.equals(this.id, groupSubscriptionStatusResponse.id)
+                && Objects.equals(this.updatedAt, groupSubscriptionStatusResponse.updatedAt);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(key, type, status, groups, updatedAt);
+        return Objects.hash(name, status, id, updatedAt);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class GetMessagingSubscriptionSuccessResponse {\n");
-        sb.append("    key: ").append(toIndentedString(key)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("class GroupSubscriptionStatusResponse {\n");
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    status: ").append(toIndentedString(status)).append("\n");
-        sb.append("    groups: ").append(toIndentedString(groups)).append("\n");
+        sb.append("    id: ").append(toIndentedString(id)).append("\n");
         sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -333,16 +238,16 @@ public class GetMessagingSubscriptionSuccessResponse {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("key");
-        openapiFields.add("type");
+        openapiFields.add("name");
         openapiFields.add("status");
-        openapiFields.add("groups");
+        openapiFields.add("id");
         openapiFields.add("updatedAt");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("key");
-        openapiRequiredFields.add("type");
+        openapiRequiredFields.add("name");
+        openapiRequiredFields.add("status");
+        openapiRequiredFields.add("id");
     }
 
     /**
@@ -350,37 +255,34 @@ public class GetMessagingSubscriptionSuccessResponse {
      *
      * @param jsonObj JSON Object
      * @throws IOException if the JSON Object is invalid with respect to
-     *     GetMessagingSubscriptionSuccessResponse
+     *     GroupSubscriptionStatusResponse
      */
     public static void validateJsonObject(JsonObject jsonObj) throws IOException {
         if (jsonObj == null) {
-            if (!GetMessagingSubscriptionSuccessResponse.openapiRequiredFields
+            if (!GroupSubscriptionStatusResponse.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in"
-                                    + " GetMessagingSubscriptionSuccessResponse is not found in the"
-                                    + " empty JSON string",
-                                GetMessagingSubscriptionSuccessResponse.openapiRequiredFields
-                                        .toString()));
+                                "The required field(s) %s in GroupSubscriptionStatusResponse is not"
+                                        + " found in the empty JSON string",
+                                GroupSubscriptionStatusResponse.openapiRequiredFields.toString()));
             }
         }
 
         Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
         for (Entry<String, JsonElement> entry : entries) {
-            if (!GetMessagingSubscriptionSuccessResponse.openapiFields.contains(entry.getKey())) {
+            if (!GroupSubscriptionStatusResponse.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                    + " `GetMessagingSubscriptionSuccessResponse` properties. JSON:"
-                                    + " %s",
+                                        + " `GroupSubscriptionStatusResponse` properties. JSON: %s",
                                 entry.getKey(), jsonObj.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : GetMessagingSubscriptionSuccessResponse.openapiRequiredFields) {
+        for (String requiredField : GroupSubscriptionStatusResponse.openapiRequiredFields) {
             if (jsonObj.get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -388,40 +290,26 @@ public class GetMessagingSubscriptionSuccessResponse {
                                 requiredField, jsonObj.toString()));
             }
         }
-        if (!jsonObj.get("key").isJsonPrimitive()) {
+        if (!jsonObj.get("name").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `key` to be a primitive type in the JSON string but"
-                                    + " got `%s`",
-                            jsonObj.get("key").toString()));
-        }
-        if (!jsonObj.get("type").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `type` to be a primitive type in the JSON string"
+                            "Expected the field `name` to be a primitive type in the JSON string"
                                     + " but got `%s`",
-                            jsonObj.get("type").toString()));
+                            jsonObj.get("name").toString()));
         }
-        if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull())
-                && !jsonObj.get("status").isJsonPrimitive()) {
+        if (!jsonObj.get("status").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             "Expected the field `status` to be a primitive type in the JSON string"
                                     + " but got `%s`",
                             jsonObj.get("status").toString()));
         }
-        if (jsonObj.get("groups") != null && !jsonObj.get("groups").isJsonNull()) {
-            JsonArray jsonArraygroups = jsonObj.getAsJsonArray("groups");
-            if (jsonArraygroups != null) {
-                // ensure the json data is an array
-                if (!jsonObj.get("groups").isJsonArray()) {
-                    throw new IllegalArgumentException(
-                            String.format(
-                                    "Expected the field `groups` to be an array in the JSON string"
-                                            + " but got `%s`",
-                                    jsonObj.get("groups").toString()));
-                }
-            }
+        if (!jsonObj.get("id").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `id` to be a primitive type in the JSON string but"
+                                    + " got `%s`",
+                            jsonObj.get("id").toString()));
         }
         if ((jsonObj.get("updatedAt") != null && !jsonObj.get("updatedAt").isJsonNull())
                 && !jsonObj.get("updatedAt").isJsonPrimitive()) {
@@ -437,28 +325,26 @@ public class GetMessagingSubscriptionSuccessResponse {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!GetMessagingSubscriptionSuccessResponse.class.isAssignableFrom(
-                    type.getRawType())) {
-                return null; // this class only serializes 'GetMessagingSubscriptionSuccessResponse'
-                // and its subtypes
+            if (!GroupSubscriptionStatusResponse.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'GroupSubscriptionStatusResponse' and its
+                // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<GetMessagingSubscriptionSuccessResponse> thisAdapter =
+            final TypeAdapter<GroupSubscriptionStatusResponse> thisAdapter =
                     gson.getDelegateAdapter(
-                            this, TypeToken.get(GetMessagingSubscriptionSuccessResponse.class));
+                            this, TypeToken.get(GroupSubscriptionStatusResponse.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<GetMessagingSubscriptionSuccessResponse>() {
+                    new TypeAdapter<GroupSubscriptionStatusResponse>() {
                         @Override
-                        public void write(
-                                JsonWriter out, GetMessagingSubscriptionSuccessResponse value)
+                        public void write(JsonWriter out, GroupSubscriptionStatusResponse value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public GetMessagingSubscriptionSuccessResponse read(JsonReader in)
+                        public GroupSubscriptionStatusResponse read(JsonReader in)
                                 throws IOException {
                             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
                             validateJsonObject(jsonObj);
@@ -469,20 +355,19 @@ public class GetMessagingSubscriptionSuccessResponse {
     }
 
     /**
-     * Create an instance of GetMessagingSubscriptionSuccessResponse given an JSON string
+     * Create an instance of GroupSubscriptionStatusResponse given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of GetMessagingSubscriptionSuccessResponse
+     * @return An instance of GroupSubscriptionStatusResponse
      * @throws IOException if the JSON string is invalid with respect to
-     *     GetMessagingSubscriptionSuccessResponse
+     *     GroupSubscriptionStatusResponse
      */
-    public static GetMessagingSubscriptionSuccessResponse fromJson(String jsonString)
-            throws IOException {
-        return JSON.getGson().fromJson(jsonString, GetMessagingSubscriptionSuccessResponse.class);
+    public static GroupSubscriptionStatusResponse fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, GroupSubscriptionStatusResponse.class);
     }
 
     /**
-     * Convert an instance of GetMessagingSubscriptionSuccessResponse to an JSON string
+     * Convert an instance of GroupSubscriptionStatusResponse to an JSON string
      *
      * @return JSON string
      */

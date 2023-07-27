@@ -13,6 +13,7 @@ package com.segment.publicapi.models;
 
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
@@ -25,7 +26,9 @@ import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
@@ -37,12 +40,14 @@ public class MessagesSubscriptionRequest {
     @SerializedName(SERIALIZED_NAME_KEY)
     private String key;
 
-    /** Type is communication medium used. Either EMAIL or SMS. */
+    /** Type is communication medium used. */
     @JsonAdapter(TypeEnum.Adapter.class)
     public enum TypeEnum {
         EMAIL("EMAIL"),
 
-        SMS("SMS");
+        SMS("SMS"),
+
+        WHATSAPP("WHATSAPP");
 
         private String value;
 
@@ -88,7 +93,7 @@ public class MessagesSubscriptionRequest {
     @SerializedName(SERIALIZED_NAME_TYPE)
     private TypeEnum type;
 
-    /** The user subscribed, unsubscribed, or on initial status. */
+    /** The user subscribed, unsubscribed, or on initial status globally. */
     @JsonAdapter(StatusEnum.Adapter.class)
     public enum StatusEnum {
         DID_NOT_SUBSCRIBE("DID_NOT_SUBSCRIBE"),
@@ -141,6 +146,11 @@ public class MessagesSubscriptionRequest {
     @SerializedName(SERIALIZED_NAME_STATUS)
     private StatusEnum status;
 
+    public static final String SERIALIZED_NAME_GROUPS = "groups";
+
+    @SerializedName(SERIALIZED_NAME_GROUPS)
+    private List<GroupSubscriptionStatus> groups = null;
+
     public MessagesSubscriptionRequest() {}
 
     public MessagesSubscriptionRequest key(String key) {
@@ -171,14 +181,12 @@ public class MessagesSubscriptionRequest {
     }
 
     /**
-     * Type is communication medium used. Either EMAIL or SMS.
+     * Type is communication medium used.
      *
      * @return type
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(
-            required = true,
-            value = "Type is communication medium used. Either EMAIL or SMS.")
+    @ApiModelProperty(required = true, value = "Type is communication medium used.")
     public TypeEnum getType() {
         return type;
     }
@@ -194,20 +202,47 @@ public class MessagesSubscriptionRequest {
     }
 
     /**
-     * The user subscribed, unsubscribed, or on initial status.
+     * The user subscribed, unsubscribed, or on initial status globally.
      *
      * @return status
      */
-    @javax.annotation.Nonnull
-    @ApiModelProperty(
-            required = true,
-            value = "The user subscribed, unsubscribed, or on initial status.")
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "The user subscribed, unsubscribed, or on initial status globally.")
     public StatusEnum getStatus() {
         return status;
     }
 
     public void setStatus(StatusEnum status) {
         this.status = status;
+    }
+
+    public MessagesSubscriptionRequest groups(List<GroupSubscriptionStatus> groups) {
+
+        this.groups = groups;
+        return this;
+    }
+
+    public MessagesSubscriptionRequest addGroupsItem(GroupSubscriptionStatus groupsItem) {
+        if (this.groups == null) {
+            this.groups = new ArrayList<>();
+        }
+        this.groups.add(groupsItem);
+        return this;
+    }
+
+    /**
+     * Optional groups subscription status.
+     *
+     * @return groups
+     */
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Optional groups subscription status.")
+    public List<GroupSubscriptionStatus> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(List<GroupSubscriptionStatus> groups) {
+        this.groups = groups;
     }
 
     @Override
@@ -221,12 +256,13 @@ public class MessagesSubscriptionRequest {
         MessagesSubscriptionRequest messagesSubscriptionRequest = (MessagesSubscriptionRequest) o;
         return Objects.equals(this.key, messagesSubscriptionRequest.key)
                 && Objects.equals(this.type, messagesSubscriptionRequest.type)
-                && Objects.equals(this.status, messagesSubscriptionRequest.status);
+                && Objects.equals(this.status, messagesSubscriptionRequest.status)
+                && Objects.equals(this.groups, messagesSubscriptionRequest.groups);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(key, type, status);
+        return Objects.hash(key, type, status, groups);
     }
 
     @Override
@@ -236,6 +272,7 @@ public class MessagesSubscriptionRequest {
         sb.append("    key: ").append(toIndentedString(key)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("    status: ").append(toIndentedString(status)).append("\n");
+        sb.append("    groups: ").append(toIndentedString(groups)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -260,12 +297,12 @@ public class MessagesSubscriptionRequest {
         openapiFields.add("key");
         openapiFields.add("type");
         openapiFields.add("status");
+        openapiFields.add("groups");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
         openapiRequiredFields.add("key");
         openapiRequiredFields.add("type");
-        openapiRequiredFields.add("status");
     }
 
     /**
@@ -321,12 +358,26 @@ public class MessagesSubscriptionRequest {
                                     + " but got `%s`",
                             jsonObj.get("type").toString()));
         }
-        if (!jsonObj.get("status").isJsonPrimitive()) {
+        if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull())
+                && !jsonObj.get("status").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             "Expected the field `status` to be a primitive type in the JSON string"
                                     + " but got `%s`",
                             jsonObj.get("status").toString()));
+        }
+        if (jsonObj.get("groups") != null && !jsonObj.get("groups").isJsonNull()) {
+            JsonArray jsonArraygroups = jsonObj.getAsJsonArray("groups");
+            if (jsonArraygroups != null) {
+                // ensure the json data is an array
+                if (!jsonObj.get("groups").isJsonArray()) {
+                    throw new IllegalArgumentException(
+                            String.format(
+                                    "Expected the field `groups` to be an array in the JSON string"
+                                            + " but got `%s`",
+                                    jsonObj.get("groups").toString()));
+                }
+            }
         }
     }
 
