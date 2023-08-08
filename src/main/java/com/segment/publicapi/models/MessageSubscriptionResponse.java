@@ -40,12 +40,14 @@ public class MessageSubscriptionResponse {
     @SerializedName(SERIALIZED_NAME_KEY)
     private String key;
 
-    /** Type is communication medium used. Either EMAIL or SMS. */
+    /** Type is communication medium used. Either SMS, EMAIL or WHATSAPP. */
     @JsonAdapter(TypeEnum.Adapter.class)
     public enum TypeEnum {
         EMAIL("EMAIL"),
 
-        SMS("SMS");
+        SMS("SMS"),
+
+        WHATSAPP("WHATSAPP");
 
         private String value;
 
@@ -149,6 +151,11 @@ public class MessageSubscriptionResponse {
     @SerializedName(SERIALIZED_NAME_ERRORS)
     private List<MessageSubscriptionResponseError> errors = null;
 
+    public static final String SERIALIZED_NAME_GROUPS = "groups";
+
+    @SerializedName(SERIALIZED_NAME_GROUPS)
+    private List<UpdateGroupSubscriptionStatusResponse> groups = null;
+
     public MessageSubscriptionResponse() {}
 
     public MessageSubscriptionResponse key(String key) {
@@ -179,14 +186,14 @@ public class MessageSubscriptionResponse {
     }
 
     /**
-     * Type is communication medium used. Either EMAIL or SMS.
+     * Type is communication medium used. Either SMS, EMAIL or WHATSAPP.
      *
      * @return type
      */
     @javax.annotation.Nonnull
     @ApiModelProperty(
             required = true,
-            value = "Type is communication medium used. Either EMAIL or SMS.")
+            value = "Type is communication medium used. Either SMS, EMAIL or WHATSAPP.")
     public TypeEnum getType() {
         return type;
     }
@@ -206,10 +213,8 @@ public class MessageSubscriptionResponse {
      *
      * @return status
      */
-    @javax.annotation.Nonnull
-    @ApiModelProperty(
-            required = true,
-            value = "The user subscribed, unsubscribed, or on initial status.")
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "The user subscribed, unsubscribed, or on initial status.")
     public StatusEnum getStatus() {
         return status;
     }
@@ -247,6 +252,36 @@ public class MessageSubscriptionResponse {
         this.errors = errors;
     }
 
+    public MessageSubscriptionResponse groups(List<UpdateGroupSubscriptionStatusResponse> groups) {
+
+        this.groups = groups;
+        return this;
+    }
+
+    public MessageSubscriptionResponse addGroupsItem(
+            UpdateGroupSubscriptionStatusResponse groupsItem) {
+        if (this.groups == null) {
+            this.groups = new ArrayList<>();
+        }
+        this.groups.add(groupsItem);
+        return this;
+    }
+
+    /**
+     * Optional subscription groups.
+     *
+     * @return groups
+     */
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "Optional subscription groups.")
+    public List<UpdateGroupSubscriptionStatusResponse> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(List<UpdateGroupSubscriptionStatusResponse> groups) {
+        this.groups = groups;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -259,12 +294,13 @@ public class MessageSubscriptionResponse {
         return Objects.equals(this.key, messageSubscriptionResponse.key)
                 && Objects.equals(this.type, messageSubscriptionResponse.type)
                 && Objects.equals(this.status, messageSubscriptionResponse.status)
-                && Objects.equals(this.errors, messageSubscriptionResponse.errors);
+                && Objects.equals(this.errors, messageSubscriptionResponse.errors)
+                && Objects.equals(this.groups, messageSubscriptionResponse.groups);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(key, type, status, errors);
+        return Objects.hash(key, type, status, errors, groups);
     }
 
     @Override
@@ -275,6 +311,7 @@ public class MessageSubscriptionResponse {
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("    status: ").append(toIndentedString(status)).append("\n");
         sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+        sb.append("    groups: ").append(toIndentedString(groups)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -300,12 +337,12 @@ public class MessageSubscriptionResponse {
         openapiFields.add("type");
         openapiFields.add("status");
         openapiFields.add("errors");
+        openapiFields.add("groups");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
         openapiRequiredFields.add("key");
         openapiRequiredFields.add("type");
-        openapiRequiredFields.add("status");
     }
 
     /**
@@ -361,7 +398,8 @@ public class MessageSubscriptionResponse {
                                     + " but got `%s`",
                             jsonObj.get("type").toString()));
         }
-        if (!jsonObj.get("status").isJsonPrimitive()) {
+        if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull())
+                && !jsonObj.get("status").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             "Expected the field `status` to be a primitive type in the JSON string"
@@ -378,6 +416,19 @@ public class MessageSubscriptionResponse {
                                     "Expected the field `errors` to be an array in the JSON string"
                                             + " but got `%s`",
                                     jsonObj.get("errors").toString()));
+                }
+            }
+        }
+        if (jsonObj.get("groups") != null && !jsonObj.get("groups").isJsonNull()) {
+            JsonArray jsonArraygroups = jsonObj.getAsJsonArray("groups");
+            if (jsonArraygroups != null) {
+                // ensure the json data is an array
+                if (!jsonObj.get("groups").isJsonArray()) {
+                    throw new IllegalArgumentException(
+                            String.format(
+                                    "Expected the field `groups` to be an array in the JSON string"
+                                            + " but got `%s`",
+                                    jsonObj.get("groups").toString()));
                 }
             }
         }
