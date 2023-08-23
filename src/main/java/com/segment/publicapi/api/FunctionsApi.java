@@ -22,16 +22,22 @@ import com.segment.publicapi.Pair;
 import com.segment.publicapi.models.CreateFunction200Response;
 import com.segment.publicapi.models.CreateFunctionDeployment200Response;
 import com.segment.publicapi.models.CreateFunctionV1Input;
+import com.segment.publicapi.models.CreateInsertFunctionInstance200Response;
+import com.segment.publicapi.models.CreateInsertFunctionInstanceAlphaInput;
 import com.segment.publicapi.models.DeleteFunction200Response;
+import com.segment.publicapi.models.DeleteInsertFunctionInstance200Response;
 import com.segment.publicapi.models.GetFunction200Response;
 import com.segment.publicapi.models.GetFunctionVersion200Response;
 import com.segment.publicapi.models.ListFunctionVersions200Response;
 import com.segment.publicapi.models.ListFunctions200Response;
+import com.segment.publicapi.models.ListInsertFunctionInstances200Response;
 import com.segment.publicapi.models.PaginationInput;
 import com.segment.publicapi.models.RestoreFunctionVersion200Response;
 import com.segment.publicapi.models.RestoreFunctionVersionAlphaInput;
 import com.segment.publicapi.models.UpdateFunction200Response;
 import com.segment.publicapi.models.UpdateFunctionV1Input;
+import com.segment.publicapi.models.UpdateInsertFunctionInstance200Response;
+import com.segment.publicapi.models.UpdateInsertFunctionInstanceAlphaInput;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -429,6 +435,189 @@ public class FunctionsApi {
         return localVarCall;
     }
     /**
+     * Build call for createInsertFunctionInstance
+     *
+     * @param createInsertFunctionInstanceAlphaInput (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call createInsertFunctionInstanceCall(
+            CreateInsertFunctionInstanceAlphaInput createInsertFunctionInstanceAlphaInput,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = createInsertFunctionInstanceAlphaInput;
+
+        // create path and map variables
+        String localVarPath = "/insert-function/instance";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.segment.v1alpha+json", "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/vnd.segment.v1alpha+json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"token"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createInsertFunctionInstanceValidateBeforeCall(
+            CreateInsertFunctionInstanceAlphaInput createInsertFunctionInstanceAlphaInput,
+            final ApiCallback _callback)
+            throws ApiException {
+
+        // verify the required parameter 'createInsertFunctionInstanceAlphaInput' is set
+        if (createInsertFunctionInstanceAlphaInput == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'createInsertFunctionInstanceAlphaInput' when"
+                            + " calling createInsertFunctionInstance(Async)");
+        }
+
+        okhttp3.Call localVarCall =
+                createInsertFunctionInstanceCall(createInsertFunctionInstanceAlphaInput, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Create Insert Function Instance Creates an insert Function instance connected to the given
+     * Destination. • In order to successfully call this endpoint, the specified Workspace needs to
+     * have the Functions feature enabled. Please reach out to your customer success manager for
+     * more information.
+     *
+     * @param createInsertFunctionInstanceAlphaInput (required)
+     * @return CreateInsertFunctionInstance200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public CreateInsertFunctionInstance200Response createInsertFunctionInstance(
+            CreateInsertFunctionInstanceAlphaInput createInsertFunctionInstanceAlphaInput)
+            throws ApiException {
+        ApiResponse<CreateInsertFunctionInstance200Response> localVarResp =
+                createInsertFunctionInstanceWithHttpInfo(createInsertFunctionInstanceAlphaInput);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create Insert Function Instance Creates an insert Function instance connected to the given
+     * Destination. • In order to successfully call this endpoint, the specified Workspace needs to
+     * have the Functions feature enabled. Please reach out to your customer success manager for
+     * more information.
+     *
+     * @param createInsertFunctionInstanceAlphaInput (required)
+     * @return ApiResponse&lt;CreateInsertFunctionInstance200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<CreateInsertFunctionInstance200Response>
+            createInsertFunctionInstanceWithHttpInfo(
+                    CreateInsertFunctionInstanceAlphaInput createInsertFunctionInstanceAlphaInput)
+                    throws ApiException {
+        okhttp3.Call localVarCall =
+                createInsertFunctionInstanceValidateBeforeCall(
+                        createInsertFunctionInstanceAlphaInput, null);
+        Type localVarReturnType =
+                new TypeToken<CreateInsertFunctionInstance200Response>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create Insert Function Instance (asynchronously) Creates an insert Function instance
+     * connected to the given Destination. • In order to successfully call this endpoint, the
+     * specified Workspace needs to have the Functions feature enabled. Please reach out to your
+     * customer success manager for more information.
+     *
+     * @param createInsertFunctionInstanceAlphaInput (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body
+     *     object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call createInsertFunctionInstanceAsync(
+            CreateInsertFunctionInstanceAlphaInput createInsertFunctionInstanceAlphaInput,
+            final ApiCallback<CreateInsertFunctionInstance200Response> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                createInsertFunctionInstanceValidateBeforeCall(
+                        createInsertFunctionInstanceAlphaInput, _callback);
+        Type localVarReturnType =
+                new TypeToken<CreateInsertFunctionInstance200Response>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for deleteFunction
      *
      * @param functionId (required)
@@ -597,6 +786,180 @@ public class FunctionsApi {
 
         okhttp3.Call localVarCall = deleteFunctionValidateBeforeCall(functionId, _callback);
         Type localVarReturnType = new TypeToken<DeleteFunction200Response>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for deleteInsertFunctionInstance
+     *
+     * @param instanceId (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call deleteInsertFunctionInstanceCall(
+            String instanceId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/insert-function/instance/{instanceId}"
+                        .replaceAll(
+                                "\\{" + "instanceId" + "\\}",
+                                localVarApiClient.escapeString(instanceId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.segment.v1alpha+json", "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"token"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "DELETE",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteInsertFunctionInstanceValidateBeforeCall(
+            String instanceId, final ApiCallback _callback) throws ApiException {
+
+        // verify the required parameter 'instanceId' is set
+        if (instanceId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'instanceId' when calling"
+                            + " deleteInsertFunctionInstance(Async)");
+        }
+
+        okhttp3.Call localVarCall = deleteInsertFunctionInstanceCall(instanceId, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Delete Insert Function Instance Deletes an insert Function instance. • In order to
+     * successfully call this endpoint, the specified Workspace needs to have the Functions feature
+     * enabled. Please reach out to your customer success manager for more information.
+     *
+     * @param instanceId (required)
+     * @return DeleteInsertFunctionInstance200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public DeleteInsertFunctionInstance200Response deleteInsertFunctionInstance(String instanceId)
+            throws ApiException {
+        ApiResponse<DeleteInsertFunctionInstance200Response> localVarResp =
+                deleteInsertFunctionInstanceWithHttpInfo(instanceId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Delete Insert Function Instance Deletes an insert Function instance. • In order to
+     * successfully call this endpoint, the specified Workspace needs to have the Functions feature
+     * enabled. Please reach out to your customer success manager for more information.
+     *
+     * @param instanceId (required)
+     * @return ApiResponse&lt;DeleteInsertFunctionInstance200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<DeleteInsertFunctionInstance200Response>
+            deleteInsertFunctionInstanceWithHttpInfo(String instanceId) throws ApiException {
+        okhttp3.Call localVarCall =
+                deleteInsertFunctionInstanceValidateBeforeCall(instanceId, null);
+        Type localVarReturnType =
+                new TypeToken<DeleteInsertFunctionInstance200Response>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Delete Insert Function Instance (asynchronously) Deletes an insert Function instance. • In
+     * order to successfully call this endpoint, the specified Workspace needs to have the Functions
+     * feature enabled. Please reach out to your customer success manager for more information.
+     *
+     * @param instanceId (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body
+     *     object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call deleteInsertFunctionInstanceAsync(
+            String instanceId, final ApiCallback<DeleteInsertFunctionInstance200Response> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                deleteInsertFunctionInstanceValidateBeforeCall(instanceId, _callback);
+        Type localVarReturnType =
+                new TypeToken<DeleteInsertFunctionInstance200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1348,6 +1711,208 @@ public class FunctionsApi {
         return localVarCall;
     }
     /**
+     * Build call for listInsertFunctionInstances
+     *
+     * @param pagination Pagination parameters. This parameter exists in alpha. (required)
+     * @param functionId The insert Function class id to lookup. This parameter exists in alpha.
+     *     (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listInsertFunctionInstancesCall(
+            PaginationInput pagination, String functionId, final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/insert-function/instances";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (pagination != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pagination", pagination));
+        }
+
+        if (functionId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("functionId", functionId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/vnd.segment.v1alpha+json", "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"token"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listInsertFunctionInstancesValidateBeforeCall(
+            PaginationInput pagination, String functionId, final ApiCallback _callback)
+            throws ApiException {
+
+        // verify the required parameter 'pagination' is set
+        if (pagination == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'pagination' when calling"
+                            + " listInsertFunctionInstances(Async)");
+        }
+
+        // verify the required parameter 'functionId' is set
+        if (functionId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'functionId' when calling"
+                            + " listInsertFunctionInstances(Async)");
+        }
+
+        okhttp3.Call localVarCall =
+                listInsertFunctionInstancesCall(pagination, functionId, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * List Insert Function Instances Lists all insert Function instances connected to the given
+     * insert Function. • In order to successfully call this endpoint, the specified Workspace needs
+     * to have the Functions feature enabled. Please reach out to your customer success manager for
+     * more information.
+     *
+     * @param pagination Pagination parameters. This parameter exists in alpha. (required)
+     * @param functionId The insert Function class id to lookup. This parameter exists in alpha.
+     *     (required)
+     * @return ListInsertFunctionInstances200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ListInsertFunctionInstances200Response listInsertFunctionInstances(
+            PaginationInput pagination, String functionId) throws ApiException {
+        ApiResponse<ListInsertFunctionInstances200Response> localVarResp =
+                listInsertFunctionInstancesWithHttpInfo(pagination, functionId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List Insert Function Instances Lists all insert Function instances connected to the given
+     * insert Function. • In order to successfully call this endpoint, the specified Workspace needs
+     * to have the Functions feature enabled. Please reach out to your customer success manager for
+     * more information.
+     *
+     * @param pagination Pagination parameters. This parameter exists in alpha. (required)
+     * @param functionId The insert Function class id to lookup. This parameter exists in alpha.
+     *     (required)
+     * @return ApiResponse&lt;ListInsertFunctionInstances200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<ListInsertFunctionInstances200Response>
+            listInsertFunctionInstancesWithHttpInfo(PaginationInput pagination, String functionId)
+                    throws ApiException {
+        okhttp3.Call localVarCall =
+                listInsertFunctionInstancesValidateBeforeCall(pagination, functionId, null);
+        Type localVarReturnType =
+                new TypeToken<ListInsertFunctionInstances200Response>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List Insert Function Instances (asynchronously) Lists all insert Function instances connected
+     * to the given insert Function. • In order to successfully call this endpoint, the specified
+     * Workspace needs to have the Functions feature enabled. Please reach out to your customer
+     * success manager for more information.
+     *
+     * @param pagination Pagination parameters. This parameter exists in alpha. (required)
+     * @param functionId The insert Function class id to lookup. This parameter exists in alpha.
+     *     (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body
+     *     object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listInsertFunctionInstancesAsync(
+            PaginationInput pagination,
+            String functionId,
+            final ApiCallback<ListInsertFunctionInstances200Response> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                listInsertFunctionInstancesValidateBeforeCall(pagination, functionId, _callback);
+        Type localVarReturnType =
+                new TypeToken<ListInsertFunctionInstances200Response>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for restoreFunctionVersion
      *
      * @param functionId (required)
@@ -1741,6 +2306,211 @@ public class FunctionsApi {
         okhttp3.Call localVarCall =
                 updateFunctionValidateBeforeCall(functionId, updateFunctionV1Input, _callback);
         Type localVarReturnType = new TypeToken<UpdateFunction200Response>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateInsertFunctionInstance
+     *
+     * @param instanceId (required)
+     * @param updateInsertFunctionInstanceAlphaInput (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call updateInsertFunctionInstanceCall(
+            String instanceId,
+            UpdateInsertFunctionInstanceAlphaInput updateInsertFunctionInstanceAlphaInput,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = updateInsertFunctionInstanceAlphaInput;
+
+        // create path and map variables
+        String localVarPath =
+                "/insert-function/instance/{instanceId}"
+                        .replaceAll(
+                                "\\{" + "instanceId" + "\\}",
+                                localVarApiClient.escapeString(instanceId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.segment.v1alpha+json", "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/vnd.segment.v1alpha+json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"token"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "PATCH",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateInsertFunctionInstanceValidateBeforeCall(
+            String instanceId,
+            UpdateInsertFunctionInstanceAlphaInput updateInsertFunctionInstanceAlphaInput,
+            final ApiCallback _callback)
+            throws ApiException {
+
+        // verify the required parameter 'instanceId' is set
+        if (instanceId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'instanceId' when calling"
+                            + " updateInsertFunctionInstance(Async)");
+        }
+
+        // verify the required parameter 'updateInsertFunctionInstanceAlphaInput' is set
+        if (updateInsertFunctionInstanceAlphaInput == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'updateInsertFunctionInstanceAlphaInput' when"
+                            + " calling updateInsertFunctionInstance(Async)");
+        }
+
+        okhttp3.Call localVarCall =
+                updateInsertFunctionInstanceCall(
+                        instanceId, updateInsertFunctionInstanceAlphaInput, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Update Insert Function Instance Updates an insert Function instance connected to the given
+     * Destination. • In order to successfully call this endpoint, the specified Workspace needs to
+     * have the Functions feature enabled. Please reach out to your customer success manager for
+     * more information.
+     *
+     * @param instanceId (required)
+     * @param updateInsertFunctionInstanceAlphaInput (required)
+     * @return UpdateInsertFunctionInstance200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public UpdateInsertFunctionInstance200Response updateInsertFunctionInstance(
+            String instanceId,
+            UpdateInsertFunctionInstanceAlphaInput updateInsertFunctionInstanceAlphaInput)
+            throws ApiException {
+        ApiResponse<UpdateInsertFunctionInstance200Response> localVarResp =
+                updateInsertFunctionInstanceWithHttpInfo(
+                        instanceId, updateInsertFunctionInstanceAlphaInput);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update Insert Function Instance Updates an insert Function instance connected to the given
+     * Destination. • In order to successfully call this endpoint, the specified Workspace needs to
+     * have the Functions feature enabled. Please reach out to your customer success manager for
+     * more information.
+     *
+     * @param instanceId (required)
+     * @param updateInsertFunctionInstanceAlphaInput (required)
+     * @return ApiResponse&lt;UpdateInsertFunctionInstance200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<UpdateInsertFunctionInstance200Response>
+            updateInsertFunctionInstanceWithHttpInfo(
+                    String instanceId,
+                    UpdateInsertFunctionInstanceAlphaInput updateInsertFunctionInstanceAlphaInput)
+                    throws ApiException {
+        okhttp3.Call localVarCall =
+                updateInsertFunctionInstanceValidateBeforeCall(
+                        instanceId, updateInsertFunctionInstanceAlphaInput, null);
+        Type localVarReturnType =
+                new TypeToken<UpdateInsertFunctionInstance200Response>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update Insert Function Instance (asynchronously) Updates an insert Function instance
+     * connected to the given Destination. • In order to successfully call this endpoint, the
+     * specified Workspace needs to have the Functions feature enabled. Please reach out to your
+     * customer success manager for more information.
+     *
+     * @param instanceId (required)
+     * @param updateInsertFunctionInstanceAlphaInput (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body
+     *     object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call updateInsertFunctionInstanceAsync(
+            String instanceId,
+            UpdateInsertFunctionInstanceAlphaInput updateInsertFunctionInstanceAlphaInput,
+            final ApiCallback<UpdateInsertFunctionInstance200Response> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                updateInsertFunctionInstanceValidateBeforeCall(
+                        instanceId, updateInsertFunctionInstanceAlphaInput, _callback);
+        Type localVarReturnType =
+                new TypeToken<UpdateInsertFunctionInstance200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

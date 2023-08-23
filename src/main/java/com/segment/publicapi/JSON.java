@@ -240,6 +240,15 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.CreateFunctionV1Output.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.CreateInsertFunctionInstance200Response
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.CreateInsertFunctionInstanceAlphaInput
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.CreateInsertFunctionInstanceAlphaOutput
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.CreateInvites200Response
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
@@ -363,6 +372,12 @@ public class JSON {
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.DeleteFunctionV1Output.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.DeleteInsertFunctionInstance200Response
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.DeleteInsertFunctionInstanceAlphaOutput
+                        .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.DeleteInvites200Response
                         .CustomTypeAdapterFactory());
@@ -739,6 +754,14 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.Input.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.InsertFunctionInstance.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.InsertFunctionInstance1
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.InsertFunctionInstanceAlpha
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.IntegrationOptionBeta.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.InvitePermissionV1.CustomTypeAdapterFactory());
@@ -820,6 +843,12 @@ public class JSON {
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.ListFunctionsV1Output.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.ListInsertFunctionInstances200Response
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.ListInsertFunctionInstancesAlphaOutput
+                        .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.ListInvites200Response.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
@@ -1310,6 +1339,15 @@ public class JSON {
                 new com.segment.publicapi.models.UpdateFunctionV1Output.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.UpdateGroupSubscriptionStatusResponse
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.UpdateInsertFunctionInstance200Response
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.UpdateInsertFunctionInstanceAlphaInput
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.UpdateInsertFunctionInstanceAlphaOutput
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.UpdateProfilesWarehouseForSpaceWarehouse200Response
