@@ -801,9 +801,9 @@ public class AudiencesApi {
      * order to successfully call this endpoint, the specified Workspace needs to have the Audience
      * feature enabled. Please reach out to your customer success manager for more information. •
      * When called, this endpoint may generate the &#x60;Audience Modified&#x60; event in the [audit
-     * trail](/tag/Audit-Trail). • Note that when the definition of a Audience is updated, the
-     * Audience will be locked from future edits until the changes have been incorporated. You can
-     * find more information [in the Segment
+     * trail](/tag/Audit-Trail). • Note that when an Audience is updated, the Audience will be
+     * locked from future edits until the changes have been incorporated. You can find more
+     * information [in the Segment
      * docs](https://segment-docs.netlify.app/docs/engage/audiences/#editing-realtime-audiences-and-traits).
      * The rate limit for this endpoint is 2 requests per minute, which is lower than the default
      * due to access pattern restrictions. Once reached, this endpoint will respond with the 429
@@ -839,9 +839,9 @@ public class AudiencesApi {
      * order to successfully call this endpoint, the specified Workspace needs to have the Audience
      * feature enabled. Please reach out to your customer success manager for more information. •
      * When called, this endpoint may generate the &#x60;Audience Modified&#x60; event in the [audit
-     * trail](/tag/Audit-Trail). • Note that when the definition of a Audience is updated, the
-     * Audience will be locked from future edits until the changes have been incorporated. You can
-     * find more information [in the Segment
+     * trail](/tag/Audit-Trail). • Note that when an Audience is updated, the Audience will be
+     * locked from future edits until the changes have been incorporated. You can find more
+     * information [in the Segment
      * docs](https://segment-docs.netlify.app/docs/engage/audiences/#editing-realtime-audiences-and-traits).
      * The rate limit for this endpoint is 2 requests per minute, which is lower than the default
      * due to access pattern restrictions. Once reached, this endpoint will respond with the 429
@@ -879,9 +879,9 @@ public class AudiencesApi {
      * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
      * needs to have the Audience feature enabled. Please reach out to your customer success manager
      * for more information. • When called, this endpoint may generate the &#x60;Audience
-     * Modified&#x60; event in the [audit trail](/tag/Audit-Trail). • Note that when the definition
-     * of a Audience is updated, the Audience will be locked from future edits until the changes
-     * have been incorporated. You can find more information [in the Segment
+     * Modified&#x60; event in the [audit trail](/tag/Audit-Trail). • Note that when an Audience is
+     * updated, the Audience will be locked from future edits until the changes have been
+     * incorporated. You can find more information [in the Segment
      * docs](https://segment-docs.netlify.app/docs/engage/audiences/#editing-realtime-audiences-and-traits).
      * The rate limit for this endpoint is 2 requests per minute, which is lower than the default
      * due to access pattern restrictions. Once reached, this endpoint will respond with the 429

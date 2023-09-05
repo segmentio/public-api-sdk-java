@@ -174,7 +174,7 @@ public class ComputedTraitsApi {
      * Get Computed Trait Returns the Computed Trait by id and spaceId • This endpoint is in
      * **Alpha** testing. Please submit any feedback by sending email to friends@segment.com. • In
      * order to successfully call this endpoint, the specified Workspace needs to have the Computed
-     * Traits feature enabled. Please reach out to your customer success manager for more
+     * Trait feature enabled. Please reach out to your customer success manager for more
      * information. The rate limit for this endpoint is 20 requests per minute, which is lower than
      * the default due to access pattern restrictions. Once reached, this endpoint will respond with
      * the 429 HTTP status code with headers indicating the limit parameters. See [Rate
@@ -205,7 +205,7 @@ public class ComputedTraitsApi {
      * Get Computed Trait Returns the Computed Trait by id and spaceId • This endpoint is in
      * **Alpha** testing. Please submit any feedback by sending email to friends@segment.com. • In
      * order to successfully call this endpoint, the specified Workspace needs to have the Computed
-     * Traits feature enabled. Please reach out to your customer success manager for more
+     * Trait feature enabled. Please reach out to your customer success manager for more
      * information. The rate limit for this endpoint is 20 requests per minute, which is lower than
      * the default due to access pattern restrictions. Once reached, this endpoint will respond with
      * the 429 HTTP status code with headers indicating the limit parameters. See [Rate
@@ -236,7 +236,7 @@ public class ComputedTraitsApi {
      * Get Computed Trait (asynchronously) Returns the Computed Trait by id and spaceId • This
      * endpoint is in **Alpha** testing. Please submit any feedback by sending email to
      * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
-     * needs to have the Computed Traits feature enabled. Please reach out to your customer success
+     * needs to have the Computed Trait feature enabled. Please reach out to your customer success
      * manager for more information. The rate limit for this endpoint is 20 requests per minute,
      * which is lower than the default due to access pattern restrictions. Once reached, this
      * endpoint will respond with the 429 HTTP status code with headers indicating the limit
@@ -376,7 +376,7 @@ public class ComputedTraitsApi {
     /**
      * List Computed Traits Returns Computed Traits by spaceId. • This endpoint is in **Alpha**
      * testing. Please submit any feedback by sending email to friends@segment.com. • In order to
-     * successfully call this endpoint, the specified Workspace needs to have the Computed Traits
+     * successfully call this endpoint, the specified Workspace needs to have the Computed Trait
      * feature enabled. Please reach out to your customer success manager for more information. The
      * rate limit for this endpoint is 5 requests per minute, which is lower than the default due to
      * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
@@ -408,7 +408,7 @@ public class ComputedTraitsApi {
     /**
      * List Computed Traits Returns Computed Traits by spaceId. • This endpoint is in **Alpha**
      * testing. Please submit any feedback by sending email to friends@segment.com. • In order to
-     * successfully call this endpoint, the specified Workspace needs to have the Computed Traits
+     * successfully call this endpoint, the specified Workspace needs to have the Computed Trait
      * feature enabled. Please reach out to your customer success manager for more information. The
      * rate limit for this endpoint is 5 requests per minute, which is lower than the default due to
      * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
@@ -441,7 +441,7 @@ public class ComputedTraitsApi {
      * List Computed Traits (asynchronously) Returns Computed Traits by spaceId. • This endpoint is
      * in **Alpha** testing. Please submit any feedback by sending email to friends@segment.com. •
      * In order to successfully call this endpoint, the specified Workspace needs to have the
-     * Computed Traits feature enabled. Please reach out to your customer success manager for more
+     * Computed Trait feature enabled. Please reach out to your customer success manager for more
      * information. The rate limit for this endpoint is 5 requests per minute, which is lower than
      * the default due to access pattern restrictions. Once reached, this endpoint will respond with
      * the 429 HTTP status code with headers indicating the limit parameters. See [Rate
@@ -582,7 +582,7 @@ public class ComputedTraitsApi {
      * Remove Computed Trait from Space Deletes a Computed Trait by id and spaceId. • This endpoint
      * is in **Alpha** testing. Please submit any feedback by sending email to friends@segment.com.
      * • In order to successfully call this endpoint, the specified Workspace needs to have the
-     * Computed Traits feature enabled. Please reach out to your customer success manager for more
+     * Computed Trait feature enabled. Please reach out to your customer success manager for more
      * information. • When called, this endpoint may generate the &#x60;Computed Trait Deleted&#x60;
      * event in the [audit trail](/tag/Audit-Trail). The rate limit for this endpoint is 10 requests
      * per minute, which is lower than the default due to access pattern restrictions. Once reached,
@@ -614,7 +614,7 @@ public class ComputedTraitsApi {
      * Remove Computed Trait from Space Deletes a Computed Trait by id and spaceId. • This endpoint
      * is in **Alpha** testing. Please submit any feedback by sending email to friends@segment.com.
      * • In order to successfully call this endpoint, the specified Workspace needs to have the
-     * Computed Traits feature enabled. Please reach out to your customer success manager for more
+     * Computed Trait feature enabled. Please reach out to your customer success manager for more
      * information. • When called, this endpoint may generate the &#x60;Computed Trait Deleted&#x60;
      * event in the [audit trail](/tag/Audit-Trail). The rate limit for this endpoint is 10 requests
      * per minute, which is lower than the default due to access pattern restrictions. Once reached,
@@ -649,7 +649,7 @@ public class ComputedTraitsApi {
      * Remove Computed Trait from Space (asynchronously) Deletes a Computed Trait by id and spaceId.
      * • This endpoint is in **Alpha** testing. Please submit any feedback by sending email to
      * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
-     * needs to have the Computed Traits feature enabled. Please reach out to your customer success
+     * needs to have the Computed Trait feature enabled. Please reach out to your customer success
      * manager for more information. • When called, this endpoint may generate the &#x60;Computed
      * Trait Deleted&#x60; event in the [audit trail](/tag/Audit-Trail). The rate limit for this
      * endpoint is 10 requests per minute, which is lower than the default due to access pattern
@@ -809,15 +809,16 @@ public class ComputedTraitsApi {
      * Update Computed Trait for Space Updates the enabled status for a computed trait. • This
      * endpoint is in **Alpha** testing. Please submit any feedback by sending email to
      * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
-     * needs to have the Computed Traits feature enabled. Please reach out to your customer success
+     * needs to have the Computed Trait feature enabled. Please reach out to your customer success
      * manager for more information. • When called, this endpoint may generate the &#x60;Computed
-     * Trait Modified&#x60; event in the [audit trail](/tag/Audit-Trail). • Note that when the
-     * definition of a is updated, the will be locked from future edits until the changes have been
-     * incorporated. You can find more information [in the Segment
-     * docs](https://segment-docs.netlify.app/docs/). The rate limit for this endpoint is 2 requests
-     * per minute, which is lower than the default due to access pattern restrictions. Once reached,
-     * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
-     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * Trait Modified&#x60; event in the [audit trail](/tag/Audit-Trail). • Note that when a
+     * Computed Trait is updated, the Computed Trait will be locked from future edits until the
+     * changes have been incorporated. You can find more information [in the Segment
+     * docs](https://segment-docs.netlify.app/docs/unify/traits/computed-traits/#editing-realtime-traits).
+     * The rate limit for this endpoint is 2 requests per minute, which is lower than the default
+     * due to access pattern restrictions. Once reached, this endpoint will respond with the 429
+     * HTTP status code with headers indicating the limit parameters. See [Rate
+     * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -849,15 +850,16 @@ public class ComputedTraitsApi {
      * Update Computed Trait for Space Updates the enabled status for a computed trait. • This
      * endpoint is in **Alpha** testing. Please submit any feedback by sending email to
      * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
-     * needs to have the Computed Traits feature enabled. Please reach out to your customer success
+     * needs to have the Computed Trait feature enabled. Please reach out to your customer success
      * manager for more information. • When called, this endpoint may generate the &#x60;Computed
-     * Trait Modified&#x60; event in the [audit trail](/tag/Audit-Trail). • Note that when the
-     * definition of a is updated, the will be locked from future edits until the changes have been
-     * incorporated. You can find more information [in the Segment
-     * docs](https://segment-docs.netlify.app/docs/). The rate limit for this endpoint is 2 requests
-     * per minute, which is lower than the default due to access pattern restrictions. Once reached,
-     * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
-     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * Trait Modified&#x60; event in the [audit trail](/tag/Audit-Trail). • Note that when a
+     * Computed Trait is updated, the Computed Trait will be locked from future edits until the
+     * changes have been incorporated. You can find more information [in the Segment
+     * docs](https://segment-docs.netlify.app/docs/unify/traits/computed-traits/#editing-realtime-traits).
+     * The rate limit for this endpoint is 2 requests per minute, which is lower than the default
+     * due to access pattern restrictions. Once reached, this endpoint will respond with the 429
+     * HTTP status code with headers indicating the limit parameters. See [Rate
+     * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -892,15 +894,16 @@ public class ComputedTraitsApi {
      * Update Computed Trait for Space (asynchronously) Updates the enabled status for a computed
      * trait. • This endpoint is in **Alpha** testing. Please submit any feedback by sending email
      * to friends@segment.com. • In order to successfully call this endpoint, the specified
-     * Workspace needs to have the Computed Traits feature enabled. Please reach out to your
-     * customer success manager for more information. • When called, this endpoint may generate the
+     * Workspace needs to have the Computed Trait feature enabled. Please reach out to your customer
+     * success manager for more information. • When called, this endpoint may generate the
      * &#x60;Computed Trait Modified&#x60; event in the [audit trail](/tag/Audit-Trail). • Note that
-     * when the definition of a is updated, the will be locked from future edits until the changes
-     * have been incorporated. You can find more information [in the Segment
-     * docs](https://segment-docs.netlify.app/docs/). The rate limit for this endpoint is 2 requests
-     * per minute, which is lower than the default due to access pattern restrictions. Once reached,
-     * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
-     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * when a Computed Trait is updated, the Computed Trait will be locked from future edits until
+     * the changes have been incorporated. You can find more information [in the Segment
+     * docs](https://segment-docs.netlify.app/docs/unify/traits/computed-traits/#editing-realtime-traits).
+     * The rate limit for this endpoint is 2 requests per minute, which is lower than the default
+     * due to access pattern restrictions. Once reached, this endpoint will respond with the 429
+     * HTTP status code with headers indicating the limit parameters. See [Rate
+     * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
      * @param id (required)
