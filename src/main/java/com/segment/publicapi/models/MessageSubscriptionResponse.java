@@ -43,7 +43,11 @@ public class MessageSubscriptionResponse {
     /** Type is communication medium used. Either SMS, EMAIL or WHATSAPP. */
     @JsonAdapter(TypeEnum.Adapter.class)
     public enum TypeEnum {
+        ANDROID_PUSH("ANDROID_PUSH"),
+
         EMAIL("EMAIL"),
+
+        IOS_PUSH("IOS_PUSH"),
 
         SMS("SMS"),
 
