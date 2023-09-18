@@ -39,17 +39,17 @@ public class ReplaceRulesInTrackingPlanV1Input {
     public static final String SERIALIZED_NAME_RULES = "rules";
 
     @SerializedName(SERIALIZED_NAME_RULES)
-    private List<RuleV1> rules = new ArrayList<>();
+    private List<RuleInputV1> rules = new ArrayList<>();
 
     public ReplaceRulesInTrackingPlanV1Input() {}
 
-    public ReplaceRulesInTrackingPlanV1Input rules(List<RuleV1> rules) {
+    public ReplaceRulesInTrackingPlanV1Input rules(List<RuleInputV1> rules) {
 
         this.rules = rules;
         return this;
     }
 
-    public ReplaceRulesInTrackingPlanV1Input addRulesItem(RuleV1 rulesItem) {
+    public ReplaceRulesInTrackingPlanV1Input addRulesItem(RuleInputV1 rulesItem) {
         this.rules.add(rulesItem);
         return this;
     }
@@ -61,11 +61,11 @@ public class ReplaceRulesInTrackingPlanV1Input {
      */
     @javax.annotation.Nonnull
     @ApiModelProperty(required = true, value = "Rules to replace.")
-    public List<RuleV1> getRules() {
+    public List<RuleInputV1> getRules() {
         return rules;
     }
 
-    public void setRules(List<RuleV1> rules) {
+    public void setRules(List<RuleInputV1> rules) {
         this.rules = rules;
     }
 
