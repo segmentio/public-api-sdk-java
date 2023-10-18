@@ -13,11 +13,11 @@ package com.segment.publicapi.models;
 
 
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
@@ -26,47 +26,84 @@ import com.segment.publicapi.JSON;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
-/** Replaces Tracking Plan rules. */
-@ApiModel(description = "Replaces Tracking Plan rules.")
-public class ReplaceRulesInTrackingPlanV1Input {
-    public static final String SERIALIZED_NAME_RULES = "rules";
+/** Delete an insert Function instance. */
+@ApiModel(description = "Delete an insert Function instance.")
+public class DeleteInsertFunctionInstanceAlphaOutput {
+    /** The status of the operation. */
+    @JsonAdapter(StatusEnum.Adapter.class)
+    public enum StatusEnum {
+        SUCCESS("SUCCESS");
 
-    @SerializedName(SERIALIZED_NAME_RULES)
-    private List<RuleInputV1> rules = new ArrayList<>();
+        private String value;
 
-    public ReplaceRulesInTrackingPlanV1Input() {}
+        StatusEnum(String value) {
+            this.value = value;
+        }
 
-    public ReplaceRulesInTrackingPlanV1Input rules(List<RuleInputV1> rules) {
+        public String getValue() {
+            return value;
+        }
 
-        this.rules = rules;
-        return this;
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static StatusEnum fromValue(String value) {
+            for (StatusEnum b : StatusEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<StatusEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final StatusEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public StatusEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return StatusEnum.fromValue(value);
+            }
+        }
     }
 
-    public ReplaceRulesInTrackingPlanV1Input addRulesItem(RuleInputV1 rulesItem) {
-        this.rules.add(rulesItem);
+    public static final String SERIALIZED_NAME_STATUS = "status";
+
+    @SerializedName(SERIALIZED_NAME_STATUS)
+    private StatusEnum status;
+
+    public DeleteInsertFunctionInstanceAlphaOutput() {}
+
+    public DeleteInsertFunctionInstanceAlphaOutput status(StatusEnum status) {
+
+        this.status = status;
         return this;
     }
 
     /**
-     * Rules to replace.
+     * The status of the operation.
      *
-     * @return rules
+     * @return status
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "Rules to replace.")
-    public List<RuleInputV1> getRules() {
-        return rules;
+    @ApiModelProperty(required = true, value = "The status of the operation.")
+    public StatusEnum getStatus() {
+        return status;
     }
 
-    public void setRules(List<RuleInputV1> rules) {
-        this.rules = rules;
+    public void setStatus(StatusEnum status) {
+        this.status = status;
     }
 
     @Override
@@ -77,21 +114,21 @@ public class ReplaceRulesInTrackingPlanV1Input {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        ReplaceRulesInTrackingPlanV1Input replaceRulesInTrackingPlanV1Input =
-                (ReplaceRulesInTrackingPlanV1Input) o;
-        return Objects.equals(this.rules, replaceRulesInTrackingPlanV1Input.rules);
+        DeleteInsertFunctionInstanceAlphaOutput deleteInsertFunctionInstanceAlphaOutput =
+                (DeleteInsertFunctionInstanceAlphaOutput) o;
+        return Objects.equals(this.status, deleteInsertFunctionInstanceAlphaOutput.status);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(rules);
+        return Objects.hash(status);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ReplaceRulesInTrackingPlanV1Input {\n");
-        sb.append("    rules: ").append(toIndentedString(rules)).append("\n");
+        sb.append("class DeleteInsertFunctionInstanceAlphaOutput {\n");
+        sb.append("    status: ").append(toIndentedString(status)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -113,11 +150,11 @@ public class ReplaceRulesInTrackingPlanV1Input {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("rules");
+        openapiFields.add("status");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("rules");
+        openapiRequiredFields.add("status");
     }
 
     /**
@@ -125,17 +162,18 @@ public class ReplaceRulesInTrackingPlanV1Input {
      *
      * @param jsonObj JSON Object
      * @throws IOException if the JSON Object is invalid with respect to
-     *     ReplaceRulesInTrackingPlanV1Input
+     *     DeleteInsertFunctionInstanceAlphaOutput
      */
     public static void validateJsonObject(JsonObject jsonObj) throws IOException {
         if (jsonObj == null) {
-            if (!ReplaceRulesInTrackingPlanV1Input.openapiRequiredFields
+            if (!DeleteInsertFunctionInstanceAlphaOutput.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in ReplaceRulesInTrackingPlanV1Input is"
-                                        + " not found in the empty JSON string",
-                                ReplaceRulesInTrackingPlanV1Input.openapiRequiredFields
+                                "The required field(s) %s in"
+                                    + " DeleteInsertFunctionInstanceAlphaOutput is not found in the"
+                                    + " empty JSON string",
+                                DeleteInsertFunctionInstanceAlphaOutput.openapiRequiredFields
                                         .toString()));
             }
         }
@@ -143,17 +181,18 @@ public class ReplaceRulesInTrackingPlanV1Input {
         Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
         for (Entry<String, JsonElement> entry : entries) {
-            if (!ReplaceRulesInTrackingPlanV1Input.openapiFields.contains(entry.getKey())) {
+            if (!DeleteInsertFunctionInstanceAlphaOutput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                    + " `ReplaceRulesInTrackingPlanV1Input` properties. JSON: %s",
+                                    + " `DeleteInsertFunctionInstanceAlphaOutput` properties. JSON:"
+                                    + " %s",
                                 entry.getKey(), jsonObj.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : ReplaceRulesInTrackingPlanV1Input.openapiRequiredFields) {
+        for (String requiredField : DeleteInsertFunctionInstanceAlphaOutput.openapiRequiredFields) {
             if (jsonObj.get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -161,42 +200,41 @@ public class ReplaceRulesInTrackingPlanV1Input {
                                 requiredField, jsonObj.toString()));
             }
         }
-        // ensure the json data is an array
-        if (!jsonObj.get("rules").isJsonArray()) {
+        if (!jsonObj.get("status").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `rules` to be an array in the JSON string but got"
-                                    + " `%s`",
-                            jsonObj.get("rules").toString()));
+                            "Expected the field `status` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
+                            jsonObj.get("status").toString()));
         }
-
-        JsonArray jsonArrayrules = jsonObj.getAsJsonArray("rules");
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!ReplaceRulesInTrackingPlanV1Input.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'ReplaceRulesInTrackingPlanV1Input' and
-                // its subtypes
+            if (!DeleteInsertFunctionInstanceAlphaOutput.class.isAssignableFrom(
+                    type.getRawType())) {
+                return null; // this class only serializes 'DeleteInsertFunctionInstanceAlphaOutput'
+                // and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<ReplaceRulesInTrackingPlanV1Input> thisAdapter =
+            final TypeAdapter<DeleteInsertFunctionInstanceAlphaOutput> thisAdapter =
                     gson.getDelegateAdapter(
-                            this, TypeToken.get(ReplaceRulesInTrackingPlanV1Input.class));
+                            this, TypeToken.get(DeleteInsertFunctionInstanceAlphaOutput.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<ReplaceRulesInTrackingPlanV1Input>() {
+                    new TypeAdapter<DeleteInsertFunctionInstanceAlphaOutput>() {
                         @Override
-                        public void write(JsonWriter out, ReplaceRulesInTrackingPlanV1Input value)
+                        public void write(
+                                JsonWriter out, DeleteInsertFunctionInstanceAlphaOutput value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public ReplaceRulesInTrackingPlanV1Input read(JsonReader in)
+                        public DeleteInsertFunctionInstanceAlphaOutput read(JsonReader in)
                                 throws IOException {
                             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
                             validateJsonObject(jsonObj);
@@ -207,19 +245,20 @@ public class ReplaceRulesInTrackingPlanV1Input {
     }
 
     /**
-     * Create an instance of ReplaceRulesInTrackingPlanV1Input given an JSON string
+     * Create an instance of DeleteInsertFunctionInstanceAlphaOutput given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of ReplaceRulesInTrackingPlanV1Input
+     * @return An instance of DeleteInsertFunctionInstanceAlphaOutput
      * @throws IOException if the JSON string is invalid with respect to
-     *     ReplaceRulesInTrackingPlanV1Input
+     *     DeleteInsertFunctionInstanceAlphaOutput
      */
-    public static ReplaceRulesInTrackingPlanV1Input fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, ReplaceRulesInTrackingPlanV1Input.class);
+    public static DeleteInsertFunctionInstanceAlphaOutput fromJson(String jsonString)
+            throws IOException {
+        return JSON.getGson().fromJson(jsonString, DeleteInsertFunctionInstanceAlphaOutput.class);
     }
 
     /**
-     * Convert an instance of ReplaceRulesInTrackingPlanV1Input to an JSON string
+     * Convert an instance of DeleteInsertFunctionInstanceAlphaOutput to an JSON string
      *
      * @return JSON string
      */

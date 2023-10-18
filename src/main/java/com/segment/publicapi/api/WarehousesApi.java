@@ -900,7 +900,7 @@ public class WarehousesApi {
 
     /**
      * Get Connection State from Warehouse Verifies the state of Warehouse connection settings. The
-     * rate limit for this endpoint is 20 requests per minute, which is lower than the default due
+     * rate limit for this endpoint is 200 requests per minute, which is lower than the default due
      * to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
      * status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.
@@ -927,7 +927,7 @@ public class WarehousesApi {
 
     /**
      * Get Connection State from Warehouse Verifies the state of Warehouse connection settings. The
-     * rate limit for this endpoint is 20 requests per minute, which is lower than the default due
+     * rate limit for this endpoint is 200 requests per minute, which is lower than the default due
      * to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
      * status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.
@@ -956,7 +956,7 @@ public class WarehousesApi {
 
     /**
      * Get Connection State from Warehouse (asynchronously) Verifies the state of Warehouse
-     * connection settings. The rate limit for this endpoint is 20 requests per minute, which is
+     * connection settings. The rate limit for this endpoint is 200 requests per minute, which is
      * lower than the default due to access pattern restrictions. Once reached, this endpoint will
      * respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.

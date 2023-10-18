@@ -23,6 +23,7 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -31,13 +32,9 @@ import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
-/** UpsertRuleV1 */
-public class UpsertRuleV1 {
-    public static final String SERIALIZED_NAME_NEW_KEY = "newKey";
-
-    @SerializedName(SERIALIZED_NAME_NEW_KEY)
-    private String newKey;
-
+/** Represents a rule to add to a Tracking Plan. */
+@ApiModel(description = "Represents a rule to add to a Tracking Plan.")
+public class RuleInputV1 {
     /** The type for this Tracking Plan rule. */
     @JsonAdapter(TypeEnum.Adapter.class)
     public enum TypeEnum {
@@ -112,30 +109,9 @@ public class UpsertRuleV1 {
     @SerializedName(SERIALIZED_NAME_VERSION)
     private BigDecimal version;
 
-    public UpsertRuleV1() {}
+    public RuleInputV1() {}
 
-    public UpsertRuleV1 newKey(String newKey) {
-
-        this.newKey = newKey;
-        return this;
-    }
-
-    /**
-     * This rule&#39;s new intended key.
-     *
-     * @return newKey
-     */
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "This rule's new intended key.")
-    public String getNewKey() {
-        return newKey;
-    }
-
-    public void setNewKey(String newKey) {
-        this.newKey = newKey;
-    }
-
-    public UpsertRuleV1 type(TypeEnum type) {
+    public RuleInputV1 type(TypeEnum type) {
 
         this.type = type;
         return this;
@@ -156,7 +132,7 @@ public class UpsertRuleV1 {
         this.type = type;
     }
 
-    public UpsertRuleV1 key(String key) {
+    public RuleInputV1 key(String key) {
 
         this.key = key;
         return this;
@@ -177,7 +153,7 @@ public class UpsertRuleV1 {
         this.key = key;
     }
 
-    public UpsertRuleV1 jsonSchema(Object jsonSchema) {
+    public RuleInputV1 jsonSchema(Object jsonSchema) {
 
         this.jsonSchema = jsonSchema;
         return this;
@@ -198,7 +174,7 @@ public class UpsertRuleV1 {
         this.jsonSchema = jsonSchema;
     }
 
-    public UpsertRuleV1 version(BigDecimal version) {
+    public RuleInputV1 version(BigDecimal version) {
 
         this.version = version;
         return this;
@@ -227,24 +203,22 @@ public class UpsertRuleV1 {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        UpsertRuleV1 upsertRuleV1 = (UpsertRuleV1) o;
-        return Objects.equals(this.newKey, upsertRuleV1.newKey)
-                && Objects.equals(this.type, upsertRuleV1.type)
-                && Objects.equals(this.key, upsertRuleV1.key)
-                && Objects.equals(this.jsonSchema, upsertRuleV1.jsonSchema)
-                && Objects.equals(this.version, upsertRuleV1.version);
+        RuleInputV1 ruleInputV1 = (RuleInputV1) o;
+        return Objects.equals(this.type, ruleInputV1.type)
+                && Objects.equals(this.key, ruleInputV1.key)
+                && Objects.equals(this.jsonSchema, ruleInputV1.jsonSchema)
+                && Objects.equals(this.version, ruleInputV1.version);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(newKey, type, key, jsonSchema, version);
+        return Objects.hash(type, key, jsonSchema, version);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class UpsertRuleV1 {\n");
-        sb.append("    newKey: ").append(toIndentedString(newKey)).append("\n");
+        sb.append("class RuleInputV1 {\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("    key: ").append(toIndentedString(key)).append("\n");
         sb.append("    jsonSchema: ").append(toIndentedString(jsonSchema)).append("\n");
@@ -270,7 +244,6 @@ public class UpsertRuleV1 {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("newKey");
         openapiFields.add("type");
         openapiFields.add("key");
         openapiFields.add("jsonSchema");
@@ -287,48 +260,40 @@ public class UpsertRuleV1 {
      * Validates the JSON Object and throws an exception if issues found
      *
      * @param jsonObj JSON Object
-     * @throws IOException if the JSON Object is invalid with respect to UpsertRuleV1
+     * @throws IOException if the JSON Object is invalid with respect to RuleInputV1
      */
     public static void validateJsonObject(JsonObject jsonObj) throws IOException {
         if (jsonObj == null) {
-            if (!UpsertRuleV1.openapiRequiredFields
+            if (!RuleInputV1.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in UpsertRuleV1 is not found in the empty"
+                                "The required field(s) %s in RuleInputV1 is not found in the empty"
                                         + " JSON string",
-                                UpsertRuleV1.openapiRequiredFields.toString()));
+                                RuleInputV1.openapiRequiredFields.toString()));
             }
         }
 
         Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
         for (Entry<String, JsonElement> entry : entries) {
-            if (!UpsertRuleV1.openapiFields.contains(entry.getKey())) {
+            if (!RuleInputV1.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `UpsertRuleV1` properties. JSON: %s",
+                                        + " `RuleInputV1` properties. JSON: %s",
                                 entry.getKey(), jsonObj.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : UpsertRuleV1.openapiRequiredFields) {
+        for (String requiredField : RuleInputV1.openapiRequiredFields) {
             if (jsonObj.get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field `%s` is not found in the JSON string: %s",
                                 requiredField, jsonObj.toString()));
             }
-        }
-        if ((jsonObj.get("newKey") != null && !jsonObj.get("newKey").isJsonNull())
-                && !jsonObj.get("newKey").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `newKey` to be a primitive type in the JSON string"
-                                    + " but got `%s`",
-                            jsonObj.get("newKey").toString()));
         }
         if (!jsonObj.get("type").isJsonPrimitive()) {
             throw new IllegalArgumentException(
@@ -351,23 +316,23 @@ public class UpsertRuleV1 {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!UpsertRuleV1.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'UpsertRuleV1' and its subtypes
+            if (!RuleInputV1.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'RuleInputV1' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<UpsertRuleV1> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(UpsertRuleV1.class));
+            final TypeAdapter<RuleInputV1> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(RuleInputV1.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<UpsertRuleV1>() {
+                    new TypeAdapter<RuleInputV1>() {
                         @Override
-                        public void write(JsonWriter out, UpsertRuleV1 value) throws IOException {
+                        public void write(JsonWriter out, RuleInputV1 value) throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public UpsertRuleV1 read(JsonReader in) throws IOException {
+                        public RuleInputV1 read(JsonReader in) throws IOException {
                             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
                             validateJsonObject(jsonObj);
                             return thisAdapter.fromJsonTree(jsonObj);
@@ -377,18 +342,18 @@ public class UpsertRuleV1 {
     }
 
     /**
-     * Create an instance of UpsertRuleV1 given an JSON string
+     * Create an instance of RuleInputV1 given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of UpsertRuleV1
-     * @throws IOException if the JSON string is invalid with respect to UpsertRuleV1
+     * @return An instance of RuleInputV1
+     * @throws IOException if the JSON string is invalid with respect to RuleInputV1
      */
-    public static UpsertRuleV1 fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, UpsertRuleV1.class);
+    public static RuleInputV1 fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, RuleInputV1.class);
     }
 
     /**
-     * Convert an instance of UpsertRuleV1 to an JSON string
+     * Convert an instance of RuleInputV1 to an JSON string
      *
      * @return JSON string
      */

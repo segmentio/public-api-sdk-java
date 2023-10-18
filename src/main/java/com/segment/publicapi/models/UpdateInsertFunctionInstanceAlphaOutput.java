@@ -13,7 +13,6 @@ package com.segment.publicapi.models;
 
 
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
@@ -26,47 +25,41 @@ import com.segment.publicapi.JSON;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
-/** Replaces Tracking Plan rules. */
-@ApiModel(description = "Replaces Tracking Plan rules.")
-public class ReplaceRulesInTrackingPlanV1Input {
-    public static final String SERIALIZED_NAME_RULES = "rules";
+/** Returns the updated insert Function instance. */
+@ApiModel(description = "Returns the updated insert Function instance.")
+public class UpdateInsertFunctionInstanceAlphaOutput {
+    public static final String SERIALIZED_NAME_INSERT_FUNCTION_INSTANCE = "insertFunctionInstance";
 
-    @SerializedName(SERIALIZED_NAME_RULES)
-    private List<RuleInputV1> rules = new ArrayList<>();
+    @SerializedName(SERIALIZED_NAME_INSERT_FUNCTION_INSTANCE)
+    private InsertFunctionInstance1 insertFunctionInstance;
 
-    public ReplaceRulesInTrackingPlanV1Input() {}
+    public UpdateInsertFunctionInstanceAlphaOutput() {}
 
-    public ReplaceRulesInTrackingPlanV1Input rules(List<RuleInputV1> rules) {
+    public UpdateInsertFunctionInstanceAlphaOutput insertFunctionInstance(
+            InsertFunctionInstance1 insertFunctionInstance) {
 
-        this.rules = rules;
-        return this;
-    }
-
-    public ReplaceRulesInTrackingPlanV1Input addRulesItem(RuleInputV1 rulesItem) {
-        this.rules.add(rulesItem);
+        this.insertFunctionInstance = insertFunctionInstance;
         return this;
     }
 
     /**
-     * Rules to replace.
+     * Get insertFunctionInstance
      *
-     * @return rules
+     * @return insertFunctionInstance
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "Rules to replace.")
-    public List<RuleInputV1> getRules() {
-        return rules;
+    @ApiModelProperty(required = true, value = "")
+    public InsertFunctionInstance1 getInsertFunctionInstance() {
+        return insertFunctionInstance;
     }
 
-    public void setRules(List<RuleInputV1> rules) {
-        this.rules = rules;
+    public void setInsertFunctionInstance(InsertFunctionInstance1 insertFunctionInstance) {
+        this.insertFunctionInstance = insertFunctionInstance;
     }
 
     @Override
@@ -77,21 +70,25 @@ public class ReplaceRulesInTrackingPlanV1Input {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        ReplaceRulesInTrackingPlanV1Input replaceRulesInTrackingPlanV1Input =
-                (ReplaceRulesInTrackingPlanV1Input) o;
-        return Objects.equals(this.rules, replaceRulesInTrackingPlanV1Input.rules);
+        UpdateInsertFunctionInstanceAlphaOutput updateInsertFunctionInstanceAlphaOutput =
+                (UpdateInsertFunctionInstanceAlphaOutput) o;
+        return Objects.equals(
+                this.insertFunctionInstance,
+                updateInsertFunctionInstanceAlphaOutput.insertFunctionInstance);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(rules);
+        return Objects.hash(insertFunctionInstance);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ReplaceRulesInTrackingPlanV1Input {\n");
-        sb.append("    rules: ").append(toIndentedString(rules)).append("\n");
+        sb.append("class UpdateInsertFunctionInstanceAlphaOutput {\n");
+        sb.append("    insertFunctionInstance: ")
+                .append(toIndentedString(insertFunctionInstance))
+                .append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -113,11 +110,11 @@ public class ReplaceRulesInTrackingPlanV1Input {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("rules");
+        openapiFields.add("insertFunctionInstance");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("rules");
+        openapiRequiredFields.add("insertFunctionInstance");
     }
 
     /**
@@ -125,17 +122,18 @@ public class ReplaceRulesInTrackingPlanV1Input {
      *
      * @param jsonObj JSON Object
      * @throws IOException if the JSON Object is invalid with respect to
-     *     ReplaceRulesInTrackingPlanV1Input
+     *     UpdateInsertFunctionInstanceAlphaOutput
      */
     public static void validateJsonObject(JsonObject jsonObj) throws IOException {
         if (jsonObj == null) {
-            if (!ReplaceRulesInTrackingPlanV1Input.openapiRequiredFields
+            if (!UpdateInsertFunctionInstanceAlphaOutput.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in ReplaceRulesInTrackingPlanV1Input is"
-                                        + " not found in the empty JSON string",
-                                ReplaceRulesInTrackingPlanV1Input.openapiRequiredFields
+                                "The required field(s) %s in"
+                                    + " UpdateInsertFunctionInstanceAlphaOutput is not found in the"
+                                    + " empty JSON string",
+                                UpdateInsertFunctionInstanceAlphaOutput.openapiRequiredFields
                                         .toString()));
             }
         }
@@ -143,17 +141,18 @@ public class ReplaceRulesInTrackingPlanV1Input {
         Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
         for (Entry<String, JsonElement> entry : entries) {
-            if (!ReplaceRulesInTrackingPlanV1Input.openapiFields.contains(entry.getKey())) {
+            if (!UpdateInsertFunctionInstanceAlphaOutput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                    + " `ReplaceRulesInTrackingPlanV1Input` properties. JSON: %s",
+                                    + " `UpdateInsertFunctionInstanceAlphaOutput` properties. JSON:"
+                                    + " %s",
                                 entry.getKey(), jsonObj.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : ReplaceRulesInTrackingPlanV1Input.openapiRequiredFields) {
+        for (String requiredField : UpdateInsertFunctionInstanceAlphaOutput.openapiRequiredFields) {
             if (jsonObj.get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -161,42 +160,34 @@ public class ReplaceRulesInTrackingPlanV1Input {
                                 requiredField, jsonObj.toString()));
             }
         }
-        // ensure the json data is an array
-        if (!jsonObj.get("rules").isJsonArray()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `rules` to be an array in the JSON string but got"
-                                    + " `%s`",
-                            jsonObj.get("rules").toString()));
-        }
-
-        JsonArray jsonArrayrules = jsonObj.getAsJsonArray("rules");
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!ReplaceRulesInTrackingPlanV1Input.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'ReplaceRulesInTrackingPlanV1Input' and
-                // its subtypes
+            if (!UpdateInsertFunctionInstanceAlphaOutput.class.isAssignableFrom(
+                    type.getRawType())) {
+                return null; // this class only serializes 'UpdateInsertFunctionInstanceAlphaOutput'
+                // and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<ReplaceRulesInTrackingPlanV1Input> thisAdapter =
+            final TypeAdapter<UpdateInsertFunctionInstanceAlphaOutput> thisAdapter =
                     gson.getDelegateAdapter(
-                            this, TypeToken.get(ReplaceRulesInTrackingPlanV1Input.class));
+                            this, TypeToken.get(UpdateInsertFunctionInstanceAlphaOutput.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<ReplaceRulesInTrackingPlanV1Input>() {
+                    new TypeAdapter<UpdateInsertFunctionInstanceAlphaOutput>() {
                         @Override
-                        public void write(JsonWriter out, ReplaceRulesInTrackingPlanV1Input value)
+                        public void write(
+                                JsonWriter out, UpdateInsertFunctionInstanceAlphaOutput value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public ReplaceRulesInTrackingPlanV1Input read(JsonReader in)
+                        public UpdateInsertFunctionInstanceAlphaOutput read(JsonReader in)
                                 throws IOException {
                             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
                             validateJsonObject(jsonObj);
@@ -207,19 +198,20 @@ public class ReplaceRulesInTrackingPlanV1Input {
     }
 
     /**
-     * Create an instance of ReplaceRulesInTrackingPlanV1Input given an JSON string
+     * Create an instance of UpdateInsertFunctionInstanceAlphaOutput given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of ReplaceRulesInTrackingPlanV1Input
+     * @return An instance of UpdateInsertFunctionInstanceAlphaOutput
      * @throws IOException if the JSON string is invalid with respect to
-     *     ReplaceRulesInTrackingPlanV1Input
+     *     UpdateInsertFunctionInstanceAlphaOutput
      */
-    public static ReplaceRulesInTrackingPlanV1Input fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, ReplaceRulesInTrackingPlanV1Input.class);
+    public static UpdateInsertFunctionInstanceAlphaOutput fromJson(String jsonString)
+            throws IOException {
+        return JSON.getGson().fromJson(jsonString, UpdateInsertFunctionInstanceAlphaOutput.class);
     }
 
     /**
-     * Convert an instance of ReplaceRulesInTrackingPlanV1Input to an JSON string
+     * Convert an instance of UpdateInsertFunctionInstanceAlphaOutput to an JSON string
      *
      * @return JSON string
      */
