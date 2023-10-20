@@ -11,7 +11,6 @@
 
 package com.segment.publicapi.api;
 
-
 import com.google.gson.reflect.TypeToken;
 import com.segment.publicapi.ApiCallback;
 import com.segment.publicapi.ApiClient;
@@ -105,12 +104,10 @@ public class AudiencesApi {
         // create path and map variables
         String localVarPath =
                 "/spaces/{spaceId}/audiences/{id}"
-                        .replaceAll(
-                                "\\{" + "spaceId" + "\\}",
+                        .replace(
+                                "{" + "spaceId" + "}",
                                 localVarApiClient.escapeString(spaceId.toString()))
-                        .replaceAll(
-                                "\\{" + "id" + "\\}",
-                                localVarApiClient.escapeString(id.toString()));
+                        .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -127,7 +124,6 @@ public class AudiencesApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -152,7 +148,6 @@ public class AudiencesApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getAudienceValidateBeforeCall(
             String spaceId, String id, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new ApiException(
@@ -165,8 +160,7 @@ public class AudiencesApi {
                     "Missing the required parameter 'id' when calling getAudience(Async)");
         }
 
-        okhttp3.Call localVarCall = getAudienceCall(spaceId, id, _callback);
-        return localVarCall;
+        return getAudienceCall(spaceId, id, _callback);
     }
 
     /**
@@ -263,6 +257,7 @@ public class AudiencesApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for listAudiences
      *
@@ -302,8 +297,8 @@ public class AudiencesApi {
         // create path and map variables
         String localVarPath =
                 "/spaces/{spaceId}/audiences"
-                        .replaceAll(
-                                "\\{" + "spaceId" + "\\}",
+                        .replace(
+                                "{" + "spaceId" + "}",
                                 localVarApiClient.escapeString(spaceId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -325,7 +320,6 @@ public class AudiencesApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -351,7 +345,6 @@ public class AudiencesApi {
     private okhttp3.Call listAudiencesValidateBeforeCall(
             String spaceId, PaginationInput pagination, final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new ApiException(
@@ -365,8 +358,7 @@ public class AudiencesApi {
                             + " listAudiences(Async)");
         }
 
-        okhttp3.Call localVarCall = listAudiencesCall(spaceId, pagination, _callback);
-        return localVarCall;
+        return listAudiencesCall(spaceId, pagination, _callback);
     }
 
     /**
@@ -470,6 +462,7 @@ public class AudiencesApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for removeAudienceFromSpace
      *
@@ -507,12 +500,10 @@ public class AudiencesApi {
         // create path and map variables
         String localVarPath =
                 "/spaces/{spaceId}/audiences/{id}"
-                        .replaceAll(
-                                "\\{" + "spaceId" + "\\}",
+                        .replace(
+                                "{" + "spaceId" + "}",
                                 localVarApiClient.escapeString(spaceId.toString()))
-                        .replaceAll(
-                                "\\{" + "id" + "\\}",
-                                localVarApiClient.escapeString(id.toString()));
+                        .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -529,7 +520,6 @@ public class AudiencesApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -554,7 +544,6 @@ public class AudiencesApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call removeAudienceFromSpaceValidateBeforeCall(
             String spaceId, String id, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new ApiException(
@@ -569,8 +558,7 @@ public class AudiencesApi {
                             + " removeAudienceFromSpace(Async)");
         }
 
-        okhttp3.Call localVarCall = removeAudienceFromSpaceCall(spaceId, id, _callback);
-        return localVarCall;
+        return removeAudienceFromSpaceCall(spaceId, id, _callback);
     }
 
     /**
@@ -676,6 +664,7 @@ public class AudiencesApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for updateAudienceForSpace
      *
@@ -718,12 +707,10 @@ public class AudiencesApi {
         // create path and map variables
         String localVarPath =
                 "/spaces/{spaceId}/audiences/{id}"
-                        .replaceAll(
-                                "\\{" + "spaceId" + "\\}",
+                        .replace(
+                                "{" + "spaceId" + "}",
                                 localVarApiClient.escapeString(spaceId.toString()))
-                        .replaceAll(
-                                "\\{" + "id" + "\\}",
-                                localVarApiClient.escapeString(id.toString()));
+                        .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -768,7 +755,6 @@ public class AudiencesApi {
             UpdateAudienceForSpaceInput updateAudienceForSpaceInput,
             final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new ApiException(
@@ -790,9 +776,7 @@ public class AudiencesApi {
                             + " updateAudienceForSpace(Async)");
         }
 
-        okhttp3.Call localVarCall =
-                updateAudienceForSpaceCall(spaceId, id, updateAudienceForSpaceInput, _callback);
-        return localVarCall;
+        return updateAudienceForSpaceCall(spaceId, id, updateAudienceForSpaceInput, _callback);
     }
 
     /**

@@ -11,7 +11,6 @@
 
 package com.segment.publicapi.models;
 
-
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -22,16 +21,13 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map.Entry;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
 /** Output of the Source with updated settings. */
-@ApiModel(description = "Output of the Source with updated settings.")
 public class UpdateSchemaSettingsInSourceV1Output {
     public static final String SERIALIZED_NAME_SOURCE_ID = "sourceId";
 
@@ -41,7 +37,7 @@ public class UpdateSchemaSettingsInSourceV1Output {
     public static final String SERIALIZED_NAME_SETTINGS = "settings";
 
     @SerializedName(SERIALIZED_NAME_SETTINGS)
-    private Settings1 settings;
+    private SourceSettingsOutputV1 settings;
 
     public UpdateSchemaSettingsInSourceV1Output() {}
 
@@ -58,11 +54,6 @@ public class UpdateSchemaSettingsInSourceV1Output {
      * @return sourceId
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(
-            required = true,
-            value =
-                    "The id of the updated Source.  Config API note: analogous to `parent` and"
-                            + " `name`.")
     public String getSourceId() {
         return sourceId;
     }
@@ -71,7 +62,7 @@ public class UpdateSchemaSettingsInSourceV1Output {
         this.sourceId = sourceId;
     }
 
-    public UpdateSchemaSettingsInSourceV1Output settings(Settings1 settings) {
+    public UpdateSchemaSettingsInSourceV1Output settings(SourceSettingsOutputV1 settings) {
 
         this.settings = settings;
         return this;
@@ -83,12 +74,11 @@ public class UpdateSchemaSettingsInSourceV1Output {
      * @return settings
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "")
-    public Settings1 getSettings() {
+    public SourceSettingsOutputV1 getSettings() {
         return settings;
     }
 
-    public void setSettings(Settings1 settings) {
+    public void setSettings(SourceSettingsOutputV1 settings) {
         this.settings = settings;
     }
 
@@ -148,16 +138,16 @@ public class UpdateSchemaSettingsInSourceV1Output {
     }
 
     /**
-     * Validates the JSON Object and throws an exception if issues found
+     * Validates the JSON Element and throws an exception if issues found
      *
-     * @param jsonObj JSON Object
-     * @throws IOException if the JSON Object is invalid with respect to
+     * @param jsonElement JSON Element
+     * @throws IOException if the JSON Element is invalid with respect to
      *     UpdateSchemaSettingsInSourceV1Output
      */
-    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-        if (jsonObj == null) {
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        if (jsonElement == null) {
             if (!UpdateSchemaSettingsInSourceV1Output.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON object is null
+                    .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in UpdateSchemaSettingsInSourceV1Output"
@@ -167,28 +157,29 @@ public class UpdateSchemaSettingsInSourceV1Output {
             }
         }
 
-        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
-        for (Entry<String, JsonElement> entry : entries) {
+        for (Map.Entry<String, JsonElement> entry : entries) {
             if (!UpdateSchemaSettingsInSourceV1Output.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
                                     + " `UpdateSchemaSettingsInSourceV1Output` properties. JSON:"
                                     + " %s",
-                                entry.getKey(), jsonObj.toString()));
+                                entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
         for (String requiredField : UpdateSchemaSettingsInSourceV1Output.openapiRequiredFields) {
-            if (jsonObj.get(requiredField) == null) {
+            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonObj.toString()));
+                                requiredField, jsonElement.toString()));
             }
         }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
         if (!jsonObj.get("sourceId").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -196,6 +187,8 @@ public class UpdateSchemaSettingsInSourceV1Output {
                                     + " string but got `%s`",
                             jsonObj.get("sourceId").toString()));
         }
+        // validate the required field `settings`
+        SourceSettingsOutputV1.validateJsonElement(jsonObj.get("settings"));
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -224,9 +217,9 @@ public class UpdateSchemaSettingsInSourceV1Output {
                         @Override
                         public UpdateSchemaSettingsInSourceV1Output read(JsonReader in)
                                 throws IOException {
-                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-                            validateJsonObject(jsonObj);
-                            return thisAdapter.fromJsonTree(jsonObj);
+                            JsonElement jsonElement = elementAdapter.read(in);
+                            validateJsonElement(jsonElement);
+                            return thisAdapter.fromJsonTree(jsonElement);
                         }
                     }.nullSafe();
         }

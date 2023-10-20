@@ -11,7 +11,6 @@
 
 package com.segment.publicapi.api;
 
-
 import com.google.gson.reflect.TypeToken;
 import com.segment.publicapi.ApiCallback;
 import com.segment.publicapi.ApiClient;
@@ -131,7 +130,6 @@ public class MonthlyTrackedUsersApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -157,7 +155,6 @@ public class MonthlyTrackedUsersApi {
     private okhttp3.Call getDailyPerSourceMTUUsageValidateBeforeCall(
             String period, PaginationInput pagination, final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'period' is set
         if (period == null) {
             throw new ApiException(
@@ -172,8 +169,7 @@ public class MonthlyTrackedUsersApi {
                             + " getDailyPerSourceMTUUsage(Async)");
         }
 
-        okhttp3.Call localVarCall = getDailyPerSourceMTUUsageCall(period, pagination, _callback);
-        return localVarCall;
+        return getDailyPerSourceMTUUsageCall(period, pagination, _callback);
     }
 
     /**
@@ -266,6 +262,7 @@ public class MonthlyTrackedUsersApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for getDailyWorkspaceMTUUsage
      *
@@ -332,7 +329,6 @@ public class MonthlyTrackedUsersApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -358,7 +354,6 @@ public class MonthlyTrackedUsersApi {
     private okhttp3.Call getDailyWorkspaceMTUUsageValidateBeforeCall(
             String period, PaginationInput pagination, final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'period' is set
         if (period == null) {
             throw new ApiException(
@@ -373,8 +368,7 @@ public class MonthlyTrackedUsersApi {
                             + " getDailyWorkspaceMTUUsage(Async)");
         }
 
-        okhttp3.Call localVarCall = getDailyWorkspaceMTUUsageCall(period, pagination, _callback);
-        return localVarCall;
+        return getDailyWorkspaceMTUUsageCall(period, pagination, _callback);
     }
 
     /**

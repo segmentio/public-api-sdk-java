@@ -11,7 +11,6 @@
 
 package com.segment.publicapi.api;
 
-
 import com.google.gson.reflect.TypeToken;
 import com.segment.publicapi.ApiCallback;
 import com.segment.publicapi.ApiClient;
@@ -112,8 +111,8 @@ public class DestinationFiltersApi {
         // create path and map variables
         String localVarPath =
                 "/destination/{destinationId}/filters"
-                        .replaceAll(
-                                "\\{" + "destinationId" + "\\}",
+                        .replace(
+                                "{" + "destinationId" + "}",
                                 localVarApiClient.escapeString(destinationId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -165,7 +164,6 @@ public class DestinationFiltersApi {
             CreateFilterForDestinationV1Input createFilterForDestinationV1Input,
             final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'destinationId' is set
         if (destinationId == null) {
             throw new ApiException(
@@ -180,10 +178,8 @@ public class DestinationFiltersApi {
                             + " calling createFilterForDestination(Async)");
         }
 
-        okhttp3.Call localVarCall =
-                createFilterForDestinationCall(
-                        destinationId, createFilterForDestinationV1Input, _callback);
-        return localVarCall;
+        return createFilterForDestinationCall(
+                destinationId, createFilterForDestinationV1Input, _callback);
     }
 
     /**
@@ -281,6 +277,7 @@ public class DestinationFiltersApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for getFilterInDestination
      *
@@ -319,11 +316,11 @@ public class DestinationFiltersApi {
         // create path and map variables
         String localVarPath =
                 "/destination/{destinationId}/filters/{filterId}"
-                        .replaceAll(
-                                "\\{" + "destinationId" + "\\}",
+                        .replace(
+                                "{" + "destinationId" + "}",
                                 localVarApiClient.escapeString(destinationId.toString()))
-                        .replaceAll(
-                                "\\{" + "filterId" + "\\}",
+                        .replace(
+                                "{" + "filterId" + "}",
                                 localVarApiClient.escapeString(filterId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -344,7 +341,6 @@ public class DestinationFiltersApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -370,7 +366,6 @@ public class DestinationFiltersApi {
     private okhttp3.Call getFilterInDestinationValidateBeforeCall(
             String destinationId, String filterId, final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'destinationId' is set
         if (destinationId == null) {
             throw new ApiException(
@@ -385,8 +380,7 @@ public class DestinationFiltersApi {
                             + " getFilterInDestination(Async)");
         }
 
-        okhttp3.Call localVarCall = getFilterInDestinationCall(destinationId, filterId, _callback);
-        return localVarCall;
+        return getFilterInDestinationCall(destinationId, filterId, _callback);
     }
 
     /**
@@ -468,6 +462,7 @@ public class DestinationFiltersApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for listFiltersFromDestination
      *
@@ -506,8 +501,8 @@ public class DestinationFiltersApi {
         // create path and map variables
         String localVarPath =
                 "/destination/{destinationId}/filters"
-                        .replaceAll(
-                                "\\{" + "destinationId" + "\\}",
+                        .replace(
+                                "{" + "destinationId" + "}",
                                 localVarApiClient.escapeString(destinationId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -532,7 +527,6 @@ public class DestinationFiltersApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -558,7 +552,6 @@ public class DestinationFiltersApi {
     private okhttp3.Call listFiltersFromDestinationValidateBeforeCall(
             String destinationId, PaginationInput pagination, final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'destinationId' is set
         if (destinationId == null) {
             throw new ApiException(
@@ -573,9 +566,7 @@ public class DestinationFiltersApi {
                             + " listFiltersFromDestination(Async)");
         }
 
-        okhttp3.Call localVarCall =
-                listFiltersFromDestinationCall(destinationId, pagination, _callback);
-        return localVarCall;
+        return listFiltersFromDestinationCall(destinationId, pagination, _callback);
     }
 
     /**
@@ -660,6 +651,7 @@ public class DestinationFiltersApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for previewDestinationFilter
      *
@@ -746,7 +738,6 @@ public class DestinationFiltersApi {
             PreviewDestinationFilterV1Input previewDestinationFilterV1Input,
             final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'previewDestinationFilterV1Input' is set
         if (previewDestinationFilterV1Input == null) {
             throw new ApiException(
@@ -754,9 +745,7 @@ public class DestinationFiltersApi {
                             + " previewDestinationFilter(Async)");
         }
 
-        okhttp3.Call localVarCall =
-                previewDestinationFilterCall(previewDestinationFilterV1Input, _callback);
-        return localVarCall;
+        return previewDestinationFilterCall(previewDestinationFilterV1Input, _callback);
     }
 
     /**
@@ -838,6 +827,7 @@ public class DestinationFiltersApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for removeFilterFromDestination
      *
@@ -876,11 +866,11 @@ public class DestinationFiltersApi {
         // create path and map variables
         String localVarPath =
                 "/destination/{destinationId}/filters/{filterId}"
-                        .replaceAll(
-                                "\\{" + "destinationId" + "\\}",
+                        .replace(
+                                "{" + "destinationId" + "}",
                                 localVarApiClient.escapeString(destinationId.toString()))
-                        .replaceAll(
-                                "\\{" + "filterId" + "\\}",
+                        .replace(
+                                "{" + "filterId" + "}",
                                 localVarApiClient.escapeString(filterId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -901,7 +891,6 @@ public class DestinationFiltersApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -927,7 +916,6 @@ public class DestinationFiltersApi {
     private okhttp3.Call removeFilterFromDestinationValidateBeforeCall(
             String destinationId, String filterId, final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'destinationId' is set
         if (destinationId == null) {
             throw new ApiException(
@@ -942,9 +930,7 @@ public class DestinationFiltersApi {
                             + " removeFilterFromDestination(Async)");
         }
 
-        okhttp3.Call localVarCall =
-                removeFilterFromDestinationCall(destinationId, filterId, _callback);
-        return localVarCall;
+        return removeFilterFromDestinationCall(destinationId, filterId, _callback);
     }
 
     /**
@@ -1035,6 +1021,7 @@ public class DestinationFiltersApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for updateFilterForDestination
      *
@@ -1077,11 +1064,11 @@ public class DestinationFiltersApi {
         // create path and map variables
         String localVarPath =
                 "/destination/{destinationId}/filters/{filterId}"
-                        .replaceAll(
-                                "\\{" + "destinationId" + "\\}",
+                        .replace(
+                                "{" + "destinationId" + "}",
                                 localVarApiClient.escapeString(destinationId.toString()))
-                        .replaceAll(
-                                "\\{" + "filterId" + "\\}",
+                        .replace(
+                                "{" + "filterId" + "}",
                                 localVarApiClient.escapeString(filterId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1134,7 +1121,6 @@ public class DestinationFiltersApi {
             UpdateFilterForDestinationV1Input updateFilterForDestinationV1Input,
             final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'destinationId' is set
         if (destinationId == null) {
             throw new ApiException(
@@ -1156,10 +1142,8 @@ public class DestinationFiltersApi {
                             + " calling updateFilterForDestination(Async)");
         }
 
-        okhttp3.Call localVarCall =
-                updateFilterForDestinationCall(
-                        destinationId, filterId, updateFilterForDestinationV1Input, _callback);
-        return localVarCall;
+        return updateFilterForDestinationCall(
+                destinationId, filterId, updateFilterForDestinationV1Input, _callback);
     }
 
     /**

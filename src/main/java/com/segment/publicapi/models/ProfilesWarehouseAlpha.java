@@ -11,7 +11,6 @@
 
 package com.segment.publicapi.models;
 
-
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -22,17 +21,14 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
 /** Defines a Profiles data Warehouse used as a Destination for Segment data. */
-@ApiModel(description = "Defines a Profiles data Warehouse used as a Destination for Segment data.")
 public class ProfilesWarehouseAlpha {
     public static final String SERIALIZED_NAME_ID = "id";
 
@@ -47,7 +43,7 @@ public class ProfilesWarehouseAlpha {
     public static final String SERIALIZED_NAME_METADATA = "metadata";
 
     @SerializedName(SERIALIZED_NAME_METADATA)
-    private Metadata1 metadata;
+    private WarehouseMetadataV1 metadata;
 
     public static final String SERIALIZED_NAME_WORKSPACE_ID = "workspaceId";
 
@@ -62,7 +58,7 @@ public class ProfilesWarehouseAlpha {
     public static final String SERIALIZED_NAME_SETTINGS = "settings";
 
     @SerializedName(SERIALIZED_NAME_SETTINGS)
-    private Map settings;
+    private Map<String, Object> settings;
 
     public static final String SERIALIZED_NAME_SCHEMA_NAME = "schemaName";
 
@@ -83,7 +79,6 @@ public class ProfilesWarehouseAlpha {
      * @return id
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "The id of the Warehouse.")
     public String getId() {
         return id;
     }
@@ -104,7 +99,6 @@ public class ProfilesWarehouseAlpha {
      * @return spaceId
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "The Space id.")
     public String getSpaceId() {
         return spaceId;
     }
@@ -113,7 +107,7 @@ public class ProfilesWarehouseAlpha {
         this.spaceId = spaceId;
     }
 
-    public ProfilesWarehouseAlpha metadata(Metadata1 metadata) {
+    public ProfilesWarehouseAlpha metadata(WarehouseMetadataV1 metadata) {
 
         this.metadata = metadata;
         return this;
@@ -125,12 +119,11 @@ public class ProfilesWarehouseAlpha {
      * @return metadata
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "")
-    public Metadata1 getMetadata() {
+    public WarehouseMetadataV1 getMetadata() {
         return metadata;
     }
 
-    public void setMetadata(Metadata1 metadata) {
+    public void setMetadata(WarehouseMetadataV1 metadata) {
         this.metadata = metadata;
     }
 
@@ -146,7 +139,6 @@ public class ProfilesWarehouseAlpha {
      * @return workspaceId
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "The id of the Workspace that owns this Warehouse.")
     public String getWorkspaceId() {
         return workspaceId;
     }
@@ -167,7 +159,6 @@ public class ProfilesWarehouseAlpha {
      * @return enabled
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "When set to true, this Warehouse receives data.")
     public Boolean getEnabled() {
         return enabled;
     }
@@ -176,30 +167,31 @@ public class ProfilesWarehouseAlpha {
         this.enabled = enabled;
     }
 
-    public ProfilesWarehouseAlpha settings(Map settings) {
+    public ProfilesWarehouseAlpha settings(Map<String, Object> settings) {
 
         this.settings = settings;
         return this;
     }
 
+    public ProfilesWarehouseAlpha putSettingsItem(String key, Object settingsItem) {
+        if (this.settings == null) {
+            this.settings = new HashMap<>();
+        }
+        this.settings.put(key, settingsItem);
+        return this;
+    }
+
     /**
-     * The settings associated with this Warehouse. Common settings are connection-related
-     * configuration used to connect to it, for example host, username, and port.
+     * A key-value object that contains instance-specific Warehouse settings.
      *
      * @return settings
      */
-    @javax.annotation.Nullable
-    @ApiModelProperty(
-            required = true,
-            value =
-                    "The settings associated with this Warehouse.  Common settings are"
-                            + " connection-related configuration used to connect to it, for example"
-                            + " host, username, and port.")
-    public Map getSettings() {
+    @javax.annotation.Nonnull
+    public Map<String, Object> getSettings() {
         return settings;
     }
 
-    public void setSettings(Map settings) {
+    public void setSettings(Map<String, Object> settings) {
         this.settings = settings;
     }
 
@@ -215,7 +207,6 @@ public class ProfilesWarehouseAlpha {
      * @return schemaName
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(value = "The custom schema name that Segment uses on the Warehouse side.")
     public String getSchemaName() {
         return schemaName;
     }
@@ -298,15 +289,15 @@ public class ProfilesWarehouseAlpha {
     }
 
     /**
-     * Validates the JSON Object and throws an exception if issues found
+     * Validates the JSON Element and throws an exception if issues found
      *
-     * @param jsonObj JSON Object
-     * @throws IOException if the JSON Object is invalid with respect to ProfilesWarehouseAlpha
+     * @param jsonElement JSON Element
+     * @throws IOException if the JSON Element is invalid with respect to ProfilesWarehouseAlpha
      */
-    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-        if (jsonObj == null) {
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        if (jsonElement == null) {
             if (!ProfilesWarehouseAlpha.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON object is null
+                    .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in ProfilesWarehouseAlpha is not found in"
@@ -315,27 +306,28 @@ public class ProfilesWarehouseAlpha {
             }
         }
 
-        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
-        for (Entry<String, JsonElement> entry : entries) {
+        for (Map.Entry<String, JsonElement> entry : entries) {
             if (!ProfilesWarehouseAlpha.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
                                         + " `ProfilesWarehouseAlpha` properties. JSON: %s",
-                                entry.getKey(), jsonObj.toString()));
+                                entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
         for (String requiredField : ProfilesWarehouseAlpha.openapiRequiredFields) {
-            if (jsonObj.get(requiredField) == null) {
+            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonObj.toString()));
+                                requiredField, jsonElement.toString()));
             }
         }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
         if (!jsonObj.get("id").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -350,6 +342,8 @@ public class ProfilesWarehouseAlpha {
                                     + " but got `%s`",
                             jsonObj.get("spaceId").toString()));
         }
+        // validate the required field `metadata`
+        WarehouseMetadataV1.validateJsonElement(jsonObj.get("metadata"));
         if (!jsonObj.get("workspaceId").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -389,9 +383,9 @@ public class ProfilesWarehouseAlpha {
 
                         @Override
                         public ProfilesWarehouseAlpha read(JsonReader in) throws IOException {
-                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-                            validateJsonObject(jsonObj);
-                            return thisAdapter.fromJsonTree(jsonObj);
+                            JsonElement jsonElement = elementAdapter.read(in);
+                            validateJsonElement(jsonElement);
+                            return thisAdapter.fromJsonTree(jsonElement);
                         }
                     }.nullSafe();
         }
