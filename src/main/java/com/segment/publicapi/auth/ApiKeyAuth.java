@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.auth;
 
+
 import com.segment.publicapi.ApiException;
 import com.segment.publicapi.Pair;
 import java.net.URI;

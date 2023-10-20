@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.models;
 
+
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -22,20 +23,23 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
 /** Defines the advanced sync schedule for a Warehouse. */
+@ApiModel(description = "Defines the advanced sync schedule for a Warehouse.")
 public class AdvancedWarehouseSyncScheduleV1Output {
     public static final String SERIALIZED_NAME_TIMES = "times";
 
     @SerializedName(SERIALIZED_NAME_TIMES)
-    private List<WarehouseAdvancedSyncV1> times;
+    private List<WarehouseAdvancedSyncV1> times = null;
 
     public static final String SERIALIZED_NAME_TIMEZONE = "timezone";
 
@@ -64,6 +68,7 @@ public class AdvancedWarehouseSyncScheduleV1Output {
      * @return times
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "A list that contains the times when syncs should occur.")
     public List<WarehouseAdvancedSyncV1> getTimes() {
         return times;
     }
@@ -84,6 +89,7 @@ public class AdvancedWarehouseSyncScheduleV1Output {
      * @return timezone
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "A TZ-database timezone for this sync schedule.")
     public String getTimezone() {
         return timezone;
     }
@@ -146,16 +152,16 @@ public class AdvancedWarehouseSyncScheduleV1Output {
     }
 
     /**
-     * Validates the JSON Element and throws an exception if issues found
+     * Validates the JSON Object and throws an exception if issues found
      *
-     * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to
+     * @param jsonObj JSON Object
+     * @throws IOException if the JSON Object is invalid with respect to
      *     AdvancedWarehouseSyncScheduleV1Output
      */
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        if (jsonElement == null) {
+    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+        if (jsonObj == null) {
             if (!AdvancedWarehouseSyncScheduleV1Output.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON element is null
+                    .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in AdvancedWarehouseSyncScheduleV1Output"
@@ -165,19 +171,18 @@ public class AdvancedWarehouseSyncScheduleV1Output {
             }
         }
 
-        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
-        for (Map.Entry<String, JsonElement> entry : entries) {
+        for (Entry<String, JsonElement> entry : entries) {
             if (!AdvancedWarehouseSyncScheduleV1Output.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
                                     + " `AdvancedWarehouseSyncScheduleV1Output` properties. JSON:"
                                     + " %s",
-                                entry.getKey(), jsonElement.toString()));
+                                entry.getKey(), jsonObj.toString()));
             }
         }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
         if (jsonObj.get("times") != null && !jsonObj.get("times").isJsonNull()) {
             JsonArray jsonArraytimes = jsonObj.getAsJsonArray("times");
             if (jsonArraytimes != null) {
@@ -189,12 +194,6 @@ public class AdvancedWarehouseSyncScheduleV1Output {
                                             + " but got `%s`",
                                     jsonObj.get("times").toString()));
                 }
-
-                // validate the optional field `times` (array)
-                for (int i = 0; i < jsonArraytimes.size(); i++) {
-                    WarehouseAdvancedSyncV1.validateJsonElement(jsonArraytimes.get(i));
-                }
-                ;
             }
         }
         if ((jsonObj.get("timezone") != null && !jsonObj.get("timezone").isJsonNull())
@@ -233,9 +232,9 @@ public class AdvancedWarehouseSyncScheduleV1Output {
                         @Override
                         public AdvancedWarehouseSyncScheduleV1Output read(JsonReader in)
                                 throws IOException {
-                            JsonElement jsonElement = elementAdapter.read(in);
-                            validateJsonElement(jsonElement);
-                            return thisAdapter.fromJsonTree(jsonElement);
+                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+                            validateJsonObject(jsonObj);
+                            return thisAdapter.fromJsonTree(jsonObj);
                         }
                     }.nullSafe();
         }

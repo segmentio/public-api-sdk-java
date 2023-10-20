@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.models;
 
+
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -21,28 +22,31 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
 /** Input to update a Source&#39;s settings. */
+@ApiModel(description = "Input to update a Source's settings.")
 public class UpdateSchemaSettingsInSourceV1Input {
     public static final String SERIALIZED_NAME_TRACK = "track";
 
     @SerializedName(SERIALIZED_NAME_TRACK)
-    private TrackSourceSettingsV1 track;
+    private Track track;
 
     public static final String SERIALIZED_NAME_IDENTIFY = "identify";
 
     @SerializedName(SERIALIZED_NAME_IDENTIFY)
-    private IdentifySourceSettingsV1 identify;
+    private Identify identify;
 
     public static final String SERIALIZED_NAME_GROUP = "group";
 
     @SerializedName(SERIALIZED_NAME_GROUP)
-    private GroupSourceSettingsV1 group;
+    private Group group;
 
     public static final String SERIALIZED_NAME_FORWARDING_VIOLATIONS_TO = "forwardingViolationsTo";
 
@@ -57,7 +61,7 @@ public class UpdateSchemaSettingsInSourceV1Input {
 
     public UpdateSchemaSettingsInSourceV1Input() {}
 
-    public UpdateSchemaSettingsInSourceV1Input track(TrackSourceSettingsV1 track) {
+    public UpdateSchemaSettingsInSourceV1Input track(Track track) {
 
         this.track = track;
         return this;
@@ -69,15 +73,16 @@ public class UpdateSchemaSettingsInSourceV1Input {
      * @return track
      */
     @javax.annotation.Nullable
-    public TrackSourceSettingsV1 getTrack() {
+    @ApiModelProperty(value = "")
+    public Track getTrack() {
         return track;
     }
 
-    public void setTrack(TrackSourceSettingsV1 track) {
+    public void setTrack(Track track) {
         this.track = track;
     }
 
-    public UpdateSchemaSettingsInSourceV1Input identify(IdentifySourceSettingsV1 identify) {
+    public UpdateSchemaSettingsInSourceV1Input identify(Identify identify) {
 
         this.identify = identify;
         return this;
@@ -89,15 +94,16 @@ public class UpdateSchemaSettingsInSourceV1Input {
      * @return identify
      */
     @javax.annotation.Nullable
-    public IdentifySourceSettingsV1 getIdentify() {
+    @ApiModelProperty(value = "")
+    public Identify getIdentify() {
         return identify;
     }
 
-    public void setIdentify(IdentifySourceSettingsV1 identify) {
+    public void setIdentify(Identify identify) {
         this.identify = identify;
     }
 
-    public UpdateSchemaSettingsInSourceV1Input group(GroupSourceSettingsV1 group) {
+    public UpdateSchemaSettingsInSourceV1Input group(Group group) {
 
         this.group = group;
         return this;
@@ -109,11 +115,12 @@ public class UpdateSchemaSettingsInSourceV1Input {
      * @return group
      */
     @javax.annotation.Nullable
-    public GroupSourceSettingsV1 getGroup() {
+    @ApiModelProperty(value = "")
+    public Group getGroup() {
         return group;
     }
 
-    public void setGroup(GroupSourceSettingsV1 group) {
+    public void setGroup(Group group) {
         this.group = group;
     }
 
@@ -130,6 +137,7 @@ public class UpdateSchemaSettingsInSourceV1Input {
      * @return forwardingViolationsTo
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "Source id to forward violations to.")
     public String getForwardingViolationsTo() {
         return forwardingViolationsTo;
     }
@@ -151,6 +159,7 @@ public class UpdateSchemaSettingsInSourceV1Input {
      * @return forwardingBlockedEventsTo
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "Source id to forward blocked events to.")
     public String getForwardingBlockedEventsTo() {
         return forwardingBlockedEventsTo;
     }
@@ -231,16 +240,16 @@ public class UpdateSchemaSettingsInSourceV1Input {
     }
 
     /**
-     * Validates the JSON Element and throws an exception if issues found
+     * Validates the JSON Object and throws an exception if issues found
      *
-     * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to
+     * @param jsonObj JSON Object
+     * @throws IOException if the JSON Object is invalid with respect to
      *     UpdateSchemaSettingsInSourceV1Input
      */
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        if (jsonElement == null) {
+    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+        if (jsonObj == null) {
             if (!UpdateSchemaSettingsInSourceV1Input.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON element is null
+                    .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in UpdateSchemaSettingsInSourceV1Input is"
@@ -250,29 +259,16 @@ public class UpdateSchemaSettingsInSourceV1Input {
             }
         }
 
-        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
-        for (Map.Entry<String, JsonElement> entry : entries) {
+        for (Entry<String, JsonElement> entry : entries) {
             if (!UpdateSchemaSettingsInSourceV1Input.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
                                     + " `UpdateSchemaSettingsInSourceV1Input` properties. JSON: %s",
-                                entry.getKey(), jsonElement.toString()));
+                                entry.getKey(), jsonObj.toString()));
             }
-        }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-        // validate the optional field `track`
-        if (jsonObj.get("track") != null && !jsonObj.get("track").isJsonNull()) {
-            TrackSourceSettingsV1.validateJsonElement(jsonObj.get("track"));
-        }
-        // validate the optional field `identify`
-        if (jsonObj.get("identify") != null && !jsonObj.get("identify").isJsonNull()) {
-            IdentifySourceSettingsV1.validateJsonElement(jsonObj.get("identify"));
-        }
-        // validate the optional field `group`
-        if (jsonObj.get("group") != null && !jsonObj.get("group").isJsonNull()) {
-            GroupSourceSettingsV1.validateJsonElement(jsonObj.get("group"));
         }
         if ((jsonObj.get("forwardingViolationsTo") != null
                         && !jsonObj.get("forwardingViolationsTo").isJsonNull())
@@ -319,9 +315,9 @@ public class UpdateSchemaSettingsInSourceV1Input {
                         @Override
                         public UpdateSchemaSettingsInSourceV1Input read(JsonReader in)
                                 throws IOException {
-                            JsonElement jsonElement = elementAdapter.read(in);
-                            validateJsonElement(jsonElement);
-                            return thisAdapter.fromJsonTree(jsonElement);
+                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+                            validateJsonObject(jsonObj);
+                            return thisAdapter.fromJsonTree(jsonObj);
                         }
                     }.nullSafe();
         }

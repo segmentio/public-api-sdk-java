@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.models;
 
+
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -22,15 +23,18 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
 /** Batch get response. */
+@ApiModel(description = "Batch get response.")
 public class BatchQueryMessagingSubscriptionsForSpaceAlphaOutput {
     public static final String SERIALIZED_NAME_SUCCESSES = "successes";
 
@@ -50,7 +54,7 @@ public class BatchQueryMessagingSubscriptionsForSpaceAlphaOutput {
     public static final String SERIALIZED_NAME_PAGINATION = "pagination";
 
     @SerializedName(SERIALIZED_NAME_PAGINATION)
-    private PaginationOutput pagination;
+    private Pagination pagination;
 
     public BatchQueryMessagingSubscriptionsForSpaceAlphaOutput() {}
 
@@ -63,9 +67,6 @@ public class BatchQueryMessagingSubscriptionsForSpaceAlphaOutput {
 
     public BatchQueryMessagingSubscriptionsForSpaceAlphaOutput addSuccessesItem(
             GetMessagingSubscriptionSuccessResponse successesItem) {
-        if (this.successes == null) {
-            this.successes = new ArrayList<>();
-        }
         this.successes.add(successesItem);
         return this;
     }
@@ -76,6 +77,7 @@ public class BatchQueryMessagingSubscriptionsForSpaceAlphaOutput {
      * @return successes
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "Array of successful subscription status.")
     public List<GetMessagingSubscriptionSuccessResponse> getSuccesses() {
         return successes;
     }
@@ -93,9 +95,6 @@ public class BatchQueryMessagingSubscriptionsForSpaceAlphaOutput {
 
     public BatchQueryMessagingSubscriptionsForSpaceAlphaOutput addFailuresItem(
             GetMessagingSubscriptionFailureResponse failuresItem) {
-        if (this.failures == null) {
-            this.failures = new ArrayList<>();
-        }
         this.failures.add(failuresItem);
         return this;
     }
@@ -106,6 +105,9 @@ public class BatchQueryMessagingSubscriptionsForSpaceAlphaOutput {
      * @return failures
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(
+            required = true,
+            value = "Validation errors due to invalid types or email/phone numbers.")
     public List<GetMessagingSubscriptionFailureResponse> getFailures() {
         return failures;
     }
@@ -123,9 +125,6 @@ public class BatchQueryMessagingSubscriptionsForSpaceAlphaOutput {
 
     public BatchQueryMessagingSubscriptionsForSpaceAlphaOutput addErrorsItem(
             MessageSubscriptionResponseError errorsItem) {
-        if (this.errors == null) {
-            this.errors = new ArrayList<>();
-        }
         this.errors.add(errorsItem);
         return this;
     }
@@ -136,6 +135,11 @@ public class BatchQueryMessagingSubscriptionsForSpaceAlphaOutput {
      * @return errors
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(
+            required = true,
+            value =
+                    "General errors when making the request such as invalid payload or wrong http"
+                            + " method errors.")
     public List<MessageSubscriptionResponseError> getErrors() {
         return errors;
     }
@@ -144,8 +148,7 @@ public class BatchQueryMessagingSubscriptionsForSpaceAlphaOutput {
         this.errors = errors;
     }
 
-    public BatchQueryMessagingSubscriptionsForSpaceAlphaOutput pagination(
-            PaginationOutput pagination) {
+    public BatchQueryMessagingSubscriptionsForSpaceAlphaOutput pagination(Pagination pagination) {
 
         this.pagination = pagination;
         return this;
@@ -157,11 +160,12 @@ public class BatchQueryMessagingSubscriptionsForSpaceAlphaOutput {
      * @return pagination
      */
     @javax.annotation.Nullable
-    public PaginationOutput getPagination() {
+    @ApiModelProperty(value = "")
+    public Pagination getPagination() {
         return pagination;
     }
 
-    public void setPagination(PaginationOutput pagination) {
+    public void setPagination(Pagination pagination) {
         this.pagination = pagination;
     }
 
@@ -235,16 +239,16 @@ public class BatchQueryMessagingSubscriptionsForSpaceAlphaOutput {
     }
 
     /**
-     * Validates the JSON Element and throws an exception if issues found
+     * Validates the JSON Object and throws an exception if issues found
      *
-     * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to
+     * @param jsonObj JSON Object
+     * @throws IOException if the JSON Object is invalid with respect to
      *     BatchQueryMessagingSubscriptionsForSpaceAlphaOutput
      */
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        if (jsonElement == null) {
+    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+        if (jsonObj == null) {
             if (!BatchQueryMessagingSubscriptionsForSpaceAlphaOutput.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON element is null
+                    .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in"
@@ -256,9 +260,9 @@ public class BatchQueryMessagingSubscriptionsForSpaceAlphaOutput {
             }
         }
 
-        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
-        for (Map.Entry<String, JsonElement> entry : entries) {
+        for (Entry<String, JsonElement> entry : entries) {
             if (!BatchQueryMessagingSubscriptionsForSpaceAlphaOutput.openapiFields.contains(
                     entry.getKey())) {
                 throw new IllegalArgumentException(
@@ -266,21 +270,20 @@ public class BatchQueryMessagingSubscriptionsForSpaceAlphaOutput {
                                 "The field `%s` in the JSON string is not defined in the"
                                         + " `BatchQueryMessagingSubscriptionsForSpaceAlphaOutput`"
                                         + " properties. JSON: %s",
-                                entry.getKey(), jsonElement.toString()));
+                                entry.getKey(), jsonObj.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
         for (String requiredField :
                 BatchQueryMessagingSubscriptionsForSpaceAlphaOutput.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+            if (jsonObj.get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonElement.toString()));
+                                requiredField, jsonObj.toString()));
             }
         }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
         // ensure the json data is an array
         if (!jsonObj.get("successes").isJsonArray()) {
             throw new IllegalArgumentException(
@@ -291,11 +294,6 @@ public class BatchQueryMessagingSubscriptionsForSpaceAlphaOutput {
         }
 
         JsonArray jsonArraysuccesses = jsonObj.getAsJsonArray("successes");
-        // validate the required field `successes` (array)
-        for (int i = 0; i < jsonArraysuccesses.size(); i++) {
-            GetMessagingSubscriptionSuccessResponse.validateJsonElement(jsonArraysuccesses.get(i));
-        }
-        ;
         // ensure the json data is an array
         if (!jsonObj.get("failures").isJsonArray()) {
             throw new IllegalArgumentException(
@@ -306,11 +304,6 @@ public class BatchQueryMessagingSubscriptionsForSpaceAlphaOutput {
         }
 
         JsonArray jsonArrayfailures = jsonObj.getAsJsonArray("failures");
-        // validate the required field `failures` (array)
-        for (int i = 0; i < jsonArrayfailures.size(); i++) {
-            GetMessagingSubscriptionFailureResponse.validateJsonElement(jsonArrayfailures.get(i));
-        }
-        ;
         // ensure the json data is an array
         if (!jsonObj.get("errors").isJsonArray()) {
             throw new IllegalArgumentException(
@@ -321,15 +314,6 @@ public class BatchQueryMessagingSubscriptionsForSpaceAlphaOutput {
         }
 
         JsonArray jsonArrayerrors = jsonObj.getAsJsonArray("errors");
-        // validate the required field `errors` (array)
-        for (int i = 0; i < jsonArrayerrors.size(); i++) {
-            MessageSubscriptionResponseError.validateJsonElement(jsonArrayerrors.get(i));
-        }
-        ;
-        // validate the optional field `pagination`
-        if (jsonObj.get("pagination") != null && !jsonObj.get("pagination").isJsonNull()) {
-            PaginationOutput.validateJsonElement(jsonObj.get("pagination"));
-        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -363,9 +347,9 @@ public class BatchQueryMessagingSubscriptionsForSpaceAlphaOutput {
                         @Override
                         public BatchQueryMessagingSubscriptionsForSpaceAlphaOutput read(
                                 JsonReader in) throws IOException {
-                            JsonElement jsonElement = elementAdapter.read(in);
-                            validateJsonElement(jsonElement);
-                            return thisAdapter.fromJsonTree(jsonElement);
+                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+                            validateJsonObject(jsonObj);
+                            return thisAdapter.fromJsonTree(jsonObj);
                         }
                     }.nullSafe();
         }

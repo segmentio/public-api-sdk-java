@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.models;
 
+
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -22,15 +23,21 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
 /** A website, server library, mobile SDK, or cloud application which can send data into Segment. */
+@ApiModel(
+        description =
+                "A website, server library, mobile SDK, or cloud application which can send data"
+                        + " into Segment.")
 public class SourceMetadataV1 {
     public static final String SERIALIZED_NAME_ID = "id";
 
@@ -55,7 +62,7 @@ public class SourceMetadataV1 {
     public static final String SERIALIZED_NAME_LOGOS = "logos";
 
     @SerializedName(SERIALIZED_NAME_LOGOS)
-    private LogosBeta logos;
+    private Logos1 logos;
 
     public static final String SERIALIZED_NAME_OPTIONS = "options";
 
@@ -87,6 +94,11 @@ public class SourceMetadataV1 {
      * @return id
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(
+            required = true,
+            value =
+                    "The id for this Source metadata in the Segment catalog.  Config API note:"
+                            + " analogous to `name`.")
     public String getId() {
         return id;
     }
@@ -107,6 +119,11 @@ public class SourceMetadataV1 {
      * @return name
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(
+            required = true,
+            value =
+                    "The user-friendly name of this Source.  Config API note: equal to"
+                            + " `displayName`.")
     public String getName() {
         return name;
     }
@@ -128,6 +145,11 @@ public class SourceMetadataV1 {
      * @return slug
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(
+            required = true,
+            value =
+                    "The slug that identifies this Source in the Segment app.  Config API note:"
+                            + " equal to `name`.")
     public String getSlug() {
         return slug;
     }
@@ -148,6 +170,7 @@ public class SourceMetadataV1 {
      * @return description
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "The description of this Source.")
     public String getDescription() {
         return description;
     }
@@ -156,7 +179,7 @@ public class SourceMetadataV1 {
         this.description = description;
     }
 
-    public SourceMetadataV1 logos(LogosBeta logos) {
+    public SourceMetadataV1 logos(Logos1 logos) {
 
         this.logos = logos;
         return this;
@@ -168,11 +191,12 @@ public class SourceMetadataV1 {
      * @return logos
      */
     @javax.annotation.Nonnull
-    public LogosBeta getLogos() {
+    @ApiModelProperty(required = true, value = "")
+    public Logos1 getLogos() {
         return logos;
     }
 
-    public void setLogos(LogosBeta logos) {
+    public void setLogos(Logos1 logos) {
         this.logos = logos;
     }
 
@@ -183,9 +207,6 @@ public class SourceMetadataV1 {
     }
 
     public SourceMetadataV1 addOptionsItem(IntegrationOptionBeta optionsItem) {
-        if (this.options == null) {
-            this.options = new ArrayList<>();
-        }
         this.options.add(optionsItem);
         return this;
     }
@@ -196,6 +217,7 @@ public class SourceMetadataV1 {
      * @return options
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "Options for this Source.")
     public List<IntegrationOptionBeta> getOptions() {
         return options;
     }
@@ -211,9 +233,6 @@ public class SourceMetadataV1 {
     }
 
     public SourceMetadataV1 addCategoriesItem(String categoriesItem) {
-        if (this.categories == null) {
-            this.categories = new ArrayList<>();
-        }
         this.categories.add(categoriesItem);
         return this;
     }
@@ -224,6 +243,7 @@ public class SourceMetadataV1 {
      * @return categories
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "A list of categories this Source belongs to.")
     public List<String> getCategories() {
         return categories;
     }
@@ -244,6 +264,7 @@ public class SourceMetadataV1 {
      * @return isCloudEventSource
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "True if this is a Cloud Event Source.")
     public Boolean getIsCloudEventSource() {
         return isCloudEventSource;
     }
@@ -334,15 +355,15 @@ public class SourceMetadataV1 {
     }
 
     /**
-     * Validates the JSON Element and throws an exception if issues found
+     * Validates the JSON Object and throws an exception if issues found
      *
-     * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to SourceMetadataV1
+     * @param jsonObj JSON Object
+     * @throws IOException if the JSON Object is invalid with respect to SourceMetadataV1
      */
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        if (jsonElement == null) {
+    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+        if (jsonObj == null) {
             if (!SourceMetadataV1.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON element is null
+                    .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in SourceMetadataV1 is not found in the"
@@ -351,28 +372,27 @@ public class SourceMetadataV1 {
             }
         }
 
-        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
-        for (Map.Entry<String, JsonElement> entry : entries) {
+        for (Entry<String, JsonElement> entry : entries) {
             if (!SourceMetadataV1.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
                                         + " `SourceMetadataV1` properties. JSON: %s",
-                                entry.getKey(), jsonElement.toString()));
+                                entry.getKey(), jsonObj.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
         for (String requiredField : SourceMetadataV1.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+            if (jsonObj.get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonElement.toString()));
+                                requiredField, jsonObj.toString()));
             }
         }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
         if (!jsonObj.get("id").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -401,8 +421,6 @@ public class SourceMetadataV1 {
                                     + " string but got `%s`",
                             jsonObj.get("description").toString()));
         }
-        // validate the required field `logos`
-        LogosBeta.validateJsonElement(jsonObj.get("logos"));
         // ensure the json data is an array
         if (!jsonObj.get("options").isJsonArray()) {
             throw new IllegalArgumentException(
@@ -413,11 +431,6 @@ public class SourceMetadataV1 {
         }
 
         JsonArray jsonArrayoptions = jsonObj.getAsJsonArray("options");
-        // validate the required field `options` (array)
-        for (int i = 0; i < jsonArrayoptions.size(); i++) {
-            IntegrationOptionBeta.validateJsonElement(jsonArrayoptions.get(i));
-        }
-        ;
         // ensure the required json array is present
         if (jsonObj.get("categories") == null) {
             throw new IllegalArgumentException(
@@ -454,9 +467,9 @@ public class SourceMetadataV1 {
 
                         @Override
                         public SourceMetadataV1 read(JsonReader in) throws IOException {
-                            JsonElement jsonElement = elementAdapter.read(in);
-                            validateJsonElement(jsonElement);
-                            return thisAdapter.fromJsonTree(jsonElement);
+                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+                            validateJsonObject(jsonObj);
+                            return thisAdapter.fromJsonTree(jsonObj);
                         }
                     }.nullSafe();
         }

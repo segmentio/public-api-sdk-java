@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.models;
 
+
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -21,14 +22,17 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
 /** Defines a data Warehouse used as a Destination for Segment data. */
+@ApiModel(description = "Defines a data Warehouse used as a Destination for Segment data.")
 public class WarehouseV1 {
     public static final String SERIALIZED_NAME_ID = "id";
 
@@ -38,7 +42,7 @@ public class WarehouseV1 {
     public static final String SERIALIZED_NAME_METADATA = "metadata";
 
     @SerializedName(SERIALIZED_NAME_METADATA)
-    private WarehouseMetadataV1 metadata;
+    private Metadata1 metadata;
 
     public static final String SERIALIZED_NAME_WORKSPACE_ID = "workspaceId";
 
@@ -53,7 +57,7 @@ public class WarehouseV1 {
     public static final String SERIALIZED_NAME_SETTINGS = "settings";
 
     @SerializedName(SERIALIZED_NAME_SETTINGS)
-    private Map<String, Object> settings;
+    private Map settings;
 
     public WarehouseV1() {}
 
@@ -69,6 +73,7 @@ public class WarehouseV1 {
      * @return id
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "The id of the Warehouse.")
     public String getId() {
         return id;
     }
@@ -77,7 +82,7 @@ public class WarehouseV1 {
         this.id = id;
     }
 
-    public WarehouseV1 metadata(WarehouseMetadataV1 metadata) {
+    public WarehouseV1 metadata(Metadata1 metadata) {
 
         this.metadata = metadata;
         return this;
@@ -89,11 +94,12 @@ public class WarehouseV1 {
      * @return metadata
      */
     @javax.annotation.Nonnull
-    public WarehouseMetadataV1 getMetadata() {
+    @ApiModelProperty(required = true, value = "")
+    public Metadata1 getMetadata() {
         return metadata;
     }
 
-    public void setMetadata(WarehouseMetadataV1 metadata) {
+    public void setMetadata(Metadata1 metadata) {
         this.metadata = metadata;
     }
 
@@ -109,6 +115,7 @@ public class WarehouseV1 {
      * @return workspaceId
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "The id of the Workspace that owns this Warehouse.")
     public String getWorkspaceId() {
         return workspaceId;
     }
@@ -129,6 +136,7 @@ public class WarehouseV1 {
      * @return enabled
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "When set to true, this Warehouse receives data.")
     public Boolean getEnabled() {
         return enabled;
     }
@@ -137,31 +145,30 @@ public class WarehouseV1 {
         this.enabled = enabled;
     }
 
-    public WarehouseV1 settings(Map<String, Object> settings) {
+    public WarehouseV1 settings(Map settings) {
 
         this.settings = settings;
         return this;
     }
 
-    public WarehouseV1 putSettingsItem(String key, Object settingsItem) {
-        if (this.settings == null) {
-            this.settings = new HashMap<>();
-        }
-        this.settings.put(key, settingsItem);
-        return this;
-    }
-
     /**
-     * A key-value object that contains instance-specific Warehouse settings.
+     * The settings associated with this Warehouse. Common settings are connection-related
+     * configuration used to connect to it, for example host, username, and port.
      *
      * @return settings
      */
-    @javax.annotation.Nonnull
-    public Map<String, Object> getSettings() {
+    @javax.annotation.Nullable
+    @ApiModelProperty(
+            required = true,
+            value =
+                    "The settings associated with this Warehouse.  Common settings are"
+                            + " connection-related configuration used to connect to it, for example"
+                            + " host, username, and port.")
+    public Map getSettings() {
         return settings;
     }
 
-    public void setSettings(Map<String, Object> settings) {
+    public void setSettings(Map settings) {
         this.settings = settings;
     }
 
@@ -232,15 +239,15 @@ public class WarehouseV1 {
     }
 
     /**
-     * Validates the JSON Element and throws an exception if issues found
+     * Validates the JSON Object and throws an exception if issues found
      *
-     * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to WarehouseV1
+     * @param jsonObj JSON Object
+     * @throws IOException if the JSON Object is invalid with respect to WarehouseV1
      */
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        if (jsonElement == null) {
+    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+        if (jsonObj == null) {
             if (!WarehouseV1.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON element is null
+                    .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in WarehouseV1 is not found in the empty"
@@ -249,28 +256,27 @@ public class WarehouseV1 {
             }
         }
 
-        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
-        for (Map.Entry<String, JsonElement> entry : entries) {
+        for (Entry<String, JsonElement> entry : entries) {
             if (!WarehouseV1.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
                                         + " `WarehouseV1` properties. JSON: %s",
-                                entry.getKey(), jsonElement.toString()));
+                                entry.getKey(), jsonObj.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
         for (String requiredField : WarehouseV1.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+            if (jsonObj.get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonElement.toString()));
+                                requiredField, jsonObj.toString()));
             }
         }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
         if (!jsonObj.get("id").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -278,8 +284,6 @@ public class WarehouseV1 {
                                     + " got `%s`",
                             jsonObj.get("id").toString()));
         }
-        // validate the required field `metadata`
-        WarehouseMetadataV1.validateJsonElement(jsonObj.get("metadata"));
         if (!jsonObj.get("workspaceId").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -310,9 +314,9 @@ public class WarehouseV1 {
 
                         @Override
                         public WarehouseV1 read(JsonReader in) throws IOException {
-                            JsonElement jsonElement = elementAdapter.read(in);
-                            validateJsonElement(jsonElement);
-                            return thisAdapter.fromJsonTree(jsonElement);
+                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+                            validateJsonObject(jsonObj);
+                            return thisAdapter.fromJsonTree(jsonObj);
                         }
                     }.nullSafe();
         }

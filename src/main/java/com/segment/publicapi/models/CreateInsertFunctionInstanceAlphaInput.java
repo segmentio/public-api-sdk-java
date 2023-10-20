@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.models;
 
+
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -21,14 +22,18 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
 /** Creates an insert Function instance. */
+@ApiModel(description = "Creates an insert Function instance.")
 public class CreateInsertFunctionInstanceAlphaInput {
     public static final String SERIALIZED_NAME_FUNCTION_ID = "functionId";
 
@@ -69,6 +74,9 @@ public class CreateInsertFunctionInstanceAlphaInput {
      * @return functionId
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(
+            required = true,
+            value = "Insert Function id to which this instance is associated.")
     public String getFunctionId() {
         return functionId;
     }
@@ -89,6 +97,7 @@ public class CreateInsertFunctionInstanceAlphaInput {
      * @return integrationId
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "The Source or Destination id to be connected.")
     public String getIntegrationId() {
         return integrationId;
     }
@@ -109,6 +118,8 @@ public class CreateInsertFunctionInstanceAlphaInput {
      * @return enabled
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(
+            value = "Whether this insert Function instance should be enabled for the Destination.")
     public Boolean getEnabled() {
         return enabled;
     }
@@ -129,6 +140,9 @@ public class CreateInsertFunctionInstanceAlphaInput {
      * @return name
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(
+            required = true,
+            value = "Defines the display name of the insert Function instance.")
     public String getName() {
         return name;
     }
@@ -144,9 +158,6 @@ public class CreateInsertFunctionInstanceAlphaInput {
     }
 
     public CreateInsertFunctionInstanceAlphaInput putSettingsItem(String key, Object settingsItem) {
-        if (this.settings == null) {
-            this.settings = new HashMap<>();
-        }
         this.settings.put(key, settingsItem);
         return this;
     }
@@ -158,6 +169,11 @@ public class CreateInsertFunctionInstanceAlphaInput {
      * @return settings
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(
+            required = true,
+            value =
+                    "An object that contains settings for this insert Function instance based on"
+                            + " the settings present in the insert Function class.")
     public Map<String, Object> getSettings() {
         return settings;
     }
@@ -234,16 +250,16 @@ public class CreateInsertFunctionInstanceAlphaInput {
     }
 
     /**
-     * Validates the JSON Element and throws an exception if issues found
+     * Validates the JSON Object and throws an exception if issues found
      *
-     * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to
+     * @param jsonObj JSON Object
+     * @throws IOException if the JSON Object is invalid with respect to
      *     CreateInsertFunctionInstanceAlphaInput
      */
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        if (jsonElement == null) {
+    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+        if (jsonObj == null) {
             if (!CreateInsertFunctionInstanceAlphaInput.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON element is null
+                    .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in CreateInsertFunctionInstanceAlphaInput"
@@ -253,29 +269,28 @@ public class CreateInsertFunctionInstanceAlphaInput {
             }
         }
 
-        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
-        for (Map.Entry<String, JsonElement> entry : entries) {
+        for (Entry<String, JsonElement> entry : entries) {
             if (!CreateInsertFunctionInstanceAlphaInput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
                                     + " `CreateInsertFunctionInstanceAlphaInput` properties. JSON:"
                                     + " %s",
-                                entry.getKey(), jsonElement.toString()));
+                                entry.getKey(), jsonObj.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
         for (String requiredField : CreateInsertFunctionInstanceAlphaInput.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+            if (jsonObj.get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonElement.toString()));
+                                requiredField, jsonObj.toString()));
             }
         }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
         if (!jsonObj.get("functionId").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -325,9 +340,9 @@ public class CreateInsertFunctionInstanceAlphaInput {
                         @Override
                         public CreateInsertFunctionInstanceAlphaInput read(JsonReader in)
                                 throws IOException {
-                            JsonElement jsonElement = elementAdapter.read(in);
-                            validateJsonElement(jsonElement);
-                            return thisAdapter.fromJsonTree(jsonElement);
+                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+                            validateJsonObject(jsonObj);
+                            return thisAdapter.fromJsonTree(jsonObj);
                         }
                     }.nullSafe();
         }

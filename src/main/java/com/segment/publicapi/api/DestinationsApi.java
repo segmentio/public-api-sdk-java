@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.api;
 
+
 import com.google.gson.reflect.TypeToken;
 import com.segment.publicapi.ApiCallback;
 import com.segment.publicapi.ApiClient;
@@ -161,6 +162,7 @@ public class DestinationsApi {
     private okhttp3.Call createDestinationValidateBeforeCall(
             CreateDestinationV1Input createDestinationV1Input, final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'createDestinationV1Input' is set
         if (createDestinationV1Input == null) {
             throw new ApiException(
@@ -168,7 +170,8 @@ public class DestinationsApi {
                             + " createDestination(Async)");
         }
 
-        return createDestinationCall(createDestinationV1Input, _callback);
+        okhttp3.Call localVarCall = createDestinationCall(createDestinationV1Input, _callback);
+        return localVarCall;
     }
 
     /**
@@ -250,7 +253,6 @@ public class DestinationsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for createDestinationSubscription
      *
@@ -291,8 +293,8 @@ public class DestinationsApi {
         // create path and map variables
         String localVarPath =
                 "/destinations/{destinationId}/subscriptions"
-                        .replace(
-                                "{" + "destinationId" + "}",
+                        .replaceAll(
+                                "\\{" + "destinationId" + "\\}",
                                 localVarApiClient.escapeString(destinationId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -337,6 +339,7 @@ public class DestinationsApi {
             CreateDestinationSubscriptionAlphaInput createDestinationSubscriptionAlphaInput,
             final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'destinationId' is set
         if (destinationId == null) {
             throw new ApiException(
@@ -351,8 +354,10 @@ public class DestinationsApi {
                             + " calling createDestinationSubscription(Async)");
         }
 
-        return createDestinationSubscriptionCall(
-                destinationId, createDestinationSubscriptionAlphaInput, _callback);
+        okhttp3.Call localVarCall =
+                createDestinationSubscriptionCall(
+                        destinationId, createDestinationSubscriptionAlphaInput, _callback);
+        return localVarCall;
     }
 
     /**
@@ -456,7 +461,6 @@ public class DestinationsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for deleteDestination
      *
@@ -493,8 +497,8 @@ public class DestinationsApi {
         // create path and map variables
         String localVarPath =
                 "/destinations/{destinationId}"
-                        .replace(
-                                "{" + "destinationId" + "}",
+                        .replaceAll(
+                                "\\{" + "destinationId" + "\\}",
                                 localVarApiClient.escapeString(destinationId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -515,6 +519,7 @@ public class DestinationsApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -539,6 +544,7 @@ public class DestinationsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteDestinationValidateBeforeCall(
             String destinationId, final ApiCallback _callback) throws ApiException {
+
         // verify the required parameter 'destinationId' is set
         if (destinationId == null) {
             throw new ApiException(
@@ -546,7 +552,8 @@ public class DestinationsApi {
                             + " deleteDestination(Async)");
         }
 
-        return deleteDestinationCall(destinationId, _callback);
+        okhttp3.Call localVarCall = deleteDestinationCall(destinationId, _callback);
+        return localVarCall;
     }
 
     /**
@@ -627,7 +634,6 @@ public class DestinationsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for getDestination
      *
@@ -664,8 +670,8 @@ public class DestinationsApi {
         // create path and map variables
         String localVarPath =
                 "/destinations/{destinationId}"
-                        .replace(
-                                "{" + "destinationId" + "}",
+                        .replaceAll(
+                                "\\{" + "destinationId" + "\\}",
                                 localVarApiClient.escapeString(destinationId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -686,6 +692,7 @@ public class DestinationsApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -710,6 +717,7 @@ public class DestinationsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getDestinationValidateBeforeCall(
             String destinationId, final ApiCallback _callback) throws ApiException {
+
         // verify the required parameter 'destinationId' is set
         if (destinationId == null) {
             throw new ApiException(
@@ -717,7 +725,8 @@ public class DestinationsApi {
                             + " getDestination(Async)");
         }
 
-        return getDestinationCall(destinationId, _callback);
+        okhttp3.Call localVarCall = getDestinationCall(destinationId, _callback);
+        return localVarCall;
     }
 
     /**
@@ -794,7 +803,6 @@ public class DestinationsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for getSubscriptionFromDestination
      *
@@ -832,10 +840,12 @@ public class DestinationsApi {
         // create path and map variables
         String localVarPath =
                 "/destinations/{destinationId}/subscriptions/{id}"
-                        .replace(
-                                "{" + "destinationId" + "}",
+                        .replaceAll(
+                                "\\{" + "destinationId" + "\\}",
                                 localVarApiClient.escapeString(destinationId.toString()))
-                        .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
+                        .replaceAll(
+                                "\\{" + "id" + "\\}",
+                                localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -852,6 +862,7 @@ public class DestinationsApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -876,6 +887,7 @@ public class DestinationsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getSubscriptionFromDestinationValidateBeforeCall(
             String destinationId, String id, final ApiCallback _callback) throws ApiException {
+
         // verify the required parameter 'destinationId' is set
         if (destinationId == null) {
             throw new ApiException(
@@ -890,7 +902,9 @@ public class DestinationsApi {
                             + " getSubscriptionFromDestination(Async)");
         }
 
-        return getSubscriptionFromDestinationCall(destinationId, id, _callback);
+        okhttp3.Call localVarCall =
+                getSubscriptionFromDestinationCall(destinationId, id, _callback);
+        return localVarCall;
     }
 
     /**
@@ -987,7 +1001,6 @@ public class DestinationsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for listDeliveryMetricsSummaryFromDestination
      *
@@ -1040,8 +1053,8 @@ public class DestinationsApi {
         // create path and map variables
         String localVarPath =
                 "/destinations/{destinationId}/delivery-metrics"
-                        .replace(
-                                "{" + "destinationId" + "}",
+                        .replaceAll(
+                                "\\{" + "destinationId" + "\\}",
                                 localVarApiClient.escapeString(destinationId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1078,6 +1091,7 @@ public class DestinationsApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1108,6 +1122,7 @@ public class DestinationsApi {
             String granularity,
             final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'destinationId' is set
         if (destinationId == null) {
             throw new ApiException(
@@ -1122,8 +1137,10 @@ public class DestinationsApi {
                             + " listDeliveryMetricsSummaryFromDestination(Async)");
         }
 
-        return listDeliveryMetricsSummaryFromDestinationCall(
-                destinationId, sourceId, startTime, endTime, granularity, _callback);
+        okhttp3.Call localVarCall =
+                listDeliveryMetricsSummaryFromDestinationCall(
+                        destinationId, sourceId, startTime, endTime, granularity, _callback);
+        return localVarCall;
     }
 
     /**
@@ -1276,7 +1293,6 @@ public class DestinationsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for listDestinations
      *
@@ -1336,6 +1352,7 @@ public class DestinationsApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1360,6 +1377,7 @@ public class DestinationsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listDestinationsValidateBeforeCall(
             PaginationInput pagination, final ApiCallback _callback) throws ApiException {
+
         // verify the required parameter 'pagination' is set
         if (pagination == null) {
             throw new ApiException(
@@ -1367,7 +1385,8 @@ public class DestinationsApi {
                             + " listDestinations(Async)");
         }
 
-        return listDestinationsCall(pagination, _callback);
+        okhttp3.Call localVarCall = listDestinationsCall(pagination, _callback);
+        return localVarCall;
     }
 
     /**
@@ -1445,7 +1464,6 @@ public class DestinationsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for listSubscriptionsFromDestination
      *
@@ -1484,8 +1502,8 @@ public class DestinationsApi {
         // create path and map variables
         String localVarPath =
                 "/destinations/{destinationId}/subscriptions"
-                        .replace(
-                                "{" + "destinationId" + "}",
+                        .replaceAll(
+                                "\\{" + "destinationId" + "\\}",
                                 localVarApiClient.escapeString(destinationId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1507,6 +1525,7 @@ public class DestinationsApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1532,6 +1551,7 @@ public class DestinationsApi {
     private okhttp3.Call listSubscriptionsFromDestinationValidateBeforeCall(
             String destinationId, PaginationInput pagination, final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'destinationId' is set
         if (destinationId == null) {
             throw new ApiException(
@@ -1546,7 +1566,9 @@ public class DestinationsApi {
                             + " listSubscriptionsFromDestination(Async)");
         }
 
-        return listSubscriptionsFromDestinationCall(destinationId, pagination, _callback);
+        okhttp3.Call localVarCall =
+                listSubscriptionsFromDestinationCall(destinationId, pagination, _callback);
+        return localVarCall;
     }
 
     /**
@@ -1644,7 +1666,6 @@ public class DestinationsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for removeSubscriptionFromDestination
      *
@@ -1682,10 +1703,12 @@ public class DestinationsApi {
         // create path and map variables
         String localVarPath =
                 "/destinations/{destinationId}/subscriptions/{id}"
-                        .replace(
-                                "{" + "destinationId" + "}",
+                        .replaceAll(
+                                "\\{" + "destinationId" + "\\}",
                                 localVarApiClient.escapeString(destinationId.toString()))
-                        .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
+                        .replaceAll(
+                                "\\{" + "id" + "\\}",
+                                localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1702,6 +1725,7 @@ public class DestinationsApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1726,6 +1750,7 @@ public class DestinationsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call removeSubscriptionFromDestinationValidateBeforeCall(
             String destinationId, String id, final ApiCallback _callback) throws ApiException {
+
         // verify the required parameter 'destinationId' is set
         if (destinationId == null) {
             throw new ApiException(
@@ -1740,7 +1765,9 @@ public class DestinationsApi {
                             + " removeSubscriptionFromDestination(Async)");
         }
 
-        return removeSubscriptionFromDestinationCall(destinationId, id, _callback);
+        okhttp3.Call localVarCall =
+                removeSubscriptionFromDestinationCall(destinationId, id, _callback);
+        return localVarCall;
     }
 
     /**
@@ -1837,7 +1864,6 @@ public class DestinationsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for updateDestination
      *
@@ -1878,8 +1904,8 @@ public class DestinationsApi {
         // create path and map variables
         String localVarPath =
                 "/destinations/{destinationId}"
-                        .replace(
-                                "{" + "destinationId" + "}",
+                        .replaceAll(
+                                "\\{" + "destinationId" + "\\}",
                                 localVarApiClient.escapeString(destinationId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1931,6 +1957,7 @@ public class DestinationsApi {
             UpdateDestinationV1Input updateDestinationV1Input,
             final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'destinationId' is set
         if (destinationId == null) {
             throw new ApiException(
@@ -1945,7 +1972,9 @@ public class DestinationsApi {
                             + " updateDestination(Async)");
         }
 
-        return updateDestinationCall(destinationId, updateDestinationV1Input, _callback);
+        okhttp3.Call localVarCall =
+                updateDestinationCall(destinationId, updateDestinationV1Input, _callback);
+        return localVarCall;
     }
 
     /**
@@ -2049,7 +2078,6 @@ public class DestinationsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for updateSubscriptionForDestination
      *
@@ -2092,10 +2120,12 @@ public class DestinationsApi {
         // create path and map variables
         String localVarPath =
                 "/destinations/{destinationId}/subscriptions/{id}"
-                        .replace(
-                                "{" + "destinationId" + "}",
+                        .replaceAll(
+                                "\\{" + "destinationId" + "\\}",
                                 localVarApiClient.escapeString(destinationId.toString()))
-                        .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
+                        .replaceAll(
+                                "\\{" + "id" + "\\}",
+                                localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2140,6 +2170,7 @@ public class DestinationsApi {
             UpdateSubscriptionForDestinationAlphaInput updateSubscriptionForDestinationAlphaInput,
             final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'destinationId' is set
         if (destinationId == null) {
             throw new ApiException(
@@ -2161,8 +2192,10 @@ public class DestinationsApi {
                             + " when calling updateSubscriptionForDestination(Async)");
         }
 
-        return updateSubscriptionForDestinationCall(
-                destinationId, id, updateSubscriptionForDestinationAlphaInput, _callback);
+        okhttp3.Call localVarCall =
+                updateSubscriptionForDestinationCall(
+                        destinationId, id, updateSubscriptionForDestinationAlphaInput, _callback);
+        return localVarCall;
     }
 
     /**

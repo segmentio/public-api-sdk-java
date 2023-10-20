@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.api;
 
+
 import com.google.gson.reflect.TypeToken;
 import com.segment.publicapi.ApiCallback;
 import com.segment.publicapi.ApiClient;
@@ -120,8 +121,8 @@ public class TrackingPlansApi {
         // create path and map variables
         String localVarPath =
                 "/tracking-plans/{trackingPlanId}/sources"
-                        .replace(
-                                "{" + "trackingPlanId" + "}",
+                        .replaceAll(
+                                "\\{" + "trackingPlanId" + "\\}",
                                 localVarApiClient.escapeString(trackingPlanId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -173,6 +174,7 @@ public class TrackingPlansApi {
             AddSourceToTrackingPlanV1Input addSourceToTrackingPlanV1Input,
             final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'trackingPlanId' is set
         if (trackingPlanId == null) {
             throw new ApiException(
@@ -187,8 +189,10 @@ public class TrackingPlansApi {
                             + " addSourceToTrackingPlan(Async)");
         }
 
-        return addSourceToTrackingPlanCall(
-                trackingPlanId, addSourceToTrackingPlanV1Input, _callback);
+        okhttp3.Call localVarCall =
+                addSourceToTrackingPlanCall(
+                        trackingPlanId, addSourceToTrackingPlanV1Input, _callback);
+        return localVarCall;
     }
 
     /**
@@ -286,7 +290,6 @@ public class TrackingPlansApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for createTrackingPlan
      *
@@ -371,6 +374,7 @@ public class TrackingPlansApi {
     private okhttp3.Call createTrackingPlanValidateBeforeCall(
             CreateTrackingPlanV1Input createTrackingPlanV1Input, final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'createTrackingPlanV1Input' is set
         if (createTrackingPlanV1Input == null) {
             throw new ApiException(
@@ -378,7 +382,8 @@ public class TrackingPlansApi {
                             + " createTrackingPlan(Async)");
         }
 
-        return createTrackingPlanCall(createTrackingPlanV1Input, _callback);
+        okhttp3.Call localVarCall = createTrackingPlanCall(createTrackingPlanV1Input, _callback);
+        return localVarCall;
     }
 
     /**
@@ -462,7 +467,6 @@ public class TrackingPlansApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for deleteTrackingPlan
      *
@@ -499,8 +503,8 @@ public class TrackingPlansApi {
         // create path and map variables
         String localVarPath =
                 "/tracking-plans/{trackingPlanId}"
-                        .replace(
-                                "{" + "trackingPlanId" + "}",
+                        .replaceAll(
+                                "\\{" + "trackingPlanId" + "\\}",
                                 localVarApiClient.escapeString(trackingPlanId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -521,6 +525,7 @@ public class TrackingPlansApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -545,6 +550,7 @@ public class TrackingPlansApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteTrackingPlanValidateBeforeCall(
             String trackingPlanId, final ApiCallback _callback) throws ApiException {
+
         // verify the required parameter 'trackingPlanId' is set
         if (trackingPlanId == null) {
             throw new ApiException(
@@ -552,7 +558,8 @@ public class TrackingPlansApi {
                             + " deleteTrackingPlan(Async)");
         }
 
-        return deleteTrackingPlanCall(trackingPlanId, _callback);
+        okhttp3.Call localVarCall = deleteTrackingPlanCall(trackingPlanId, _callback);
+        return localVarCall;
     }
 
     /**
@@ -633,7 +640,6 @@ public class TrackingPlansApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for getTrackingPlan
      *
@@ -670,8 +676,8 @@ public class TrackingPlansApi {
         // create path and map variables
         String localVarPath =
                 "/tracking-plans/{trackingPlanId}"
-                        .replace(
-                                "{" + "trackingPlanId" + "}",
+                        .replaceAll(
+                                "\\{" + "trackingPlanId" + "\\}",
                                 localVarApiClient.escapeString(trackingPlanId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -692,6 +698,7 @@ public class TrackingPlansApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -716,6 +723,7 @@ public class TrackingPlansApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getTrackingPlanValidateBeforeCall(
             String trackingPlanId, final ApiCallback _callback) throws ApiException {
+
         // verify the required parameter 'trackingPlanId' is set
         if (trackingPlanId == null) {
             throw new ApiException(
@@ -723,7 +731,8 @@ public class TrackingPlansApi {
                             + " getTrackingPlan(Async)");
         }
 
-        return getTrackingPlanCall(trackingPlanId, _callback);
+        okhttp3.Call localVarCall = getTrackingPlanCall(trackingPlanId, _callback);
+        return localVarCall;
     }
 
     /**
@@ -803,7 +812,6 @@ public class TrackingPlansApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for listRulesFromTrackingPlan
      *
@@ -842,8 +850,8 @@ public class TrackingPlansApi {
         // create path and map variables
         String localVarPath =
                 "/tracking-plans/{trackingPlanId}/rules"
-                        .replace(
-                                "{" + "trackingPlanId" + "}",
+                        .replaceAll(
+                                "\\{" + "trackingPlanId" + "\\}",
                                 localVarApiClient.escapeString(trackingPlanId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -868,6 +876,7 @@ public class TrackingPlansApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -893,6 +902,7 @@ public class TrackingPlansApi {
     private okhttp3.Call listRulesFromTrackingPlanValidateBeforeCall(
             String trackingPlanId, PaginationInput pagination, final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'trackingPlanId' is set
         if (trackingPlanId == null) {
             throw new ApiException(
@@ -907,7 +917,9 @@ public class TrackingPlansApi {
                             + " listRulesFromTrackingPlan(Async)");
         }
 
-        return listRulesFromTrackingPlanCall(trackingPlanId, pagination, _callback);
+        okhttp3.Call localVarCall =
+                listRulesFromTrackingPlanCall(trackingPlanId, pagination, _callback);
+        return localVarCall;
     }
 
     /**
@@ -1009,7 +1021,6 @@ public class TrackingPlansApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for listSourcesFromTrackingPlan
      *
@@ -1048,8 +1059,8 @@ public class TrackingPlansApi {
         // create path and map variables
         String localVarPath =
                 "/tracking-plans/{trackingPlanId}/sources"
-                        .replace(
-                                "{" + "trackingPlanId" + "}",
+                        .replaceAll(
+                                "\\{" + "trackingPlanId" + "\\}",
                                 localVarApiClient.escapeString(trackingPlanId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1074,6 +1085,7 @@ public class TrackingPlansApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1099,6 +1111,7 @@ public class TrackingPlansApi {
     private okhttp3.Call listSourcesFromTrackingPlanValidateBeforeCall(
             String trackingPlanId, PaginationInput pagination, final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'trackingPlanId' is set
         if (trackingPlanId == null) {
             throw new ApiException(
@@ -1113,7 +1126,9 @@ public class TrackingPlansApi {
                             + " listSourcesFromTrackingPlan(Async)");
         }
 
-        return listSourcesFromTrackingPlanCall(trackingPlanId, pagination, _callback);
+        okhttp3.Call localVarCall =
+                listSourcesFromTrackingPlanCall(trackingPlanId, pagination, _callback);
+        return localVarCall;
     }
 
     /**
@@ -1211,7 +1226,6 @@ public class TrackingPlansApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for listTrackingPlans
      *
@@ -1277,6 +1291,7 @@ public class TrackingPlansApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1302,6 +1317,7 @@ public class TrackingPlansApi {
     private okhttp3.Call listTrackingPlansValidateBeforeCall(
             String type, PaginationInput pagination, final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'pagination' is set
         if (pagination == null) {
             throw new ApiException(
@@ -1309,7 +1325,8 @@ public class TrackingPlansApi {
                             + " listTrackingPlans(Async)");
         }
 
-        return listTrackingPlansCall(type, pagination, _callback);
+        okhttp3.Call localVarCall = listTrackingPlansCall(type, pagination, _callback);
+        return localVarCall;
     }
 
     /**
@@ -1399,7 +1416,6 @@ public class TrackingPlansApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for removeRulesFromTrackingPlan
      *
@@ -1438,8 +1454,8 @@ public class TrackingPlansApi {
         // create path and map variables
         String localVarPath =
                 "/tracking-plans/{trackingPlanId}/rules"
-                        .replace(
-                                "{" + "trackingPlanId" + "}",
+                        .replaceAll(
+                                "\\{" + "trackingPlanId" + "\\}",
                                 localVarApiClient.escapeString(trackingPlanId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1465,6 +1481,7 @@ public class TrackingPlansApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1490,6 +1507,7 @@ public class TrackingPlansApi {
     private okhttp3.Call removeRulesFromTrackingPlanValidateBeforeCall(
             String trackingPlanId, List<RemoveRuleV1> rules, final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'trackingPlanId' is set
         if (trackingPlanId == null) {
             throw new ApiException(
@@ -1504,7 +1522,9 @@ public class TrackingPlansApi {
                             + " removeRulesFromTrackingPlan(Async)");
         }
 
-        return removeRulesFromTrackingPlanCall(trackingPlanId, rules, _callback);
+        okhttp3.Call localVarCall =
+                removeRulesFromTrackingPlanCall(trackingPlanId, rules, _callback);
+        return localVarCall;
     }
 
     /**
@@ -1595,7 +1615,6 @@ public class TrackingPlansApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for removeSourceFromTrackingPlan
      *
@@ -1635,8 +1654,8 @@ public class TrackingPlansApi {
         // create path and map variables
         String localVarPath =
                 "/tracking-plans/{trackingPlanId}/sources"
-                        .replace(
-                                "{" + "trackingPlanId" + "}",
+                        .replaceAll(
+                                "\\{" + "trackingPlanId" + "\\}",
                                 localVarApiClient.escapeString(trackingPlanId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1661,6 +1680,7 @@ public class TrackingPlansApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1686,6 +1706,7 @@ public class TrackingPlansApi {
     private okhttp3.Call removeSourceFromTrackingPlanValidateBeforeCall(
             String trackingPlanId, String sourceId, final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'trackingPlanId' is set
         if (trackingPlanId == null) {
             throw new ApiException(
@@ -1700,7 +1721,9 @@ public class TrackingPlansApi {
                             + " removeSourceFromTrackingPlan(Async)");
         }
 
-        return removeSourceFromTrackingPlanCall(trackingPlanId, sourceId, _callback);
+        okhttp3.Call localVarCall =
+                removeSourceFromTrackingPlanCall(trackingPlanId, sourceId, _callback);
+        return localVarCall;
     }
 
     /**
@@ -1800,7 +1823,6 @@ public class TrackingPlansApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for replaceRulesInTrackingPlan
      *
@@ -1841,8 +1863,8 @@ public class TrackingPlansApi {
         // create path and map variables
         String localVarPath =
                 "/tracking-plans/{trackingPlanId}/rules"
-                        .replace(
-                                "{" + "trackingPlanId" + "}",
+                        .replaceAll(
+                                "\\{" + "trackingPlanId" + "\\}",
                                 localVarApiClient.escapeString(trackingPlanId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1894,6 +1916,7 @@ public class TrackingPlansApi {
             ReplaceRulesInTrackingPlanV1Input replaceRulesInTrackingPlanV1Input,
             final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'trackingPlanId' is set
         if (trackingPlanId == null) {
             throw new ApiException(
@@ -1908,8 +1931,10 @@ public class TrackingPlansApi {
                             + " calling replaceRulesInTrackingPlan(Async)");
         }
 
-        return replaceRulesInTrackingPlanCall(
-                trackingPlanId, replaceRulesInTrackingPlanV1Input, _callback);
+        okhttp3.Call localVarCall =
+                replaceRulesInTrackingPlanCall(
+                        trackingPlanId, replaceRulesInTrackingPlanV1Input, _callback);
+        return localVarCall;
     }
 
     /**
@@ -2007,7 +2032,6 @@ public class TrackingPlansApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for updateRulesInTrackingPlan
      *
@@ -2048,8 +2072,8 @@ public class TrackingPlansApi {
         // create path and map variables
         String localVarPath =
                 "/tracking-plans/{trackingPlanId}/rules"
-                        .replace(
-                                "{" + "trackingPlanId" + "}",
+                        .replaceAll(
+                                "\\{" + "trackingPlanId" + "\\}",
                                 localVarApiClient.escapeString(trackingPlanId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -2101,6 +2125,7 @@ public class TrackingPlansApi {
             UpdateRulesInTrackingPlanV1Input updateRulesInTrackingPlanV1Input,
             final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'trackingPlanId' is set
         if (trackingPlanId == null) {
             throw new ApiException(
@@ -2115,8 +2140,10 @@ public class TrackingPlansApi {
                             + " updateRulesInTrackingPlan(Async)");
         }
 
-        return updateRulesInTrackingPlanCall(
-                trackingPlanId, updateRulesInTrackingPlanV1Input, _callback);
+        okhttp3.Call localVarCall =
+                updateRulesInTrackingPlanCall(
+                        trackingPlanId, updateRulesInTrackingPlanV1Input, _callback);
+        return localVarCall;
     }
 
     /**
@@ -2213,7 +2240,6 @@ public class TrackingPlansApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for updateTrackingPlan
      *
@@ -2254,8 +2280,8 @@ public class TrackingPlansApi {
         // create path and map variables
         String localVarPath =
                 "/tracking-plans/{trackingPlanId}"
-                        .replace(
-                                "{" + "trackingPlanId" + "}",
+                        .replaceAll(
+                                "\\{" + "trackingPlanId" + "\\}",
                                 localVarApiClient.escapeString(trackingPlanId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -2307,6 +2333,7 @@ public class TrackingPlansApi {
             UpdateTrackingPlanV1Input updateTrackingPlanV1Input,
             final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'trackingPlanId' is set
         if (trackingPlanId == null) {
             throw new ApiException(
@@ -2321,7 +2348,9 @@ public class TrackingPlansApi {
                             + " updateTrackingPlan(Async)");
         }
 
-        return updateTrackingPlanCall(trackingPlanId, updateTrackingPlanV1Input, _callback);
+        okhttp3.Call localVarCall =
+                updateTrackingPlanCall(trackingPlanId, updateTrackingPlanV1Input, _callback);
+        return localVarCall;
     }
 
     /**

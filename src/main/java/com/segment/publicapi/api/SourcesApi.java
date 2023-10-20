@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.api;
 
+
 import com.google.gson.reflect.TypeToken;
 import com.segment.publicapi.ApiCallback;
 import com.segment.publicapi.ApiClient;
@@ -118,8 +119,8 @@ public class SourcesApi {
         // create path and map variables
         String localVarPath =
                 "/sources/{sourceId}/labels"
-                        .replace(
-                                "{" + "sourceId" + "}",
+                        .replaceAll(
+                                "\\{" + "sourceId" + "\\}",
                                 localVarApiClient.escapeString(sourceId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -171,6 +172,7 @@ public class SourcesApi {
             AddLabelsToSourceV1Input addLabelsToSourceV1Input,
             final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'sourceId' is set
         if (sourceId == null) {
             throw new ApiException(
@@ -185,7 +187,9 @@ public class SourcesApi {
                             + " addLabelsToSource(Async)");
         }
 
-        return addLabelsToSourceCall(sourceId, addLabelsToSourceV1Input, _callback);
+        okhttp3.Call localVarCall =
+                addLabelsToSourceCall(sourceId, addLabelsToSourceV1Input, _callback);
+        return localVarCall;
     }
 
     /**
@@ -273,7 +277,6 @@ public class SourcesApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for createSource
      *
@@ -358,6 +361,7 @@ public class SourcesApi {
     private okhttp3.Call createSourceValidateBeforeCall(
             CreateSourceV1Input createSourceV1Input, final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'createSourceV1Input' is set
         if (createSourceV1Input == null) {
             throw new ApiException(
@@ -365,7 +369,8 @@ public class SourcesApi {
                             + " createSource(Async)");
         }
 
-        return createSourceCall(createSourceV1Input, _callback);
+        okhttp3.Call localVarCall = createSourceCall(createSourceV1Input, _callback);
+        return localVarCall;
     }
 
     /**
@@ -444,7 +449,6 @@ public class SourcesApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for deleteSource
      *
@@ -481,8 +485,8 @@ public class SourcesApi {
         // create path and map variables
         String localVarPath =
                 "/sources/{sourceId}"
-                        .replace(
-                                "{" + "sourceId" + "}",
+                        .replaceAll(
+                                "\\{" + "sourceId" + "\\}",
                                 localVarApiClient.escapeString(sourceId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -503,6 +507,7 @@ public class SourcesApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -527,13 +532,15 @@ public class SourcesApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteSourceValidateBeforeCall(
             String sourceId, final ApiCallback _callback) throws ApiException {
+
         // verify the required parameter 'sourceId' is set
         if (sourceId == null) {
             throw new ApiException(
                     "Missing the required parameter 'sourceId' when calling deleteSource(Async)");
         }
 
-        return deleteSourceCall(sourceId, _callback);
+        okhttp3.Call localVarCall = deleteSourceCall(sourceId, _callback);
+        return localVarCall;
     }
 
     /**
@@ -609,7 +616,6 @@ public class SourcesApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for getSource
      *
@@ -646,8 +652,8 @@ public class SourcesApi {
         // create path and map variables
         String localVarPath =
                 "/sources/{sourceId}"
-                        .replace(
-                                "{" + "sourceId" + "}",
+                        .replaceAll(
+                                "\\{" + "sourceId" + "\\}",
                                 localVarApiClient.escapeString(sourceId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -668,6 +674,7 @@ public class SourcesApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -692,13 +699,15 @@ public class SourcesApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getSourceValidateBeforeCall(String sourceId, final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'sourceId' is set
         if (sourceId == null) {
             throw new ApiException(
                     "Missing the required parameter 'sourceId' when calling getSource(Async)");
         }
 
-        return getSourceCall(sourceId, _callback);
+        okhttp3.Call localVarCall = getSourceCall(sourceId, _callback);
+        return localVarCall;
     }
 
     /**
@@ -771,7 +780,6 @@ public class SourcesApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for listConnectedDestinationsFromSource
      *
@@ -811,8 +819,8 @@ public class SourcesApi {
         // create path and map variables
         String localVarPath =
                 "/sources/{sourceId}/connected-destinations"
-                        .replace(
-                                "{" + "sourceId" + "}",
+                        .replaceAll(
+                                "\\{" + "sourceId" + "\\}",
                                 localVarApiClient.escapeString(sourceId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -837,6 +845,7 @@ public class SourcesApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -862,6 +871,7 @@ public class SourcesApi {
     private okhttp3.Call listConnectedDestinationsFromSourceValidateBeforeCall(
             String sourceId, PaginationInput pagination, final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'sourceId' is set
         if (sourceId == null) {
             throw new ApiException(
@@ -876,7 +886,9 @@ public class SourcesApi {
                             + " listConnectedDestinationsFromSource(Async)");
         }
 
-        return listConnectedDestinationsFromSourceCall(sourceId, pagination, _callback);
+        okhttp3.Call localVarCall =
+                listConnectedDestinationsFromSourceCall(sourceId, pagination, _callback);
+        return localVarCall;
     }
 
     /**
@@ -966,7 +978,6 @@ public class SourcesApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for listConnectedWarehousesFromSource
      *
@@ -1006,8 +1017,8 @@ public class SourcesApi {
         // create path and map variables
         String localVarPath =
                 "/sources/{sourceId}/connected-warehouses"
-                        .replace(
-                                "{" + "sourceId" + "}",
+                        .replaceAll(
+                                "\\{" + "sourceId" + "\\}",
                                 localVarApiClient.escapeString(sourceId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1032,6 +1043,7 @@ public class SourcesApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1057,6 +1069,7 @@ public class SourcesApi {
     private okhttp3.Call listConnectedWarehousesFromSourceValidateBeforeCall(
             String sourceId, PaginationInput pagination, final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'sourceId' is set
         if (sourceId == null) {
             throw new ApiException(
@@ -1071,7 +1084,9 @@ public class SourcesApi {
                             + " listConnectedWarehousesFromSource(Async)");
         }
 
-        return listConnectedWarehousesFromSourceCall(sourceId, pagination, _callback);
+        okhttp3.Call localVarCall =
+                listConnectedWarehousesFromSourceCall(sourceId, pagination, _callback);
+        return localVarCall;
     }
 
     /**
@@ -1161,7 +1176,6 @@ public class SourcesApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for listSchemaSettingsInSource
      *
@@ -1198,8 +1212,8 @@ public class SourcesApi {
         // create path and map variables
         String localVarPath =
                 "/sources/{sourceId}/settings"
-                        .replace(
-                                "{" + "sourceId" + "}",
+                        .replaceAll(
+                                "\\{" + "sourceId" + "\\}",
                                 localVarApiClient.escapeString(sourceId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1220,6 +1234,7 @@ public class SourcesApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1244,6 +1259,7 @@ public class SourcesApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listSchemaSettingsInSourceValidateBeforeCall(
             String sourceId, final ApiCallback _callback) throws ApiException {
+
         // verify the required parameter 'sourceId' is set
         if (sourceId == null) {
             throw new ApiException(
@@ -1251,7 +1267,8 @@ public class SourcesApi {
                             + " listSchemaSettingsInSource(Async)");
         }
 
-        return listSchemaSettingsInSourceCall(sourceId, _callback);
+        okhttp3.Call localVarCall = listSchemaSettingsInSourceCall(sourceId, _callback);
+        return localVarCall;
     }
 
     /**
@@ -1335,7 +1352,6 @@ public class SourcesApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for listSources
      *
@@ -1395,6 +1411,7 @@ public class SourcesApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1419,13 +1436,15 @@ public class SourcesApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listSourcesValidateBeforeCall(
             PaginationInput pagination, final ApiCallback _callback) throws ApiException {
+
         // verify the required parameter 'pagination' is set
         if (pagination == null) {
             throw new ApiException(
                     "Missing the required parameter 'pagination' when calling listSources(Async)");
         }
 
-        return listSourcesCall(pagination, _callback);
+        okhttp3.Call localVarCall = listSourcesCall(pagination, _callback);
+        return localVarCall;
     }
 
     /**
@@ -1501,7 +1520,6 @@ public class SourcesApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for replaceLabelsInSource
      *
@@ -1542,8 +1560,8 @@ public class SourcesApi {
         // create path and map variables
         String localVarPath =
                 "/sources/{sourceId}/labels"
-                        .replace(
-                                "{" + "sourceId" + "}",
+                        .replaceAll(
+                                "\\{" + "sourceId" + "\\}",
                                 localVarApiClient.escapeString(sourceId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1595,6 +1613,7 @@ public class SourcesApi {
             ReplaceLabelsInSourceV1Input replaceLabelsInSourceV1Input,
             final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'sourceId' is set
         if (sourceId == null) {
             throw new ApiException(
@@ -1609,7 +1628,9 @@ public class SourcesApi {
                             + " replaceLabelsInSource(Async)");
         }
 
-        return replaceLabelsInSourceCall(sourceId, replaceLabelsInSourceV1Input, _callback);
+        okhttp3.Call localVarCall =
+                replaceLabelsInSourceCall(sourceId, replaceLabelsInSourceV1Input, _callback);
+        return localVarCall;
     }
 
     /**
@@ -1695,7 +1716,6 @@ public class SourcesApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for updateSchemaSettingsInSource
      *
@@ -1736,8 +1756,8 @@ public class SourcesApi {
         // create path and map variables
         String localVarPath =
                 "/sources/{sourceId}/settings"
-                        .replace(
-                                "{" + "sourceId" + "}",
+                        .replaceAll(
+                                "\\{" + "sourceId" + "\\}",
                                 localVarApiClient.escapeString(sourceId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1789,6 +1809,7 @@ public class SourcesApi {
             UpdateSchemaSettingsInSourceV1Input updateSchemaSettingsInSourceV1Input,
             final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'sourceId' is set
         if (sourceId == null) {
             throw new ApiException(
@@ -1803,8 +1824,10 @@ public class SourcesApi {
                             + " calling updateSchemaSettingsInSource(Async)");
         }
 
-        return updateSchemaSettingsInSourceCall(
-                sourceId, updateSchemaSettingsInSourceV1Input, _callback);
+        okhttp3.Call localVarCall =
+                updateSchemaSettingsInSourceCall(
+                        sourceId, updateSchemaSettingsInSourceV1Input, _callback);
+        return localVarCall;
     }
 
     /**
@@ -1902,7 +1925,6 @@ public class SourcesApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for updateSource
      *
@@ -1941,8 +1963,8 @@ public class SourcesApi {
         // create path and map variables
         String localVarPath =
                 "/sources/{sourceId}"
-                        .replace(
-                                "{" + "sourceId" + "}",
+                        .replaceAll(
+                                "\\{" + "sourceId" + "\\}",
                                 localVarApiClient.escapeString(sourceId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1992,6 +2014,7 @@ public class SourcesApi {
     private okhttp3.Call updateSourceValidateBeforeCall(
             String sourceId, UpdateSourceV1Input updateSourceV1Input, final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'sourceId' is set
         if (sourceId == null) {
             throw new ApiException(
@@ -2005,7 +2028,8 @@ public class SourcesApi {
                             + " updateSource(Async)");
         }
 
-        return updateSourceCall(sourceId, updateSourceV1Input, _callback);
+        okhttp3.Call localVarCall = updateSourceCall(sourceId, updateSourceV1Input, _callback);
+        return localVarCall;
     }
 
     /**

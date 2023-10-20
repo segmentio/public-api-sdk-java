@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.models;
 
+
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -21,13 +22,16 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
 /** Defines a Computed trait. */
+@ApiModel(description = "Defines a Computed trait.")
 public class ComputedTraitSummary {
     public static final String SERIALIZED_NAME_ID = "id";
 
@@ -93,6 +97,7 @@ public class ComputedTraitSummary {
      * @return id
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "Computed trait id.")
     public String getId() {
         return id;
     }
@@ -113,6 +118,7 @@ public class ComputedTraitSummary {
      * @return spaceId
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "Space id for the computed trait.")
     public String getSpaceId() {
         return spaceId;
     }
@@ -133,6 +139,7 @@ public class ComputedTraitSummary {
      * @return name
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "Name of the computed trait.")
     public String getName() {
         return name;
     }
@@ -153,6 +160,7 @@ public class ComputedTraitSummary {
      * @return description
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "Description of the computed trait.")
     public String getDescription() {
         return description;
     }
@@ -173,6 +181,7 @@ public class ComputedTraitSummary {
      * @return key
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "Key for the computed trait.")
     public String getKey() {
         return key;
     }
@@ -193,6 +202,7 @@ public class ComputedTraitSummary {
      * @return enabled
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "Enabled/disabled status for the computed trait.")
     public Boolean getEnabled() {
         return enabled;
     }
@@ -213,6 +223,7 @@ public class ComputedTraitSummary {
      * @return createdBy
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "User id who created the computed trait.")
     public String getCreatedBy() {
         return createdBy;
     }
@@ -233,6 +244,7 @@ public class ComputedTraitSummary {
      * @return updatedBy
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "User id who last updated the computed trait.")
     public String getUpdatedBy() {
         return updatedBy;
     }
@@ -253,6 +265,7 @@ public class ComputedTraitSummary {
      * @return createdAt
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "The timestamp of the computed trait's creation.")
     public String getCreatedAt() {
         return createdAt;
     }
@@ -273,6 +286,7 @@ public class ComputedTraitSummary {
      * @return updatedAt
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "The timestamp of the computed trait's last change.")
     public String getUpdatedAt() {
         return updatedAt;
     }
@@ -378,15 +392,15 @@ public class ComputedTraitSummary {
     }
 
     /**
-     * Validates the JSON Element and throws an exception if issues found
+     * Validates the JSON Object and throws an exception if issues found
      *
-     * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to ComputedTraitSummary
+     * @param jsonObj JSON Object
+     * @throws IOException if the JSON Object is invalid with respect to ComputedTraitSummary
      */
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        if (jsonElement == null) {
+    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+        if (jsonObj == null) {
             if (!ComputedTraitSummary.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON element is null
+                    .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in ComputedTraitSummary is not found in"
@@ -395,28 +409,27 @@ public class ComputedTraitSummary {
             }
         }
 
-        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
-        for (Map.Entry<String, JsonElement> entry : entries) {
+        for (Entry<String, JsonElement> entry : entries) {
             if (!ComputedTraitSummary.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
                                         + " `ComputedTraitSummary` properties. JSON: %s",
-                                entry.getKey(), jsonElement.toString()));
+                                entry.getKey(), jsonObj.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
         for (String requiredField : ComputedTraitSummary.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+            if (jsonObj.get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonElement.toString()));
+                                requiredField, jsonObj.toString()));
             }
         }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
         if (!jsonObj.get("id").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -504,9 +517,9 @@ public class ComputedTraitSummary {
 
                         @Override
                         public ComputedTraitSummary read(JsonReader in) throws IOException {
-                            JsonElement jsonElement = elementAdapter.read(in);
-                            validateJsonElement(jsonElement);
-                            return thisAdapter.fromJsonTree(jsonElement);
+                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+                            validateJsonObject(jsonObj);
+                            return thisAdapter.fromJsonTree(jsonObj);
                         }
                     }.nullSafe();
         }

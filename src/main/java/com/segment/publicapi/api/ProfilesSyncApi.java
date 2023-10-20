@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.api;
 
+
 import com.google.gson.reflect.TypeToken;
 import com.segment.publicapi.ApiCallback;
 import com.segment.publicapi.ApiClient;
@@ -111,8 +112,8 @@ public class ProfilesSyncApi {
         // create path and map variables
         String localVarPath =
                 "/spaces/{spaceId}/profiles-warehouses"
-                        .replace(
-                                "{" + "spaceId" + "}",
+                        .replaceAll(
+                                "\\{" + "spaceId" + "\\}",
                                 localVarApiClient.escapeString(spaceId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -157,6 +158,7 @@ public class ProfilesSyncApi {
             CreateProfilesWarehouseAlphaInput createProfilesWarehouseAlphaInput,
             final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new ApiException(
@@ -171,7 +173,9 @@ public class ProfilesSyncApi {
                             + " calling createProfilesWarehouse(Async)");
         }
 
-        return createProfilesWarehouseCall(spaceId, createProfilesWarehouseAlphaInput, _callback);
+        okhttp3.Call localVarCall =
+                createProfilesWarehouseCall(spaceId, createProfilesWarehouseAlphaInput, _callback);
+        return localVarCall;
     }
 
     /**
@@ -263,7 +267,6 @@ public class ProfilesSyncApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for listProfilesWarehouseInSpace
      *
@@ -303,8 +306,8 @@ public class ProfilesSyncApi {
         // create path and map variables
         String localVarPath =
                 "/spaces/{spaceId}/profiles-warehouses"
-                        .replace(
-                                "{" + "spaceId" + "}",
+                        .replaceAll(
+                                "\\{" + "spaceId" + "\\}",
                                 localVarApiClient.escapeString(spaceId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -326,6 +329,7 @@ public class ProfilesSyncApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -351,6 +355,7 @@ public class ProfilesSyncApi {
     private okhttp3.Call listProfilesWarehouseInSpaceValidateBeforeCall(
             String spaceId, PaginationInput pagination, final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new ApiException(
@@ -358,7 +363,9 @@ public class ProfilesSyncApi {
                             + " listProfilesWarehouseInSpace(Async)");
         }
 
-        return listProfilesWarehouseInSpaceCall(spaceId, pagination, _callback);
+        okhttp3.Call localVarCall =
+                listProfilesWarehouseInSpaceCall(spaceId, pagination, _callback);
+        return localVarCall;
     }
 
     /**
@@ -452,7 +459,6 @@ public class ProfilesSyncApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for listSelectiveSyncsFromWarehouseAndSpace
      *
@@ -496,11 +502,11 @@ public class ProfilesSyncApi {
         // create path and map variables
         String localVarPath =
                 "/spaces/{spaceId}/profiles-warehouses/{warehouseId}/selective-syncs"
-                        .replace(
-                                "{" + "spaceId" + "}",
+                        .replaceAll(
+                                "\\{" + "spaceId" + "\\}",
                                 localVarApiClient.escapeString(spaceId.toString()))
-                        .replace(
-                                "{" + "warehouseId" + "}",
+                        .replaceAll(
+                                "\\{" + "warehouseId" + "\\}",
                                 localVarApiClient.escapeString(warehouseId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -522,6 +528,7 @@ public class ProfilesSyncApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -550,6 +557,7 @@ public class ProfilesSyncApi {
             PaginationInput pagination,
             final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new ApiException(
@@ -571,8 +579,10 @@ public class ProfilesSyncApi {
                             + " listSelectiveSyncsFromWarehouseAndSpace(Async)");
         }
 
-        return listSelectiveSyncsFromWarehouseAndSpaceCall(
-                spaceId, warehouseId, pagination, _callback);
+        okhttp3.Call localVarCall =
+                listSelectiveSyncsFromWarehouseAndSpaceCall(
+                        spaceId, warehouseId, pagination, _callback);
+        return localVarCall;
     }
 
     /**
@@ -673,7 +683,6 @@ public class ProfilesSyncApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for removeProfilesWarehouseFromSpace
      *
@@ -711,11 +720,11 @@ public class ProfilesSyncApi {
         // create path and map variables
         String localVarPath =
                 "/spaces/{spaceId}/profiles-warehouses/{warehouseId}"
-                        .replace(
-                                "{" + "spaceId" + "}",
+                        .replaceAll(
+                                "\\{" + "spaceId" + "\\}",
                                 localVarApiClient.escapeString(spaceId.toString()))
-                        .replace(
-                                "{" + "warehouseId" + "}",
+                        .replaceAll(
+                                "\\{" + "warehouseId" + "\\}",
                                 localVarApiClient.escapeString(warehouseId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -733,6 +742,7 @@ public class ProfilesSyncApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -757,6 +767,7 @@ public class ProfilesSyncApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call removeProfilesWarehouseFromSpaceValidateBeforeCall(
             String spaceId, String warehouseId, final ApiCallback _callback) throws ApiException {
+
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new ApiException(
@@ -771,7 +782,9 @@ public class ProfilesSyncApi {
                             + " removeProfilesWarehouseFromSpace(Async)");
         }
 
-        return removeProfilesWarehouseFromSpaceCall(spaceId, warehouseId, _callback);
+        okhttp3.Call localVarCall =
+                removeProfilesWarehouseFromSpaceCall(spaceId, warehouseId, _callback);
+        return localVarCall;
     }
 
     /**
@@ -862,7 +875,6 @@ public class ProfilesSyncApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for updateProfilesWarehouseForSpaceWarehouse
      *
@@ -906,11 +918,11 @@ public class ProfilesSyncApi {
         // create path and map variables
         String localVarPath =
                 "/spaces/{spaceId}/profiles-warehouses/{warehouseId}"
-                        .replace(
-                                "{" + "spaceId" + "}",
+                        .replaceAll(
+                                "\\{" + "spaceId" + "\\}",
                                 localVarApiClient.escapeString(spaceId.toString()))
-                        .replace(
-                                "{" + "warehouseId" + "}",
+                        .replaceAll(
+                                "\\{" + "warehouseId" + "\\}",
                                 localVarApiClient.escapeString(warehouseId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -957,6 +969,7 @@ public class ProfilesSyncApi {
                     updateProfilesWarehouseForSpaceWarehouseAlphaInput,
             final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new ApiException(
@@ -979,11 +992,13 @@ public class ProfilesSyncApi {
                             + " updateProfilesWarehouseForSpaceWarehouse(Async)");
         }
 
-        return updateProfilesWarehouseForSpaceWarehouseCall(
-                spaceId,
-                warehouseId,
-                updateProfilesWarehouseForSpaceWarehouseAlphaInput,
-                _callback);
+        okhttp3.Call localVarCall =
+                updateProfilesWarehouseForSpaceWarehouseCall(
+                        spaceId,
+                        warehouseId,
+                        updateProfilesWarehouseForSpaceWarehouseAlphaInput,
+                        _callback);
+        return localVarCall;
     }
 
     /**
@@ -1097,7 +1112,6 @@ public class ProfilesSyncApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for updateSelectiveSyncForWarehouseAndSpace
      *
@@ -1141,11 +1155,11 @@ public class ProfilesSyncApi {
         // create path and map variables
         String localVarPath =
                 "/spaces/{spaceId}/profiles-warehouses/{warehouseId}/selective-syncs"
-                        .replace(
-                                "{" + "spaceId" + "}",
+                        .replaceAll(
+                                "\\{" + "spaceId" + "\\}",
                                 localVarApiClient.escapeString(spaceId.toString()))
-                        .replace(
-                                "{" + "warehouseId" + "}",
+                        .replaceAll(
+                                "\\{" + "warehouseId" + "\\}",
                                 localVarApiClient.escapeString(warehouseId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1192,6 +1206,7 @@ public class ProfilesSyncApi {
                     updateSelectiveSyncForWarehouseAndSpaceAlphaInput,
             final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new ApiException(
@@ -1214,8 +1229,13 @@ public class ProfilesSyncApi {
                             + " updateSelectiveSyncForWarehouseAndSpace(Async)");
         }
 
-        return updateSelectiveSyncForWarehouseAndSpaceCall(
-                spaceId, warehouseId, updateSelectiveSyncForWarehouseAndSpaceAlphaInput, _callback);
+        okhttp3.Call localVarCall =
+                updateSelectiveSyncForWarehouseAndSpaceCall(
+                        spaceId,
+                        warehouseId,
+                        updateSelectiveSyncForWarehouseAndSpaceAlphaInput,
+                        _callback);
+        return localVarCall;
     }
 
     /**

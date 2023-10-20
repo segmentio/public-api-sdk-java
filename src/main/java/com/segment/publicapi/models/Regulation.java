@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.models;
 
+
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -23,15 +24,18 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
 /** The regulate request. */
+@ApiModel(description = "The regulate request.")
 public class Regulation {
     public static final String SERIALIZED_NAME_ID = "id";
 
@@ -133,6 +137,7 @@ public class Regulation {
      * @return id
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "The id of the regulate request.")
     public String getId() {
         return id;
     }
@@ -153,6 +158,9 @@ public class Regulation {
      * @return workspaceId
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(
+            required = true,
+            value = "The id of the Workspace that the regulate request belongs to.")
     public String getWorkspaceId() {
         return workspaceId;
     }
@@ -173,6 +181,7 @@ public class Regulation {
      * @return overallStatus
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "The current status of the regulate request.")
     public OverallStatusEnum getOverallStatus() {
         return overallStatus;
     }
@@ -193,6 +202,7 @@ public class Regulation {
      * @return finishedAt
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "The timestamp of when the request finished.")
     public String getFinishedAt() {
         return finishedAt;
     }
@@ -213,6 +223,7 @@ public class Regulation {
      * @return createdAt
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "The timestamp of the creation of the request.")
     public String getCreatedAt() {
         return createdAt;
     }
@@ -228,9 +239,6 @@ public class Regulation {
     }
 
     public Regulation addStreamStatusItem(StreamStatusV1 streamStatusItem) {
-        if (this.streamStatus == null) {
-            this.streamStatus = new ArrayList<>();
-        }
         this.streamStatus.add(streamStatusItem);
         return this;
     }
@@ -241,6 +249,11 @@ public class Regulation {
      * @return streamStatus
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(
+            required = true,
+            value =
+                    "The status of each stream including all the Destinations that correspond to"
+                            + " the stream.")
     public List<StreamStatusV1> getStreamStatus() {
         return streamStatus;
     }
@@ -320,15 +333,15 @@ public class Regulation {
     }
 
     /**
-     * Validates the JSON Element and throws an exception if issues found
+     * Validates the JSON Object and throws an exception if issues found
      *
-     * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to Regulation
+     * @param jsonObj JSON Object
+     * @throws IOException if the JSON Object is invalid with respect to Regulation
      */
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        if (jsonElement == null) {
+    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+        if (jsonObj == null) {
             if (!Regulation.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON element is null
+                    .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in Regulation is not found in the empty"
@@ -337,28 +350,27 @@ public class Regulation {
             }
         }
 
-        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
-        for (Map.Entry<String, JsonElement> entry : entries) {
+        for (Entry<String, JsonElement> entry : entries) {
             if (!Regulation.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
                                         + " `Regulation` properties. JSON: %s",
-                                entry.getKey(), jsonElement.toString()));
+                                entry.getKey(), jsonObj.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
         for (String requiredField : Regulation.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+            if (jsonObj.get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonElement.toString()));
+                                requiredField, jsonObj.toString()));
             }
         }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
         if (!jsonObj.get("id").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -404,11 +416,6 @@ public class Regulation {
         }
 
         JsonArray jsonArraystreamStatus = jsonObj.getAsJsonArray("streamStatus");
-        // validate the required field `streamStatus` (array)
-        for (int i = 0; i < jsonArraystreamStatus.size(); i++) {
-            StreamStatusV1.validateJsonElement(jsonArraystreamStatus.get(i));
-        }
-        ;
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -432,9 +439,9 @@ public class Regulation {
 
                         @Override
                         public Regulation read(JsonReader in) throws IOException {
-                            JsonElement jsonElement = elementAdapter.read(in);
-                            validateJsonElement(jsonElement);
-                            return thisAdapter.fromJsonTree(jsonElement);
+                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+                            validateJsonObject(jsonObj);
+                            return thisAdapter.fromJsonTree(jsonObj);
                         }
                     }.nullSafe();
         }

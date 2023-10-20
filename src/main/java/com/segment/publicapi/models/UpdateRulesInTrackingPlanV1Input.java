@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.models;
 
+
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -22,15 +23,18 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
 /** Updates Tracking Plan rules. Non-existent rules are added. */
+@ApiModel(description = "Updates Tracking Plan rules. Non-existent rules are added.")
 public class UpdateRulesInTrackingPlanV1Input {
     public static final String SERIALIZED_NAME_RULES = "rules";
 
@@ -46,9 +50,6 @@ public class UpdateRulesInTrackingPlanV1Input {
     }
 
     public UpdateRulesInTrackingPlanV1Input addRulesItem(UpsertRuleV1 rulesItem) {
-        if (this.rules == null) {
-            this.rules = new ArrayList<>();
-        }
         this.rules.add(rulesItem);
         return this;
     }
@@ -59,6 +60,7 @@ public class UpdateRulesInTrackingPlanV1Input {
      * @return rules
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "Rules to update or insert.")
     public List<UpsertRuleV1> getRules() {
         return rules;
     }
@@ -119,16 +121,16 @@ public class UpdateRulesInTrackingPlanV1Input {
     }
 
     /**
-     * Validates the JSON Element and throws an exception if issues found
+     * Validates the JSON Object and throws an exception if issues found
      *
-     * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to
+     * @param jsonObj JSON Object
+     * @throws IOException if the JSON Object is invalid with respect to
      *     UpdateRulesInTrackingPlanV1Input
      */
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        if (jsonElement == null) {
+    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+        if (jsonObj == null) {
             if (!UpdateRulesInTrackingPlanV1Input.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON element is null
+                    .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in UpdateRulesInTrackingPlanV1Input is"
@@ -137,28 +139,27 @@ public class UpdateRulesInTrackingPlanV1Input {
             }
         }
 
-        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
-        for (Map.Entry<String, JsonElement> entry : entries) {
+        for (Entry<String, JsonElement> entry : entries) {
             if (!UpdateRulesInTrackingPlanV1Input.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
                                     + " `UpdateRulesInTrackingPlanV1Input` properties. JSON: %s",
-                                entry.getKey(), jsonElement.toString()));
+                                entry.getKey(), jsonObj.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
         for (String requiredField : UpdateRulesInTrackingPlanV1Input.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+            if (jsonObj.get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonElement.toString()));
+                                requiredField, jsonObj.toString()));
             }
         }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
         // ensure the json data is an array
         if (!jsonObj.get("rules").isJsonArray()) {
             throw new IllegalArgumentException(
@@ -169,11 +170,6 @@ public class UpdateRulesInTrackingPlanV1Input {
         }
 
         JsonArray jsonArrayrules = jsonObj.getAsJsonArray("rules");
-        // validate the required field `rules` (array)
-        for (int i = 0; i < jsonArrayrules.size(); i++) {
-            UpsertRuleV1.validateJsonElement(jsonArrayrules.get(i));
-        }
-        ;
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -201,9 +197,9 @@ public class UpdateRulesInTrackingPlanV1Input {
                         @Override
                         public UpdateRulesInTrackingPlanV1Input read(JsonReader in)
                                 throws IOException {
-                            JsonElement jsonElement = elementAdapter.read(in);
-                            validateJsonElement(jsonElement);
-                            return thisAdapter.fromJsonTree(jsonElement);
+                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+                            validateJsonObject(jsonObj);
+                            return thisAdapter.fromJsonTree(jsonObj);
                         }
                     }.nullSafe();
         }

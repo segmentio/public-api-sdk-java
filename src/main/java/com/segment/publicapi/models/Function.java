@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.models;
 
+
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -23,18 +24,21 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /** A Function object. */
+@ApiModel(description = "A Function object.")
 public class Function {
     public static final String SERIALIZED_NAME_ID = "id";
 
@@ -117,7 +121,7 @@ public class Function {
     public static final String SERIALIZED_NAME_SETTINGS = "settings";
 
     @SerializedName(SERIALIZED_NAME_SETTINGS)
-    private List<FunctionSettingV1> settings;
+    private List<FunctionSettingV1> settings = null;
 
     public static final String SERIALIZED_NAME_DISPLAY_NAME = "displayName";
 
@@ -168,6 +172,7 @@ public class Function {
      * @return id
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "An identifier for this Function.")
     public String getId() {
         return id;
     }
@@ -188,6 +193,7 @@ public class Function {
      * @return resourceType
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "The Function type.  Config API note: equal to `type`.")
     public ResourceTypeEnum getResourceType() {
         return resourceType;
     }
@@ -208,6 +214,7 @@ public class Function {
      * @return createdAt
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "The time this Function was created.")
     public String getCreatedAt() {
         return createdAt;
     }
@@ -228,6 +235,7 @@ public class Function {
      * @return createdBy
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "The id of the user who created this Function.")
     public String getCreatedBy() {
         return createdBy;
     }
@@ -248,6 +256,7 @@ public class Function {
      * @return code
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "The Function code.")
     public String getCode() {
         return code;
     }
@@ -268,6 +277,7 @@ public class Function {
      * @return deployedAt
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "The time of this Function's last deployment.")
     public String getDeployedAt() {
         return deployedAt;
     }
@@ -296,6 +306,7 @@ public class Function {
      * @return settings
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "The list of settings for this Function.")
     public List<FunctionSettingV1> getSettings() {
         return settings;
     }
@@ -316,6 +327,7 @@ public class Function {
      * @return displayName
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "A display name for this Function.")
     public String getDisplayName() {
         return displayName;
     }
@@ -336,6 +348,7 @@ public class Function {
      * @return description
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "A description for this Function.")
     public String getDescription() {
         return description;
     }
@@ -356,6 +369,7 @@ public class Function {
      * @return logoUrl
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "The URL of the logo for this Function.")
     public String getLogoUrl() {
         return logoUrl;
     }
@@ -376,6 +390,7 @@ public class Function {
      * @return previewWebhookUrl
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "The preview webhook URL for this Function.")
     public String getPreviewWebhookUrl() {
         return previewWebhookUrl;
     }
@@ -396,6 +411,7 @@ public class Function {
      * @return batchMaxCount
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "The max count of the batch for this Function.")
     public BigDecimal getBatchMaxCount() {
         return batchMaxCount;
     }
@@ -416,6 +432,7 @@ public class Function {
      * @return catalogId
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "The catalog id of this Function.")
     public String getCatalogId() {
         return catalogId;
     }
@@ -436,6 +453,7 @@ public class Function {
      * @return isLatestVersion
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "Whether the deployment of this Function is the latest version.")
     public Boolean getIsLatestVersion() {
         return isLatestVersion;
     }
@@ -565,15 +583,15 @@ public class Function {
     }
 
     /**
-     * Validates the JSON Element and throws an exception if issues found
+     * Validates the JSON Object and throws an exception if issues found
      *
-     * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to Function
+     * @param jsonObj JSON Object
+     * @throws IOException if the JSON Object is invalid with respect to Function
      */
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        if (jsonElement == null) {
+    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+        if (jsonObj == null) {
             if (!Function.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON element is null
+                    .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in Function is not found in the empty"
@@ -582,18 +600,17 @@ public class Function {
             }
         }
 
-        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
-        for (Map.Entry<String, JsonElement> entry : entries) {
+        for (Entry<String, JsonElement> entry : entries) {
             if (!Function.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the `Function`"
                                         + " properties. JSON: %s",
-                                entry.getKey(), jsonElement.toString()));
+                                entry.getKey(), jsonObj.toString()));
             }
         }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
         if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull())
                 && !jsonObj.get("id").isJsonPrimitive()) {
             throw new IllegalArgumentException(
@@ -653,12 +670,6 @@ public class Function {
                                             + " string but got `%s`",
                                     jsonObj.get("settings").toString()));
                 }
-
-                // validate the optional field `settings` (array)
-                for (int i = 0; i < jsonArraysettings.size(); i++) {
-                    FunctionSettingV1.validateJsonElement(jsonArraysettings.get(i));
-                }
-                ;
             }
         }
         if ((jsonObj.get("displayName") != null && !jsonObj.get("displayName").isJsonNull())
@@ -725,9 +736,9 @@ public class Function {
 
                         @Override
                         public Function read(JsonReader in) throws IOException {
-                            JsonElement jsonElement = elementAdapter.read(in);
-                            validateJsonElement(jsonElement);
-                            return thisAdapter.fromJsonTree(jsonElement);
+                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+                            validateJsonObject(jsonObj);
+                            return thisAdapter.fromJsonTree(jsonObj);
                         }
                     }.nullSafe();
         }

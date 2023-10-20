@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.models;
 
+
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -22,16 +23,19 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
 /** GetEventVolumeOutputQuery represents the input query sent to output. */
+@ApiModel(description = "GetEventVolumeOutputQuery represents the input query sent to output.")
 public class GetEventsVolumeFromWorkspaceV1Query {
     public static final String SERIALIZED_NAME_WORKSPACE_ID = "workspaceId";
 
@@ -104,27 +108,27 @@ public class GetEventsVolumeFromWorkspaceV1Query {
     public static final String SERIALIZED_NAME_GROUP_BY = "groupBy";
 
     @SerializedName(SERIALIZED_NAME_GROUP_BY)
-    private List<String> groupBy;
+    private List<String> groupBy = null;
 
     public static final String SERIALIZED_NAME_SOURCE_ID = "sourceId";
 
     @SerializedName(SERIALIZED_NAME_SOURCE_ID)
-    private List<String> sourceId;
+    private List<String> sourceId = null;
 
     public static final String SERIALIZED_NAME_EVENT_NAME = "eventName";
 
     @SerializedName(SERIALIZED_NAME_EVENT_NAME)
-    private List<String> eventName;
+    private List<String> eventName = null;
 
     public static final String SERIALIZED_NAME_EVENT_TYPE = "eventType";
 
     @SerializedName(SERIALIZED_NAME_EVENT_TYPE)
-    private List<String> eventType;
+    private List<String> eventType = null;
 
     public static final String SERIALIZED_NAME_APP_VERSION = "appVersion";
 
     @SerializedName(SERIALIZED_NAME_APP_VERSION)
-    private List<String> appVersion;
+    private List<String> appVersion = null;
 
     public static final String SERIALIZED_NAME_LIMIT = "limit";
 
@@ -145,6 +149,7 @@ public class GetEventsVolumeFromWorkspaceV1Query {
      * @return workspaceId
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "Workspace being requested.")
     public String getWorkspaceId() {
         return workspaceId;
     }
@@ -165,6 +170,9 @@ public class GetEventsVolumeFromWorkspaceV1Query {
      * @return granularity
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(
+            required = true,
+            value = "Granularity corresponds to the requested bucket granularity.")
     public GranularityEnum getGranularity() {
         return granularity;
     }
@@ -186,6 +194,11 @@ public class GetEventsVolumeFromWorkspaceV1Query {
      * @return startTime
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(
+            required = true,
+            value =
+                    "StartTime is the ISO8601 formatted timestamp corresponding to the beginning of"
+                            + " the requested time frame, inclusive.")
     public String getStartTime() {
         return startTime;
     }
@@ -207,6 +220,11 @@ public class GetEventsVolumeFromWorkspaceV1Query {
      * @return endTime
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(
+            required = true,
+            value =
+                    "EndTime is the ISO8601 formatted timestamp corresponding to the end of the"
+                            + " requested time frame, noninclusive.")
     public String getEndTime() {
         return endTime;
     }
@@ -236,6 +254,11 @@ public class GetEventsVolumeFromWorkspaceV1Query {
      * @return groupBy
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(
+            value =
+                    "GroupBy is a comma-delimited list of strings representing the dimensions to"
+                            + " group the result by. The current options are: `eventName` or"
+                            + " `eventType`.")
     public List<String> getGroupBy() {
         return groupBy;
     }
@@ -264,6 +287,10 @@ public class GetEventsVolumeFromWorkspaceV1Query {
      * @return sourceId
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(
+            value =
+                    "List of strings which allow you to restrict the result to just the given"
+                            + " Sources.")
     public List<String> getSourceId() {
         return sourceId;
     }
@@ -293,6 +320,10 @@ public class GetEventsVolumeFromWorkspaceV1Query {
      * @return eventName
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(
+            value =
+                    "EventName is a list of strings which allow you to restrict the result to just"
+                            + " the given event names.")
     public List<String> getEventName() {
         return eventName;
     }
@@ -322,6 +353,10 @@ public class GetEventsVolumeFromWorkspaceV1Query {
      * @return eventType
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(
+            value =
+                    "EventType is a list of strings which allow you to restrict the result to just"
+                            + " the given event types.")
     public List<String> getEventType() {
         return eventType;
     }
@@ -351,6 +386,10 @@ public class GetEventsVolumeFromWorkspaceV1Query {
      * @return appVersion
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(
+            value =
+                    "AppVersion is a list of strings which allow you to restrict the result to just"
+                            + " the given application versions.")
     public List<String> getAppVersion() {
         return appVersion;
     }
@@ -371,6 +410,7 @@ public class GetEventsVolumeFromWorkspaceV1Query {
      * @return limit
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "Limit is the total number of items in the result.")
     public BigDecimal getLimit() {
         return limit;
     }
@@ -471,16 +511,16 @@ public class GetEventsVolumeFromWorkspaceV1Query {
     }
 
     /**
-     * Validates the JSON Element and throws an exception if issues found
+     * Validates the JSON Object and throws an exception if issues found
      *
-     * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to
+     * @param jsonObj JSON Object
+     * @throws IOException if the JSON Object is invalid with respect to
      *     GetEventsVolumeFromWorkspaceV1Query
      */
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        if (jsonElement == null) {
+    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+        if (jsonObj == null) {
             if (!GetEventsVolumeFromWorkspaceV1Query.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON element is null
+                    .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in GetEventsVolumeFromWorkspaceV1Query is"
@@ -490,28 +530,27 @@ public class GetEventsVolumeFromWorkspaceV1Query {
             }
         }
 
-        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
-        for (Map.Entry<String, JsonElement> entry : entries) {
+        for (Entry<String, JsonElement> entry : entries) {
             if (!GetEventsVolumeFromWorkspaceV1Query.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
                                     + " `GetEventsVolumeFromWorkspaceV1Query` properties. JSON: %s",
-                                entry.getKey(), jsonElement.toString()));
+                                entry.getKey(), jsonObj.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
         for (String requiredField : GetEventsVolumeFromWorkspaceV1Query.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+            if (jsonObj.get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonElement.toString()));
+                                requiredField, jsonObj.toString()));
             }
         }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
         if (!jsonObj.get("workspaceId").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -541,9 +580,7 @@ public class GetEventsVolumeFromWorkspaceV1Query {
                             jsonObj.get("endTime").toString()));
         }
         // ensure the optional json data is an array if present
-        if (jsonObj.get("groupBy") != null
-                && !jsonObj.get("groupBy").isJsonNull()
-                && !jsonObj.get("groupBy").isJsonArray()) {
+        if (jsonObj.get("groupBy") != null && !jsonObj.get("groupBy").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
                             "Expected the field `groupBy` to be an array in the JSON string but got"
@@ -551,9 +588,7 @@ public class GetEventsVolumeFromWorkspaceV1Query {
                             jsonObj.get("groupBy").toString()));
         }
         // ensure the optional json data is an array if present
-        if (jsonObj.get("sourceId") != null
-                && !jsonObj.get("sourceId").isJsonNull()
-                && !jsonObj.get("sourceId").isJsonArray()) {
+        if (jsonObj.get("sourceId") != null && !jsonObj.get("sourceId").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
                             "Expected the field `sourceId` to be an array in the JSON string but"
@@ -561,9 +596,7 @@ public class GetEventsVolumeFromWorkspaceV1Query {
                             jsonObj.get("sourceId").toString()));
         }
         // ensure the optional json data is an array if present
-        if (jsonObj.get("eventName") != null
-                && !jsonObj.get("eventName").isJsonNull()
-                && !jsonObj.get("eventName").isJsonArray()) {
+        if (jsonObj.get("eventName") != null && !jsonObj.get("eventName").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
                             "Expected the field `eventName` to be an array in the JSON string but"
@@ -571,9 +604,7 @@ public class GetEventsVolumeFromWorkspaceV1Query {
                             jsonObj.get("eventName").toString()));
         }
         // ensure the optional json data is an array if present
-        if (jsonObj.get("eventType") != null
-                && !jsonObj.get("eventType").isJsonNull()
-                && !jsonObj.get("eventType").isJsonArray()) {
+        if (jsonObj.get("eventType") != null && !jsonObj.get("eventType").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
                             "Expected the field `eventType` to be an array in the JSON string but"
@@ -581,9 +612,7 @@ public class GetEventsVolumeFromWorkspaceV1Query {
                             jsonObj.get("eventType").toString()));
         }
         // ensure the optional json data is an array if present
-        if (jsonObj.get("appVersion") != null
-                && !jsonObj.get("appVersion").isJsonNull()
-                && !jsonObj.get("appVersion").isJsonArray()) {
+        if (jsonObj.get("appVersion") != null && !jsonObj.get("appVersion").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
                             "Expected the field `appVersion` to be an array in the JSON string but"
@@ -617,9 +646,9 @@ public class GetEventsVolumeFromWorkspaceV1Query {
                         @Override
                         public GetEventsVolumeFromWorkspaceV1Query read(JsonReader in)
                                 throws IOException {
-                            JsonElement jsonElement = elementAdapter.read(in);
-                            validateJsonElement(jsonElement);
-                            return thisAdapter.fromJsonTree(jsonElement);
+                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+                            validateJsonObject(jsonObj);
+                            return thisAdapter.fromJsonTree(jsonObj);
                         }
                     }.nullSafe();
         }

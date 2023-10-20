@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.models;
 
+
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -23,11 +24,13 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
@@ -35,6 +38,10 @@ import java.util.Set;
  * Represents a Destination within Segment. A Destination is a target for Segment to forward data
  * to, and represents a tool or storage Destination.
  */
+@ApiModel(
+        description =
+                "Represents a Destination within Segment.  A Destination is a target for Segment to"
+                        + " forward data to, and represents a tool or storage Destination.")
 public class DestinationMetadataV1 {
     public static final String SERIALIZED_NAME_ID = "id";
 
@@ -59,7 +66,7 @@ public class DestinationMetadataV1 {
     public static final String SERIALIZED_NAME_LOGOS = "logos";
 
     @SerializedName(SERIALIZED_NAME_LOGOS)
-    private LogosBeta logos;
+    private Logos logos;
 
     public static final String SERIALIZED_NAME_OPTIONS = "options";
 
@@ -150,17 +157,17 @@ public class DestinationMetadataV1 {
     public static final String SERIALIZED_NAME_SUPPORTED_FEATURES = "supportedFeatures";
 
     @SerializedName(SERIALIZED_NAME_SUPPORTED_FEATURES)
-    private DestinationMetadataFeaturesV1 supportedFeatures;
+    private SupportedFeatures supportedFeatures;
 
     public static final String SERIALIZED_NAME_SUPPORTED_METHODS = "supportedMethods";
 
     @SerializedName(SERIALIZED_NAME_SUPPORTED_METHODS)
-    private DestinationMetadataMethodsV1 supportedMethods;
+    private SupportedMethods supportedMethods;
 
     public static final String SERIALIZED_NAME_SUPPORTED_PLATFORMS = "supportedPlatforms";
 
     @SerializedName(SERIALIZED_NAME_SUPPORTED_PLATFORMS)
-    private DestinationMetadataPlatformsV1 supportedPlatforms;
+    private SupportedPlatforms supportedPlatforms;
 
     public static final String SERIALIZED_NAME_ACTIONS = "actions";
 
@@ -175,7 +182,7 @@ public class DestinationMetadataV1 {
     public static final String SERIALIZED_NAME_CONTACTS = "contacts";
 
     @SerializedName(SERIALIZED_NAME_CONTACTS)
-    private List<Contact> contacts;
+    private List<Contact> contacts = null;
 
     public static final String SERIALIZED_NAME_PARTNER_OWNED = "partnerOwned";
 
@@ -185,12 +192,12 @@ public class DestinationMetadataV1 {
     public static final String SERIALIZED_NAME_SUPPORTED_REGIONS = "supportedRegions";
 
     @SerializedName(SERIALIZED_NAME_SUPPORTED_REGIONS)
-    private List<String> supportedRegions;
+    private List<String> supportedRegions = null;
 
     public static final String SERIALIZED_NAME_REGION_ENDPOINTS = "regionEndpoints";
 
     @SerializedName(SERIALIZED_NAME_REGION_ENDPOINTS)
-    private List<String> regionEndpoints;
+    private List<String> regionEndpoints = null;
 
     public DestinationMetadataV1() {}
 
@@ -206,6 +213,9 @@ public class DestinationMetadataV1 {
      * @return id
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(
+            required = true,
+            value = "The id of the Destination metadata.  Config API note: analogous to `name`.")
     public String getId() {
         return id;
     }
@@ -226,6 +236,11 @@ public class DestinationMetadataV1 {
      * @return name
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(
+            required = true,
+            value =
+                    "The user-friendly name of the Destination.  Config API note: equal to"
+                            + " `displayName`.")
     public String getName() {
         return name;
     }
@@ -246,6 +261,7 @@ public class DestinationMetadataV1 {
      * @return description
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "The description of the Destination.")
     public String getDescription() {
         return description;
     }
@@ -266,6 +282,9 @@ public class DestinationMetadataV1 {
      * @return slug
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(
+            required = true,
+            value = "The slug used to identify the Destination in the Segment app.")
     public String getSlug() {
         return slug;
     }
@@ -274,7 +293,7 @@ public class DestinationMetadataV1 {
         this.slug = slug;
     }
 
-    public DestinationMetadataV1 logos(LogosBeta logos) {
+    public DestinationMetadataV1 logos(Logos logos) {
 
         this.logos = logos;
         return this;
@@ -286,11 +305,12 @@ public class DestinationMetadataV1 {
      * @return logos
      */
     @javax.annotation.Nonnull
-    public LogosBeta getLogos() {
+    @ApiModelProperty(required = true, value = "")
+    public Logos getLogos() {
         return logos;
     }
 
-    public void setLogos(LogosBeta logos) {
+    public void setLogos(Logos logos) {
         this.logos = logos;
     }
 
@@ -301,9 +321,6 @@ public class DestinationMetadataV1 {
     }
 
     public DestinationMetadataV1 addOptionsItem(IntegrationOptionBeta optionsItem) {
-        if (this.options == null) {
-            this.options = new ArrayList<>();
-        }
         this.options.add(optionsItem);
         return this;
     }
@@ -314,6 +331,7 @@ public class DestinationMetadataV1 {
      * @return options
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "Options configured for the Destination.")
     public List<IntegrationOptionBeta> getOptions() {
         return options;
     }
@@ -334,6 +352,7 @@ public class DestinationMetadataV1 {
      * @return status
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "Support status of the Destination.")
     public StatusEnum getStatus() {
         return status;
     }
@@ -349,9 +368,6 @@ public class DestinationMetadataV1 {
     }
 
     public DestinationMetadataV1 addPreviousNamesItem(String previousNamesItem) {
-        if (this.previousNames == null) {
-            this.previousNames = new ArrayList<>();
-        }
         this.previousNames.add(previousNamesItem);
         return this;
     }
@@ -362,6 +378,9 @@ public class DestinationMetadataV1 {
      * @return previousNames
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(
+            required = true,
+            value = "A list of names previously used by the Destination.")
     public List<String> getPreviousNames() {
         return previousNames;
     }
@@ -377,9 +396,6 @@ public class DestinationMetadataV1 {
     }
 
     public DestinationMetadataV1 addCategoriesItem(String categoriesItem) {
-        if (this.categories == null) {
-            this.categories = new ArrayList<>();
-        }
         this.categories.add(categoriesItem);
         return this;
     }
@@ -390,6 +406,9 @@ public class DestinationMetadataV1 {
      * @return categories
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(
+            required = true,
+            value = "A list of categories with which the Destination is associated.")
     public List<String> getCategories() {
         return categories;
     }
@@ -410,6 +429,7 @@ public class DestinationMetadataV1 {
      * @return website
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "A website URL for this Destination.")
     public String getWebsite() {
         return website;
     }
@@ -425,9 +445,6 @@ public class DestinationMetadataV1 {
     }
 
     public DestinationMetadataV1 addComponentsItem(DestinationMetadataComponentV1 componentsItem) {
-        if (this.components == null) {
-            this.components = new ArrayList<>();
-        }
         this.components.add(componentsItem);
         return this;
     }
@@ -438,6 +455,7 @@ public class DestinationMetadataV1 {
      * @return components
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "A list of components this Destination provides.")
     public List<DestinationMetadataComponentV1> getComponents() {
         return components;
     }
@@ -446,8 +464,7 @@ public class DestinationMetadataV1 {
         this.components = components;
     }
 
-    public DestinationMetadataV1 supportedFeatures(
-            DestinationMetadataFeaturesV1 supportedFeatures) {
+    public DestinationMetadataV1 supportedFeatures(SupportedFeatures supportedFeatures) {
 
         this.supportedFeatures = supportedFeatures;
         return this;
@@ -459,15 +476,16 @@ public class DestinationMetadataV1 {
      * @return supportedFeatures
      */
     @javax.annotation.Nonnull
-    public DestinationMetadataFeaturesV1 getSupportedFeatures() {
+    @ApiModelProperty(required = true, value = "")
+    public SupportedFeatures getSupportedFeatures() {
         return supportedFeatures;
     }
 
-    public void setSupportedFeatures(DestinationMetadataFeaturesV1 supportedFeatures) {
+    public void setSupportedFeatures(SupportedFeatures supportedFeatures) {
         this.supportedFeatures = supportedFeatures;
     }
 
-    public DestinationMetadataV1 supportedMethods(DestinationMetadataMethodsV1 supportedMethods) {
+    public DestinationMetadataV1 supportedMethods(SupportedMethods supportedMethods) {
 
         this.supportedMethods = supportedMethods;
         return this;
@@ -479,16 +497,16 @@ public class DestinationMetadataV1 {
      * @return supportedMethods
      */
     @javax.annotation.Nonnull
-    public DestinationMetadataMethodsV1 getSupportedMethods() {
+    @ApiModelProperty(required = true, value = "")
+    public SupportedMethods getSupportedMethods() {
         return supportedMethods;
     }
 
-    public void setSupportedMethods(DestinationMetadataMethodsV1 supportedMethods) {
+    public void setSupportedMethods(SupportedMethods supportedMethods) {
         this.supportedMethods = supportedMethods;
     }
 
-    public DestinationMetadataV1 supportedPlatforms(
-            DestinationMetadataPlatformsV1 supportedPlatforms) {
+    public DestinationMetadataV1 supportedPlatforms(SupportedPlatforms supportedPlatforms) {
 
         this.supportedPlatforms = supportedPlatforms;
         return this;
@@ -500,11 +518,12 @@ public class DestinationMetadataV1 {
      * @return supportedPlatforms
      */
     @javax.annotation.Nonnull
-    public DestinationMetadataPlatformsV1 getSupportedPlatforms() {
+    @ApiModelProperty(required = true, value = "")
+    public SupportedPlatforms getSupportedPlatforms() {
         return supportedPlatforms;
     }
 
-    public void setSupportedPlatforms(DestinationMetadataPlatformsV1 supportedPlatforms) {
+    public void setSupportedPlatforms(SupportedPlatforms supportedPlatforms) {
         this.supportedPlatforms = supportedPlatforms;
     }
 
@@ -515,9 +534,6 @@ public class DestinationMetadataV1 {
     }
 
     public DestinationMetadataV1 addActionsItem(DestinationMetadataActionV1 actionsItem) {
-        if (this.actions == null) {
-            this.actions = new ArrayList<>();
-        }
         this.actions.add(actionsItem);
         return this;
     }
@@ -528,6 +544,7 @@ public class DestinationMetadataV1 {
      * @return actions
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "Actions available for the Destination.")
     public List<DestinationMetadataActionV1> getActions() {
         return actions;
     }
@@ -544,9 +561,6 @@ public class DestinationMetadataV1 {
 
     public DestinationMetadataV1 addPresetsItem(
             DestinationMetadataSubscriptionPresetV1 presetsItem) {
-        if (this.presets == null) {
-            this.presets = new ArrayList<>();
-        }
         this.presets.add(presetsItem);
         return this;
     }
@@ -558,6 +572,11 @@ public class DestinationMetadataV1 {
      * @return presets
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(
+            required = true,
+            value =
+                    "Predefined Destination subscriptions that can optionally be applied when"
+                            + " connecting a new instance of the Destination.")
     public List<DestinationMetadataSubscriptionPresetV1> getPresets() {
         return presets;
     }
@@ -586,6 +605,7 @@ public class DestinationMetadataV1 {
      * @return contacts
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "Contact info for Integration Owners.")
     public List<Contact> getContacts() {
         return contacts;
     }
@@ -606,6 +626,7 @@ public class DestinationMetadataV1 {
      * @return partnerOwned
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "Partner Owned flag.")
     public Boolean getPartnerOwned() {
         return partnerOwned;
     }
@@ -634,6 +655,7 @@ public class DestinationMetadataV1 {
      * @return supportedRegions
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "A list of supported regions for this Destination.")
     public List<String> getSupportedRegions() {
         return supportedRegions;
     }
@@ -662,6 +684,7 @@ public class DestinationMetadataV1 {
      * @return regionEndpoints
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "The list of regional endpoints for this Destination.")
     public List<String> getRegionEndpoints() {
         return regionEndpoints;
     }
@@ -817,15 +840,15 @@ public class DestinationMetadataV1 {
     }
 
     /**
-     * Validates the JSON Element and throws an exception if issues found
+     * Validates the JSON Object and throws an exception if issues found
      *
-     * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to DestinationMetadataV1
+     * @param jsonObj JSON Object
+     * @throws IOException if the JSON Object is invalid with respect to DestinationMetadataV1
      */
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        if (jsonElement == null) {
+    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+        if (jsonObj == null) {
             if (!DestinationMetadataV1.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON element is null
+                    .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in DestinationMetadataV1 is not found in"
@@ -834,28 +857,27 @@ public class DestinationMetadataV1 {
             }
         }
 
-        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
-        for (Map.Entry<String, JsonElement> entry : entries) {
+        for (Entry<String, JsonElement> entry : entries) {
             if (!DestinationMetadataV1.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
                                         + " `DestinationMetadataV1` properties. JSON: %s",
-                                entry.getKey(), jsonElement.toString()));
+                                entry.getKey(), jsonObj.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
         for (String requiredField : DestinationMetadataV1.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+            if (jsonObj.get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonElement.toString()));
+                                requiredField, jsonObj.toString()));
             }
         }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
         if (!jsonObj.get("id").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -884,8 +906,6 @@ public class DestinationMetadataV1 {
                                     + " but got `%s`",
                             jsonObj.get("slug").toString()));
         }
-        // validate the required field `logos`
-        LogosBeta.validateJsonElement(jsonObj.get("logos"));
         // ensure the json data is an array
         if (!jsonObj.get("options").isJsonArray()) {
             throw new IllegalArgumentException(
@@ -896,11 +916,6 @@ public class DestinationMetadataV1 {
         }
 
         JsonArray jsonArrayoptions = jsonObj.getAsJsonArray("options");
-        // validate the required field `options` (array)
-        for (int i = 0; i < jsonArrayoptions.size(); i++) {
-            IntegrationOptionBeta.validateJsonElement(jsonArrayoptions.get(i));
-        }
-        ;
         if (!jsonObj.get("status").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -949,17 +964,6 @@ public class DestinationMetadataV1 {
         }
 
         JsonArray jsonArraycomponents = jsonObj.getAsJsonArray("components");
-        // validate the required field `components` (array)
-        for (int i = 0; i < jsonArraycomponents.size(); i++) {
-            DestinationMetadataComponentV1.validateJsonElement(jsonArraycomponents.get(i));
-        }
-        ;
-        // validate the required field `supportedFeatures`
-        DestinationMetadataFeaturesV1.validateJsonElement(jsonObj.get("supportedFeatures"));
-        // validate the required field `supportedMethods`
-        DestinationMetadataMethodsV1.validateJsonElement(jsonObj.get("supportedMethods"));
-        // validate the required field `supportedPlatforms`
-        DestinationMetadataPlatformsV1.validateJsonElement(jsonObj.get("supportedPlatforms"));
         // ensure the json data is an array
         if (!jsonObj.get("actions").isJsonArray()) {
             throw new IllegalArgumentException(
@@ -970,11 +974,6 @@ public class DestinationMetadataV1 {
         }
 
         JsonArray jsonArrayactions = jsonObj.getAsJsonArray("actions");
-        // validate the required field `actions` (array)
-        for (int i = 0; i < jsonArrayactions.size(); i++) {
-            DestinationMetadataActionV1.validateJsonElement(jsonArrayactions.get(i));
-        }
-        ;
         // ensure the json data is an array
         if (!jsonObj.get("presets").isJsonArray()) {
             throw new IllegalArgumentException(
@@ -985,11 +984,6 @@ public class DestinationMetadataV1 {
         }
 
         JsonArray jsonArraypresets = jsonObj.getAsJsonArray("presets");
-        // validate the required field `presets` (array)
-        for (int i = 0; i < jsonArraypresets.size(); i++) {
-            DestinationMetadataSubscriptionPresetV1.validateJsonElement(jsonArraypresets.get(i));
-        }
-        ;
         if (jsonObj.get("contacts") != null && !jsonObj.get("contacts").isJsonNull()) {
             JsonArray jsonArraycontacts = jsonObj.getAsJsonArray("contacts");
             if (jsonArraycontacts != null) {
@@ -1001,17 +995,10 @@ public class DestinationMetadataV1 {
                                             + " string but got `%s`",
                                     jsonObj.get("contacts").toString()));
                 }
-
-                // validate the optional field `contacts` (array)
-                for (int i = 0; i < jsonArraycontacts.size(); i++) {
-                    Contact.validateJsonElement(jsonArraycontacts.get(i));
-                }
-                ;
             }
         }
         // ensure the optional json data is an array if present
         if (jsonObj.get("supportedRegions") != null
-                && !jsonObj.get("supportedRegions").isJsonNull()
                 && !jsonObj.get("supportedRegions").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -1021,7 +1008,6 @@ public class DestinationMetadataV1 {
         }
         // ensure the optional json data is an array if present
         if (jsonObj.get("regionEndpoints") != null
-                && !jsonObj.get("regionEndpoints").isJsonNull()
                 && !jsonObj.get("regionEndpoints").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -1053,9 +1039,9 @@ public class DestinationMetadataV1 {
 
                         @Override
                         public DestinationMetadataV1 read(JsonReader in) throws IOException {
-                            JsonElement jsonElement = elementAdapter.read(in);
-                            validateJsonElement(jsonElement);
-                            return thisAdapter.fromJsonTree(jsonElement);
+                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+                            validateJsonObject(jsonObj);
+                            return thisAdapter.fromJsonTree(jsonObj);
                         }
                     }.nullSafe();
         }

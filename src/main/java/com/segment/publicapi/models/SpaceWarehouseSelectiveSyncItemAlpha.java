@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.models;
 
+
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -21,16 +22,23 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
 /**
  * Represents an entry in the Space Warehouse Selective Sync schema for a Warehouse and Space pair.
  */
+@ApiModel(
+        description =
+                "Represents an entry in the Space Warehouse Selective Sync schema for a Warehouse"
+                        + " and Space pair.")
 public class SpaceWarehouseSelectiveSyncItemAlpha {
     public static final String SERIALIZED_NAME_COLLECTION = "collection";
 
@@ -66,6 +74,7 @@ public class SpaceWarehouseSelectiveSyncItemAlpha {
      * @return collection
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "The collection within the Source.")
     public String getCollection() {
         return collection;
     }
@@ -86,6 +95,7 @@ public class SpaceWarehouseSelectiveSyncItemAlpha {
      * @return warehouseId
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "The id of the Warehouse this sync belongs to.")
     public String getWarehouseId() {
         return warehouseId;
     }
@@ -106,6 +116,9 @@ public class SpaceWarehouseSelectiveSyncItemAlpha {
      * @return enabled
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(
+            required = true,
+            value = "The Enabled flag ok telling whether the Collection is enabled or not.")
     public Boolean getEnabled() {
         return enabled;
     }
@@ -122,9 +135,6 @@ public class SpaceWarehouseSelectiveSyncItemAlpha {
 
     public SpaceWarehouseSelectiveSyncItemAlpha putPropertiesItem(
             String key, Object propertiesItem) {
-        if (this.properties == null) {
-            this.properties = new HashMap<>();
-        }
         this.properties.put(key, propertiesItem);
         return this;
     }
@@ -135,6 +145,11 @@ public class SpaceWarehouseSelectiveSyncItemAlpha {
      * @return properties
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(
+            required = true,
+            value =
+                    "A map that contains the properties within the collection to which the"
+                            + " Warehouse should sync.")
     public Map<String, Object> getProperties() {
         return properties;
     }
@@ -208,16 +223,16 @@ public class SpaceWarehouseSelectiveSyncItemAlpha {
     }
 
     /**
-     * Validates the JSON Element and throws an exception if issues found
+     * Validates the JSON Object and throws an exception if issues found
      *
-     * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to
+     * @param jsonObj JSON Object
+     * @throws IOException if the JSON Object is invalid with respect to
      *     SpaceWarehouseSelectiveSyncItemAlpha
      */
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        if (jsonElement == null) {
+    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+        if (jsonObj == null) {
             if (!SpaceWarehouseSelectiveSyncItemAlpha.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON element is null
+                    .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in SpaceWarehouseSelectiveSyncItemAlpha"
@@ -227,29 +242,28 @@ public class SpaceWarehouseSelectiveSyncItemAlpha {
             }
         }
 
-        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
-        for (Map.Entry<String, JsonElement> entry : entries) {
+        for (Entry<String, JsonElement> entry : entries) {
             if (!SpaceWarehouseSelectiveSyncItemAlpha.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
                                     + " `SpaceWarehouseSelectiveSyncItemAlpha` properties. JSON:"
                                     + " %s",
-                                entry.getKey(), jsonElement.toString()));
+                                entry.getKey(), jsonObj.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
         for (String requiredField : SpaceWarehouseSelectiveSyncItemAlpha.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+            if (jsonObj.get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonElement.toString()));
+                                requiredField, jsonObj.toString()));
             }
         }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
         if (!jsonObj.get("collection").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -292,9 +306,9 @@ public class SpaceWarehouseSelectiveSyncItemAlpha {
                         @Override
                         public SpaceWarehouseSelectiveSyncItemAlpha read(JsonReader in)
                                 throws IOException {
-                            JsonElement jsonElement = elementAdapter.read(in);
-                            validateJsonElement(jsonElement);
-                            return thisAdapter.fromJsonTree(jsonElement);
+                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+                            validateJsonObject(jsonObj);
+                            return thisAdapter.fromJsonTree(jsonObj);
                         }
                     }.nullSafe();
         }

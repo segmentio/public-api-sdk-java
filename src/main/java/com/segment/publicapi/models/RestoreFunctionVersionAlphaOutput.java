@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.models;
 
+
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -21,22 +22,25 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
 /** Restore version output. */
+@ApiModel(description = "Restore version output.")
 public class RestoreFunctionVersionAlphaOutput {
     public static final String SERIALIZED_NAME_VERSION = "version";
 
     @SerializedName(SERIALIZED_NAME_VERSION)
-    private Version version;
+    private Version1 version;
 
     public RestoreFunctionVersionAlphaOutput() {}
 
-    public RestoreFunctionVersionAlphaOutput version(Version version) {
+    public RestoreFunctionVersionAlphaOutput version(Version1 version) {
 
         this.version = version;
         return this;
@@ -48,11 +52,12 @@ public class RestoreFunctionVersionAlphaOutput {
      * @return version
      */
     @javax.annotation.Nonnull
-    public Version getVersion() {
+    @ApiModelProperty(required = true, value = "")
+    public Version1 getVersion() {
         return version;
     }
 
-    public void setVersion(Version version) {
+    public void setVersion(Version1 version) {
         this.version = version;
     }
 
@@ -108,16 +113,16 @@ public class RestoreFunctionVersionAlphaOutput {
     }
 
     /**
-     * Validates the JSON Element and throws an exception if issues found
+     * Validates the JSON Object and throws an exception if issues found
      *
-     * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to
+     * @param jsonObj JSON Object
+     * @throws IOException if the JSON Object is invalid with respect to
      *     RestoreFunctionVersionAlphaOutput
      */
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        if (jsonElement == null) {
+    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+        if (jsonObj == null) {
             if (!RestoreFunctionVersionAlphaOutput.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON element is null
+                    .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in RestoreFunctionVersionAlphaOutput is"
@@ -127,30 +132,27 @@ public class RestoreFunctionVersionAlphaOutput {
             }
         }
 
-        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
-        for (Map.Entry<String, JsonElement> entry : entries) {
+        for (Entry<String, JsonElement> entry : entries) {
             if (!RestoreFunctionVersionAlphaOutput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
                                     + " `RestoreFunctionVersionAlphaOutput` properties. JSON: %s",
-                                entry.getKey(), jsonElement.toString()));
+                                entry.getKey(), jsonObj.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
         for (String requiredField : RestoreFunctionVersionAlphaOutput.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+            if (jsonObj.get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonElement.toString()));
+                                requiredField, jsonObj.toString()));
             }
         }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-        // validate the required field `version`
-        Version.validateJsonElement(jsonObj.get("version"));
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -178,9 +180,9 @@ public class RestoreFunctionVersionAlphaOutput {
                         @Override
                         public RestoreFunctionVersionAlphaOutput read(JsonReader in)
                                 throws IOException {
-                            JsonElement jsonElement = elementAdapter.read(in);
-                            validateJsonElement(jsonElement);
-                            return thisAdapter.fromJsonTree(jsonElement);
+                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+                            validateJsonObject(jsonObj);
+                            return thisAdapter.fromJsonTree(jsonObj);
                         }
                     }.nullSafe();
         }

@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.api;
 
+
 import com.google.gson.reflect.TypeToken;
 import com.segment.publicapi.ApiCallback;
 import com.segment.publicapi.ApiClient;
@@ -121,6 +122,7 @@ public class IamRolesApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -145,13 +147,15 @@ public class IamRolesApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listRolesValidateBeforeCall(
             PaginationInput pagination, final ApiCallback _callback) throws ApiException {
+
         // verify the required parameter 'pagination' is set
         if (pagination == null) {
             throw new ApiException(
                     "Missing the required parameter 'pagination' when calling listRoles(Async)");
         }
 
-        return listRolesCall(pagination, _callback);
+        okhttp3.Call localVarCall = listRolesCall(pagination, _callback);
+        return localVarCall;
     }
 
     /**

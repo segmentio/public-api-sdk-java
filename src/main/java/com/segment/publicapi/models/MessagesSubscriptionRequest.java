@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.models;
 
+
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -23,11 +24,12 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
@@ -151,7 +153,7 @@ public class MessagesSubscriptionRequest {
     public static final String SERIALIZED_NAME_GROUPS = "groups";
 
     @SerializedName(SERIALIZED_NAME_GROUPS)
-    private List<GroupSubscriptionStatus> groups;
+    private List<GroupSubscriptionStatus> groups = null;
 
     public MessagesSubscriptionRequest() {}
 
@@ -167,6 +169,7 @@ public class MessagesSubscriptionRequest {
      * @return key
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "Key is the phone number or email.")
     public String getKey() {
         return key;
     }
@@ -187,6 +190,7 @@ public class MessagesSubscriptionRequest {
      * @return type
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "Type is communication medium used.")
     public TypeEnum getType() {
         return type;
     }
@@ -207,6 +211,7 @@ public class MessagesSubscriptionRequest {
      * @return status
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "The user subscribed, unsubscribed, or on initial status globally.")
     public StatusEnum getStatus() {
         return status;
     }
@@ -235,6 +240,7 @@ public class MessagesSubscriptionRequest {
      * @return groups
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "Optional groups subscription status.")
     public List<GroupSubscriptionStatus> getGroups() {
         return groups;
     }
@@ -304,16 +310,15 @@ public class MessagesSubscriptionRequest {
     }
 
     /**
-     * Validates the JSON Element and throws an exception if issues found
+     * Validates the JSON Object and throws an exception if issues found
      *
-     * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to
-     *     MessagesSubscriptionRequest
+     * @param jsonObj JSON Object
+     * @throws IOException if the JSON Object is invalid with respect to MessagesSubscriptionRequest
      */
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        if (jsonElement == null) {
+    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+        if (jsonObj == null) {
             if (!MessagesSubscriptionRequest.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON element is null
+                    .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in MessagesSubscriptionRequest is not"
@@ -322,28 +327,27 @@ public class MessagesSubscriptionRequest {
             }
         }
 
-        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
-        for (Map.Entry<String, JsonElement> entry : entries) {
+        for (Entry<String, JsonElement> entry : entries) {
             if (!MessagesSubscriptionRequest.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
                                         + " `MessagesSubscriptionRequest` properties. JSON: %s",
-                                entry.getKey(), jsonElement.toString()));
+                                entry.getKey(), jsonObj.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
         for (String requiredField : MessagesSubscriptionRequest.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+            if (jsonObj.get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonElement.toString()));
+                                requiredField, jsonObj.toString()));
             }
         }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
         if (!jsonObj.get("key").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -377,12 +381,6 @@ public class MessagesSubscriptionRequest {
                                             + " but got `%s`",
                                     jsonObj.get("groups").toString()));
                 }
-
-                // validate the optional field `groups` (array)
-                for (int i = 0; i < jsonArraygroups.size(); i++) {
-                    GroupSubscriptionStatus.validateJsonElement(jsonArraygroups.get(i));
-                }
-                ;
             }
         }
     }
@@ -410,9 +408,9 @@ public class MessagesSubscriptionRequest {
 
                         @Override
                         public MessagesSubscriptionRequest read(JsonReader in) throws IOException {
-                            JsonElement jsonElement = elementAdapter.read(in);
-                            validateJsonElement(jsonElement);
-                            return thisAdapter.fromJsonTree(jsonElement);
+                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+                            validateJsonObject(jsonObj);
+                            return thisAdapter.fromJsonTree(jsonObj);
                         }
                     }.nullSafe();
         }

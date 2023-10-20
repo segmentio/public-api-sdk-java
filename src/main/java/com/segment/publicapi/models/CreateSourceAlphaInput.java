@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.models;
 
+
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -21,14 +22,19 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.HashMap;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Create a new Source based on a set of parameters. */
+@ApiModel(description = "Create a new Source based on a set of parameters.")
 public class CreateSourceAlphaInput {
     public static final String SERIALIZED_NAME_SLUG = "slug";
 
@@ -53,7 +59,7 @@ public class CreateSourceAlphaInput {
     public static final String SERIALIZED_NAME_SETTINGS = "settings";
 
     @SerializedName(SERIALIZED_NAME_SETTINGS)
-    private Map<String, Object> settings;
+    private Map settings;
 
     public CreateSourceAlphaInput() {}
 
@@ -69,6 +75,9 @@ public class CreateSourceAlphaInput {
      * @return slug
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(
+            required = true,
+            value = "The slug by which to identify the Source in the Segment app.")
     public String getSlug() {
         return slug;
     }
@@ -89,6 +98,9 @@ public class CreateSourceAlphaInput {
      * @return enabled
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(
+            required = true,
+            value = "Enable to allow this Source to send data. Defaults to true.")
     public Boolean getEnabled() {
         return enabled;
     }
@@ -109,6 +121,7 @@ public class CreateSourceAlphaInput {
      * @return name
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "An optional human-readable name for this Source.")
     public String getName() {
         return name;
     }
@@ -130,6 +143,11 @@ public class CreateSourceAlphaInput {
      * @return metadataId
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(
+            required = true,
+            value =
+                    "The id of the Source metadata from which this instance of the Source derives. "
+                            + " All Source metadata is available under `/catalog/sources`.")
     public String getMetadataId() {
         return metadataId;
     }
@@ -138,32 +156,25 @@ public class CreateSourceAlphaInput {
         this.metadataId = metadataId;
     }
 
-    public CreateSourceAlphaInput settings(Map<String, Object> settings) {
+    public CreateSourceAlphaInput settings(Map settings) {
 
         this.settings = settings;
         return this;
     }
 
-    public CreateSourceAlphaInput putSettingsItem(String key, Object settingsItem) {
-        if (this.settings == null) {
-            this.settings = new HashMap<>();
-        }
-        this.settings.put(key, settingsItem);
-        return this;
-    }
-
     /**
-     * A key-value object that contains instance-specific settings for a Source. The
-     * &#x60;options&#x60; field in the Source metadata defines the schema of this object.
+     * A key-value object that contains instance-specific settings for the Source.
      *
      * @return settings
      */
     @javax.annotation.Nullable
-    public Map<String, Object> getSettings() {
+    @ApiModelProperty(
+            value = "A key-value object that contains instance-specific settings for the Source.")
+    public Map getSettings() {
         return settings;
     }
 
-    public void setSettings(Map<String, Object> settings) {
+    public void setSettings(Map settings) {
         this.settings = settings;
     }
 
@@ -183,9 +194,25 @@ public class CreateSourceAlphaInput {
                 && Objects.equals(this.settings, createSourceAlphaInput.settings);
     }
 
+    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+        return a == b
+                || (a != null
+                        && b != null
+                        && a.isPresent()
+                        && b.isPresent()
+                        && Objects.deepEquals(a.get(), b.get()));
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(slug, enabled, name, metadataId, settings);
+    }
+
+    private static <T> int hashCodeNullable(JsonNullable<T> a) {
+        if (a == null) {
+            return 1;
+        }
+        return a.isPresent() ? Arrays.deepHashCode(new Object[] {a.get()}) : 31;
     }
 
     @Override
@@ -232,15 +259,15 @@ public class CreateSourceAlphaInput {
     }
 
     /**
-     * Validates the JSON Element and throws an exception if issues found
+     * Validates the JSON Object and throws an exception if issues found
      *
-     * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to CreateSourceAlphaInput
+     * @param jsonObj JSON Object
+     * @throws IOException if the JSON Object is invalid with respect to CreateSourceAlphaInput
      */
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        if (jsonElement == null) {
+    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+        if (jsonObj == null) {
             if (!CreateSourceAlphaInput.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON element is null
+                    .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in CreateSourceAlphaInput is not found in"
@@ -249,28 +276,27 @@ public class CreateSourceAlphaInput {
             }
         }
 
-        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
-        for (Map.Entry<String, JsonElement> entry : entries) {
+        for (Entry<String, JsonElement> entry : entries) {
             if (!CreateSourceAlphaInput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
                                         + " `CreateSourceAlphaInput` properties. JSON: %s",
-                                entry.getKey(), jsonElement.toString()));
+                                entry.getKey(), jsonObj.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
         for (String requiredField : CreateSourceAlphaInput.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+            if (jsonObj.get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonElement.toString()));
+                                requiredField, jsonObj.toString()));
             }
         }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
         if (!jsonObj.get("slug").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -317,9 +343,9 @@ public class CreateSourceAlphaInput {
 
                         @Override
                         public CreateSourceAlphaInput read(JsonReader in) throws IOException {
-                            JsonElement jsonElement = elementAdapter.read(in);
-                            validateJsonElement(jsonElement);
-                            return thisAdapter.fromJsonTree(jsonElement);
+                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+                            validateJsonObject(jsonObj);
+                            return thisAdapter.fromJsonTree(jsonObj);
                         }
                     }.nullSafe();
         }

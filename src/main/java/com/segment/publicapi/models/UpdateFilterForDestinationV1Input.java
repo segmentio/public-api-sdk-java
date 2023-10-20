@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.models;
 
+
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -22,17 +23,20 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Input for UpdateDestinationFilterV1. */
+@ApiModel(description = "Input for UpdateDestinationFilterV1.")
 public class UpdateFilterForDestinationV1Input {
     public static final String SERIALIZED_NAME_IF = "if";
 
@@ -42,7 +46,7 @@ public class UpdateFilterForDestinationV1Input {
     public static final String SERIALIZED_NAME_ACTIONS = "actions";
 
     @SerializedName(SERIALIZED_NAME_ACTIONS)
-    private List<DestinationFilterActionV1> actions;
+    private List<DestinationFilterActionV1> actions = null;
 
     public static final String SERIALIZED_NAME_TITLE = "title";
 
@@ -73,6 +77,7 @@ public class UpdateFilterForDestinationV1Input {
      * @return _if
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "The FQL if condition to update.")
     public String getIf() {
         return _if;
     }
@@ -101,6 +106,7 @@ public class UpdateFilterForDestinationV1Input {
      * @return actions
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "Actions for this Destination filter.")
     public List<DestinationFilterActionV1> getActions() {
         return actions;
     }
@@ -121,6 +127,7 @@ public class UpdateFilterForDestinationV1Input {
      * @return title
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "The title to update.")
     public String getTitle() {
         return title;
     }
@@ -141,6 +148,7 @@ public class UpdateFilterForDestinationV1Input {
      * @return description
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "The description of this filter.")
     public String getDescription() {
         return description;
     }
@@ -161,6 +169,7 @@ public class UpdateFilterForDestinationV1Input {
      * @return enabled
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "When set to true, this Destination filter is active.")
     public Boolean getEnabled() {
         return enabled;
     }
@@ -248,16 +257,16 @@ public class UpdateFilterForDestinationV1Input {
     }
 
     /**
-     * Validates the JSON Element and throws an exception if issues found
+     * Validates the JSON Object and throws an exception if issues found
      *
-     * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to
+     * @param jsonObj JSON Object
+     * @throws IOException if the JSON Object is invalid with respect to
      *     UpdateFilterForDestinationV1Input
      */
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        if (jsonElement == null) {
+    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+        if (jsonObj == null) {
             if (!UpdateFilterForDestinationV1Input.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON element is null
+                    .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in UpdateFilterForDestinationV1Input is"
@@ -267,18 +276,17 @@ public class UpdateFilterForDestinationV1Input {
             }
         }
 
-        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
-        for (Map.Entry<String, JsonElement> entry : entries) {
+        for (Entry<String, JsonElement> entry : entries) {
             if (!UpdateFilterForDestinationV1Input.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
                                     + " `UpdateFilterForDestinationV1Input` properties. JSON: %s",
-                                entry.getKey(), jsonElement.toString()));
+                                entry.getKey(), jsonObj.toString()));
             }
         }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
         if ((jsonObj.get("if") != null && !jsonObj.get("if").isJsonNull())
                 && !jsonObj.get("if").isJsonPrimitive()) {
             throw new IllegalArgumentException(
@@ -298,12 +306,6 @@ public class UpdateFilterForDestinationV1Input {
                                             + " but got `%s`",
                                     jsonObj.get("actions").toString()));
                 }
-
-                // validate the optional field `actions` (array)
-                for (int i = 0; i < jsonArrayactions.size(); i++) {
-                    DestinationFilterActionV1.validateJsonElement(jsonArrayactions.get(i));
-                }
-                ;
             }
         }
         if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull())
@@ -349,9 +351,9 @@ public class UpdateFilterForDestinationV1Input {
                         @Override
                         public UpdateFilterForDestinationV1Input read(JsonReader in)
                                 throws IOException {
-                            JsonElement jsonElement = elementAdapter.read(in);
-                            validateJsonElement(jsonElement);
-                            return thisAdapter.fromJsonTree(jsonElement);
+                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+                            validateJsonObject(jsonObj);
+                            return thisAdapter.fromJsonTree(jsonObj);
                         }
                     }.nullSafe();
         }

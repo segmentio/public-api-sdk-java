@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.models;
 
+
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -22,15 +23,18 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
 /** Results containing the Selective Sync configuration for a Warehouse. */
+@ApiModel(description = "Results containing the Selective Sync configuration for a Warehouse.")
 public class ListSelectiveSyncsFromWarehouseAndSourceV1Output {
     public static final String SERIALIZED_NAME_ITEMS = "items";
 
@@ -40,7 +44,7 @@ public class ListSelectiveSyncsFromWarehouseAndSourceV1Output {
     public static final String SERIALIZED_NAME_PAGINATION = "pagination";
 
     @SerializedName(SERIALIZED_NAME_PAGINATION)
-    private PaginationOutput pagination;
+    private Pagination pagination;
 
     public ListSelectiveSyncsFromWarehouseAndSourceV1Output() {}
 
@@ -53,9 +57,6 @@ public class ListSelectiveSyncsFromWarehouseAndSourceV1Output {
 
     public ListSelectiveSyncsFromWarehouseAndSourceV1Output addItemsItem(
             WarehouseSelectiveSyncItemV1 itemsItem) {
-        if (this.items == null) {
-            this.items = new ArrayList<>();
-        }
         this.items.add(itemsItem);
         return this;
     }
@@ -66,6 +67,11 @@ public class ListSelectiveSyncsFromWarehouseAndSourceV1Output {
      * @return items
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(
+            required = true,
+            value =
+                    "Represents a list of Source, collection, and properties synced to the"
+                            + " Warehouse.")
     public List<WarehouseSelectiveSyncItemV1> getItems() {
         return items;
     }
@@ -74,8 +80,7 @@ public class ListSelectiveSyncsFromWarehouseAndSourceV1Output {
         this.items = items;
     }
 
-    public ListSelectiveSyncsFromWarehouseAndSourceV1Output pagination(
-            PaginationOutput pagination) {
+    public ListSelectiveSyncsFromWarehouseAndSourceV1Output pagination(Pagination pagination) {
 
         this.pagination = pagination;
         return this;
@@ -87,11 +92,12 @@ public class ListSelectiveSyncsFromWarehouseAndSourceV1Output {
      * @return pagination
      */
     @javax.annotation.Nonnull
-    public PaginationOutput getPagination() {
+    @ApiModelProperty(required = true, value = "")
+    public Pagination getPagination() {
         return pagination;
     }
 
-    public void setPagination(PaginationOutput pagination) {
+    public void setPagination(Pagination pagination) {
         this.pagination = pagination;
     }
 
@@ -154,16 +160,16 @@ public class ListSelectiveSyncsFromWarehouseAndSourceV1Output {
     }
 
     /**
-     * Validates the JSON Element and throws an exception if issues found
+     * Validates the JSON Object and throws an exception if issues found
      *
-     * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to
+     * @param jsonObj JSON Object
+     * @throws IOException if the JSON Object is invalid with respect to
      *     ListSelectiveSyncsFromWarehouseAndSourceV1Output
      */
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        if (jsonElement == null) {
+    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+        if (jsonObj == null) {
             if (!ListSelectiveSyncsFromWarehouseAndSourceV1Output.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON element is null
+                    .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in"
@@ -175,9 +181,9 @@ public class ListSelectiveSyncsFromWarehouseAndSourceV1Output {
             }
         }
 
-        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
-        for (Map.Entry<String, JsonElement> entry : entries) {
+        for (Entry<String, JsonElement> entry : entries) {
             if (!ListSelectiveSyncsFromWarehouseAndSourceV1Output.openapiFields.contains(
                     entry.getKey())) {
                 throw new IllegalArgumentException(
@@ -185,21 +191,20 @@ public class ListSelectiveSyncsFromWarehouseAndSourceV1Output {
                                 "The field `%s` in the JSON string is not defined in the"
                                         + " `ListSelectiveSyncsFromWarehouseAndSourceV1Output`"
                                         + " properties. JSON: %s",
-                                entry.getKey(), jsonElement.toString()));
+                                entry.getKey(), jsonObj.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
         for (String requiredField :
                 ListSelectiveSyncsFromWarehouseAndSourceV1Output.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+            if (jsonObj.get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonElement.toString()));
+                                requiredField, jsonObj.toString()));
             }
         }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
         // ensure the json data is an array
         if (!jsonObj.get("items").isJsonArray()) {
             throw new IllegalArgumentException(
@@ -210,13 +215,6 @@ public class ListSelectiveSyncsFromWarehouseAndSourceV1Output {
         }
 
         JsonArray jsonArrayitems = jsonObj.getAsJsonArray("items");
-        // validate the required field `items` (array)
-        for (int i = 0; i < jsonArrayitems.size(); i++) {
-            WarehouseSelectiveSyncItemV1.validateJsonElement(jsonArrayitems.get(i));
-        }
-        ;
-        // validate the required field `pagination`
-        PaginationOutput.validateJsonElement(jsonObj.get("pagination"));
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -248,9 +246,9 @@ public class ListSelectiveSyncsFromWarehouseAndSourceV1Output {
                         @Override
                         public ListSelectiveSyncsFromWarehouseAndSourceV1Output read(JsonReader in)
                                 throws IOException {
-                            JsonElement jsonElement = elementAdapter.read(in);
-                            validateJsonElement(jsonElement);
-                            return thisAdapter.fromJsonTree(jsonElement);
+                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+                            validateJsonObject(jsonObj);
+                            return thisAdapter.fromJsonTree(jsonObj);
                         }
                     }.nullSafe();
         }

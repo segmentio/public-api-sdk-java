@@ -11,6 +11,7 @@
 
 package com.segment.publicapi;
 
+
 import java.util.List;
 import java.util.Map;
 
@@ -103,12 +104,7 @@ public class ApiException extends Exception {
      * @param responseBody the response body
      */
     public ApiException(int code, Map<String, List<String>> responseHeaders, String responseBody) {
-        this(
-                "Response Code: " + code + " Response Body: " + responseBody,
-                (Throwable) null,
-                code,
-                responseHeaders,
-                responseBody);
+        this((String) null, (Throwable) null, code, responseHeaders, responseBody);
     }
 
     /**

@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.models;
 
+
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -21,13 +22,19 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
 /** Represents the override for a Source/collection/property? path to apply to a Warehouse. */
+@ApiModel(
+        description =
+                "Represents the override for a Source/collection/property? path to apply to a"
+                        + " Warehouse.")
 public class WarehouseSyncOverrideV1 {
     public static final String SERIALIZED_NAME_SOURCE_ID = "sourceId";
 
@@ -63,6 +70,7 @@ public class WarehouseSyncOverrideV1 {
      * @return sourceId
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "The id of the Source this schema item applies to.")
     public String getSourceId() {
         return sourceId;
     }
@@ -83,6 +91,7 @@ public class WarehouseSyncOverrideV1 {
      * @return collection
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "The collection the schema item override applies to.")
     public String getCollection() {
         return collection;
     }
@@ -103,6 +112,7 @@ public class WarehouseSyncOverrideV1 {
      * @return enabled
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "Enable to apply the override.")
     public Boolean getEnabled() {
         return enabled;
     }
@@ -123,6 +133,7 @@ public class WarehouseSyncOverrideV1 {
      * @return property
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "A property within the collection to which the override applies.")
     public String getProperty() {
         return property;
     }
@@ -192,15 +203,15 @@ public class WarehouseSyncOverrideV1 {
     }
 
     /**
-     * Validates the JSON Element and throws an exception if issues found
+     * Validates the JSON Object and throws an exception if issues found
      *
-     * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to WarehouseSyncOverrideV1
+     * @param jsonObj JSON Object
+     * @throws IOException if the JSON Object is invalid with respect to WarehouseSyncOverrideV1
      */
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        if (jsonElement == null) {
+    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+        if (jsonObj == null) {
             if (!WarehouseSyncOverrideV1.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON element is null
+                    .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in WarehouseSyncOverrideV1 is not found"
@@ -209,28 +220,27 @@ public class WarehouseSyncOverrideV1 {
             }
         }
 
-        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
-        for (Map.Entry<String, JsonElement> entry : entries) {
+        for (Entry<String, JsonElement> entry : entries) {
             if (!WarehouseSyncOverrideV1.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
                                         + " `WarehouseSyncOverrideV1` properties. JSON: %s",
-                                entry.getKey(), jsonElement.toString()));
+                                entry.getKey(), jsonObj.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
         for (String requiredField : WarehouseSyncOverrideV1.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+            if (jsonObj.get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonElement.toString()));
+                                requiredField, jsonObj.toString()));
             }
         }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
         if (!jsonObj.get("sourceId").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -279,9 +289,9 @@ public class WarehouseSyncOverrideV1 {
 
                         @Override
                         public WarehouseSyncOverrideV1 read(JsonReader in) throws IOException {
-                            JsonElement jsonElement = elementAdapter.read(in);
-                            validateJsonElement(jsonElement);
-                            return thisAdapter.fromJsonTree(jsonElement);
+                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+                            validateJsonObject(jsonObj);
+                            return thisAdapter.fromJsonTree(jsonObj);
                         }
                     }.nullSafe();
         }

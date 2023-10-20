@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.api;
 
+
 import com.google.gson.reflect.TypeToken;
 import com.segment.publicapi.ApiCallback;
 import com.segment.publicapi.ApiClient;
@@ -149,6 +150,7 @@ public class LabelsApi {
     private okhttp3.Call createLabelValidateBeforeCall(
             CreateLabelV1Input createLabelV1Input, final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'createLabelV1Input' is set
         if (createLabelV1Input == null) {
             throw new ApiException(
@@ -156,7 +158,8 @@ public class LabelsApi {
                             + " createLabel(Async)");
         }
 
-        return createLabelCall(createLabelV1Input, _callback);
+        okhttp3.Call localVarCall = createLabelCall(createLabelV1Input, _callback);
+        return localVarCall;
     }
 
     /**
@@ -247,7 +250,6 @@ public class LabelsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for deleteLabel
      *
@@ -285,9 +287,11 @@ public class LabelsApi {
         // create path and map variables
         String localVarPath =
                 "/labels/{key}/{value}"
-                        .replace("{" + "key" + "}", localVarApiClient.escapeString(key.toString()))
-                        .replace(
-                                "{" + "value" + "}",
+                        .replaceAll(
+                                "\\{" + "key" + "\\}",
+                                localVarApiClient.escapeString(key.toString()))
+                        .replaceAll(
+                                "\\{" + "value" + "\\}",
                                 localVarApiClient.escapeString(value.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -308,6 +312,7 @@ public class LabelsApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -332,6 +337,7 @@ public class LabelsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteLabelValidateBeforeCall(
             String key, String value, final ApiCallback _callback) throws ApiException {
+
         // verify the required parameter 'key' is set
         if (key == null) {
             throw new ApiException(
@@ -344,7 +350,8 @@ public class LabelsApi {
                     "Missing the required parameter 'value' when calling deleteLabel(Async)");
         }
 
-        return deleteLabelCall(key, value, _callback);
+        okhttp3.Call localVarCall = deleteLabelCall(key, value, _callback);
+        return localVarCall;
     }
 
     /**
@@ -435,7 +442,6 @@ public class LabelsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for listLabels
      *
@@ -488,6 +494,7 @@ public class LabelsApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -512,7 +519,9 @@ public class LabelsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listLabelsValidateBeforeCall(final ApiCallback _callback)
             throws ApiException {
-        return listLabelsCall(_callback);
+
+        okhttp3.Call localVarCall = listLabelsCall(_callback);
+        return localVarCall;
     }
 
     /**

@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.api;
 
+
 import com.google.gson.reflect.TypeToken;
 import com.segment.publicapi.ApiCallback;
 import com.segment.publicapi.ApiClient;
@@ -164,6 +165,7 @@ public class FunctionsApi {
     private okhttp3.Call createFunctionValidateBeforeCall(
             CreateFunctionV1Input createFunctionV1Input, final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'createFunctionV1Input' is set
         if (createFunctionV1Input == null) {
             throw new ApiException(
@@ -171,7 +173,8 @@ public class FunctionsApi {
                             + " createFunction(Async)");
         }
 
-        return createFunctionCall(createFunctionV1Input, _callback);
+        okhttp3.Call localVarCall = createFunctionCall(createFunctionV1Input, _callback);
+        return localVarCall;
     }
 
     /**
@@ -254,7 +257,6 @@ public class FunctionsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for createFunctionDeployment
      *
@@ -291,8 +293,8 @@ public class FunctionsApi {
         // create path and map variables
         String localVarPath =
                 "/functions/{functionId}/deploy"
-                        .replace(
-                                "{" + "functionId" + "}",
+                        .replaceAll(
+                                "\\{" + "functionId" + "\\}",
                                 localVarApiClient.escapeString(functionId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -313,6 +315,7 @@ public class FunctionsApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -337,6 +340,7 @@ public class FunctionsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createFunctionDeploymentValidateBeforeCall(
             String functionId, final ApiCallback _callback) throws ApiException {
+
         // verify the required parameter 'functionId' is set
         if (functionId == null) {
             throw new ApiException(
@@ -344,7 +348,8 @@ public class FunctionsApi {
                             + " createFunctionDeployment(Async)");
         }
 
-        return createFunctionDeploymentCall(functionId, _callback);
+        okhttp3.Call localVarCall = createFunctionDeploymentCall(functionId, _callback);
+        return localVarCall;
     }
 
     /**
@@ -429,7 +434,6 @@ public class FunctionsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for createInsertFunctionInstance
      *
@@ -509,6 +513,7 @@ public class FunctionsApi {
             CreateInsertFunctionInstanceAlphaInput createInsertFunctionInstanceAlphaInput,
             final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'createInsertFunctionInstanceAlphaInput' is set
         if (createInsertFunctionInstanceAlphaInput == null) {
             throw new ApiException(
@@ -516,7 +521,9 @@ public class FunctionsApi {
                             + " calling createInsertFunctionInstance(Async)");
         }
 
-        return createInsertFunctionInstanceCall(createInsertFunctionInstanceAlphaInput, _callback);
+        okhttp3.Call localVarCall =
+                createInsertFunctionInstanceCall(createInsertFunctionInstanceAlphaInput, _callback);
+        return localVarCall;
     }
 
     /**
@@ -610,7 +617,6 @@ public class FunctionsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for deleteFunction
      *
@@ -647,8 +653,8 @@ public class FunctionsApi {
         // create path and map variables
         String localVarPath =
                 "/functions/{functionId}"
-                        .replace(
-                                "{" + "functionId" + "}",
+                        .replaceAll(
+                                "\\{" + "functionId" + "\\}",
                                 localVarApiClient.escapeString(functionId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -669,6 +675,7 @@ public class FunctionsApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -693,6 +700,7 @@ public class FunctionsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteFunctionValidateBeforeCall(
             String functionId, final ApiCallback _callback) throws ApiException {
+
         // verify the required parameter 'functionId' is set
         if (functionId == null) {
             throw new ApiException(
@@ -700,7 +708,8 @@ public class FunctionsApi {
                             + " deleteFunction(Async)");
         }
 
-        return deleteFunctionCall(functionId, _callback);
+        okhttp3.Call localVarCall = deleteFunctionCall(functionId, _callback);
+        return localVarCall;
     }
 
     /**
@@ -780,7 +789,6 @@ public class FunctionsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for deleteInsertFunctionInstance
      *
@@ -817,8 +825,8 @@ public class FunctionsApi {
         // create path and map variables
         String localVarPath =
                 "/insert-function-instances/{instanceId}"
-                        .replace(
-                                "{" + "instanceId" + "}",
+                        .replaceAll(
+                                "\\{" + "instanceId" + "\\}",
                                 localVarApiClient.escapeString(instanceId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -836,6 +844,7 @@ public class FunctionsApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -860,6 +869,7 @@ public class FunctionsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteInsertFunctionInstanceValidateBeforeCall(
             String instanceId, final ApiCallback _callback) throws ApiException {
+
         // verify the required parameter 'instanceId' is set
         if (instanceId == null) {
             throw new ApiException(
@@ -867,7 +877,8 @@ public class FunctionsApi {
                             + " deleteInsertFunctionInstance(Async)");
         }
 
-        return deleteInsertFunctionInstanceCall(instanceId, _callback);
+        okhttp3.Call localVarCall = deleteInsertFunctionInstanceCall(instanceId, _callback);
+        return localVarCall;
     }
 
     /**
@@ -952,7 +963,6 @@ public class FunctionsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for getFunction
      *
@@ -989,8 +999,8 @@ public class FunctionsApi {
         // create path and map variables
         String localVarPath =
                 "/functions/{functionId}"
-                        .replace(
-                                "{" + "functionId" + "}",
+                        .replaceAll(
+                                "\\{" + "functionId" + "\\}",
                                 localVarApiClient.escapeString(functionId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1011,6 +1021,7 @@ public class FunctionsApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1035,13 +1046,15 @@ public class FunctionsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getFunctionValidateBeforeCall(
             String functionId, final ApiCallback _callback) throws ApiException {
+
         // verify the required parameter 'functionId' is set
         if (functionId == null) {
             throw new ApiException(
                     "Missing the required parameter 'functionId' when calling getFunction(Async)");
         }
 
-        return getFunctionCall(functionId, _callback);
+        okhttp3.Call localVarCall = getFunctionCall(functionId, _callback);
+        return localVarCall;
     }
 
     /**
@@ -1120,7 +1133,6 @@ public class FunctionsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for getFunctionVersion
      *
@@ -1158,11 +1170,11 @@ public class FunctionsApi {
         // create path and map variables
         String localVarPath =
                 "/functions/{functionId}/versions/{versionId}"
-                        .replace(
-                                "{" + "functionId" + "}",
+                        .replaceAll(
+                                "\\{" + "functionId" + "\\}",
                                 localVarApiClient.escapeString(functionId.toString()))
-                        .replace(
-                                "{" + "versionId" + "}",
+                        .replaceAll(
+                                "\\{" + "versionId" + "\\}",
                                 localVarApiClient.escapeString(versionId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1180,6 +1192,7 @@ public class FunctionsApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1204,6 +1217,7 @@ public class FunctionsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getFunctionVersionValidateBeforeCall(
             String functionId, String versionId, final ApiCallback _callback) throws ApiException {
+
         // verify the required parameter 'functionId' is set
         if (functionId == null) {
             throw new ApiException(
@@ -1218,7 +1232,8 @@ public class FunctionsApi {
                             + " getFunctionVersion(Async)");
         }
 
-        return getFunctionVersionCall(functionId, versionId, _callback);
+        okhttp3.Call localVarCall = getFunctionVersionCall(functionId, versionId, _callback);
+        return localVarCall;
     }
 
     /**
@@ -1306,7 +1321,6 @@ public class FunctionsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for listFunctionVersions
      *
@@ -1345,8 +1359,8 @@ public class FunctionsApi {
         // create path and map variables
         String localVarPath =
                 "/functions/{functionId}/versions"
-                        .replace(
-                                "{" + "functionId" + "}",
+                        .replaceAll(
+                                "\\{" + "functionId" + "\\}",
                                 localVarApiClient.escapeString(functionId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1368,6 +1382,7 @@ public class FunctionsApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1393,6 +1408,7 @@ public class FunctionsApi {
     private okhttp3.Call listFunctionVersionsValidateBeforeCall(
             String functionId, PaginationInput pagination, final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'functionId' is set
         if (functionId == null) {
             throw new ApiException(
@@ -1407,7 +1423,8 @@ public class FunctionsApi {
                             + " listFunctionVersions(Async)");
         }
 
-        return listFunctionVersionsCall(functionId, pagination, _callback);
+        okhttp3.Call localVarCall = listFunctionVersionsCall(functionId, pagination, _callback);
+        return localVarCall;
     }
 
     /**
@@ -1495,7 +1512,6 @@ public class FunctionsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for listFunctions
      *
@@ -1562,6 +1578,7 @@ public class FunctionsApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1587,6 +1604,7 @@ public class FunctionsApi {
     private okhttp3.Call listFunctionsValidateBeforeCall(
             PaginationInput pagination, String resourceType, final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'pagination' is set
         if (pagination == null) {
             throw new ApiException(
@@ -1601,7 +1619,8 @@ public class FunctionsApi {
                             + " listFunctions(Async)");
         }
 
-        return listFunctionsCall(pagination, resourceType, _callback);
+        okhttp3.Call localVarCall = listFunctionsCall(pagination, resourceType, _callback);
+        return localVarCall;
     }
 
     /**
@@ -1691,7 +1710,6 @@ public class FunctionsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for listInsertFunctionInstances
      *
@@ -1754,6 +1772,7 @@ public class FunctionsApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1779,6 +1798,7 @@ public class FunctionsApi {
     private okhttp3.Call listInsertFunctionInstancesValidateBeforeCall(
             PaginationInput pagination, String functionId, final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'pagination' is set
         if (pagination == null) {
             throw new ApiException(
@@ -1793,7 +1813,9 @@ public class FunctionsApi {
                             + " listInsertFunctionInstances(Async)");
         }
 
-        return listInsertFunctionInstancesCall(pagination, functionId, _callback);
+        okhttp3.Call localVarCall =
+                listInsertFunctionInstancesCall(pagination, functionId, _callback);
+        return localVarCall;
     }
 
     /**
@@ -1890,7 +1912,6 @@ public class FunctionsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for restoreFunctionVersion
      *
@@ -1931,8 +1952,8 @@ public class FunctionsApi {
         // create path and map variables
         String localVarPath =
                 "/functions/{functionId}/versions"
-                        .replace(
-                                "{" + "functionId" + "}",
+                        .replaceAll(
+                                "\\{" + "functionId" + "\\}",
                                 localVarApiClient.escapeString(functionId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1977,6 +1998,7 @@ public class FunctionsApi {
             RestoreFunctionVersionAlphaInput restoreFunctionVersionAlphaInput,
             final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'functionId' is set
         if (functionId == null) {
             throw new ApiException(
@@ -1991,7 +2013,9 @@ public class FunctionsApi {
                             + " restoreFunctionVersion(Async)");
         }
 
-        return restoreFunctionVersionCall(functionId, restoreFunctionVersionAlphaInput, _callback);
+        okhttp3.Call localVarCall =
+                restoreFunctionVersionCall(functionId, restoreFunctionVersionAlphaInput, _callback);
+        return localVarCall;
     }
 
     /**
@@ -2084,7 +2108,6 @@ public class FunctionsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for updateFunction
      *
@@ -2125,8 +2148,8 @@ public class FunctionsApi {
         // create path and map variables
         String localVarPath =
                 "/functions/{functionId}"
-                        .replace(
-                                "{" + "functionId" + "}",
+                        .replaceAll(
+                                "\\{" + "functionId" + "\\}",
                                 localVarApiClient.escapeString(functionId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -2178,6 +2201,7 @@ public class FunctionsApi {
             UpdateFunctionV1Input updateFunctionV1Input,
             final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'functionId' is set
         if (functionId == null) {
             throw new ApiException(
@@ -2192,7 +2216,9 @@ public class FunctionsApi {
                             + " updateFunction(Async)");
         }
 
-        return updateFunctionCall(functionId, updateFunctionV1Input, _callback);
+        okhttp3.Call localVarCall =
+                updateFunctionCall(functionId, updateFunctionV1Input, _callback);
+        return localVarCall;
     }
 
     /**
@@ -2283,7 +2309,6 @@ public class FunctionsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for updateInsertFunctionInstance
      *
@@ -2324,8 +2349,8 @@ public class FunctionsApi {
         // create path and map variables
         String localVarPath =
                 "/insert-function-instances/{instanceId}"
-                        .replace(
-                                "{" + "instanceId" + "}",
+                        .replaceAll(
+                                "\\{" + "instanceId" + "\\}",
                                 localVarApiClient.escapeString(instanceId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -2370,6 +2395,7 @@ public class FunctionsApi {
             UpdateInsertFunctionInstanceAlphaInput updateInsertFunctionInstanceAlphaInput,
             final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'instanceId' is set
         if (instanceId == null) {
             throw new ApiException(
@@ -2384,8 +2410,10 @@ public class FunctionsApi {
                             + " calling updateInsertFunctionInstance(Async)");
         }
 
-        return updateInsertFunctionInstanceCall(
-                instanceId, updateInsertFunctionInstanceAlphaInput, _callback);
+        okhttp3.Call localVarCall =
+                updateInsertFunctionInstanceCall(
+                        instanceId, updateInsertFunctionInstanceAlphaInput, _callback);
+        return localVarCall;
     }
 
     /**

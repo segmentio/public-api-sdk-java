@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.models;
 
+
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -21,9 +22,11 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
@@ -35,6 +38,16 @@ import java.util.Set;
  * environments. On top of those, Free and Team plan customers may create up to five labels.
  * Customers with the Enterprise pricing package may create an unlimited number of labels.
  */
+@ApiModel(
+        description =
+                "A label lets Workspace owners assign permissions to users, and grant these users"
+                    + " access to groups.  A Workspace owner may use labels to grant users access"
+                    + " to groups of resources.  When you add a label to a Source or Personas"
+                    + " Spaces, any users granted access to that label gain access to those"
+                    + " resources.  All Workspaces include labels for Dev (development) and Prod"
+                    + " (production) environments. On top of those, Free and Team plan customers"
+                    + " may create up to five labels.  Customers with the Enterprise pricing"
+                    + " package may create an unlimited number of labels.")
 public class LabelV1 {
     public static final String SERIALIZED_NAME_KEY = "key";
 
@@ -65,6 +78,7 @@ public class LabelV1 {
      * @return key
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "The key that represents the name of this label.")
     public String getKey() {
         return key;
     }
@@ -85,6 +99,7 @@ public class LabelV1 {
      * @return value
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "The value associated with the key of this label.")
     public String getValue() {
         return value;
     }
@@ -105,6 +120,7 @@ public class LabelV1 {
      * @return description
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "An optional description of the purpose of this label.")
     public String getDescription() {
         return description;
     }
@@ -171,15 +187,15 @@ public class LabelV1 {
     }
 
     /**
-     * Validates the JSON Element and throws an exception if issues found
+     * Validates the JSON Object and throws an exception if issues found
      *
-     * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to LabelV1
+     * @param jsonObj JSON Object
+     * @throws IOException if the JSON Object is invalid with respect to LabelV1
      */
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        if (jsonElement == null) {
+    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+        if (jsonObj == null) {
             if (!LabelV1.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON element is null
+                    .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in LabelV1 is not found in the empty JSON"
@@ -188,28 +204,27 @@ public class LabelV1 {
             }
         }
 
-        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
-        for (Map.Entry<String, JsonElement> entry : entries) {
+        for (Entry<String, JsonElement> entry : entries) {
             if (!LabelV1.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the `LabelV1`"
                                         + " properties. JSON: %s",
-                                entry.getKey(), jsonElement.toString()));
+                                entry.getKey(), jsonObj.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
         for (String requiredField : LabelV1.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+            if (jsonObj.get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonElement.toString()));
+                                requiredField, jsonObj.toString()));
             }
         }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
         if (!jsonObj.get("key").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -255,9 +270,9 @@ public class LabelV1 {
 
                         @Override
                         public LabelV1 read(JsonReader in) throws IOException {
-                            JsonElement jsonElement = elementAdapter.read(in);
-                            validateJsonElement(jsonElement);
-                            return thisAdapter.fromJsonTree(jsonElement);
+                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+                            validateJsonObject(jsonObj);
+                            return thisAdapter.fromJsonTree(jsonObj);
                         }
                     }.nullSafe();
         }

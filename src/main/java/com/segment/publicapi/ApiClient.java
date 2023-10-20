@@ -11,6 +11,7 @@
 
 package com.segment.publicapi;
 
+
 import com.segment.publicapi.auth.ApiKeyAuth;
 import com.segment.publicapi.auth.Authentication;
 import com.segment.publicapi.auth.HttpBasicAuth;
@@ -123,7 +124,7 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("Public API SDK 36.3.0 (Java)");
+        setUserAgent("Public API SDK 36.2.0 (Java)");
 
         authentications = new HashMap<String, Authentication>();
     }

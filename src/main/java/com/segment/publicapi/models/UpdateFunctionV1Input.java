@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.models;
 
+
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -22,15 +23,18 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
 /** Update a Function. */
+@ApiModel(description = "Update a Function.")
 public class UpdateFunctionV1Input {
     public static final String SERIALIZED_NAME_CODE = "code";
 
@@ -40,7 +44,7 @@ public class UpdateFunctionV1Input {
     public static final String SERIALIZED_NAME_SETTINGS = "settings";
 
     @SerializedName(SERIALIZED_NAME_SETTINGS)
-    private List<FunctionSettingV1> settings;
+    private List<FunctionSettingV1> settings = null;
 
     public static final String SERIALIZED_NAME_DISPLAY_NAME = "displayName";
 
@@ -71,6 +75,7 @@ public class UpdateFunctionV1Input {
      * @return code
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "The Function code.")
     public String getCode() {
         return code;
     }
@@ -99,6 +104,7 @@ public class UpdateFunctionV1Input {
      * @return settings
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "The list of settings for this Function.")
     public List<FunctionSettingV1> getSettings() {
         return settings;
     }
@@ -119,6 +125,7 @@ public class UpdateFunctionV1Input {
      * @return displayName
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "A display name for this Function.")
     public String getDisplayName() {
         return displayName;
     }
@@ -139,6 +146,7 @@ public class UpdateFunctionV1Input {
      * @return logoUrl
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "A logo for this Function.")
     public String getLogoUrl() {
         return logoUrl;
     }
@@ -159,6 +167,7 @@ public class UpdateFunctionV1Input {
      * @return description
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "A description for this Function.")
     public String getDescription() {
         return description;
     }
@@ -229,15 +238,15 @@ public class UpdateFunctionV1Input {
     }
 
     /**
-     * Validates the JSON Element and throws an exception if issues found
+     * Validates the JSON Object and throws an exception if issues found
      *
-     * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to UpdateFunctionV1Input
+     * @param jsonObj JSON Object
+     * @throws IOException if the JSON Object is invalid with respect to UpdateFunctionV1Input
      */
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        if (jsonElement == null) {
+    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+        if (jsonObj == null) {
             if (!UpdateFunctionV1Input.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON element is null
+                    .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in UpdateFunctionV1Input is not found in"
@@ -246,18 +255,17 @@ public class UpdateFunctionV1Input {
             }
         }
 
-        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
-        for (Map.Entry<String, JsonElement> entry : entries) {
+        for (Entry<String, JsonElement> entry : entries) {
             if (!UpdateFunctionV1Input.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
                                         + " `UpdateFunctionV1Input` properties. JSON: %s",
-                                entry.getKey(), jsonElement.toString()));
+                                entry.getKey(), jsonObj.toString()));
             }
         }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
         if ((jsonObj.get("code") != null && !jsonObj.get("code").isJsonNull())
                 && !jsonObj.get("code").isJsonPrimitive()) {
             throw new IllegalArgumentException(
@@ -277,12 +285,6 @@ public class UpdateFunctionV1Input {
                                             + " string but got `%s`",
                                     jsonObj.get("settings").toString()));
                 }
-
-                // validate the optional field `settings` (array)
-                for (int i = 0; i < jsonArraysettings.size(); i++) {
-                    FunctionSettingV1.validateJsonElement(jsonArraysettings.get(i));
-                }
-                ;
             }
         }
         if ((jsonObj.get("displayName") != null && !jsonObj.get("displayName").isJsonNull())
@@ -333,9 +335,9 @@ public class UpdateFunctionV1Input {
 
                         @Override
                         public UpdateFunctionV1Input read(JsonReader in) throws IOException {
-                            JsonElement jsonElement = elementAdapter.read(in);
-                            validateJsonElement(jsonElement);
-                            return thisAdapter.fromJsonTree(jsonElement);
+                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+                            validateJsonObject(jsonObj);
+                            return thisAdapter.fromJsonTree(jsonObj);
                         }
                     }.nullSafe();
         }

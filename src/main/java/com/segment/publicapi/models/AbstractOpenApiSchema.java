@@ -11,8 +11,10 @@
 
 package com.segment.publicapi.models;
 
+
 import java.util.Map;
 import java.util.Objects;
+import javax.ws.rs.core.GenericType;
 
 // import com.fasterxml.jackson.annotation.JsonValue;
 
@@ -38,7 +40,7 @@ public abstract class AbstractOpenApiSchema {
      *
      * @return an instance of the actual schema/object
      */
-    public abstract Map<String, Class<?>> getSchemas();
+    public abstract Map<String, GenericType> getSchemas();
 
     /**
      * Get the actual instance

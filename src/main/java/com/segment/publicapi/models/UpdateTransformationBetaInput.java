@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.models;
 
+
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -22,15 +23,18 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
 /** The input to update a Transformation. */
+@ApiModel(description = "The input to update a Transformation.")
 public class UpdateTransformationBetaInput {
     public static final String SERIALIZED_NAME_TRANSFORMATION_ID = "transformationId";
 
@@ -70,13 +74,13 @@ public class UpdateTransformationBetaInput {
     public static final String SERIALIZED_NAME_PROPERTY_RENAMES = "propertyRenames";
 
     @SerializedName(SERIALIZED_NAME_PROPERTY_RENAMES)
-    private List<PropertyRenameBeta> propertyRenames;
+    private List<PropertyRenameBeta> propertyRenames = null;
 
     public static final String SERIALIZED_NAME_PROPERTY_VALUE_TRANSFORMATIONS =
             "propertyValueTransformations";
 
     @SerializedName(SERIALIZED_NAME_PROPERTY_VALUE_TRANSFORMATIONS)
-    private List<PropertyValueTransformationBeta> propertyValueTransformations;
+    private List<PropertyValueTransformationBeta> propertyValueTransformations = null;
 
     public UpdateTransformationBetaInput() {}
 
@@ -92,6 +96,7 @@ public class UpdateTransformationBetaInput {
      * @return transformationId
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "ID of the Transformation to update.")
     public String getTransformationId() {
         return transformationId;
     }
@@ -112,6 +117,7 @@ public class UpdateTransformationBetaInput {
      * @return name
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "The name of the Transformation.")
     public String getName() {
         return name;
     }
@@ -132,6 +138,7 @@ public class UpdateTransformationBetaInput {
      * @return sourceId
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "The optional Source to be associated with the Transformation.")
     public String getSourceId() {
         return sourceId;
     }
@@ -152,6 +159,8 @@ public class UpdateTransformationBetaInput {
      * @return destinationMetadataId
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(
+            value = "The optional Destination metadata to be associated with the Transformation.")
     public String getDestinationMetadataId() {
         return destinationMetadataId;
     }
@@ -172,6 +181,7 @@ public class UpdateTransformationBetaInput {
      * @return enabled
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "If the Transformation should be enabled.")
     public Boolean getEnabled() {
         return enabled;
     }
@@ -196,6 +206,12 @@ public class UpdateTransformationBetaInput {
      * @return _if
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(
+            value =
+                    "If statement ([FQL](https://segment.com/docs/config-api/fql/)) to match"
+                        + " events.  For standard event matchers, use the following:   Track -\\>"
+                        + " \"event='\\<eventName\\>'\"   Identify -\\> \"type='identify'\"   Group"
+                        + " -\\> \"type='group'\"")
     public String getIf() {
         return _if;
     }
@@ -216,6 +232,10 @@ public class UpdateTransformationBetaInput {
      * @return newEventName
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(
+            value =
+                    "Optional new event name for renaming events. Works only for 'track' event"
+                            + " type.")
     public String getNewEventName() {
         return newEventName;
     }
@@ -245,6 +265,7 @@ public class UpdateTransformationBetaInput {
      * @return propertyRenames
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "Optional array for renaming properties collected by your events.")
     public List<PropertyRenameBeta> getPropertyRenames() {
         return propertyRenames;
     }
@@ -276,6 +297,10 @@ public class UpdateTransformationBetaInput {
      * @return propertyValueTransformations
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(
+            value =
+                    "Optional array for transforming properties and values collected by your"
+                            + " events. Limited to 10 properties.")
     public List<PropertyValueTransformationBeta> getPropertyValueTransformations() {
         return propertyValueTransformations;
     }
@@ -379,16 +404,16 @@ public class UpdateTransformationBetaInput {
     }
 
     /**
-     * Validates the JSON Element and throws an exception if issues found
+     * Validates the JSON Object and throws an exception if issues found
      *
-     * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to
+     * @param jsonObj JSON Object
+     * @throws IOException if the JSON Object is invalid with respect to
      *     UpdateTransformationBetaInput
      */
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        if (jsonElement == null) {
+    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+        if (jsonObj == null) {
             if (!UpdateTransformationBetaInput.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON element is null
+                    .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in UpdateTransformationBetaInput is not"
@@ -397,28 +422,27 @@ public class UpdateTransformationBetaInput {
             }
         }
 
-        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
-        for (Map.Entry<String, JsonElement> entry : entries) {
+        for (Entry<String, JsonElement> entry : entries) {
             if (!UpdateTransformationBetaInput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
                                         + " `UpdateTransformationBetaInput` properties. JSON: %s",
-                                entry.getKey(), jsonElement.toString()));
+                                entry.getKey(), jsonObj.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
         for (String requiredField : UpdateTransformationBetaInput.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+            if (jsonObj.get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonElement.toString()));
+                                requiredField, jsonObj.toString()));
             }
         }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
         if (!jsonObj.get("transformationId").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -479,12 +503,6 @@ public class UpdateTransformationBetaInput {
                                             + " JSON string but got `%s`",
                                     jsonObj.get("propertyRenames").toString()));
                 }
-
-                // validate the optional field `propertyRenames` (array)
-                for (int i = 0; i < jsonArraypropertyRenames.size(); i++) {
-                    PropertyRenameBeta.validateJsonElement(jsonArraypropertyRenames.get(i));
-                }
-                ;
             }
         }
         if (jsonObj.get("propertyValueTransformations") != null
@@ -500,13 +518,6 @@ public class UpdateTransformationBetaInput {
                                             + " array in the JSON string but got `%s`",
                                     jsonObj.get("propertyValueTransformations").toString()));
                 }
-
-                // validate the optional field `propertyValueTransformations` (array)
-                for (int i = 0; i < jsonArraypropertyValueTransformations.size(); i++) {
-                    PropertyValueTransformationBeta.validateJsonElement(
-                            jsonArraypropertyValueTransformations.get(i));
-                }
-                ;
             }
         }
     }
@@ -536,9 +547,9 @@ public class UpdateTransformationBetaInput {
                         @Override
                         public UpdateTransformationBetaInput read(JsonReader in)
                                 throws IOException {
-                            JsonElement jsonElement = elementAdapter.read(in);
-                            validateJsonElement(jsonElement);
-                            return thisAdapter.fromJsonTree(jsonElement);
+                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+                            validateJsonObject(jsonObj);
+                            return thisAdapter.fromJsonTree(jsonObj);
                         }
                     }.nullSafe();
         }

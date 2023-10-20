@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.models;
 
+
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -22,15 +23,20 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
 /** A registered set of permissions for a subject, extending a role to a resource. */
+@ApiModel(
+        description =
+                "A registered set of permissions for a subject, extending a role to a resource.")
 public class PermissionV1 {
     public static final String SERIALIZED_NAME_ROLE_NAME = "roleName";
 
@@ -50,7 +56,7 @@ public class PermissionV1 {
     public static final String SERIALIZED_NAME_LABELS = "labels";
 
     @SerializedName(SERIALIZED_NAME_LABELS)
-    private List<AllowedLabelBeta> labels;
+    private List<AllowedLabelBeta> labels = null;
 
     public PermissionV1() {}
 
@@ -66,6 +72,9 @@ public class PermissionV1 {
      * @return roleName
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(
+            required = true,
+            value = "The name of the role associated with this permission.")
     public String getRoleName() {
         return roleName;
     }
@@ -86,6 +95,9 @@ public class PermissionV1 {
      * @return roleId
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(
+            required = true,
+            value = "The id of the role associated with this permission.")
     public String getRoleId() {
         return roleId;
     }
@@ -101,9 +113,6 @@ public class PermissionV1 {
     }
 
     public PermissionV1 addResourcesItem(PermissionResourceV1 resourcesItem) {
-        if (this.resources == null) {
-            this.resources = new ArrayList<>();
-        }
         this.resources.add(resourcesItem);
         return this;
     }
@@ -114,6 +123,7 @@ public class PermissionV1 {
      * @return resources
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "The resources associated with this permission.")
     public List<PermissionResourceV1> getResources() {
         return resources;
     }
@@ -142,6 +152,7 @@ public class PermissionV1 {
      * @return labels
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "The labels to attach to this permission.")
     public List<AllowedLabelBeta> getLabels() {
         return labels;
     }
@@ -212,15 +223,15 @@ public class PermissionV1 {
     }
 
     /**
-     * Validates the JSON Element and throws an exception if issues found
+     * Validates the JSON Object and throws an exception if issues found
      *
-     * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to PermissionV1
+     * @param jsonObj JSON Object
+     * @throws IOException if the JSON Object is invalid with respect to PermissionV1
      */
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        if (jsonElement == null) {
+    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+        if (jsonObj == null) {
             if (!PermissionV1.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON element is null
+                    .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in PermissionV1 is not found in the empty"
@@ -229,28 +240,27 @@ public class PermissionV1 {
             }
         }
 
-        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
-        for (Map.Entry<String, JsonElement> entry : entries) {
+        for (Entry<String, JsonElement> entry : entries) {
             if (!PermissionV1.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
                                         + " `PermissionV1` properties. JSON: %s",
-                                entry.getKey(), jsonElement.toString()));
+                                entry.getKey(), jsonObj.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
         for (String requiredField : PermissionV1.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+            if (jsonObj.get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonElement.toString()));
+                                requiredField, jsonObj.toString()));
             }
         }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
         if (!jsonObj.get("roleName").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -275,11 +285,6 @@ public class PermissionV1 {
         }
 
         JsonArray jsonArrayresources = jsonObj.getAsJsonArray("resources");
-        // validate the required field `resources` (array)
-        for (int i = 0; i < jsonArrayresources.size(); i++) {
-            PermissionResourceV1.validateJsonElement(jsonArrayresources.get(i));
-        }
-        ;
         if (jsonObj.get("labels") != null && !jsonObj.get("labels").isJsonNull()) {
             JsonArray jsonArraylabels = jsonObj.getAsJsonArray("labels");
             if (jsonArraylabels != null) {
@@ -291,12 +296,6 @@ public class PermissionV1 {
                                             + " but got `%s`",
                                     jsonObj.get("labels").toString()));
                 }
-
-                // validate the optional field `labels` (array)
-                for (int i = 0; i < jsonArraylabels.size(); i++) {
-                    AllowedLabelBeta.validateJsonElement(jsonArraylabels.get(i));
-                }
-                ;
             }
         }
     }
@@ -322,9 +321,9 @@ public class PermissionV1 {
 
                         @Override
                         public PermissionV1 read(JsonReader in) throws IOException {
-                            JsonElement jsonElement = elementAdapter.read(in);
-                            validateJsonElement(jsonElement);
-                            return thisAdapter.fromJsonTree(jsonElement);
+                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+                            validateJsonObject(jsonObj);
+                            return thisAdapter.fromJsonTree(jsonObj);
                         }
                     }.nullSafe();
         }

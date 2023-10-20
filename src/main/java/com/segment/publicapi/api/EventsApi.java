@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.api;
 
+
 import com.google.gson.reflect.TypeToken;
 import com.segment.publicapi.ApiCallback;
 import com.segment.publicapi.ApiClient;
@@ -189,6 +190,7 @@ public class EventsApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -223,6 +225,7 @@ public class EventsApi {
             PaginationInput pagination,
             final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'granularity' is set
         if (granularity == null) {
             throw new ApiException(
@@ -244,17 +247,19 @@ public class EventsApi {
                             + " getEventsVolumeFromWorkspace(Async)");
         }
 
-        return getEventsVolumeFromWorkspaceCall(
-                granularity,
-                startTime,
-                endTime,
-                groupBy,
-                sourceId,
-                eventName,
-                eventType,
-                appVersion,
-                pagination,
-                _callback);
+        okhttp3.Call localVarCall =
+                getEventsVolumeFromWorkspaceCall(
+                        granularity,
+                        startTime,
+                        endTime,
+                        groupBy,
+                        sourceId,
+                        eventName,
+                        eventType,
+                        appVersion,
+                        pagination,
+                        _callback);
+        return localVarCall;
     }
 
     /**

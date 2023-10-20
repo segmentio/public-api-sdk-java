@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.models;
 
+
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -22,13 +23,16 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
 /** Represents a Tracking Plan. */
+@ApiModel(description = "Represents a Tracking Plan.")
 public class TrackingPlanV1 {
     public static final String SERIALIZED_NAME_ID = "id";
 
@@ -131,6 +135,9 @@ public class TrackingPlanV1 {
      * @return id
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(
+            required = true,
+            value = "The Tracking Plan's identifier.  Config API note: analogous to `name`.")
     public String getId() {
         return id;
     }
@@ -151,6 +158,7 @@ public class TrackingPlanV1 {
      * @return name
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "The Tracking Plan's name.  Config API note: equal to `displayName`.")
     public String getName() {
         return name;
     }
@@ -171,6 +179,8 @@ public class TrackingPlanV1 {
      * @return slug
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(
+            value = "URL-friendly slug of this Tracking Plan.  Config API note: equal to `name`.")
     public String getSlug() {
         return slug;
     }
@@ -191,6 +201,7 @@ public class TrackingPlanV1 {
      * @return description
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "The Tracking Plan's description.")
     public String getDescription() {
         return description;
     }
@@ -211,6 +222,7 @@ public class TrackingPlanV1 {
      * @return type
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "The Tracking Plan's type.")
     public TypeEnum getType() {
         return type;
     }
@@ -232,6 +244,10 @@ public class TrackingPlanV1 {
      * @return updatedAt
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(
+            value =
+                    "The timestamp of the last change to the Tracking Plan.  Config API note: equal"
+                            + " to `updateTime`.")
     public String getUpdatedAt() {
         return updatedAt;
     }
@@ -253,6 +269,10 @@ public class TrackingPlanV1 {
      * @return createdAt
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(
+            value =
+                    "The timestamp of this Tracking Plan's creation.  Config API note: equal to"
+                            + " `createTime`.")
     public String getCreatedAt() {
         return createdAt;
     }
@@ -331,15 +351,15 @@ public class TrackingPlanV1 {
     }
 
     /**
-     * Validates the JSON Element and throws an exception if issues found
+     * Validates the JSON Object and throws an exception if issues found
      *
-     * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to TrackingPlanV1
+     * @param jsonObj JSON Object
+     * @throws IOException if the JSON Object is invalid with respect to TrackingPlanV1
      */
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        if (jsonElement == null) {
+    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+        if (jsonObj == null) {
             if (!TrackingPlanV1.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON element is null
+                    .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in TrackingPlanV1 is not found in the"
@@ -348,28 +368,27 @@ public class TrackingPlanV1 {
             }
         }
 
-        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
-        for (Map.Entry<String, JsonElement> entry : entries) {
+        for (Entry<String, JsonElement> entry : entries) {
             if (!TrackingPlanV1.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
                                         + " `TrackingPlanV1` properties. JSON: %s",
-                                entry.getKey(), jsonElement.toString()));
+                                entry.getKey(), jsonObj.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
         for (String requiredField : TrackingPlanV1.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+            if (jsonObj.get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonElement.toString()));
+                                requiredField, jsonObj.toString()));
             }
         }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
         if (!jsonObj.get("id").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -447,9 +466,9 @@ public class TrackingPlanV1 {
 
                         @Override
                         public TrackingPlanV1 read(JsonReader in) throws IOException {
-                            JsonElement jsonElement = elementAdapter.read(in);
-                            validateJsonElement(jsonElement);
-                            return thisAdapter.fromJsonTree(jsonElement);
+                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+                            validateJsonObject(jsonObj);
+                            return thisAdapter.fromJsonTree(jsonObj);
                         }
                     }.nullSafe();
         }

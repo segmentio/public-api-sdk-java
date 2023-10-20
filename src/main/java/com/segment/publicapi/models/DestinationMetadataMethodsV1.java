@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.models;
 
+
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -21,13 +22,16 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
 /** Represents methods that a given Destination supports. */
+@ApiModel(description = "Represents methods that a given Destination supports.")
 public class DestinationMetadataMethodsV1 {
     public static final String SERIALIZED_NAME_PAGEVIEW = "pageview";
 
@@ -68,6 +72,7 @@ public class DestinationMetadataMethodsV1 {
      * @return pageview
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "Identifies if the Destination supports the `pageview` method.")
     public Boolean getPageview() {
         return pageview;
     }
@@ -88,6 +93,7 @@ public class DestinationMetadataMethodsV1 {
      * @return identify
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "Identifies if the Destination supports the `identify` method.")
     public Boolean getIdentify() {
         return identify;
     }
@@ -108,6 +114,7 @@ public class DestinationMetadataMethodsV1 {
      * @return alias
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "Identifies if the Destination supports the `alias` method.")
     public Boolean getAlias() {
         return alias;
     }
@@ -128,6 +135,7 @@ public class DestinationMetadataMethodsV1 {
      * @return track
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "Identifies if the Destination supports the `track` method.")
     public Boolean getTrack() {
         return track;
     }
@@ -148,6 +156,7 @@ public class DestinationMetadataMethodsV1 {
      * @return group
      */
     @javax.annotation.Nullable
+    @ApiModelProperty(value = "Identifies if the Destination supports the `group` method.")
     public Boolean getGroup() {
         return group;
     }
@@ -219,16 +228,16 @@ public class DestinationMetadataMethodsV1 {
     }
 
     /**
-     * Validates the JSON Element and throws an exception if issues found
+     * Validates the JSON Object and throws an exception if issues found
      *
-     * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to
+     * @param jsonObj JSON Object
+     * @throws IOException if the JSON Object is invalid with respect to
      *     DestinationMetadataMethodsV1
      */
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        if (jsonElement == null) {
+    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+        if (jsonObj == null) {
             if (!DestinationMetadataMethodsV1.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON element is null
+                    .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in DestinationMetadataMethodsV1 is not"
@@ -237,18 +246,17 @@ public class DestinationMetadataMethodsV1 {
             }
         }
 
-        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
-        for (Map.Entry<String, JsonElement> entry : entries) {
+        for (Entry<String, JsonElement> entry : entries) {
             if (!DestinationMetadataMethodsV1.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
                                         + " `DestinationMetadataMethodsV1` properties. JSON: %s",
-                                entry.getKey(), jsonElement.toString()));
+                                entry.getKey(), jsonObj.toString()));
             }
         }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -275,9 +283,9 @@ public class DestinationMetadataMethodsV1 {
 
                         @Override
                         public DestinationMetadataMethodsV1 read(JsonReader in) throws IOException {
-                            JsonElement jsonElement = elementAdapter.read(in);
-                            validateJsonElement(jsonElement);
-                            return thisAdapter.fromJsonTree(jsonElement);
+                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+                            validateJsonObject(jsonObj);
+                            return thisAdapter.fromJsonTree(jsonObj);
                         }
                     }.nullSafe();
         }

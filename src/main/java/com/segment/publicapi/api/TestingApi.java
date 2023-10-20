@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.api;
 
+
 import com.google.gson.reflect.TypeToken;
 import com.segment.publicapi.ApiCallback;
 import com.segment.publicapi.ApiClient;
@@ -166,6 +167,7 @@ public class TestingApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -197,20 +199,23 @@ public class TestingApi {
             BigDecimal statusCode,
             final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'message' is set
         if (message == null) {
             throw new ApiException(
                     "Missing the required parameter 'message' when calling echo(Async)");
         }
 
-        return echoCall(
-                message,
-                delay,
-                triggerError,
-                triggerMultipleErrors,
-                triggerUnexpectedError,
-                statusCode,
-                _callback);
+        okhttp3.Call localVarCall =
+                echoCall(
+                        message,
+                        delay,
+                        triggerError,
+                        triggerMultipleErrors,
+                        triggerUnexpectedError,
+                        statusCode,
+                        _callback);
+        return localVarCall;
     }
 
     /**

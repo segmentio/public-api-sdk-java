@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.models;
 
+
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -22,15 +23,20 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
 /** Returns a list of insert Function instances connected to the insert Function. */
+@ApiModel(
+        description =
+                "Returns a list of insert Function instances connected to the insert Function.")
 public class ListInsertFunctionInstancesAlphaOutput {
     public static final String SERIALIZED_NAME_INSTANCES = "instances";
 
@@ -40,7 +46,7 @@ public class ListInsertFunctionInstancesAlphaOutput {
     public static final String SERIALIZED_NAME_PAGINATION = "pagination";
 
     @SerializedName(SERIALIZED_NAME_PAGINATION)
-    private PaginationOutput pagination;
+    private Pagination pagination;
 
     public ListInsertFunctionInstancesAlphaOutput() {}
 
@@ -53,9 +59,6 @@ public class ListInsertFunctionInstancesAlphaOutput {
 
     public ListInsertFunctionInstancesAlphaOutput addInstancesItem(
             InsertFunctionInstanceAlpha instancesItem) {
-        if (this.instances == null) {
-            this.instances = new ArrayList<>();
-        }
         this.instances.add(instancesItem);
         return this;
     }
@@ -66,6 +69,7 @@ public class ListInsertFunctionInstancesAlphaOutput {
      * @return instances
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "All insert Function instances found.")
     public List<InsertFunctionInstanceAlpha> getInstances() {
         return instances;
     }
@@ -74,7 +78,7 @@ public class ListInsertFunctionInstancesAlphaOutput {
         this.instances = instances;
     }
 
-    public ListInsertFunctionInstancesAlphaOutput pagination(PaginationOutput pagination) {
+    public ListInsertFunctionInstancesAlphaOutput pagination(Pagination pagination) {
 
         this.pagination = pagination;
         return this;
@@ -86,11 +90,12 @@ public class ListInsertFunctionInstancesAlphaOutput {
      * @return pagination
      */
     @javax.annotation.Nonnull
-    public PaginationOutput getPagination() {
+    @ApiModelProperty(required = true, value = "")
+    public Pagination getPagination() {
         return pagination;
     }
 
-    public void setPagination(PaginationOutput pagination) {
+    public void setPagination(Pagination pagination) {
         this.pagination = pagination;
     }
 
@@ -151,16 +156,16 @@ public class ListInsertFunctionInstancesAlphaOutput {
     }
 
     /**
-     * Validates the JSON Element and throws an exception if issues found
+     * Validates the JSON Object and throws an exception if issues found
      *
-     * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to
+     * @param jsonObj JSON Object
+     * @throws IOException if the JSON Object is invalid with respect to
      *     ListInsertFunctionInstancesAlphaOutput
      */
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        if (jsonElement == null) {
+    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+        if (jsonObj == null) {
             if (!ListInsertFunctionInstancesAlphaOutput.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON element is null
+                    .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in ListInsertFunctionInstancesAlphaOutput"
@@ -170,29 +175,28 @@ public class ListInsertFunctionInstancesAlphaOutput {
             }
         }
 
-        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
-        for (Map.Entry<String, JsonElement> entry : entries) {
+        for (Entry<String, JsonElement> entry : entries) {
             if (!ListInsertFunctionInstancesAlphaOutput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
                                     + " `ListInsertFunctionInstancesAlphaOutput` properties. JSON:"
                                     + " %s",
-                                entry.getKey(), jsonElement.toString()));
+                                entry.getKey(), jsonObj.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
         for (String requiredField : ListInsertFunctionInstancesAlphaOutput.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+            if (jsonObj.get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonElement.toString()));
+                                requiredField, jsonObj.toString()));
             }
         }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
         // ensure the json data is an array
         if (!jsonObj.get("instances").isJsonArray()) {
             throw new IllegalArgumentException(
@@ -203,13 +207,6 @@ public class ListInsertFunctionInstancesAlphaOutput {
         }
 
         JsonArray jsonArrayinstances = jsonObj.getAsJsonArray("instances");
-        // validate the required field `instances` (array)
-        for (int i = 0; i < jsonArrayinstances.size(); i++) {
-            InsertFunctionInstanceAlpha.validateJsonElement(jsonArrayinstances.get(i));
-        }
-        ;
-        // validate the required field `pagination`
-        PaginationOutput.validateJsonElement(jsonObj.get("pagination"));
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -238,9 +235,9 @@ public class ListInsertFunctionInstancesAlphaOutput {
                         @Override
                         public ListInsertFunctionInstancesAlphaOutput read(JsonReader in)
                                 throws IOException {
-                            JsonElement jsonElement = elementAdapter.read(in);
-                            validateJsonElement(jsonElement);
-                            return thisAdapter.fromJsonTree(jsonElement);
+                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+                            validateJsonObject(jsonObj);
+                            return thisAdapter.fromJsonTree(jsonObj);
                         }
                     }.nullSafe();
         }

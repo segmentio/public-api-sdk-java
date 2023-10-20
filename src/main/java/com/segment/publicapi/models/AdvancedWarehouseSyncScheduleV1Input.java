@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.models;
 
+
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -22,15 +23,18 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
 /** Defines the advanced sync schedule for a Warehouse. */
+@ApiModel(description = "Defines the advanced sync schedule for a Warehouse.")
 public class AdvancedWarehouseSyncScheduleV1Input {
     public static final String SERIALIZED_NAME_TIMES = "times";
 
@@ -51,9 +55,6 @@ public class AdvancedWarehouseSyncScheduleV1Input {
     }
 
     public AdvancedWarehouseSyncScheduleV1Input addTimesItem(WarehouseAdvancedSyncV1 timesItem) {
-        if (this.times == null) {
-            this.times = new ArrayList<>();
-        }
         this.times.add(timesItem);
         return this;
     }
@@ -64,6 +65,9 @@ public class AdvancedWarehouseSyncScheduleV1Input {
      * @return times
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(
+            required = true,
+            value = "A list that contains the times when syncs should occur.")
     public List<WarehouseAdvancedSyncV1> getTimes() {
         return times;
     }
@@ -84,6 +88,7 @@ public class AdvancedWarehouseSyncScheduleV1Input {
      * @return timezone
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "A TZ-database timezone for this sync schedule.")
     public String getTimezone() {
         return timezone;
     }
@@ -148,16 +153,16 @@ public class AdvancedWarehouseSyncScheduleV1Input {
     }
 
     /**
-     * Validates the JSON Element and throws an exception if issues found
+     * Validates the JSON Object and throws an exception if issues found
      *
-     * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to
+     * @param jsonObj JSON Object
+     * @throws IOException if the JSON Object is invalid with respect to
      *     AdvancedWarehouseSyncScheduleV1Input
      */
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        if (jsonElement == null) {
+    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+        if (jsonObj == null) {
             if (!AdvancedWarehouseSyncScheduleV1Input.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON element is null
+                    .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in AdvancedWarehouseSyncScheduleV1Input"
@@ -167,29 +172,28 @@ public class AdvancedWarehouseSyncScheduleV1Input {
             }
         }
 
-        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
-        for (Map.Entry<String, JsonElement> entry : entries) {
+        for (Entry<String, JsonElement> entry : entries) {
             if (!AdvancedWarehouseSyncScheduleV1Input.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
                                     + " `AdvancedWarehouseSyncScheduleV1Input` properties. JSON:"
                                     + " %s",
-                                entry.getKey(), jsonElement.toString()));
+                                entry.getKey(), jsonObj.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
         for (String requiredField : AdvancedWarehouseSyncScheduleV1Input.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+            if (jsonObj.get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonElement.toString()));
+                                requiredField, jsonObj.toString()));
             }
         }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
         // ensure the json data is an array
         if (!jsonObj.get("times").isJsonArray()) {
             throw new IllegalArgumentException(
@@ -200,11 +204,6 @@ public class AdvancedWarehouseSyncScheduleV1Input {
         }
 
         JsonArray jsonArraytimes = jsonObj.getAsJsonArray("times");
-        // validate the required field `times` (array)
-        for (int i = 0; i < jsonArraytimes.size(); i++) {
-            WarehouseAdvancedSyncV1.validateJsonElement(jsonArraytimes.get(i));
-        }
-        ;
         if (!jsonObj.get("timezone").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -240,9 +239,9 @@ public class AdvancedWarehouseSyncScheduleV1Input {
                         @Override
                         public AdvancedWarehouseSyncScheduleV1Input read(JsonReader in)
                                 throws IOException {
-                            JsonElement jsonElement = elementAdapter.read(in);
-                            validateJsonElement(jsonElement);
-                            return thisAdapter.fromJsonTree(jsonElement);
+                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+                            validateJsonObject(jsonObj);
+                            return thisAdapter.fromJsonTree(jsonObj);
                         }
                     }.nullSafe();
         }

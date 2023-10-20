@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.api;
 
+
 import com.google.gson.reflect.TypeToken;
 import com.segment.publicapi.ApiCallback;
 import com.segment.publicapi.ApiClient;
@@ -106,8 +107,8 @@ public class SelectiveSyncApi {
         // create path and map variables
         String localVarPath =
                 "/warehouses/{warehouseId}/advanced-sync-schedule"
-                        .replace(
-                                "{" + "warehouseId" + "}",
+                        .replaceAll(
+                                "\\{" + "warehouseId" + "\\}",
                                 localVarApiClient.escapeString(warehouseId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -128,6 +129,7 @@ public class SelectiveSyncApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -152,6 +154,7 @@ public class SelectiveSyncApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getAdvancedSyncScheduleFromWarehouseValidateBeforeCall(
             String warehouseId, final ApiCallback _callback) throws ApiException {
+
         // verify the required parameter 'warehouseId' is set
         if (warehouseId == null) {
             throw new ApiException(
@@ -159,7 +162,9 @@ public class SelectiveSyncApi {
                             + " getAdvancedSyncScheduleFromWarehouse(Async)");
         }
 
-        return getAdvancedSyncScheduleFromWarehouseCall(warehouseId, _callback);
+        okhttp3.Call localVarCall =
+                getAdvancedSyncScheduleFromWarehouseCall(warehouseId, _callback);
+        return localVarCall;
     }
 
     /**
@@ -252,7 +257,6 @@ public class SelectiveSyncApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for listSelectiveSyncsFromWarehouseAndSource
      *
@@ -295,11 +299,11 @@ public class SelectiveSyncApi {
         // create path and map variables
         String localVarPath =
                 "/warehouses/{warehouseId}/connected-sources/{sourceId}/selective-syncs"
-                        .replace(
-                                "{" + "warehouseId" + "}",
+                        .replaceAll(
+                                "\\{" + "warehouseId" + "\\}",
                                 localVarApiClient.escapeString(warehouseId.toString()))
-                        .replace(
-                                "{" + "sourceId" + "}",
+                        .replaceAll(
+                                "\\{" + "sourceId" + "\\}",
                                 localVarApiClient.escapeString(sourceId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -324,6 +328,7 @@ public class SelectiveSyncApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -352,6 +357,7 @@ public class SelectiveSyncApi {
             PaginationInput pagination,
             final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'warehouseId' is set
         if (warehouseId == null) {
             throw new ApiException(
@@ -373,8 +379,10 @@ public class SelectiveSyncApi {
                             + " listSelectiveSyncsFromWarehouseAndSource(Async)");
         }
 
-        return listSelectiveSyncsFromWarehouseAndSourceCall(
-                warehouseId, sourceId, pagination, _callback);
+        okhttp3.Call localVarCall =
+                listSelectiveSyncsFromWarehouseAndSourceCall(
+                        warehouseId, sourceId, pagination, _callback);
+        return localVarCall;
     }
 
     /**
@@ -481,7 +489,6 @@ public class SelectiveSyncApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for listSyncsFromWarehouse
      *
@@ -520,8 +527,8 @@ public class SelectiveSyncApi {
         // create path and map variables
         String localVarPath =
                 "/warehouses/{warehouseId}/syncs"
-                        .replace(
-                                "{" + "warehouseId" + "}",
+                        .replaceAll(
+                                "\\{" + "warehouseId" + "\\}",
                                 localVarApiClient.escapeString(warehouseId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -546,6 +553,7 @@ public class SelectiveSyncApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -571,6 +579,7 @@ public class SelectiveSyncApi {
     private okhttp3.Call listSyncsFromWarehouseValidateBeforeCall(
             String warehouseId, PaginationInput pagination, final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'warehouseId' is set
         if (warehouseId == null) {
             throw new ApiException(
@@ -585,7 +594,8 @@ public class SelectiveSyncApi {
                             + " listSyncsFromWarehouse(Async)");
         }
 
-        return listSyncsFromWarehouseCall(warehouseId, pagination, _callback);
+        okhttp3.Call localVarCall = listSyncsFromWarehouseCall(warehouseId, pagination, _callback);
+        return localVarCall;
     }
 
     /**
@@ -679,7 +689,6 @@ public class SelectiveSyncApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for listSyncsFromWarehouseAndSource
      *
@@ -722,11 +731,11 @@ public class SelectiveSyncApi {
         // create path and map variables
         String localVarPath =
                 "/warehouses/{warehouseId}/connected-sources/{sourceId}/syncs"
-                        .replace(
-                                "{" + "warehouseId" + "}",
+                        .replaceAll(
+                                "\\{" + "warehouseId" + "\\}",
                                 localVarApiClient.escapeString(warehouseId.toString()))
-                        .replace(
-                                "{" + "sourceId" + "}",
+                        .replaceAll(
+                                "\\{" + "sourceId" + "\\}",
                                 localVarApiClient.escapeString(sourceId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -751,6 +760,7 @@ public class SelectiveSyncApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -779,6 +789,7 @@ public class SelectiveSyncApi {
             PaginationInput pagination,
             final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'warehouseId' is set
         if (warehouseId == null) {
             throw new ApiException(
@@ -800,7 +811,9 @@ public class SelectiveSyncApi {
                             + " listSyncsFromWarehouseAndSource(Async)");
         }
 
-        return listSyncsFromWarehouseAndSourceCall(warehouseId, sourceId, pagination, _callback);
+        okhttp3.Call localVarCall =
+                listSyncsFromWarehouseAndSourceCall(warehouseId, sourceId, pagination, _callback);
+        return localVarCall;
     }
 
     /**
@@ -904,7 +917,6 @@ public class SelectiveSyncApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for replaceAdvancedSyncScheduleForWarehouse
      *
@@ -946,8 +958,8 @@ public class SelectiveSyncApi {
         // create path and map variables
         String localVarPath =
                 "/warehouses/{warehouseId}/advanced-sync-schedule"
-                        .replace(
-                                "{" + "warehouseId" + "}",
+                        .replaceAll(
+                                "\\{" + "warehouseId" + "\\}",
                                 localVarApiClient.escapeString(warehouseId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1000,6 +1012,7 @@ public class SelectiveSyncApi {
                     replaceAdvancedSyncScheduleForWarehouseV1Input,
             final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'warehouseId' is set
         if (warehouseId == null) {
             throw new ApiException(
@@ -1015,8 +1028,10 @@ public class SelectiveSyncApi {
                             + " replaceAdvancedSyncScheduleForWarehouse(Async)");
         }
 
-        return replaceAdvancedSyncScheduleForWarehouseCall(
-                warehouseId, replaceAdvancedSyncScheduleForWarehouseV1Input, _callback);
+        okhttp3.Call localVarCall =
+                replaceAdvancedSyncScheduleForWarehouseCall(
+                        warehouseId, replaceAdvancedSyncScheduleForWarehouseV1Input, _callback);
+        return localVarCall;
     }
 
     /**
@@ -1125,7 +1140,6 @@ public class SelectiveSyncApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for updateSelectiveSyncForWarehouse
      *
@@ -1166,8 +1180,8 @@ public class SelectiveSyncApi {
         // create path and map variables
         String localVarPath =
                 "/warehouses/{warehouseId}/selective-sync"
-                        .replace(
-                                "{" + "warehouseId" + "}",
+                        .replaceAll(
+                                "\\{" + "warehouseId" + "\\}",
                                 localVarApiClient.escapeString(warehouseId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1219,6 +1233,7 @@ public class SelectiveSyncApi {
             UpdateSelectiveSyncForWarehouseV1Input updateSelectiveSyncForWarehouseV1Input,
             final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'warehouseId' is set
         if (warehouseId == null) {
             throw new ApiException(
@@ -1233,8 +1248,10 @@ public class SelectiveSyncApi {
                             + " calling updateSelectiveSyncForWarehouse(Async)");
         }
 
-        return updateSelectiveSyncForWarehouseCall(
-                warehouseId, updateSelectiveSyncForWarehouseV1Input, _callback);
+        okhttp3.Call localVarCall =
+                updateSelectiveSyncForWarehouseCall(
+                        warehouseId, updateSelectiveSyncForWarehouseV1Input, _callback);
+        return localVarCall;
     }
 
     /**

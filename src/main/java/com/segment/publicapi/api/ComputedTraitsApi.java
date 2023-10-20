@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.api;
 
+
 import com.google.gson.reflect.TypeToken;
 import com.segment.publicapi.ApiCallback;
 import com.segment.publicapi.ApiClient;
@@ -104,10 +105,12 @@ public class ComputedTraitsApi {
         // create path and map variables
         String localVarPath =
                 "/spaces/{spaceId}/computed-traits/{id}"
-                        .replace(
-                                "{" + "spaceId" + "}",
+                        .replaceAll(
+                                "\\{" + "spaceId" + "\\}",
                                 localVarApiClient.escapeString(spaceId.toString()))
-                        .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
+                        .replaceAll(
+                                "\\{" + "id" + "\\}",
+                                localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -124,6 +127,7 @@ public class ComputedTraitsApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -148,6 +152,7 @@ public class ComputedTraitsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getComputedTraitValidateBeforeCall(
             String spaceId, String id, final ApiCallback _callback) throws ApiException {
+
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new ApiException(
@@ -161,7 +166,8 @@ public class ComputedTraitsApi {
                     "Missing the required parameter 'id' when calling getComputedTrait(Async)");
         }
 
-        return getComputedTraitCall(spaceId, id, _callback);
+        okhttp3.Call localVarCall = getComputedTraitCall(spaceId, id, _callback);
+        return localVarCall;
     }
 
     /**
@@ -260,7 +266,6 @@ public class ComputedTraitsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for listComputedTraits
      *
@@ -300,8 +305,8 @@ public class ComputedTraitsApi {
         // create path and map variables
         String localVarPath =
                 "/spaces/{spaceId}/computed-traits"
-                        .replace(
-                                "{" + "spaceId" + "}",
+                        .replaceAll(
+                                "\\{" + "spaceId" + "\\}",
                                 localVarApiClient.escapeString(spaceId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -323,6 +328,7 @@ public class ComputedTraitsApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -348,6 +354,7 @@ public class ComputedTraitsApi {
     private okhttp3.Call listComputedTraitsValidateBeforeCall(
             String spaceId, PaginationInput pagination, final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new ApiException(
@@ -362,7 +369,8 @@ public class ComputedTraitsApi {
                             + " listComputedTraits(Async)");
         }
 
-        return listComputedTraitsCall(spaceId, pagination, _callback);
+        okhttp3.Call localVarCall = listComputedTraitsCall(spaceId, pagination, _callback);
+        return localVarCall;
     }
 
     /**
@@ -467,7 +475,6 @@ public class ComputedTraitsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for removeComputedTraitFromSpace
      *
@@ -505,10 +512,12 @@ public class ComputedTraitsApi {
         // create path and map variables
         String localVarPath =
                 "/spaces/{spaceId}/computed-traits/{id}"
-                        .replace(
-                                "{" + "spaceId" + "}",
+                        .replaceAll(
+                                "\\{" + "spaceId" + "\\}",
                                 localVarApiClient.escapeString(spaceId.toString()))
-                        .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
+                        .replaceAll(
+                                "\\{" + "id" + "\\}",
+                                localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -525,6 +534,7 @@ public class ComputedTraitsApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -549,6 +559,7 @@ public class ComputedTraitsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call removeComputedTraitFromSpaceValidateBeforeCall(
             String spaceId, String id, final ApiCallback _callback) throws ApiException {
+
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new ApiException(
@@ -563,7 +574,8 @@ public class ComputedTraitsApi {
                             + " removeComputedTraitFromSpace(Async)");
         }
 
-        return removeComputedTraitFromSpaceCall(spaceId, id, _callback);
+        okhttp3.Call localVarCall = removeComputedTraitFromSpaceCall(spaceId, id, _callback);
+        return localVarCall;
     }
 
     /**
@@ -673,7 +685,6 @@ public class ComputedTraitsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
-
     /**
      * Build call for updateComputedTraitForSpace
      *
@@ -716,10 +727,12 @@ public class ComputedTraitsApi {
         // create path and map variables
         String localVarPath =
                 "/spaces/{spaceId}/computed-traits/{id}"
-                        .replace(
-                                "{" + "spaceId" + "}",
+                        .replaceAll(
+                                "\\{" + "spaceId" + "\\}",
                                 localVarApiClient.escapeString(spaceId.toString()))
-                        .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
+                        .replaceAll(
+                                "\\{" + "id" + "\\}",
+                                localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -764,6 +777,7 @@ public class ComputedTraitsApi {
             UpdateComputedTraitForSpaceAlphaInput updateComputedTraitForSpaceAlphaInput,
             final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new ApiException(
@@ -785,8 +799,10 @@ public class ComputedTraitsApi {
                             + " calling updateComputedTraitForSpace(Async)");
         }
 
-        return updateComputedTraitForSpaceCall(
-                spaceId, id, updateComputedTraitForSpaceAlphaInput, _callback);
+        okhttp3.Call localVarCall =
+                updateComputedTraitForSpaceCall(
+                        spaceId, id, updateComputedTraitForSpaceAlphaInput, _callback);
+        return localVarCall;
     }
 
     /**

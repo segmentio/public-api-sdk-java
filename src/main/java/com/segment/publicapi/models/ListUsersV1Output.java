@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.models;
 
+
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -22,15 +23,18 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
 /** Returns the list of users. */
+@ApiModel(description = "Returns the list of users.")
 public class ListUsersV1Output {
     public static final String SERIALIZED_NAME_USERS = "users";
 
@@ -40,7 +44,7 @@ public class ListUsersV1Output {
     public static final String SERIALIZED_NAME_PAGINATION = "pagination";
 
     @SerializedName(SERIALIZED_NAME_PAGINATION)
-    private PaginationOutput pagination;
+    private Pagination pagination;
 
     public ListUsersV1Output() {}
 
@@ -51,9 +55,6 @@ public class ListUsersV1Output {
     }
 
     public ListUsersV1Output addUsersItem(UserV1 usersItem) {
-        if (this.users == null) {
-            this.users = new ArrayList<>();
-        }
         this.users.add(usersItem);
         return this;
     }
@@ -64,6 +65,7 @@ public class ListUsersV1Output {
      * @return users
      */
     @javax.annotation.Nonnull
+    @ApiModelProperty(required = true, value = "The list of users.")
     public List<UserV1> getUsers() {
         return users;
     }
@@ -72,7 +74,7 @@ public class ListUsersV1Output {
         this.users = users;
     }
 
-    public ListUsersV1Output pagination(PaginationOutput pagination) {
+    public ListUsersV1Output pagination(Pagination pagination) {
 
         this.pagination = pagination;
         return this;
@@ -84,11 +86,12 @@ public class ListUsersV1Output {
      * @return pagination
      */
     @javax.annotation.Nonnull
-    public PaginationOutput getPagination() {
+    @ApiModelProperty(required = true, value = "")
+    public Pagination getPagination() {
         return pagination;
     }
 
-    public void setPagination(PaginationOutput pagination) {
+    public void setPagination(Pagination pagination) {
         this.pagination = pagination;
     }
 
@@ -147,15 +150,15 @@ public class ListUsersV1Output {
     }
 
     /**
-     * Validates the JSON Element and throws an exception if issues found
+     * Validates the JSON Object and throws an exception if issues found
      *
-     * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to ListUsersV1Output
+     * @param jsonObj JSON Object
+     * @throws IOException if the JSON Object is invalid with respect to ListUsersV1Output
      */
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        if (jsonElement == null) {
+    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+        if (jsonObj == null) {
             if (!ListUsersV1Output.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON element is null
+                    .isEmpty()) { // has required fields but JSON object is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in ListUsersV1Output is not found in the"
@@ -164,28 +167,27 @@ public class ListUsersV1Output {
             }
         }
 
-        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
         // check to see if the JSON string contains additional fields
-        for (Map.Entry<String, JsonElement> entry : entries) {
+        for (Entry<String, JsonElement> entry : entries) {
             if (!ListUsersV1Output.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
                                         + " `ListUsersV1Output` properties. JSON: %s",
-                                entry.getKey(), jsonElement.toString()));
+                                entry.getKey(), jsonObj.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
         for (String requiredField : ListUsersV1Output.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+            if (jsonObj.get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonElement.toString()));
+                                requiredField, jsonObj.toString()));
             }
         }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
         // ensure the json data is an array
         if (!jsonObj.get("users").isJsonArray()) {
             throw new IllegalArgumentException(
@@ -196,13 +198,6 @@ public class ListUsersV1Output {
         }
 
         JsonArray jsonArrayusers = jsonObj.getAsJsonArray("users");
-        // validate the required field `users` (array)
-        for (int i = 0; i < jsonArrayusers.size(); i++) {
-            UserV1.validateJsonElement(jsonArrayusers.get(i));
-        }
-        ;
-        // validate the required field `pagination`
-        PaginationOutput.validateJsonElement(jsonObj.get("pagination"));
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -227,9 +222,9 @@ public class ListUsersV1Output {
 
                         @Override
                         public ListUsersV1Output read(JsonReader in) throws IOException {
-                            JsonElement jsonElement = elementAdapter.read(in);
-                            validateJsonElement(jsonElement);
-                            return thisAdapter.fromJsonTree(jsonElement);
+                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+                            validateJsonObject(jsonObj);
+                            return thisAdapter.fromJsonTree(jsonObj);
                         }
                     }.nullSafe();
         }

@@ -11,6 +11,7 @@
 
 package com.segment.publicapi.api;
 
+
 import com.google.gson.reflect.TypeToken;
 import com.segment.publicapi.ApiCallback;
 import com.segment.publicapi.ApiClient;
@@ -153,6 +154,7 @@ public class AuditTrailApi {
         }
 
         final String[] localVarContentTypes = {};
+
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -183,6 +185,7 @@ public class AuditTrailApi {
             PaginationInput pagination,
             final ApiCallback _callback)
             throws ApiException {
+
         // verify the required parameter 'pagination' is set
         if (pagination == null) {
             throw new ApiException(
@@ -190,8 +193,10 @@ public class AuditTrailApi {
                             + " listAuditEvents(Async)");
         }
 
-        return listAuditEventsCall(
-                startTime, endTime, resourceId, resourceType, pagination, _callback);
+        okhttp3.Call localVarCall =
+                listAuditEventsCall(
+                        startTime, endTime, resourceId, resourceType, pagination, _callback);
+        return localVarCall;
     }
 
     /**
