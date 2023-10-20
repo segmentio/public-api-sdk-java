@@ -11,7 +11,6 @@
 
 package com.segment.publicapi.api;
 
-
 import com.google.gson.reflect.TypeToken;
 import com.segment.publicapi.ApiCallback;
 import com.segment.publicapi.ApiClient;
@@ -131,7 +130,6 @@ public class ApiCallsApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -157,7 +155,6 @@ public class ApiCallsApi {
     private okhttp3.Call getDailyPerSourceAPICallsUsageValidateBeforeCall(
             String period, PaginationInput pagination, final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'period' is set
         if (period == null) {
             throw new ApiException(
@@ -172,9 +169,7 @@ public class ApiCallsApi {
                             + " getDailyPerSourceAPICallsUsage(Async)");
         }
 
-        okhttp3.Call localVarCall =
-                getDailyPerSourceAPICallsUsageCall(period, pagination, _callback);
-        return localVarCall;
+        return getDailyPerSourceAPICallsUsageCall(period, pagination, _callback);
     }
 
     /**
@@ -268,6 +263,7 @@ public class ApiCallsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for getDailyWorkspaceAPICallsUsage
      *
@@ -334,7 +330,6 @@ public class ApiCallsApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -360,7 +355,6 @@ public class ApiCallsApi {
     private okhttp3.Call getDailyWorkspaceAPICallsUsageValidateBeforeCall(
             String period, PaginationInput pagination, final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'period' is set
         if (period == null) {
             throw new ApiException(
@@ -375,9 +369,7 @@ public class ApiCallsApi {
                             + " getDailyWorkspaceAPICallsUsage(Async)");
         }
 
-        okhttp3.Call localVarCall =
-                getDailyWorkspaceAPICallsUsageCall(period, pagination, _callback);
-        return localVarCall;
+        return getDailyWorkspaceAPICallsUsageCall(period, pagination, _callback);
     }
 
     /**

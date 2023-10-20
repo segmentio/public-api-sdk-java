@@ -11,7 +11,6 @@
 
 package com.segment.publicapi.api;
 
-
 import com.google.gson.reflect.TypeToken;
 import com.segment.publicapi.ApiCallback;
 import com.segment.publicapi.ApiClient;
@@ -115,7 +114,6 @@ public class WorkspacesApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -140,9 +138,7 @@ public class WorkspacesApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getWorkspaceValidateBeforeCall(final ApiCallback _callback)
             throws ApiException {
-
-        okhttp3.Call localVarCall = getWorkspaceCall(_callback);
-        return localVarCall;
+        return getWorkspaceCall(_callback);
     }
 
     /**

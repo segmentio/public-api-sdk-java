@@ -11,7 +11,6 @@
 
 package com.segment.publicapi.models;
 
-
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -23,19 +22,16 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Map.Entry;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Represents a field used in configuring an action. */
-@ApiModel(description = "Represents a field used in configuring an action.")
 public class DestinationMetadataActionFieldV1 {
     public static final String SERIALIZED_NAME_ID = "id";
 
@@ -176,7 +172,6 @@ public class DestinationMetadataActionFieldV1 {
      * @return id
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "The primary key of the field.")
     public String getId() {
         return id;
     }
@@ -198,11 +193,6 @@ public class DestinationMetadataActionFieldV1 {
      * @return sortOrder
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(
-            required = true,
-            value =
-                    "The order this particular field is (used in the UI for displaying the fields"
-                            + " in a specified order).")
     public BigDecimal getSortOrder() {
         return sortOrder;
     }
@@ -224,11 +214,6 @@ public class DestinationMetadataActionFieldV1 {
      * @return fieldKey
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(
-            required = true,
-            value =
-                    "A unique machine-readable key for the field. Should ideally match the expected"
-                            + " key in the action\\'s API request.")
     public String getFieldKey() {
         return fieldKey;
     }
@@ -249,7 +234,6 @@ public class DestinationMetadataActionFieldV1 {
      * @return label
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "A human-readable label for this value.")
     public String getLabel() {
         return label;
     }
@@ -270,7 +254,6 @@ public class DestinationMetadataActionFieldV1 {
      * @return type
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "The data type for this value.")
     public TypeEnum getType() {
         return type;
     }
@@ -291,9 +274,6 @@ public class DestinationMetadataActionFieldV1 {
      * @return description
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(
-            required = true,
-            value = "A human-readable description of this value. You can use Markdown.")
     public String getDescription() {
         return description;
     }
@@ -314,7 +294,6 @@ public class DestinationMetadataActionFieldV1 {
      * @return placeholder
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(value = "An example value displayed but not saved.")
     public String getPlaceholder() {
         return placeholder;
     }
@@ -335,7 +314,6 @@ public class DestinationMetadataActionFieldV1 {
      * @return defaultValue
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(value = "A default value that is saved the first time an action is created.")
     public Object getDefaultValue() {
         return defaultValue;
     }
@@ -356,7 +334,6 @@ public class DestinationMetadataActionFieldV1 {
      * @return required
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "Whether this field is required.")
     public Boolean getRequired() {
         return required;
     }
@@ -377,9 +354,6 @@ public class DestinationMetadataActionFieldV1 {
      * @return multiple
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(
-            required = true,
-            value = "Whether a user can provide multiples of this field.")
     public Boolean getMultiple() {
         return multiple;
     }
@@ -400,8 +374,6 @@ public class DestinationMetadataActionFieldV1 {
      * @return choices
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(
-            value = "A list of machine-readable value/label pairs to populate a static dropdown.")
     public Object getChoices() {
         return choices;
     }
@@ -423,11 +395,6 @@ public class DestinationMetadataActionFieldV1 {
      * @return dynamic
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(
-            required = true,
-            value =
-                    "Whether this field should execute a dynamic request to fetch choices to"
-                            + " populate a dropdown. When true, `choices` is ignored.")
     public Boolean getDynamic() {
         return dynamic;
     }
@@ -448,7 +415,6 @@ public class DestinationMetadataActionFieldV1 {
      * @return allowNull
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "Whether this field allows null values.")
     public Boolean getAllowNull() {
         return allowNull;
     }
@@ -583,16 +549,16 @@ public class DestinationMetadataActionFieldV1 {
     }
 
     /**
-     * Validates the JSON Object and throws an exception if issues found
+     * Validates the JSON Element and throws an exception if issues found
      *
-     * @param jsonObj JSON Object
-     * @throws IOException if the JSON Object is invalid with respect to
+     * @param jsonElement JSON Element
+     * @throws IOException if the JSON Element is invalid with respect to
      *     DestinationMetadataActionFieldV1
      */
-    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-        if (jsonObj == null) {
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        if (jsonElement == null) {
             if (!DestinationMetadataActionFieldV1.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON object is null
+                    .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in DestinationMetadataActionFieldV1 is"
@@ -601,27 +567,28 @@ public class DestinationMetadataActionFieldV1 {
             }
         }
 
-        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
-        for (Entry<String, JsonElement> entry : entries) {
+        for (Map.Entry<String, JsonElement> entry : entries) {
             if (!DestinationMetadataActionFieldV1.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
                                     + " `DestinationMetadataActionFieldV1` properties. JSON: %s",
-                                entry.getKey(), jsonObj.toString()));
+                                entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
         for (String requiredField : DestinationMetadataActionFieldV1.openapiRequiredFields) {
-            if (jsonObj.get(requiredField) == null) {
+            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonObj.toString()));
+                                requiredField, jsonElement.toString()));
             }
         }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
         if (!jsonObj.get("id").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -692,9 +659,9 @@ public class DestinationMetadataActionFieldV1 {
                         @Override
                         public DestinationMetadataActionFieldV1 read(JsonReader in)
                                 throws IOException {
-                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-                            validateJsonObject(jsonObj);
-                            return thisAdapter.fromJsonTree(jsonObj);
+                            JsonElement jsonElement = elementAdapter.read(in);
+                            validateJsonElement(jsonElement);
+                            return thisAdapter.fromJsonTree(jsonElement);
                         }
                     }.nullSafe();
         }

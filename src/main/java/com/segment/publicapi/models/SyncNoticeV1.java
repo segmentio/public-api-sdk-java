@@ -11,7 +11,6 @@
 
 package com.segment.publicapi.models;
 
-
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -22,16 +21,13 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map.Entry;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
 /** Represents a notice within a sync for a Source and Warehouse pair. */
-@ApiModel(description = "Represents a notice within a sync for a Source and Warehouse pair.")
 public class SyncNoticeV1 {
     public static final String SERIALIZED_NAME_LEVEL = "level";
 
@@ -62,7 +58,6 @@ public class SyncNoticeV1 {
      * @return level
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "The severity of the notice.")
     public String getLevel() {
         return level;
     }
@@ -83,9 +78,6 @@ public class SyncNoticeV1 {
      * @return message
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(
-            required = true,
-            value = "The human-readable message that describes the notice.")
     public String getMessage() {
         return message;
     }
@@ -106,7 +98,6 @@ public class SyncNoticeV1 {
      * @return createdAt
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "The timestamp of this sync notice's creation.")
     public String getCreatedAt() {
         return createdAt;
     }
@@ -174,15 +165,15 @@ public class SyncNoticeV1 {
     }
 
     /**
-     * Validates the JSON Object and throws an exception if issues found
+     * Validates the JSON Element and throws an exception if issues found
      *
-     * @param jsonObj JSON Object
-     * @throws IOException if the JSON Object is invalid with respect to SyncNoticeV1
+     * @param jsonElement JSON Element
+     * @throws IOException if the JSON Element is invalid with respect to SyncNoticeV1
      */
-    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-        if (jsonObj == null) {
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        if (jsonElement == null) {
             if (!SyncNoticeV1.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON object is null
+                    .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in SyncNoticeV1 is not found in the empty"
@@ -191,27 +182,28 @@ public class SyncNoticeV1 {
             }
         }
 
-        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
-        for (Entry<String, JsonElement> entry : entries) {
+        for (Map.Entry<String, JsonElement> entry : entries) {
             if (!SyncNoticeV1.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
                                         + " `SyncNoticeV1` properties. JSON: %s",
-                                entry.getKey(), jsonObj.toString()));
+                                entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
         for (String requiredField : SyncNoticeV1.openapiRequiredFields) {
-            if (jsonObj.get(requiredField) == null) {
+            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonObj.toString()));
+                                requiredField, jsonElement.toString()));
             }
         }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
         if (!jsonObj.get("level").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -256,9 +248,9 @@ public class SyncNoticeV1 {
 
                         @Override
                         public SyncNoticeV1 read(JsonReader in) throws IOException {
-                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-                            validateJsonObject(jsonObj);
-                            return thisAdapter.fromJsonTree(jsonObj);
+                            JsonElement jsonElement = elementAdapter.read(in);
+                            validateJsonElement(jsonElement);
+                            return thisAdapter.fromJsonTree(jsonElement);
                         }
                     }.nullSafe();
         }

@@ -11,7 +11,6 @@
 
 package com.segment.publicapi.models;
 
-
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -23,18 +22,15 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map.Entry;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
 /** Defines an invitation to join a Workspace. */
-@ApiModel(description = "Defines an invitation to join a Workspace.")
 public class InviteV1 {
     public static final String SERIALIZED_NAME_EMAIL = "email";
 
@@ -44,7 +40,7 @@ public class InviteV1 {
     public static final String SERIALIZED_NAME_PERMISSIONS = "permissions";
 
     @SerializedName(SERIALIZED_NAME_PERMISSIONS)
-    private List<InvitePermissionV1> permissions = null;
+    private List<InvitePermissionV1> permissions;
 
     public InviteV1() {}
 
@@ -60,9 +56,6 @@ public class InviteV1 {
      * @return email
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(
-            required = true,
-            value = "The invited user's email to attach the permissions to.")
     public String getEmail() {
         return email;
     }
@@ -91,7 +84,6 @@ public class InviteV1 {
      * @return permissions
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(value = "The permissions to attach to the invited user.")
     public List<InvitePermissionV1> getPermissions() {
         return permissions;
     }
@@ -154,15 +146,15 @@ public class InviteV1 {
     }
 
     /**
-     * Validates the JSON Object and throws an exception if issues found
+     * Validates the JSON Element and throws an exception if issues found
      *
-     * @param jsonObj JSON Object
-     * @throws IOException if the JSON Object is invalid with respect to InviteV1
+     * @param jsonElement JSON Element
+     * @throws IOException if the JSON Element is invalid with respect to InviteV1
      */
-    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-        if (jsonObj == null) {
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        if (jsonElement == null) {
             if (!InviteV1.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON object is null
+                    .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in InviteV1 is not found in the empty"
@@ -171,27 +163,28 @@ public class InviteV1 {
             }
         }
 
-        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
-        for (Entry<String, JsonElement> entry : entries) {
+        for (Map.Entry<String, JsonElement> entry : entries) {
             if (!InviteV1.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the `InviteV1`"
                                         + " properties. JSON: %s",
-                                entry.getKey(), jsonObj.toString()));
+                                entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
         for (String requiredField : InviteV1.openapiRequiredFields) {
-            if (jsonObj.get(requiredField) == null) {
+            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonObj.toString()));
+                                requiredField, jsonElement.toString()));
             }
         }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
         if (!jsonObj.get("email").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -210,6 +203,12 @@ public class InviteV1 {
                                             + " string but got `%s`",
                                     jsonObj.get("permissions").toString()));
                 }
+
+                // validate the optional field `permissions` (array)
+                for (int i = 0; i < jsonArraypermissions.size(); i++) {
+                    InvitePermissionV1.validateJsonElement(jsonArraypermissions.get(i));
+                }
+                ;
             }
         }
     }
@@ -235,9 +234,9 @@ public class InviteV1 {
 
                         @Override
                         public InviteV1 read(JsonReader in) throws IOException {
-                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-                            validateJsonObject(jsonObj);
-                            return thisAdapter.fromJsonTree(jsonObj);
+                            JsonElement jsonElement = elementAdapter.read(in);
+                            validateJsonElement(jsonElement);
+                            return thisAdapter.fromJsonTree(jsonElement);
                         }
                     }.nullSafe();
         }

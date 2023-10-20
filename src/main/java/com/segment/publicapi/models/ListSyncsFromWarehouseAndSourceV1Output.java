@@ -11,7 +11,6 @@
 
 package com.segment.publicapi.models;
 
-
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -23,13 +22,11 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map.Entry;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
@@ -37,10 +34,6 @@ import java.util.Set;
  * Returns a list that contains the most recent syncs for a Warehouse-source pair, filtered and
  * constrained by a given set of pagination parameters.
  */
-@ApiModel(
-        description =
-                "Returns a list that contains the most recent syncs for a Warehouse-source pair,"
-                        + " filtered and constrained by a given set of pagination parameters.")
 public class ListSyncsFromWarehouseAndSourceV1Output {
     public static final String SERIALIZED_NAME_REPORTS = "reports";
 
@@ -50,7 +43,7 @@ public class ListSyncsFromWarehouseAndSourceV1Output {
     public static final String SERIALIZED_NAME_PAGINATION = "pagination";
 
     @SerializedName(SERIALIZED_NAME_PAGINATION)
-    private Pagination pagination;
+    private PaginationOutput pagination;
 
     public ListSyncsFromWarehouseAndSourceV1Output() {}
 
@@ -61,6 +54,9 @@ public class ListSyncsFromWarehouseAndSourceV1Output {
     }
 
     public ListSyncsFromWarehouseAndSourceV1Output addReportsItem(SyncV1 reportsItem) {
+        if (this.reports == null) {
+            this.reports = new ArrayList<>();
+        }
         this.reports.add(reportsItem);
         return this;
     }
@@ -71,11 +67,6 @@ public class ListSyncsFromWarehouseAndSourceV1Output {
      * @return reports
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(
-            required = true,
-            value =
-                    "A list that contains the latest syncs for the specified Warehouse-source"
-                            + " pair.")
     public List<SyncV1> getReports() {
         return reports;
     }
@@ -84,7 +75,7 @@ public class ListSyncsFromWarehouseAndSourceV1Output {
         this.reports = reports;
     }
 
-    public ListSyncsFromWarehouseAndSourceV1Output pagination(Pagination pagination) {
+    public ListSyncsFromWarehouseAndSourceV1Output pagination(PaginationOutput pagination) {
 
         this.pagination = pagination;
         return this;
@@ -96,12 +87,11 @@ public class ListSyncsFromWarehouseAndSourceV1Output {
      * @return pagination
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "")
-    public Pagination getPagination() {
+    public PaginationOutput getPagination() {
         return pagination;
     }
 
-    public void setPagination(Pagination pagination) {
+    public void setPagination(PaginationOutput pagination) {
         this.pagination = pagination;
     }
 
@@ -162,16 +152,16 @@ public class ListSyncsFromWarehouseAndSourceV1Output {
     }
 
     /**
-     * Validates the JSON Object and throws an exception if issues found
+     * Validates the JSON Element and throws an exception if issues found
      *
-     * @param jsonObj JSON Object
-     * @throws IOException if the JSON Object is invalid with respect to
+     * @param jsonElement JSON Element
+     * @throws IOException if the JSON Element is invalid with respect to
      *     ListSyncsFromWarehouseAndSourceV1Output
      */
-    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-        if (jsonObj == null) {
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        if (jsonElement == null) {
             if (!ListSyncsFromWarehouseAndSourceV1Output.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON object is null
+                    .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in"
@@ -182,28 +172,29 @@ public class ListSyncsFromWarehouseAndSourceV1Output {
             }
         }
 
-        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
-        for (Entry<String, JsonElement> entry : entries) {
+        for (Map.Entry<String, JsonElement> entry : entries) {
             if (!ListSyncsFromWarehouseAndSourceV1Output.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
                                     + " `ListSyncsFromWarehouseAndSourceV1Output` properties. JSON:"
                                     + " %s",
-                                entry.getKey(), jsonObj.toString()));
+                                entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
         for (String requiredField : ListSyncsFromWarehouseAndSourceV1Output.openapiRequiredFields) {
-            if (jsonObj.get(requiredField) == null) {
+            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonObj.toString()));
+                                requiredField, jsonElement.toString()));
             }
         }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
         // ensure the json data is an array
         if (!jsonObj.get("reports").isJsonArray()) {
             throw new IllegalArgumentException(
@@ -214,6 +205,13 @@ public class ListSyncsFromWarehouseAndSourceV1Output {
         }
 
         JsonArray jsonArrayreports = jsonObj.getAsJsonArray("reports");
+        // validate the required field `reports` (array)
+        for (int i = 0; i < jsonArrayreports.size(); i++) {
+            SyncV1.validateJsonElement(jsonArrayreports.get(i));
+        }
+        ;
+        // validate the required field `pagination`
+        PaginationOutput.validateJsonElement(jsonObj.get("pagination"));
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -243,9 +241,9 @@ public class ListSyncsFromWarehouseAndSourceV1Output {
                         @Override
                         public ListSyncsFromWarehouseAndSourceV1Output read(JsonReader in)
                                 throws IOException {
-                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-                            validateJsonObject(jsonObj);
-                            return thisAdapter.fromJsonTree(jsonObj);
+                            JsonElement jsonElement = elementAdapter.read(in);
+                            validateJsonElement(jsonElement);
+                            return thisAdapter.fromJsonTree(jsonElement);
                         }
                     }.nullSafe();
         }

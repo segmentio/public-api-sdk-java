@@ -11,7 +11,6 @@
 
 package com.segment.publicapi.api;
 
-
 import com.google.gson.reflect.TypeToken;
 import com.segment.publicapi.ApiCallback;
 import com.segment.publicapi.ApiClient;
@@ -114,8 +113,8 @@ public class DeletionAndSuppressionApi {
         // create path and map variables
         String localVarPath =
                 "/regulations/cloudsources/{sourceId}"
-                        .replaceAll(
-                                "\\{" + "sourceId" + "\\}",
+                        .replace(
+                                "{" + "sourceId" + "}",
                                 localVarApiClient.escapeString(sourceId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -167,7 +166,6 @@ public class DeletionAndSuppressionApi {
             CreateCloudSourceRegulationV1Input createCloudSourceRegulationV1Input,
             final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'sourceId' is set
         if (sourceId == null) {
             throw new ApiException(
@@ -182,10 +180,8 @@ public class DeletionAndSuppressionApi {
                             + " calling createCloudSourceRegulation(Async)");
         }
 
-        okhttp3.Call localVarCall =
-                createCloudSourceRegulationCall(
-                        sourceId, createCloudSourceRegulationV1Input, _callback);
-        return localVarCall;
+        return createCloudSourceRegulationCall(
+                sourceId, createCloudSourceRegulationV1Input, _callback);
     }
 
     /**
@@ -279,6 +275,7 @@ public class DeletionAndSuppressionApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for createSourceRegulation
      *
@@ -319,8 +316,8 @@ public class DeletionAndSuppressionApi {
         // create path and map variables
         String localVarPath =
                 "/regulations/sources/{sourceId}"
-                        .replaceAll(
-                                "\\{" + "sourceId" + "\\}",
+                        .replace(
+                                "{" + "sourceId" + "}",
                                 localVarApiClient.escapeString(sourceId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -372,7 +369,6 @@ public class DeletionAndSuppressionApi {
             CreateSourceRegulationV1Input createSourceRegulationV1Input,
             final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'sourceId' is set
         if (sourceId == null) {
             throw new ApiException(
@@ -387,9 +383,7 @@ public class DeletionAndSuppressionApi {
                             + " createSourceRegulation(Async)");
         }
 
-        okhttp3.Call localVarCall =
-                createSourceRegulationCall(sourceId, createSourceRegulationV1Input, _callback);
-        return localVarCall;
+        return createSourceRegulationCall(sourceId, createSourceRegulationV1Input, _callback);
     }
 
     /**
@@ -484,6 +478,7 @@ public class DeletionAndSuppressionApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for createWorkspaceRegulation
      *
@@ -570,7 +565,6 @@ public class DeletionAndSuppressionApi {
             CreateWorkspaceRegulationV1Input createWorkspaceRegulationV1Input,
             final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'createWorkspaceRegulationV1Input' is set
         if (createWorkspaceRegulationV1Input == null) {
             throw new ApiException(
@@ -578,9 +572,7 @@ public class DeletionAndSuppressionApi {
                             + " createWorkspaceRegulation(Async)");
         }
 
-        okhttp3.Call localVarCall =
-                createWorkspaceRegulationCall(createWorkspaceRegulationV1Input, _callback);
-        return localVarCall;
+        return createWorkspaceRegulationCall(createWorkspaceRegulationV1Input, _callback);
     }
 
     /**
@@ -670,6 +662,7 @@ public class DeletionAndSuppressionApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for deleteRegulation
      *
@@ -706,8 +699,8 @@ public class DeletionAndSuppressionApi {
         // create path and map variables
         String localVarPath =
                 "/regulations/{regulateId}"
-                        .replaceAll(
-                                "\\{" + "regulateId" + "\\}",
+                        .replace(
+                                "{" + "regulateId" + "}",
                                 localVarApiClient.escapeString(regulateId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -728,7 +721,6 @@ public class DeletionAndSuppressionApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -753,7 +745,6 @@ public class DeletionAndSuppressionApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteRegulationValidateBeforeCall(
             String regulateId, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'regulateId' is set
         if (regulateId == null) {
             throw new ApiException(
@@ -761,8 +752,7 @@ public class DeletionAndSuppressionApi {
                             + " deleteRegulation(Async)");
         }
 
-        okhttp3.Call localVarCall = deleteRegulationCall(regulateId, _callback);
-        return localVarCall;
+        return deleteRegulationCall(regulateId, _callback);
     }
 
     /**
@@ -842,6 +832,7 @@ public class DeletionAndSuppressionApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for getRegulation
      *
@@ -878,8 +869,8 @@ public class DeletionAndSuppressionApi {
         // create path and map variables
         String localVarPath =
                 "/regulations/{regulateId}"
-                        .replaceAll(
-                                "\\{" + "regulateId" + "\\}",
+                        .replace(
+                                "{" + "regulateId" + "}",
                                 localVarApiClient.escapeString(regulateId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -900,7 +891,6 @@ public class DeletionAndSuppressionApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -925,7 +915,6 @@ public class DeletionAndSuppressionApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getRegulationValidateBeforeCall(
             String regulateId, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'regulateId' is set
         if (regulateId == null) {
             throw new ApiException(
@@ -933,8 +922,7 @@ public class DeletionAndSuppressionApi {
                             + " getRegulation(Async)");
         }
 
-        okhttp3.Call localVarCall = getRegulationCall(regulateId, _callback);
-        return localVarCall;
+        return getRegulationCall(regulateId, _callback);
     }
 
     /**
@@ -1010,6 +998,7 @@ public class DeletionAndSuppressionApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for listRegulationsFromSource
      *
@@ -1056,8 +1045,8 @@ public class DeletionAndSuppressionApi {
         // create path and map variables
         String localVarPath =
                 "/regulations/sources/{sourceId}"
-                        .replaceAll(
-                                "\\{" + "sourceId" + "\\}",
+                        .replace(
+                                "{" + "sourceId" + "}",
                                 localVarApiClient.escapeString(sourceId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1091,7 +1080,6 @@ public class DeletionAndSuppressionApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1121,7 +1109,6 @@ public class DeletionAndSuppressionApi {
             PaginationInput pagination,
             final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'sourceId' is set
         if (sourceId == null) {
             throw new ApiException(
@@ -1136,10 +1123,8 @@ public class DeletionAndSuppressionApi {
                             + " listRegulationsFromSource(Async)");
         }
 
-        okhttp3.Call localVarCall =
-                listRegulationsFromSourceCall(
-                        sourceId, status, regulationTypes, pagination, _callback);
-        return localVarCall;
+        return listRegulationsFromSourceCall(
+                sourceId, status, regulationTypes, pagination, _callback);
     }
 
     /**
@@ -1248,6 +1233,7 @@ public class DeletionAndSuppressionApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for listSuppressions
      *
@@ -1306,7 +1292,6 @@ public class DeletionAndSuppressionApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1331,7 +1316,6 @@ public class DeletionAndSuppressionApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listSuppressionsValidateBeforeCall(
             PaginationInput pagination, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'pagination' is set
         if (pagination == null) {
             throw new ApiException(
@@ -1339,8 +1323,7 @@ public class DeletionAndSuppressionApi {
                             + " listSuppressions(Async)");
         }
 
-        okhttp3.Call localVarCall = listSuppressionsCall(pagination, _callback);
-        return localVarCall;
+        return listSuppressionsCall(pagination, _callback);
     }
 
     /**
@@ -1415,6 +1398,7 @@ public class DeletionAndSuppressionApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for listWorkspaceRegulations
      *
@@ -1490,7 +1474,6 @@ public class DeletionAndSuppressionApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1519,7 +1502,6 @@ public class DeletionAndSuppressionApi {
             PaginationInput pagination,
             final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'pagination' is set
         if (pagination == null) {
             throw new ApiException(
@@ -1527,9 +1509,7 @@ public class DeletionAndSuppressionApi {
                             + " listWorkspaceRegulations(Async)");
         }
 
-        okhttp3.Call localVarCall =
-                listWorkspaceRegulationsCall(status, regulationTypes, pagination, _callback);
-        return localVarCall;
+        return listWorkspaceRegulationsCall(status, regulationTypes, pagination, _callback);
     }
 
     /**

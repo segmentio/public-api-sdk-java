@@ -11,7 +11,6 @@
 
 package com.segment.publicapi.models;
 
-
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -23,18 +22,15 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map.Entry;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
 /** Input for CreateDestinationFilterV1. */
-@ApiModel(description = "Input for CreateDestinationFilterV1.")
 public class CreateFilterForDestinationV1Input {
     public static final String SERIALIZED_NAME_SOURCE_ID = "sourceId";
 
@@ -80,7 +76,6 @@ public class CreateFilterForDestinationV1Input {
      * @return sourceId
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "The id of the Source associated with this filter.")
     public String getSourceId() {
         return sourceId;
     }
@@ -101,7 +96,6 @@ public class CreateFilterForDestinationV1Input {
      * @return _if
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "The filter's condition.")
     public String getIf() {
         return _if;
     }
@@ -117,6 +111,9 @@ public class CreateFilterForDestinationV1Input {
     }
 
     public CreateFilterForDestinationV1Input addActionsItem(DestinationFilterActionV1 actionsItem) {
+        if (this.actions == null) {
+            this.actions = new ArrayList<>();
+        }
         this.actions.add(actionsItem);
         return this;
     }
@@ -127,7 +124,6 @@ public class CreateFilterForDestinationV1Input {
      * @return actions
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "Actions for the Destination filter.")
     public List<DestinationFilterActionV1> getActions() {
         return actions;
     }
@@ -148,7 +144,6 @@ public class CreateFilterForDestinationV1Input {
      * @return title
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "The title of the filter.")
     public String getTitle() {
         return title;
     }
@@ -169,7 +164,6 @@ public class CreateFilterForDestinationV1Input {
      * @return description
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(value = "The description of the filter.")
     public String getDescription() {
         return description;
     }
@@ -190,9 +184,6 @@ public class CreateFilterForDestinationV1Input {
      * @return enabled
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(
-            required = true,
-            value = "When set to true, the Destination filter is active.")
     public Boolean getEnabled() {
         return enabled;
     }
@@ -272,16 +263,16 @@ public class CreateFilterForDestinationV1Input {
     }
 
     /**
-     * Validates the JSON Object and throws an exception if issues found
+     * Validates the JSON Element and throws an exception if issues found
      *
-     * @param jsonObj JSON Object
-     * @throws IOException if the JSON Object is invalid with respect to
+     * @param jsonElement JSON Element
+     * @throws IOException if the JSON Element is invalid with respect to
      *     CreateFilterForDestinationV1Input
      */
-    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-        if (jsonObj == null) {
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        if (jsonElement == null) {
             if (!CreateFilterForDestinationV1Input.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON object is null
+                    .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in CreateFilterForDestinationV1Input is"
@@ -291,27 +282,28 @@ public class CreateFilterForDestinationV1Input {
             }
         }
 
-        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
-        for (Entry<String, JsonElement> entry : entries) {
+        for (Map.Entry<String, JsonElement> entry : entries) {
             if (!CreateFilterForDestinationV1Input.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
                                     + " `CreateFilterForDestinationV1Input` properties. JSON: %s",
-                                entry.getKey(), jsonObj.toString()));
+                                entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
         for (String requiredField : CreateFilterForDestinationV1Input.openapiRequiredFields) {
-            if (jsonObj.get(requiredField) == null) {
+            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonObj.toString()));
+                                requiredField, jsonElement.toString()));
             }
         }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
         if (!jsonObj.get("sourceId").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -336,6 +328,11 @@ public class CreateFilterForDestinationV1Input {
         }
 
         JsonArray jsonArrayactions = jsonObj.getAsJsonArray("actions");
+        // validate the required field `actions` (array)
+        for (int i = 0; i < jsonArrayactions.size(); i++) {
+            DestinationFilterActionV1.validateJsonElement(jsonArrayactions.get(i));
+        }
+        ;
         if (!jsonObj.get("title").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -378,9 +375,9 @@ public class CreateFilterForDestinationV1Input {
                         @Override
                         public CreateFilterForDestinationV1Input read(JsonReader in)
                                 throws IOException {
-                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-                            validateJsonObject(jsonObj);
-                            return thisAdapter.fromJsonTree(jsonObj);
+                            JsonElement jsonElement = elementAdapter.read(in);
+                            validateJsonElement(jsonElement);
+                            return thisAdapter.fromJsonTree(jsonElement);
                         }
                     }.nullSafe();
         }

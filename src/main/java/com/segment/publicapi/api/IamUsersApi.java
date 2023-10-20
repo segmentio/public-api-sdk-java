@@ -11,7 +11,6 @@
 
 package com.segment.publicapi.api;
 
-
 import com.google.gson.reflect.TypeToken;
 import com.segment.publicapi.ApiCallback;
 import com.segment.publicapi.ApiClient;
@@ -115,8 +114,8 @@ public class IamUsersApi {
         // create path and map variables
         String localVarPath =
                 "/users/{userId}/permissions"
-                        .replaceAll(
-                                "\\{" + "userId" + "\\}",
+                        .replace(
+                                "{" + "userId" + "}",
                                 localVarApiClient.escapeString(userId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -168,7 +167,6 @@ public class IamUsersApi {
             AddPermissionsToUserV1Input addPermissionsToUserV1Input,
             final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'userId' is set
         if (userId == null) {
             throw new ApiException(
@@ -183,9 +181,7 @@ public class IamUsersApi {
                             + " addPermissionsToUser(Async)");
         }
 
-        okhttp3.Call localVarCall =
-                addPermissionsToUserCall(userId, addPermissionsToUserV1Input, _callback);
-        return localVarCall;
+        return addPermissionsToUserCall(userId, addPermissionsToUserV1Input, _callback);
     }
 
     /**
@@ -286,6 +282,7 @@ public class IamUsersApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for createInvites
      *
@@ -370,7 +367,6 @@ public class IamUsersApi {
     private okhttp3.Call createInvitesValidateBeforeCall(
             CreateInvitesV1Input createInvitesV1Input, final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'createInvitesV1Input' is set
         if (createInvitesV1Input == null) {
             throw new ApiException(
@@ -378,8 +374,7 @@ public class IamUsersApi {
                             + " createInvites(Async)");
         }
 
-        okhttp3.Call localVarCall = createInvitesCall(createInvitesV1Input, _callback);
-        return localVarCall;
+        return createInvitesCall(createInvitesV1Input, _callback);
     }
 
     /**
@@ -474,6 +469,7 @@ public class IamUsersApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for deleteInvites
      *
@@ -534,7 +530,6 @@ public class IamUsersApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -559,15 +554,13 @@ public class IamUsersApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteInvitesValidateBeforeCall(
             List<String> emails, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'emails' is set
         if (emails == null) {
             throw new ApiException(
                     "Missing the required parameter 'emails' when calling deleteInvites(Async)");
         }
 
-        okhttp3.Call localVarCall = deleteInvitesCall(emails, _callback);
-        return localVarCall;
+        return deleteInvitesCall(emails, _callback);
     }
 
     /**
@@ -659,6 +652,7 @@ public class IamUsersApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for deleteUsers
      *
@@ -718,7 +712,6 @@ public class IamUsersApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -743,15 +736,13 @@ public class IamUsersApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteUsersValidateBeforeCall(
             List<String> userIds, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'userIds' is set
         if (userIds == null) {
             throw new ApiException(
                     "Missing the required parameter 'userIds' when calling deleteUsers(Async)");
         }
 
-        okhttp3.Call localVarCall = deleteUsersCall(userIds, _callback);
-        return localVarCall;
+        return deleteUsersCall(userIds, _callback);
     }
 
     /**
@@ -839,6 +830,7 @@ public class IamUsersApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for getUser
      *
@@ -875,8 +867,8 @@ public class IamUsersApi {
         // create path and map variables
         String localVarPath =
                 "/users/{userId}"
-                        .replaceAll(
-                                "\\{" + "userId" + "\\}",
+                        .replace(
+                                "{" + "userId" + "}",
                                 localVarApiClient.escapeString(userId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -897,7 +889,6 @@ public class IamUsersApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -922,15 +913,13 @@ public class IamUsersApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getUserValidateBeforeCall(String userId, final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'userId' is set
         if (userId == null) {
             throw new ApiException(
                     "Missing the required parameter 'userId' when calling getUser(Async)");
         }
 
-        okhttp3.Call localVarCall = getUserCall(userId, _callback);
-        return localVarCall;
+        return getUserCall(userId, _callback);
     }
 
     /**
@@ -1001,6 +990,7 @@ public class IamUsersApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for listInvites
      *
@@ -1059,7 +1049,6 @@ public class IamUsersApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1084,15 +1073,13 @@ public class IamUsersApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listInvitesValidateBeforeCall(
             PaginationInput pagination, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'pagination' is set
         if (pagination == null) {
             throw new ApiException(
                     "Missing the required parameter 'pagination' when calling listInvites(Async)");
         }
 
-        okhttp3.Call localVarCall = listInvitesCall(pagination, _callback);
-        return localVarCall;
+        return listInvitesCall(pagination, _callback);
     }
 
     /**
@@ -1168,6 +1155,7 @@ public class IamUsersApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for listUserGroupsFromUser
      *
@@ -1206,8 +1194,8 @@ public class IamUsersApi {
         // create path and map variables
         String localVarPath =
                 "/users/{userId}/groups"
-                        .replaceAll(
-                                "\\{" + "userId" + "\\}",
+                        .replace(
+                                "{" + "userId" + "}",
                                 localVarApiClient.escapeString(userId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1232,7 +1220,6 @@ public class IamUsersApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1258,7 +1245,6 @@ public class IamUsersApi {
     private okhttp3.Call listUserGroupsFromUserValidateBeforeCall(
             String userId, PaginationInput pagination, final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'userId' is set
         if (userId == null) {
             throw new ApiException(
@@ -1273,8 +1259,7 @@ public class IamUsersApi {
                             + " listUserGroupsFromUser(Async)");
         }
 
-        okhttp3.Call localVarCall = listUserGroupsFromUserCall(userId, pagination, _callback);
-        return localVarCall;
+        return listUserGroupsFromUserCall(userId, pagination, _callback);
     }
 
     /**
@@ -1356,6 +1341,7 @@ public class IamUsersApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for listUsers
      *
@@ -1414,7 +1400,6 @@ public class IamUsersApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1439,15 +1424,13 @@ public class IamUsersApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listUsersValidateBeforeCall(
             PaginationInput pagination, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'pagination' is set
         if (pagination == null) {
             throw new ApiException(
                     "Missing the required parameter 'pagination' when calling listUsers(Async)");
         }
 
-        okhttp3.Call localVarCall = listUsersCall(pagination, _callback);
-        return localVarCall;
+        return listUsersCall(pagination, _callback);
     }
 
     /**
@@ -1520,6 +1503,7 @@ public class IamUsersApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for replacePermissionsForUser
      *
@@ -1560,8 +1544,8 @@ public class IamUsersApi {
         // create path and map variables
         String localVarPath =
                 "/users/{userId}/permissions"
-                        .replaceAll(
-                                "\\{" + "userId" + "\\}",
+                        .replace(
+                                "{" + "userId" + "}",
                                 localVarApiClient.escapeString(userId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1613,7 +1597,6 @@ public class IamUsersApi {
             ReplacePermissionsForUserV1Input replacePermissionsForUserV1Input,
             final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'userId' is set
         if (userId == null) {
             throw new ApiException(
@@ -1628,9 +1611,7 @@ public class IamUsersApi {
                             + " replacePermissionsForUser(Async)");
         }
 
-        okhttp3.Call localVarCall =
-                replacePermissionsForUserCall(userId, replacePermissionsForUserV1Input, _callback);
-        return localVarCall;
+        return replacePermissionsForUserCall(userId, replacePermissionsForUserV1Input, _callback);
     }
 
     /**

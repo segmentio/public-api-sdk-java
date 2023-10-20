@@ -11,7 +11,6 @@
 
 package com.segment.publicapi;
 
-
 import java.util.Collection;
 import java.util.Iterator;
 

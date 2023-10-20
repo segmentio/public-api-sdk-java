@@ -11,7 +11,6 @@
 
 package com.segment.publicapi.models;
 
-
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -22,10 +21,9 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map.Entry;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
@@ -34,17 +32,17 @@ public class CommonSourceSettingsV1 {
     public static final String SERIALIZED_NAME_TRACK = "track";
 
     @SerializedName(SERIALIZED_NAME_TRACK)
-    private Track track;
+    private TrackSourceSettingsV1 track;
 
     public static final String SERIALIZED_NAME_IDENTIFY = "identify";
 
     @SerializedName(SERIALIZED_NAME_IDENTIFY)
-    private Identify identify;
+    private IdentifySourceSettingsV1 identify;
 
     public static final String SERIALIZED_NAME_GROUP = "group";
 
     @SerializedName(SERIALIZED_NAME_GROUP)
-    private Group group;
+    private GroupSourceSettingsV1 group;
 
     public static final String SERIALIZED_NAME_FORWARDING_VIOLATIONS_TO = "forwardingViolationsTo";
 
@@ -59,7 +57,7 @@ public class CommonSourceSettingsV1 {
 
     public CommonSourceSettingsV1() {}
 
-    public CommonSourceSettingsV1 track(Track track) {
+    public CommonSourceSettingsV1 track(TrackSourceSettingsV1 track) {
 
         this.track = track;
         return this;
@@ -71,16 +69,15 @@ public class CommonSourceSettingsV1 {
      * @return track
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    public Track getTrack() {
+    public TrackSourceSettingsV1 getTrack() {
         return track;
     }
 
-    public void setTrack(Track track) {
+    public void setTrack(TrackSourceSettingsV1 track) {
         this.track = track;
     }
 
-    public CommonSourceSettingsV1 identify(Identify identify) {
+    public CommonSourceSettingsV1 identify(IdentifySourceSettingsV1 identify) {
 
         this.identify = identify;
         return this;
@@ -92,16 +89,15 @@ public class CommonSourceSettingsV1 {
      * @return identify
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    public Identify getIdentify() {
+    public IdentifySourceSettingsV1 getIdentify() {
         return identify;
     }
 
-    public void setIdentify(Identify identify) {
+    public void setIdentify(IdentifySourceSettingsV1 identify) {
         this.identify = identify;
     }
 
-    public CommonSourceSettingsV1 group(Group group) {
+    public CommonSourceSettingsV1 group(GroupSourceSettingsV1 group) {
 
         this.group = group;
         return this;
@@ -113,12 +109,11 @@ public class CommonSourceSettingsV1 {
      * @return group
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-    public Group getGroup() {
+    public GroupSourceSettingsV1 getGroup() {
         return group;
     }
 
-    public void setGroup(Group group) {
+    public void setGroup(GroupSourceSettingsV1 group) {
         this.group = group;
     }
 
@@ -134,7 +129,6 @@ public class CommonSourceSettingsV1 {
      * @return forwardingViolationsTo
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(value = "SourceId to forward violations to.")
     public String getForwardingViolationsTo() {
         return forwardingViolationsTo;
     }
@@ -155,7 +149,6 @@ public class CommonSourceSettingsV1 {
      * @return forwardingBlockedEventsTo
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(value = "SourceId to forward blocked events to.")
     public String getForwardingBlockedEventsTo() {
         return forwardingBlockedEventsTo;
     }
@@ -234,15 +227,15 @@ public class CommonSourceSettingsV1 {
     }
 
     /**
-     * Validates the JSON Object and throws an exception if issues found
+     * Validates the JSON Element and throws an exception if issues found
      *
-     * @param jsonObj JSON Object
-     * @throws IOException if the JSON Object is invalid with respect to CommonSourceSettingsV1
+     * @param jsonElement JSON Element
+     * @throws IOException if the JSON Element is invalid with respect to CommonSourceSettingsV1
      */
-    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-        if (jsonObj == null) {
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        if (jsonElement == null) {
             if (!CommonSourceSettingsV1.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON object is null
+                    .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in CommonSourceSettingsV1 is not found in"
@@ -251,16 +244,29 @@ public class CommonSourceSettingsV1 {
             }
         }
 
-        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
-        for (Entry<String, JsonElement> entry : entries) {
+        for (Map.Entry<String, JsonElement> entry : entries) {
             if (!CommonSourceSettingsV1.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
                                         + " `CommonSourceSettingsV1` properties. JSON: %s",
-                                entry.getKey(), jsonObj.toString()));
+                                entry.getKey(), jsonElement.toString()));
             }
+        }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+        // validate the optional field `track`
+        if (jsonObj.get("track") != null && !jsonObj.get("track").isJsonNull()) {
+            TrackSourceSettingsV1.validateJsonElement(jsonObj.get("track"));
+        }
+        // validate the optional field `identify`
+        if (jsonObj.get("identify") != null && !jsonObj.get("identify").isJsonNull()) {
+            IdentifySourceSettingsV1.validateJsonElement(jsonObj.get("identify"));
+        }
+        // validate the optional field `group`
+        if (jsonObj.get("group") != null && !jsonObj.get("group").isJsonNull()) {
+            GroupSourceSettingsV1.validateJsonElement(jsonObj.get("group"));
         }
         if ((jsonObj.get("forwardingViolationsTo") != null
                         && !jsonObj.get("forwardingViolationsTo").isJsonNull())
@@ -304,9 +310,9 @@ public class CommonSourceSettingsV1 {
 
                         @Override
                         public CommonSourceSettingsV1 read(JsonReader in) throws IOException {
-                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-                            validateJsonObject(jsonObj);
-                            return thisAdapter.fromJsonTree(jsonObj);
+                            JsonElement jsonElement = elementAdapter.read(in);
+                            validateJsonElement(jsonElement);
+                            return thisAdapter.fromJsonTree(jsonElement);
                         }
                     }.nullSafe();
         }

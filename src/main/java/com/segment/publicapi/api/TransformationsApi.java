@@ -11,7 +11,6 @@
 
 package com.segment.publicapi.api;
 
-
 import com.google.gson.reflect.TypeToken;
 import com.segment.publicapi.ApiCallback;
 import com.segment.publicapi.ApiClient;
@@ -154,7 +153,6 @@ public class TransformationsApi {
     private okhttp3.Call createTransformationValidateBeforeCall(
             CreateTransformationV1Input createTransformationV1Input, final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'createTransformationV1Input' is set
         if (createTransformationV1Input == null) {
             throw new ApiException(
@@ -162,9 +160,7 @@ public class TransformationsApi {
                             + " createTransformation(Async)");
         }
 
-        okhttp3.Call localVarCall =
-                createTransformationCall(createTransformationV1Input, _callback);
-        return localVarCall;
+        return createTransformationCall(createTransformationV1Input, _callback);
     }
 
     /**
@@ -252,6 +248,7 @@ public class TransformationsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for deleteTransformation
      *
@@ -288,8 +285,8 @@ public class TransformationsApi {
         // create path and map variables
         String localVarPath =
                 "/transformations/{transformationId}"
-                        .replaceAll(
-                                "\\{" + "transformationId" + "\\}",
+                        .replace(
+                                "{" + "transformationId" + "}",
                                 localVarApiClient.escapeString(transformationId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -310,7 +307,6 @@ public class TransformationsApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -335,7 +331,6 @@ public class TransformationsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteTransformationValidateBeforeCall(
             String transformationId, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'transformationId' is set
         if (transformationId == null) {
             throw new ApiException(
@@ -343,8 +338,7 @@ public class TransformationsApi {
                             + " deleteTransformation(Async)");
         }
 
-        okhttp3.Call localVarCall = deleteTransformationCall(transformationId, _callback);
-        return localVarCall;
+        return deleteTransformationCall(transformationId, _callback);
     }
 
     /**
@@ -430,6 +424,7 @@ public class TransformationsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for getTransformation
      *
@@ -466,8 +461,8 @@ public class TransformationsApi {
         // create path and map variables
         String localVarPath =
                 "/transformations/{transformationId}"
-                        .replaceAll(
-                                "\\{" + "transformationId" + "\\}",
+                        .replace(
+                                "{" + "transformationId" + "}",
                                 localVarApiClient.escapeString(transformationId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -488,7 +483,6 @@ public class TransformationsApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -513,7 +507,6 @@ public class TransformationsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getTransformationValidateBeforeCall(
             String transformationId, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'transformationId' is set
         if (transformationId == null) {
             throw new ApiException(
@@ -521,8 +514,7 @@ public class TransformationsApi {
                             + " getTransformation(Async)");
         }
 
-        okhttp3.Call localVarCall = getTransformationCall(transformationId, _callback);
-        return localVarCall;
+        return getTransformationCall(transformationId, _callback);
     }
 
     /**
@@ -604,6 +596,7 @@ public class TransformationsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for listTransformations
      *
@@ -662,7 +655,6 @@ public class TransformationsApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -687,7 +679,6 @@ public class TransformationsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listTransformationsValidateBeforeCall(
             PaginationInput pagination, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'pagination' is set
         if (pagination == null) {
             throw new ApiException(
@@ -695,8 +686,7 @@ public class TransformationsApi {
                             + " listTransformations(Async)");
         }
 
-        okhttp3.Call localVarCall = listTransformationsCall(pagination, _callback);
-        return localVarCall;
+        return listTransformationsCall(pagination, _callback);
     }
 
     /**
@@ -777,6 +767,7 @@ public class TransformationsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for updateTransformation
      *
@@ -817,8 +808,8 @@ public class TransformationsApi {
         // create path and map variables
         String localVarPath =
                 "/transformations/{transformationId}"
-                        .replaceAll(
-                                "\\{" + "transformationId" + "\\}",
+                        .replace(
+                                "{" + "transformationId" + "}",
                                 localVarApiClient.escapeString(transformationId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -870,7 +861,6 @@ public class TransformationsApi {
             UpdateTransformationV1Input updateTransformationV1Input,
             final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'transformationId' is set
         if (transformationId == null) {
             throw new ApiException(
@@ -885,9 +875,7 @@ public class TransformationsApi {
                             + " updateTransformation(Async)");
         }
 
-        okhttp3.Call localVarCall =
-                updateTransformationCall(transformationId, updateTransformationV1Input, _callback);
-        return localVarCall;
+        return updateTransformationCall(transformationId, updateTransformationV1Input, _callback);
     }
 
     /**

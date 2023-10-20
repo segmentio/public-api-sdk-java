@@ -11,7 +11,6 @@
 
 package com.segment.publicapi.api;
 
-
 import com.google.gson.reflect.TypeToken;
 import com.segment.publicapi.ApiCallback;
 import com.segment.publicapi.ApiClient;
@@ -121,8 +120,8 @@ public class IamGroupsApi {
         // create path and map variables
         String localVarPath =
                 "/groups/{userGroupId}/permissions"
-                        .replaceAll(
-                                "\\{" + "userGroupId" + "\\}",
+                        .replace(
+                                "{" + "userGroupId" + "}",
                                 localVarApiClient.escapeString(userGroupId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -174,7 +173,6 @@ public class IamGroupsApi {
             AddPermissionsToUserGroupV1Input addPermissionsToUserGroupV1Input,
             final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'userGroupId' is set
         if (userGroupId == null) {
             throw new ApiException(
@@ -189,10 +187,8 @@ public class IamGroupsApi {
                             + " addPermissionsToUserGroup(Async)");
         }
 
-        okhttp3.Call localVarCall =
-                addPermissionsToUserGroupCall(
-                        userGroupId, addPermissionsToUserGroupV1Input, _callback);
-        return localVarCall;
+        return addPermissionsToUserGroupCall(
+                userGroupId, addPermissionsToUserGroupV1Input, _callback);
     }
 
     /**
@@ -299,6 +295,7 @@ public class IamGroupsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for addUsersToUserGroup
      *
@@ -339,8 +336,8 @@ public class IamGroupsApi {
         // create path and map variables
         String localVarPath =
                 "/groups/{userGroupId}/users"
-                        .replaceAll(
-                                "\\{" + "userGroupId" + "\\}",
+                        .replace(
+                                "{" + "userGroupId" + "}",
                                 localVarApiClient.escapeString(userGroupId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -392,7 +389,6 @@ public class IamGroupsApi {
             AddUsersToUserGroupV1Input addUsersToUserGroupV1Input,
             final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'userGroupId' is set
         if (userGroupId == null) {
             throw new ApiException(
@@ -407,9 +403,7 @@ public class IamGroupsApi {
                             + " addUsersToUserGroup(Async)");
         }
 
-        okhttp3.Call localVarCall =
-                addUsersToUserGroupCall(userGroupId, addUsersToUserGroupV1Input, _callback);
-        return localVarCall;
+        return addUsersToUserGroupCall(userGroupId, addUsersToUserGroupV1Input, _callback);
     }
 
     /**
@@ -511,6 +505,7 @@ public class IamGroupsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for createUserGroup
      *
@@ -595,7 +590,6 @@ public class IamGroupsApi {
     private okhttp3.Call createUserGroupValidateBeforeCall(
             CreateUserGroupV1Input createUserGroupV1Input, final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'createUserGroupV1Input' is set
         if (createUserGroupV1Input == null) {
             throw new ApiException(
@@ -603,8 +597,7 @@ public class IamGroupsApi {
                             + " createUserGroup(Async)");
         }
 
-        okhttp3.Call localVarCall = createUserGroupCall(createUserGroupV1Input, _callback);
-        return localVarCall;
+        return createUserGroupCall(createUserGroupV1Input, _callback);
     }
 
     /**
@@ -696,6 +689,7 @@ public class IamGroupsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for deleteUserGroup
      *
@@ -732,8 +726,8 @@ public class IamGroupsApi {
         // create path and map variables
         String localVarPath =
                 "/groups/{userGroupId}"
-                        .replaceAll(
-                                "\\{" + "userGroupId" + "\\}",
+                        .replace(
+                                "{" + "userGroupId" + "}",
                                 localVarApiClient.escapeString(userGroupId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -754,7 +748,6 @@ public class IamGroupsApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -779,7 +772,6 @@ public class IamGroupsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteUserGroupValidateBeforeCall(
             String userGroupId, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'userGroupId' is set
         if (userGroupId == null) {
             throw new ApiException(
@@ -787,8 +779,7 @@ public class IamGroupsApi {
                             + " deleteUserGroup(Async)");
         }
 
-        okhttp3.Call localVarCall = deleteUserGroupCall(userGroupId, _callback);
-        return localVarCall;
+        return deleteUserGroupCall(userGroupId, _callback);
     }
 
     /**
@@ -877,6 +868,7 @@ public class IamGroupsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for getUserGroup
      *
@@ -913,8 +905,8 @@ public class IamGroupsApi {
         // create path and map variables
         String localVarPath =
                 "/groups/{userGroupId}"
-                        .replaceAll(
-                                "\\{" + "userGroupId" + "\\}",
+                        .replace(
+                                "{" + "userGroupId" + "}",
                                 localVarApiClient.escapeString(userGroupId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -935,7 +927,6 @@ public class IamGroupsApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -960,7 +951,6 @@ public class IamGroupsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getUserGroupValidateBeforeCall(
             String userGroupId, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'userGroupId' is set
         if (userGroupId == null) {
             throw new ApiException(
@@ -968,8 +958,7 @@ public class IamGroupsApi {
                             + " getUserGroup(Async)");
         }
 
-        okhttp3.Call localVarCall = getUserGroupCall(userGroupId, _callback);
-        return localVarCall;
+        return getUserGroupCall(userGroupId, _callback);
     }
 
     /**
@@ -1042,6 +1031,7 @@ public class IamGroupsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for listInvitesFromUserGroup
      *
@@ -1081,8 +1071,8 @@ public class IamGroupsApi {
         // create path and map variables
         String localVarPath =
                 "/groups/{userGroupId}/invites"
-                        .replaceAll(
-                                "\\{" + "userGroupId" + "\\}",
+                        .replace(
+                                "{" + "userGroupId" + "}",
                                 localVarApiClient.escapeString(userGroupId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1107,7 +1097,6 @@ public class IamGroupsApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1133,7 +1122,6 @@ public class IamGroupsApi {
     private okhttp3.Call listInvitesFromUserGroupValidateBeforeCall(
             String userGroupId, PaginationInput pagination, final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'userGroupId' is set
         if (userGroupId == null) {
             throw new ApiException(
@@ -1148,9 +1136,7 @@ public class IamGroupsApi {
                             + " listInvitesFromUserGroup(Async)");
         }
 
-        okhttp3.Call localVarCall =
-                listInvitesFromUserGroupCall(userGroupId, pagination, _callback);
-        return localVarCall;
+        return listInvitesFromUserGroupCall(userGroupId, pagination, _callback);
     }
 
     /**
@@ -1235,6 +1221,7 @@ public class IamGroupsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for listUserGroups
      *
@@ -1293,7 +1280,6 @@ public class IamGroupsApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1318,7 +1304,6 @@ public class IamGroupsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listUserGroupsValidateBeforeCall(
             PaginationInput pagination, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'pagination' is set
         if (pagination == null) {
             throw new ApiException(
@@ -1326,8 +1311,7 @@ public class IamGroupsApi {
                             + " listUserGroups(Async)");
         }
 
-        okhttp3.Call localVarCall = listUserGroupsCall(pagination, _callback);
-        return localVarCall;
+        return listUserGroupsCall(pagination, _callback);
     }
 
     /**
@@ -1402,6 +1386,7 @@ public class IamGroupsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for listUsersFromUserGroup
      *
@@ -1440,8 +1425,8 @@ public class IamGroupsApi {
         // create path and map variables
         String localVarPath =
                 "/groups/{userGroupId}/users"
-                        .replaceAll(
-                                "\\{" + "userGroupId" + "\\}",
+                        .replace(
+                                "{" + "userGroupId" + "}",
                                 localVarApiClient.escapeString(userGroupId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1466,7 +1451,6 @@ public class IamGroupsApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1492,7 +1476,6 @@ public class IamGroupsApi {
     private okhttp3.Call listUsersFromUserGroupValidateBeforeCall(
             String userGroupId, PaginationInput pagination, final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'userGroupId' is set
         if (userGroupId == null) {
             throw new ApiException(
@@ -1507,8 +1490,7 @@ public class IamGroupsApi {
                             + " listUsersFromUserGroup(Async)");
         }
 
-        okhttp3.Call localVarCall = listUsersFromUserGroupCall(userGroupId, pagination, _callback);
-        return localVarCall;
+        return listUsersFromUserGroupCall(userGroupId, pagination, _callback);
     }
 
     /**
@@ -1590,6 +1572,7 @@ public class IamGroupsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for removeUsersFromUserGroup
      *
@@ -1629,8 +1612,8 @@ public class IamGroupsApi {
         // create path and map variables
         String localVarPath =
                 "/group/{userGroupId}/users"
-                        .replaceAll(
-                                "\\{" + "userGroupId" + "\\}",
+                        .replace(
+                                "{" + "userGroupId" + "}",
                                 localVarApiClient.escapeString(userGroupId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1656,7 +1639,6 @@ public class IamGroupsApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1682,7 +1664,6 @@ public class IamGroupsApi {
     private okhttp3.Call removeUsersFromUserGroupValidateBeforeCall(
             String userGroupId, List<String> emails, final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'userGroupId' is set
         if (userGroupId == null) {
             throw new ApiException(
@@ -1697,8 +1678,7 @@ public class IamGroupsApi {
                             + " removeUsersFromUserGroup(Async)");
         }
 
-        okhttp3.Call localVarCall = removeUsersFromUserGroupCall(userGroupId, emails, _callback);
-        return localVarCall;
+        return removeUsersFromUserGroupCall(userGroupId, emails, _callback);
     }
 
     /**
@@ -1801,6 +1781,7 @@ public class IamGroupsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for replacePermissionsForUserGroup
      *
@@ -1841,8 +1822,8 @@ public class IamGroupsApi {
         // create path and map variables
         String localVarPath =
                 "/groups/{userGroupId}/permissions"
-                        .replaceAll(
-                                "\\{" + "userGroupId" + "\\}",
+                        .replace(
+                                "{" + "userGroupId" + "}",
                                 localVarApiClient.escapeString(userGroupId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1894,7 +1875,6 @@ public class IamGroupsApi {
             ReplacePermissionsForUserGroupV1Input replacePermissionsForUserGroupV1Input,
             final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'userGroupId' is set
         if (userGroupId == null) {
             throw new ApiException(
@@ -1909,10 +1889,8 @@ public class IamGroupsApi {
                             + " calling replacePermissionsForUserGroup(Async)");
         }
 
-        okhttp3.Call localVarCall =
-                replacePermissionsForUserGroupCall(
-                        userGroupId, replacePermissionsForUserGroupV1Input, _callback);
-        return localVarCall;
+        return replacePermissionsForUserGroupCall(
+                userGroupId, replacePermissionsForUserGroupV1Input, _callback);
     }
 
     /**
@@ -2019,6 +1997,7 @@ public class IamGroupsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for replaceUsersInUserGroup
      *
@@ -2059,8 +2038,8 @@ public class IamGroupsApi {
         // create path and map variables
         String localVarPath =
                 "/group/{userGroupId}/users"
-                        .replaceAll(
-                                "\\{" + "userGroupId" + "\\}",
+                        .replace(
+                                "{" + "userGroupId" + "}",
                                 localVarApiClient.escapeString(userGroupId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -2112,7 +2091,6 @@ public class IamGroupsApi {
             ReplaceUsersInUserGroupV1Input replaceUsersInUserGroupV1Input,
             final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'userGroupId' is set
         if (userGroupId == null) {
             throw new ApiException(
@@ -2127,9 +2105,7 @@ public class IamGroupsApi {
                             + " replaceUsersInUserGroup(Async)");
         }
 
-        okhttp3.Call localVarCall =
-                replaceUsersInUserGroupCall(userGroupId, replaceUsersInUserGroupV1Input, _callback);
-        return localVarCall;
+        return replaceUsersInUserGroupCall(userGroupId, replaceUsersInUserGroupV1Input, _callback);
     }
 
     /**
@@ -2233,6 +2209,7 @@ public class IamGroupsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for updateUserGroup
      *
@@ -2273,8 +2250,8 @@ public class IamGroupsApi {
         // create path and map variables
         String localVarPath =
                 "/groups/{userGroupId}"
-                        .replaceAll(
-                                "\\{" + "userGroupId" + "\\}",
+                        .replace(
+                                "{" + "userGroupId" + "}",
                                 localVarApiClient.escapeString(userGroupId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -2326,7 +2303,6 @@ public class IamGroupsApi {
             UpdateUserGroupV1Input updateUserGroupV1Input,
             final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'userGroupId' is set
         if (userGroupId == null) {
             throw new ApiException(
@@ -2341,9 +2317,7 @@ public class IamGroupsApi {
                             + " updateUserGroup(Async)");
         }
 
-        okhttp3.Call localVarCall =
-                updateUserGroupCall(userGroupId, updateUserGroupV1Input, _callback);
-        return localVarCall;
+        return updateUserGroupCall(userGroupId, updateUserGroupV1Input, _callback);
     }
 
     /**

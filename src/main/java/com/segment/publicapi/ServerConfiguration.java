@@ -1,6 +1,5 @@
 package com.segment.publicapi;
 
-
 import java.util.Map;
 
 /** Representing a Server configuration. */
@@ -49,7 +48,7 @@ public class ServerConfiguration {
                                     + ".");
                 }
             }
-            url = url.replaceAll("\\{" + name + "\\}", value);
+            url = url.replace("{" + name + "}", value);
         }
         return url;
     }

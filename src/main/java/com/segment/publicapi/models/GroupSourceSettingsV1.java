@@ -11,7 +11,6 @@
 
 package com.segment.publicapi.models;
 
-
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -23,10 +22,9 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map.Entry;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
@@ -117,10 +115,6 @@ public class GroupSourceSettingsV1 {
      * @return allowUnplannedTraits
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(
-            value =
-                    "Enable to allow unplanned group traits.  Config API note: equal to"
-                            + " `allowUnplannedGroupTraits`.")
     public Boolean getAllowUnplannedTraits() {
         return allowUnplannedTraits;
     }
@@ -142,10 +136,6 @@ public class GroupSourceSettingsV1 {
      * @return allowTraitsOnViolations
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(
-            value =
-                    "Enable to allow group traits on violations.  Config API note: equal to"
-                            + " `allowGroupTraitsOnViolations`.")
     public Boolean getAllowTraitsOnViolations() {
         return allowTraitsOnViolations;
     }
@@ -168,10 +158,6 @@ public class GroupSourceSettingsV1 {
      * @return commonEventOnViolations
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(
-            value =
-                    "The common group event on violations.  Config API note: equal to"
-                            + " `commonGroupEventOnViolations`.")
     public CommonEventOnViolationsEnum getCommonEventOnViolations() {
         return commonEventOnViolations;
     }
@@ -245,15 +231,15 @@ public class GroupSourceSettingsV1 {
     }
 
     /**
-     * Validates the JSON Object and throws an exception if issues found
+     * Validates the JSON Element and throws an exception if issues found
      *
-     * @param jsonObj JSON Object
-     * @throws IOException if the JSON Object is invalid with respect to GroupSourceSettingsV1
+     * @param jsonElement JSON Element
+     * @throws IOException if the JSON Element is invalid with respect to GroupSourceSettingsV1
      */
-    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-        if (jsonObj == null) {
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        if (jsonElement == null) {
             if (!GroupSourceSettingsV1.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON object is null
+                    .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in GroupSourceSettingsV1 is not found in"
@@ -262,17 +248,18 @@ public class GroupSourceSettingsV1 {
             }
         }
 
-        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
-        for (Entry<String, JsonElement> entry : entries) {
+        for (Map.Entry<String, JsonElement> entry : entries) {
             if (!GroupSourceSettingsV1.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
                                         + " `GroupSourceSettingsV1` properties. JSON: %s",
-                                entry.getKey(), jsonObj.toString()));
+                                entry.getKey(), jsonElement.toString()));
             }
         }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
         if ((jsonObj.get("commonEventOnViolations") != null
                         && !jsonObj.get("commonEventOnViolations").isJsonNull())
                 && !jsonObj.get("commonEventOnViolations").isJsonPrimitive()) {
@@ -306,9 +293,9 @@ public class GroupSourceSettingsV1 {
 
                         @Override
                         public GroupSourceSettingsV1 read(JsonReader in) throws IOException {
-                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-                            validateJsonObject(jsonObj);
-                            return thisAdapter.fromJsonTree(jsonObj);
+                            JsonElement jsonElement = elementAdapter.read(in);
+                            validateJsonElement(jsonElement);
+                            return thisAdapter.fromJsonTree(jsonElement);
                         }
                     }.nullSafe();
         }

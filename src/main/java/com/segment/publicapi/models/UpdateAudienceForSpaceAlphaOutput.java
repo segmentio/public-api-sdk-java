@@ -11,7 +11,6 @@
 
 package com.segment.publicapi.models;
 
-
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -22,25 +21,22 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map.Entry;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
 /** Audience output for get. */
-@ApiModel(description = "Audience output for get.")
 public class UpdateAudienceForSpaceAlphaOutput {
     public static final String SERIALIZED_NAME_AUDIENCE = "audience";
 
     @SerializedName(SERIALIZED_NAME_AUDIENCE)
-    private Audience audience;
+    private AudienceSummary audience;
 
     public UpdateAudienceForSpaceAlphaOutput() {}
 
-    public UpdateAudienceForSpaceAlphaOutput audience(Audience audience) {
+    public UpdateAudienceForSpaceAlphaOutput audience(AudienceSummary audience) {
 
         this.audience = audience;
         return this;
@@ -52,12 +48,11 @@ public class UpdateAudienceForSpaceAlphaOutput {
      * @return audience
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "")
-    public Audience getAudience() {
+    public AudienceSummary getAudience() {
         return audience;
     }
 
-    public void setAudience(Audience audience) {
+    public void setAudience(AudienceSummary audience) {
         this.audience = audience;
     }
 
@@ -113,16 +108,16 @@ public class UpdateAudienceForSpaceAlphaOutput {
     }
 
     /**
-     * Validates the JSON Object and throws an exception if issues found
+     * Validates the JSON Element and throws an exception if issues found
      *
-     * @param jsonObj JSON Object
-     * @throws IOException if the JSON Object is invalid with respect to
+     * @param jsonElement JSON Element
+     * @throws IOException if the JSON Element is invalid with respect to
      *     UpdateAudienceForSpaceAlphaOutput
      */
-    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-        if (jsonObj == null) {
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        if (jsonElement == null) {
             if (!UpdateAudienceForSpaceAlphaOutput.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON object is null
+                    .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in UpdateAudienceForSpaceAlphaOutput is"
@@ -132,27 +127,30 @@ public class UpdateAudienceForSpaceAlphaOutput {
             }
         }
 
-        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
-        for (Entry<String, JsonElement> entry : entries) {
+        for (Map.Entry<String, JsonElement> entry : entries) {
             if (!UpdateAudienceForSpaceAlphaOutput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
                                     + " `UpdateAudienceForSpaceAlphaOutput` properties. JSON: %s",
-                                entry.getKey(), jsonObj.toString()));
+                                entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
         for (String requiredField : UpdateAudienceForSpaceAlphaOutput.openapiRequiredFields) {
-            if (jsonObj.get(requiredField) == null) {
+            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonObj.toString()));
+                                requiredField, jsonElement.toString()));
             }
         }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+        // validate the required field `audience`
+        AudienceSummary.validateJsonElement(jsonObj.get("audience"));
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -180,9 +178,9 @@ public class UpdateAudienceForSpaceAlphaOutput {
                         @Override
                         public UpdateAudienceForSpaceAlphaOutput read(JsonReader in)
                                 throws IOException {
-                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-                            validateJsonObject(jsonObj);
-                            return thisAdapter.fromJsonTree(jsonObj);
+                            JsonElement jsonElement = elementAdapter.read(in);
+                            validateJsonElement(jsonElement);
+                            return thisAdapter.fromJsonTree(jsonElement);
                         }
                     }.nullSafe();
         }
