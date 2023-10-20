@@ -11,7 +11,6 @@
 
 package com.segment.publicapi.models;
 
-
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -23,19 +22,14 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Defines how to update an existing Model. */
-@ApiModel(description = "Defines how to update an existing Model.")
 public class UpdateReverseEtlModelInput {
     public static final String SERIALIZED_NAME_NAME = "name";
 
@@ -111,7 +105,7 @@ public class UpdateReverseEtlModelInput {
     public static final String SERIALIZED_NAME_SCHEDULE_CONFIG = "scheduleConfig";
 
     @SerializedName(SERIALIZED_NAME_SCHEDULE_CONFIG)
-    private Map scheduleConfig;
+    private Map<String, Object> scheduleConfig;
 
     public static final String SERIALIZED_NAME_QUERY = "query";
 
@@ -137,7 +131,6 @@ public class UpdateReverseEtlModelInput {
      * @return name
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(value = "A short, human-readable description of the Model.")
     public String getName() {
         return name;
     }
@@ -158,7 +151,6 @@ public class UpdateReverseEtlModelInput {
      * @return description
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(value = "A longer, more descriptive explanation of the Model.")
     public String getDescription() {
         return description;
     }
@@ -180,11 +172,6 @@ public class UpdateReverseEtlModelInput {
      * @return enabled
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(
-            value =
-                    "Indicates whether the Model should have syncs enabled. When disabled, no syncs"
-                            + " will be triggered, regardless of the enabled status of the attached"
-                            + " destinations/subscriptions.")
     public Boolean getEnabled() {
         return enabled;
     }
@@ -206,10 +193,6 @@ public class UpdateReverseEtlModelInput {
      * @return scheduleStrategy
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(
-            value =
-                    "Determines the strategy used for triggering syncs, which will be used in"
-                            + " conjunction with scheduleConfig.")
     public ScheduleStrategyEnum getScheduleStrategy() {
         return scheduleStrategy;
     }
@@ -218,25 +201,32 @@ public class UpdateReverseEtlModelInput {
         this.scheduleStrategy = scheduleStrategy;
     }
 
-    public UpdateReverseEtlModelInput scheduleConfig(Map scheduleConfig) {
+    public UpdateReverseEtlModelInput scheduleConfig(Map<String, Object> scheduleConfig) {
 
         this.scheduleConfig = scheduleConfig;
         return this;
     }
 
+    public UpdateReverseEtlModelInput putScheduleConfigItem(String key, Object scheduleConfigItem) {
+        if (this.scheduleConfig == null) {
+            this.scheduleConfig = new HashMap<>();
+        }
+        this.scheduleConfig.put(key, scheduleConfigItem);
+        return this;
+    }
+
     /**
-     * Depending on the chosen strategy, configures the schedule for this model.
+     * Defines a configuration object used for scheduling, which can vary depending on the
+     * configured strategy, but must always be an object with at least 1 level of keys.
      *
      * @return scheduleConfig
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(
-            value = "Depending on the chosen strategy, configures the schedule for this model.")
-    public Map getScheduleConfig() {
+    public Map<String, Object> getScheduleConfig() {
         return scheduleConfig;
     }
 
-    public void setScheduleConfig(Map scheduleConfig) {
+    public void setScheduleConfig(Map<String, Object> scheduleConfig) {
         this.scheduleConfig = scheduleConfig;
     }
 
@@ -252,10 +242,6 @@ public class UpdateReverseEtlModelInput {
      * @return query
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(
-            value =
-                    "The SQL query that will be executed to extract data from the connected"
-                            + " Source.")
     public String getQuery() {
         return query;
     }
@@ -277,10 +263,6 @@ public class UpdateReverseEtlModelInput {
      * @return queryIdentifierColumn
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(
-            value =
-                    "Indicates the column named in `query` that should be used to uniquely identify"
-                            + " the extracted records.")
     public String getQueryIdentifierColumn() {
         return queryIdentifierColumn;
     }
@@ -310,15 +292,6 @@ public class UpdateReverseEtlModelInput {
                         updateReverseEtlModelInput.queryIdentifierColumn);
     }
 
-    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-        return a == b
-                || (a != null
-                        && b != null
-                        && a.isPresent()
-                        && b.isPresent()
-                        && Objects.deepEquals(a.get(), b.get()));
-    }
-
     @Override
     public int hashCode() {
         return Objects.hash(
@@ -329,13 +302,6 @@ public class UpdateReverseEtlModelInput {
                 scheduleConfig,
                 query,
                 queryIdentifierColumn);
-    }
-
-    private static <T> int hashCodeNullable(JsonNullable<T> a) {
-        if (a == null) {
-            return 1;
-        }
-        return a.isPresent() ? Arrays.deepHashCode(new Object[] {a.get()}) : 31;
     }
 
     @Override
@@ -385,15 +351,15 @@ public class UpdateReverseEtlModelInput {
     }
 
     /**
-     * Validates the JSON Object and throws an exception if issues found
+     * Validates the JSON Element and throws an exception if issues found
      *
-     * @param jsonObj JSON Object
-     * @throws IOException if the JSON Object is invalid with respect to UpdateReverseEtlModelInput
+     * @param jsonElement JSON Element
+     * @throws IOException if the JSON Element is invalid with respect to UpdateReverseEtlModelInput
      */
-    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-        if (jsonObj == null) {
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        if (jsonElement == null) {
             if (!UpdateReverseEtlModelInput.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON object is null
+                    .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in UpdateReverseEtlModelInput is not"
@@ -402,17 +368,18 @@ public class UpdateReverseEtlModelInput {
             }
         }
 
-        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
-        for (Entry<String, JsonElement> entry : entries) {
+        for (Map.Entry<String, JsonElement> entry : entries) {
             if (!UpdateReverseEtlModelInput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
                                         + " `UpdateReverseEtlModelInput` properties. JSON: %s",
-                                entry.getKey(), jsonObj.toString()));
+                                entry.getKey(), jsonElement.toString()));
             }
         }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
         if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull())
                 && !jsonObj.get("name").isJsonPrimitive()) {
             throw new IllegalArgumentException(
@@ -480,9 +447,9 @@ public class UpdateReverseEtlModelInput {
 
                         @Override
                         public UpdateReverseEtlModelInput read(JsonReader in) throws IOException {
-                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-                            validateJsonObject(jsonObj);
-                            return thisAdapter.fromJsonTree(jsonObj);
+                            JsonElement jsonElement = elementAdapter.read(in);
+                            validateJsonElement(jsonElement);
+                            return thisAdapter.fromJsonTree(jsonElement);
                         }
                     }.nullSafe();
         }

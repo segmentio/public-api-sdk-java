@@ -11,7 +11,6 @@
 
 package com.segment.publicapi.api;
 
-
 import com.google.gson.reflect.TypeToken;
 import com.segment.publicapi.ApiCallback;
 import com.segment.publicapi.ApiClient;
@@ -105,8 +104,8 @@ public class CatalogApi {
         // create path and map variables
         String localVarPath =
                 "/catalog/destinations/{destinationMetadataId}"
-                        .replaceAll(
-                                "\\{" + "destinationMetadataId" + "\\}",
+                        .replace(
+                                "{" + "destinationMetadataId" + "}",
                                 localVarApiClient.escapeString(destinationMetadataId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -127,7 +126,6 @@ public class CatalogApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -152,7 +150,6 @@ public class CatalogApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getDestinationMetadataValidateBeforeCall(
             String destinationMetadataId, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'destinationMetadataId' is set
         if (destinationMetadataId == null) {
             throw new ApiException(
@@ -160,8 +157,7 @@ public class CatalogApi {
                             + " getDestinationMetadata(Async)");
         }
 
-        okhttp3.Call localVarCall = getDestinationMetadataCall(destinationMetadataId, _callback);
-        return localVarCall;
+        return getDestinationMetadataCall(destinationMetadataId, _callback);
     }
 
     /**
@@ -239,6 +235,7 @@ public class CatalogApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for getDestinationsCatalog
      *
@@ -298,7 +295,6 @@ public class CatalogApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -323,7 +319,6 @@ public class CatalogApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getDestinationsCatalogValidateBeforeCall(
             PaginationInput pagination, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'pagination' is set
         if (pagination == null) {
             throw new ApiException(
@@ -331,8 +326,7 @@ public class CatalogApi {
                             + " getDestinationsCatalog(Async)");
         }
 
-        okhttp3.Call localVarCall = getDestinationsCatalogCall(pagination, _callback);
-        return localVarCall;
+        return getDestinationsCatalogCall(pagination, _callback);
     }
 
     /**
@@ -412,6 +406,7 @@ public class CatalogApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for getSourceMetadata
      *
@@ -448,8 +443,8 @@ public class CatalogApi {
         // create path and map variables
         String localVarPath =
                 "/catalog/sources/{sourceMetadataId}"
-                        .replaceAll(
-                                "\\{" + "sourceMetadataId" + "\\}",
+                        .replace(
+                                "{" + "sourceMetadataId" + "}",
                                 localVarApiClient.escapeString(sourceMetadataId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -470,7 +465,6 @@ public class CatalogApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -495,7 +489,6 @@ public class CatalogApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getSourceMetadataValidateBeforeCall(
             String sourceMetadataId, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'sourceMetadataId' is set
         if (sourceMetadataId == null) {
             throw new ApiException(
@@ -503,8 +496,7 @@ public class CatalogApi {
                             + " getSourceMetadata(Async)");
         }
 
-        okhttp3.Call localVarCall = getSourceMetadataCall(sourceMetadataId, _callback);
-        return localVarCall;
+        return getSourceMetadataCall(sourceMetadataId, _callback);
     }
 
     /**
@@ -580,6 +572,7 @@ public class CatalogApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for getSourcesCatalog
      *
@@ -638,7 +631,6 @@ public class CatalogApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -663,7 +655,6 @@ public class CatalogApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getSourcesCatalogValidateBeforeCall(
             PaginationInput pagination, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'pagination' is set
         if (pagination == null) {
             throw new ApiException(
@@ -671,8 +662,7 @@ public class CatalogApi {
                             + " getSourcesCatalog(Async)");
         }
 
-        okhttp3.Call localVarCall = getSourcesCatalogCall(pagination, _callback);
-        return localVarCall;
+        return getSourcesCatalogCall(pagination, _callback);
     }
 
     /**
@@ -748,6 +738,7 @@ public class CatalogApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for getWarehouseMetadata
      *
@@ -784,8 +775,8 @@ public class CatalogApi {
         // create path and map variables
         String localVarPath =
                 "/catalog/warehouses/{warehouseMetadataId}"
-                        .replaceAll(
-                                "\\{" + "warehouseMetadataId" + "\\}",
+                        .replace(
+                                "{" + "warehouseMetadataId" + "}",
                                 localVarApiClient.escapeString(warehouseMetadataId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -806,7 +797,6 @@ public class CatalogApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -831,7 +821,6 @@ public class CatalogApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getWarehouseMetadataValidateBeforeCall(
             String warehouseMetadataId, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'warehouseMetadataId' is set
         if (warehouseMetadataId == null) {
             throw new ApiException(
@@ -839,8 +828,7 @@ public class CatalogApi {
                             + " getWarehouseMetadata(Async)");
         }
 
-        okhttp3.Call localVarCall = getWarehouseMetadataCall(warehouseMetadataId, _callback);
-        return localVarCall;
+        return getWarehouseMetadataCall(warehouseMetadataId, _callback);
     }
 
     /**
@@ -918,6 +906,7 @@ public class CatalogApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for getWarehousesCatalog
      *
@@ -977,7 +966,6 @@ public class CatalogApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1002,7 +990,6 @@ public class CatalogApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getWarehousesCatalogValidateBeforeCall(
             PaginationInput pagination, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'pagination' is set
         if (pagination == null) {
             throw new ApiException(
@@ -1010,8 +997,7 @@ public class CatalogApi {
                             + " getWarehousesCatalog(Async)");
         }
 
-        okhttp3.Call localVarCall = getWarehousesCatalogCall(pagination, _callback);
-        return localVarCall;
+        return getWarehousesCatalogCall(pagination, _callback);
     }
 
     /**

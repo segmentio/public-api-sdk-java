@@ -11,7 +11,6 @@
 
 package com.segment.publicapi.api;
 
-
 import com.google.gson.reflect.TypeToken;
 import com.segment.publicapi.ApiCallback;
 import com.segment.publicapi.ApiClient;
@@ -108,8 +107,8 @@ public class SpacesApi {
         // create path and map variables
         String localVarPath =
                 "/spaces/{spaceId}/messaging-subscriptions/batch"
-                        .replaceAll(
-                                "\\{" + "spaceId" + "\\}",
+                        .replace(
+                                "{" + "spaceId" + "}",
                                 localVarApiClient.escapeString(spaceId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -155,7 +154,6 @@ public class SpacesApi {
                     batchQueryMessagingSubscriptionsForSpaceAlphaInput,
             final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new ApiException(
@@ -171,10 +169,8 @@ public class SpacesApi {
                             + " batchQueryMessagingSubscriptionsForSpace(Async)");
         }
 
-        okhttp3.Call localVarCall =
-                batchQueryMessagingSubscriptionsForSpaceCall(
-                        spaceId, batchQueryMessagingSubscriptionsForSpaceAlphaInput, _callback);
-        return localVarCall;
+        return batchQueryMessagingSubscriptionsForSpaceCall(
+                spaceId, batchQueryMessagingSubscriptionsForSpaceAlphaInput, _callback);
     }
 
     /**
@@ -282,6 +278,7 @@ public class SpacesApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for getSpace
      *
@@ -318,8 +315,8 @@ public class SpacesApi {
         // create path and map variables
         String localVarPath =
                 "/spaces/{spaceId}"
-                        .replaceAll(
-                                "\\{" + "spaceId" + "\\}",
+                        .replace(
+                                "{" + "spaceId" + "}",
                                 localVarApiClient.escapeString(spaceId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -337,7 +334,6 @@ public class SpacesApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -362,15 +358,13 @@ public class SpacesApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getSpaceValidateBeforeCall(String spaceId, final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new ApiException(
                     "Missing the required parameter 'spaceId' when calling getSpace(Async)");
         }
 
-        okhttp3.Call localVarCall = getSpaceCall(spaceId, _callback);
-        return localVarCall;
+        return getSpaceCall(spaceId, _callback);
     }
 
     /**
@@ -451,6 +445,7 @@ public class SpacesApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for replaceMessagingSubscriptionsInSpaces
      *
@@ -492,8 +487,8 @@ public class SpacesApi {
         // create path and map variables
         String localVarPath =
                 "/spaces/{spaceId}/messaging-subscriptions"
-                        .replaceAll(
-                                "\\{" + "spaceId" + "\\}",
+                        .replace(
+                                "{" + "spaceId" + "}",
                                 localVarApiClient.escapeString(spaceId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -539,7 +534,6 @@ public class SpacesApi {
                     replaceMessagingSubscriptionsInSpacesAlphaInput,
             final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new ApiException(
@@ -555,10 +549,8 @@ public class SpacesApi {
                             + " replaceMessagingSubscriptionsInSpaces(Async)");
         }
 
-        okhttp3.Call localVarCall =
-                replaceMessagingSubscriptionsInSpacesCall(
-                        spaceId, replaceMessagingSubscriptionsInSpacesAlphaInput, _callback);
-        return localVarCall;
+        return replaceMessagingSubscriptionsInSpacesCall(
+                spaceId, replaceMessagingSubscriptionsInSpacesAlphaInput, _callback);
     }
 
     /**

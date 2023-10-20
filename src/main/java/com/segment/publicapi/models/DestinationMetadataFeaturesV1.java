@@ -11,7 +11,6 @@
 
 package com.segment.publicapi.models;
 
-
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -23,16 +22,13 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map.Entry;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
 /** Represents features that a given Destination supports. */
-@ApiModel(description = "Represents features that a given Destination supports.")
 public class DestinationMetadataFeaturesV1 {
     /**
      * This Destination&#39;s support level for cloud mode instances. The values &#39;0&#39; and
@@ -186,10 +182,6 @@ public class DestinationMetadataFeaturesV1 {
      * @return cloudModeInstances
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(
-            value =
-                    "This Destination's support level for cloud mode instances. The values '0' and"
-                            + " 'NONE', and '1' and 'SINGLE' are equivalent.")
     public CloudModeInstancesEnum getCloudModeInstances() {
         return cloudModeInstances;
     }
@@ -213,11 +205,6 @@ public class DestinationMetadataFeaturesV1 {
      * @return deviceModeInstances
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(
-            value =
-                    "This Destination's support level for device mode instances. Support for"
-                        + " multiple device mode instances is currently not planned. The values '0'"
-                        + " and 'NONE', and '1' and 'SINGLE' are equivalent.")
     public DeviceModeInstancesEnum getDeviceModeInstances() {
         return deviceModeInstances;
     }
@@ -238,7 +225,6 @@ public class DestinationMetadataFeaturesV1 {
      * @return replay
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(value = "Whether this Destination supports replays.")
     public Boolean getReplay() {
         return replay;
     }
@@ -259,7 +245,6 @@ public class DestinationMetadataFeaturesV1 {
      * @return browserUnbundling
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(value = "Whether this Destination supports browser unbundling.")
     public Boolean getBrowserUnbundling() {
         return browserUnbundling;
     }
@@ -280,7 +265,6 @@ public class DestinationMetadataFeaturesV1 {
      * @return browserUnbundlingPublic
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(value = "Whether this Destination supports public browser unbundling.")
     public Boolean getBrowserUnbundlingPublic() {
         return browserUnbundlingPublic;
     }
@@ -370,16 +354,16 @@ public class DestinationMetadataFeaturesV1 {
     }
 
     /**
-     * Validates the JSON Object and throws an exception if issues found
+     * Validates the JSON Element and throws an exception if issues found
      *
-     * @param jsonObj JSON Object
-     * @throws IOException if the JSON Object is invalid with respect to
+     * @param jsonElement JSON Element
+     * @throws IOException if the JSON Element is invalid with respect to
      *     DestinationMetadataFeaturesV1
      */
-    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-        if (jsonObj == null) {
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        if (jsonElement == null) {
             if (!DestinationMetadataFeaturesV1.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON object is null
+                    .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in DestinationMetadataFeaturesV1 is not"
@@ -388,17 +372,18 @@ public class DestinationMetadataFeaturesV1 {
             }
         }
 
-        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
-        for (Entry<String, JsonElement> entry : entries) {
+        for (Map.Entry<String, JsonElement> entry : entries) {
             if (!DestinationMetadataFeaturesV1.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
                                         + " `DestinationMetadataFeaturesV1` properties. JSON: %s",
-                                entry.getKey(), jsonObj.toString()));
+                                entry.getKey(), jsonElement.toString()));
             }
         }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
         if ((jsonObj.get("cloudModeInstances") != null
                         && !jsonObj.get("cloudModeInstances").isJsonNull())
                 && !jsonObj.get("cloudModeInstances").isJsonPrimitive()) {
@@ -444,9 +429,9 @@ public class DestinationMetadataFeaturesV1 {
                         @Override
                         public DestinationMetadataFeaturesV1 read(JsonReader in)
                                 throws IOException {
-                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-                            validateJsonObject(jsonObj);
-                            return thisAdapter.fromJsonTree(jsonObj);
+                            JsonElement jsonElement = elementAdapter.read(in);
+                            validateJsonElement(jsonElement);
+                            return thisAdapter.fromJsonTree(jsonElement);
                         }
                     }.nullSafe();
         }

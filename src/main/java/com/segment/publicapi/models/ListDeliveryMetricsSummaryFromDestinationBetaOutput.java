@@ -11,7 +11,6 @@
 
 package com.segment.publicapi.models;
 
-
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -22,26 +21,23 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map.Entry;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
 /** Output to retrieve event delivery metrics summary for a Destination. */
-@ApiModel(description = "Output to retrieve event delivery metrics summary for a Destination.")
 public class ListDeliveryMetricsSummaryFromDestinationBetaOutput {
     public static final String SERIALIZED_NAME_DELIVERY_METRICS_SUMMARY = "deliveryMetricsSummary";
 
     @SerializedName(SERIALIZED_NAME_DELIVERY_METRICS_SUMMARY)
-    private DeliveryMetricsSummary deliveryMetricsSummary;
+    private DeliveryMetricsSummaryBeta deliveryMetricsSummary;
 
     public ListDeliveryMetricsSummaryFromDestinationBetaOutput() {}
 
     public ListDeliveryMetricsSummaryFromDestinationBetaOutput deliveryMetricsSummary(
-            DeliveryMetricsSummary deliveryMetricsSummary) {
+            DeliveryMetricsSummaryBeta deliveryMetricsSummary) {
 
         this.deliveryMetricsSummary = deliveryMetricsSummary;
         return this;
@@ -53,12 +49,11 @@ public class ListDeliveryMetricsSummaryFromDestinationBetaOutput {
      * @return deliveryMetricsSummary
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "")
-    public DeliveryMetricsSummary getDeliveryMetricsSummary() {
+    public DeliveryMetricsSummaryBeta getDeliveryMetricsSummary() {
         return deliveryMetricsSummary;
     }
 
-    public void setDeliveryMetricsSummary(DeliveryMetricsSummary deliveryMetricsSummary) {
+    public void setDeliveryMetricsSummary(DeliveryMetricsSummaryBeta deliveryMetricsSummary) {
         this.deliveryMetricsSummary = deliveryMetricsSummary;
     }
 
@@ -119,16 +114,16 @@ public class ListDeliveryMetricsSummaryFromDestinationBetaOutput {
     }
 
     /**
-     * Validates the JSON Object and throws an exception if issues found
+     * Validates the JSON Element and throws an exception if issues found
      *
-     * @param jsonObj JSON Object
-     * @throws IOException if the JSON Object is invalid with respect to
+     * @param jsonElement JSON Element
+     * @throws IOException if the JSON Element is invalid with respect to
      *     ListDeliveryMetricsSummaryFromDestinationBetaOutput
      */
-    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-        if (jsonObj == null) {
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        if (jsonElement == null) {
             if (!ListDeliveryMetricsSummaryFromDestinationBetaOutput.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON object is null
+                    .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in"
@@ -140,9 +135,9 @@ public class ListDeliveryMetricsSummaryFromDestinationBetaOutput {
             }
         }
 
-        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
-        for (Entry<String, JsonElement> entry : entries) {
+        for (Map.Entry<String, JsonElement> entry : entries) {
             if (!ListDeliveryMetricsSummaryFromDestinationBetaOutput.openapiFields.contains(
                     entry.getKey())) {
                 throw new IllegalArgumentException(
@@ -150,20 +145,23 @@ public class ListDeliveryMetricsSummaryFromDestinationBetaOutput {
                                 "The field `%s` in the JSON string is not defined in the"
                                         + " `ListDeliveryMetricsSummaryFromDestinationBetaOutput`"
                                         + " properties. JSON: %s",
-                                entry.getKey(), jsonObj.toString()));
+                                entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
         for (String requiredField :
                 ListDeliveryMetricsSummaryFromDestinationBetaOutput.openapiRequiredFields) {
-            if (jsonObj.get(requiredField) == null) {
+            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonObj.toString()));
+                                requiredField, jsonElement.toString()));
             }
         }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+        // validate the required field `deliveryMetricsSummary`
+        DeliveryMetricsSummaryBeta.validateJsonElement(jsonObj.get("deliveryMetricsSummary"));
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -197,9 +195,9 @@ public class ListDeliveryMetricsSummaryFromDestinationBetaOutput {
                         @Override
                         public ListDeliveryMetricsSummaryFromDestinationBetaOutput read(
                                 JsonReader in) throws IOException {
-                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-                            validateJsonObject(jsonObj);
-                            return thisAdapter.fromJsonTree(jsonObj);
+                            JsonElement jsonElement = elementAdapter.read(in);
+                            validateJsonElement(jsonElement);
+                            return thisAdapter.fromJsonTree(jsonElement);
                         }
                     }.nullSafe();
         }

@@ -11,7 +11,6 @@
 
 package com.segment.publicapi.api;
 
-
 import com.google.gson.reflect.TypeToken;
 import com.segment.publicapi.ApiCallback;
 import com.segment.publicapi.ApiClient;
@@ -113,11 +112,11 @@ public class WarehousesApi {
         // create path and map variables
         String localVarPath =
                 "/warehouses/{warehouseId}/connected-sources/{sourceId}"
-                        .replaceAll(
-                                "\\{" + "warehouseId" + "\\}",
+                        .replace(
+                                "{" + "warehouseId" + "}",
                                 localVarApiClient.escapeString(warehouseId.toString()))
-                        .replaceAll(
-                                "\\{" + "sourceId" + "\\}",
+                        .replace(
+                                "{" + "sourceId" + "}",
                                 localVarApiClient.escapeString(sourceId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -138,7 +137,6 @@ public class WarehousesApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -163,7 +161,6 @@ public class WarehousesApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call addConnectionFromSourceToWarehouseValidateBeforeCall(
             String warehouseId, String sourceId, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'warehouseId' is set
         if (warehouseId == null) {
             throw new ApiException(
@@ -178,9 +175,7 @@ public class WarehousesApi {
                             + " addConnectionFromSourceToWarehouse(Async)");
         }
 
-        okhttp3.Call localVarCall =
-                addConnectionFromSourceToWarehouseCall(warehouseId, sourceId, _callback);
-        return localVarCall;
+        return addConnectionFromSourceToWarehouseCall(warehouseId, sourceId, _callback);
     }
 
     /**
@@ -272,6 +267,7 @@ public class WarehousesApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for createValidationInWarehouse
      *
@@ -358,7 +354,6 @@ public class WarehousesApi {
             CreateValidationInWarehouseV1Input createValidationInWarehouseV1Input,
             final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'createValidationInWarehouseV1Input' is set
         if (createValidationInWarehouseV1Input == null) {
             throw new ApiException(
@@ -366,9 +361,7 @@ public class WarehousesApi {
                             + " calling createValidationInWarehouse(Async)");
         }
 
-        okhttp3.Call localVarCall =
-                createValidationInWarehouseCall(createValidationInWarehouseV1Input, _callback);
-        return localVarCall;
+        return createValidationInWarehouseCall(createValidationInWarehouseV1Input, _callback);
     }
 
     /**
@@ -459,6 +452,7 @@ public class WarehousesApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for createWarehouse
      *
@@ -543,7 +537,6 @@ public class WarehousesApi {
     private okhttp3.Call createWarehouseValidateBeforeCall(
             CreateWarehouseV1Input createWarehouseV1Input, final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'createWarehouseV1Input' is set
         if (createWarehouseV1Input == null) {
             throw new ApiException(
@@ -551,8 +544,7 @@ public class WarehousesApi {
                             + " createWarehouse(Async)");
         }
 
-        okhttp3.Call localVarCall = createWarehouseCall(createWarehouseV1Input, _callback);
-        return localVarCall;
+        return createWarehouseCall(createWarehouseV1Input, _callback);
     }
 
     /**
@@ -633,6 +625,7 @@ public class WarehousesApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for deleteWarehouse
      *
@@ -669,8 +662,8 @@ public class WarehousesApi {
         // create path and map variables
         String localVarPath =
                 "/warehouses/{warehouseId}"
-                        .replaceAll(
-                                "\\{" + "warehouseId" + "\\}",
+                        .replace(
+                                "{" + "warehouseId" + "}",
                                 localVarApiClient.escapeString(warehouseId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -691,7 +684,6 @@ public class WarehousesApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -716,7 +708,6 @@ public class WarehousesApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteWarehouseValidateBeforeCall(
             String warehouseId, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'warehouseId' is set
         if (warehouseId == null) {
             throw new ApiException(
@@ -724,8 +715,7 @@ public class WarehousesApi {
                             + " deleteWarehouse(Async)");
         }
 
-        okhttp3.Call localVarCall = deleteWarehouseCall(warehouseId, _callback);
-        return localVarCall;
+        return deleteWarehouseCall(warehouseId, _callback);
     }
 
     /**
@@ -803,6 +793,7 @@ public class WarehousesApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for getConnectionStateFromWarehouse
      *
@@ -839,8 +830,8 @@ public class WarehousesApi {
         // create path and map variables
         String localVarPath =
                 "/warehouses/{warehouseId}/connection-state"
-                        .replaceAll(
-                                "\\{" + "warehouseId" + "\\}",
+                        .replace(
+                                "{" + "warehouseId" + "}",
                                 localVarApiClient.escapeString(warehouseId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -861,7 +852,6 @@ public class WarehousesApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -886,7 +876,6 @@ public class WarehousesApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getConnectionStateFromWarehouseValidateBeforeCall(
             String warehouseId, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'warehouseId' is set
         if (warehouseId == null) {
             throw new ApiException(
@@ -894,8 +883,7 @@ public class WarehousesApi {
                             + " getConnectionStateFromWarehouse(Async)");
         }
 
-        okhttp3.Call localVarCall = getConnectionStateFromWarehouseCall(warehouseId, _callback);
-        return localVarCall;
+        return getConnectionStateFromWarehouseCall(warehouseId, _callback);
     }
 
     /**
@@ -987,6 +975,7 @@ public class WarehousesApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for getWarehouse
      *
@@ -1023,8 +1012,8 @@ public class WarehousesApi {
         // create path and map variables
         String localVarPath =
                 "/warehouses/{warehouseId}"
-                        .replaceAll(
-                                "\\{" + "warehouseId" + "\\}",
+                        .replace(
+                                "{" + "warehouseId" + "}",
                                 localVarApiClient.escapeString(warehouseId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1045,7 +1034,6 @@ public class WarehousesApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1070,7 +1058,6 @@ public class WarehousesApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getWarehouseValidateBeforeCall(
             String warehouseId, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'warehouseId' is set
         if (warehouseId == null) {
             throw new ApiException(
@@ -1078,8 +1065,7 @@ public class WarehousesApi {
                             + " getWarehouse(Async)");
         }
 
-        okhttp3.Call localVarCall = getWarehouseCall(warehouseId, _callback);
-        return localVarCall;
+        return getWarehouseCall(warehouseId, _callback);
     }
 
     /**
@@ -1152,6 +1138,7 @@ public class WarehousesApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for listConnectedSourcesFromWarehouse
      *
@@ -1190,8 +1177,8 @@ public class WarehousesApi {
         // create path and map variables
         String localVarPath =
                 "/warehouses/{warehouseId}/connected-sources"
-                        .replaceAll(
-                                "\\{" + "warehouseId" + "\\}",
+                        .replace(
+                                "{" + "warehouseId" + "}",
                                 localVarApiClient.escapeString(warehouseId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1216,7 +1203,6 @@ public class WarehousesApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1242,7 +1228,6 @@ public class WarehousesApi {
     private okhttp3.Call listConnectedSourcesFromWarehouseValidateBeforeCall(
             String warehouseId, PaginationInput pagination, final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'warehouseId' is set
         if (warehouseId == null) {
             throw new ApiException(
@@ -1257,9 +1242,7 @@ public class WarehousesApi {
                             + " listConnectedSourcesFromWarehouse(Async)");
         }
 
-        okhttp3.Call localVarCall =
-                listConnectedSourcesFromWarehouseCall(warehouseId, pagination, _callback);
-        return localVarCall;
+        return listConnectedSourcesFromWarehouseCall(warehouseId, pagination, _callback);
     }
 
     /**
@@ -1348,6 +1331,7 @@ public class WarehousesApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for listWarehouses
      *
@@ -1406,7 +1390,6 @@ public class WarehousesApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1431,7 +1414,6 @@ public class WarehousesApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listWarehousesValidateBeforeCall(
             PaginationInput pagination, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'pagination' is set
         if (pagination == null) {
             throw new ApiException(
@@ -1439,8 +1421,7 @@ public class WarehousesApi {
                             + " listWarehouses(Async)");
         }
 
-        okhttp3.Call localVarCall = listWarehousesCall(pagination, _callback);
-        return localVarCall;
+        return listWarehousesCall(pagination, _callback);
     }
 
     /**
@@ -1515,6 +1496,7 @@ public class WarehousesApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for removeSourceConnectionFromWarehouse
      *
@@ -1552,11 +1534,11 @@ public class WarehousesApi {
         // create path and map variables
         String localVarPath =
                 "/warehouses/{warehouseId}/connected-sources/{sourceId}"
-                        .replaceAll(
-                                "\\{" + "warehouseId" + "\\}",
+                        .replace(
+                                "{" + "warehouseId" + "}",
                                 localVarApiClient.escapeString(warehouseId.toString()))
-                        .replaceAll(
-                                "\\{" + "sourceId" + "\\}",
+                        .replace(
+                                "{" + "sourceId" + "}",
                                 localVarApiClient.escapeString(sourceId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1577,7 +1559,6 @@ public class WarehousesApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1602,7 +1583,6 @@ public class WarehousesApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call removeSourceConnectionFromWarehouseValidateBeforeCall(
             String warehouseId, String sourceId, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'warehouseId' is set
         if (warehouseId == null) {
             throw new ApiException(
@@ -1617,9 +1597,7 @@ public class WarehousesApi {
                             + " removeSourceConnectionFromWarehouse(Async)");
         }
 
-        okhttp3.Call localVarCall =
-                removeSourceConnectionFromWarehouseCall(warehouseId, sourceId, _callback);
-        return localVarCall;
+        return removeSourceConnectionFromWarehouseCall(warehouseId, sourceId, _callback);
     }
 
     /**
@@ -1706,6 +1684,7 @@ public class WarehousesApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for updateWarehouse
      *
@@ -1746,8 +1725,8 @@ public class WarehousesApi {
         // create path and map variables
         String localVarPath =
                 "/warehouses/{warehouseId}"
-                        .replaceAll(
-                                "\\{" + "warehouseId" + "\\}",
+                        .replace(
+                                "{" + "warehouseId" + "}",
                                 localVarApiClient.escapeString(warehouseId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -1799,7 +1778,6 @@ public class WarehousesApi {
             UpdateWarehouseV1Input updateWarehouseV1Input,
             final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'warehouseId' is set
         if (warehouseId == null) {
             throw new ApiException(
@@ -1814,9 +1792,7 @@ public class WarehousesApi {
                             + " updateWarehouse(Async)");
         }
 
-        okhttp3.Call localVarCall =
-                updateWarehouseCall(warehouseId, updateWarehouseV1Input, _callback);
-        return localVarCall;
+        return updateWarehouseCall(warehouseId, updateWarehouseV1Input, _callback);
     }
 
     /**
