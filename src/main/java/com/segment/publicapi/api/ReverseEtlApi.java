@@ -11,7 +11,6 @@
 
 package com.segment.publicapi.api;
 
-
 import com.google.gson.reflect.TypeToken;
 import com.segment.publicapi.ApiCallback;
 import com.segment.publicapi.ApiClient;
@@ -147,7 +146,6 @@ public class ReverseEtlApi {
     private okhttp3.Call createReverseEtlModelValidateBeforeCall(
             CreateReverseEtlModelInput createReverseEtlModelInput, final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'createReverseEtlModelInput' is set
         if (createReverseEtlModelInput == null) {
             throw new ApiException(
@@ -155,9 +153,7 @@ public class ReverseEtlApi {
                             + " createReverseEtlModel(Async)");
         }
 
-        okhttp3.Call localVarCall =
-                createReverseEtlModelCall(createReverseEtlModelInput, _callback);
-        return localVarCall;
+        return createReverseEtlModelCall(createReverseEtlModelInput, _callback);
     }
 
     /**
@@ -239,6 +235,7 @@ public class ReverseEtlApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for deleteReverseEtlModel
      *
@@ -275,8 +272,8 @@ public class ReverseEtlApi {
         // create path and map variables
         String localVarPath =
                 "/reverse-etl-models/{modelId}"
-                        .replaceAll(
-                                "\\{" + "modelId" + "\\}",
+                        .replace(
+                                "{" + "modelId" + "}",
                                 localVarApiClient.escapeString(modelId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -294,7 +291,6 @@ public class ReverseEtlApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -319,7 +315,6 @@ public class ReverseEtlApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteReverseEtlModelValidateBeforeCall(
             String modelId, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'modelId' is set
         if (modelId == null) {
             throw new ApiException(
@@ -327,8 +322,7 @@ public class ReverseEtlApi {
                             + " deleteReverseEtlModel(Async)");
         }
 
-        okhttp3.Call localVarCall = deleteReverseEtlModelCall(modelId, _callback);
-        return localVarCall;
+        return deleteReverseEtlModelCall(modelId, _callback);
     }
 
     /**
@@ -407,6 +401,7 @@ public class ReverseEtlApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for getReverseEtlModel
      *
@@ -443,8 +438,8 @@ public class ReverseEtlApi {
         // create path and map variables
         String localVarPath =
                 "/reverse-etl-models/{modelId}"
-                        .replaceAll(
-                                "\\{" + "modelId" + "\\}",
+                        .replace(
+                                "{" + "modelId" + "}",
                                 localVarApiClient.escapeString(modelId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -462,7 +457,6 @@ public class ReverseEtlApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -487,7 +481,6 @@ public class ReverseEtlApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getReverseEtlModelValidateBeforeCall(
             String modelId, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'modelId' is set
         if (modelId == null) {
             throw new ApiException(
@@ -495,8 +488,7 @@ public class ReverseEtlApi {
                             + " getReverseEtlModel(Async)");
         }
 
-        okhttp3.Call localVarCall = getReverseEtlModelCall(modelId, _callback);
-        return localVarCall;
+        return getReverseEtlModelCall(modelId, _callback);
     }
 
     /**
@@ -570,6 +562,7 @@ public class ReverseEtlApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for listReverseEtlModels
      *
@@ -626,7 +619,6 @@ public class ReverseEtlApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -651,7 +643,6 @@ public class ReverseEtlApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listReverseEtlModelsValidateBeforeCall(
             PaginationInput pagination, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'pagination' is set
         if (pagination == null) {
             throw new ApiException(
@@ -659,8 +650,7 @@ public class ReverseEtlApi {
                             + " listReverseEtlModels(Async)");
         }
 
-        okhttp3.Call localVarCall = listReverseEtlModelsCall(pagination, _callback);
-        return localVarCall;
+        return listReverseEtlModelsCall(pagination, _callback);
     }
 
     /**
@@ -739,6 +729,7 @@ public class ReverseEtlApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for updateReverseEtlModel
      *
@@ -779,8 +770,8 @@ public class ReverseEtlApi {
         // create path and map variables
         String localVarPath =
                 "/reverse-etl-models/{modelId}"
-                        .replaceAll(
-                                "\\{" + "modelId" + "\\}",
+                        .replace(
+                                "{" + "modelId" + "}",
                                 localVarApiClient.escapeString(modelId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -825,7 +816,6 @@ public class ReverseEtlApi {
             UpdateReverseEtlModelInput updateReverseEtlModelInput,
             final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'modelId' is set
         if (modelId == null) {
             throw new ApiException(
@@ -840,9 +830,7 @@ public class ReverseEtlApi {
                             + " updateReverseEtlModel(Async)");
         }
 
-        okhttp3.Call localVarCall =
-                updateReverseEtlModelCall(modelId, updateReverseEtlModelInput, _callback);
-        return localVarCall;
+        return updateReverseEtlModelCall(modelId, updateReverseEtlModelInput, _callback);
     }
 
     /**

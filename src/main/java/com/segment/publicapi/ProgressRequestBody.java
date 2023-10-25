@@ -11,7 +11,6 @@
 
 package com.segment.publicapi;
 
-
 import java.io.IOException;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;

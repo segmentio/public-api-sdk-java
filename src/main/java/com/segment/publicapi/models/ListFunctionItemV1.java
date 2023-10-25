@@ -11,7 +11,6 @@
 
 package com.segment.publicapi.models;
 
-
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -23,16 +22,13 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map.Entry;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
 /** Represents a Function in a list. */
-@ApiModel(description = "Represents a Function in a list.")
 public class ListFunctionItemV1 {
     public static final String SERIALIZED_NAME_ID = "id";
 
@@ -136,7 +132,6 @@ public class ListFunctionItemV1 {
      * @return id
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(value = "An identifier for this Function.")
     public String getId() {
         return id;
     }
@@ -157,7 +152,6 @@ public class ListFunctionItemV1 {
      * @return resourceType
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(value = "The Function type.  Config API note: equal to `type`.")
     public ResourceTypeEnum getResourceType() {
         return resourceType;
     }
@@ -178,7 +172,6 @@ public class ListFunctionItemV1 {
      * @return createdAt
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(value = "The time this Function was created.")
     public String getCreatedAt() {
         return createdAt;
     }
@@ -199,7 +192,6 @@ public class ListFunctionItemV1 {
      * @return createdBy
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(value = "The id of the user who created this Function.")
     public String getCreatedBy() {
         return createdBy;
     }
@@ -220,7 +212,6 @@ public class ListFunctionItemV1 {
      * @return displayName
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(value = "A display name for this Function.")
     public String getDisplayName() {
         return displayName;
     }
@@ -241,7 +232,6 @@ public class ListFunctionItemV1 {
      * @return description
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(value = "A description for this Function.")
     public String getDescription() {
         return description;
     }
@@ -262,7 +252,6 @@ public class ListFunctionItemV1 {
      * @return logoUrl
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(value = "The URL of the logo for this Function.")
     public String getLogoUrl() {
         return logoUrl;
     }
@@ -283,7 +272,6 @@ public class ListFunctionItemV1 {
      * @return catalogId
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(value = "The catalog id of this Function.")
     public String getCatalogId() {
         return catalogId;
     }
@@ -371,15 +359,15 @@ public class ListFunctionItemV1 {
     }
 
     /**
-     * Validates the JSON Object and throws an exception if issues found
+     * Validates the JSON Element and throws an exception if issues found
      *
-     * @param jsonObj JSON Object
-     * @throws IOException if the JSON Object is invalid with respect to ListFunctionItemV1
+     * @param jsonElement JSON Element
+     * @throws IOException if the JSON Element is invalid with respect to ListFunctionItemV1
      */
-    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-        if (jsonObj == null) {
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        if (jsonElement == null) {
             if (!ListFunctionItemV1.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON object is null
+                    .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in ListFunctionItemV1 is not found in the"
@@ -388,17 +376,18 @@ public class ListFunctionItemV1 {
             }
         }
 
-        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
-        for (Entry<String, JsonElement> entry : entries) {
+        for (Map.Entry<String, JsonElement> entry : entries) {
             if (!ListFunctionItemV1.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
                                         + " `ListFunctionItemV1` properties. JSON: %s",
-                                entry.getKey(), jsonObj.toString()));
+                                entry.getKey(), jsonElement.toString()));
             }
         }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
         if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull())
                 && !jsonObj.get("id").isJsonPrimitive()) {
             throw new IllegalArgumentException(
@@ -487,9 +476,9 @@ public class ListFunctionItemV1 {
 
                         @Override
                         public ListFunctionItemV1 read(JsonReader in) throws IOException {
-                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-                            validateJsonObject(jsonObj);
-                            return thisAdapter.fromJsonTree(jsonObj);
+                            JsonElement jsonElement = elementAdapter.read(in);
+                            validateJsonElement(jsonElement);
+                            return thisAdapter.fromJsonTree(jsonElement);
                         }
                     }.nullSafe();
         }

@@ -11,7 +11,6 @@
 
 package com.segment.publicapi.api;
 
-
 import com.google.gson.reflect.TypeToken;
 import com.segment.publicapi.ApiCallback;
 import com.segment.publicapi.ApiClient;
@@ -107,8 +106,8 @@ public class EdgeFunctionsApi {
         // create path and map variables
         String localVarPath =
                 "/sources/{sourceId}/edge-functions"
-                        .replaceAll(
-                                "\\{" + "sourceId" + "\\}",
+                        .replace(
+                                "{" + "sourceId" + "}",
                                 localVarApiClient.escapeString(sourceId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -153,7 +152,6 @@ public class EdgeFunctionsApi {
             CreateEdgeFunctionsAlphaInput createEdgeFunctionsAlphaInput,
             final ApiCallback _callback)
             throws ApiException {
-
         // verify the required parameter 'sourceId' is set
         if (sourceId == null) {
             throw new ApiException(
@@ -168,9 +166,7 @@ public class EdgeFunctionsApi {
                             + " createEdgeFunctions(Async)");
         }
 
-        okhttp3.Call localVarCall =
-                createEdgeFunctionsCall(sourceId, createEdgeFunctionsAlphaInput, _callback);
-        return localVarCall;
+        return createEdgeFunctionsCall(sourceId, createEdgeFunctionsAlphaInput, _callback);
     }
 
     /**
@@ -268,6 +264,7 @@ public class EdgeFunctionsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for disableEdgeFunctions
      *
@@ -304,8 +301,8 @@ public class EdgeFunctionsApi {
         // create path and map variables
         String localVarPath =
                 "/sources/{sourceId}/edge-functions/disable"
-                        .replaceAll(
-                                "\\{" + "sourceId" + "\\}",
+                        .replace(
+                                "{" + "sourceId" + "}",
                                 localVarApiClient.escapeString(sourceId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -323,7 +320,6 @@ public class EdgeFunctionsApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -348,7 +344,6 @@ public class EdgeFunctionsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call disableEdgeFunctionsValidateBeforeCall(
             String sourceId, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'sourceId' is set
         if (sourceId == null) {
             throw new ApiException(
@@ -356,8 +351,7 @@ public class EdgeFunctionsApi {
                             + " disableEdgeFunctions(Async)");
         }
 
-        okhttp3.Call localVarCall = disableEdgeFunctionsCall(sourceId, _callback);
-        return localVarCall;
+        return disableEdgeFunctionsCall(sourceId, _callback);
     }
 
     /**
@@ -444,6 +438,7 @@ public class EdgeFunctionsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for generateUploadURLForEdgeFunctions
      *
@@ -480,8 +475,8 @@ public class EdgeFunctionsApi {
         // create path and map variables
         String localVarPath =
                 "/sources/{sourceId}/edge-functions/upload-url"
-                        .replaceAll(
-                                "\\{" + "sourceId" + "\\}",
+                        .replace(
+                                "{" + "sourceId" + "}",
                                 localVarApiClient.escapeString(sourceId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -499,7 +494,6 @@ public class EdgeFunctionsApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -524,7 +518,6 @@ public class EdgeFunctionsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call generateUploadURLForEdgeFunctionsValidateBeforeCall(
             String sourceId, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'sourceId' is set
         if (sourceId == null) {
             throw new ApiException(
@@ -532,8 +525,7 @@ public class EdgeFunctionsApi {
                             + " generateUploadURLForEdgeFunctions(Async)");
         }
 
-        okhttp3.Call localVarCall = generateUploadURLForEdgeFunctionsCall(sourceId, _callback);
-        return localVarCall;
+        return generateUploadURLForEdgeFunctionsCall(sourceId, _callback);
     }
 
     /**
@@ -625,6 +617,7 @@ public class EdgeFunctionsApi {
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for getLatestFromEdgeFunctions
      *
@@ -661,8 +654,8 @@ public class EdgeFunctionsApi {
         // create path and map variables
         String localVarPath =
                 "/sources/{sourceId}/edge-functions/latest"
-                        .replaceAll(
-                                "\\{" + "sourceId" + "\\}",
+                        .replace(
+                                "{" + "sourceId" + "}",
                                 localVarApiClient.escapeString(sourceId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -680,7 +673,6 @@ public class EdgeFunctionsApi {
         }
 
         final String[] localVarContentTypes = {};
-
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -705,7 +697,6 @@ public class EdgeFunctionsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getLatestFromEdgeFunctionsValidateBeforeCall(
             String sourceId, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'sourceId' is set
         if (sourceId == null) {
             throw new ApiException(
@@ -713,8 +704,7 @@ public class EdgeFunctionsApi {
                             + " getLatestFromEdgeFunctions(Async)");
         }
 
-        okhttp3.Call localVarCall = getLatestFromEdgeFunctionsCall(sourceId, _callback);
-        return localVarCall;
+        return getLatestFromEdgeFunctionsCall(sourceId, _callback);
     }
 
     /**

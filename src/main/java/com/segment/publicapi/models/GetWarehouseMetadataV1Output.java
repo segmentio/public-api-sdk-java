@@ -11,7 +11,6 @@
 
 package com.segment.publicapi.models;
 
-
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -22,25 +21,22 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map.Entry;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
 /** Returns a Warehouse catalog item looked up by id. */
-@ApiModel(description = "Returns a Warehouse catalog item looked up by id.")
 public class GetWarehouseMetadataV1Output {
     public static final String SERIALIZED_NAME_WAREHOUSE_METADATA = "warehouseMetadata";
 
     @SerializedName(SERIALIZED_NAME_WAREHOUSE_METADATA)
-    private WarehouseMetadata warehouseMetadata;
+    private WarehouseMetadataV1 warehouseMetadata;
 
     public GetWarehouseMetadataV1Output() {}
 
-    public GetWarehouseMetadataV1Output warehouseMetadata(WarehouseMetadata warehouseMetadata) {
+    public GetWarehouseMetadataV1Output warehouseMetadata(WarehouseMetadataV1 warehouseMetadata) {
 
         this.warehouseMetadata = warehouseMetadata;
         return this;
@@ -52,12 +48,11 @@ public class GetWarehouseMetadataV1Output {
      * @return warehouseMetadata
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "")
-    public WarehouseMetadata getWarehouseMetadata() {
+    public WarehouseMetadataV1 getWarehouseMetadata() {
         return warehouseMetadata;
     }
 
-    public void setWarehouseMetadata(WarehouseMetadata warehouseMetadata) {
+    public void setWarehouseMetadata(WarehouseMetadataV1 warehouseMetadata) {
         this.warehouseMetadata = warehouseMetadata;
     }
 
@@ -116,16 +111,16 @@ public class GetWarehouseMetadataV1Output {
     }
 
     /**
-     * Validates the JSON Object and throws an exception if issues found
+     * Validates the JSON Element and throws an exception if issues found
      *
-     * @param jsonObj JSON Object
-     * @throws IOException if the JSON Object is invalid with respect to
+     * @param jsonElement JSON Element
+     * @throws IOException if the JSON Element is invalid with respect to
      *     GetWarehouseMetadataV1Output
      */
-    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-        if (jsonObj == null) {
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        if (jsonElement == null) {
             if (!GetWarehouseMetadataV1Output.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON object is null
+                    .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in GetWarehouseMetadataV1Output is not"
@@ -134,27 +129,30 @@ public class GetWarehouseMetadataV1Output {
             }
         }
 
-        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
-        for (Entry<String, JsonElement> entry : entries) {
+        for (Map.Entry<String, JsonElement> entry : entries) {
             if (!GetWarehouseMetadataV1Output.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
                                         + " `GetWarehouseMetadataV1Output` properties. JSON: %s",
-                                entry.getKey(), jsonObj.toString()));
+                                entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
         for (String requiredField : GetWarehouseMetadataV1Output.openapiRequiredFields) {
-            if (jsonObj.get(requiredField) == null) {
+            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonObj.toString()));
+                                requiredField, jsonElement.toString()));
             }
         }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+        // validate the required field `warehouseMetadata`
+        WarehouseMetadataV1.validateJsonElement(jsonObj.get("warehouseMetadata"));
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -181,9 +179,9 @@ public class GetWarehouseMetadataV1Output {
 
                         @Override
                         public GetWarehouseMetadataV1Output read(JsonReader in) throws IOException {
-                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-                            validateJsonObject(jsonObj);
-                            return thisAdapter.fromJsonTree(jsonObj);
+                            JsonElement jsonElement = elementAdapter.read(in);
+                            validateJsonElement(jsonElement);
+                            return thisAdapter.fromJsonTree(jsonElement);
                         }
                     }.nullSafe();
         }

@@ -12,6 +12,8 @@
 package com.segment.publicapi;
 
 public class Configuration {
+    public static final String VERSION = "36.3.0";
+
     private static ApiClient defaultApiClient = new ApiClient();
 
     /**

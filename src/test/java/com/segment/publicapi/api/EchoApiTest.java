@@ -11,7 +11,6 @@
 
 package com.segment.publicapi.api;
 
-
 import com.google.gson.Gson;
 import com.segment.publicapi.ApiException;
 import com.segment.publicapi.models.Echo200Response;

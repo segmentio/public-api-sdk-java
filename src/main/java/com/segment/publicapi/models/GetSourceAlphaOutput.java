@@ -11,7 +11,6 @@
 
 package com.segment.publicapi.models;
 
-
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -22,25 +21,27 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.HashSet;
-import java.util.Map.Entry;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
 /** Returns a Source. */
-@ApiModel(description = "Returns a Source.")
 public class GetSourceAlphaOutput {
     public static final String SERIALIZED_NAME_SOURCE = "source";
 
     @SerializedName(SERIALIZED_NAME_SOURCE)
-    private Source1 source;
+    private SourceAlpha source;
+
+    public static final String SERIALIZED_NAME_TRACKING_PLAN_ID = "trackingPlanId";
+
+    @SerializedName(SERIALIZED_NAME_TRACKING_PLAN_ID)
+    private String trackingPlanId;
 
     public GetSourceAlphaOutput() {}
 
-    public GetSourceAlphaOutput source(Source1 source) {
+    public GetSourceAlphaOutput source(SourceAlpha source) {
 
         this.source = source;
         return this;
@@ -52,13 +53,32 @@ public class GetSourceAlphaOutput {
      * @return source
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "")
-    public Source1 getSource() {
+    public SourceAlpha getSource() {
         return source;
     }
 
-    public void setSource(Source1 source) {
+    public void setSource(SourceAlpha source) {
         this.source = source;
+    }
+
+    public GetSourceAlphaOutput trackingPlanId(String trackingPlanId) {
+
+        this.trackingPlanId = trackingPlanId;
+        return this;
+    }
+
+    /**
+     * The id of the Tracking Plan connected to the Source.
+     *
+     * @return trackingPlanId
+     */
+    @javax.annotation.Nullable
+    public String getTrackingPlanId() {
+        return trackingPlanId;
+    }
+
+    public void setTrackingPlanId(String trackingPlanId) {
+        this.trackingPlanId = trackingPlanId;
     }
 
     @Override
@@ -70,12 +90,13 @@ public class GetSourceAlphaOutput {
             return false;
         }
         GetSourceAlphaOutput getSourceAlphaOutput = (GetSourceAlphaOutput) o;
-        return Objects.equals(this.source, getSourceAlphaOutput.source);
+        return Objects.equals(this.source, getSourceAlphaOutput.source)
+                && Objects.equals(this.trackingPlanId, getSourceAlphaOutput.trackingPlanId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(source);
+        return Objects.hash(source, trackingPlanId);
     }
 
     @Override
@@ -83,6 +104,7 @@ public class GetSourceAlphaOutput {
         StringBuilder sb = new StringBuilder();
         sb.append("class GetSourceAlphaOutput {\n");
         sb.append("    source: ").append(toIndentedString(source)).append("\n");
+        sb.append("    trackingPlanId: ").append(toIndentedString(trackingPlanId)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -105,22 +127,24 @@ public class GetSourceAlphaOutput {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
         openapiFields.add("source");
+        openapiFields.add("trackingPlanId");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
         openapiRequiredFields.add("source");
+        openapiRequiredFields.add("trackingPlanId");
     }
 
     /**
-     * Validates the JSON Object and throws an exception if issues found
+     * Validates the JSON Element and throws an exception if issues found
      *
-     * @param jsonObj JSON Object
-     * @throws IOException if the JSON Object is invalid with respect to GetSourceAlphaOutput
+     * @param jsonElement JSON Element
+     * @throws IOException if the JSON Element is invalid with respect to GetSourceAlphaOutput
      */
-    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-        if (jsonObj == null) {
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        if (jsonElement == null) {
             if (!GetSourceAlphaOutput.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON object is null
+                    .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in GetSourceAlphaOutput is not found in"
@@ -129,26 +153,37 @@ public class GetSourceAlphaOutput {
             }
         }
 
-        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
-        for (Entry<String, JsonElement> entry : entries) {
+        for (Map.Entry<String, JsonElement> entry : entries) {
             if (!GetSourceAlphaOutput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
                                         + " `GetSourceAlphaOutput` properties. JSON: %s",
-                                entry.getKey(), jsonObj.toString()));
+                                entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
         for (String requiredField : GetSourceAlphaOutput.openapiRequiredFields) {
-            if (jsonObj.get(requiredField) == null) {
+            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonObj.toString()));
+                                requiredField, jsonElement.toString()));
             }
+        }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+        // validate the required field `source`
+        SourceAlpha.validateJsonElement(jsonObj.get("source"));
+        if ((jsonObj.get("trackingPlanId") != null && !jsonObj.get("trackingPlanId").isJsonNull())
+                && !jsonObj.get("trackingPlanId").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `trackingPlanId` to be a primitive type in the JSON"
+                                    + " string but got `%s`",
+                            jsonObj.get("trackingPlanId").toString()));
         }
     }
 
@@ -174,9 +209,9 @@ public class GetSourceAlphaOutput {
 
                         @Override
                         public GetSourceAlphaOutput read(JsonReader in) throws IOException {
-                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-                            validateJsonObject(jsonObj);
-                            return thisAdapter.fromJsonTree(jsonObj);
+                            JsonElement jsonElement = elementAdapter.read(in);
+                            validateJsonElement(jsonElement);
+                            return thisAdapter.fromJsonTree(jsonElement);
                         }
                     }.nullSafe();
         }

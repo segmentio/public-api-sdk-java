@@ -11,7 +11,6 @@
 
 package com.segment.publicapi.models;
 
-
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -23,18 +22,15 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map.Entry;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
 /** The input to create a Cloud Source-scoped regulation. */
-@ApiModel(description = "The input to create a Cloud Source-scoped regulation.")
 public class CreateCloudSourceRegulationV1Input {
     /** The regulation type to create. */
     @JsonAdapter(RegulationTypeEnum.Adapter.class)
@@ -166,7 +162,6 @@ public class CreateCloudSourceRegulationV1Input {
      * @return regulationType
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "The regulation type to create.")
     public RegulationTypeEnum getRegulationType() {
         return regulationType;
     }
@@ -187,9 +182,6 @@ public class CreateCloudSourceRegulationV1Input {
      * @return subjectType
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(
-            required = true,
-            value = "The subject type. Must be `objectId` for Cloud Sources.")
     public SubjectTypeEnum getSubjectType() {
         return subjectType;
     }
@@ -205,6 +197,9 @@ public class CreateCloudSourceRegulationV1Input {
     }
 
     public CreateCloudSourceRegulationV1Input addSubjectIdsItem(String subjectIdsItem) {
+        if (this.subjectIds == null) {
+            this.subjectIds = new ArrayList<>();
+        }
         this.subjectIds.add(subjectIdsItem);
         return this;
     }
@@ -216,11 +211,6 @@ public class CreateCloudSourceRegulationV1Input {
      * @return subjectIds
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(
-            required = true,
-            value =
-                    "The list of `userId` or `objectId` values of the subjects to regulate.  Config"
-                            + " API note: equal to `parent` but allows an array.")
     public List<String> getSubjectIds() {
         return subjectIds;
     }
@@ -241,7 +231,6 @@ public class CreateCloudSourceRegulationV1Input {
      * @return collection
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "The Cloud Source collection to regulate.")
     public String getCollection() {
         return collection;
     }
@@ -315,16 +304,16 @@ public class CreateCloudSourceRegulationV1Input {
     }
 
     /**
-     * Validates the JSON Object and throws an exception if issues found
+     * Validates the JSON Element and throws an exception if issues found
      *
-     * @param jsonObj JSON Object
-     * @throws IOException if the JSON Object is invalid with respect to
+     * @param jsonElement JSON Element
+     * @throws IOException if the JSON Element is invalid with respect to
      *     CreateCloudSourceRegulationV1Input
      */
-    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-        if (jsonObj == null) {
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        if (jsonElement == null) {
             if (!CreateCloudSourceRegulationV1Input.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON object is null
+                    .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in CreateCloudSourceRegulationV1Input is"
@@ -334,27 +323,28 @@ public class CreateCloudSourceRegulationV1Input {
             }
         }
 
-        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
-        for (Entry<String, JsonElement> entry : entries) {
+        for (Map.Entry<String, JsonElement> entry : entries) {
             if (!CreateCloudSourceRegulationV1Input.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
                                     + " `CreateCloudSourceRegulationV1Input` properties. JSON: %s",
-                                entry.getKey(), jsonObj.toString()));
+                                entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
         for (String requiredField : CreateCloudSourceRegulationV1Input.openapiRequiredFields) {
-            if (jsonObj.get(requiredField) == null) {
+            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonObj.toString()));
+                                requiredField, jsonElement.toString()));
             }
         }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
         if (!jsonObj.get("regulationType").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -415,9 +405,9 @@ public class CreateCloudSourceRegulationV1Input {
                         @Override
                         public CreateCloudSourceRegulationV1Input read(JsonReader in)
                                 throws IOException {
-                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-                            validateJsonObject(jsonObj);
-                            return thisAdapter.fromJsonTree(jsonObj);
+                            JsonElement jsonElement = elementAdapter.read(in);
+                            validateJsonElement(jsonElement);
+                            return thisAdapter.fromJsonTree(jsonElement);
                         }
                     }.nullSafe();
         }

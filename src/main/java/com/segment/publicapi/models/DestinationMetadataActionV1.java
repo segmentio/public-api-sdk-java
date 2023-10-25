@@ -11,7 +11,6 @@
 
 package com.segment.publicapi.models;
 
-
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -24,21 +23,15 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map.Entry;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
 /** Represents an Action, a building block of behavior that can be performed by the Destination. */
-@ApiModel(
-        description =
-                "Represents an Action, a building block of behavior that can be performed by the"
-                        + " Destination.")
 public class DestinationMetadataActionV1 {
     public static final String SERIALIZED_NAME_ID = "id";
 
@@ -142,7 +135,6 @@ public class DestinationMetadataActionV1 {
      * @return id
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "The primary key of the action.")
     public String getId() {
         return id;
     }
@@ -163,9 +155,6 @@ public class DestinationMetadataActionV1 {
      * @return slug
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(
-            required = true,
-            value = "A machine-readable key unique to the action definition.")
     public String getSlug() {
         return slug;
     }
@@ -186,7 +175,6 @@ public class DestinationMetadataActionV1 {
      * @return name
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "A human-readable name for the action.")
     public String getName() {
         return name;
     }
@@ -207,9 +195,6 @@ public class DestinationMetadataActionV1 {
      * @return description
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(
-            required = true,
-            value = "A human-readable description of the action. May include Markdown.")
     public String getDescription() {
         return description;
     }
@@ -230,7 +215,6 @@ public class DestinationMetadataActionV1 {
      * @return platform
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "The platform on which this action runs.")
     public PlatformEnum getPlatform() {
         return platform;
     }
@@ -251,7 +235,6 @@ public class DestinationMetadataActionV1 {
      * @return hidden
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(required = true, value = "Whether the action should be hidden.")
     public Boolean getHidden() {
         return hidden;
     }
@@ -272,9 +255,6 @@ public class DestinationMetadataActionV1 {
      * @return defaultTrigger
      */
     @javax.annotation.Nullable
-    @ApiModelProperty(
-            required = true,
-            value = "The default value used as the trigger when connecting this action.")
     public String getDefaultTrigger() {
         return defaultTrigger;
     }
@@ -290,6 +270,9 @@ public class DestinationMetadataActionV1 {
     }
 
     public DestinationMetadataActionV1 addFieldsItem(DestinationMetadataActionFieldV1 fieldsItem) {
+        if (this.fields == null) {
+            this.fields = new ArrayList<>();
+        }
         this.fields.add(fieldsItem);
         return this;
     }
@@ -300,9 +283,6 @@ public class DestinationMetadataActionV1 {
      * @return fields
      */
     @javax.annotation.Nonnull
-    @ApiModelProperty(
-            required = true,
-            value = "The fields expected in order to perform the action.")
     public List<DestinationMetadataActionFieldV1> getFields() {
         return fields;
     }
@@ -390,15 +370,16 @@ public class DestinationMetadataActionV1 {
     }
 
     /**
-     * Validates the JSON Object and throws an exception if issues found
+     * Validates the JSON Element and throws an exception if issues found
      *
-     * @param jsonObj JSON Object
-     * @throws IOException if the JSON Object is invalid with respect to DestinationMetadataActionV1
+     * @param jsonElement JSON Element
+     * @throws IOException if the JSON Element is invalid with respect to
+     *     DestinationMetadataActionV1
      */
-    public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-        if (jsonObj == null) {
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        if (jsonElement == null) {
             if (!DestinationMetadataActionV1.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON object is null
+                    .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in DestinationMetadataActionV1 is not"
@@ -407,27 +388,28 @@ public class DestinationMetadataActionV1 {
             }
         }
 
-        Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
-        for (Entry<String, JsonElement> entry : entries) {
+        for (Map.Entry<String, JsonElement> entry : entries) {
             if (!DestinationMetadataActionV1.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
                                         + " `DestinationMetadataActionV1` properties. JSON: %s",
-                                entry.getKey(), jsonObj.toString()));
+                                entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
         for (String requiredField : DestinationMetadataActionV1.openapiRequiredFields) {
-            if (jsonObj.get(requiredField) == null) {
+            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonObj.toString()));
+                                requiredField, jsonElement.toString()));
             }
         }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
         if (!jsonObj.get("id").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -463,7 +445,8 @@ public class DestinationMetadataActionV1 {
                                     + " string but got `%s`",
                             jsonObj.get("platform").toString()));
         }
-        if (!jsonObj.get("defaultTrigger").isJsonPrimitive()) {
+        if ((jsonObj.get("defaultTrigger") != null && !jsonObj.get("defaultTrigger").isJsonNull())
+                && !jsonObj.get("defaultTrigger").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             "Expected the field `defaultTrigger` to be a primitive type in the JSON"
@@ -480,6 +463,11 @@ public class DestinationMetadataActionV1 {
         }
 
         JsonArray jsonArrayfields = jsonObj.getAsJsonArray("fields");
+        // validate the required field `fields` (array)
+        for (int i = 0; i < jsonArrayfields.size(); i++) {
+            DestinationMetadataActionFieldV1.validateJsonElement(jsonArrayfields.get(i));
+        }
+        ;
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -505,9 +493,9 @@ public class DestinationMetadataActionV1 {
 
                         @Override
                         public DestinationMetadataActionV1 read(JsonReader in) throws IOException {
-                            JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-                            validateJsonObject(jsonObj);
-                            return thisAdapter.fromJsonTree(jsonObj);
+                            JsonElement jsonElement = elementAdapter.read(in);
+                            validateJsonElement(jsonElement);
+                            return thisAdapter.fromJsonTree(jsonElement);
                         }
                     }.nullSafe();
         }
