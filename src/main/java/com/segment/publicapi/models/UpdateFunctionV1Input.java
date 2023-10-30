@@ -47,11 +47,6 @@ public class UpdateFunctionV1Input {
     @SerializedName(SERIALIZED_NAME_DISPLAY_NAME)
     private String displayName;
 
-    public static final String SERIALIZED_NAME_LOGO_URL = "logoUrl";
-
-    @SerializedName(SERIALIZED_NAME_LOGO_URL)
-    private String logoUrl;
-
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -127,26 +122,6 @@ public class UpdateFunctionV1Input {
         this.displayName = displayName;
     }
 
-    public UpdateFunctionV1Input logoUrl(String logoUrl) {
-
-        this.logoUrl = logoUrl;
-        return this;
-    }
-
-    /**
-     * A logo for this Function.
-     *
-     * @return logoUrl
-     */
-    @javax.annotation.Nullable
-    public String getLogoUrl() {
-        return logoUrl;
-    }
-
-    public void setLogoUrl(String logoUrl) {
-        this.logoUrl = logoUrl;
-    }
-
     public UpdateFunctionV1Input description(String description) {
 
         this.description = description;
@@ -179,13 +154,12 @@ public class UpdateFunctionV1Input {
         return Objects.equals(this.code, updateFunctionV1Input.code)
                 && Objects.equals(this.settings, updateFunctionV1Input.settings)
                 && Objects.equals(this.displayName, updateFunctionV1Input.displayName)
-                && Objects.equals(this.logoUrl, updateFunctionV1Input.logoUrl)
                 && Objects.equals(this.description, updateFunctionV1Input.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(code, settings, displayName, logoUrl, description);
+        return Objects.hash(code, settings, displayName, description);
     }
 
     @Override
@@ -195,7 +169,6 @@ public class UpdateFunctionV1Input {
         sb.append("    code: ").append(toIndentedString(code)).append("\n");
         sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
         sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
-        sb.append("    logoUrl: ").append(toIndentedString(logoUrl)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -221,7 +194,6 @@ public class UpdateFunctionV1Input {
         openapiFields.add("code");
         openapiFields.add("settings");
         openapiFields.add("displayName");
-        openapiFields.add("logoUrl");
         openapiFields.add("description");
 
         // a set of required properties/fields (JSON key names)
@@ -292,14 +264,6 @@ public class UpdateFunctionV1Input {
                             "Expected the field `displayName` to be a primitive type in the JSON"
                                     + " string but got `%s`",
                             jsonObj.get("displayName").toString()));
-        }
-        if ((jsonObj.get("logoUrl") != null && !jsonObj.get("logoUrl").isJsonNull())
-                && !jsonObj.get("logoUrl").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `logoUrl` to be a primitive type in the JSON string"
-                                    + " but got `%s`",
-                            jsonObj.get("logoUrl").toString()));
         }
         if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull())
                 && !jsonObj.get("description").isJsonPrimitive()) {

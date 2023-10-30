@@ -48,11 +48,6 @@ public class CreateFunctionV1Input {
     @SerializedName(SERIALIZED_NAME_DISPLAY_NAME)
     private String displayName;
 
-    public static final String SERIALIZED_NAME_LOGO_URL = "logoUrl";
-
-    @SerializedName(SERIALIZED_NAME_LOGO_URL)
-    private String logoUrl;
-
     /** The Function type. Config API note: equal to &#x60;type&#x60;. */
     @JsonAdapter(ResourceTypeEnum.Adapter.class)
     public enum ResourceTypeEnum {
@@ -182,26 +177,6 @@ public class CreateFunctionV1Input {
         this.displayName = displayName;
     }
 
-    public CreateFunctionV1Input logoUrl(String logoUrl) {
-
-        this.logoUrl = logoUrl;
-        return this;
-    }
-
-    /**
-     * The URL of the logo for this Function.
-     *
-     * @return logoUrl
-     */
-    @javax.annotation.Nullable
-    public String getLogoUrl() {
-        return logoUrl;
-    }
-
-    public void setLogoUrl(String logoUrl) {
-        this.logoUrl = logoUrl;
-    }
-
     public CreateFunctionV1Input resourceType(ResourceTypeEnum resourceType) {
 
         this.resourceType = resourceType;
@@ -254,14 +229,13 @@ public class CreateFunctionV1Input {
         return Objects.equals(this.code, createFunctionV1Input.code)
                 && Objects.equals(this.settings, createFunctionV1Input.settings)
                 && Objects.equals(this.displayName, createFunctionV1Input.displayName)
-                && Objects.equals(this.logoUrl, createFunctionV1Input.logoUrl)
                 && Objects.equals(this.resourceType, createFunctionV1Input.resourceType)
                 && Objects.equals(this.description, createFunctionV1Input.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(code, settings, displayName, logoUrl, resourceType, description);
+        return Objects.hash(code, settings, displayName, resourceType, description);
     }
 
     @Override
@@ -271,7 +245,6 @@ public class CreateFunctionV1Input {
         sb.append("    code: ").append(toIndentedString(code)).append("\n");
         sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
         sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
-        sb.append("    logoUrl: ").append(toIndentedString(logoUrl)).append("\n");
         sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("}");
@@ -298,7 +271,6 @@ public class CreateFunctionV1Input {
         openapiFields.add("code");
         openapiFields.add("settings");
         openapiFields.add("displayName");
-        openapiFields.add("logoUrl");
         openapiFields.add("resourceType");
         openapiFields.add("description");
 
@@ -381,14 +353,6 @@ public class CreateFunctionV1Input {
                             "Expected the field `displayName` to be a primitive type in the JSON"
                                     + " string but got `%s`",
                             jsonObj.get("displayName").toString()));
-        }
-        if ((jsonObj.get("logoUrl") != null && !jsonObj.get("logoUrl").isJsonNull())
-                && !jsonObj.get("logoUrl").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `logoUrl` to be a primitive type in the JSON string"
-                                    + " but got `%s`",
-                            jsonObj.get("logoUrl").toString()));
         }
         if (!jsonObj.get("resourceType").isJsonPrimitive()) {
             throw new IllegalArgumentException(
