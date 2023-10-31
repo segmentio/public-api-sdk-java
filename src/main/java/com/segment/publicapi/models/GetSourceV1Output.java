@@ -34,6 +34,11 @@ public class GetSourceV1Output {
     @SerializedName(SERIALIZED_NAME_SOURCE)
     private SourceV1 source;
 
+    public static final String SERIALIZED_NAME_TRACKING_PLAN_ID = "trackingPlanId";
+
+    @SerializedName(SERIALIZED_NAME_TRACKING_PLAN_ID)
+    private String trackingPlanId;
+
     public GetSourceV1Output() {}
 
     public GetSourceV1Output source(SourceV1 source) {
@@ -56,6 +61,26 @@ public class GetSourceV1Output {
         this.source = source;
     }
 
+    public GetSourceV1Output trackingPlanId(String trackingPlanId) {
+
+        this.trackingPlanId = trackingPlanId;
+        return this;
+    }
+
+    /**
+     * The id of the Tracking Plan connected to the Source.
+     *
+     * @return trackingPlanId
+     */
+    @javax.annotation.Nullable
+    public String getTrackingPlanId() {
+        return trackingPlanId;
+    }
+
+    public void setTrackingPlanId(String trackingPlanId) {
+        this.trackingPlanId = trackingPlanId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -65,12 +90,13 @@ public class GetSourceV1Output {
             return false;
         }
         GetSourceV1Output getSourceV1Output = (GetSourceV1Output) o;
-        return Objects.equals(this.source, getSourceV1Output.source);
+        return Objects.equals(this.source, getSourceV1Output.source)
+                && Objects.equals(this.trackingPlanId, getSourceV1Output.trackingPlanId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(source);
+        return Objects.hash(source, trackingPlanId);
     }
 
     @Override
@@ -78,6 +104,7 @@ public class GetSourceV1Output {
         StringBuilder sb = new StringBuilder();
         sb.append("class GetSourceV1Output {\n");
         sb.append("    source: ").append(toIndentedString(source)).append("\n");
+        sb.append("    trackingPlanId: ").append(toIndentedString(trackingPlanId)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -100,10 +127,12 @@ public class GetSourceV1Output {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
         openapiFields.add("source");
+        openapiFields.add("trackingPlanId");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
         openapiRequiredFields.add("source");
+        openapiRequiredFields.add("trackingPlanId");
     }
 
     /**
@@ -148,6 +177,14 @@ public class GetSourceV1Output {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the required field `source`
         SourceV1.validateJsonElement(jsonObj.get("source"));
+        if ((jsonObj.get("trackingPlanId") != null && !jsonObj.get("trackingPlanId").isJsonNull())
+                && !jsonObj.get("trackingPlanId").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `trackingPlanId` to be a primitive type in the JSON"
+                                    + " string but got `%s`",
+                            jsonObj.get("trackingPlanId").toString()));
+        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
