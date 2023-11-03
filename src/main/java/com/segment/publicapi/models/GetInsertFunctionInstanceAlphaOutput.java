@@ -27,58 +27,34 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Returns a Source. */
-public class GetSourceV1Output {
-    public static final String SERIALIZED_NAME_SOURCE = "source";
+/** Returns the insert Function instance. */
+public class GetInsertFunctionInstanceAlphaOutput {
+    public static final String SERIALIZED_NAME_INSERT_FUNCTION_INSTANCE = "insertFunctionInstance";
 
-    @SerializedName(SERIALIZED_NAME_SOURCE)
-    private SourceV1 source;
+    @SerializedName(SERIALIZED_NAME_INSERT_FUNCTION_INSTANCE)
+    private InsertFunctionInstanceAlpha insertFunctionInstance;
 
-    public static final String SERIALIZED_NAME_TRACKING_PLAN_ID = "trackingPlanId";
+    public GetInsertFunctionInstanceAlphaOutput() {}
 
-    @SerializedName(SERIALIZED_NAME_TRACKING_PLAN_ID)
-    private String trackingPlanId;
+    public GetInsertFunctionInstanceAlphaOutput insertFunctionInstance(
+            InsertFunctionInstanceAlpha insertFunctionInstance) {
 
-    public GetSourceV1Output() {}
-
-    public GetSourceV1Output source(SourceV1 source) {
-
-        this.source = source;
+        this.insertFunctionInstance = insertFunctionInstance;
         return this;
     }
 
     /**
-     * Get source
+     * Get insertFunctionInstance
      *
-     * @return source
+     * @return insertFunctionInstance
      */
     @javax.annotation.Nonnull
-    public SourceV1 getSource() {
-        return source;
+    public InsertFunctionInstanceAlpha getInsertFunctionInstance() {
+        return insertFunctionInstance;
     }
 
-    public void setSource(SourceV1 source) {
-        this.source = source;
-    }
-
-    public GetSourceV1Output trackingPlanId(String trackingPlanId) {
-
-        this.trackingPlanId = trackingPlanId;
-        return this;
-    }
-
-    /**
-     * The id of the Tracking Plan connected to the Source.
-     *
-     * @return trackingPlanId
-     */
-    @javax.annotation.Nullable
-    public String getTrackingPlanId() {
-        return trackingPlanId;
-    }
-
-    public void setTrackingPlanId(String trackingPlanId) {
-        this.trackingPlanId = trackingPlanId;
+    public void setInsertFunctionInstance(InsertFunctionInstanceAlpha insertFunctionInstance) {
+        this.insertFunctionInstance = insertFunctionInstance;
     }
 
     @Override
@@ -89,22 +65,25 @@ public class GetSourceV1Output {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        GetSourceV1Output getSourceV1Output = (GetSourceV1Output) o;
-        return Objects.equals(this.source, getSourceV1Output.source)
-                && Objects.equals(this.trackingPlanId, getSourceV1Output.trackingPlanId);
+        GetInsertFunctionInstanceAlphaOutput getInsertFunctionInstanceAlphaOutput =
+                (GetInsertFunctionInstanceAlphaOutput) o;
+        return Objects.equals(
+                this.insertFunctionInstance,
+                getInsertFunctionInstanceAlphaOutput.insertFunctionInstance);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(source, trackingPlanId);
+        return Objects.hash(insertFunctionInstance);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class GetSourceV1Output {\n");
-        sb.append("    source: ").append(toIndentedString(source)).append("\n");
-        sb.append("    trackingPlanId: ").append(toIndentedString(trackingPlanId)).append("\n");
+        sb.append("class GetInsertFunctionInstanceAlphaOutput {\n");
+        sb.append("    insertFunctionInstance: ")
+                .append(toIndentedString(insertFunctionInstance))
+                .append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -126,47 +105,48 @@ public class GetSourceV1Output {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("source");
-        openapiFields.add("trackingPlanId");
+        openapiFields.add("insertFunctionInstance");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("source");
-        openapiRequiredFields.add("trackingPlanId");
+        openapiRequiredFields.add("insertFunctionInstance");
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to GetSourceV1Output
+     * @throws IOException if the JSON Element is invalid with respect to
+     *     GetInsertFunctionInstanceAlphaOutput
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!GetSourceV1Output.openapiRequiredFields
+            if (!GetInsertFunctionInstanceAlphaOutput.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in GetSourceV1Output is not found in the"
-                                        + " empty JSON string",
-                                GetSourceV1Output.openapiRequiredFields.toString()));
+                                "The required field(s) %s in GetInsertFunctionInstanceAlphaOutput"
+                                        + " is not found in the empty JSON string",
+                                GetInsertFunctionInstanceAlphaOutput.openapiRequiredFields
+                                        .toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!GetSourceV1Output.openapiFields.contains(entry.getKey())) {
+            if (!GetInsertFunctionInstanceAlphaOutput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `GetSourceV1Output` properties. JSON: %s",
+                                    + " `GetInsertFunctionInstanceAlphaOutput` properties. JSON:"
+                                    + " %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : GetSourceV1Output.openapiRequiredFields) {
+        for (String requiredField : GetInsertFunctionInstanceAlphaOutput.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -175,40 +155,36 @@ public class GetSourceV1Output {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        // validate the required field `source`
-        SourceV1.validateJsonElement(jsonObj.get("source"));
-        if ((jsonObj.get("trackingPlanId") != null && !jsonObj.get("trackingPlanId").isJsonNull())
-                && !jsonObj.get("trackingPlanId").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `trackingPlanId` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
-                            jsonObj.get("trackingPlanId").toString()));
-        }
+        // validate the required field `insertFunctionInstance`
+        InsertFunctionInstanceAlpha.validateJsonElement(jsonObj.get("insertFunctionInstance"));
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!GetSourceV1Output.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'GetSourceV1Output' and its subtypes
+            if (!GetInsertFunctionInstanceAlphaOutput.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'GetInsertFunctionInstanceAlphaOutput'
+                // and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<GetSourceV1Output> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(GetSourceV1Output.class));
+            final TypeAdapter<GetInsertFunctionInstanceAlphaOutput> thisAdapter =
+                    gson.getDelegateAdapter(
+                            this, TypeToken.get(GetInsertFunctionInstanceAlphaOutput.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<GetSourceV1Output>() {
+                    new TypeAdapter<GetInsertFunctionInstanceAlphaOutput>() {
                         @Override
-                        public void write(JsonWriter out, GetSourceV1Output value)
+                        public void write(
+                                JsonWriter out, GetInsertFunctionInstanceAlphaOutput value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public GetSourceV1Output read(JsonReader in) throws IOException {
+                        public GetInsertFunctionInstanceAlphaOutput read(JsonReader in)
+                                throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -218,18 +194,20 @@ public class GetSourceV1Output {
     }
 
     /**
-     * Create an instance of GetSourceV1Output given an JSON string
+     * Create an instance of GetInsertFunctionInstanceAlphaOutput given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of GetSourceV1Output
-     * @throws IOException if the JSON string is invalid with respect to GetSourceV1Output
+     * @return An instance of GetInsertFunctionInstanceAlphaOutput
+     * @throws IOException if the JSON string is invalid with respect to
+     *     GetInsertFunctionInstanceAlphaOutput
      */
-    public static GetSourceV1Output fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, GetSourceV1Output.class);
+    public static GetInsertFunctionInstanceAlphaOutput fromJson(String jsonString)
+            throws IOException {
+        return JSON.getGson().fromJson(jsonString, GetInsertFunctionInstanceAlphaOutput.class);
     }
 
     /**
-     * Convert an instance of GetSourceV1Output to an JSON string
+     * Convert an instance of GetInsertFunctionInstanceAlphaOutput to an JSON string
      *
      * @return JSON string
      */
