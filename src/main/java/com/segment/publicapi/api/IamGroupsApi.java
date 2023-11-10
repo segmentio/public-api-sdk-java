@@ -1624,7 +1624,7 @@ public class IamGroupsApi {
 
         if (emails != null) {
             localVarCollectionQueryParams.addAll(
-                    localVarApiClient.parameterToPairs("csv", "emails", emails));
+                    localVarApiClient.parameterToPairs("multi", "emails", emails));
         }
 
         final String[] localVarAccepts = {
