@@ -1061,8 +1061,7 @@ public class DeletionAndSuppressionApi {
 
         if (regulationTypes != null) {
             localVarCollectionQueryParams.addAll(
-                    localVarApiClient.parameterToPairs(
-                            "multi", "regulationTypes", regulationTypes));
+                    localVarApiClient.parameterToPairs("csv", "regulationTypes", regulationTypes));
         }
 
         if (pagination != null) {
@@ -1456,8 +1455,7 @@ public class DeletionAndSuppressionApi {
 
         if (regulationTypes != null) {
             localVarCollectionQueryParams.addAll(
-                    localVarApiClient.parameterToPairs(
-                            "multi", "regulationTypes", regulationTypes));
+                    localVarApiClient.parameterToPairs("csv", "regulationTypes", regulationTypes));
         }
 
         if (pagination != null) {
