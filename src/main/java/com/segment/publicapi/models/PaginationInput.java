@@ -22,7 +22,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
@@ -42,7 +41,7 @@ public class PaginationInput {
     public static final String SERIALIZED_NAME_COUNT = "count";
 
     @SerializedName(SERIALIZED_NAME_COUNT)
-    private BigDecimal count;
+    private Integer count;
 
     public PaginationInput() {}
 
@@ -68,7 +67,7 @@ public class PaginationInput {
         this.cursor = cursor;
     }
 
-    public PaginationInput count(BigDecimal count) {
+    public PaginationInput count(Integer count) {
 
         this.count = count;
         return this;
@@ -80,11 +79,11 @@ public class PaginationInput {
      * @return count
      */
     @javax.annotation.Nonnull
-    public BigDecimal getCount() {
+    public Integer getCount() {
         return count;
     }
 
-    public void setCount(BigDecimal count) {
+    public void setCount(Integer count) {
         this.count = count;
     }
 
