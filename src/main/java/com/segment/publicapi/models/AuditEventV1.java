@@ -49,6 +49,11 @@ public class AuditEventV1 {
     @SerializedName(SERIALIZED_NAME_ACTOR)
     private String actor;
 
+    public static final String SERIALIZED_NAME_ACTOR_EMAIL = "actorEmail";
+
+    @SerializedName(SERIALIZED_NAME_ACTOR_EMAIL)
+    private String actorEmail;
+
     public static final String SERIALIZED_NAME_RESOURCE_ID = "resourceId";
 
     @SerializedName(SERIALIZED_NAME_RESOURCE_ID)
@@ -146,6 +151,26 @@ public class AuditEventV1 {
         this.actor = actor;
     }
 
+    public AuditEventV1 actorEmail(String actorEmail) {
+
+        this.actorEmail = actorEmail;
+        return this;
+    }
+
+    /**
+     * The email of the user that triggered this event.
+     *
+     * @return actorEmail
+     */
+    @javax.annotation.Nullable
+    public String getActorEmail() {
+        return actorEmail;
+    }
+
+    public void setActorEmail(String actorEmail) {
+        this.actorEmail = actorEmail;
+    }
+
     public AuditEventV1 resourceId(String resourceId) {
 
         this.resourceId = resourceId;
@@ -219,6 +244,7 @@ public class AuditEventV1 {
                 && Objects.equals(this.timestamp, auditEventV1.timestamp)
                 && Objects.equals(this.type, auditEventV1.type)
                 && Objects.equals(this.actor, auditEventV1.actor)
+                && Objects.equals(this.actorEmail, auditEventV1.actorEmail)
                 && Objects.equals(this.resourceId, auditEventV1.resourceId)
                 && Objects.equals(this.resourceType, auditEventV1.resourceType)
                 && Objects.equals(this.resourceName, auditEventV1.resourceName);
@@ -226,7 +252,8 @@ public class AuditEventV1 {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, timestamp, type, actor, resourceId, resourceType, resourceName);
+        return Objects.hash(
+                id, timestamp, type, actor, actorEmail, resourceId, resourceType, resourceName);
     }
 
     @Override
@@ -237,6 +264,7 @@ public class AuditEventV1 {
         sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("    actor: ").append(toIndentedString(actor)).append("\n");
+        sb.append("    actorEmail: ").append(toIndentedString(actorEmail)).append("\n");
         sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");
         sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
         sb.append("    resourceName: ").append(toIndentedString(resourceName)).append("\n");
@@ -265,6 +293,7 @@ public class AuditEventV1 {
         openapiFields.add("timestamp");
         openapiFields.add("type");
         openapiFields.add("actor");
+        openapiFields.add("actorEmail");
         openapiFields.add("resourceId");
         openapiFields.add("resourceType");
         openapiFields.add("resourceName");
@@ -347,6 +376,14 @@ public class AuditEventV1 {
                             "Expected the field `actor` to be a primitive type in the JSON string"
                                     + " but got `%s`",
                             jsonObj.get("actor").toString()));
+        }
+        if ((jsonObj.get("actorEmail") != null && !jsonObj.get("actorEmail").isJsonNull())
+                && !jsonObj.get("actorEmail").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `actorEmail` to be a primitive type in the JSON"
+                                    + " string but got `%s`",
+                            jsonObj.get("actorEmail").toString()));
         }
         if (!jsonObj.get("resourceId").isJsonPrimitive()) {
             throw new IllegalArgumentException(
