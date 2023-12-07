@@ -161,7 +161,11 @@ public class ReverseEtlApi {
     }
 
     /**
-     * Create Reverse ETL Manual Sync Triggers a manual sync for a Reverse ETL Connection.
+     * Create Reverse ETL Manual Sync Triggers a manual sync for a Reverse ETL Connection. The rate
+     * limit for this endpoint is 5 requests per minute, which is lower than the default due to
+     * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
+     * status code with headers indicating the limit parameters. See [Rate
+     * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param createReverseETLManualSyncInput (required)
      * @return CreateReverseETLManualSync200Response
@@ -184,7 +188,11 @@ public class ReverseEtlApi {
     }
 
     /**
-     * Create Reverse ETL Manual Sync Triggers a manual sync for a Reverse ETL Connection.
+     * Create Reverse ETL Manual Sync Triggers a manual sync for a Reverse ETL Connection. The rate
+     * limit for this endpoint is 5 requests per minute, which is lower than the default due to
+     * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
+     * status code with headers indicating the limit parameters. See [Rate
+     * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param createReverseETLManualSyncInput (required)
      * @return ApiResponse&lt;CreateReverseETLManualSync200Response&gt;
@@ -212,7 +220,10 @@ public class ReverseEtlApi {
 
     /**
      * Create Reverse ETL Manual Sync (asynchronously) Triggers a manual sync for a Reverse ETL
-     * Connection.
+     * Connection. The rate limit for this endpoint is 5 requests per minute, which is lower than
+     * the default due to access pattern restrictions. Once reached, this endpoint will respond with
+     * the 429 HTTP status code with headers indicating the limit parameters. See [Rate
+     * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param createReverseETLManualSyncInput (required)
      * @param _callback The callback to be executed when the API call finishes
