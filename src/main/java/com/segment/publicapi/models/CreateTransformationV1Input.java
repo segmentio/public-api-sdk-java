@@ -78,6 +78,17 @@ public class CreateTransformationV1Input {
     @SerializedName(SERIALIZED_NAME_FQL_DEFINED_PROPERTIES)
     private List<FQLDefinedPropertyV1> fqlDefinedProperties;
 
+    public static final String SERIALIZED_NAME_ALLOW_PROPERTIES = "allowProperties";
+
+    @SerializedName(SERIALIZED_NAME_ALLOW_PROPERTIES)
+    private List<String> allowProperties;
+
+    public static final String SERIALIZED_NAME_HASH_PROPERTIES_CONFIGURATION =
+            "hashPropertiesConfiguration";
+
+    @SerializedName(SERIALIZED_NAME_HASH_PROPERTIES_CONFIGURATION)
+    private HashPropertiesConfiguration hashPropertiesConfiguration;
+
     public CreateTransformationV1Input() {}
 
     public CreateTransformationV1Input name(String name) {
@@ -296,6 +307,56 @@ public class CreateTransformationV1Input {
         this.fqlDefinedProperties = fqlDefinedProperties;
     }
 
+    public CreateTransformationV1Input allowProperties(List<String> allowProperties) {
+
+        this.allowProperties = allowProperties;
+        return this;
+    }
+
+    public CreateTransformationV1Input addAllowPropertiesItem(String allowPropertiesItem) {
+        if (this.allowProperties == null) {
+            this.allowProperties = new ArrayList<>();
+        }
+        this.allowProperties.add(allowPropertiesItem);
+        return this;
+    }
+
+    /**
+     * Optional array for allowing properties from your events.
+     *
+     * @return allowProperties
+     */
+    @javax.annotation.Nullable
+    public List<String> getAllowProperties() {
+        return allowProperties;
+    }
+
+    public void setAllowProperties(List<String> allowProperties) {
+        this.allowProperties = allowProperties;
+    }
+
+    public CreateTransformationV1Input hashPropertiesConfiguration(
+            HashPropertiesConfiguration hashPropertiesConfiguration) {
+
+        this.hashPropertiesConfiguration = hashPropertiesConfiguration;
+        return this;
+    }
+
+    /**
+     * Get hashPropertiesConfiguration
+     *
+     * @return hashPropertiesConfiguration
+     */
+    @javax.annotation.Nullable
+    public HashPropertiesConfiguration getHashPropertiesConfiguration() {
+        return hashPropertiesConfiguration;
+    }
+
+    public void setHashPropertiesConfiguration(
+            HashPropertiesConfiguration hashPropertiesConfiguration) {
+        this.hashPropertiesConfiguration = hashPropertiesConfiguration;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -318,8 +379,11 @@ public class CreateTransformationV1Input {
                         this.propertyValueTransformations,
                         createTransformationV1Input.propertyValueTransformations)
                 && Objects.equals(
-                        this.fqlDefinedProperties,
-                        createTransformationV1Input.fqlDefinedProperties);
+                        this.fqlDefinedProperties, createTransformationV1Input.fqlDefinedProperties)
+                && Objects.equals(this.allowProperties, createTransformationV1Input.allowProperties)
+                && Objects.equals(
+                        this.hashPropertiesConfiguration,
+                        createTransformationV1Input.hashPropertiesConfiguration);
     }
 
     @Override
@@ -333,7 +397,9 @@ public class CreateTransformationV1Input {
                 newEventName,
                 propertyRenames,
                 propertyValueTransformations,
-                fqlDefinedProperties);
+                fqlDefinedProperties,
+                allowProperties,
+                hashPropertiesConfiguration);
     }
 
     @Override
@@ -354,6 +420,10 @@ public class CreateTransformationV1Input {
                 .append("\n");
         sb.append("    fqlDefinedProperties: ")
                 .append(toIndentedString(fqlDefinedProperties))
+                .append("\n");
+        sb.append("    allowProperties: ").append(toIndentedString(allowProperties)).append("\n");
+        sb.append("    hashPropertiesConfiguration: ")
+                .append(toIndentedString(hashPropertiesConfiguration))
                 .append("\n");
         sb.append("}");
         return sb.toString();
@@ -385,6 +455,8 @@ public class CreateTransformationV1Input {
         openapiFields.add("propertyRenames");
         openapiFields.add("propertyValueTransformations");
         openapiFields.add("fqlDefinedProperties");
+        openapiFields.add("allowProperties");
+        openapiFields.add("hashPropertiesConfiguration");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
@@ -535,6 +607,22 @@ public class CreateTransformationV1Input {
                 }
                 ;
             }
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("allowProperties") != null
+                && !jsonObj.get("allowProperties").isJsonNull()
+                && !jsonObj.get("allowProperties").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `allowProperties` to be an array in the JSON string"
+                                    + " but got `%s`",
+                            jsonObj.get("allowProperties").toString()));
+        }
+        // validate the optional field `hashPropertiesConfiguration`
+        if (jsonObj.get("hashPropertiesConfiguration") != null
+                && !jsonObj.get("hashPropertiesConfiguration").isJsonNull()) {
+            HashPropertiesConfiguration.validateJsonElement(
+                    jsonObj.get("hashPropertiesConfiguration"));
         }
     }
 
