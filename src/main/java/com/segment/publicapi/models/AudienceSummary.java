@@ -59,6 +59,16 @@ public class AudienceSummary {
     @SerializedName(SERIALIZED_NAME_ENABLED)
     private Boolean enabled;
 
+    public static final String SERIALIZED_NAME_DEFINITION = "definition";
+
+    @SerializedName(SERIALIZED_NAME_DEFINITION)
+    private Definition1 definition;
+
+    public static final String SERIALIZED_NAME_STATUS = "status";
+
+    @SerializedName(SERIALIZED_NAME_STATUS)
+    private String status;
+
     public static final String SERIALIZED_NAME_CREATED_BY = "createdBy";
 
     @SerializedName(SERIALIZED_NAME_CREATED_BY)
@@ -201,6 +211,47 @@ public class AudienceSummary {
         this.enabled = enabled;
     }
 
+    public AudienceSummary definition(Definition1 definition) {
+
+        this.definition = definition;
+        return this;
+    }
+
+    /**
+     * Get definition
+     *
+     * @return definition
+     */
+    @javax.annotation.Nullable
+    public Definition1 getDefinition() {
+        return definition;
+    }
+
+    public void setDefinition(Definition1 definition) {
+        this.definition = definition;
+    }
+
+    public AudienceSummary status(String status) {
+
+        this.status = status;
+        return this;
+    }
+
+    /**
+     * Status for the audience. Possible values: Backfilling, Computing, Failed, Live, Awaiting
+     * Destinations, Disabled.
+     *
+     * @return status
+     */
+    @javax.annotation.Nullable
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public AudienceSummary createdBy(String createdBy) {
 
         this.createdBy = createdBy;
@@ -296,6 +347,8 @@ public class AudienceSummary {
                 && Objects.equals(this.description, audienceSummary.description)
                 && Objects.equals(this.key, audienceSummary.key)
                 && Objects.equals(this.enabled, audienceSummary.enabled)
+                && Objects.equals(this.definition, audienceSummary.definition)
+                && Objects.equals(this.status, audienceSummary.status)
                 && Objects.equals(this.createdBy, audienceSummary.createdBy)
                 && Objects.equals(this.updatedBy, audienceSummary.updatedBy)
                 && Objects.equals(this.createdAt, audienceSummary.createdAt)
@@ -311,6 +364,8 @@ public class AudienceSummary {
                 description,
                 key,
                 enabled,
+                definition,
+                status,
                 createdBy,
                 updatedBy,
                 createdAt,
@@ -327,6 +382,8 @@ public class AudienceSummary {
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    key: ").append(toIndentedString(key)).append("\n");
         sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+        sb.append("    definition: ").append(toIndentedString(definition)).append("\n");
+        sb.append("    status: ").append(toIndentedString(status)).append("\n");
         sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
         sb.append("    updatedBy: ").append(toIndentedString(updatedBy)).append("\n");
         sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
@@ -358,6 +415,8 @@ public class AudienceSummary {
         openapiFields.add("description");
         openapiFields.add("key");
         openapiFields.add("enabled");
+        openapiFields.add("definition");
+        openapiFields.add("status");
         openapiFields.add("createdBy");
         openapiFields.add("updatedBy");
         openapiFields.add("createdAt");
@@ -371,6 +430,7 @@ public class AudienceSummary {
         openapiRequiredFields.add("description");
         openapiRequiredFields.add("key");
         openapiRequiredFields.add("enabled");
+        openapiRequiredFields.add("definition");
         openapiRequiredFields.add("createdBy");
         openapiRequiredFields.add("updatedBy");
         openapiRequiredFields.add("createdAt");
@@ -451,6 +511,16 @@ public class AudienceSummary {
                             "Expected the field `key` to be a primitive type in the JSON string but"
                                     + " got `%s`",
                             jsonObj.get("key").toString()));
+        }
+        // validate the required field `definition`
+        Definition1.validateJsonElement(jsonObj.get("definition"));
+        if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull())
+                && !jsonObj.get("status").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `status` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
+                            jsonObj.get("status").toString()));
         }
         if (!jsonObj.get("createdBy").isJsonPrimitive()) {
             throw new IllegalArgumentException(
