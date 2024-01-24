@@ -44,6 +44,16 @@ public class DestinationMetadataPlatformsV1 {
     @SerializedName(SERIALIZED_NAME_MOBILE)
     private Boolean mobile;
 
+    public static final String SERIALIZED_NAME_WAREHOUSE = "warehouse";
+
+    @SerializedName(SERIALIZED_NAME_WAREHOUSE)
+    private Boolean warehouse;
+
+    public static final String SERIALIZED_NAME_CLOUD_APP_OBJECT = "cloudAppObject";
+
+    @SerializedName(SERIALIZED_NAME_CLOUD_APP_OBJECT)
+    private Boolean cloudAppObject;
+
     public DestinationMetadataPlatformsV1() {}
 
     public DestinationMetadataPlatformsV1 browser(Boolean browser) {
@@ -106,6 +116,46 @@ public class DestinationMetadataPlatformsV1 {
         this.mobile = mobile;
     }
 
+    public DestinationMetadataPlatformsV1 warehouse(Boolean warehouse) {
+
+        this.warehouse = warehouse;
+        return this;
+    }
+
+    /**
+     * Whether this Destination supports Warehouse events.
+     *
+     * @return warehouse
+     */
+    @javax.annotation.Nullable
+    public Boolean getWarehouse() {
+        return warehouse;
+    }
+
+    public void setWarehouse(Boolean warehouse) {
+        this.warehouse = warehouse;
+    }
+
+    public DestinationMetadataPlatformsV1 cloudAppObject(Boolean cloudAppObject) {
+
+        this.cloudAppObject = cloudAppObject;
+        return this;
+    }
+
+    /**
+     * Whether this Destination supports cloud app object events.
+     *
+     * @return cloudAppObject
+     */
+    @javax.annotation.Nullable
+    public Boolean getCloudAppObject() {
+        return cloudAppObject;
+    }
+
+    public void setCloudAppObject(Boolean cloudAppObject) {
+        this.cloudAppObject = cloudAppObject;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -118,12 +168,15 @@ public class DestinationMetadataPlatformsV1 {
                 (DestinationMetadataPlatformsV1) o;
         return Objects.equals(this.browser, destinationMetadataPlatformsV1.browser)
                 && Objects.equals(this.server, destinationMetadataPlatformsV1.server)
-                && Objects.equals(this.mobile, destinationMetadataPlatformsV1.mobile);
+                && Objects.equals(this.mobile, destinationMetadataPlatformsV1.mobile)
+                && Objects.equals(this.warehouse, destinationMetadataPlatformsV1.warehouse)
+                && Objects.equals(
+                        this.cloudAppObject, destinationMetadataPlatformsV1.cloudAppObject);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(browser, server, mobile);
+        return Objects.hash(browser, server, mobile, warehouse, cloudAppObject);
     }
 
     @Override
@@ -133,6 +186,8 @@ public class DestinationMetadataPlatformsV1 {
         sb.append("    browser: ").append(toIndentedString(browser)).append("\n");
         sb.append("    server: ").append(toIndentedString(server)).append("\n");
         sb.append("    mobile: ").append(toIndentedString(mobile)).append("\n");
+        sb.append("    warehouse: ").append(toIndentedString(warehouse)).append("\n");
+        sb.append("    cloudAppObject: ").append(toIndentedString(cloudAppObject)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -157,6 +212,8 @@ public class DestinationMetadataPlatformsV1 {
         openapiFields.add("browser");
         openapiFields.add("server");
         openapiFields.add("mobile");
+        openapiFields.add("warehouse");
+        openapiFields.add("cloudAppObject");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
