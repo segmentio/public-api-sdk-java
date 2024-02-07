@@ -20,7 +20,7 @@ import com.segment.publicapi.Configuration;
 import com.segment.publicapi.Pair;
 import com.segment.publicapi.models.AddLabelsToSource200Response;
 import com.segment.publicapi.models.AddLabelsToSourceV1Input;
-import com.segment.publicapi.models.CreateSource200Response;
+import com.segment.publicapi.models.CreateSource201Response;
 import com.segment.publicapi.models.CreateSourceV1Input;
 import com.segment.publicapi.models.DeleteSource200Response;
 import com.segment.publicapi.models.GetSource200Response;
@@ -140,8 +140,8 @@ public class SourcesApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/vnd.segment.v1+json",
             "application/json",
+            "application/vnd.segment.v1+json",
             "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1alpha+json"
         };
@@ -285,7 +285,7 @@ public class SourcesApi {
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -330,8 +330,8 @@ public class SourcesApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/vnd.segment.v1+json",
             "application/json",
+            "application/vnd.segment.v1+json",
             "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1alpha+json"
         };
@@ -375,21 +375,21 @@ public class SourcesApi {
      * &#x60;Source Created&#x60; event in the [audit trail](/tag/Audit-Trail).
      *
      * @param createSourceV1Input (required)
-     * @return CreateSource200Response
+     * @return CreateSource201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public CreateSource200Response createSource(CreateSourceV1Input createSourceV1Input)
+    public CreateSource201Response createSource(CreateSourceV1Input createSourceV1Input)
             throws ApiException {
-        ApiResponse<CreateSource200Response> localVarResp =
+        ApiResponse<CreateSource201Response> localVarResp =
                 createSourceWithHttpInfo(createSourceV1Input);
         return localVarResp.getData();
     }
@@ -399,22 +399,22 @@ public class SourcesApi {
      * &#x60;Source Created&#x60; event in the [audit trail](/tag/Audit-Trail).
      *
      * @param createSourceV1Input (required)
-     * @return ApiResponse&lt;CreateSource200Response&gt;
+     * @return ApiResponse&lt;CreateSource201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<CreateSource200Response> createSourceWithHttpInfo(
+    public ApiResponse<CreateSource201Response> createSourceWithHttpInfo(
             CreateSourceV1Input createSourceV1Input) throws ApiException {
         okhttp3.Call localVarCall = createSourceValidateBeforeCall(createSourceV1Input, null);
-        Type localVarReturnType = new TypeToken<CreateSource200Response>() {}.getType();
+        Type localVarReturnType = new TypeToken<CreateSource201Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -430,7 +430,7 @@ public class SourcesApi {
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -438,11 +438,11 @@ public class SourcesApi {
      */
     public okhttp3.Call createSourceAsync(
             CreateSourceV1Input createSourceV1Input,
-            final ApiCallback<CreateSource200Response> _callback)
+            final ApiCallback<CreateSource201Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = createSourceValidateBeforeCall(createSourceV1Input, _callback);
-        Type localVarReturnType = new TypeToken<CreateSource200Response>() {}.getType();
+        Type localVarReturnType = new TypeToken<CreateSource201Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1566,8 +1566,8 @@ public class SourcesApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/vnd.segment.v1+json",
             "application/json",
+            "application/vnd.segment.v1+json",
             "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1alpha+json"
         };
@@ -1761,8 +1761,8 @@ public class SourcesApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/vnd.segment.v1+json",
             "application/json",
+            "application/vnd.segment.v1+json",
             "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1alpha+json"
         };
@@ -1967,8 +1967,8 @@ public class SourcesApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/vnd.segment.v1+json",
             "application/json",
+            "application/vnd.segment.v1+json",
             "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1alpha+json"
         };

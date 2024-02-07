@@ -18,7 +18,7 @@ import com.segment.publicapi.ApiException;
 import com.segment.publicapi.ApiResponse;
 import com.segment.publicapi.Configuration;
 import com.segment.publicapi.Pair;
-import com.segment.publicapi.models.CreateProfilesWarehouse200Response;
+import com.segment.publicapi.models.CreateProfilesWarehouse201Response;
 import com.segment.publicapi.models.CreateProfilesWarehouseAlphaInput;
 import com.segment.publicapi.models.ListProfilesWarehouseInSpace200Response;
 import com.segment.publicapi.models.ListSelectiveSyncsFromWarehouseAndSpace200Response;
@@ -82,7 +82,7 @@ public class ProfilesSyncApi {
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -181,22 +181,22 @@ public class ProfilesSyncApi {
      *
      * @param spaceId (required)
      * @param createProfilesWarehouseAlphaInput (required)
-     * @return CreateProfilesWarehouse200Response
+     * @return CreateProfilesWarehouse201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public CreateProfilesWarehouse200Response createProfilesWarehouse(
+    public CreateProfilesWarehouse201Response createProfilesWarehouse(
             String spaceId, CreateProfilesWarehouseAlphaInput createProfilesWarehouseAlphaInput)
             throws ApiException {
-        ApiResponse<CreateProfilesWarehouse200Response> localVarResp =
+        ApiResponse<CreateProfilesWarehouse201Response> localVarResp =
                 createProfilesWarehouseWithHttpInfo(spaceId, createProfilesWarehouseAlphaInput);
         return localVarResp.getData();
     }
@@ -208,25 +208,25 @@ public class ProfilesSyncApi {
      *
      * @param spaceId (required)
      * @param createProfilesWarehouseAlphaInput (required)
-     * @return ApiResponse&lt;CreateProfilesWarehouse200Response&gt;
+     * @return ApiResponse&lt;CreateProfilesWarehouse201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<CreateProfilesWarehouse200Response> createProfilesWarehouseWithHttpInfo(
+    public ApiResponse<CreateProfilesWarehouse201Response> createProfilesWarehouseWithHttpInfo(
             String spaceId, CreateProfilesWarehouseAlphaInput createProfilesWarehouseAlphaInput)
             throws ApiException {
         okhttp3.Call localVarCall =
                 createProfilesWarehouseValidateBeforeCall(
                         spaceId, createProfilesWarehouseAlphaInput, null);
-        Type localVarReturnType = new TypeToken<CreateProfilesWarehouse200Response>() {}.getType();
+        Type localVarReturnType = new TypeToken<CreateProfilesWarehouse201Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -244,7 +244,7 @@ public class ProfilesSyncApi {
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -253,13 +253,13 @@ public class ProfilesSyncApi {
     public okhttp3.Call createProfilesWarehouseAsync(
             String spaceId,
             CreateProfilesWarehouseAlphaInput createProfilesWarehouseAlphaInput,
-            final ApiCallback<CreateProfilesWarehouse200Response> _callback)
+            final ApiCallback<CreateProfilesWarehouse201Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 createProfilesWarehouseValidateBeforeCall(
                         spaceId, createProfilesWarehouseAlphaInput, _callback);
-        Type localVarReturnType = new TypeToken<CreateProfilesWarehouse200Response>() {}.getType();
+        Type localVarReturnType = new TypeToken<CreateProfilesWarehouse201Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

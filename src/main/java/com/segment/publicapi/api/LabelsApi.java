@@ -18,7 +18,7 @@ import com.segment.publicapi.ApiException;
 import com.segment.publicapi.ApiResponse;
 import com.segment.publicapi.Configuration;
 import com.segment.publicapi.Pair;
-import com.segment.publicapi.models.CreateLabel200Response;
+import com.segment.publicapi.models.CreateLabel201Response;
 import com.segment.publicapi.models.CreateLabelV1Input;
 import com.segment.publicapi.models.DeleteLabel200Response;
 import com.segment.publicapi.models.ListLabels200Response;
@@ -75,7 +75,7 @@ public class LabelsApi {
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -120,8 +120,8 @@ public class LabelsApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/vnd.segment.v1+json",
             "application/json",
+            "application/vnd.segment.v1+json",
             "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1alpha+json"
         };
@@ -169,21 +169,21 @@ public class LabelsApi {
      * information.
      *
      * @param createLabelV1Input (required)
-     * @return CreateLabel200Response
+     * @return CreateLabel201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public CreateLabel200Response createLabel(CreateLabelV1Input createLabelV1Input)
+    public CreateLabel201Response createLabel(CreateLabelV1Input createLabelV1Input)
             throws ApiException {
-        ApiResponse<CreateLabel200Response> localVarResp =
+        ApiResponse<CreateLabel201Response> localVarResp =
                 createLabelWithHttpInfo(createLabelV1Input);
         return localVarResp.getData();
     }
@@ -197,22 +197,22 @@ public class LabelsApi {
      * information.
      *
      * @param createLabelV1Input (required)
-     * @return ApiResponse&lt;CreateLabel200Response&gt;
+     * @return ApiResponse&lt;CreateLabel201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<CreateLabel200Response> createLabelWithHttpInfo(
+    public ApiResponse<CreateLabel201Response> createLabelWithHttpInfo(
             CreateLabelV1Input createLabelV1Input) throws ApiException {
         okhttp3.Call localVarCall = createLabelValidateBeforeCall(createLabelV1Input, null);
-        Type localVarReturnType = new TypeToken<CreateLabel200Response>() {}.getType();
+        Type localVarReturnType = new TypeToken<CreateLabel201Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -232,7 +232,7 @@ public class LabelsApi {
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -240,11 +240,11 @@ public class LabelsApi {
      */
     public okhttp3.Call createLabelAsync(
             CreateLabelV1Input createLabelV1Input,
-            final ApiCallback<CreateLabel200Response> _callback)
+            final ApiCallback<CreateLabel201Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = createLabelValidateBeforeCall(createLabelV1Input, _callback);
-        Type localVarReturnType = new TypeToken<CreateLabel200Response>() {}.getType();
+        Type localVarReturnType = new TypeToken<CreateLabel201Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

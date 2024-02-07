@@ -78,7 +78,7 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
+- **Content-Type**: application/json, application/vnd.segment.v1+json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
 - **Accept**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
 
 
@@ -93,7 +93,7 @@ public class Example {
 
 ## Operation: createInvites
 
-> CreateInvites200Response createInvites(createInvitesV1Input)
+> CreateInvites201Response createInvites(createInvitesV1Input)
 
 Create Invites
 
@@ -121,7 +121,7 @@ public class Example {
         IamUsersApi apiInstance = new IamUsersApi(defaultClient);
         CreateInvitesV1Input createInvitesV1Input = new CreateInvitesV1Input(); // CreateInvitesV1Input | 
         try {
-            CreateInvites200Response result = apiInstance.createInvites(createInvitesV1Input);
+            CreateInvites201Response result = apiInstance.createInvites(createInvitesV1Input);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling IamUsersApi#createInvites");
@@ -143,7 +143,7 @@ public class Example {
 
 ### Return type
 
-[**CreateInvites200Response**](CreateInvites200Response.md)
+[**CreateInvites201Response**](CreateInvites201Response.md)
 
 ### Authorization
 
@@ -151,14 +151,14 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
+- **Content-Type**: application/json, application/vnd.segment.v1+json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
 - **Accept**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **201** | Created |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
 | **429** | Too many requests |  -  |
@@ -666,7 +666,7 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
+- **Content-Type**: application/json, application/vnd.segment.v1+json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
 - **Accept**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
 
 

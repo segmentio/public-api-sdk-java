@@ -72,7 +72,7 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
+- **Content-Type**: application/json, application/vnd.segment.v1+json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
 - **Accept**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
 
 
@@ -113,7 +113,7 @@ public class Example {
         token.setBearerToken("BEARER TOKEN");
 
         TransformationsApi apiInstance = new TransformationsApi(defaultClient);
-        String transformationId = "2NhipGGSZWdzI7YrXHELB7pVXqR"; // String | 
+        String transformationId = "2c0vVuRdDmJ3UQkVjd5WxaA3dar"; // String | 
         try {
             DeleteTransformation200Response result = apiInstance.deleteTransformation(transformationId);
             System.out.println(result);
@@ -366,7 +366,7 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
+- **Content-Type**: application/json, application/vnd.segment.v1+json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
 - **Accept**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
 
 

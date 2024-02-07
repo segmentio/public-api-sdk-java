@@ -80,7 +80,7 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
+- **Content-Type**: application/json, application/vnd.segment.v1+json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
 - **Accept**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
 
 
@@ -95,7 +95,7 @@ public class Example {
 
 ## Operation: createSource
 
-> CreateSource200Response createSource(createSourceV1Input)
+> CreateSource201Response createSource(createSourceV1Input)
 
 Create Source
 
@@ -123,7 +123,7 @@ public class Example {
         SourcesApi apiInstance = new SourcesApi(defaultClient);
         CreateSourceV1Input createSourceV1Input = new CreateSourceV1Input(); // CreateSourceV1Input | 
         try {
-            CreateSource200Response result = apiInstance.createSource(createSourceV1Input);
+            CreateSource201Response result = apiInstance.createSource(createSourceV1Input);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling SourcesApi#createSource");
@@ -145,7 +145,7 @@ public class Example {
 
 ### Return type
 
-[**CreateSource200Response**](CreateSource200Response.md)
+[**CreateSource201Response**](CreateSource201Response.md)
 
 ### Authorization
 
@@ -153,14 +153,14 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
+- **Content-Type**: application/json, application/vnd.segment.v1+json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
 - **Accept**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **201** | Created |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
 | **429** | Too many requests |  -  |
@@ -194,7 +194,7 @@ public class Example {
         token.setBearerToken("BEARER TOKEN");
 
         SourcesApi apiInstance = new SourcesApi(defaultClient);
-        String sourceId = "48EFjyXH4zdbKWx4vKiLuE"; // String | 
+        String sourceId = "rYxTjyaPtAELCjnFE5EYfM"; // String | 
         try {
             DeleteSource200Response result = apiInstance.deleteSource(sourceId);
             System.out.println(result);
@@ -670,7 +670,7 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
+- **Content-Type**: application/json, application/vnd.segment.v1+json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
 - **Accept**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
 
 
@@ -745,7 +745,7 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
+- **Content-Type**: application/json, application/vnd.segment.v1+json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
 - **Accept**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
 
 
@@ -786,7 +786,7 @@ public class Example {
         token.setBearerToken("BEARER TOKEN");
 
         SourcesApi apiInstance = new SourcesApi(defaultClient);
-        String sourceId = "piTVHEYNrRgBMM1uQGCPbK"; // String | 
+        String sourceId = "87jXXk8QSLFPfMDGa6mtS3"; // String | 
         UpdateSourceV1Input updateSourceV1Input = new UpdateSourceV1Input(); // UpdateSourceV1Input | 
         try {
             UpdateSource200Response result = apiInstance.updateSource(sourceId, updateSourceV1Input);
@@ -820,7 +820,7 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
+- **Content-Type**: application/json, application/vnd.segment.v1+json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
 - **Accept**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
 
 

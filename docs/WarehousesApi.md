@@ -19,7 +19,7 @@ All URIs are relative to *https://api.segmentapis.com*
 
 ## Operation: addConnectionFromSourceToWarehouse
 
-> AddConnectionFromSourceToWarehouse200Response addConnectionFromSourceToWarehouse(warehouseId, sourceId)
+> AddConnectionFromSourceToWarehouse201Response addConnectionFromSourceToWarehouse(warehouseId, sourceId)
 
 Add Connection from Source to Warehouse
 
@@ -48,7 +48,7 @@ public class Example {
         String warehouseId = "kjU72LCJexvrqL7G4TMHHN"; // String | 
         String sourceId = "rh5BDZp6QDHvXFCkibm1pR"; // String | 
         try {
-            AddConnectionFromSourceToWarehouse200Response result = apiInstance.addConnectionFromSourceToWarehouse(warehouseId, sourceId);
+            AddConnectionFromSourceToWarehouse201Response result = apiInstance.addConnectionFromSourceToWarehouse(warehouseId, sourceId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling WarehousesApi#addConnectionFromSourceToWarehouse");
@@ -71,7 +71,7 @@ public class Example {
 
 ### Return type
 
-[**AddConnectionFromSourceToWarehouse200Response**](AddConnectionFromSourceToWarehouse200Response.md)
+[**AddConnectionFromSourceToWarehouse201Response**](AddConnectionFromSourceToWarehouse201Response.md)
 
 ### Authorization
 
@@ -86,7 +86,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **201** | Created |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
 | **429** | Too many requests |  -  |
@@ -152,7 +152,7 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
+- **Content-Type**: application/json, application/vnd.segment.v1+json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
 - **Accept**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
 
 
@@ -167,7 +167,7 @@ public class Example {
 
 ## Operation: createWarehouse
 
-> CreateWarehouse200Response createWarehouse(createWarehouseV1Input)
+> CreateWarehouse201Response createWarehouse(createWarehouseV1Input)
 
 Create Warehouse
 
@@ -195,7 +195,7 @@ public class Example {
         WarehousesApi apiInstance = new WarehousesApi(defaultClient);
         CreateWarehouseV1Input createWarehouseV1Input = new CreateWarehouseV1Input(); // CreateWarehouseV1Input | 
         try {
-            CreateWarehouse200Response result = apiInstance.createWarehouse(createWarehouseV1Input);
+            CreateWarehouse201Response result = apiInstance.createWarehouse(createWarehouseV1Input);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling WarehousesApi#createWarehouse");
@@ -217,7 +217,7 @@ public class Example {
 
 ### Return type
 
-[**CreateWarehouse200Response**](CreateWarehouse200Response.md)
+[**CreateWarehouse201Response**](CreateWarehouse201Response.md)
 
 ### Authorization
 
@@ -225,14 +225,14 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
+- **Content-Type**: application/json, application/vnd.segment.v1+json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
 - **Accept**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **201** | Created |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
 | **429** | Too many requests |  -  |
@@ -266,7 +266,7 @@ public class Example {
         token.setBearerToken("BEARER TOKEN");
 
         WarehousesApi apiInstance = new WarehousesApi(defaultClient);
-        String warehouseId = "8VW6ytH4hKYCoTtfQ7Xbkd"; // String | 
+        String warehouseId = "tmiTtiPi58udvDAjcxKUJY"; // String | 
         try {
             DeleteWarehouse200Response result = apiInstance.deleteWarehouse(warehouseId);
             System.out.println(result);
@@ -742,7 +742,7 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
+- **Content-Type**: application/json, application/vnd.segment.v1+json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
 - **Accept**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
 
 

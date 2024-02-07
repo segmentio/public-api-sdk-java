@@ -133,8 +133,8 @@ public class DestinationFiltersApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/vnd.segment.v1+json",
             "application/json",
+            "application/vnd.segment.v1+json",
             "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1alpha+json"
         };
@@ -709,8 +709,8 @@ public class DestinationFiltersApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/vnd.segment.v1+json",
             "application/json",
+            "application/vnd.segment.v1+json",
             "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1alpha+json"
         };
@@ -1091,8 +1091,8 @@ public class DestinationFiltersApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/vnd.segment.v1+json",
             "application/json",
+            "application/vnd.segment.v1+json",
             "application/vnd.segment.v1beta+json",
             "application/vnd.segment.v1alpha+json"
         };

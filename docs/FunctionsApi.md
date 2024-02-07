@@ -81,7 +81,7 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
+- **Content-Type**: application/json, application/vnd.segment.v1+json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
 - **Accept**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
 
 
@@ -341,7 +341,7 @@ public class Example {
         token.setBearerToken("BEARER TOKEN");
 
         FunctionsApi apiInstance = new FunctionsApi(defaultClient);
-        String instanceId = "64edfa5ac43ed978ee4f2b7f"; // String | 
+        String instanceId = "65c2bdbdde6f2d8297f943da"; // String | 
         try {
             DeleteInsertFunctionInstance200Response result = apiInstance.deleteInsertFunctionInstance(instanceId);
             System.out.println(result);
@@ -562,7 +562,7 @@ public class Example {
         token.setBearerToken("BEARER TOKEN");
 
         FunctionsApi apiInstance = new FunctionsApi(defaultClient);
-        String instanceId = "65414b1bf05ef7ecfd8b6736"; // String | 
+        String instanceId = "65c2bdbcde6f2d8297f943d7"; // String | 
         try {
             GetInsertFunctionInstance200Response result = apiInstance.getInsertFunctionInstance(instanceId);
             System.out.println(result);
@@ -969,7 +969,7 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
+- **Content-Type**: application/json, application/vnd.segment.v1+json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
 - **Accept**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
 
 
@@ -1010,7 +1010,7 @@ public class Example {
         token.setBearerToken("BEARER TOKEN");
 
         FunctionsApi apiInstance = new FunctionsApi(defaultClient);
-        String instanceId = "64edfa58c43ed978ee4f2b7e"; // String | 
+        String instanceId = "65c2bdbcde6f2d8297f943d8"; // String | 
         UpdateInsertFunctionInstanceAlphaInput updateInsertFunctionInstanceAlphaInput = new UpdateInsertFunctionInstanceAlphaInput(); // UpdateInsertFunctionInstanceAlphaInput | 
         try {
             UpdateInsertFunctionInstance200Response result = apiInstance.updateInsertFunctionInstance(instanceId, updateInsertFunctionInstanceAlphaInput);

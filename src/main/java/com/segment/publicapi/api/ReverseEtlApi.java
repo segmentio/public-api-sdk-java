@@ -20,7 +20,7 @@ import com.segment.publicapi.Configuration;
 import com.segment.publicapi.Pair;
 import com.segment.publicapi.models.CreateReverseETLManualSync200Response;
 import com.segment.publicapi.models.CreateReverseETLManualSyncInput;
-import com.segment.publicapi.models.CreateReverseEtlModel200Response;
+import com.segment.publicapi.models.CreateReverseEtlModel201Response;
 import com.segment.publicapi.models.CreateReverseEtlModelInput;
 import com.segment.publicapi.models.DeleteReverseEtlModel200Response;
 import com.segment.publicapi.models.GetReverseEtlModel200Response;
@@ -263,7 +263,7 @@ public class ReverseEtlApi {
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -345,21 +345,21 @@ public class ReverseEtlApi {
      * generate the &#x60;Model Created&#x60; event in the [audit trail](/tag/Audit-Trail).
      *
      * @param createReverseEtlModelInput (required)
-     * @return CreateReverseEtlModel200Response
+     * @return CreateReverseEtlModel201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public CreateReverseEtlModel200Response createReverseEtlModel(
+    public CreateReverseEtlModel201Response createReverseEtlModel(
             CreateReverseEtlModelInput createReverseEtlModelInput) throws ApiException {
-        ApiResponse<CreateReverseEtlModel200Response> localVarResp =
+        ApiResponse<CreateReverseEtlModel201Response> localVarResp =
                 createReverseEtlModelWithHttpInfo(createReverseEtlModelInput);
         return localVarResp.getData();
     }
@@ -369,23 +369,23 @@ public class ReverseEtlApi {
      * generate the &#x60;Model Created&#x60; event in the [audit trail](/tag/Audit-Trail).
      *
      * @param createReverseEtlModelInput (required)
-     * @return ApiResponse&lt;CreateReverseEtlModel200Response&gt;
+     * @return ApiResponse&lt;CreateReverseEtlModel201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<CreateReverseEtlModel200Response> createReverseEtlModelWithHttpInfo(
+    public ApiResponse<CreateReverseEtlModel201Response> createReverseEtlModelWithHttpInfo(
             CreateReverseEtlModelInput createReverseEtlModelInput) throws ApiException {
         okhttp3.Call localVarCall =
                 createReverseEtlModelValidateBeforeCall(createReverseEtlModelInput, null);
-        Type localVarReturnType = new TypeToken<CreateReverseEtlModel200Response>() {}.getType();
+        Type localVarReturnType = new TypeToken<CreateReverseEtlModel201Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -402,7 +402,7 @@ public class ReverseEtlApi {
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -410,12 +410,12 @@ public class ReverseEtlApi {
      */
     public okhttp3.Call createReverseEtlModelAsync(
             CreateReverseEtlModelInput createReverseEtlModelInput,
-            final ApiCallback<CreateReverseEtlModel200Response> _callback)
+            final ApiCallback<CreateReverseEtlModel201Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 createReverseEtlModelValidateBeforeCall(createReverseEtlModelInput, _callback);
-        Type localVarReturnType = new TypeToken<CreateReverseEtlModel200Response>() {}.getType();
+        Type localVarReturnType = new TypeToken<CreateReverseEtlModel201Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
