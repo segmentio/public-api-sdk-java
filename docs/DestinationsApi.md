@@ -194,7 +194,7 @@ public class Example {
         token.setBearerToken("BEARER TOKEN");
 
         DestinationsApi apiInstance = new DestinationsApi(defaultClient);
-        String destinationId = "6424a4a5b03b3d8fe288f000"; // String | 
+        String destinationId = "65c2bdbede6f2d8297f943db"; // String | 
         try {
             DeleteDestination200Response result = apiInstance.deleteDestination(destinationId);
             System.out.println(result);
@@ -341,7 +341,7 @@ public class Example {
 
         DestinationsApi apiInstance = new DestinationsApi(defaultClient);
         String destinationId = "fP7qoQw2HTWt9WdMr718gn"; // String | 
-        String id = "iUyx2UdPSvp4uJtYAhjTup"; // String | 
+        String id = "kyMKN6LUgMvF8dwRMEz3cX"; // String | 
         try {
             GetSubscriptionFromDestination200Response result = apiInstance.getSubscriptionFromDestination(destinationId, id);
             System.out.println(result);
@@ -645,7 +645,7 @@ public class Example {
 
         DestinationsApi apiInstance = new DestinationsApi(defaultClient);
         String destinationId = "fP7qoQw2HTWt9WdMr718gn"; // String | 
-        String id = "bXbWrgh8vAeWioqx6Kg5vb"; // String | 
+        String id = "zXCqmEMHJojkD45GcBAPt"; // String | 
         try {
             RemoveSubscriptionFromDestination200Response result = apiInstance.removeSubscriptionFromDestination(destinationId, id);
             System.out.println(result);
@@ -795,7 +795,7 @@ public class Example {
 
         DestinationsApi apiInstance = new DestinationsApi(defaultClient);
         String destinationId = "fP7qoQw2HTWt9WdMr718gn"; // String | 
-        String id = "mAdhWCVCmFadguoGcqP3vN"; // String | 
+        String id = "3ELMSracBm5MMikXBYfo1c"; // String | 
         UpdateSubscriptionForDestinationAlphaInput updateSubscriptionForDestinationAlphaInput = new UpdateSubscriptionForDestinationAlphaInput(); // UpdateSubscriptionForDestinationAlphaInput | 
         try {
             UpdateSubscriptionForDestination200Response result = apiInstance.updateSubscriptionForDestination(destinationId, id, updateSubscriptionForDestinationAlphaInput);

@@ -113,7 +113,7 @@ public class Example {
         token.setBearerToken("BEARER TOKEN");
 
         TransformationsApi apiInstance = new TransformationsApi(defaultClient);
-        String transformationId = "2NhipGGSZWdzI7YrXHELB7pVXqR"; // String | 
+        String transformationId = "2c0vVuRdDmJ3UQkVjd5WxaA3dar"; // String | 
         try {
             DeleteTransformation200Response result = apiInstance.deleteTransformation(transformationId);
             System.out.println(result);

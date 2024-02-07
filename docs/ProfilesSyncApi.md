@@ -15,7 +15,7 @@ All URIs are relative to *https://api.segmentapis.com*
 
 ## Operation: createProfilesWarehouse
 
-> CreateProfilesWarehouse200Response createProfilesWarehouse(spaceId, createProfilesWarehouseAlphaInput)
+> CreateProfilesWarehouse201Response createProfilesWarehouse(spaceId, createProfilesWarehouseAlphaInput)
 
 Create Profiles Warehouse
 
@@ -44,7 +44,7 @@ public class Example {
         String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
         CreateProfilesWarehouseAlphaInput createProfilesWarehouseAlphaInput = new CreateProfilesWarehouseAlphaInput(); // CreateProfilesWarehouseAlphaInput | 
         try {
-            CreateProfilesWarehouse200Response result = apiInstance.createProfilesWarehouse(spaceId, createProfilesWarehouseAlphaInput);
+            CreateProfilesWarehouse201Response result = apiInstance.createProfilesWarehouse(spaceId, createProfilesWarehouseAlphaInput);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ProfilesSyncApi#createProfilesWarehouse");
@@ -67,7 +67,7 @@ public class Example {
 
 ### Return type
 
-[**CreateProfilesWarehouse200Response**](CreateProfilesWarehouse200Response.md)
+[**CreateProfilesWarehouse201Response**](CreateProfilesWarehouse201Response.md)
 
 ### Authorization
 
@@ -82,7 +82,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **201** | Created |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
 | **429** | Too many requests |  -  |
@@ -269,7 +269,7 @@ public class Example {
 
         ProfilesSyncApi apiInstance = new ProfilesSyncApi(defaultClient);
         String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
-        String warehouseId = "kjU72LCJexvrqL7G4TMHHN"; // String | 
+        String warehouseId = "qABd3NVTPfTLQ3kXWoBhgi"; // String | 
         try {
             RemoveProfilesWarehouseFromSpace200Response result = apiInstance.removeProfilesWarehouseFromSpace(spaceId, warehouseId);
             System.out.println(result);
@@ -344,7 +344,7 @@ public class Example {
 
         ProfilesSyncApi apiInstance = new ProfilesSyncApi(defaultClient);
         String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
-        String warehouseId = "eSrwSWY9u6JisZvHhZeK8o"; // String | 
+        String warehouseId = "3eadBBqVMQD2DEtaWXSkqA"; // String | 
         UpdateProfilesWarehouseForSpaceWarehouseAlphaInput updateProfilesWarehouseForSpaceWarehouseAlphaInput = new UpdateProfilesWarehouseForSpaceWarehouseAlphaInput(); // UpdateProfilesWarehouseForSpaceWarehouseAlphaInput | 
         try {
             UpdateProfilesWarehouseForSpaceWarehouse200Response result = apiInstance.updateProfilesWarehouseForSpaceWarehouse(spaceId, warehouseId, updateProfilesWarehouseForSpaceWarehouseAlphaInput);
@@ -420,8 +420,8 @@ public class Example {
         token.setBearerToken("BEARER TOKEN");
 
         ProfilesSyncApi apiInstance = new ProfilesSyncApi(defaultClient);
-        String spaceId = "space_123"; // String | 
-        String warehouseId = "kjU72LCJexvrqL7G4TMHHN"; // String | 
+        String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
+        String warehouseId = "qABd3NVTPfTLQ3kXWoBhgi"; // String | 
         UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput updateSelectiveSyncForWarehouseAndSpaceAlphaInput = new UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput(); // UpdateSelectiveSyncForWarehouseAndSpaceAlphaInput | 
         try {
             UpdateSelectiveSyncForWarehouseAndSpace200Response result = apiInstance.updateSelectiveSyncForWarehouseAndSpace(spaceId, warehouseId, updateSelectiveSyncForWarehouseAndSpaceAlphaInput);

@@ -18,10 +18,10 @@ import com.segment.publicapi.ApiException;
 import com.segment.publicapi.ApiResponse;
 import com.segment.publicapi.Configuration;
 import com.segment.publicapi.Pair;
-import com.segment.publicapi.models.AddConnectionFromSourceToWarehouse200Response;
+import com.segment.publicapi.models.AddConnectionFromSourceToWarehouse201Response;
 import com.segment.publicapi.models.CreateValidationInWarehouse200Response;
 import com.segment.publicapi.models.CreateValidationInWarehouseV1Input;
-import com.segment.publicapi.models.CreateWarehouse200Response;
+import com.segment.publicapi.models.CreateWarehouse201Response;
 import com.segment.publicapi.models.CreateWarehouseV1Input;
 import com.segment.publicapi.models.DeleteWarehouse200Response;
 import com.segment.publicapi.models.GetConnectionStateFromWarehouse200Response;
@@ -86,7 +86,7 @@ public class WarehousesApi {
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -185,21 +185,21 @@ public class WarehousesApi {
      *
      * @param warehouseId (required)
      * @param sourceId (required)
-     * @return AddConnectionFromSourceToWarehouse200Response
+     * @return AddConnectionFromSourceToWarehouse201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public AddConnectionFromSourceToWarehouse200Response addConnectionFromSourceToWarehouse(
+    public AddConnectionFromSourceToWarehouse201Response addConnectionFromSourceToWarehouse(
             String warehouseId, String sourceId) throws ApiException {
-        ApiResponse<AddConnectionFromSourceToWarehouse200Response> localVarResp =
+        ApiResponse<AddConnectionFromSourceToWarehouse201Response> localVarResp =
                 addConnectionFromSourceToWarehouseWithHttpInfo(warehouseId, sourceId);
         return localVarResp.getData();
     }
@@ -211,25 +211,25 @@ public class WarehousesApi {
      *
      * @param warehouseId (required)
      * @param sourceId (required)
-     * @return ApiResponse&lt;AddConnectionFromSourceToWarehouse200Response&gt;
+     * @return ApiResponse&lt;AddConnectionFromSourceToWarehouse201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<AddConnectionFromSourceToWarehouse200Response>
+    public ApiResponse<AddConnectionFromSourceToWarehouse201Response>
             addConnectionFromSourceToWarehouseWithHttpInfo(String warehouseId, String sourceId)
                     throws ApiException {
         okhttp3.Call localVarCall =
                 addConnectionFromSourceToWarehouseValidateBeforeCall(warehouseId, sourceId, null);
         Type localVarReturnType =
-                new TypeToken<AddConnectionFromSourceToWarehouse200Response>() {}.getType();
+                new TypeToken<AddConnectionFromSourceToWarehouse201Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -247,7 +247,7 @@ public class WarehousesApi {
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -256,14 +256,14 @@ public class WarehousesApi {
     public okhttp3.Call addConnectionFromSourceToWarehouseAsync(
             String warehouseId,
             String sourceId,
-            final ApiCallback<AddConnectionFromSourceToWarehouse200Response> _callback)
+            final ApiCallback<AddConnectionFromSourceToWarehouse201Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 addConnectionFromSourceToWarehouseValidateBeforeCall(
                         warehouseId, sourceId, _callback);
         Type localVarReturnType =
-                new TypeToken<AddConnectionFromSourceToWarehouse200Response>() {}.getType();
+                new TypeToken<AddConnectionFromSourceToWarehouse201Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -464,7 +464,7 @@ public class WarehousesApi {
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -554,21 +554,21 @@ public class WarehousesApi {
      * &#x60;Storage Destination Created&#x60; event in the [audit trail](/tag/Audit-Trail).
      *
      * @param createWarehouseV1Input (required)
-     * @return CreateWarehouse200Response
+     * @return CreateWarehouse201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public CreateWarehouse200Response createWarehouse(CreateWarehouseV1Input createWarehouseV1Input)
+    public CreateWarehouse201Response createWarehouse(CreateWarehouseV1Input createWarehouseV1Input)
             throws ApiException {
-        ApiResponse<CreateWarehouse200Response> localVarResp =
+        ApiResponse<CreateWarehouse201Response> localVarResp =
                 createWarehouseWithHttpInfo(createWarehouseV1Input);
         return localVarResp.getData();
     }
@@ -578,22 +578,22 @@ public class WarehousesApi {
      * &#x60;Storage Destination Created&#x60; event in the [audit trail](/tag/Audit-Trail).
      *
      * @param createWarehouseV1Input (required)
-     * @return ApiResponse&lt;CreateWarehouse200Response&gt;
+     * @return ApiResponse&lt;CreateWarehouse201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<CreateWarehouse200Response> createWarehouseWithHttpInfo(
+    public ApiResponse<CreateWarehouse201Response> createWarehouseWithHttpInfo(
             CreateWarehouseV1Input createWarehouseV1Input) throws ApiException {
         okhttp3.Call localVarCall = createWarehouseValidateBeforeCall(createWarehouseV1Input, null);
-        Type localVarReturnType = new TypeToken<CreateWarehouse200Response>() {}.getType();
+        Type localVarReturnType = new TypeToken<CreateWarehouse201Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -610,7 +610,7 @@ public class WarehousesApi {
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -618,12 +618,12 @@ public class WarehousesApi {
      */
     public okhttp3.Call createWarehouseAsync(
             CreateWarehouseV1Input createWarehouseV1Input,
-            final ApiCallback<CreateWarehouse200Response> _callback)
+            final ApiCallback<CreateWarehouse201Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 createWarehouseValidateBeforeCall(createWarehouseV1Input, _callback);
-        Type localVarReturnType = new TypeToken<CreateWarehouse200Response>() {}.getType();
+        Type localVarReturnType = new TypeToken<CreateWarehouse201Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

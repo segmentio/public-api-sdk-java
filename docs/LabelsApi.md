@@ -12,7 +12,7 @@ All URIs are relative to *https://api.segmentapis.com*
 
 ## Operation: createLabel
 
-> CreateLabel200Response createLabel(createLabelV1Input)
+> CreateLabel201Response createLabel(createLabelV1Input)
 
 Create Label
 
@@ -40,7 +40,7 @@ public class Example {
         LabelsApi apiInstance = new LabelsApi(defaultClient);
         CreateLabelV1Input createLabelV1Input = new CreateLabelV1Input(); // CreateLabelV1Input | 
         try {
-            CreateLabel200Response result = apiInstance.createLabel(createLabelV1Input);
+            CreateLabel201Response result = apiInstance.createLabel(createLabelV1Input);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling LabelsApi#createLabel");
@@ -62,7 +62,7 @@ public class Example {
 
 ### Return type
 
-[**CreateLabel200Response**](CreateLabel200Response.md)
+[**CreateLabel201Response**](CreateLabel201Response.md)
 
 ### Authorization
 
@@ -77,7 +77,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **201** | Created |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
 | **429** | Too many requests |  -  |

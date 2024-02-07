@@ -27,16 +27,16 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** CreateLabel200Response */
-public class CreateLabel200Response {
+/** CreateLabel201Response */
+public class CreateLabel201Response {
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
     private CreateLabelV1Output data;
 
-    public CreateLabel200Response() {}
+    public CreateLabel201Response() {}
 
-    public CreateLabel200Response data(CreateLabelV1Output data) {
+    public CreateLabel201Response data(CreateLabelV1Output data) {
 
         this.data = data;
         return this;
@@ -64,8 +64,8 @@ public class CreateLabel200Response {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        CreateLabel200Response createLabel200Response = (CreateLabel200Response) o;
-        return Objects.equals(this.data, createLabel200Response.data);
+        CreateLabel201Response createLabel201Response = (CreateLabel201Response) o;
+        return Objects.equals(this.data, createLabel201Response.data);
     }
 
     @Override
@@ -76,7 +76,7 @@ public class CreateLabel200Response {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CreateLabel200Response {\n");
+        sb.append("class CreateLabel201Response {\n");
         sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -109,28 +109,28 @@ public class CreateLabel200Response {
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to CreateLabel200Response
+     * @throws IOException if the JSON Element is invalid with respect to CreateLabel201Response
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!CreateLabel200Response.openapiRequiredFields
+            if (!CreateLabel201Response.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in CreateLabel200Response is not found in"
+                                "The required field(s) %s in CreateLabel201Response is not found in"
                                         + " the empty JSON string",
-                                CreateLabel200Response.openapiRequiredFields.toString()));
+                                CreateLabel201Response.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!CreateLabel200Response.openapiFields.contains(entry.getKey())) {
+            if (!CreateLabel201Response.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `CreateLabel200Response` properties. JSON: %s",
+                                        + " `CreateLabel201Response` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
@@ -145,24 +145,24 @@ public class CreateLabel200Response {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!CreateLabel200Response.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'CreateLabel200Response' and its subtypes
+            if (!CreateLabel201Response.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'CreateLabel201Response' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<CreateLabel200Response> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(CreateLabel200Response.class));
+            final TypeAdapter<CreateLabel201Response> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(CreateLabel201Response.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<CreateLabel200Response>() {
+                    new TypeAdapter<CreateLabel201Response>() {
                         @Override
-                        public void write(JsonWriter out, CreateLabel200Response value)
+                        public void write(JsonWriter out, CreateLabel201Response value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public CreateLabel200Response read(JsonReader in) throws IOException {
+                        public CreateLabel201Response read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -172,18 +172,18 @@ public class CreateLabel200Response {
     }
 
     /**
-     * Create an instance of CreateLabel200Response given an JSON string
+     * Create an instance of CreateLabel201Response given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of CreateLabel200Response
-     * @throws IOException if the JSON string is invalid with respect to CreateLabel200Response
+     * @return An instance of CreateLabel201Response
+     * @throws IOException if the JSON string is invalid with respect to CreateLabel201Response
      */
-    public static CreateLabel200Response fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, CreateLabel200Response.class);
+    public static CreateLabel201Response fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, CreateLabel201Response.class);
     }
 
     /**
-     * Convert an instance of CreateLabel200Response to an JSON string
+     * Convert an instance of CreateLabel201Response to an JSON string
      *
      * @return JSON string
      */

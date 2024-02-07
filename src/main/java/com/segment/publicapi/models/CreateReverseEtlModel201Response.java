@@ -27,16 +27,16 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** CreateSource200Response */
-public class CreateSource200Response {
+/** CreateReverseEtlModel201Response */
+public class CreateReverseEtlModel201Response {
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    private CreateSourceV1Output data;
+    private CreateReverseEtlModelOutput data;
 
-    public CreateSource200Response() {}
+    public CreateReverseEtlModel201Response() {}
 
-    public CreateSource200Response data(CreateSourceV1Output data) {
+    public CreateReverseEtlModel201Response data(CreateReverseEtlModelOutput data) {
 
         this.data = data;
         return this;
@@ -48,11 +48,11 @@ public class CreateSource200Response {
      * @return data
      */
     @javax.annotation.Nullable
-    public CreateSourceV1Output getData() {
+    public CreateReverseEtlModelOutput getData() {
         return data;
     }
 
-    public void setData(CreateSourceV1Output data) {
+    public void setData(CreateReverseEtlModelOutput data) {
         this.data = data;
     }
 
@@ -64,8 +64,9 @@ public class CreateSource200Response {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        CreateSource200Response createSource200Response = (CreateSource200Response) o;
-        return Objects.equals(this.data, createSource200Response.data);
+        CreateReverseEtlModel201Response createReverseEtlModel201Response =
+                (CreateReverseEtlModel201Response) o;
+        return Objects.equals(this.data, createReverseEtlModel201Response.data);
     }
 
     @Override
@@ -76,7 +77,7 @@ public class CreateSource200Response {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CreateSource200Response {\n");
+        sb.append("class CreateReverseEtlModel201Response {\n");
         sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -109,35 +110,36 @@ public class CreateSource200Response {
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to CreateSource200Response
+     * @throws IOException if the JSON Element is invalid with respect to
+     *     CreateReverseEtlModel201Response
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!CreateSource200Response.openapiRequiredFields
+            if (!CreateReverseEtlModel201Response.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in CreateSource200Response is not found"
-                                        + " in the empty JSON string",
-                                CreateSource200Response.openapiRequiredFields.toString()));
+                                "The required field(s) %s in CreateReverseEtlModel201Response is"
+                                        + " not found in the empty JSON string",
+                                CreateReverseEtlModel201Response.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!CreateSource200Response.openapiFields.contains(entry.getKey())) {
+            if (!CreateReverseEtlModel201Response.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `CreateSource200Response` properties. JSON: %s",
+                                    + " `CreateReverseEtlModel201Response` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the optional field `data`
         if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-            CreateSourceV1Output.validateJsonElement(jsonObj.get("data"));
+            CreateReverseEtlModelOutput.validateJsonElement(jsonObj.get("data"));
         }
     }
 
@@ -145,25 +147,27 @@ public class CreateSource200Response {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!CreateSource200Response.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'CreateSource200Response' and its
-                // subtypes
+            if (!CreateReverseEtlModel201Response.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'CreateReverseEtlModel201Response' and
+                // its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<CreateSource200Response> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(CreateSource200Response.class));
+            final TypeAdapter<CreateReverseEtlModel201Response> thisAdapter =
+                    gson.getDelegateAdapter(
+                            this, TypeToken.get(CreateReverseEtlModel201Response.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<CreateSource200Response>() {
+                    new TypeAdapter<CreateReverseEtlModel201Response>() {
                         @Override
-                        public void write(JsonWriter out, CreateSource200Response value)
+                        public void write(JsonWriter out, CreateReverseEtlModel201Response value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public CreateSource200Response read(JsonReader in) throws IOException {
+                        public CreateReverseEtlModel201Response read(JsonReader in)
+                                throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -173,18 +177,19 @@ public class CreateSource200Response {
     }
 
     /**
-     * Create an instance of CreateSource200Response given an JSON string
+     * Create an instance of CreateReverseEtlModel201Response given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of CreateSource200Response
-     * @throws IOException if the JSON string is invalid with respect to CreateSource200Response
+     * @return An instance of CreateReverseEtlModel201Response
+     * @throws IOException if the JSON string is invalid with respect to
+     *     CreateReverseEtlModel201Response
      */
-    public static CreateSource200Response fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, CreateSource200Response.class);
+    public static CreateReverseEtlModel201Response fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, CreateReverseEtlModel201Response.class);
     }
 
     /**
-     * Convert an instance of CreateSource200Response to an JSON string
+     * Convert an instance of CreateReverseEtlModel201Response to an JSON string
      *
      * @return JSON string
      */

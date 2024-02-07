@@ -270,7 +270,7 @@ public class Example {
         token.setBearerToken("BEARER TOKEN");
 
         IamGroupsApi apiInstance = new IamGroupsApi(defaultClient);
-        String userGroupId = "2Nhj3GVumKbR0cjDly4nCdGo6cT"; // String | 
+        String userGroupId = "2c0vZc1kXJ9Nf9wIJ1Gb7JzORGf"; // String | 
         try {
             DeleteUserGroup200Response result = apiInstance.deleteUserGroup(userGroupId);
             System.out.println(result);

@@ -88,7 +88,7 @@ public class Example {
 
 ## Operation: createReverseEtlModel
 
-> CreateReverseEtlModel200Response createReverseEtlModel(createReverseEtlModelInput)
+> CreateReverseEtlModel201Response createReverseEtlModel(createReverseEtlModelInput)
 
 Create Reverse Etl Model
 
@@ -116,7 +116,7 @@ public class Example {
         ReverseEtlApi apiInstance = new ReverseEtlApi(defaultClient);
         CreateReverseEtlModelInput createReverseEtlModelInput = new CreateReverseEtlModelInput(); // CreateReverseEtlModelInput | 
         try {
-            CreateReverseEtlModel200Response result = apiInstance.createReverseEtlModel(createReverseEtlModelInput);
+            CreateReverseEtlModel201Response result = apiInstance.createReverseEtlModel(createReverseEtlModelInput);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ReverseEtlApi#createReverseEtlModel");
@@ -138,7 +138,7 @@ public class Example {
 
 ### Return type
 
-[**CreateReverseEtlModel200Response**](CreateReverseEtlModel200Response.md)
+[**CreateReverseEtlModel201Response**](CreateReverseEtlModel201Response.md)
 
 ### Authorization
 
@@ -153,7 +153,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **201** | Created |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
 | **429** | Too many requests |  -  |
@@ -187,7 +187,7 @@ public class Example {
         token.setBearerToken("BEARER TOKEN");
 
         ReverseEtlApi apiInstance = new ReverseEtlApi(defaultClient);
-        String modelId = "aow61ZsjXFRsUqB5wWmZES"; // String | 
+        String modelId = "fxXMc5bLdKnDfEgBpDbV11"; // String | 
         try {
             DeleteReverseEtlModel200Response result = apiInstance.deleteReverseEtlModel(modelId);
             System.out.println(result);
@@ -260,7 +260,7 @@ public class Example {
         token.setBearerToken("BEARER TOKEN");
 
         ReverseEtlApi apiInstance = new ReverseEtlApi(defaultClient);
-        String modelId = "MaAeg9yDd1UZTBeEYDiVw"; // String | 
+        String modelId = "dY1JLx4HgWHKUNsB76tEU"; // String | 
         try {
             GetReverseEtlModel200Response result = apiInstance.getReverseEtlModel(modelId);
             System.out.println(result);
@@ -406,7 +406,7 @@ public class Example {
         token.setBearerToken("BEARER TOKEN");
 
         ReverseEtlApi apiInstance = new ReverseEtlApi(defaultClient);
-        String modelId = "37YCmBXayzqG4sit63P5pH"; // String | 
+        String modelId = "gFBTkmP2ENiu6BQRmdHBkr"; // String | 
         UpdateReverseEtlModelInput updateReverseEtlModelInput = new UpdateReverseEtlModelInput(); // UpdateReverseEtlModelInput | 
         try {
             UpdateReverseEtlModel200Response result = apiInstance.updateReverseEtlModel(modelId, updateReverseEtlModelInput);

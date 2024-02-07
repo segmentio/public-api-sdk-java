@@ -340,7 +340,7 @@ public class Example {
 
         DestinationFiltersApi apiInstance = new DestinationFiltersApi(defaultClient);
         String destinationId = "fP7qoQw2HTWt9WdMr718gn"; // String | 
-        String filterId = "2DrXi3N7S85LobhzPphZz0uFzJ4"; // String | 
+        String filterId = "2c0vbGYWOBwbKszg0F0CoLSS01b"; // String | 
         try {
             RemoveFilterFromDestination200Response result = apiInstance.removeFilterFromDestination(destinationId, filterId);
             System.out.println(result);

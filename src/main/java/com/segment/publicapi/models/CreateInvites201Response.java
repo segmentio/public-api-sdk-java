@@ -27,16 +27,16 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** CreateReverseEtlModel200Response */
-public class CreateReverseEtlModel200Response {
+/** CreateInvites201Response */
+public class CreateInvites201Response {
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    private CreateReverseEtlModelOutput data;
+    private CreateInvitesV1Output data;
 
-    public CreateReverseEtlModel200Response() {}
+    public CreateInvites201Response() {}
 
-    public CreateReverseEtlModel200Response data(CreateReverseEtlModelOutput data) {
+    public CreateInvites201Response data(CreateInvitesV1Output data) {
 
         this.data = data;
         return this;
@@ -48,11 +48,11 @@ public class CreateReverseEtlModel200Response {
      * @return data
      */
     @javax.annotation.Nullable
-    public CreateReverseEtlModelOutput getData() {
+    public CreateInvitesV1Output getData() {
         return data;
     }
 
-    public void setData(CreateReverseEtlModelOutput data) {
+    public void setData(CreateInvitesV1Output data) {
         this.data = data;
     }
 
@@ -64,9 +64,8 @@ public class CreateReverseEtlModel200Response {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        CreateReverseEtlModel200Response createReverseEtlModel200Response =
-                (CreateReverseEtlModel200Response) o;
-        return Objects.equals(this.data, createReverseEtlModel200Response.data);
+        CreateInvites201Response createInvites201Response = (CreateInvites201Response) o;
+        return Objects.equals(this.data, createInvites201Response.data);
     }
 
     @Override
@@ -77,7 +76,7 @@ public class CreateReverseEtlModel200Response {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CreateReverseEtlModel200Response {\n");
+        sb.append("class CreateInvites201Response {\n");
         sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -110,36 +109,35 @@ public class CreateReverseEtlModel200Response {
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to
-     *     CreateReverseEtlModel200Response
+     * @throws IOException if the JSON Element is invalid with respect to CreateInvites201Response
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!CreateReverseEtlModel200Response.openapiRequiredFields
+            if (!CreateInvites201Response.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in CreateReverseEtlModel200Response is"
-                                        + " not found in the empty JSON string",
-                                CreateReverseEtlModel200Response.openapiRequiredFields.toString()));
+                                "The required field(s) %s in CreateInvites201Response is not found"
+                                        + " in the empty JSON string",
+                                CreateInvites201Response.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!CreateReverseEtlModel200Response.openapiFields.contains(entry.getKey())) {
+            if (!CreateInvites201Response.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                    + " `CreateReverseEtlModel200Response` properties. JSON: %s",
+                                        + " `CreateInvites201Response` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the optional field `data`
         if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-            CreateReverseEtlModelOutput.validateJsonElement(jsonObj.get("data"));
+            CreateInvitesV1Output.validateJsonElement(jsonObj.get("data"));
         }
     }
 
@@ -147,27 +145,25 @@ public class CreateReverseEtlModel200Response {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!CreateReverseEtlModel200Response.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'CreateReverseEtlModel200Response' and
-                // its subtypes
+            if (!CreateInvites201Response.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'CreateInvites201Response' and its
+                // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<CreateReverseEtlModel200Response> thisAdapter =
-                    gson.getDelegateAdapter(
-                            this, TypeToken.get(CreateReverseEtlModel200Response.class));
+            final TypeAdapter<CreateInvites201Response> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(CreateInvites201Response.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<CreateReverseEtlModel200Response>() {
+                    new TypeAdapter<CreateInvites201Response>() {
                         @Override
-                        public void write(JsonWriter out, CreateReverseEtlModel200Response value)
+                        public void write(JsonWriter out, CreateInvites201Response value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public CreateReverseEtlModel200Response read(JsonReader in)
-                                throws IOException {
+                        public CreateInvites201Response read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -177,19 +173,18 @@ public class CreateReverseEtlModel200Response {
     }
 
     /**
-     * Create an instance of CreateReverseEtlModel200Response given an JSON string
+     * Create an instance of CreateInvites201Response given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of CreateReverseEtlModel200Response
-     * @throws IOException if the JSON string is invalid with respect to
-     *     CreateReverseEtlModel200Response
+     * @return An instance of CreateInvites201Response
+     * @throws IOException if the JSON string is invalid with respect to CreateInvites201Response
      */
-    public static CreateReverseEtlModel200Response fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, CreateReverseEtlModel200Response.class);
+    public static CreateInvites201Response fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, CreateInvites201Response.class);
     }
 
     /**
-     * Convert an instance of CreateReverseEtlModel200Response to an JSON string
+     * Convert an instance of CreateInvites201Response to an JSON string
      *
      * @return JSON string
      */

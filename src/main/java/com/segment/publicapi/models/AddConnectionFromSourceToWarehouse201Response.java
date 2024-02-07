@@ -27,16 +27,17 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** CreateSource200Response1 */
-public class CreateSource200Response1 {
+/** AddConnectionFromSourceToWarehouse201Response */
+public class AddConnectionFromSourceToWarehouse201Response {
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    private CreateSourceAlphaOutput data;
+    private AddConnectionFromSourceToWarehouseV1Output data;
 
-    public CreateSource200Response1() {}
+    public AddConnectionFromSourceToWarehouse201Response() {}
 
-    public CreateSource200Response1 data(CreateSourceAlphaOutput data) {
+    public AddConnectionFromSourceToWarehouse201Response data(
+            AddConnectionFromSourceToWarehouseV1Output data) {
 
         this.data = data;
         return this;
@@ -48,11 +49,11 @@ public class CreateSource200Response1 {
      * @return data
      */
     @javax.annotation.Nullable
-    public CreateSourceAlphaOutput getData() {
+    public AddConnectionFromSourceToWarehouseV1Output getData() {
         return data;
     }
 
-    public void setData(CreateSourceAlphaOutput data) {
+    public void setData(AddConnectionFromSourceToWarehouseV1Output data) {
         this.data = data;
     }
 
@@ -64,8 +65,10 @@ public class CreateSource200Response1 {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        CreateSource200Response1 createSource200Response1 = (CreateSource200Response1) o;
-        return Objects.equals(this.data, createSource200Response1.data);
+        AddConnectionFromSourceToWarehouse201Response
+                addConnectionFromSourceToWarehouse201Response =
+                        (AddConnectionFromSourceToWarehouse201Response) o;
+        return Objects.equals(this.data, addConnectionFromSourceToWarehouse201Response.data);
     }
 
     @Override
@@ -76,7 +79,7 @@ public class CreateSource200Response1 {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CreateSource200Response1 {\n");
+        sb.append("class AddConnectionFromSourceToWarehouse201Response {\n");
         sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -109,35 +112,40 @@ public class CreateSource200Response1 {
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to CreateSource200Response1
+     * @throws IOException if the JSON Element is invalid with respect to
+     *     AddConnectionFromSourceToWarehouse201Response
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!CreateSource200Response1.openapiRequiredFields
+            if (!AddConnectionFromSourceToWarehouse201Response.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in CreateSource200Response1 is not found"
-                                        + " in the empty JSON string",
-                                CreateSource200Response1.openapiRequiredFields.toString()));
+                                "The required field(s) %s in"
+                                    + " AddConnectionFromSourceToWarehouse201Response is not found"
+                                    + " in the empty JSON string",
+                                AddConnectionFromSourceToWarehouse201Response.openapiRequiredFields
+                                        .toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!CreateSource200Response1.openapiFields.contains(entry.getKey())) {
+            if (!AddConnectionFromSourceToWarehouse201Response.openapiFields.contains(
+                    entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `CreateSource200Response1` properties. JSON: %s",
+                                    + " `AddConnectionFromSourceToWarehouse201Response` properties."
+                                    + " JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the optional field `data`
         if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-            CreateSourceAlphaOutput.validateJsonElement(jsonObj.get("data"));
+            AddConnectionFromSourceToWarehouseV1Output.validateJsonElement(jsonObj.get("data"));
         }
     }
 
@@ -145,25 +153,30 @@ public class CreateSource200Response1 {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!CreateSource200Response1.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'CreateSource200Response1' and its
-                // subtypes
+            if (!AddConnectionFromSourceToWarehouse201Response.class.isAssignableFrom(
+                    type.getRawType())) {
+                return null; // this class only serializes
+                // 'AddConnectionFromSourceToWarehouse201Response' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<CreateSource200Response1> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(CreateSource200Response1.class));
+            final TypeAdapter<AddConnectionFromSourceToWarehouse201Response> thisAdapter =
+                    gson.getDelegateAdapter(
+                            this,
+                            TypeToken.get(AddConnectionFromSourceToWarehouse201Response.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<CreateSource200Response1>() {
+                    new TypeAdapter<AddConnectionFromSourceToWarehouse201Response>() {
                         @Override
-                        public void write(JsonWriter out, CreateSource200Response1 value)
+                        public void write(
+                                JsonWriter out, AddConnectionFromSourceToWarehouse201Response value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public CreateSource200Response1 read(JsonReader in) throws IOException {
+                        public AddConnectionFromSourceToWarehouse201Response read(JsonReader in)
+                                throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -173,18 +186,21 @@ public class CreateSource200Response1 {
     }
 
     /**
-     * Create an instance of CreateSource200Response1 given an JSON string
+     * Create an instance of AddConnectionFromSourceToWarehouse201Response given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of CreateSource200Response1
-     * @throws IOException if the JSON string is invalid with respect to CreateSource200Response1
+     * @return An instance of AddConnectionFromSourceToWarehouse201Response
+     * @throws IOException if the JSON string is invalid with respect to
+     *     AddConnectionFromSourceToWarehouse201Response
      */
-    public static CreateSource200Response1 fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, CreateSource200Response1.class);
+    public static AddConnectionFromSourceToWarehouse201Response fromJson(String jsonString)
+            throws IOException {
+        return JSON.getGson()
+                .fromJson(jsonString, AddConnectionFromSourceToWarehouse201Response.class);
     }
 
     /**
-     * Convert an instance of CreateSource200Response1 to an JSON string
+     * Convert an instance of AddConnectionFromSourceToWarehouse201Response to an JSON string
      *
      * @return JSON string
      */

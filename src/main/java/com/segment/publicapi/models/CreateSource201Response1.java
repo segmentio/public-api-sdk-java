@@ -27,16 +27,16 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** CreateWarehouse200Response */
-public class CreateWarehouse200Response {
+/** CreateSource201Response1 */
+public class CreateSource201Response1 {
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    private CreateWarehouseV1Output data;
+    private CreateSourceAlphaOutput data;
 
-    public CreateWarehouse200Response() {}
+    public CreateSource201Response1() {}
 
-    public CreateWarehouse200Response data(CreateWarehouseV1Output data) {
+    public CreateSource201Response1 data(CreateSourceAlphaOutput data) {
 
         this.data = data;
         return this;
@@ -48,11 +48,11 @@ public class CreateWarehouse200Response {
      * @return data
      */
     @javax.annotation.Nullable
-    public CreateWarehouseV1Output getData() {
+    public CreateSourceAlphaOutput getData() {
         return data;
     }
 
-    public void setData(CreateWarehouseV1Output data) {
+    public void setData(CreateSourceAlphaOutput data) {
         this.data = data;
     }
 
@@ -64,8 +64,8 @@ public class CreateWarehouse200Response {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        CreateWarehouse200Response createWarehouse200Response = (CreateWarehouse200Response) o;
-        return Objects.equals(this.data, createWarehouse200Response.data);
+        CreateSource201Response1 createSource201Response1 = (CreateSource201Response1) o;
+        return Objects.equals(this.data, createSource201Response1.data);
     }
 
     @Override
@@ -76,7 +76,7 @@ public class CreateWarehouse200Response {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CreateWarehouse200Response {\n");
+        sb.append("class CreateSource201Response1 {\n");
         sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -109,35 +109,35 @@ public class CreateWarehouse200Response {
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to CreateWarehouse200Response
+     * @throws IOException if the JSON Element is invalid with respect to CreateSource201Response1
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!CreateWarehouse200Response.openapiRequiredFields
+            if (!CreateSource201Response1.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in CreateWarehouse200Response is not"
-                                        + " found in the empty JSON string",
-                                CreateWarehouse200Response.openapiRequiredFields.toString()));
+                                "The required field(s) %s in CreateSource201Response1 is not found"
+                                        + " in the empty JSON string",
+                                CreateSource201Response1.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!CreateWarehouse200Response.openapiFields.contains(entry.getKey())) {
+            if (!CreateSource201Response1.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `CreateWarehouse200Response` properties. JSON: %s",
+                                        + " `CreateSource201Response1` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the optional field `data`
         if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-            CreateWarehouseV1Output.validateJsonElement(jsonObj.get("data"));
+            CreateSourceAlphaOutput.validateJsonElement(jsonObj.get("data"));
         }
     }
 
@@ -145,25 +145,25 @@ public class CreateWarehouse200Response {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!CreateWarehouse200Response.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'CreateWarehouse200Response' and its
+            if (!CreateSource201Response1.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'CreateSource201Response1' and its
                 // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<CreateWarehouse200Response> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(CreateWarehouse200Response.class));
+            final TypeAdapter<CreateSource201Response1> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(CreateSource201Response1.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<CreateWarehouse200Response>() {
+                    new TypeAdapter<CreateSource201Response1>() {
                         @Override
-                        public void write(JsonWriter out, CreateWarehouse200Response value)
+                        public void write(JsonWriter out, CreateSource201Response1 value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public CreateWarehouse200Response read(JsonReader in) throws IOException {
+                        public CreateSource201Response1 read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -173,18 +173,18 @@ public class CreateWarehouse200Response {
     }
 
     /**
-     * Create an instance of CreateWarehouse200Response given an JSON string
+     * Create an instance of CreateSource201Response1 given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of CreateWarehouse200Response
-     * @throws IOException if the JSON string is invalid with respect to CreateWarehouse200Response
+     * @return An instance of CreateSource201Response1
+     * @throws IOException if the JSON string is invalid with respect to CreateSource201Response1
      */
-    public static CreateWarehouse200Response fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, CreateWarehouse200Response.class);
+    public static CreateSource201Response1 fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, CreateSource201Response1.class);
     }
 
     /**
-     * Convert an instance of CreateWarehouse200Response to an JSON string
+     * Convert an instance of CreateSource201Response1 to an JSON string
      *
      * @return JSON string
      */
