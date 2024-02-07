@@ -45,6 +45,11 @@ public class WarehouseSelectiveSyncItemV1 {
     @SerializedName(SERIALIZED_NAME_WAREHOUSE_ID)
     private String warehouseId;
 
+    public static final String SERIALIZED_NAME_ENABLED = "enabled";
+
+    @SerializedName(SERIALIZED_NAME_ENABLED)
+    private Boolean enabled;
+
     public static final String SERIALIZED_NAME_PROPERTIES = "properties";
 
     @SerializedName(SERIALIZED_NAME_PROPERTIES)
@@ -112,6 +117,26 @@ public class WarehouseSelectiveSyncItemV1 {
         this.warehouseId = warehouseId;
     }
 
+    public WarehouseSelectiveSyncItemV1 enabled(Boolean enabled) {
+
+        this.enabled = enabled;
+        return this;
+    }
+
+    /**
+     * Whether this Selective Sync item is enabled.
+     *
+     * @return enabled
+     */
+    @javax.annotation.Nonnull
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
     public WarehouseSelectiveSyncItemV1 properties(Map<String, Object> properties) {
 
         this.properties = properties;
@@ -153,12 +178,13 @@ public class WarehouseSelectiveSyncItemV1 {
         return Objects.equals(this.sourceId, warehouseSelectiveSyncItemV1.sourceId)
                 && Objects.equals(this.collection, warehouseSelectiveSyncItemV1.collection)
                 && Objects.equals(this.warehouseId, warehouseSelectiveSyncItemV1.warehouseId)
+                && Objects.equals(this.enabled, warehouseSelectiveSyncItemV1.enabled)
                 && Objects.equals(this.properties, warehouseSelectiveSyncItemV1.properties);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(sourceId, collection, warehouseId, properties);
+        return Objects.hash(sourceId, collection, warehouseId, enabled, properties);
     }
 
     @Override
@@ -168,6 +194,7 @@ public class WarehouseSelectiveSyncItemV1 {
         sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
         sb.append("    collection: ").append(toIndentedString(collection)).append("\n");
         sb.append("    warehouseId: ").append(toIndentedString(warehouseId)).append("\n");
+        sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
         sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -193,6 +220,7 @@ public class WarehouseSelectiveSyncItemV1 {
         openapiFields.add("sourceId");
         openapiFields.add("collection");
         openapiFields.add("warehouseId");
+        openapiFields.add("enabled");
         openapiFields.add("properties");
 
         // a set of required properties/fields (JSON key names)
@@ -200,6 +228,7 @@ public class WarehouseSelectiveSyncItemV1 {
         openapiRequiredFields.add("sourceId");
         openapiRequiredFields.add("collection");
         openapiRequiredFields.add("warehouseId");
+        openapiRequiredFields.add("enabled");
         openapiRequiredFields.add("properties");
     }
 
