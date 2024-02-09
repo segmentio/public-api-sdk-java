@@ -47,7 +47,7 @@ public class RegulationListEntryV1 {
     @SerializedName(SERIALIZED_NAME_SUBJECTS)
     private List<String> subjects = new ArrayList<>();
 
-    /** Gets or Sets status */
+    /** The current status of the regulate request. */
     @JsonAdapter(StatusEnum.Adapter.class)
     public enum StatusEnum {
         FAILED("FAILED"),
@@ -113,6 +113,63 @@ public class RegulationListEntryV1 {
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
     private String createdAt;
 
+    /** The regulation type. */
+    @JsonAdapter(RegulationTypeEnum.Adapter.class)
+    public enum RegulationTypeEnum {
+        DELETE_INTERNAL("DELETE_INTERNAL"),
+
+        DELETE_ONLY("DELETE_ONLY"),
+
+        SUPPRESS_ONLY("SUPPRESS_ONLY"),
+
+        SUPPRESS_WITH_DELETE("SUPPRESS_WITH_DELETE"),
+
+        UNSUPPRESS("UNSUPPRESS");
+
+        private String value;
+
+        RegulationTypeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static RegulationTypeEnum fromValue(String value) {
+            for (RegulationTypeEnum b : RegulationTypeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<RegulationTypeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final RegulationTypeEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public RegulationTypeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return RegulationTypeEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_REGULATION_TYPE = "regulationType";
+
+    @SerializedName(SERIALIZED_NAME_REGULATION_TYPE)
+    private RegulationTypeEnum regulationType;
+
     public static final String SERIALIZED_NAME_FINISHED_AT = "finishedAt";
 
     @SerializedName(SERIALIZED_NAME_FINISHED_AT)
@@ -127,7 +184,7 @@ public class RegulationListEntryV1 {
     }
 
     /**
-     * Get id
+     * The id of the regulate request.
      *
      * @return id
      */
@@ -147,7 +204,7 @@ public class RegulationListEntryV1 {
     }
 
     /**
-     * Get subjectType
+     * The subject type.
      *
      * @return subjectType
      */
@@ -175,7 +232,7 @@ public class RegulationListEntryV1 {
     }
 
     /**
-     * Get subjects
+     * The list of &#x60;userId&#x60; or &#x60;objectId&#x60; values of the subjects to regulate.
      *
      * @return subjects
      */
@@ -195,7 +252,7 @@ public class RegulationListEntryV1 {
     }
 
     /**
-     * Get status
+     * The current status of the regulate request.
      *
      * @return status
      */
@@ -215,7 +272,7 @@ public class RegulationListEntryV1 {
     }
 
     /**
-     * Get createdAt
+     * The timestamp of the creation of the request.
      *
      * @return createdAt
      */
@@ -228,6 +285,26 @@ public class RegulationListEntryV1 {
         this.createdAt = createdAt;
     }
 
+    public RegulationListEntryV1 regulationType(RegulationTypeEnum regulationType) {
+
+        this.regulationType = regulationType;
+        return this;
+    }
+
+    /**
+     * The regulation type.
+     *
+     * @return regulationType
+     */
+    @javax.annotation.Nonnull
+    public RegulationTypeEnum getRegulationType() {
+        return regulationType;
+    }
+
+    public void setRegulationType(RegulationTypeEnum regulationType) {
+        this.regulationType = regulationType;
+    }
+
     public RegulationListEntryV1 finishedAt(String finishedAt) {
 
         this.finishedAt = finishedAt;
@@ -235,7 +312,7 @@ public class RegulationListEntryV1 {
     }
 
     /**
-     * Get finishedAt
+     * The timestamp of when the request finished.
      *
      * @return finishedAt
      */
@@ -262,12 +339,14 @@ public class RegulationListEntryV1 {
                 && Objects.equals(this.subjects, regulationListEntryV1.subjects)
                 && Objects.equals(this.status, regulationListEntryV1.status)
                 && Objects.equals(this.createdAt, regulationListEntryV1.createdAt)
+                && Objects.equals(this.regulationType, regulationListEntryV1.regulationType)
                 && Objects.equals(this.finishedAt, regulationListEntryV1.finishedAt);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, subjectType, subjects, status, createdAt, finishedAt);
+        return Objects.hash(
+                id, subjectType, subjects, status, createdAt, regulationType, finishedAt);
     }
 
     @Override
@@ -279,6 +358,7 @@ public class RegulationListEntryV1 {
         sb.append("    subjects: ").append(toIndentedString(subjects)).append("\n");
         sb.append("    status: ").append(toIndentedString(status)).append("\n");
         sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+        sb.append("    regulationType: ").append(toIndentedString(regulationType)).append("\n");
         sb.append("    finishedAt: ").append(toIndentedString(finishedAt)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -306,6 +386,7 @@ public class RegulationListEntryV1 {
         openapiFields.add("subjects");
         openapiFields.add("status");
         openapiFields.add("createdAt");
+        openapiFields.add("regulationType");
         openapiFields.add("finishedAt");
 
         // a set of required properties/fields (JSON key names)
@@ -315,6 +396,7 @@ public class RegulationListEntryV1 {
         openapiRequiredFields.add("subjects");
         openapiRequiredFields.add("status");
         openapiRequiredFields.add("createdAt");
+        openapiRequiredFields.add("regulationType");
     }
 
     /**
@@ -396,6 +478,13 @@ public class RegulationListEntryV1 {
                             "Expected the field `createdAt` to be a primitive type in the JSON"
                                     + " string but got `%s`",
                             jsonObj.get("createdAt").toString()));
+        }
+        if (!jsonObj.get("regulationType").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `regulationType` to be a primitive type in the JSON"
+                                    + " string but got `%s`",
+                            jsonObj.get("regulationType").toString()));
         }
         if ((jsonObj.get("finishedAt") != null && !jsonObj.get("finishedAt").isJsonNull())
                 && !jsonObj.get("finishedAt").isJsonPrimitive()) {
