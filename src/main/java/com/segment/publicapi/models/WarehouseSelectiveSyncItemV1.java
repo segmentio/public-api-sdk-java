@@ -50,6 +50,11 @@ public class WarehouseSelectiveSyncItemV1 {
     @SerializedName(SERIALIZED_NAME_ENABLED)
     private Boolean enabled;
 
+    public static final String SERIALIZED_NAME_SOURCE = "source";
+
+    @SerializedName(SERIALIZED_NAME_SOURCE)
+    private String source;
+
     public static final String SERIALIZED_NAME_PROPERTIES = "properties";
 
     @SerializedName(SERIALIZED_NAME_PROPERTIES)
@@ -137,6 +142,26 @@ public class WarehouseSelectiveSyncItemV1 {
         this.enabled = enabled;
     }
 
+    public WarehouseSelectiveSyncItemV1 source(String source) {
+
+        this.source = source;
+        return this;
+    }
+
+    /**
+     * Source id attached to this sync.
+     *
+     * @return source
+     */
+    @javax.annotation.Nullable
+    public String getSource() {
+        return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
+    }
+
     public WarehouseSelectiveSyncItemV1 properties(Map<String, Object> properties) {
 
         this.properties = properties;
@@ -179,12 +204,13 @@ public class WarehouseSelectiveSyncItemV1 {
                 && Objects.equals(this.collection, warehouseSelectiveSyncItemV1.collection)
                 && Objects.equals(this.warehouseId, warehouseSelectiveSyncItemV1.warehouseId)
                 && Objects.equals(this.enabled, warehouseSelectiveSyncItemV1.enabled)
+                && Objects.equals(this.source, warehouseSelectiveSyncItemV1.source)
                 && Objects.equals(this.properties, warehouseSelectiveSyncItemV1.properties);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(sourceId, collection, warehouseId, enabled, properties);
+        return Objects.hash(sourceId, collection, warehouseId, enabled, source, properties);
     }
 
     @Override
@@ -195,6 +221,7 @@ public class WarehouseSelectiveSyncItemV1 {
         sb.append("    collection: ").append(toIndentedString(collection)).append("\n");
         sb.append("    warehouseId: ").append(toIndentedString(warehouseId)).append("\n");
         sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+        sb.append("    source: ").append(toIndentedString(source)).append("\n");
         sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -221,6 +248,7 @@ public class WarehouseSelectiveSyncItemV1 {
         openapiFields.add("collection");
         openapiFields.add("warehouseId");
         openapiFields.add("enabled");
+        openapiFields.add("source");
         openapiFields.add("properties");
 
         // a set of required properties/fields (JSON key names)
@@ -293,6 +321,14 @@ public class WarehouseSelectiveSyncItemV1 {
                             "Expected the field `warehouseId` to be a primitive type in the JSON"
                                     + " string but got `%s`",
                             jsonObj.get("warehouseId").toString()));
+        }
+        if ((jsonObj.get("source") != null && !jsonObj.get("source").isJsonNull())
+                && !jsonObj.get("source").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `source` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
+                            jsonObj.get("source").toString()));
         }
     }
 
