@@ -23,6 +23,7 @@ import com.segment.publicapi.models.CreateReverseETLManualSyncInput;
 import com.segment.publicapi.models.CreateReverseEtlModel201Response;
 import com.segment.publicapi.models.CreateReverseEtlModelInput;
 import com.segment.publicapi.models.DeleteReverseEtlModel200Response;
+import com.segment.publicapi.models.GetReverseETLSyncFromModel200Response;
 import com.segment.publicapi.models.GetReverseEtlModel200Response;
 import com.segment.publicapi.models.ListReverseEtlModels200Response;
 import com.segment.publicapi.models.PaginationInput;
@@ -582,6 +583,201 @@ public class ReverseEtlApi {
 
         okhttp3.Call localVarCall = deleteReverseEtlModelValidateBeforeCall(modelId, _callback);
         Type localVarReturnType = new TypeToken<DeleteReverseEtlModel200Response>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getReverseETLSyncFromModel
+     *
+     * @param modelId (required)
+     * @param syncId (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getReverseETLSyncFromModelCall(
+            String modelId, String syncId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/reverse-etl-models/{modelId}/syncs/{syncId}"
+                        .replace(
+                                "{" + "modelId" + "}",
+                                localVarApiClient.escapeString(modelId.toString()))
+                        .replace(
+                                "{" + "syncId" + "}",
+                                localVarApiClient.escapeString(syncId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.segment.v1alpha+json", "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"token"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getReverseETLSyncFromModelValidateBeforeCall(
+            String modelId, String syncId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'modelId' is set
+        if (modelId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'modelId' when calling"
+                            + " getReverseETLSyncFromModel(Async)");
+        }
+
+        // verify the required parameter 'syncId' is set
+        if (syncId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'syncId' when calling"
+                            + " getReverseETLSyncFromModel(Async)");
+        }
+
+        return getReverseETLSyncFromModelCall(modelId, syncId, _callback);
+    }
+
+    /**
+     * Get Reverse ETL Sync from Model Get the sync status for a Reverse ETL sync. The rate limit
+     * for this endpoint is 250 requests per minute, which is lower than the default due to access
+     * pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code
+     * with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
+     * information.
+     *
+     * @param modelId (required)
+     * @param syncId (required)
+     * @return GetReverseETLSyncFromModel200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public GetReverseETLSyncFromModel200Response getReverseETLSyncFromModel(
+            String modelId, String syncId) throws ApiException {
+        ApiResponse<GetReverseETLSyncFromModel200Response> localVarResp =
+                getReverseETLSyncFromModelWithHttpInfo(modelId, syncId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get Reverse ETL Sync from Model Get the sync status for a Reverse ETL sync. The rate limit
+     * for this endpoint is 250 requests per minute, which is lower than the default due to access
+     * pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code
+     * with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
+     * information.
+     *
+     * @param modelId (required)
+     * @param syncId (required)
+     * @return ApiResponse&lt;GetReverseETLSyncFromModel200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<GetReverseETLSyncFromModel200Response>
+            getReverseETLSyncFromModelWithHttpInfo(String modelId, String syncId)
+                    throws ApiException {
+        okhttp3.Call localVarCall =
+                getReverseETLSyncFromModelValidateBeforeCall(modelId, syncId, null);
+        Type localVarReturnType =
+                new TypeToken<GetReverseETLSyncFromModel200Response>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get Reverse ETL Sync from Model (asynchronously) Get the sync status for a Reverse ETL sync.
+     * The rate limit for this endpoint is 250 requests per minute, which is lower than the default
+     * due to access pattern restrictions. Once reached, this endpoint will respond with the 429
+     * HTTP status code with headers indicating the limit parameters. See [Rate
+     * Limiting](/#tag/Rate-Limits) for more information.
+     *
+     * @param modelId (required)
+     * @param syncId (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body
+     *     object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getReverseETLSyncFromModelAsync(
+            String modelId,
+            String syncId,
+            final ApiCallback<GetReverseETLSyncFromModel200Response> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                getReverseETLSyncFromModelValidateBeforeCall(modelId, syncId, _callback);
+        Type localVarReturnType =
+                new TypeToken<GetReverseETLSyncFromModel200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
