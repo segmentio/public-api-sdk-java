@@ -21,6 +21,8 @@ import com.segment.publicapi.Pair;
 import com.segment.publicapi.models.BatchQueryMessagingSubscriptionsForSpace200Response;
 import com.segment.publicapi.models.BatchQueryMessagingSubscriptionsForSpaceAlphaInput;
 import com.segment.publicapi.models.GetSpace200Response;
+import com.segment.publicapi.models.ListSpaces200Response;
+import com.segment.publicapi.models.PaginationInput;
 import com.segment.publicapi.models.ReplaceMessagingSubscriptionsInSpaces200Response;
 import com.segment.publicapi.models.ReplaceMessagingSubscriptionsInSpacesAlphaInput;
 import java.lang.reflect.Type;
@@ -442,6 +444,174 @@ public class SpacesApi {
 
         okhttp3.Call localVarCall = getSpaceValidateBeforeCall(spaceId, _callback);
         Type localVarReturnType = new TypeToken<GetSpace200Response>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for listSpaces
+     *
+     * @param pagination Pagination params This parameter exists in alpha. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listSpacesCall(PaginationInput pagination, final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/spaces";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (pagination != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pagination", pagination));
+        }
+
+        final String[] localVarAccepts = {
+            "application/vnd.segment.v1alpha+json", "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"token"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listSpacesValidateBeforeCall(
+            PaginationInput pagination, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'pagination' is set
+        if (pagination == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'pagination' when calling listSpaces(Async)");
+        }
+
+        return listSpacesCall(pagination, _callback);
+    }
+
+    /**
+     * List Spaces List Spaces. • This endpoint is in **Alpha** testing. Please submit any feedback
+     * by sending email to friends@segment.com. • In order to successfully call this endpoint, the
+     * specified Workspace needs to have the Spaces feature enabled. Please reach out to your
+     * customer success manager for more information.
+     *
+     * @param pagination Pagination params This parameter exists in alpha. (required)
+     * @return ListSpaces200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ListSpaces200Response listSpaces(PaginationInput pagination) throws ApiException {
+        ApiResponse<ListSpaces200Response> localVarResp = listSpacesWithHttpInfo(pagination);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List Spaces List Spaces. • This endpoint is in **Alpha** testing. Please submit any feedback
+     * by sending email to friends@segment.com. • In order to successfully call this endpoint, the
+     * specified Workspace needs to have the Spaces feature enabled. Please reach out to your
+     * customer success manager for more information.
+     *
+     * @param pagination Pagination params This parameter exists in alpha. (required)
+     * @return ApiResponse&lt;ListSpaces200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<ListSpaces200Response> listSpacesWithHttpInfo(PaginationInput pagination)
+            throws ApiException {
+        okhttp3.Call localVarCall = listSpacesValidateBeforeCall(pagination, null);
+        Type localVarReturnType = new TypeToken<ListSpaces200Response>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List Spaces (asynchronously) List Spaces. • This endpoint is in **Alpha** testing. Please
+     * submit any feedback by sending email to friends@segment.com. • In order to successfully call
+     * this endpoint, the specified Workspace needs to have the Spaces feature enabled. Please reach
+     * out to your customer success manager for more information.
+     *
+     * @param pagination Pagination params This parameter exists in alpha. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body
+     *     object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listSpacesAsync(
+            PaginationInput pagination, final ApiCallback<ListSpaces200Response> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall = listSpacesValidateBeforeCall(pagination, _callback);
+        Type localVarReturnType = new TypeToken<ListSpaces200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
