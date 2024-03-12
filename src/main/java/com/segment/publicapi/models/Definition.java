@@ -48,7 +48,7 @@ public class Definition {
     }
 
     /**
-     * The query language string defining the computed trait aggregation criteria.
+     * The query language string defining the audience segmentation criteria.
      *
      * @return query
      */
@@ -68,8 +68,7 @@ public class Definition {
     }
 
     /**
-     * The underlying data type being aggregated for this computed trait. Possible values: users,
-     * accounts.
+     * The underlying data type being segmented for this audience. Possible values: users, accounts.
      *
      * @return type
      */
