@@ -47,7 +47,7 @@ public class UpdateAudienceForSpaceInput {
      *
      * @return enabled
      */
-    @javax.annotation.Nonnull
+    @javax.annotation.Nullable
     public Boolean getEnabled() {
         return enabled;
     }
@@ -103,7 +103,6 @@ public class UpdateAudienceForSpaceInput {
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("enabled");
     }
 
     /**
@@ -134,16 +133,6 @@ public class UpdateAudienceForSpaceInput {
                                 "The field `%s` in the JSON string is not defined in the"
                                         + " `UpdateAudienceForSpaceInput` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
-            }
-        }
-
-        // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : UpdateAudienceForSpaceInput.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-                throw new IllegalArgumentException(
-                        String.format(
-                                "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonElement.toString()));
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
