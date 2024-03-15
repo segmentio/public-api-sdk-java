@@ -22,64 +22,90 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Query language definition and type. */
-public class Definition1 {
-    public static final String SERIALIZED_NAME_QUERY = "query";
+/** Series within DeliveryOverviewMetricsDataset. */
+public class DeliveryOverviewMetricsDatapoint {
+    public static final String SERIALIZED_NAME_TIME = "time";
 
-    @SerializedName(SERIALIZED_NAME_QUERY)
-    private String query;
+    @SerializedName(SERIALIZED_NAME_TIME)
+    private String time;
 
-    public static final String SERIALIZED_NAME_TYPE = "type";
+    public static final String SERIALIZED_NAME_COUNT = "count";
 
-    @SerializedName(SERIALIZED_NAME_TYPE)
-    private String type;
+    @SerializedName(SERIALIZED_NAME_COUNT)
+    private BigDecimal count;
 
-    public Definition1() {}
+    public static final String SERIALIZED_NAME_RETRY_COUNT = "retryCount";
 
-    public Definition1 query(String query) {
+    @SerializedName(SERIALIZED_NAME_RETRY_COUNT)
+    private BigDecimal retryCount;
 
-        this.query = query;
+    public DeliveryOverviewMetricsDatapoint() {}
+
+    public DeliveryOverviewMetricsDatapoint time(String time) {
+
+        this.time = time;
         return this;
     }
 
     /**
-     * The query language string defining the computed trait aggregation criteria.
+     * The timestamp corresponding to the beginning of the window given by the requested
+     * granularity.
      *
-     * @return query
+     * @return time
      */
     @javax.annotation.Nonnull
-    public String getQuery() {
-        return query;
+    public String getTime() {
+        return time;
     }
 
-    public void setQuery(String query) {
-        this.query = query;
+    public void setTime(String time) {
+        this.time = time;
     }
 
-    public Definition1 type(String type) {
+    public DeliveryOverviewMetricsDatapoint count(BigDecimal count) {
 
-        this.type = type;
+        this.count = count;
         return this;
     }
 
     /**
-     * The underlying data type being aggregated for this computed trait. Possible values: users,
-     * accounts.
+     * Holds the number of events within the specified granularity and groupBy options.
      *
-     * @return type
+     * @return count
      */
     @javax.annotation.Nonnull
-    public String getType() {
-        return type;
+    public BigDecimal getCount() {
+        return count;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setCount(BigDecimal count) {
+        this.count = count;
+    }
+
+    public DeliveryOverviewMetricsDatapoint retryCount(BigDecimal retryCount) {
+
+        this.retryCount = retryCount;
+        return this;
+    }
+
+    /**
+     * The number of retried events that were successfully delivered.
+     *
+     * @return retryCount
+     */
+    @javax.annotation.Nullable
+    public BigDecimal getRetryCount() {
+        return retryCount;
+    }
+
+    public void setRetryCount(BigDecimal retryCount) {
+        this.retryCount = retryCount;
     }
 
     @Override
@@ -90,22 +116,25 @@ public class Definition1 {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Definition1 definition1 = (Definition1) o;
-        return Objects.equals(this.query, definition1.query)
-                && Objects.equals(this.type, definition1.type);
+        DeliveryOverviewMetricsDatapoint deliveryOverviewMetricsDatapoint =
+                (DeliveryOverviewMetricsDatapoint) o;
+        return Objects.equals(this.time, deliveryOverviewMetricsDatapoint.time)
+                && Objects.equals(this.count, deliveryOverviewMetricsDatapoint.count)
+                && Objects.equals(this.retryCount, deliveryOverviewMetricsDatapoint.retryCount);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(query, type);
+        return Objects.hash(time, count, retryCount);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class Definition1 {\n");
-        sb.append("    query: ").append(toIndentedString(query)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("class DeliveryOverviewMetricsDatapoint {\n");
+        sb.append("    time: ").append(toIndentedString(time)).append("\n");
+        sb.append("    count: ").append(toIndentedString(count)).append("\n");
+        sb.append("    retryCount: ").append(toIndentedString(retryCount)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -127,47 +156,49 @@ public class Definition1 {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("query");
-        openapiFields.add("type");
+        openapiFields.add("time");
+        openapiFields.add("count");
+        openapiFields.add("retryCount");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("query");
-        openapiRequiredFields.add("type");
+        openapiRequiredFields.add("time");
+        openapiRequiredFields.add("count");
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to Definition1
+     * @throws IOException if the JSON Element is invalid with respect to
+     *     DeliveryOverviewMetricsDatapoint
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!Definition1.openapiRequiredFields
+            if (!DeliveryOverviewMetricsDatapoint.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in Definition1 is not found in the empty"
-                                        + " JSON string",
-                                Definition1.openapiRequiredFields.toString()));
+                                "The required field(s) %s in DeliveryOverviewMetricsDatapoint is"
+                                        + " not found in the empty JSON string",
+                                DeliveryOverviewMetricsDatapoint.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!Definition1.openapiFields.contains(entry.getKey())) {
+            if (!DeliveryOverviewMetricsDatapoint.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `Definition1` properties. JSON: %s",
+                                    + " `DeliveryOverviewMetricsDatapoint` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : Definition1.openapiRequiredFields) {
+        for (String requiredField : DeliveryOverviewMetricsDatapoint.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -176,19 +207,12 @@ public class Definition1 {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if (!jsonObj.get("query").isJsonPrimitive()) {
+        if (!jsonObj.get("time").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `query` to be a primitive type in the JSON string"
+                            "Expected the field `time` to be a primitive type in the JSON string"
                                     + " but got `%s`",
-                            jsonObj.get("query").toString()));
-        }
-        if (!jsonObj.get("type").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `type` to be a primitive type in the JSON string"
-                                    + " but got `%s`",
-                            jsonObj.get("type").toString()));
+                            jsonObj.get("time").toString()));
         }
     }
 
@@ -196,23 +220,27 @@ public class Definition1 {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!Definition1.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'Definition1' and its subtypes
+            if (!DeliveryOverviewMetricsDatapoint.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'DeliveryOverviewMetricsDatapoint' and
+                // its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<Definition1> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(Definition1.class));
+            final TypeAdapter<DeliveryOverviewMetricsDatapoint> thisAdapter =
+                    gson.getDelegateAdapter(
+                            this, TypeToken.get(DeliveryOverviewMetricsDatapoint.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<Definition1>() {
+                    new TypeAdapter<DeliveryOverviewMetricsDatapoint>() {
                         @Override
-                        public void write(JsonWriter out, Definition1 value) throws IOException {
+                        public void write(JsonWriter out, DeliveryOverviewMetricsDatapoint value)
+                                throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public Definition1 read(JsonReader in) throws IOException {
+                        public DeliveryOverviewMetricsDatapoint read(JsonReader in)
+                                throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -222,18 +250,19 @@ public class Definition1 {
     }
 
     /**
-     * Create an instance of Definition1 given an JSON string
+     * Create an instance of DeliveryOverviewMetricsDatapoint given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of Definition1
-     * @throws IOException if the JSON string is invalid with respect to Definition1
+     * @return An instance of DeliveryOverviewMetricsDatapoint
+     * @throws IOException if the JSON string is invalid with respect to
+     *     DeliveryOverviewMetricsDatapoint
      */
-    public static Definition1 fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, Definition1.class);
+    public static DeliveryOverviewMetricsDatapoint fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, DeliveryOverviewMetricsDatapoint.class);
     }
 
     /**
-     * Convert an instance of Definition1 to an JSON string
+     * Convert an instance of DeliveryOverviewMetricsDatapoint to an JSON string
      *
      * @return JSON string
      */
