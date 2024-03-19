@@ -87,7 +87,7 @@ public class DeliveryOverviewApi {
      *     alpha. (required)
      * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
      *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
-     *     to a &#x60;groupBy&#x60;. Ex: &#x60;filter: {discardReason: [&#39;discard1&#39;],
+     *     to a &#x60;groupBy&#x60;. Example: &#x60;filter: {discardReason: [&#39;discard1&#39;],
      *     eventName: [&#39;name1&#39;, &#39;name2&#39;], eventType: [&#39;type1&#39;]}&#x60;. This
      *     parameter exists in alpha. (optional)
      * @param pagination Optional params to specify the page cursor and count. This parameter exists
@@ -290,7 +290,7 @@ public class DeliveryOverviewApi {
      *     alpha. (required)
      * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
      *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
-     *     to a &#x60;groupBy&#x60;. Ex: &#x60;filter: {discardReason: [&#39;discard1&#39;],
+     *     to a &#x60;groupBy&#x60;. Example: &#x60;filter: {discardReason: [&#39;discard1&#39;],
      *     eventName: [&#39;name1&#39;, &#39;name2&#39;], eventType: [&#39;type1&#39;]}&#x60;. This
      *     parameter exists in alpha. (optional)
      * @param pagination Optional params to specify the page cursor and count. This parameter exists
@@ -359,7 +359,7 @@ public class DeliveryOverviewApi {
      *     alpha. (required)
      * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
      *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
-     *     to a &#x60;groupBy&#x60;. Ex: &#x60;filter: {discardReason: [&#39;discard1&#39;],
+     *     to a &#x60;groupBy&#x60;. Example: &#x60;filter: {discardReason: [&#39;discard1&#39;],
      *     eventName: [&#39;name1&#39;, &#39;name2&#39;], eventType: [&#39;type1&#39;]}&#x60;. This
      *     parameter exists in alpha. (optional)
      * @param pagination Optional params to specify the page cursor and count. This parameter exists
@@ -431,7 +431,7 @@ public class DeliveryOverviewApi {
      *     alpha. (required)
      * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
      *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
-     *     to a &#x60;groupBy&#x60;. Ex: &#x60;filter: {discardReason: [&#39;discard1&#39;],
+     *     to a &#x60;groupBy&#x60;. Example: &#x60;filter: {discardReason: [&#39;discard1&#39;],
      *     eventName: [&#39;name1&#39;, &#39;name2&#39;], eventType: [&#39;type1&#39;]}&#x60;. This
      *     parameter exists in alpha. (optional)
      * @param pagination Optional params to specify the page cursor and count. This parameter exists
