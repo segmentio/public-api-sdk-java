@@ -27,59 +27,33 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Query language definition and type. */
-public class Definition1 {
-    public static final String SERIALIZED_NAME_QUERY = "query";
+/** Returns the updated Source. */
+public class CreateWriteKeyForSourceAlphaOutput {
+    public static final String SERIALIZED_NAME_SOURCE = "source";
 
-    @SerializedName(SERIALIZED_NAME_QUERY)
-    private String query;
+    @SerializedName(SERIALIZED_NAME_SOURCE)
+    private SourceAlpha source;
 
-    public static final String SERIALIZED_NAME_TYPE = "type";
+    public CreateWriteKeyForSourceAlphaOutput() {}
 
-    @SerializedName(SERIALIZED_NAME_TYPE)
-    private String type;
+    public CreateWriteKeyForSourceAlphaOutput source(SourceAlpha source) {
 
-    public Definition1() {}
-
-    public Definition1 query(String query) {
-
-        this.query = query;
+        this.source = source;
         return this;
     }
 
     /**
-     * The query language string defining the computed trait aggregation criteria.
+     * Get source
      *
-     * @return query
+     * @return source
      */
     @javax.annotation.Nonnull
-    public String getQuery() {
-        return query;
+    public SourceAlpha getSource() {
+        return source;
     }
 
-    public void setQuery(String query) {
-        this.query = query;
-    }
-
-    public Definition1 type(String type) {
-
-        this.type = type;
-        return this;
-    }
-
-    /**
-     * The underlying data type being aggregated for this computed trait. Possible values: users,
-     * accounts.
-     *
-     * @return type
-     */
-    @javax.annotation.Nonnull
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
+    public void setSource(SourceAlpha source) {
+        this.source = source;
     }
 
     @Override
@@ -90,22 +64,21 @@ public class Definition1 {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Definition1 definition1 = (Definition1) o;
-        return Objects.equals(this.query, definition1.query)
-                && Objects.equals(this.type, definition1.type);
+        CreateWriteKeyForSourceAlphaOutput createWriteKeyForSourceAlphaOutput =
+                (CreateWriteKeyForSourceAlphaOutput) o;
+        return Objects.equals(this.source, createWriteKeyForSourceAlphaOutput.source);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(query, type);
+        return Objects.hash(source);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class Definition1 {\n");
-        sb.append("    query: ").append(toIndentedString(query)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("class CreateWriteKeyForSourceAlphaOutput {\n");
+        sb.append("    source: ").append(toIndentedString(source)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -127,47 +100,47 @@ public class Definition1 {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("query");
-        openapiFields.add("type");
+        openapiFields.add("source");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("query");
-        openapiRequiredFields.add("type");
+        openapiRequiredFields.add("source");
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to Definition1
+     * @throws IOException if the JSON Element is invalid with respect to
+     *     CreateWriteKeyForSourceAlphaOutput
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!Definition1.openapiRequiredFields
+            if (!CreateWriteKeyForSourceAlphaOutput.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in Definition1 is not found in the empty"
-                                        + " JSON string",
-                                Definition1.openapiRequiredFields.toString()));
+                                "The required field(s) %s in CreateWriteKeyForSourceAlphaOutput is"
+                                        + " not found in the empty JSON string",
+                                CreateWriteKeyForSourceAlphaOutput.openapiRequiredFields
+                                        .toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!Definition1.openapiFields.contains(entry.getKey())) {
+            if (!CreateWriteKeyForSourceAlphaOutput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `Definition1` properties. JSON: %s",
+                                    + " `CreateWriteKeyForSourceAlphaOutput` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : Definition1.openapiRequiredFields) {
+        for (String requiredField : CreateWriteKeyForSourceAlphaOutput.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -176,43 +149,35 @@ public class Definition1 {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if (!jsonObj.get("query").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `query` to be a primitive type in the JSON string"
-                                    + " but got `%s`",
-                            jsonObj.get("query").toString()));
-        }
-        if (!jsonObj.get("type").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `type` to be a primitive type in the JSON string"
-                                    + " but got `%s`",
-                            jsonObj.get("type").toString()));
-        }
+        // validate the required field `source`
+        SourceAlpha.validateJsonElement(jsonObj.get("source"));
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!Definition1.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'Definition1' and its subtypes
+            if (!CreateWriteKeyForSourceAlphaOutput.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'CreateWriteKeyForSourceAlphaOutput' and
+                // its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<Definition1> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(Definition1.class));
+            final TypeAdapter<CreateWriteKeyForSourceAlphaOutput> thisAdapter =
+                    gson.getDelegateAdapter(
+                            this, TypeToken.get(CreateWriteKeyForSourceAlphaOutput.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<Definition1>() {
+                    new TypeAdapter<CreateWriteKeyForSourceAlphaOutput>() {
                         @Override
-                        public void write(JsonWriter out, Definition1 value) throws IOException {
+                        public void write(JsonWriter out, CreateWriteKeyForSourceAlphaOutput value)
+                                throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public Definition1 read(JsonReader in) throws IOException {
+                        public CreateWriteKeyForSourceAlphaOutput read(JsonReader in)
+                                throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -222,18 +187,20 @@ public class Definition1 {
     }
 
     /**
-     * Create an instance of Definition1 given an JSON string
+     * Create an instance of CreateWriteKeyForSourceAlphaOutput given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of Definition1
-     * @throws IOException if the JSON string is invalid with respect to Definition1
+     * @return An instance of CreateWriteKeyForSourceAlphaOutput
+     * @throws IOException if the JSON string is invalid with respect to
+     *     CreateWriteKeyForSourceAlphaOutput
      */
-    public static Definition1 fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, Definition1.class);
+    public static CreateWriteKeyForSourceAlphaOutput fromJson(String jsonString)
+            throws IOException {
+        return JSON.getGson().fromJson(jsonString, CreateWriteKeyForSourceAlphaOutput.class);
     }
 
     /**
-     * Convert an instance of Definition1 to an JSON string
+     * Convert an instance of CreateWriteKeyForSourceAlphaOutput to an JSON string
      *
      * @return JSON string
      */

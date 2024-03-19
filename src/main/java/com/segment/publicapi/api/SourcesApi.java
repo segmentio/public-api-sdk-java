@@ -22,6 +22,7 @@ import com.segment.publicapi.models.AddLabelsToSource200Response;
 import com.segment.publicapi.models.AddLabelsToSourceV1Input;
 import com.segment.publicapi.models.CreateSource201Response;
 import com.segment.publicapi.models.CreateSourceV1Input;
+import com.segment.publicapi.models.CreateWriteKeyForSource200Response;
 import com.segment.publicapi.models.DeleteSource200Response;
 import com.segment.publicapi.models.GetSource200Response;
 import com.segment.publicapi.models.ListConnectedDestinationsFromSource200Response;
@@ -29,6 +30,7 @@ import com.segment.publicapi.models.ListConnectedWarehousesFromSource200Response
 import com.segment.publicapi.models.ListSchemaSettingsInSource200Response;
 import com.segment.publicapi.models.ListSources200Response;
 import com.segment.publicapi.models.PaginationInput;
+import com.segment.publicapi.models.RemoveWriteKeyFromSource200Response;
 import com.segment.publicapi.models.ReplaceLabelsInSource200Response;
 import com.segment.publicapi.models.ReplaceLabelsInSourceV1Input;
 import com.segment.publicapi.models.UpdateSchemaSettingsInSource200Response;
@@ -443,6 +445,174 @@ public class SourcesApi {
 
         okhttp3.Call localVarCall = createSourceValidateBeforeCall(createSourceV1Input, _callback);
         Type localVarReturnType = new TypeToken<CreateSource201Response>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for createWriteKeyForSource
+     *
+     * @param sourceId (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call createWriteKeyForSourceCall(String sourceId, final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/sources/{sourceId}/writekey"
+                        .replace(
+                                "{" + "sourceId" + "}",
+                                localVarApiClient.escapeString(sourceId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.segment.v1alpha+json", "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"token"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createWriteKeyForSourceValidateBeforeCall(
+            String sourceId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'sourceId' is set
+        if (sourceId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'sourceId' when calling"
+                            + " createWriteKeyForSource(Async)");
+        }
+
+        return createWriteKeyForSourceCall(sourceId, _callback);
+    }
+
+    /**
+     * Create Write Key for Source Creates a new Write Key for the Source. • When called, this
+     * endpoint may generate the &#x60;Source Modified&#x60; event in the [audit
+     * trail](/tag/Audit-Trail).
+     *
+     * @param sourceId (required)
+     * @return CreateWriteKeyForSource200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public CreateWriteKeyForSource200Response createWriteKeyForSource(String sourceId)
+            throws ApiException {
+        ApiResponse<CreateWriteKeyForSource200Response> localVarResp =
+                createWriteKeyForSourceWithHttpInfo(sourceId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create Write Key for Source Creates a new Write Key for the Source. • When called, this
+     * endpoint may generate the &#x60;Source Modified&#x60; event in the [audit
+     * trail](/tag/Audit-Trail).
+     *
+     * @param sourceId (required)
+     * @return ApiResponse&lt;CreateWriteKeyForSource200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<CreateWriteKeyForSource200Response> createWriteKeyForSourceWithHttpInfo(
+            String sourceId) throws ApiException {
+        okhttp3.Call localVarCall = createWriteKeyForSourceValidateBeforeCall(sourceId, null);
+        Type localVarReturnType = new TypeToken<CreateWriteKeyForSource200Response>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create Write Key for Source (asynchronously) Creates a new Write Key for the Source. • When
+     * called, this endpoint may generate the &#x60;Source Modified&#x60; event in the [audit
+     * trail](/tag/Audit-Trail).
+     *
+     * @param sourceId (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body
+     *     object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call createWriteKeyForSourceAsync(
+            String sourceId, final ApiCallback<CreateWriteKeyForSource200Response> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall = createWriteKeyForSourceValidateBeforeCall(sourceId, _callback);
+        Type localVarReturnType = new TypeToken<CreateWriteKeyForSource200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1500,6 +1670,190 @@ public class SourcesApi {
 
         okhttp3.Call localVarCall = listSourcesValidateBeforeCall(pagination, _callback);
         Type localVarReturnType = new TypeToken<ListSources200Response>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for removeWriteKeyFromSource
+     *
+     * @param sourceId (required)
+     * @param writeKey (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call removeWriteKeyFromSourceCall(
+            String sourceId, String writeKey, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/sources/{sourceId}/writekey/{writeKey}"
+                        .replace(
+                                "{" + "sourceId" + "}",
+                                localVarApiClient.escapeString(sourceId.toString()))
+                        .replace(
+                                "{" + "writeKey" + "}",
+                                localVarApiClient.escapeString(writeKey.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.segment.v1alpha+json", "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"token"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "DELETE",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call removeWriteKeyFromSourceValidateBeforeCall(
+            String sourceId, String writeKey, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'sourceId' is set
+        if (sourceId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'sourceId' when calling"
+                            + " removeWriteKeyFromSource(Async)");
+        }
+
+        // verify the required parameter 'writeKey' is set
+        if (writeKey == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'writeKey' when calling"
+                            + " removeWriteKeyFromSource(Async)");
+        }
+
+        return removeWriteKeyFromSourceCall(sourceId, writeKey, _callback);
+    }
+
+    /**
+     * Remove Write Key from Source Removes a Write Key from a Source. • When called, this endpoint
+     * may generate the &#x60;Source Modified&#x60; event in the [audit trail](/tag/Audit-Trail).
+     *
+     * @param sourceId (required)
+     * @param writeKey (required)
+     * @return RemoveWriteKeyFromSource200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public RemoveWriteKeyFromSource200Response removeWriteKeyFromSource(
+            String sourceId, String writeKey) throws ApiException {
+        ApiResponse<RemoveWriteKeyFromSource200Response> localVarResp =
+                removeWriteKeyFromSourceWithHttpInfo(sourceId, writeKey);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Remove Write Key from Source Removes a Write Key from a Source. • When called, this endpoint
+     * may generate the &#x60;Source Modified&#x60; event in the [audit trail](/tag/Audit-Trail).
+     *
+     * @param sourceId (required)
+     * @param writeKey (required)
+     * @return ApiResponse&lt;RemoveWriteKeyFromSource200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<RemoveWriteKeyFromSource200Response> removeWriteKeyFromSourceWithHttpInfo(
+            String sourceId, String writeKey) throws ApiException {
+        okhttp3.Call localVarCall =
+                removeWriteKeyFromSourceValidateBeforeCall(sourceId, writeKey, null);
+        Type localVarReturnType = new TypeToken<RemoveWriteKeyFromSource200Response>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Remove Write Key from Source (asynchronously) Removes a Write Key from a Source. • When
+     * called, this endpoint may generate the &#x60;Source Modified&#x60; event in the [audit
+     * trail](/tag/Audit-Trail).
+     *
+     * @param sourceId (required)
+     * @param writeKey (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body
+     *     object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call removeWriteKeyFromSourceAsync(
+            String sourceId,
+            String writeKey,
+            final ApiCallback<RemoveWriteKeyFromSource200Response> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                removeWriteKeyFromSourceValidateBeforeCall(sourceId, writeKey, _callback);
+        Type localVarReturnType = new TypeToken<RemoveWriteKeyFromSource200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

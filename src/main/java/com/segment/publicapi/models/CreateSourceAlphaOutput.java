@@ -27,7 +27,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Returns the newly Source. */
+/** Returns the newly created Source. */
 public class CreateSourceAlphaOutput {
     public static final String SERIALIZED_NAME_SOURCE = "source";
 
