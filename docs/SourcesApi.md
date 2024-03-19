@@ -6,12 +6,14 @@ All URIs are relative to *https://api.segmentapis.com*
 |------------- | ------------- | -------------|
 | [**addLabelsToSource**](SourcesApi.md#addLabelsToSource) | **POST** /sources/{sourceId}/labels | Add Labels to Source |
 | [**createSource**](SourcesApi.md#createSource) | **POST** /sources | Create Source |
+| [**createWriteKeyForSource**](SourcesApi.md#createWriteKeyForSource) | **POST** /sources/{sourceId}/writekey | Create Write Key for Source |
 | [**deleteSource**](SourcesApi.md#deleteSource) | **DELETE** /sources/{sourceId} | Delete Source |
 | [**getSource**](SourcesApi.md#getSource) | **GET** /sources/{sourceId} | Get Source |
 | [**listConnectedDestinationsFromSource**](SourcesApi.md#listConnectedDestinationsFromSource) | **GET** /sources/{sourceId}/connected-destinations | List Connected Destinations from Source |
 | [**listConnectedWarehousesFromSource**](SourcesApi.md#listConnectedWarehousesFromSource) | **GET** /sources/{sourceId}/connected-warehouses | List Connected Warehouses from Source |
 | [**listSchemaSettingsInSource**](SourcesApi.md#listSchemaSettingsInSource) | **GET** /sources/{sourceId}/settings | List Schema Settings in Source |
 | [**listSources**](SourcesApi.md#listSources) | **GET** /sources | List Sources |
+| [**removeWriteKeyFromSource**](SourcesApi.md#removeWriteKeyFromSource) | **DELETE** /sources/{sourceId}/writekey/{writeKey} | Remove Write Key from Source |
 | [**replaceLabelsInSource**](SourcesApi.md#replaceLabelsInSource) | **PUT** /sources/{sourceId}/labels | Replace Labels in Source |
 | [**updateSchemaSettingsInSource**](SourcesApi.md#updateSchemaSettingsInSource) | **PATCH** /sources/{sourceId}/settings | Update Schema Settings in Source |
 | [**updateSource**](SourcesApi.md#updateSource) | **PATCH** /sources/{sourceId} | Update Source |
@@ -161,6 +163,79 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
+| **404** | Resource not found |  -  |
+| **422** | Validation failure |  -  |
+| **429** | Too many requests |  -  |
+
+
+## Operation: createWriteKeyForSource
+
+> CreateWriteKeyForSource200Response createWriteKeyForSource(sourceId)
+
+Create Write Key for Source
+
+Creates a new Write Key for the Source.    • When called, this endpoint may generate the &#x60;Source Modified&#x60; event in the [audit trail](/tag/Audit-Trail). 
+
+### Example
+
+```java
+// Import classes:
+import com.segment.publicapi.ApiClient;
+import com.segment.publicapi.ApiException;
+import com.segment.publicapi.Configuration;
+import com.segment.publicapi.auth.*;
+import com.segment.publicapi.models.*;
+import com.segment.publicapi.api.SourcesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        
+        // Configure HTTP bearer authorization: token
+        HttpBearerAuth token = (HttpBearerAuth) defaultClient.getAuthentication("token");
+        token.setBearerToken("BEARER TOKEN");
+
+        SourcesApi apiInstance = new SourcesApi(defaultClient);
+        String sourceId = "idR4zzU9iGcGJgoAX891nf"; // String | 
+        try {
+            CreateWriteKeyForSource200Response result = apiInstance.createWriteKeyForSource(sourceId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SourcesApi#createWriteKeyForSource");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sourceId** | **String**|  | |
+
+### Return type
+
+[**CreateWriteKeyForSource200Response**](CreateWriteKeyForSource200Response.md)
+
+### Authorization
+
+[token](../README.md#token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/vnd.segment.v1alpha+json, application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
 | **429** | Too many requests |  -  |
@@ -597,6 +672,81 @@ public class Example {
 
 - **Content-Type**: Not defined
 - **Accept**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **404** | Resource not found |  -  |
+| **422** | Validation failure |  -  |
+| **429** | Too many requests |  -  |
+
+
+## Operation: removeWriteKeyFromSource
+
+> RemoveWriteKeyFromSource200Response removeWriteKeyFromSource(sourceId, writeKey)
+
+Remove Write Key from Source
+
+Removes a Write Key from a Source.    • When called, this endpoint may generate the &#x60;Source Modified&#x60; event in the [audit trail](/tag/Audit-Trail). 
+
+### Example
+
+```java
+// Import classes:
+import com.segment.publicapi.ApiClient;
+import com.segment.publicapi.ApiException;
+import com.segment.publicapi.Configuration;
+import com.segment.publicapi.auth.*;
+import com.segment.publicapi.models.*;
+import com.segment.publicapi.api.SourcesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        
+        // Configure HTTP bearer authorization: token
+        HttpBearerAuth token = (HttpBearerAuth) defaultClient.getAuthentication("token");
+        token.setBearerToken("BEARER TOKEN");
+
+        SourcesApi apiInstance = new SourcesApi(defaultClient);
+        String sourceId = "idR4zzU9iGcGJgoAX891nf"; // String | 
+        String writeKey = "wk123"; // String | 
+        try {
+            RemoveWriteKeyFromSource200Response result = apiInstance.removeWriteKeyFromSource(sourceId, writeKey);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling SourcesApi#removeWriteKeyFromSource");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **sourceId** | **String**|  | |
+| **writeKey** | **String**|  | |
+
+### Return type
+
+[**RemoveWriteKeyFromSource200Response**](RemoveWriteKeyFromSource200Response.md)
+
+### Authorization
+
+[token](../README.md#token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/vnd.segment.v1alpha+json, application/json
 
 
 ### HTTP response details

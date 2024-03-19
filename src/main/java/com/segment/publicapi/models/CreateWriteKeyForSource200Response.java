@@ -27,33 +27,33 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Returns the newly created Source. */
-public class CreateSourceAlphaOutput {
-    public static final String SERIALIZED_NAME_SOURCE = "source";
+/** CreateWriteKeyForSource200Response */
+public class CreateWriteKeyForSource200Response {
+    public static final String SERIALIZED_NAME_DATA = "data";
 
-    @SerializedName(SERIALIZED_NAME_SOURCE)
-    private SourceAlpha source;
+    @SerializedName(SERIALIZED_NAME_DATA)
+    private CreateWriteKeyForSourceAlphaOutput data;
 
-    public CreateSourceAlphaOutput() {}
+    public CreateWriteKeyForSource200Response() {}
 
-    public CreateSourceAlphaOutput source(SourceAlpha source) {
+    public CreateWriteKeyForSource200Response data(CreateWriteKeyForSourceAlphaOutput data) {
 
-        this.source = source;
+        this.data = data;
         return this;
     }
 
     /**
-     * Get source
+     * Get data
      *
-     * @return source
+     * @return data
      */
-    @javax.annotation.Nonnull
-    public SourceAlpha getSource() {
-        return source;
+    @javax.annotation.Nullable
+    public CreateWriteKeyForSourceAlphaOutput getData() {
+        return data;
     }
 
-    public void setSource(SourceAlpha source) {
-        this.source = source;
+    public void setData(CreateWriteKeyForSourceAlphaOutput data) {
+        this.data = data;
     }
 
     @Override
@@ -64,20 +64,21 @@ public class CreateSourceAlphaOutput {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        CreateSourceAlphaOutput createSourceAlphaOutput = (CreateSourceAlphaOutput) o;
-        return Objects.equals(this.source, createSourceAlphaOutput.source);
+        CreateWriteKeyForSource200Response createWriteKeyForSource200Response =
+                (CreateWriteKeyForSource200Response) o;
+        return Objects.equals(this.data, createWriteKeyForSource200Response.data);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(source);
+        return Objects.hash(data);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CreateSourceAlphaOutput {\n");
-        sb.append("    source: ").append(toIndentedString(source)).append("\n");
+        sb.append("class CreateWriteKeyForSource200Response {\n");
+        sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -99,80 +100,75 @@ public class CreateSourceAlphaOutput {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("source");
+        openapiFields.add("data");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("source");
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to CreateSourceAlphaOutput
+     * @throws IOException if the JSON Element is invalid with respect to
+     *     CreateWriteKeyForSource200Response
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!CreateSourceAlphaOutput.openapiRequiredFields
+            if (!CreateWriteKeyForSource200Response.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in CreateSourceAlphaOutput is not found"
-                                        + " in the empty JSON string",
-                                CreateSourceAlphaOutput.openapiRequiredFields.toString()));
+                                "The required field(s) %s in CreateWriteKeyForSource200Response is"
+                                        + " not found in the empty JSON string",
+                                CreateWriteKeyForSource200Response.openapiRequiredFields
+                                        .toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!CreateSourceAlphaOutput.openapiFields.contains(entry.getKey())) {
+            if (!CreateWriteKeyForSource200Response.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `CreateSourceAlphaOutput` properties. JSON: %s",
+                                    + " `CreateWriteKeyForSource200Response` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
-
-        // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : CreateSourceAlphaOutput.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-                throw new IllegalArgumentException(
-                        String.format(
-                                "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonElement.toString()));
-            }
-        }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        // validate the required field `source`
-        SourceAlpha.validateJsonElement(jsonObj.get("source"));
+        // validate the optional field `data`
+        if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
+            CreateWriteKeyForSourceAlphaOutput.validateJsonElement(jsonObj.get("data"));
+        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!CreateSourceAlphaOutput.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'CreateSourceAlphaOutput' and its
-                // subtypes
+            if (!CreateWriteKeyForSource200Response.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'CreateWriteKeyForSource200Response' and
+                // its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<CreateSourceAlphaOutput> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(CreateSourceAlphaOutput.class));
+            final TypeAdapter<CreateWriteKeyForSource200Response> thisAdapter =
+                    gson.getDelegateAdapter(
+                            this, TypeToken.get(CreateWriteKeyForSource200Response.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<CreateSourceAlphaOutput>() {
+                    new TypeAdapter<CreateWriteKeyForSource200Response>() {
                         @Override
-                        public void write(JsonWriter out, CreateSourceAlphaOutput value)
+                        public void write(JsonWriter out, CreateWriteKeyForSource200Response value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public CreateSourceAlphaOutput read(JsonReader in) throws IOException {
+                        public CreateWriteKeyForSource200Response read(JsonReader in)
+                                throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -182,18 +178,20 @@ public class CreateSourceAlphaOutput {
     }
 
     /**
-     * Create an instance of CreateSourceAlphaOutput given an JSON string
+     * Create an instance of CreateWriteKeyForSource200Response given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of CreateSourceAlphaOutput
-     * @throws IOException if the JSON string is invalid with respect to CreateSourceAlphaOutput
+     * @return An instance of CreateWriteKeyForSource200Response
+     * @throws IOException if the JSON string is invalid with respect to
+     *     CreateWriteKeyForSource200Response
      */
-    public static CreateSourceAlphaOutput fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, CreateSourceAlphaOutput.class);
+    public static CreateWriteKeyForSource200Response fromJson(String jsonString)
+            throws IOException {
+        return JSON.getGson().fromJson(jsonString, CreateWriteKeyForSource200Response.class);
     }
 
     /**
-     * Convert an instance of CreateSourceAlphaOutput to an JSON string
+     * Convert an instance of CreateWriteKeyForSource200Response to an JSON string
      *
      * @return JSON string
      */
