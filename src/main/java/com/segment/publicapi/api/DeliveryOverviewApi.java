@@ -68,9 +68,9 @@ public class DeliveryOverviewApi {
      * Build call for getEgressFailedMetricsFromDeliveryOverview
      *
      * @param sourceId The sourceId for the workspace. This parameter exists in alpha. (required)
-     * @param destinationConfigId The ID tied to a workspace destination. DestinationConfigId is a
-     *     required input for queries to Filtered at Destination, Failed Delivery, and Successful
-     *     Delivery. This parameter exists in alpha. (optional)
+     * @param destinationConfigId The ID tied to a workspace destination. DestinationConfigId is
+     *     required for Filtered at Destination, Failed Delivery, and Successful Delivery steps.
+     *     This parameter exists in alpha. (required)
      * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
      *     requested timeframe, inclusive. This parameter exists in alpha. (required)
      * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
@@ -90,8 +90,8 @@ public class DeliveryOverviewApi {
      *     to a &#x60;groupBy&#x60;. Example: &#x60;filter: {discardReason: [&#39;discard1&#39;],
      *     eventName: [&#39;name1&#39;, &#39;name2&#39;], eventType: [&#39;type1&#39;]}&#x60;. This
      *     parameter exists in alpha. (optional)
-     * @param pagination Optional params to specify the page cursor and count. This parameter exists
-     *     in alpha. (optional)
+     * @param pagination Params to specify the page cursor and count. This parameter exists in
+     *     alpha. (required)
      * @param subscriptionId An optional filter for actions destinations, to filter by a specific
      *     action. This parameter exists in alpha. (optional)
      * @param _callback Callback for upload/download progress
@@ -232,6 +232,13 @@ public class DeliveryOverviewApi {
                             + " getEgressFailedMetricsFromDeliveryOverview(Async)");
         }
 
+        // verify the required parameter 'destinationConfigId' is set
+        if (destinationConfigId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'destinationConfigId' when calling"
+                            + " getEgressFailedMetricsFromDeliveryOverview(Async)");
+        }
+
         // verify the required parameter 'startTime' is set
         if (startTime == null) {
             throw new ApiException(
@@ -253,6 +260,13 @@ public class DeliveryOverviewApi {
                             + " getEgressFailedMetricsFromDeliveryOverview(Async)");
         }
 
+        // verify the required parameter 'pagination' is set
+        if (pagination == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'pagination' when calling"
+                            + " getEgressFailedMetricsFromDeliveryOverview(Async)");
+        }
+
         return getEgressFailedMetricsFromDeliveryOverviewCall(
                 sourceId,
                 destinationConfigId,
@@ -271,9 +285,9 @@ public class DeliveryOverviewApi {
      * Destination.
      *
      * @param sourceId The sourceId for the workspace. This parameter exists in alpha. (required)
-     * @param destinationConfigId The ID tied to a workspace destination. DestinationConfigId is a
-     *     required input for queries to Filtered at Destination, Failed Delivery, and Successful
-     *     Delivery. This parameter exists in alpha. (optional)
+     * @param destinationConfigId The ID tied to a workspace destination. DestinationConfigId is
+     *     required for Filtered at Destination, Failed Delivery, and Successful Delivery steps.
+     *     This parameter exists in alpha. (required)
      * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
      *     requested timeframe, inclusive. This parameter exists in alpha. (required)
      * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
@@ -293,8 +307,8 @@ public class DeliveryOverviewApi {
      *     to a &#x60;groupBy&#x60;. Example: &#x60;filter: {discardReason: [&#39;discard1&#39;],
      *     eventName: [&#39;name1&#39;, &#39;name2&#39;], eventType: [&#39;type1&#39;]}&#x60;. This
      *     parameter exists in alpha. (optional)
-     * @param pagination Optional params to specify the page cursor and count. This parameter exists
-     *     in alpha. (optional)
+     * @param pagination Params to specify the page cursor and count. This parameter exists in
+     *     alpha. (required)
      * @param subscriptionId An optional filter for actions destinations, to filter by a specific
      *     action. This parameter exists in alpha. (optional)
      * @return GetEgressFailedMetricsFromDeliveryOverview200Response
@@ -340,9 +354,9 @@ public class DeliveryOverviewApi {
      * Destination.
      *
      * @param sourceId The sourceId for the workspace. This parameter exists in alpha. (required)
-     * @param destinationConfigId The ID tied to a workspace destination. DestinationConfigId is a
-     *     required input for queries to Filtered at Destination, Failed Delivery, and Successful
-     *     Delivery. This parameter exists in alpha. (optional)
+     * @param destinationConfigId The ID tied to a workspace destination. DestinationConfigId is
+     *     required for Filtered at Destination, Failed Delivery, and Successful Delivery steps.
+     *     This parameter exists in alpha. (required)
      * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
      *     requested timeframe, inclusive. This parameter exists in alpha. (required)
      * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
@@ -362,8 +376,8 @@ public class DeliveryOverviewApi {
      *     to a &#x60;groupBy&#x60;. Example: &#x60;filter: {discardReason: [&#39;discard1&#39;],
      *     eventName: [&#39;name1&#39;, &#39;name2&#39;], eventType: [&#39;type1&#39;]}&#x60;. This
      *     parameter exists in alpha. (optional)
-     * @param pagination Optional params to specify the page cursor and count. This parameter exists
-     *     in alpha. (optional)
+     * @param pagination Params to specify the page cursor and count. This parameter exists in
+     *     alpha. (required)
      * @param subscriptionId An optional filter for actions destinations, to filter by a specific
      *     action. This parameter exists in alpha. (optional)
      * @return ApiResponse&lt;GetEgressFailedMetricsFromDeliveryOverview200Response&gt;
@@ -412,9 +426,9 @@ public class DeliveryOverviewApi {
      * be delivered to Destination.
      *
      * @param sourceId The sourceId for the workspace. This parameter exists in alpha. (required)
-     * @param destinationConfigId The ID tied to a workspace destination. DestinationConfigId is a
-     *     required input for queries to Filtered at Destination, Failed Delivery, and Successful
-     *     Delivery. This parameter exists in alpha. (optional)
+     * @param destinationConfigId The ID tied to a workspace destination. DestinationConfigId is
+     *     required for Filtered at Destination, Failed Delivery, and Successful Delivery steps.
+     *     This parameter exists in alpha. (required)
      * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
      *     requested timeframe, inclusive. This parameter exists in alpha. (required)
      * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
@@ -434,8 +448,8 @@ public class DeliveryOverviewApi {
      *     to a &#x60;groupBy&#x60;. Example: &#x60;filter: {discardReason: [&#39;discard1&#39;],
      *     eventName: [&#39;name1&#39;, &#39;name2&#39;], eventType: [&#39;type1&#39;]}&#x60;. This
      *     parameter exists in alpha. (optional)
-     * @param pagination Optional params to specify the page cursor and count. This parameter exists
-     *     in alpha. (optional)
+     * @param pagination Params to specify the page cursor and count. This parameter exists in
+     *     alpha. (required)
      * @param subscriptionId An optional filter for actions destinations, to filter by a specific
      *     action. This parameter exists in alpha. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -793,6 +807,32 @@ public class DeliveryOverviewApi {
     /**
      * Build call for getFilteredAtSourceMetricsFromDeliveryOverview
      *
+     * @param sourceId The sourceId for the workspace. This parameter exists in alpha. (required)
+     * @param destinationConfigId The ID tied to a workspace destination. This parameter exists in
+     *     alpha. (optional)
+     * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
+     *     requested timeframe, inclusive. This parameter exists in alpha. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
+     *     timeframe, noninclusive. This parameter exists in alpha. (required)
+     * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
+     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
+     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in alpha.
+     *     (optional)
+     * @param granularity The size of each bucket in the requested window. Based on the granularity
+     *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
+     *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
+     *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
+     *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
+     *     alpha. (required)
+     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
+     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
+     *     to a &#x60;groupBy&#x60;. Example: &#x60;filter: {discardReason: [&#39;discard1&#39;],
+     *     eventName: [&#39;name1&#39;, &#39;name2&#39;], eventType: [&#39;type1&#39;]}&#x60;. This
+     *     parameter exists in alpha. (optional)
+     * @param pagination Optional params to specify the page cursor and count. This parameter exists
+     *     in alpha. (required)
+     * @param subscriptionId An optional filter for actions destinations, to filter by a specific
+     *     action. This parameter exists in alpha. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -806,7 +846,17 @@ public class DeliveryOverviewApi {
      * </table>
      */
     public okhttp3.Call getFilteredAtSourceMetricsFromDeliveryOverviewCall(
-            final ApiCallback _callback) throws ApiException {
+            String sourceId,
+            String destinationConfigId,
+            String startTime,
+            String endTime,
+            List<String> groupBy,
+            String granularity,
+            DeliveryOverviewFilterBy filter,
+            PaginationInput pagination,
+            String subscriptionId,
+            final ApiCallback _callback)
+            throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -830,6 +880,46 @@ public class DeliveryOverviewApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (sourceId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sourceId", sourceId));
+        }
+
+        if (destinationConfigId != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("destinationConfigId", destinationConfigId));
+        }
+
+        if (startTime != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("startTime", startTime));
+        }
+
+        if (endTime != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("endTime", endTime));
+        }
+
+        if (groupBy != null) {
+            localVarCollectionQueryParams.addAll(
+                    localVarApiClient.parameterToPairs("csv", "groupBy", groupBy));
+        }
+
+        if (granularity != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("granularity", granularity));
+        }
+
+        if (filter != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filter", filter));
+        }
+
+        if (pagination != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pagination", pagination));
+        }
+
+        if (subscriptionId != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("subscriptionId", subscriptionId));
+        }
 
         final String[] localVarAccepts = {
             "application/vnd.segment.v1alpha+json", "application/json"
@@ -863,14 +953,95 @@ public class DeliveryOverviewApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getFilteredAtSourceMetricsFromDeliveryOverviewValidateBeforeCall(
-            final ApiCallback _callback) throws ApiException {
-        return getFilteredAtSourceMetricsFromDeliveryOverviewCall(_callback);
+            String sourceId,
+            String destinationConfigId,
+            String startTime,
+            String endTime,
+            List<String> groupBy,
+            String granularity,
+            DeliveryOverviewFilterBy filter,
+            PaginationInput pagination,
+            String subscriptionId,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'sourceId' is set
+        if (sourceId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'sourceId' when calling"
+                            + " getFilteredAtSourceMetricsFromDeliveryOverview(Async)");
+        }
+
+        // verify the required parameter 'startTime' is set
+        if (startTime == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'startTime' when calling"
+                            + " getFilteredAtSourceMetricsFromDeliveryOverview(Async)");
+        }
+
+        // verify the required parameter 'endTime' is set
+        if (endTime == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'endTime' when calling"
+                            + " getFilteredAtSourceMetricsFromDeliveryOverview(Async)");
+        }
+
+        // verify the required parameter 'granularity' is set
+        if (granularity == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'granularity' when calling"
+                            + " getFilteredAtSourceMetricsFromDeliveryOverview(Async)");
+        }
+
+        // verify the required parameter 'pagination' is set
+        if (pagination == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'pagination' when calling"
+                            + " getFilteredAtSourceMetricsFromDeliveryOverview(Async)");
+        }
+
+        return getFilteredAtSourceMetricsFromDeliveryOverviewCall(
+                sourceId,
+                destinationConfigId,
+                startTime,
+                endTime,
+                groupBy,
+                granularity,
+                filter,
+                pagination,
+                subscriptionId,
+                _callback);
     }
 
     /**
      * Get Filtered At Source Metrics from Delivery Overview Get events that were filtered at
      * Source.
      *
+     * @param sourceId The sourceId for the workspace. This parameter exists in alpha. (required)
+     * @param destinationConfigId The ID tied to a workspace destination. This parameter exists in
+     *     alpha. (optional)
+     * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
+     *     requested timeframe, inclusive. This parameter exists in alpha. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
+     *     timeframe, noninclusive. This parameter exists in alpha. (required)
+     * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
+     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
+     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in alpha.
+     *     (optional)
+     * @param granularity The size of each bucket in the requested window. Based on the granularity
+     *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
+     *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
+     *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
+     *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
+     *     alpha. (required)
+     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
+     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
+     *     to a &#x60;groupBy&#x60;. Example: &#x60;filter: {discardReason: [&#39;discard1&#39;],
+     *     eventName: [&#39;name1&#39;, &#39;name2&#39;], eventType: [&#39;type1&#39;]}&#x60;. This
+     *     parameter exists in alpha. (optional)
+     * @param pagination Optional params to specify the page cursor and count. This parameter exists
+     *     in alpha. (required)
+     * @param subscriptionId An optional filter for actions destinations, to filter by a specific
+     *     action. This parameter exists in alpha. (optional)
      * @return GetEgressFailedMetricsFromDeliveryOverview200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -884,9 +1055,28 @@ public class DeliveryOverviewApi {
      * </table>
      */
     public GetEgressFailedMetricsFromDeliveryOverview200Response
-            getFilteredAtSourceMetricsFromDeliveryOverview() throws ApiException {
+            getFilteredAtSourceMetricsFromDeliveryOverview(
+                    String sourceId,
+                    String destinationConfigId,
+                    String startTime,
+                    String endTime,
+                    List<String> groupBy,
+                    String granularity,
+                    DeliveryOverviewFilterBy filter,
+                    PaginationInput pagination,
+                    String subscriptionId)
+                    throws ApiException {
         ApiResponse<GetEgressFailedMetricsFromDeliveryOverview200Response> localVarResp =
-                getFilteredAtSourceMetricsFromDeliveryOverviewWithHttpInfo();
+                getFilteredAtSourceMetricsFromDeliveryOverviewWithHttpInfo(
+                        sourceId,
+                        destinationConfigId,
+                        startTime,
+                        endTime,
+                        groupBy,
+                        granularity,
+                        filter,
+                        pagination,
+                        subscriptionId);
         return localVarResp.getData();
     }
 
@@ -894,6 +1084,32 @@ public class DeliveryOverviewApi {
      * Get Filtered At Source Metrics from Delivery Overview Get events that were filtered at
      * Source.
      *
+     * @param sourceId The sourceId for the workspace. This parameter exists in alpha. (required)
+     * @param destinationConfigId The ID tied to a workspace destination. This parameter exists in
+     *     alpha. (optional)
+     * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
+     *     requested timeframe, inclusive. This parameter exists in alpha. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
+     *     timeframe, noninclusive. This parameter exists in alpha. (required)
+     * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
+     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
+     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in alpha.
+     *     (optional)
+     * @param granularity The size of each bucket in the requested window. Based on the granularity
+     *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
+     *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
+     *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
+     *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
+     *     alpha. (required)
+     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
+     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
+     *     to a &#x60;groupBy&#x60;. Example: &#x60;filter: {discardReason: [&#39;discard1&#39;],
+     *     eventName: [&#39;name1&#39;, &#39;name2&#39;], eventType: [&#39;type1&#39;]}&#x60;. This
+     *     parameter exists in alpha. (optional)
+     * @param pagination Optional params to specify the page cursor and count. This parameter exists
+     *     in alpha. (required)
+     * @param subscriptionId An optional filter for actions destinations, to filter by a specific
+     *     action. This parameter exists in alpha. (optional)
      * @return ApiResponse&lt;GetEgressFailedMetricsFromDeliveryOverview200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -907,9 +1123,29 @@ public class DeliveryOverviewApi {
      * </table>
      */
     public ApiResponse<GetEgressFailedMetricsFromDeliveryOverview200Response>
-            getFilteredAtSourceMetricsFromDeliveryOverviewWithHttpInfo() throws ApiException {
+            getFilteredAtSourceMetricsFromDeliveryOverviewWithHttpInfo(
+                    String sourceId,
+                    String destinationConfigId,
+                    String startTime,
+                    String endTime,
+                    List<String> groupBy,
+                    String granularity,
+                    DeliveryOverviewFilterBy filter,
+                    PaginationInput pagination,
+                    String subscriptionId)
+                    throws ApiException {
         okhttp3.Call localVarCall =
-                getFilteredAtSourceMetricsFromDeliveryOverviewValidateBeforeCall(null);
+                getFilteredAtSourceMetricsFromDeliveryOverviewValidateBeforeCall(
+                        sourceId,
+                        destinationConfigId,
+                        startTime,
+                        endTime,
+                        groupBy,
+                        granularity,
+                        filter,
+                        pagination,
+                        subscriptionId,
+                        null);
         Type localVarReturnType =
                 new TypeToken<GetEgressFailedMetricsFromDeliveryOverview200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -919,6 +1155,32 @@ public class DeliveryOverviewApi {
      * Get Filtered At Source Metrics from Delivery Overview (asynchronously) Get events that were
      * filtered at Source.
      *
+     * @param sourceId The sourceId for the workspace. This parameter exists in alpha. (required)
+     * @param destinationConfigId The ID tied to a workspace destination. This parameter exists in
+     *     alpha. (optional)
+     * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
+     *     requested timeframe, inclusive. This parameter exists in alpha. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
+     *     timeframe, noninclusive. This parameter exists in alpha. (required)
+     * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
+     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
+     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in alpha.
+     *     (optional)
+     * @param granularity The size of each bucket in the requested window. Based on the granularity
+     *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
+     *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
+     *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
+     *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
+     *     alpha. (required)
+     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
+     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
+     *     to a &#x60;groupBy&#x60;. Example: &#x60;filter: {discardReason: [&#39;discard1&#39;],
+     *     eventName: [&#39;name1&#39;, &#39;name2&#39;], eventType: [&#39;type1&#39;]}&#x60;. This
+     *     parameter exists in alpha. (optional)
+     * @param pagination Optional params to specify the page cursor and count. This parameter exists
+     *     in alpha. (required)
+     * @param subscriptionId An optional filter for actions destinations, to filter by a specific
+     *     action. This parameter exists in alpha. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -933,11 +1195,30 @@ public class DeliveryOverviewApi {
      * </table>
      */
     public okhttp3.Call getFilteredAtSourceMetricsFromDeliveryOverviewAsync(
+            String sourceId,
+            String destinationConfigId,
+            String startTime,
+            String endTime,
+            List<String> groupBy,
+            String granularity,
+            DeliveryOverviewFilterBy filter,
+            PaginationInput pagination,
+            String subscriptionId,
             final ApiCallback<GetEgressFailedMetricsFromDeliveryOverview200Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
-                getFilteredAtSourceMetricsFromDeliveryOverviewValidateBeforeCall(_callback);
+                getFilteredAtSourceMetricsFromDeliveryOverviewValidateBeforeCall(
+                        sourceId,
+                        destinationConfigId,
+                        startTime,
+                        endTime,
+                        groupBy,
+                        granularity,
+                        filter,
+                        pagination,
+                        subscriptionId,
+                        _callback);
         Type localVarReturnType =
                 new TypeToken<GetEgressFailedMetricsFromDeliveryOverview200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
