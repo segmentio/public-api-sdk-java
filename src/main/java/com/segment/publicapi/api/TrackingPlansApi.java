@@ -1452,7 +1452,7 @@ public class TrackingPlansApi {
 
         if (rules != null) {
             localVarCollectionQueryParams.addAll(
-                    localVarApiClient.parameterToPairs("csv", "rules", rules));
+                    localVarApiClient.parameterToPairs("multi", "rules", rules));
         }
 
         final String[] localVarAccepts = {

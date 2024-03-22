@@ -150,27 +150,27 @@ public class EventsApi {
 
         if (groupBy != null) {
             localVarCollectionQueryParams.addAll(
-                    localVarApiClient.parameterToPairs("csv", "groupBy", groupBy));
+                    localVarApiClient.parameterToPairs("multi", "groupBy", groupBy));
         }
 
         if (sourceId != null) {
             localVarCollectionQueryParams.addAll(
-                    localVarApiClient.parameterToPairs("csv", "sourceId", sourceId));
+                    localVarApiClient.parameterToPairs("multi", "sourceId", sourceId));
         }
 
         if (eventName != null) {
             localVarCollectionQueryParams.addAll(
-                    localVarApiClient.parameterToPairs("csv", "eventName", eventName));
+                    localVarApiClient.parameterToPairs("multi", "eventName", eventName));
         }
 
         if (eventType != null) {
             localVarCollectionQueryParams.addAll(
-                    localVarApiClient.parameterToPairs("csv", "eventType", eventType));
+                    localVarApiClient.parameterToPairs("multi", "eventType", eventType));
         }
 
         if (appVersion != null) {
             localVarCollectionQueryParams.addAll(
-                    localVarApiClient.parameterToPairs("csv", "appVersion", appVersion));
+                    localVarApiClient.parameterToPairs("multi", "appVersion", appVersion));
         }
 
         if (pagination != null) {

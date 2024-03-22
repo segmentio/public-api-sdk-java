@@ -161,7 +161,7 @@ public class DeliveryOverviewApi {
 
         if (groupBy != null) {
             localVarCollectionQueryParams.addAll(
-                    localVarApiClient.parameterToPairs("csv", "groupBy", groupBy));
+                    localVarApiClient.parameterToPairs("multi", "groupBy", groupBy));
         }
 
         if (granularity != null) {
@@ -900,7 +900,7 @@ public class DeliveryOverviewApi {
 
         if (groupBy != null) {
             localVarCollectionQueryParams.addAll(
-                    localVarApiClient.parameterToPairs("csv", "groupBy", groupBy));
+                    localVarApiClient.parameterToPairs("multi", "groupBy", groupBy));
         }
 
         if (granularity != null) {

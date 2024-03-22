@@ -517,7 +517,7 @@ public class IamUsersApi {
 
         if (emails != null) {
             localVarCollectionQueryParams.addAll(
-                    localVarApiClient.parameterToPairs("csv", "emails", emails));
+                    localVarApiClient.parameterToPairs("multi", "emails", emails));
         }
 
         final String[] localVarAccepts = {
@@ -699,7 +699,7 @@ public class IamUsersApi {
 
         if (userIds != null) {
             localVarCollectionQueryParams.addAll(
-                    localVarApiClient.parameterToPairs("csv", "userIds", userIds));
+                    localVarApiClient.parameterToPairs("multi", "userIds", userIds));
         }
 
         final String[] localVarAccepts = {
