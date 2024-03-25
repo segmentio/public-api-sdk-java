@@ -15,7 +15,7 @@ All URIs are relative to *https://api.segmentapis.com*
 
 ## Operation: getEgressFailedMetricsFromDeliveryOverview
 
-> GetEgressFailedMetricsFromDeliveryOverview200Response getEgressFailedMetricsFromDeliveryOverview(sourceId, destinationConfigId, startTime, endTime, groupBy, granularity, filter, pagination, subscriptionId)
+> GetEgressFailedMetricsFromDeliveryOverview200Response getEgressFailedMetricsFromDeliveryOverview(metrics)
 
 Get Egress Failed Metrics from Delivery Overview
 
@@ -41,17 +41,9 @@ public class Example {
         token.setBearerToken("BEARER TOKEN");
 
         DeliveryOverviewApi apiInstance = new DeliveryOverviewApi(defaultClient);
-        String sourceId = "rh5BDZp6QDHvXFCkibm1pR"; // String | The sourceId for the workspace.  This parameter exists in alpha.
-        String destinationConfigId = "fP7qoQw2HTWt9WdMr718gn"; // String | The ID tied to a workspace destination. DestinationConfigId is required for Filtered at Destination, Failed Delivery, and Successful Delivery steps.  This parameter exists in alpha.
-        String startTime = "2024-01-01T00:00:00Z"; // String | The ISO8601 formatted timestamp corresponding to the beginning of the requested timeframe, inclusive.  This parameter exists in alpha.
-        String endTime = "2024-01-03T00:00:00Z"; // String | The ISO8601 formatted timestamp corresponding to the end of the requested timeframe, noninclusive.  This parameter exists in alpha.
-        List<String> groupBy = Arrays.asList(); // List<String> | A comma-delimited list of strings representing one or more dimensions to group the result by.  Valid options are: `eventName`, `eventType`, `discardReason`, and `appVersion`.  This parameter exists in alpha.
-        String granularity = "day"; // String | The size of each bucket in the requested window.  Based on the granularity chosen, there are restrictions on the time range you can query:  **Minute**: - Max time range: 4 hours - Oldest possible start time: 48 hours in the past  **Hour**: - Max Time range: 14 days - Oldest possible start time: 30 days in the past  **Day**: - Max time range: 30 days - Oldest possible start time: 30 days in the past  This parameter exists in alpha.
-        DeliveryOverviewFilterBy filter = new DeliveryOverviewFilterBy(); // DeliveryOverviewFilterBy | An optional filter for `eventName`, `eventType`, `discardReason`, and/or `appVersion` that can be applied in addition to a `groupBy`. Example: `filter: {discardReason: ['discard1'], eventName: ['name1', 'name2'], eventType: ['type1']}`.  This parameter exists in alpha.
-        PaginationInput pagination = new PaginationInput(); // PaginationInput | Params to specify the page cursor and count.  This parameter exists in alpha.
-        String subscriptionId = "subscriptionId_example"; // String | An optional filter for actions destinations, to filter by a specific action.  This parameter exists in alpha.
+        GetDeliveryOverviewDestMetricsBetaInput metrics = new GetDeliveryOverviewDestMetricsBetaInput(); // GetDeliveryOverviewDestMetricsBetaInput | Metrics for this Destination pipeline step.  This parameter exists in beta.
         try {
-            GetEgressFailedMetricsFromDeliveryOverview200Response result = apiInstance.getEgressFailedMetricsFromDeliveryOverview(sourceId, destinationConfigId, startTime, endTime, groupBy, granularity, filter, pagination, subscriptionId);
+            GetEgressFailedMetricsFromDeliveryOverview200Response result = apiInstance.getEgressFailedMetricsFromDeliveryOverview(metrics);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DeliveryOverviewApi#getEgressFailedMetricsFromDeliveryOverview");
@@ -69,15 +61,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **sourceId** | **String**| The sourceId for the workspace.  This parameter exists in alpha. | |
-| **destinationConfigId** | **String**| The ID tied to a workspace destination. DestinationConfigId is required for Filtered at Destination, Failed Delivery, and Successful Delivery steps.  This parameter exists in alpha. | |
-| **startTime** | **String**| The ISO8601 formatted timestamp corresponding to the beginning of the requested timeframe, inclusive.  This parameter exists in alpha. | |
-| **endTime** | **String**| The ISO8601 formatted timestamp corresponding to the end of the requested timeframe, noninclusive.  This parameter exists in alpha. | |
-| **groupBy** | [**List&lt;String&gt;**](String.md)| A comma-delimited list of strings representing one or more dimensions to group the result by.  Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;, &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;.  This parameter exists in alpha. | [optional] |
-| **granularity** | **String**| The size of each bucket in the requested window.  Based on the granularity chosen, there are restrictions on the time range you can query:  **Minute**: - Max time range: 4 hours - Oldest possible start time: 48 hours in the past  **Hour**: - Max Time range: 14 days - Oldest possible start time: 30 days in the past  **Day**: - Max time range: 30 days - Oldest possible start time: 30 days in the past  This parameter exists in alpha. | [enum: day, hour, minute] |
-| **filter** | [**DeliveryOverviewFilterBy**](.md)| An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;, &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition to a &#x60;groupBy&#x60;. Example: &#x60;filter: {discardReason: [&#39;discard1&#39;], eventName: [&#39;name1&#39;, &#39;name2&#39;], eventType: [&#39;type1&#39;]}&#x60;.  This parameter exists in alpha. | [optional] |
-| **pagination** | [**PaginationInput**](.md)| Params to specify the page cursor and count.  This parameter exists in alpha. | |
-| **subscriptionId** | **String**| An optional filter for actions destinations, to filter by a specific action.  This parameter exists in alpha. | [optional] |
+| **metrics** | [**GetDeliveryOverviewDestMetricsBetaInput**](.md)| Metrics for this Destination pipeline step.  This parameter exists in beta. | |
 
 ### Return type
 
@@ -90,7 +74,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/vnd.segment.v1alpha+json, application/json
+- **Accept**: application/vnd.segment.v1beta+json, application/json
 
 
 ### HTTP response details
@@ -104,7 +88,7 @@ public class Example {
 
 ## Operation: getEgressSuccessMetricsFromDeliveryOverview
 
-> GetEgressFailedMetricsFromDeliveryOverview200Response getEgressSuccessMetricsFromDeliveryOverview()
+> GetEgressFailedMetricsFromDeliveryOverview200Response getEgressSuccessMetricsFromDeliveryOverview(metrics)
 
 Get Egress Success Metrics from Delivery Overview
 
@@ -130,8 +114,9 @@ public class Example {
         token.setBearerToken("BEARER TOKEN");
 
         DeliveryOverviewApi apiInstance = new DeliveryOverviewApi(defaultClient);
+        GetDeliveryOverviewDestMetricsBetaInput metrics = new GetDeliveryOverviewDestMetricsBetaInput(); // GetDeliveryOverviewDestMetricsBetaInput | Metrics for this Destination pipeline step.  This parameter exists in beta.
         try {
-            GetEgressFailedMetricsFromDeliveryOverview200Response result = apiInstance.getEgressSuccessMetricsFromDeliveryOverview();
+            GetEgressFailedMetricsFromDeliveryOverview200Response result = apiInstance.getEgressSuccessMetricsFromDeliveryOverview(metrics);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DeliveryOverviewApi#getEgressSuccessMetricsFromDeliveryOverview");
@@ -146,7 +131,10 @@ public class Example {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **metrics** | [**GetDeliveryOverviewDestMetricsBetaInput**](.md)| Metrics for this Destination pipeline step.  This parameter exists in beta. | |
 
 ### Return type
 
@@ -159,7 +147,7 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/vnd.segment.v1alpha+json, application/json
+- **Accept**: application/vnd.segment.v1beta+json, application/json
 
 
 ### HTTP response details
@@ -173,7 +161,7 @@ This endpoint does not need any parameter.
 
 ## Operation: getFilteredAtDestinationMetricsFromDeliveryOverview
 
-> GetEgressFailedMetricsFromDeliveryOverview200Response getFilteredAtDestinationMetricsFromDeliveryOverview()
+> GetEgressFailedMetricsFromDeliveryOverview200Response getFilteredAtDestinationMetricsFromDeliveryOverview(metrics)
 
 Get Filtered At Destination Metrics from Delivery Overview
 
@@ -199,8 +187,9 @@ public class Example {
         token.setBearerToken("BEARER TOKEN");
 
         DeliveryOverviewApi apiInstance = new DeliveryOverviewApi(defaultClient);
+        GetDeliveryOverviewDestMetricsBetaInput metrics = new GetDeliveryOverviewDestMetricsBetaInput(); // GetDeliveryOverviewDestMetricsBetaInput | Metrics for this Destination pipeline step.  This parameter exists in beta.
         try {
-            GetEgressFailedMetricsFromDeliveryOverview200Response result = apiInstance.getFilteredAtDestinationMetricsFromDeliveryOverview();
+            GetEgressFailedMetricsFromDeliveryOverview200Response result = apiInstance.getFilteredAtDestinationMetricsFromDeliveryOverview(metrics);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DeliveryOverviewApi#getFilteredAtDestinationMetricsFromDeliveryOverview");
@@ -215,7 +204,10 @@ public class Example {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **metrics** | [**GetDeliveryOverviewDestMetricsBetaInput**](.md)| Metrics for this Destination pipeline step.  This parameter exists in beta. | |
 
 ### Return type
 
@@ -228,7 +220,7 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/vnd.segment.v1alpha+json, application/json
+- **Accept**: application/vnd.segment.v1beta+json, application/json
 
 
 ### HTTP response details
@@ -242,7 +234,7 @@ This endpoint does not need any parameter.
 
 ## Operation: getFilteredAtSourceMetricsFromDeliveryOverview
 
-> GetEgressFailedMetricsFromDeliveryOverview200Response getFilteredAtSourceMetricsFromDeliveryOverview(sourceId, destinationConfigId, startTime, endTime, groupBy, granularity, filter, pagination, subscriptionId)
+> GetEgressFailedMetricsFromDeliveryOverview200Response getFilteredAtSourceMetricsFromDeliveryOverview(metrics)
 
 Get Filtered At Source Metrics from Delivery Overview
 
@@ -268,17 +260,9 @@ public class Example {
         token.setBearerToken("BEARER TOKEN");
 
         DeliveryOverviewApi apiInstance = new DeliveryOverviewApi(defaultClient);
-        String sourceId = "rh5BDZp6QDHvXFCkibm1pR"; // String | The sourceId for the workspace.  This parameter exists in alpha.
-        String destinationConfigId = "destinationConfigId_example"; // String | The ID tied to a workspace destination.  This parameter exists in alpha.
-        String startTime = "2024-01-01T00:00:00Z"; // String | The ISO8601 formatted timestamp corresponding to the beginning of the requested timeframe, inclusive.  This parameter exists in alpha.
-        String endTime = "2024-01-03T00:00:00Z"; // String | The ISO8601 formatted timestamp corresponding to the end of the requested timeframe, noninclusive.  This parameter exists in alpha.
-        List<String> groupBy = Arrays.asList(); // List<String> | A comma-delimited list of strings representing one or more dimensions to group the result by.  Valid options are: `eventName`, `eventType`, `discardReason`, and `appVersion`.  This parameter exists in alpha.
-        String granularity = "day"; // String | The size of each bucket in the requested window.  Based on the granularity chosen, there are restrictions on the time range you can query:  **Minute**: - Max time range: 4 hours - Oldest possible start time: 48 hours in the past  **Hour**: - Max Time range: 14 days - Oldest possible start time: 30 days in the past  **Day**: - Max time range: 30 days - Oldest possible start time: 30 days in the past  This parameter exists in alpha.
-        DeliveryOverviewFilterBy filter = new DeliveryOverviewFilterBy(); // DeliveryOverviewFilterBy | An optional filter for `eventName`, `eventType`, `discardReason`, and/or `appVersion` that can be applied in addition to a `groupBy`. Example: `filter: {discardReason: ['discard1'], eventName: ['name1', 'name2'], eventType: ['type1']}`.  This parameter exists in alpha.
-        PaginationInput pagination = new PaginationInput(); // PaginationInput | Optional params to specify the page cursor and count.  This parameter exists in alpha.
-        String subscriptionId = "subscriptionId_example"; // String | An optional filter for actions destinations, to filter by a specific action.  This parameter exists in alpha.
+        GetDeliveryOverviewSourceMetricsBetaInput metrics = new GetDeliveryOverviewSourceMetricsBetaInput(); // GetDeliveryOverviewSourceMetricsBetaInput | Metrics for this Source pipeline step.  This parameter exists in beta.
         try {
-            GetEgressFailedMetricsFromDeliveryOverview200Response result = apiInstance.getFilteredAtSourceMetricsFromDeliveryOverview(sourceId, destinationConfigId, startTime, endTime, groupBy, granularity, filter, pagination, subscriptionId);
+            GetEgressFailedMetricsFromDeliveryOverview200Response result = apiInstance.getFilteredAtSourceMetricsFromDeliveryOverview(metrics);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DeliveryOverviewApi#getFilteredAtSourceMetricsFromDeliveryOverview");
@@ -296,15 +280,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **sourceId** | **String**| The sourceId for the workspace.  This parameter exists in alpha. | |
-| **destinationConfigId** | **String**| The ID tied to a workspace destination.  This parameter exists in alpha. | [optional] |
-| **startTime** | **String**| The ISO8601 formatted timestamp corresponding to the beginning of the requested timeframe, inclusive.  This parameter exists in alpha. | |
-| **endTime** | **String**| The ISO8601 formatted timestamp corresponding to the end of the requested timeframe, noninclusive.  This parameter exists in alpha. | |
-| **groupBy** | [**List&lt;String&gt;**](String.md)| A comma-delimited list of strings representing one or more dimensions to group the result by.  Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;, &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;.  This parameter exists in alpha. | [optional] |
-| **granularity** | **String**| The size of each bucket in the requested window.  Based on the granularity chosen, there are restrictions on the time range you can query:  **Minute**: - Max time range: 4 hours - Oldest possible start time: 48 hours in the past  **Hour**: - Max Time range: 14 days - Oldest possible start time: 30 days in the past  **Day**: - Max time range: 30 days - Oldest possible start time: 30 days in the past  This parameter exists in alpha. | [enum: day, hour, minute] |
-| **filter** | [**DeliveryOverviewFilterBy**](.md)| An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;, &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition to a &#x60;groupBy&#x60;. Example: &#x60;filter: {discardReason: [&#39;discard1&#39;], eventName: [&#39;name1&#39;, &#39;name2&#39;], eventType: [&#39;type1&#39;]}&#x60;.  This parameter exists in alpha. | [optional] |
-| **pagination** | [**PaginationInput**](.md)| Optional params to specify the page cursor and count.  This parameter exists in alpha. | |
-| **subscriptionId** | **String**| An optional filter for actions destinations, to filter by a specific action.  This parameter exists in alpha. | [optional] |
+| **metrics** | [**GetDeliveryOverviewSourceMetricsBetaInput**](.md)| Metrics for this Source pipeline step.  This parameter exists in beta. | |
 
 ### Return type
 
@@ -317,7 +293,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/vnd.segment.v1alpha+json, application/json
+- **Accept**: application/vnd.segment.v1beta+json, application/json
 
 
 ### HTTP response details
@@ -331,7 +307,7 @@ public class Example {
 
 ## Operation: getIngressFailedMetricsFromDeliveryOverview
 
-> GetEgressFailedMetricsFromDeliveryOverview200Response getIngressFailedMetricsFromDeliveryOverview()
+> GetEgressFailedMetricsFromDeliveryOverview200Response getIngressFailedMetricsFromDeliveryOverview(metrics)
 
 Get Ingress Failed Metrics from Delivery Overview
 
@@ -357,8 +333,9 @@ public class Example {
         token.setBearerToken("BEARER TOKEN");
 
         DeliveryOverviewApi apiInstance = new DeliveryOverviewApi(defaultClient);
+        GetDeliveryOverviewSourceMetricsBetaInput metrics = new GetDeliveryOverviewSourceMetricsBetaInput(); // GetDeliveryOverviewSourceMetricsBetaInput | Metrics for this Source pipeline step.  This parameter exists in beta.
         try {
-            GetEgressFailedMetricsFromDeliveryOverview200Response result = apiInstance.getIngressFailedMetricsFromDeliveryOverview();
+            GetEgressFailedMetricsFromDeliveryOverview200Response result = apiInstance.getIngressFailedMetricsFromDeliveryOverview(metrics);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DeliveryOverviewApi#getIngressFailedMetricsFromDeliveryOverview");
@@ -373,7 +350,10 @@ public class Example {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **metrics** | [**GetDeliveryOverviewSourceMetricsBetaInput**](.md)| Metrics for this Source pipeline step.  This parameter exists in beta. | |
 
 ### Return type
 
@@ -386,7 +366,7 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/vnd.segment.v1alpha+json, application/json
+- **Accept**: application/vnd.segment.v1beta+json, application/json
 
 
 ### HTTP response details
@@ -400,7 +380,7 @@ This endpoint does not need any parameter.
 
 ## Operation: getIngressSuccessMetricsFromDeliveryOverview
 
-> GetEgressFailedMetricsFromDeliveryOverview200Response getIngressSuccessMetricsFromDeliveryOverview()
+> GetEgressFailedMetricsFromDeliveryOverview200Response getIngressSuccessMetricsFromDeliveryOverview(metrics)
 
 Get Ingress Success Metrics from Delivery Overview
 
@@ -426,8 +406,9 @@ public class Example {
         token.setBearerToken("BEARER TOKEN");
 
         DeliveryOverviewApi apiInstance = new DeliveryOverviewApi(defaultClient);
+        GetDeliveryOverviewSourceMetricsBetaInput metrics = new GetDeliveryOverviewSourceMetricsBetaInput(); // GetDeliveryOverviewSourceMetricsBetaInput | Metrics for this Source pipeline step.  This parameter exists in beta.
         try {
-            GetEgressFailedMetricsFromDeliveryOverview200Response result = apiInstance.getIngressSuccessMetricsFromDeliveryOverview();
+            GetEgressFailedMetricsFromDeliveryOverview200Response result = apiInstance.getIngressSuccessMetricsFromDeliveryOverview(metrics);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DeliveryOverviewApi#getIngressSuccessMetricsFromDeliveryOverview");
@@ -442,7 +423,10 @@ public class Example {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **metrics** | [**GetDeliveryOverviewSourceMetricsBetaInput**](.md)| Metrics for this Source pipeline step.  This parameter exists in beta. | |
 
 ### Return type
 
@@ -455,7 +439,7 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/vnd.segment.v1alpha+json, application/json
+- **Accept**: application/vnd.segment.v1beta+json, application/json
 
 
 ### HTTP response details

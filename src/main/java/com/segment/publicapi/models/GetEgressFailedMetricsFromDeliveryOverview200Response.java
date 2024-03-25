@@ -32,12 +32,12 @@ public class GetEgressFailedMetricsFromDeliveryOverview200Response {
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    private GetDeliveryOverviewMetricsAlphaOutput data;
+    private GetDeliveryOverviewMetricsBetaOutput data;
 
     public GetEgressFailedMetricsFromDeliveryOverview200Response() {}
 
     public GetEgressFailedMetricsFromDeliveryOverview200Response data(
-            GetDeliveryOverviewMetricsAlphaOutput data) {
+            GetDeliveryOverviewMetricsBetaOutput data) {
 
         this.data = data;
         return this;
@@ -49,11 +49,11 @@ public class GetEgressFailedMetricsFromDeliveryOverview200Response {
      * @return data
      */
     @javax.annotation.Nullable
-    public GetDeliveryOverviewMetricsAlphaOutput getData() {
+    public GetDeliveryOverviewMetricsBetaOutput getData() {
         return data;
     }
 
-    public void setData(GetDeliveryOverviewMetricsAlphaOutput data) {
+    public void setData(GetDeliveryOverviewMetricsBetaOutput data) {
         this.data = data;
     }
 
@@ -147,7 +147,7 @@ public class GetEgressFailedMetricsFromDeliveryOverview200Response {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the optional field `data`
         if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-            GetDeliveryOverviewMetricsAlphaOutput.validateJsonElement(jsonObj.get("data"));
+            GetDeliveryOverviewMetricsBetaOutput.validateJsonElement(jsonObj.get("data"));
         }
     }
 

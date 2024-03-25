@@ -607,7 +607,13 @@ public class JSON {
                 new com.segment.publicapi.models.GetDailyWorkspaceMTUUsageV1Output
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.GetDeliveryOverviewMetricsAlphaOutput
+                new com.segment.publicapi.models.GetDeliveryOverviewDestMetricsBetaInput
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.GetDeliveryOverviewMetricsBetaOutput
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.GetDeliveryOverviewSourceMetricsBetaInput
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.GetDestination200Response

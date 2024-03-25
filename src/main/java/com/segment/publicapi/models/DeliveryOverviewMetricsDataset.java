@@ -31,7 +31,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Dataset within GetDeliveryOverviewMetricsAlphaOutput. */
+/** Dataset within GetDeliveryOverviewMetricsBetaOutput. */
 public class DeliveryOverviewMetricsDataset {
     public static final String SERIALIZED_NAME_EVENT_NAME = "eventName";
 
