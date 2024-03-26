@@ -67,33 +67,30 @@ public class DeliveryOverviewApi {
     /**
      * Build call for getEgressFailedMetricsFromDeliveryOverview
      *
-     * @param sourceId The sourceId for the workspace. This parameter exists in alpha. (required)
-     * @param destinationConfigId The ID tied to a workspace destination. DestinationConfigId is
-     *     required for Filtered at Destination, Failed Delivery, and Successful Delivery steps.
-     *     This parameter exists in alpha. (required)
+     * @param sourceId The sourceId for the Workspace. This parameter exists in beta. (required)
+     * @param destinationConfigId The id tied to a Workspace Destination. This parameter exists in
+     *     beta. (required)
      * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
-     *     requested timeframe, inclusive. This parameter exists in alpha. (required)
+     *     requested timeframe, inclusive. This parameter exists in beta. (required)
      * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
-     *     timeframe, noninclusive. This parameter exists in alpha. (required)
+     *     timeframe, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
      *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in alpha.
+     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in beta.
      *     (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
      *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
      *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
      *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
-     *     alpha. (required)
+     *     beta. (required)
      * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
      *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
-     *     to a &#x60;groupBy&#x60;. Example: &#x60;filter: {discardReason: [&#39;discard1&#39;],
-     *     eventName: [&#39;name1&#39;, &#39;name2&#39;], eventType: [&#39;type1&#39;]}&#x60;. This
-     *     parameter exists in alpha. (optional)
-     * @param pagination Params to specify the page cursor and count. This parameter exists in
-     *     alpha. (required)
+     *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
+     *     (required)
      * @param subscriptionId An optional filter for actions destinations, to filter by a specific
-     *     action. This parameter exists in alpha. (optional)
+     *     action. This parameter exists in beta. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -183,7 +180,7 @@ public class DeliveryOverviewApi {
         }
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json", "application/json"
+            "application/vnd.segment.v1beta+json", "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -284,33 +281,30 @@ public class DeliveryOverviewApi {
      * Get Egress Failed Metrics from Delivery Overview Get events that failed to be delivered to
      * Destination.
      *
-     * @param sourceId The sourceId for the workspace. This parameter exists in alpha. (required)
-     * @param destinationConfigId The ID tied to a workspace destination. DestinationConfigId is
-     *     required for Filtered at Destination, Failed Delivery, and Successful Delivery steps.
-     *     This parameter exists in alpha. (required)
+     * @param sourceId The sourceId for the Workspace. This parameter exists in beta. (required)
+     * @param destinationConfigId The id tied to a Workspace Destination. This parameter exists in
+     *     beta. (required)
      * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
-     *     requested timeframe, inclusive. This parameter exists in alpha. (required)
+     *     requested timeframe, inclusive. This parameter exists in beta. (required)
      * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
-     *     timeframe, noninclusive. This parameter exists in alpha. (required)
+     *     timeframe, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
      *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in alpha.
+     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in beta.
      *     (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
      *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
      *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
      *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
-     *     alpha. (required)
+     *     beta. (required)
      * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
      *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
-     *     to a &#x60;groupBy&#x60;. Example: &#x60;filter: {discardReason: [&#39;discard1&#39;],
-     *     eventName: [&#39;name1&#39;, &#39;name2&#39;], eventType: [&#39;type1&#39;]}&#x60;. This
-     *     parameter exists in alpha. (optional)
-     * @param pagination Params to specify the page cursor and count. This parameter exists in
-     *     alpha. (required)
+     *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
+     *     (required)
      * @param subscriptionId An optional filter for actions destinations, to filter by a specific
-     *     action. This parameter exists in alpha. (optional)
+     *     action. This parameter exists in beta. (optional)
      * @return GetEgressFailedMetricsFromDeliveryOverview200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -353,33 +347,30 @@ public class DeliveryOverviewApi {
      * Get Egress Failed Metrics from Delivery Overview Get events that failed to be delivered to
      * Destination.
      *
-     * @param sourceId The sourceId for the workspace. This parameter exists in alpha. (required)
-     * @param destinationConfigId The ID tied to a workspace destination. DestinationConfigId is
-     *     required for Filtered at Destination, Failed Delivery, and Successful Delivery steps.
-     *     This parameter exists in alpha. (required)
+     * @param sourceId The sourceId for the Workspace. This parameter exists in beta. (required)
+     * @param destinationConfigId The id tied to a Workspace Destination. This parameter exists in
+     *     beta. (required)
      * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
-     *     requested timeframe, inclusive. This parameter exists in alpha. (required)
+     *     requested timeframe, inclusive. This parameter exists in beta. (required)
      * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
-     *     timeframe, noninclusive. This parameter exists in alpha. (required)
+     *     timeframe, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
      *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in alpha.
+     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in beta.
      *     (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
      *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
      *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
      *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
-     *     alpha. (required)
+     *     beta. (required)
      * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
      *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
-     *     to a &#x60;groupBy&#x60;. Example: &#x60;filter: {discardReason: [&#39;discard1&#39;],
-     *     eventName: [&#39;name1&#39;, &#39;name2&#39;], eventType: [&#39;type1&#39;]}&#x60;. This
-     *     parameter exists in alpha. (optional)
-     * @param pagination Params to specify the page cursor and count. This parameter exists in
-     *     alpha. (required)
+     *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
+     *     (required)
      * @param subscriptionId An optional filter for actions destinations, to filter by a specific
-     *     action. This parameter exists in alpha. (optional)
+     *     action. This parameter exists in beta. (optional)
      * @return ApiResponse&lt;GetEgressFailedMetricsFromDeliveryOverview200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -425,33 +416,30 @@ public class DeliveryOverviewApi {
      * Get Egress Failed Metrics from Delivery Overview (asynchronously) Get events that failed to
      * be delivered to Destination.
      *
-     * @param sourceId The sourceId for the workspace. This parameter exists in alpha. (required)
-     * @param destinationConfigId The ID tied to a workspace destination. DestinationConfigId is
-     *     required for Filtered at Destination, Failed Delivery, and Successful Delivery steps.
-     *     This parameter exists in alpha. (required)
+     * @param sourceId The sourceId for the Workspace. This parameter exists in beta. (required)
+     * @param destinationConfigId The id tied to a Workspace Destination. This parameter exists in
+     *     beta. (required)
      * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
-     *     requested timeframe, inclusive. This parameter exists in alpha. (required)
+     *     requested timeframe, inclusive. This parameter exists in beta. (required)
      * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
-     *     timeframe, noninclusive. This parameter exists in alpha. (required)
+     *     timeframe, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
      *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in alpha.
+     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in beta.
      *     (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
      *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
      *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
      *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
-     *     alpha. (required)
+     *     beta. (required)
      * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
      *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
-     *     to a &#x60;groupBy&#x60;. Example: &#x60;filter: {discardReason: [&#39;discard1&#39;],
-     *     eventName: [&#39;name1&#39;, &#39;name2&#39;], eventType: [&#39;type1&#39;]}&#x60;. This
-     *     parameter exists in alpha. (optional)
-     * @param pagination Params to specify the page cursor and count. This parameter exists in
-     *     alpha. (required)
+     *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
+     *     (required)
      * @param subscriptionId An optional filter for actions destinations, to filter by a specific
-     *     action. This parameter exists in alpha. (optional)
+     *     action. This parameter exists in beta. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -499,340 +487,32 @@ public class DeliveryOverviewApi {
     /**
      * Build call for getEgressSuccessMetricsFromDeliveryOverview
      *
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getEgressSuccessMetricsFromDeliveryOverviewCall(final ApiCallback _callback)
-            throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {};
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null) {
-            basePath = localCustomBaseUrl;
-        } else if (localBasePaths.length > 0) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/delivery-overview/successful-delivery";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json", "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {};
-        final String localVarContentType =
-                localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {"token"};
-        return localVarApiClient.buildCall(
-                basePath,
-                localVarPath,
-                "GET",
-                localVarQueryParams,
-                localVarCollectionQueryParams,
-                localVarPostBody,
-                localVarHeaderParams,
-                localVarCookieParams,
-                localVarFormParams,
-                localVarAuthNames,
-                _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call getEgressSuccessMetricsFromDeliveryOverviewValidateBeforeCall(
-            final ApiCallback _callback) throws ApiException {
-        return getEgressSuccessMetricsFromDeliveryOverviewCall(_callback);
-    }
-
-    /**
-     * Get Egress Success Metrics from Delivery Overview Get events successfully delivered to
-     * Destination.
-     *
-     * @return GetEgressFailedMetricsFromDeliveryOverview200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
-     *     response body
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-     * </table>
-     */
-    public GetEgressFailedMetricsFromDeliveryOverview200Response
-            getEgressSuccessMetricsFromDeliveryOverview() throws ApiException {
-        ApiResponse<GetEgressFailedMetricsFromDeliveryOverview200Response> localVarResp =
-                getEgressSuccessMetricsFromDeliveryOverviewWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get Egress Success Metrics from Delivery Overview Get events successfully delivered to
-     * Destination.
-     *
-     * @return ApiResponse&lt;GetEgressFailedMetricsFromDeliveryOverview200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
-     *     response body
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<GetEgressFailedMetricsFromDeliveryOverview200Response>
-            getEgressSuccessMetricsFromDeliveryOverviewWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall =
-                getEgressSuccessMetricsFromDeliveryOverviewValidateBeforeCall(null);
-        Type localVarReturnType =
-                new TypeToken<GetEgressFailedMetricsFromDeliveryOverview200Response>() {}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Get Egress Success Metrics from Delivery Overview (asynchronously) Get events successfully
-     * delivered to Destination.
-     *
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body
-     *     object
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getEgressSuccessMetricsFromDeliveryOverviewAsync(
-            final ApiCallback<GetEgressFailedMetricsFromDeliveryOverview200Response> _callback)
-            throws ApiException {
-
-        okhttp3.Call localVarCall =
-                getEgressSuccessMetricsFromDeliveryOverviewValidateBeforeCall(_callback);
-        Type localVarReturnType =
-                new TypeToken<GetEgressFailedMetricsFromDeliveryOverview200Response>() {}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-
-    /**
-     * Build call for getFilteredAtDestinationMetricsFromDeliveryOverview
-     *
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getFilteredAtDestinationMetricsFromDeliveryOverviewCall(
-            final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {};
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null) {
-            basePath = localCustomBaseUrl;
-        } else if (localBasePaths.length > 0) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/delivery-overview/filtered-at-destination";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json", "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {};
-        final String localVarContentType =
-                localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {"token"};
-        return localVarApiClient.buildCall(
-                basePath,
-                localVarPath,
-                "GET",
-                localVarQueryParams,
-                localVarCollectionQueryParams,
-                localVarPostBody,
-                localVarHeaderParams,
-                localVarCookieParams,
-                localVarFormParams,
-                localVarAuthNames,
-                _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call getFilteredAtDestinationMetricsFromDeliveryOverviewValidateBeforeCall(
-            final ApiCallback _callback) throws ApiException {
-        return getFilteredAtDestinationMetricsFromDeliveryOverviewCall(_callback);
-    }
-
-    /**
-     * Get Filtered At Destination Metrics from Delivery Overview Get events that were filtered at
-     * Destination.
-     *
-     * @return GetEgressFailedMetricsFromDeliveryOverview200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
-     *     response body
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-     * </table>
-     */
-    public GetEgressFailedMetricsFromDeliveryOverview200Response
-            getFilteredAtDestinationMetricsFromDeliveryOverview() throws ApiException {
-        ApiResponse<GetEgressFailedMetricsFromDeliveryOverview200Response> localVarResp =
-                getFilteredAtDestinationMetricsFromDeliveryOverviewWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get Filtered At Destination Metrics from Delivery Overview Get events that were filtered at
-     * Destination.
-     *
-     * @return ApiResponse&lt;GetEgressFailedMetricsFromDeliveryOverview200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
-     *     response body
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<GetEgressFailedMetricsFromDeliveryOverview200Response>
-            getFilteredAtDestinationMetricsFromDeliveryOverviewWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall =
-                getFilteredAtDestinationMetricsFromDeliveryOverviewValidateBeforeCall(null);
-        Type localVarReturnType =
-                new TypeToken<GetEgressFailedMetricsFromDeliveryOverview200Response>() {}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Get Filtered At Destination Metrics from Delivery Overview (asynchronously) Get events that
-     * were filtered at Destination.
-     *
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body
-     *     object
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getFilteredAtDestinationMetricsFromDeliveryOverviewAsync(
-            final ApiCallback<GetEgressFailedMetricsFromDeliveryOverview200Response> _callback)
-            throws ApiException {
-
-        okhttp3.Call localVarCall =
-                getFilteredAtDestinationMetricsFromDeliveryOverviewValidateBeforeCall(_callback);
-        Type localVarReturnType =
-                new TypeToken<GetEgressFailedMetricsFromDeliveryOverview200Response>() {}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-
-    /**
-     * Build call for getFilteredAtSourceMetricsFromDeliveryOverview
-     *
-     * @param sourceId The sourceId for the workspace. This parameter exists in alpha. (required)
-     * @param destinationConfigId The ID tied to a workspace destination. This parameter exists in
-     *     alpha. (optional)
+     * @param sourceId The sourceId for the Workspace. This parameter exists in beta. (required)
+     * @param destinationConfigId The id tied to a Workspace Destination. This parameter exists in
+     *     beta. (required)
      * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
-     *     requested timeframe, inclusive. This parameter exists in alpha. (required)
+     *     requested timeframe, inclusive. This parameter exists in beta. (required)
      * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
-     *     timeframe, noninclusive. This parameter exists in alpha. (required)
+     *     timeframe, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
      *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in alpha.
+     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in beta.
      *     (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
      *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
      *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
      *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
-     *     alpha. (required)
+     *     beta. (required)
      * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
      *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
-     *     to a &#x60;groupBy&#x60;. Example: &#x60;filter: {discardReason: [&#39;discard1&#39;],
-     *     eventName: [&#39;name1&#39;, &#39;name2&#39;], eventType: [&#39;type1&#39;]}&#x60;. This
-     *     parameter exists in alpha. (optional)
-     * @param pagination Optional params to specify the page cursor and count. This parameter exists
-     *     in alpha. (required)
+     *     to a &#x60;groupBy&#x60;. If you would like to view retry attempts for a successful
+     *     delivery, you can filter &#x60;discardReason&#x60; from &#x60;successes.attempt.1&#x60;
+     *     through &#x60;successes.attempt.10&#x60;. This parameter exists in beta. (optional)
+     * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
+     *     (required)
      * @param subscriptionId An optional filter for actions destinations, to filter by a specific
-     *     action. This parameter exists in alpha. (optional)
+     *     action. This parameter exists in beta. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -845,7 +525,7 @@ public class DeliveryOverviewApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getFilteredAtSourceMetricsFromDeliveryOverviewCall(
+    public okhttp3.Call getEgressSuccessMetricsFromDeliveryOverviewCall(
             String sourceId,
             String destinationConfigId,
             String startTime,
@@ -873,7 +553,7 @@ public class DeliveryOverviewApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/delivery-overview/filtered-at-source";
+        String localVarPath = "/delivery-overview/successful-delivery";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -922,7 +602,837 @@ public class DeliveryOverviewApi {
         }
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json", "application/json"
+            "application/vnd.segment.v1beta+json", "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"token"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getEgressSuccessMetricsFromDeliveryOverviewValidateBeforeCall(
+            String sourceId,
+            String destinationConfigId,
+            String startTime,
+            String endTime,
+            List<String> groupBy,
+            String granularity,
+            DeliveryOverviewFilterBy filter,
+            PaginationInput pagination,
+            String subscriptionId,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'sourceId' is set
+        if (sourceId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'sourceId' when calling"
+                            + " getEgressSuccessMetricsFromDeliveryOverview(Async)");
+        }
+
+        // verify the required parameter 'destinationConfigId' is set
+        if (destinationConfigId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'destinationConfigId' when calling"
+                            + " getEgressSuccessMetricsFromDeliveryOverview(Async)");
+        }
+
+        // verify the required parameter 'startTime' is set
+        if (startTime == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'startTime' when calling"
+                            + " getEgressSuccessMetricsFromDeliveryOverview(Async)");
+        }
+
+        // verify the required parameter 'endTime' is set
+        if (endTime == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'endTime' when calling"
+                            + " getEgressSuccessMetricsFromDeliveryOverview(Async)");
+        }
+
+        // verify the required parameter 'granularity' is set
+        if (granularity == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'granularity' when calling"
+                            + " getEgressSuccessMetricsFromDeliveryOverview(Async)");
+        }
+
+        // verify the required parameter 'pagination' is set
+        if (pagination == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'pagination' when calling"
+                            + " getEgressSuccessMetricsFromDeliveryOverview(Async)");
+        }
+
+        return getEgressSuccessMetricsFromDeliveryOverviewCall(
+                sourceId,
+                destinationConfigId,
+                startTime,
+                endTime,
+                groupBy,
+                granularity,
+                filter,
+                pagination,
+                subscriptionId,
+                _callback);
+    }
+
+    /**
+     * Get Egress Success Metrics from Delivery Overview Get events successfully delivered to
+     * Destination.
+     *
+     * @param sourceId The sourceId for the Workspace. This parameter exists in beta. (required)
+     * @param destinationConfigId The id tied to a Workspace Destination. This parameter exists in
+     *     beta. (required)
+     * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
+     *     requested timeframe, inclusive. This parameter exists in beta. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
+     *     timeframe, noninclusive. This parameter exists in beta. (required)
+     * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
+     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
+     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in beta.
+     *     (optional)
+     * @param granularity The size of each bucket in the requested window. Based on the granularity
+     *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
+     *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
+     *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
+     *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
+     *     beta. (required)
+     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
+     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
+     *     to a &#x60;groupBy&#x60;. If you would like to view retry attempts for a successful
+     *     delivery, you can filter &#x60;discardReason&#x60; from &#x60;successes.attempt.1&#x60;
+     *     through &#x60;successes.attempt.10&#x60;. This parameter exists in beta. (optional)
+     * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
+     *     (required)
+     * @param subscriptionId An optional filter for actions destinations, to filter by a specific
+     *     action. This parameter exists in beta. (optional)
+     * @return GetEgressFailedMetricsFromDeliveryOverview200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public GetEgressFailedMetricsFromDeliveryOverview200Response
+            getEgressSuccessMetricsFromDeliveryOverview(
+                    String sourceId,
+                    String destinationConfigId,
+                    String startTime,
+                    String endTime,
+                    List<String> groupBy,
+                    String granularity,
+                    DeliveryOverviewFilterBy filter,
+                    PaginationInput pagination,
+                    String subscriptionId)
+                    throws ApiException {
+        ApiResponse<GetEgressFailedMetricsFromDeliveryOverview200Response> localVarResp =
+                getEgressSuccessMetricsFromDeliveryOverviewWithHttpInfo(
+                        sourceId,
+                        destinationConfigId,
+                        startTime,
+                        endTime,
+                        groupBy,
+                        granularity,
+                        filter,
+                        pagination,
+                        subscriptionId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get Egress Success Metrics from Delivery Overview Get events successfully delivered to
+     * Destination.
+     *
+     * @param sourceId The sourceId for the Workspace. This parameter exists in beta. (required)
+     * @param destinationConfigId The id tied to a Workspace Destination. This parameter exists in
+     *     beta. (required)
+     * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
+     *     requested timeframe, inclusive. This parameter exists in beta. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
+     *     timeframe, noninclusive. This parameter exists in beta. (required)
+     * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
+     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
+     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in beta.
+     *     (optional)
+     * @param granularity The size of each bucket in the requested window. Based on the granularity
+     *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
+     *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
+     *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
+     *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
+     *     beta. (required)
+     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
+     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
+     *     to a &#x60;groupBy&#x60;. If you would like to view retry attempts for a successful
+     *     delivery, you can filter &#x60;discardReason&#x60; from &#x60;successes.attempt.1&#x60;
+     *     through &#x60;successes.attempt.10&#x60;. This parameter exists in beta. (optional)
+     * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
+     *     (required)
+     * @param subscriptionId An optional filter for actions destinations, to filter by a specific
+     *     action. This parameter exists in beta. (optional)
+     * @return ApiResponse&lt;GetEgressFailedMetricsFromDeliveryOverview200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<GetEgressFailedMetricsFromDeliveryOverview200Response>
+            getEgressSuccessMetricsFromDeliveryOverviewWithHttpInfo(
+                    String sourceId,
+                    String destinationConfigId,
+                    String startTime,
+                    String endTime,
+                    List<String> groupBy,
+                    String granularity,
+                    DeliveryOverviewFilterBy filter,
+                    PaginationInput pagination,
+                    String subscriptionId)
+                    throws ApiException {
+        okhttp3.Call localVarCall =
+                getEgressSuccessMetricsFromDeliveryOverviewValidateBeforeCall(
+                        sourceId,
+                        destinationConfigId,
+                        startTime,
+                        endTime,
+                        groupBy,
+                        granularity,
+                        filter,
+                        pagination,
+                        subscriptionId,
+                        null);
+        Type localVarReturnType =
+                new TypeToken<GetEgressFailedMetricsFromDeliveryOverview200Response>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get Egress Success Metrics from Delivery Overview (asynchronously) Get events successfully
+     * delivered to Destination.
+     *
+     * @param sourceId The sourceId for the Workspace. This parameter exists in beta. (required)
+     * @param destinationConfigId The id tied to a Workspace Destination. This parameter exists in
+     *     beta. (required)
+     * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
+     *     requested timeframe, inclusive. This parameter exists in beta. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
+     *     timeframe, noninclusive. This parameter exists in beta. (required)
+     * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
+     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
+     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in beta.
+     *     (optional)
+     * @param granularity The size of each bucket in the requested window. Based on the granularity
+     *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
+     *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
+     *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
+     *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
+     *     beta. (required)
+     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
+     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
+     *     to a &#x60;groupBy&#x60;. If you would like to view retry attempts for a successful
+     *     delivery, you can filter &#x60;discardReason&#x60; from &#x60;successes.attempt.1&#x60;
+     *     through &#x60;successes.attempt.10&#x60;. This parameter exists in beta. (optional)
+     * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
+     *     (required)
+     * @param subscriptionId An optional filter for actions destinations, to filter by a specific
+     *     action. This parameter exists in beta. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body
+     *     object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getEgressSuccessMetricsFromDeliveryOverviewAsync(
+            String sourceId,
+            String destinationConfigId,
+            String startTime,
+            String endTime,
+            List<String> groupBy,
+            String granularity,
+            DeliveryOverviewFilterBy filter,
+            PaginationInput pagination,
+            String subscriptionId,
+            final ApiCallback<GetEgressFailedMetricsFromDeliveryOverview200Response> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                getEgressSuccessMetricsFromDeliveryOverviewValidateBeforeCall(
+                        sourceId,
+                        destinationConfigId,
+                        startTime,
+                        endTime,
+                        groupBy,
+                        granularity,
+                        filter,
+                        pagination,
+                        subscriptionId,
+                        _callback);
+        Type localVarReturnType =
+                new TypeToken<GetEgressFailedMetricsFromDeliveryOverview200Response>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getFilteredAtDestinationMetricsFromDeliveryOverview
+     *
+     * @param sourceId The sourceId for the Workspace. This parameter exists in beta. (required)
+     * @param destinationConfigId The id tied to a Workspace Destination. This parameter exists in
+     *     beta. (required)
+     * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
+     *     requested timeframe, inclusive. This parameter exists in beta. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
+     *     timeframe, noninclusive. This parameter exists in beta. (required)
+     * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
+     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
+     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in beta.
+     *     (optional)
+     * @param granularity The size of each bucket in the requested window. Based on the granularity
+     *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
+     *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
+     *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
+     *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
+     *     beta. (required)
+     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
+     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
+     *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
+     *     (required)
+     * @param subscriptionId An optional filter for actions destinations, to filter by a specific
+     *     action. This parameter exists in beta. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getFilteredAtDestinationMetricsFromDeliveryOverviewCall(
+            String sourceId,
+            String destinationConfigId,
+            String startTime,
+            String endTime,
+            List<String> groupBy,
+            String granularity,
+            DeliveryOverviewFilterBy filter,
+            PaginationInput pagination,
+            String subscriptionId,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/delivery-overview/filtered-at-destination";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (sourceId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sourceId", sourceId));
+        }
+
+        if (destinationConfigId != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("destinationConfigId", destinationConfigId));
+        }
+
+        if (startTime != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("startTime", startTime));
+        }
+
+        if (endTime != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("endTime", endTime));
+        }
+
+        if (groupBy != null) {
+            localVarCollectionQueryParams.addAll(
+                    localVarApiClient.parameterToPairs("multi", "groupBy", groupBy));
+        }
+
+        if (granularity != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("granularity", granularity));
+        }
+
+        if (filter != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filter", filter));
+        }
+
+        if (pagination != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pagination", pagination));
+        }
+
+        if (subscriptionId != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("subscriptionId", subscriptionId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/vnd.segment.v1beta+json", "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"token"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getFilteredAtDestinationMetricsFromDeliveryOverviewValidateBeforeCall(
+            String sourceId,
+            String destinationConfigId,
+            String startTime,
+            String endTime,
+            List<String> groupBy,
+            String granularity,
+            DeliveryOverviewFilterBy filter,
+            PaginationInput pagination,
+            String subscriptionId,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'sourceId' is set
+        if (sourceId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'sourceId' when calling"
+                            + " getFilteredAtDestinationMetricsFromDeliveryOverview(Async)");
+        }
+
+        // verify the required parameter 'destinationConfigId' is set
+        if (destinationConfigId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'destinationConfigId' when calling"
+                            + " getFilteredAtDestinationMetricsFromDeliveryOverview(Async)");
+        }
+
+        // verify the required parameter 'startTime' is set
+        if (startTime == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'startTime' when calling"
+                            + " getFilteredAtDestinationMetricsFromDeliveryOverview(Async)");
+        }
+
+        // verify the required parameter 'endTime' is set
+        if (endTime == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'endTime' when calling"
+                            + " getFilteredAtDestinationMetricsFromDeliveryOverview(Async)");
+        }
+
+        // verify the required parameter 'granularity' is set
+        if (granularity == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'granularity' when calling"
+                            + " getFilteredAtDestinationMetricsFromDeliveryOverview(Async)");
+        }
+
+        // verify the required parameter 'pagination' is set
+        if (pagination == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'pagination' when calling"
+                            + " getFilteredAtDestinationMetricsFromDeliveryOverview(Async)");
+        }
+
+        return getFilteredAtDestinationMetricsFromDeliveryOverviewCall(
+                sourceId,
+                destinationConfigId,
+                startTime,
+                endTime,
+                groupBy,
+                granularity,
+                filter,
+                pagination,
+                subscriptionId,
+                _callback);
+    }
+
+    /**
+     * Get Filtered At Destination Metrics from Delivery Overview Get events that were filtered at
+     * Destination.
+     *
+     * @param sourceId The sourceId for the Workspace. This parameter exists in beta. (required)
+     * @param destinationConfigId The id tied to a Workspace Destination. This parameter exists in
+     *     beta. (required)
+     * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
+     *     requested timeframe, inclusive. This parameter exists in beta. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
+     *     timeframe, noninclusive. This parameter exists in beta. (required)
+     * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
+     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
+     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in beta.
+     *     (optional)
+     * @param granularity The size of each bucket in the requested window. Based on the granularity
+     *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
+     *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
+     *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
+     *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
+     *     beta. (required)
+     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
+     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
+     *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
+     *     (required)
+     * @param subscriptionId An optional filter for actions destinations, to filter by a specific
+     *     action. This parameter exists in beta. (optional)
+     * @return GetEgressFailedMetricsFromDeliveryOverview200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public GetEgressFailedMetricsFromDeliveryOverview200Response
+            getFilteredAtDestinationMetricsFromDeliveryOverview(
+                    String sourceId,
+                    String destinationConfigId,
+                    String startTime,
+                    String endTime,
+                    List<String> groupBy,
+                    String granularity,
+                    DeliveryOverviewFilterBy filter,
+                    PaginationInput pagination,
+                    String subscriptionId)
+                    throws ApiException {
+        ApiResponse<GetEgressFailedMetricsFromDeliveryOverview200Response> localVarResp =
+                getFilteredAtDestinationMetricsFromDeliveryOverviewWithHttpInfo(
+                        sourceId,
+                        destinationConfigId,
+                        startTime,
+                        endTime,
+                        groupBy,
+                        granularity,
+                        filter,
+                        pagination,
+                        subscriptionId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get Filtered At Destination Metrics from Delivery Overview Get events that were filtered at
+     * Destination.
+     *
+     * @param sourceId The sourceId for the Workspace. This parameter exists in beta. (required)
+     * @param destinationConfigId The id tied to a Workspace Destination. This parameter exists in
+     *     beta. (required)
+     * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
+     *     requested timeframe, inclusive. This parameter exists in beta. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
+     *     timeframe, noninclusive. This parameter exists in beta. (required)
+     * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
+     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
+     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in beta.
+     *     (optional)
+     * @param granularity The size of each bucket in the requested window. Based on the granularity
+     *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
+     *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
+     *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
+     *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
+     *     beta. (required)
+     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
+     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
+     *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
+     *     (required)
+     * @param subscriptionId An optional filter for actions destinations, to filter by a specific
+     *     action. This parameter exists in beta. (optional)
+     * @return ApiResponse&lt;GetEgressFailedMetricsFromDeliveryOverview200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<GetEgressFailedMetricsFromDeliveryOverview200Response>
+            getFilteredAtDestinationMetricsFromDeliveryOverviewWithHttpInfo(
+                    String sourceId,
+                    String destinationConfigId,
+                    String startTime,
+                    String endTime,
+                    List<String> groupBy,
+                    String granularity,
+                    DeliveryOverviewFilterBy filter,
+                    PaginationInput pagination,
+                    String subscriptionId)
+                    throws ApiException {
+        okhttp3.Call localVarCall =
+                getFilteredAtDestinationMetricsFromDeliveryOverviewValidateBeforeCall(
+                        sourceId,
+                        destinationConfigId,
+                        startTime,
+                        endTime,
+                        groupBy,
+                        granularity,
+                        filter,
+                        pagination,
+                        subscriptionId,
+                        null);
+        Type localVarReturnType =
+                new TypeToken<GetEgressFailedMetricsFromDeliveryOverview200Response>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get Filtered At Destination Metrics from Delivery Overview (asynchronously) Get events that
+     * were filtered at Destination.
+     *
+     * @param sourceId The sourceId for the Workspace. This parameter exists in beta. (required)
+     * @param destinationConfigId The id tied to a Workspace Destination. This parameter exists in
+     *     beta. (required)
+     * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
+     *     requested timeframe, inclusive. This parameter exists in beta. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
+     *     timeframe, noninclusive. This parameter exists in beta. (required)
+     * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
+     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
+     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in beta.
+     *     (optional)
+     * @param granularity The size of each bucket in the requested window. Based on the granularity
+     *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
+     *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
+     *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
+     *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
+     *     beta. (required)
+     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
+     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
+     *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
+     *     (required)
+     * @param subscriptionId An optional filter for actions destinations, to filter by a specific
+     *     action. This parameter exists in beta. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body
+     *     object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getFilteredAtDestinationMetricsFromDeliveryOverviewAsync(
+            String sourceId,
+            String destinationConfigId,
+            String startTime,
+            String endTime,
+            List<String> groupBy,
+            String granularity,
+            DeliveryOverviewFilterBy filter,
+            PaginationInput pagination,
+            String subscriptionId,
+            final ApiCallback<GetEgressFailedMetricsFromDeliveryOverview200Response> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                getFilteredAtDestinationMetricsFromDeliveryOverviewValidateBeforeCall(
+                        sourceId,
+                        destinationConfigId,
+                        startTime,
+                        endTime,
+                        groupBy,
+                        granularity,
+                        filter,
+                        pagination,
+                        subscriptionId,
+                        _callback);
+        Type localVarReturnType =
+                new TypeToken<GetEgressFailedMetricsFromDeliveryOverview200Response>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getFilteredAtSourceMetricsFromDeliveryOverview
+     *
+     * @param sourceId The sourceId for the Workspace. This parameter exists in beta. (required)
+     * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
+     *     requested timeframe, inclusive. This parameter exists in beta. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
+     *     timeframe, noninclusive. This parameter exists in beta. (required)
+     * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
+     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
+     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in beta.
+     *     (optional)
+     * @param granularity The size of each bucket in the requested window. Based on the granularity
+     *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
+     *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
+     *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
+     *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
+     *     beta. (required)
+     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
+     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
+     *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     * @param pagination Optional params to specify the page cursor and count. This parameter exists
+     *     in beta. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getFilteredAtSourceMetricsFromDeliveryOverviewCall(
+            String sourceId,
+            String startTime,
+            String endTime,
+            List<String> groupBy,
+            String granularity,
+            DeliveryOverviewFilterBy filter,
+            PaginationInput pagination,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/delivery-overview/filtered-at-source";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (sourceId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sourceId", sourceId));
+        }
+
+        if (startTime != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("startTime", startTime));
+        }
+
+        if (endTime != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("endTime", endTime));
+        }
+
+        if (groupBy != null) {
+            localVarCollectionQueryParams.addAll(
+                    localVarApiClient.parameterToPairs("multi", "groupBy", groupBy));
+        }
+
+        if (granularity != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("granularity", granularity));
+        }
+
+        if (filter != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filter", filter));
+        }
+
+        if (pagination != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pagination", pagination));
+        }
+
+        final String[] localVarAccepts = {
+            "application/vnd.segment.v1beta+json", "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -954,14 +1464,12 @@ public class DeliveryOverviewApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getFilteredAtSourceMetricsFromDeliveryOverviewValidateBeforeCall(
             String sourceId,
-            String destinationConfigId,
             String startTime,
             String endTime,
             List<String> groupBy,
             String granularity,
             DeliveryOverviewFilterBy filter,
             PaginationInput pagination,
-            String subscriptionId,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'sourceId' is set
@@ -1000,48 +1508,33 @@ public class DeliveryOverviewApi {
         }
 
         return getFilteredAtSourceMetricsFromDeliveryOverviewCall(
-                sourceId,
-                destinationConfigId,
-                startTime,
-                endTime,
-                groupBy,
-                granularity,
-                filter,
-                pagination,
-                subscriptionId,
-                _callback);
+                sourceId, startTime, endTime, groupBy, granularity, filter, pagination, _callback);
     }
 
     /**
      * Get Filtered At Source Metrics from Delivery Overview Get events that were filtered at
      * Source.
      *
-     * @param sourceId The sourceId for the workspace. This parameter exists in alpha. (required)
-     * @param destinationConfigId The ID tied to a workspace destination. This parameter exists in
-     *     alpha. (optional)
+     * @param sourceId The sourceId for the Workspace. This parameter exists in beta. (required)
      * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
-     *     requested timeframe, inclusive. This parameter exists in alpha. (required)
+     *     requested timeframe, inclusive. This parameter exists in beta. (required)
      * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
-     *     timeframe, noninclusive. This parameter exists in alpha. (required)
+     *     timeframe, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
      *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in alpha.
+     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in beta.
      *     (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
      *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
      *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
      *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
-     *     alpha. (required)
+     *     beta. (required)
      * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
      *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
-     *     to a &#x60;groupBy&#x60;. Example: &#x60;filter: {discardReason: [&#39;discard1&#39;],
-     *     eventName: [&#39;name1&#39;, &#39;name2&#39;], eventType: [&#39;type1&#39;]}&#x60;. This
-     *     parameter exists in alpha. (optional)
+     *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
      * @param pagination Optional params to specify the page cursor and count. This parameter exists
-     *     in alpha. (required)
-     * @param subscriptionId An optional filter for actions destinations, to filter by a specific
-     *     action. This parameter exists in alpha. (optional)
+     *     in beta. (required)
      * @return GetEgressFailedMetricsFromDeliveryOverview200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1057,26 +1550,16 @@ public class DeliveryOverviewApi {
     public GetEgressFailedMetricsFromDeliveryOverview200Response
             getFilteredAtSourceMetricsFromDeliveryOverview(
                     String sourceId,
-                    String destinationConfigId,
                     String startTime,
                     String endTime,
                     List<String> groupBy,
                     String granularity,
                     DeliveryOverviewFilterBy filter,
-                    PaginationInput pagination,
-                    String subscriptionId)
+                    PaginationInput pagination)
                     throws ApiException {
         ApiResponse<GetEgressFailedMetricsFromDeliveryOverview200Response> localVarResp =
                 getFilteredAtSourceMetricsFromDeliveryOverviewWithHttpInfo(
-                        sourceId,
-                        destinationConfigId,
-                        startTime,
-                        endTime,
-                        groupBy,
-                        granularity,
-                        filter,
-                        pagination,
-                        subscriptionId);
+                        sourceId, startTime, endTime, groupBy, granularity, filter, pagination);
         return localVarResp.getData();
     }
 
@@ -1084,32 +1567,26 @@ public class DeliveryOverviewApi {
      * Get Filtered At Source Metrics from Delivery Overview Get events that were filtered at
      * Source.
      *
-     * @param sourceId The sourceId for the workspace. This parameter exists in alpha. (required)
-     * @param destinationConfigId The ID tied to a workspace destination. This parameter exists in
-     *     alpha. (optional)
+     * @param sourceId The sourceId for the Workspace. This parameter exists in beta. (required)
      * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
-     *     requested timeframe, inclusive. This parameter exists in alpha. (required)
+     *     requested timeframe, inclusive. This parameter exists in beta. (required)
      * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
-     *     timeframe, noninclusive. This parameter exists in alpha. (required)
+     *     timeframe, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
      *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in alpha.
+     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in beta.
      *     (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
      *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
      *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
      *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
-     *     alpha. (required)
+     *     beta. (required)
      * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
      *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
-     *     to a &#x60;groupBy&#x60;. Example: &#x60;filter: {discardReason: [&#39;discard1&#39;],
-     *     eventName: [&#39;name1&#39;, &#39;name2&#39;], eventType: [&#39;type1&#39;]}&#x60;. This
-     *     parameter exists in alpha. (optional)
+     *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
      * @param pagination Optional params to specify the page cursor and count. This parameter exists
-     *     in alpha. (required)
-     * @param subscriptionId An optional filter for actions destinations, to filter by a specific
-     *     action. This parameter exists in alpha. (optional)
+     *     in beta. (required)
      * @return ApiResponse&lt;GetEgressFailedMetricsFromDeliveryOverview200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1125,26 +1602,22 @@ public class DeliveryOverviewApi {
     public ApiResponse<GetEgressFailedMetricsFromDeliveryOverview200Response>
             getFilteredAtSourceMetricsFromDeliveryOverviewWithHttpInfo(
                     String sourceId,
-                    String destinationConfigId,
                     String startTime,
                     String endTime,
                     List<String> groupBy,
                     String granularity,
                     DeliveryOverviewFilterBy filter,
-                    PaginationInput pagination,
-                    String subscriptionId)
+                    PaginationInput pagination)
                     throws ApiException {
         okhttp3.Call localVarCall =
                 getFilteredAtSourceMetricsFromDeliveryOverviewValidateBeforeCall(
                         sourceId,
-                        destinationConfigId,
                         startTime,
                         endTime,
                         groupBy,
                         granularity,
                         filter,
                         pagination,
-                        subscriptionId,
                         null);
         Type localVarReturnType =
                 new TypeToken<GetEgressFailedMetricsFromDeliveryOverview200Response>() {}.getType();
@@ -1155,32 +1628,26 @@ public class DeliveryOverviewApi {
      * Get Filtered At Source Metrics from Delivery Overview (asynchronously) Get events that were
      * filtered at Source.
      *
-     * @param sourceId The sourceId for the workspace. This parameter exists in alpha. (required)
-     * @param destinationConfigId The ID tied to a workspace destination. This parameter exists in
-     *     alpha. (optional)
+     * @param sourceId The sourceId for the Workspace. This parameter exists in beta. (required)
      * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
-     *     requested timeframe, inclusive. This parameter exists in alpha. (required)
+     *     requested timeframe, inclusive. This parameter exists in beta. (required)
      * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
-     *     timeframe, noninclusive. This parameter exists in alpha. (required)
+     *     timeframe, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
      *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in alpha.
+     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in beta.
      *     (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
      *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
      *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
      *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
-     *     alpha. (required)
+     *     beta. (required)
      * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
      *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
-     *     to a &#x60;groupBy&#x60;. Example: &#x60;filter: {discardReason: [&#39;discard1&#39;],
-     *     eventName: [&#39;name1&#39;, &#39;name2&#39;], eventType: [&#39;type1&#39;]}&#x60;. This
-     *     parameter exists in alpha. (optional)
+     *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
      * @param pagination Optional params to specify the page cursor and count. This parameter exists
-     *     in alpha. (required)
-     * @param subscriptionId An optional filter for actions destinations, to filter by a specific
-     *     action. This parameter exists in alpha. (optional)
+     *     in beta. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -1196,28 +1663,24 @@ public class DeliveryOverviewApi {
      */
     public okhttp3.Call getFilteredAtSourceMetricsFromDeliveryOverviewAsync(
             String sourceId,
-            String destinationConfigId,
             String startTime,
             String endTime,
             List<String> groupBy,
             String granularity,
             DeliveryOverviewFilterBy filter,
             PaginationInput pagination,
-            String subscriptionId,
             final ApiCallback<GetEgressFailedMetricsFromDeliveryOverview200Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 getFilteredAtSourceMetricsFromDeliveryOverviewValidateBeforeCall(
                         sourceId,
-                        destinationConfigId,
                         startTime,
                         endTime,
                         groupBy,
                         granularity,
                         filter,
                         pagination,
-                        subscriptionId,
                         _callback);
         Type localVarReturnType =
                 new TypeToken<GetEgressFailedMetricsFromDeliveryOverview200Response>() {}.getType();
@@ -1228,6 +1691,26 @@ public class DeliveryOverviewApi {
     /**
      * Build call for getIngressFailedMetricsFromDeliveryOverview
      *
+     * @param sourceId The sourceId for the Workspace. This parameter exists in beta. (required)
+     * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
+     *     requested timeframe, inclusive. This parameter exists in beta. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
+     *     timeframe, noninclusive. This parameter exists in beta. (required)
+     * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
+     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
+     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in beta.
+     *     (optional)
+     * @param granularity The size of each bucket in the requested window. Based on the granularity
+     *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
+     *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
+     *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
+     *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
+     *     beta. (required)
+     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
+     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
+     *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     * @param pagination Optional params to specify the page cursor and count. This parameter exists
+     *     in beta. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1240,7 +1723,15 @@ public class DeliveryOverviewApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getIngressFailedMetricsFromDeliveryOverviewCall(final ApiCallback _callback)
+    public okhttp3.Call getIngressFailedMetricsFromDeliveryOverviewCall(
+            String sourceId,
+            String startTime,
+            String endTime,
+            List<String> groupBy,
+            String granularity,
+            DeliveryOverviewFilterBy filter,
+            PaginationInput pagination,
+            final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1266,8 +1757,38 @@ public class DeliveryOverviewApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (sourceId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sourceId", sourceId));
+        }
+
+        if (startTime != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("startTime", startTime));
+        }
+
+        if (endTime != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("endTime", endTime));
+        }
+
+        if (groupBy != null) {
+            localVarCollectionQueryParams.addAll(
+                    localVarApiClient.parameterToPairs("multi", "groupBy", groupBy));
+        }
+
+        if (granularity != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("granularity", granularity));
+        }
+
+        if (filter != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filter", filter));
+        }
+
+        if (pagination != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pagination", pagination));
+        }
+
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json", "application/json"
+            "application/vnd.segment.v1beta+json", "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1298,13 +1819,77 @@ public class DeliveryOverviewApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getIngressFailedMetricsFromDeliveryOverviewValidateBeforeCall(
-            final ApiCallback _callback) throws ApiException {
-        return getIngressFailedMetricsFromDeliveryOverviewCall(_callback);
+            String sourceId,
+            String startTime,
+            String endTime,
+            List<String> groupBy,
+            String granularity,
+            DeliveryOverviewFilterBy filter,
+            PaginationInput pagination,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'sourceId' is set
+        if (sourceId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'sourceId' when calling"
+                            + " getIngressFailedMetricsFromDeliveryOverview(Async)");
+        }
+
+        // verify the required parameter 'startTime' is set
+        if (startTime == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'startTime' when calling"
+                            + " getIngressFailedMetricsFromDeliveryOverview(Async)");
+        }
+
+        // verify the required parameter 'endTime' is set
+        if (endTime == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'endTime' when calling"
+                            + " getIngressFailedMetricsFromDeliveryOverview(Async)");
+        }
+
+        // verify the required parameter 'granularity' is set
+        if (granularity == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'granularity' when calling"
+                            + " getIngressFailedMetricsFromDeliveryOverview(Async)");
+        }
+
+        // verify the required parameter 'pagination' is set
+        if (pagination == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'pagination' when calling"
+                            + " getIngressFailedMetricsFromDeliveryOverview(Async)");
+        }
+
+        return getIngressFailedMetricsFromDeliveryOverviewCall(
+                sourceId, startTime, endTime, groupBy, granularity, filter, pagination, _callback);
     }
 
     /**
      * Get Ingress Failed Metrics from Delivery Overview Get events that failed on ingest.
      *
+     * @param sourceId The sourceId for the Workspace. This parameter exists in beta. (required)
+     * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
+     *     requested timeframe, inclusive. This parameter exists in beta. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
+     *     timeframe, noninclusive. This parameter exists in beta. (required)
+     * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
+     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
+     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in beta.
+     *     (optional)
+     * @param granularity The size of each bucket in the requested window. Based on the granularity
+     *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
+     *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
+     *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
+     *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
+     *     beta. (required)
+     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
+     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
+     *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     * @param pagination Optional params to specify the page cursor and count. This parameter exists
+     *     in beta. (required)
      * @return GetEgressFailedMetricsFromDeliveryOverview200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1318,15 +1903,44 @@ public class DeliveryOverviewApi {
      * </table>
      */
     public GetEgressFailedMetricsFromDeliveryOverview200Response
-            getIngressFailedMetricsFromDeliveryOverview() throws ApiException {
+            getIngressFailedMetricsFromDeliveryOverview(
+                    String sourceId,
+                    String startTime,
+                    String endTime,
+                    List<String> groupBy,
+                    String granularity,
+                    DeliveryOverviewFilterBy filter,
+                    PaginationInput pagination)
+                    throws ApiException {
         ApiResponse<GetEgressFailedMetricsFromDeliveryOverview200Response> localVarResp =
-                getIngressFailedMetricsFromDeliveryOverviewWithHttpInfo();
+                getIngressFailedMetricsFromDeliveryOverviewWithHttpInfo(
+                        sourceId, startTime, endTime, groupBy, granularity, filter, pagination);
         return localVarResp.getData();
     }
 
     /**
      * Get Ingress Failed Metrics from Delivery Overview Get events that failed on ingest.
      *
+     * @param sourceId The sourceId for the Workspace. This parameter exists in beta. (required)
+     * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
+     *     requested timeframe, inclusive. This parameter exists in beta. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
+     *     timeframe, noninclusive. This parameter exists in beta. (required)
+     * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
+     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
+     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in beta.
+     *     (optional)
+     * @param granularity The size of each bucket in the requested window. Based on the granularity
+     *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
+     *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
+     *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
+     *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
+     *     beta. (required)
+     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
+     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
+     *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     * @param pagination Optional params to specify the page cursor and count. This parameter exists
+     *     in beta. (required)
      * @return ApiResponse&lt;GetEgressFailedMetricsFromDeliveryOverview200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1340,9 +1954,25 @@ public class DeliveryOverviewApi {
      * </table>
      */
     public ApiResponse<GetEgressFailedMetricsFromDeliveryOverview200Response>
-            getIngressFailedMetricsFromDeliveryOverviewWithHttpInfo() throws ApiException {
+            getIngressFailedMetricsFromDeliveryOverviewWithHttpInfo(
+                    String sourceId,
+                    String startTime,
+                    String endTime,
+                    List<String> groupBy,
+                    String granularity,
+                    DeliveryOverviewFilterBy filter,
+                    PaginationInput pagination)
+                    throws ApiException {
         okhttp3.Call localVarCall =
-                getIngressFailedMetricsFromDeliveryOverviewValidateBeforeCall(null);
+                getIngressFailedMetricsFromDeliveryOverviewValidateBeforeCall(
+                        sourceId,
+                        startTime,
+                        endTime,
+                        groupBy,
+                        granularity,
+                        filter,
+                        pagination,
+                        null);
         Type localVarReturnType =
                 new TypeToken<GetEgressFailedMetricsFromDeliveryOverview200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1352,6 +1982,26 @@ public class DeliveryOverviewApi {
      * Get Ingress Failed Metrics from Delivery Overview (asynchronously) Get events that failed on
      * ingest.
      *
+     * @param sourceId The sourceId for the Workspace. This parameter exists in beta. (required)
+     * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
+     *     requested timeframe, inclusive. This parameter exists in beta. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
+     *     timeframe, noninclusive. This parameter exists in beta. (required)
+     * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
+     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
+     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in beta.
+     *     (optional)
+     * @param granularity The size of each bucket in the requested window. Based on the granularity
+     *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
+     *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
+     *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
+     *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
+     *     beta. (required)
+     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
+     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
+     *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     * @param pagination Optional params to specify the page cursor and count. This parameter exists
+     *     in beta. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -1366,11 +2016,26 @@ public class DeliveryOverviewApi {
      * </table>
      */
     public okhttp3.Call getIngressFailedMetricsFromDeliveryOverviewAsync(
+            String sourceId,
+            String startTime,
+            String endTime,
+            List<String> groupBy,
+            String granularity,
+            DeliveryOverviewFilterBy filter,
+            PaginationInput pagination,
             final ApiCallback<GetEgressFailedMetricsFromDeliveryOverview200Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
-                getIngressFailedMetricsFromDeliveryOverviewValidateBeforeCall(_callback);
+                getIngressFailedMetricsFromDeliveryOverviewValidateBeforeCall(
+                        sourceId,
+                        startTime,
+                        endTime,
+                        groupBy,
+                        granularity,
+                        filter,
+                        pagination,
+                        _callback);
         Type localVarReturnType =
                 new TypeToken<GetEgressFailedMetricsFromDeliveryOverview200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
@@ -1380,6 +2045,25 @@ public class DeliveryOverviewApi {
     /**
      * Build call for getIngressSuccessMetricsFromDeliveryOverview
      *
+     * @param sourceId The sourceId for the Workspace. This parameter exists in beta. (required)
+     * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
+     *     requested timeframe, inclusive. This parameter exists in beta. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
+     *     timeframe, noninclusive. This parameter exists in beta. (required)
+     * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
+     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;, and
+     *     &#x60;appVersion&#x60;. This parameter exists in beta. (optional)
+     * @param granularity The size of each bucket in the requested window. Based on the granularity
+     *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
+     *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
+     *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
+     *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
+     *     beta. (required)
+     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;, and/or
+     *     &#x60;appVersion&#x60; that can be applied in addition to a &#x60;groupBy&#x60;. This
+     *     parameter exists in beta. (optional)
+     * @param pagination Optional params to specify the page cursor and count. This parameter exists
+     *     in beta. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1393,7 +2077,15 @@ public class DeliveryOverviewApi {
      * </table>
      */
     public okhttp3.Call getIngressSuccessMetricsFromDeliveryOverviewCall(
-            final ApiCallback _callback) throws ApiException {
+            String sourceId,
+            String startTime,
+            String endTime,
+            List<String> groupBy,
+            String granularity,
+            DeliveryOverviewFilterBy filter,
+            PaginationInput pagination,
+            final ApiCallback _callback)
+            throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -1418,8 +2110,38 @@ public class DeliveryOverviewApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (sourceId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sourceId", sourceId));
+        }
+
+        if (startTime != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("startTime", startTime));
+        }
+
+        if (endTime != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("endTime", endTime));
+        }
+
+        if (groupBy != null) {
+            localVarCollectionQueryParams.addAll(
+                    localVarApiClient.parameterToPairs("multi", "groupBy", groupBy));
+        }
+
+        if (granularity != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("granularity", granularity));
+        }
+
+        if (filter != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("filter", filter));
+        }
+
+        if (pagination != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pagination", pagination));
+        }
+
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json", "application/json"
+            "application/vnd.segment.v1beta+json", "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1450,14 +2172,77 @@ public class DeliveryOverviewApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getIngressSuccessMetricsFromDeliveryOverviewValidateBeforeCall(
-            final ApiCallback _callback) throws ApiException {
-        return getIngressSuccessMetricsFromDeliveryOverviewCall(_callback);
+            String sourceId,
+            String startTime,
+            String endTime,
+            List<String> groupBy,
+            String granularity,
+            DeliveryOverviewFilterBy filter,
+            PaginationInput pagination,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'sourceId' is set
+        if (sourceId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'sourceId' when calling"
+                            + " getIngressSuccessMetricsFromDeliveryOverview(Async)");
+        }
+
+        // verify the required parameter 'startTime' is set
+        if (startTime == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'startTime' when calling"
+                            + " getIngressSuccessMetricsFromDeliveryOverview(Async)");
+        }
+
+        // verify the required parameter 'endTime' is set
+        if (endTime == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'endTime' when calling"
+                            + " getIngressSuccessMetricsFromDeliveryOverview(Async)");
+        }
+
+        // verify the required parameter 'granularity' is set
+        if (granularity == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'granularity' when calling"
+                            + " getIngressSuccessMetricsFromDeliveryOverview(Async)");
+        }
+
+        // verify the required parameter 'pagination' is set
+        if (pagination == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'pagination' when calling"
+                            + " getIngressSuccessMetricsFromDeliveryOverview(Async)");
+        }
+
+        return getIngressSuccessMetricsFromDeliveryOverviewCall(
+                sourceId, startTime, endTime, groupBy, granularity, filter, pagination, _callback);
     }
 
     /**
      * Get Ingress Success Metrics from Delivery Overview Get events that were successfully received
      * by Segment.
      *
+     * @param sourceId The sourceId for the Workspace. This parameter exists in beta. (required)
+     * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
+     *     requested timeframe, inclusive. This parameter exists in beta. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
+     *     timeframe, noninclusive. This parameter exists in beta. (required)
+     * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
+     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;, and
+     *     &#x60;appVersion&#x60;. This parameter exists in beta. (optional)
+     * @param granularity The size of each bucket in the requested window. Based on the granularity
+     *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
+     *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
+     *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
+     *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
+     *     beta. (required)
+     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;, and/or
+     *     &#x60;appVersion&#x60; that can be applied in addition to a &#x60;groupBy&#x60;. This
+     *     parameter exists in beta. (optional)
+     * @param pagination Optional params to specify the page cursor and count. This parameter exists
+     *     in beta. (required)
      * @return GetEgressFailedMetricsFromDeliveryOverview200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1471,9 +2256,18 @@ public class DeliveryOverviewApi {
      * </table>
      */
     public GetEgressFailedMetricsFromDeliveryOverview200Response
-            getIngressSuccessMetricsFromDeliveryOverview() throws ApiException {
+            getIngressSuccessMetricsFromDeliveryOverview(
+                    String sourceId,
+                    String startTime,
+                    String endTime,
+                    List<String> groupBy,
+                    String granularity,
+                    DeliveryOverviewFilterBy filter,
+                    PaginationInput pagination)
+                    throws ApiException {
         ApiResponse<GetEgressFailedMetricsFromDeliveryOverview200Response> localVarResp =
-                getIngressSuccessMetricsFromDeliveryOverviewWithHttpInfo();
+                getIngressSuccessMetricsFromDeliveryOverviewWithHttpInfo(
+                        sourceId, startTime, endTime, groupBy, granularity, filter, pagination);
         return localVarResp.getData();
     }
 
@@ -1481,6 +2275,25 @@ public class DeliveryOverviewApi {
      * Get Ingress Success Metrics from Delivery Overview Get events that were successfully received
      * by Segment.
      *
+     * @param sourceId The sourceId for the Workspace. This parameter exists in beta. (required)
+     * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
+     *     requested timeframe, inclusive. This parameter exists in beta. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
+     *     timeframe, noninclusive. This parameter exists in beta. (required)
+     * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
+     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;, and
+     *     &#x60;appVersion&#x60;. This parameter exists in beta. (optional)
+     * @param granularity The size of each bucket in the requested window. Based on the granularity
+     *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
+     *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
+     *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
+     *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
+     *     beta. (required)
+     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;, and/or
+     *     &#x60;appVersion&#x60; that can be applied in addition to a &#x60;groupBy&#x60;. This
+     *     parameter exists in beta. (optional)
+     * @param pagination Optional params to specify the page cursor and count. This parameter exists
+     *     in beta. (required)
      * @return ApiResponse&lt;GetEgressFailedMetricsFromDeliveryOverview200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1494,9 +2307,25 @@ public class DeliveryOverviewApi {
      * </table>
      */
     public ApiResponse<GetEgressFailedMetricsFromDeliveryOverview200Response>
-            getIngressSuccessMetricsFromDeliveryOverviewWithHttpInfo() throws ApiException {
+            getIngressSuccessMetricsFromDeliveryOverviewWithHttpInfo(
+                    String sourceId,
+                    String startTime,
+                    String endTime,
+                    List<String> groupBy,
+                    String granularity,
+                    DeliveryOverviewFilterBy filter,
+                    PaginationInput pagination)
+                    throws ApiException {
         okhttp3.Call localVarCall =
-                getIngressSuccessMetricsFromDeliveryOverviewValidateBeforeCall(null);
+                getIngressSuccessMetricsFromDeliveryOverviewValidateBeforeCall(
+                        sourceId,
+                        startTime,
+                        endTime,
+                        groupBy,
+                        granularity,
+                        filter,
+                        pagination,
+                        null);
         Type localVarReturnType =
                 new TypeToken<GetEgressFailedMetricsFromDeliveryOverview200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1506,6 +2335,25 @@ public class DeliveryOverviewApi {
      * Get Ingress Success Metrics from Delivery Overview (asynchronously) Get events that were
      * successfully received by Segment.
      *
+     * @param sourceId The sourceId for the Workspace. This parameter exists in beta. (required)
+     * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
+     *     requested timeframe, inclusive. This parameter exists in beta. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
+     *     timeframe, noninclusive. This parameter exists in beta. (required)
+     * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
+     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;, and
+     *     &#x60;appVersion&#x60;. This parameter exists in beta. (optional)
+     * @param granularity The size of each bucket in the requested window. Based on the granularity
+     *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
+     *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
+     *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
+     *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
+     *     beta. (required)
+     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;, and/or
+     *     &#x60;appVersion&#x60; that can be applied in addition to a &#x60;groupBy&#x60;. This
+     *     parameter exists in beta. (optional)
+     * @param pagination Optional params to specify the page cursor and count. This parameter exists
+     *     in beta. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -1520,11 +2368,26 @@ public class DeliveryOverviewApi {
      * </table>
      */
     public okhttp3.Call getIngressSuccessMetricsFromDeliveryOverviewAsync(
+            String sourceId,
+            String startTime,
+            String endTime,
+            List<String> groupBy,
+            String granularity,
+            DeliveryOverviewFilterBy filter,
+            PaginationInput pagination,
             final ApiCallback<GetEgressFailedMetricsFromDeliveryOverview200Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
-                getIngressSuccessMetricsFromDeliveryOverviewValidateBeforeCall(_callback);
+                getIngressSuccessMetricsFromDeliveryOverviewValidateBeforeCall(
+                        sourceId,
+                        startTime,
+                        endTime,
+                        groupBy,
+                        granularity,
+                        filter,
+                        pagination,
+                        _callback);
         Type localVarReturnType =
                 new TypeToken<GetEgressFailedMetricsFromDeliveryOverview200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);

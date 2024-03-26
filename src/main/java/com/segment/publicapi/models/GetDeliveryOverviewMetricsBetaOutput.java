@@ -32,7 +32,7 @@ import java.util.Objects;
 import java.util.Set;
 
 /** Output of the Delivery Overview public api endpoints. */
-public class GetDeliveryOverviewMetricsAlphaOutput {
+public class GetDeliveryOverviewMetricsBetaOutput {
     public static final String SERIALIZED_NAME_TOTAL = "total";
 
     @SerializedName(SERIALIZED_NAME_TOTAL)
@@ -48,9 +48,9 @@ public class GetDeliveryOverviewMetricsAlphaOutput {
     @SerializedName(SERIALIZED_NAME_PAGINATION)
     private PaginationOutput pagination;
 
-    public GetDeliveryOverviewMetricsAlphaOutput() {}
+    public GetDeliveryOverviewMetricsBetaOutput() {}
 
-    public GetDeliveryOverviewMetricsAlphaOutput total(BigDecimal total) {
+    public GetDeliveryOverviewMetricsBetaOutput total(BigDecimal total) {
 
         this.total = total;
         return this;
@@ -70,14 +70,14 @@ public class GetDeliveryOverviewMetricsAlphaOutput {
         this.total = total;
     }
 
-    public GetDeliveryOverviewMetricsAlphaOutput dataset(
+    public GetDeliveryOverviewMetricsBetaOutput dataset(
             List<DeliveryOverviewMetricsDataset> dataset) {
 
         this.dataset = dataset;
         return this;
     }
 
-    public GetDeliveryOverviewMetricsAlphaOutput addDatasetItem(
+    public GetDeliveryOverviewMetricsBetaOutput addDatasetItem(
             DeliveryOverviewMetricsDataset datasetItem) {
         if (this.dataset == null) {
             this.dataset = new ArrayList<>();
@@ -100,7 +100,7 @@ public class GetDeliveryOverviewMetricsAlphaOutput {
         this.dataset = dataset;
     }
 
-    public GetDeliveryOverviewMetricsAlphaOutput pagination(PaginationOutput pagination) {
+    public GetDeliveryOverviewMetricsBetaOutput pagination(PaginationOutput pagination) {
 
         this.pagination = pagination;
         return this;
@@ -128,12 +128,11 @@ public class GetDeliveryOverviewMetricsAlphaOutput {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        GetDeliveryOverviewMetricsAlphaOutput getDeliveryOverviewMetricsAlphaOutput =
-                (GetDeliveryOverviewMetricsAlphaOutput) o;
-        return Objects.equals(this.total, getDeliveryOverviewMetricsAlphaOutput.total)
-                && Objects.equals(this.dataset, getDeliveryOverviewMetricsAlphaOutput.dataset)
-                && Objects.equals(
-                        this.pagination, getDeliveryOverviewMetricsAlphaOutput.pagination);
+        GetDeliveryOverviewMetricsBetaOutput getDeliveryOverviewMetricsBetaOutput =
+                (GetDeliveryOverviewMetricsBetaOutput) o;
+        return Objects.equals(this.total, getDeliveryOverviewMetricsBetaOutput.total)
+                && Objects.equals(this.dataset, getDeliveryOverviewMetricsBetaOutput.dataset)
+                && Objects.equals(this.pagination, getDeliveryOverviewMetricsBetaOutput.pagination);
     }
 
     @Override
@@ -144,7 +143,7 @@ public class GetDeliveryOverviewMetricsAlphaOutput {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class GetDeliveryOverviewMetricsAlphaOutput {\n");
+        sb.append("class GetDeliveryOverviewMetricsBetaOutput {\n");
         sb.append("    total: ").append(toIndentedString(total)).append("\n");
         sb.append("    dataset: ").append(toIndentedString(dataset)).append("\n");
         sb.append("    pagination: ").append(toIndentedString(pagination)).append("\n");
@@ -185,17 +184,17 @@ public class GetDeliveryOverviewMetricsAlphaOutput {
      *
      * @param jsonElement JSON Element
      * @throws IOException if the JSON Element is invalid with respect to
-     *     GetDeliveryOverviewMetricsAlphaOutput
+     *     GetDeliveryOverviewMetricsBetaOutput
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!GetDeliveryOverviewMetricsAlphaOutput.openapiRequiredFields
+            if (!GetDeliveryOverviewMetricsBetaOutput.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in GetDeliveryOverviewMetricsAlphaOutput"
+                                "The required field(s) %s in GetDeliveryOverviewMetricsBetaOutput"
                                         + " is not found in the empty JSON string",
-                                GetDeliveryOverviewMetricsAlphaOutput.openapiRequiredFields
+                                GetDeliveryOverviewMetricsBetaOutput.openapiRequiredFields
                                         .toString()));
             }
         }
@@ -203,18 +202,18 @@ public class GetDeliveryOverviewMetricsAlphaOutput {
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!GetDeliveryOverviewMetricsAlphaOutput.openapiFields.contains(entry.getKey())) {
+            if (!GetDeliveryOverviewMetricsBetaOutput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                    + " `GetDeliveryOverviewMetricsAlphaOutput` properties. JSON:"
+                                    + " `GetDeliveryOverviewMetricsBetaOutput` properties. JSON:"
                                     + " %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : GetDeliveryOverviewMetricsAlphaOutput.openapiRequiredFields) {
+        for (String requiredField : GetDeliveryOverviewMetricsBetaOutput.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -246,27 +245,27 @@ public class GetDeliveryOverviewMetricsAlphaOutput {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!GetDeliveryOverviewMetricsAlphaOutput.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'GetDeliveryOverviewMetricsAlphaOutput'
+            if (!GetDeliveryOverviewMetricsBetaOutput.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'GetDeliveryOverviewMetricsBetaOutput'
                 // and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<GetDeliveryOverviewMetricsAlphaOutput> thisAdapter =
+            final TypeAdapter<GetDeliveryOverviewMetricsBetaOutput> thisAdapter =
                     gson.getDelegateAdapter(
-                            this, TypeToken.get(GetDeliveryOverviewMetricsAlphaOutput.class));
+                            this, TypeToken.get(GetDeliveryOverviewMetricsBetaOutput.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<GetDeliveryOverviewMetricsAlphaOutput>() {
+                    new TypeAdapter<GetDeliveryOverviewMetricsBetaOutput>() {
                         @Override
                         public void write(
-                                JsonWriter out, GetDeliveryOverviewMetricsAlphaOutput value)
+                                JsonWriter out, GetDeliveryOverviewMetricsBetaOutput value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public GetDeliveryOverviewMetricsAlphaOutput read(JsonReader in)
+                        public GetDeliveryOverviewMetricsBetaOutput read(JsonReader in)
                                 throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
@@ -277,20 +276,20 @@ public class GetDeliveryOverviewMetricsAlphaOutput {
     }
 
     /**
-     * Create an instance of GetDeliveryOverviewMetricsAlphaOutput given an JSON string
+     * Create an instance of GetDeliveryOverviewMetricsBetaOutput given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of GetDeliveryOverviewMetricsAlphaOutput
+     * @return An instance of GetDeliveryOverviewMetricsBetaOutput
      * @throws IOException if the JSON string is invalid with respect to
-     *     GetDeliveryOverviewMetricsAlphaOutput
+     *     GetDeliveryOverviewMetricsBetaOutput
      */
-    public static GetDeliveryOverviewMetricsAlphaOutput fromJson(String jsonString)
+    public static GetDeliveryOverviewMetricsBetaOutput fromJson(String jsonString)
             throws IOException {
-        return JSON.getGson().fromJson(jsonString, GetDeliveryOverviewMetricsAlphaOutput.class);
+        return JSON.getGson().fromJson(jsonString, GetDeliveryOverviewMetricsBetaOutput.class);
     }
 
     /**
-     * Convert an instance of GetDeliveryOverviewMetricsAlphaOutput to an JSON string
+     * Convert an instance of GetDeliveryOverviewMetricsBetaOutput to an JSON string
      *
      * @return JSON string
      */
