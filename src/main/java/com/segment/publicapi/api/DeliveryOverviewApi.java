@@ -20,6 +20,7 @@ import com.segment.publicapi.Configuration;
 import com.segment.publicapi.Pair;
 import com.segment.publicapi.models.DeliveryOverviewDestinationFilterBy;
 import com.segment.publicapi.models.DeliveryOverviewSourceFilterBy;
+import com.segment.publicapi.models.DeliveryOverviewSuccessfullyReceivedFilterBy;
 import com.segment.publicapi.models.GetEgressFailedMetricsFromDeliveryOverview200Response;
 import com.segment.publicapi.models.PaginationInput;
 import java.lang.reflect.Type;
@@ -2051,7 +2052,7 @@ public class DeliveryOverviewApi {
             String endTime,
             List<String> groupBy,
             String granularity,
-            DeliveryOverviewSourceFilterBy filter,
+            DeliveryOverviewSuccessfullyReceivedFilterBy filter,
             PaginationInput pagination,
             final ApiCallback _callback)
             throws ApiException {
@@ -2146,7 +2147,7 @@ public class DeliveryOverviewApi {
             String endTime,
             List<String> groupBy,
             String granularity,
-            DeliveryOverviewSourceFilterBy filter,
+            DeliveryOverviewSuccessfullyReceivedFilterBy filter,
             PaginationInput pagination,
             final ApiCallback _callback)
             throws ApiException {
@@ -2231,7 +2232,7 @@ public class DeliveryOverviewApi {
                     String endTime,
                     List<String> groupBy,
                     String granularity,
-                    DeliveryOverviewSourceFilterBy filter,
+                    DeliveryOverviewSuccessfullyReceivedFilterBy filter,
                     PaginationInput pagination)
                     throws ApiException {
         ApiResponse<GetEgressFailedMetricsFromDeliveryOverview200Response> localVarResp =
@@ -2282,7 +2283,7 @@ public class DeliveryOverviewApi {
                     String endTime,
                     List<String> groupBy,
                     String granularity,
-                    DeliveryOverviewSourceFilterBy filter,
+                    DeliveryOverviewSuccessfullyReceivedFilterBy filter,
                     PaginationInput pagination)
                     throws ApiException {
         okhttp3.Call localVarCall =
@@ -2342,7 +2343,7 @@ public class DeliveryOverviewApi {
             String endTime,
             List<String> groupBy,
             String granularity,
-            DeliveryOverviewSourceFilterBy filter,
+            DeliveryOverviewSuccessfullyReceivedFilterBy filter,
             PaginationInput pagination,
             final ApiCallback<GetEgressFailedMetricsFromDeliveryOverview200Response> _callback)
             throws ApiException {

@@ -492,6 +492,9 @@ public class JSON {
                 new com.segment.publicapi.models.DeliveryOverviewSourceFilterBy
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.DeliveryOverviewSuccessfullyReceivedFilterBy
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.DestinationFilterActionV1
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
