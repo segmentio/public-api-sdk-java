@@ -76,8 +76,7 @@ public class DeliveryOverviewDestinationFilterBy {
     }
 
     /**
-     * A list of strings of discard reasons. Can be used to filter all Delivery Overview steps,
-     * except for Successfully Received. See [Discard Record
+     * A list of strings of discard reasons. See [Discard Record
      * Documentation](https://segment.com/docs/connections/delivery-overview/#troubleshooting) for
      * valid error codes.
      *
@@ -192,7 +191,7 @@ public class DeliveryOverviewDestinationFilterBy {
     }
 
     /**
-     * A list of strings of subscriptionIDs.
+     * A list of strings of subscriptionIDs for Actions Destinations.
      *
      * @return subscriptionId
      */
