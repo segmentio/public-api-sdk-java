@@ -192,7 +192,7 @@ public class Regulation {
      *
      * @return finishedAt
      */
-    @javax.annotation.Nonnull
+    @javax.annotation.Nullable
     public String getFinishedAt() {
         return finishedAt;
     }
@@ -314,7 +314,6 @@ public class Regulation {
         openapiRequiredFields.add("id");
         openapiRequiredFields.add("workspaceId");
         openapiRequiredFields.add("overallStatus");
-        openapiRequiredFields.add("finishedAt");
         openapiRequiredFields.add("createdAt");
         openapiRequiredFields.add("streamStatus");
     }
@@ -380,7 +379,8 @@ public class Regulation {
                                     + " string but got `%s`",
                             jsonObj.get("overallStatus").toString()));
         }
-        if (!jsonObj.get("finishedAt").isJsonPrimitive()) {
+        if ((jsonObj.get("finishedAt") != null && !jsonObj.get("finishedAt").isJsonNull())
+                && !jsonObj.get("finishedAt").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             "Expected the field `finishedAt` to be a primitive type in the JSON"
