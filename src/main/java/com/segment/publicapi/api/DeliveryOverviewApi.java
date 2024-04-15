@@ -18,7 +18,9 @@ import com.segment.publicapi.ApiException;
 import com.segment.publicapi.ApiResponse;
 import com.segment.publicapi.Configuration;
 import com.segment.publicapi.Pair;
-import com.segment.publicapi.models.DeliveryOverviewFilterBy;
+import com.segment.publicapi.models.DeliveryOverviewDestinationFilterBy;
+import com.segment.publicapi.models.DeliveryOverviewSourceFilterBy;
+import com.segment.publicapi.models.DeliveryOverviewSuccessfullyReceivedFilterBy;
 import com.segment.publicapi.models.GetEgressFailedMetricsFromDeliveryOverview200Response;
 import com.segment.publicapi.models.PaginationInput;
 import java.lang.reflect.Type;
@@ -76,8 +78,8 @@ public class DeliveryOverviewApi {
      *     timeframe, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
      *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in beta.
-     *     (optional)
+     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, and &#x60;subscriptionId&#x60;. This
+     *     parameter exists in beta. (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
      *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
      *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
@@ -85,12 +87,11 @@ public class DeliveryOverviewApi {
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
      *     beta. (required)
      * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
-     *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, and/or &#x60;subscriptionId&#x60; that
+     *     can be applied in addition to a &#x60;groupBy&#x60;. This parameter exists in beta.
+     *     (optional)
      * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
      *     (required)
-     * @param subscriptionId An optional filter for actions destinations, to filter by a specific
-     *     action. This parameter exists in beta. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -110,9 +111,8 @@ public class DeliveryOverviewApi {
             String endTime,
             List<String> groupBy,
             String granularity,
-            DeliveryOverviewFilterBy filter,
+            DeliveryOverviewDestinationFilterBy filter,
             PaginationInput pagination,
-            String subscriptionId,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -174,11 +174,6 @@ public class DeliveryOverviewApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pagination", pagination));
         }
 
-        if (subscriptionId != null) {
-            localVarQueryParams.addAll(
-                    localVarApiClient.parameterToPair("subscriptionId", subscriptionId));
-        }
-
         final String[] localVarAccepts = {
             "application/vnd.segment.v1beta+json", "application/json"
         };
@@ -217,9 +212,8 @@ public class DeliveryOverviewApi {
             String endTime,
             List<String> groupBy,
             String granularity,
-            DeliveryOverviewFilterBy filter,
+            DeliveryOverviewDestinationFilterBy filter,
             PaginationInput pagination,
-            String subscriptionId,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'sourceId' is set
@@ -273,7 +267,6 @@ public class DeliveryOverviewApi {
                 granularity,
                 filter,
                 pagination,
-                subscriptionId,
                 _callback);
     }
 
@@ -290,8 +283,8 @@ public class DeliveryOverviewApi {
      *     timeframe, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
      *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in beta.
-     *     (optional)
+     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, and &#x60;subscriptionId&#x60;. This
+     *     parameter exists in beta. (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
      *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
      *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
@@ -299,12 +292,11 @@ public class DeliveryOverviewApi {
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
      *     beta. (required)
      * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
-     *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, and/or &#x60;subscriptionId&#x60; that
+     *     can be applied in addition to a &#x60;groupBy&#x60;. This parameter exists in beta.
+     *     (optional)
      * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
      *     (required)
-     * @param subscriptionId An optional filter for actions destinations, to filter by a specific
-     *     action. This parameter exists in beta. (optional)
      * @return GetEgressFailedMetricsFromDeliveryOverview200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -325,9 +317,8 @@ public class DeliveryOverviewApi {
                     String endTime,
                     List<String> groupBy,
                     String granularity,
-                    DeliveryOverviewFilterBy filter,
-                    PaginationInput pagination,
-                    String subscriptionId)
+                    DeliveryOverviewDestinationFilterBy filter,
+                    PaginationInput pagination)
                     throws ApiException {
         ApiResponse<GetEgressFailedMetricsFromDeliveryOverview200Response> localVarResp =
                 getEgressFailedMetricsFromDeliveryOverviewWithHttpInfo(
@@ -338,8 +329,7 @@ public class DeliveryOverviewApi {
                         groupBy,
                         granularity,
                         filter,
-                        pagination,
-                        subscriptionId);
+                        pagination);
         return localVarResp.getData();
     }
 
@@ -356,8 +346,8 @@ public class DeliveryOverviewApi {
      *     timeframe, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
      *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in beta.
-     *     (optional)
+     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, and &#x60;subscriptionId&#x60;. This
+     *     parameter exists in beta. (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
      *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
      *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
@@ -365,12 +355,11 @@ public class DeliveryOverviewApi {
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
      *     beta. (required)
      * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
-     *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, and/or &#x60;subscriptionId&#x60; that
+     *     can be applied in addition to a &#x60;groupBy&#x60;. This parameter exists in beta.
+     *     (optional)
      * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
      *     (required)
-     * @param subscriptionId An optional filter for actions destinations, to filter by a specific
-     *     action. This parameter exists in beta. (optional)
      * @return ApiResponse&lt;GetEgressFailedMetricsFromDeliveryOverview200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -391,9 +380,8 @@ public class DeliveryOverviewApi {
                     String endTime,
                     List<String> groupBy,
                     String granularity,
-                    DeliveryOverviewFilterBy filter,
-                    PaginationInput pagination,
-                    String subscriptionId)
+                    DeliveryOverviewDestinationFilterBy filter,
+                    PaginationInput pagination)
                     throws ApiException {
         okhttp3.Call localVarCall =
                 getEgressFailedMetricsFromDeliveryOverviewValidateBeforeCall(
@@ -405,7 +393,6 @@ public class DeliveryOverviewApi {
                         granularity,
                         filter,
                         pagination,
-                        subscriptionId,
                         null);
         Type localVarReturnType =
                 new TypeToken<GetEgressFailedMetricsFromDeliveryOverview200Response>() {}.getType();
@@ -425,8 +412,8 @@ public class DeliveryOverviewApi {
      *     timeframe, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
      *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in beta.
-     *     (optional)
+     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, and &#x60;subscriptionId&#x60;. This
+     *     parameter exists in beta. (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
      *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
      *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
@@ -434,12 +421,11 @@ public class DeliveryOverviewApi {
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
      *     beta. (required)
      * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
-     *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, and/or &#x60;subscriptionId&#x60; that
+     *     can be applied in addition to a &#x60;groupBy&#x60;. This parameter exists in beta.
+     *     (optional)
      * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
      *     (required)
-     * @param subscriptionId An optional filter for actions destinations, to filter by a specific
-     *     action. This parameter exists in beta. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -460,9 +446,8 @@ public class DeliveryOverviewApi {
             String endTime,
             List<String> groupBy,
             String granularity,
-            DeliveryOverviewFilterBy filter,
+            DeliveryOverviewDestinationFilterBy filter,
             PaginationInput pagination,
-            String subscriptionId,
             final ApiCallback<GetEgressFailedMetricsFromDeliveryOverview200Response> _callback)
             throws ApiException {
 
@@ -476,7 +461,6 @@ public class DeliveryOverviewApi {
                         granularity,
                         filter,
                         pagination,
-                        subscriptionId,
                         _callback);
         Type localVarReturnType =
                 new TypeToken<GetEgressFailedMetricsFromDeliveryOverview200Response>() {}.getType();
@@ -496,8 +480,8 @@ public class DeliveryOverviewApi {
      *     timeframe, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
      *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in beta.
-     *     (optional)
+     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, and &#x60;subscriptionId&#x60;. This
+     *     parameter exists in beta. (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
      *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
      *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
@@ -505,14 +489,13 @@ public class DeliveryOverviewApi {
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
      *     beta. (required)
      * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
-     *     to a &#x60;groupBy&#x60;. If you would like to view retry attempts for a successful
-     *     delivery, you can filter &#x60;discardReason&#x60; from &#x60;successes.attempt.1&#x60;
-     *     through &#x60;successes.attempt.10&#x60;. This parameter exists in beta. (optional)
+     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, and/or &#x60;subscriptionId&#x60; that
+     *     can be applied in addition to a &#x60;groupBy&#x60;. If you would like to view retry
+     *     attempts for a successful delivery, you can filter &#x60;discardReason&#x60; from
+     *     &#x60;successes.attempt.1&#x60; through &#x60;successes.attempt.10&#x60;. This parameter
+     *     exists in beta. (optional)
      * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
      *     (required)
-     * @param subscriptionId An optional filter for actions destinations, to filter by a specific
-     *     action. This parameter exists in beta. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -532,9 +515,8 @@ public class DeliveryOverviewApi {
             String endTime,
             List<String> groupBy,
             String granularity,
-            DeliveryOverviewFilterBy filter,
+            DeliveryOverviewDestinationFilterBy filter,
             PaginationInput pagination,
-            String subscriptionId,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -596,11 +578,6 @@ public class DeliveryOverviewApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pagination", pagination));
         }
 
-        if (subscriptionId != null) {
-            localVarQueryParams.addAll(
-                    localVarApiClient.parameterToPair("subscriptionId", subscriptionId));
-        }
-
         final String[] localVarAccepts = {
             "application/vnd.segment.v1beta+json", "application/json"
         };
@@ -639,9 +616,8 @@ public class DeliveryOverviewApi {
             String endTime,
             List<String> groupBy,
             String granularity,
-            DeliveryOverviewFilterBy filter,
+            DeliveryOverviewDestinationFilterBy filter,
             PaginationInput pagination,
-            String subscriptionId,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'sourceId' is set
@@ -695,7 +671,6 @@ public class DeliveryOverviewApi {
                 granularity,
                 filter,
                 pagination,
-                subscriptionId,
                 _callback);
     }
 
@@ -712,8 +687,8 @@ public class DeliveryOverviewApi {
      *     timeframe, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
      *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in beta.
-     *     (optional)
+     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, and &#x60;subscriptionId&#x60;. This
+     *     parameter exists in beta. (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
      *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
      *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
@@ -721,14 +696,13 @@ public class DeliveryOverviewApi {
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
      *     beta. (required)
      * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
-     *     to a &#x60;groupBy&#x60;. If you would like to view retry attempts for a successful
-     *     delivery, you can filter &#x60;discardReason&#x60; from &#x60;successes.attempt.1&#x60;
-     *     through &#x60;successes.attempt.10&#x60;. This parameter exists in beta. (optional)
+     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, and/or &#x60;subscriptionId&#x60; that
+     *     can be applied in addition to a &#x60;groupBy&#x60;. If you would like to view retry
+     *     attempts for a successful delivery, you can filter &#x60;discardReason&#x60; from
+     *     &#x60;successes.attempt.1&#x60; through &#x60;successes.attempt.10&#x60;. This parameter
+     *     exists in beta. (optional)
      * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
      *     (required)
-     * @param subscriptionId An optional filter for actions destinations, to filter by a specific
-     *     action. This parameter exists in beta. (optional)
      * @return GetEgressFailedMetricsFromDeliveryOverview200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -749,9 +723,8 @@ public class DeliveryOverviewApi {
                     String endTime,
                     List<String> groupBy,
                     String granularity,
-                    DeliveryOverviewFilterBy filter,
-                    PaginationInput pagination,
-                    String subscriptionId)
+                    DeliveryOverviewDestinationFilterBy filter,
+                    PaginationInput pagination)
                     throws ApiException {
         ApiResponse<GetEgressFailedMetricsFromDeliveryOverview200Response> localVarResp =
                 getEgressSuccessMetricsFromDeliveryOverviewWithHttpInfo(
@@ -762,8 +735,7 @@ public class DeliveryOverviewApi {
                         groupBy,
                         granularity,
                         filter,
-                        pagination,
-                        subscriptionId);
+                        pagination);
         return localVarResp.getData();
     }
 
@@ -780,8 +752,8 @@ public class DeliveryOverviewApi {
      *     timeframe, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
      *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in beta.
-     *     (optional)
+     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, and &#x60;subscriptionId&#x60;. This
+     *     parameter exists in beta. (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
      *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
      *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
@@ -789,14 +761,13 @@ public class DeliveryOverviewApi {
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
      *     beta. (required)
      * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
-     *     to a &#x60;groupBy&#x60;. If you would like to view retry attempts for a successful
-     *     delivery, you can filter &#x60;discardReason&#x60; from &#x60;successes.attempt.1&#x60;
-     *     through &#x60;successes.attempt.10&#x60;. This parameter exists in beta. (optional)
+     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, and/or &#x60;subscriptionId&#x60; that
+     *     can be applied in addition to a &#x60;groupBy&#x60;. If you would like to view retry
+     *     attempts for a successful delivery, you can filter &#x60;discardReason&#x60; from
+     *     &#x60;successes.attempt.1&#x60; through &#x60;successes.attempt.10&#x60;. This parameter
+     *     exists in beta. (optional)
      * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
      *     (required)
-     * @param subscriptionId An optional filter for actions destinations, to filter by a specific
-     *     action. This parameter exists in beta. (optional)
      * @return ApiResponse&lt;GetEgressFailedMetricsFromDeliveryOverview200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -817,9 +788,8 @@ public class DeliveryOverviewApi {
                     String endTime,
                     List<String> groupBy,
                     String granularity,
-                    DeliveryOverviewFilterBy filter,
-                    PaginationInput pagination,
-                    String subscriptionId)
+                    DeliveryOverviewDestinationFilterBy filter,
+                    PaginationInput pagination)
                     throws ApiException {
         okhttp3.Call localVarCall =
                 getEgressSuccessMetricsFromDeliveryOverviewValidateBeforeCall(
@@ -831,7 +801,6 @@ public class DeliveryOverviewApi {
                         granularity,
                         filter,
                         pagination,
-                        subscriptionId,
                         null);
         Type localVarReturnType =
                 new TypeToken<GetEgressFailedMetricsFromDeliveryOverview200Response>() {}.getType();
@@ -851,8 +820,8 @@ public class DeliveryOverviewApi {
      *     timeframe, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
      *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in beta.
-     *     (optional)
+     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, and &#x60;subscriptionId&#x60;. This
+     *     parameter exists in beta. (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
      *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
      *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
@@ -860,14 +829,13 @@ public class DeliveryOverviewApi {
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
      *     beta. (required)
      * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
-     *     to a &#x60;groupBy&#x60;. If you would like to view retry attempts for a successful
-     *     delivery, you can filter &#x60;discardReason&#x60; from &#x60;successes.attempt.1&#x60;
-     *     through &#x60;successes.attempt.10&#x60;. This parameter exists in beta. (optional)
+     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, and/or &#x60;subscriptionId&#x60; that
+     *     can be applied in addition to a &#x60;groupBy&#x60;. If you would like to view retry
+     *     attempts for a successful delivery, you can filter &#x60;discardReason&#x60; from
+     *     &#x60;successes.attempt.1&#x60; through &#x60;successes.attempt.10&#x60;. This parameter
+     *     exists in beta. (optional)
      * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
      *     (required)
-     * @param subscriptionId An optional filter for actions destinations, to filter by a specific
-     *     action. This parameter exists in beta. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -888,9 +856,8 @@ public class DeliveryOverviewApi {
             String endTime,
             List<String> groupBy,
             String granularity,
-            DeliveryOverviewFilterBy filter,
+            DeliveryOverviewDestinationFilterBy filter,
             PaginationInput pagination,
-            String subscriptionId,
             final ApiCallback<GetEgressFailedMetricsFromDeliveryOverview200Response> _callback)
             throws ApiException {
 
@@ -904,7 +871,6 @@ public class DeliveryOverviewApi {
                         granularity,
                         filter,
                         pagination,
-                        subscriptionId,
                         _callback);
         Type localVarReturnType =
                 new TypeToken<GetEgressFailedMetricsFromDeliveryOverview200Response>() {}.getType();
@@ -924,8 +890,8 @@ public class DeliveryOverviewApi {
      *     timeframe, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
      *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in beta.
-     *     (optional)
+     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, and &#x60;subscriptionId&#x60;. This
+     *     parameter exists in beta. (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
      *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
      *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
@@ -933,8 +899,9 @@ public class DeliveryOverviewApi {
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
      *     beta. (required)
      * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
-     *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, and/or &#x60;subscriptionId&#x60; that
+     *     can be applied in addition to a &#x60;groupBy&#x60;. This parameter exists in beta.
+     *     (optional)
      * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
      *     (required)
      * @param subscriptionId An optional filter for actions destinations, to filter by a specific
@@ -958,7 +925,7 @@ public class DeliveryOverviewApi {
             String endTime,
             List<String> groupBy,
             String granularity,
-            DeliveryOverviewFilterBy filter,
+            DeliveryOverviewDestinationFilterBy filter,
             PaginationInput pagination,
             String subscriptionId,
             final ApiCallback _callback)
@@ -1065,7 +1032,7 @@ public class DeliveryOverviewApi {
             String endTime,
             List<String> groupBy,
             String granularity,
-            DeliveryOverviewFilterBy filter,
+            DeliveryOverviewDestinationFilterBy filter,
             PaginationInput pagination,
             String subscriptionId,
             final ApiCallback _callback)
@@ -1138,8 +1105,8 @@ public class DeliveryOverviewApi {
      *     timeframe, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
      *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in beta.
-     *     (optional)
+     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, and &#x60;subscriptionId&#x60;. This
+     *     parameter exists in beta. (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
      *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
      *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
@@ -1147,8 +1114,9 @@ public class DeliveryOverviewApi {
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
      *     beta. (required)
      * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
-     *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, and/or &#x60;subscriptionId&#x60; that
+     *     can be applied in addition to a &#x60;groupBy&#x60;. This parameter exists in beta.
+     *     (optional)
      * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
      *     (required)
      * @param subscriptionId An optional filter for actions destinations, to filter by a specific
@@ -1173,7 +1141,7 @@ public class DeliveryOverviewApi {
                     String endTime,
                     List<String> groupBy,
                     String granularity,
-                    DeliveryOverviewFilterBy filter,
+                    DeliveryOverviewDestinationFilterBy filter,
                     PaginationInput pagination,
                     String subscriptionId)
                     throws ApiException {
@@ -1204,8 +1172,8 @@ public class DeliveryOverviewApi {
      *     timeframe, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
      *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in beta.
-     *     (optional)
+     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, and &#x60;subscriptionId&#x60;. This
+     *     parameter exists in beta. (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
      *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
      *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
@@ -1213,8 +1181,9 @@ public class DeliveryOverviewApi {
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
      *     beta. (required)
      * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
-     *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, and/or &#x60;subscriptionId&#x60; that
+     *     can be applied in addition to a &#x60;groupBy&#x60;. This parameter exists in beta.
+     *     (optional)
      * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
      *     (required)
      * @param subscriptionId An optional filter for actions destinations, to filter by a specific
@@ -1239,7 +1208,7 @@ public class DeliveryOverviewApi {
                     String endTime,
                     List<String> groupBy,
                     String granularity,
-                    DeliveryOverviewFilterBy filter,
+                    DeliveryOverviewDestinationFilterBy filter,
                     PaginationInput pagination,
                     String subscriptionId)
                     throws ApiException {
@@ -1273,8 +1242,8 @@ public class DeliveryOverviewApi {
      *     timeframe, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
      *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in beta.
-     *     (optional)
+     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, and &#x60;subscriptionId&#x60;. This
+     *     parameter exists in beta. (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
      *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
      *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
@@ -1282,8 +1251,9 @@ public class DeliveryOverviewApi {
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
      *     beta. (required)
      * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
-     *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, and/or &#x60;subscriptionId&#x60; that
+     *     can be applied in addition to a &#x60;groupBy&#x60;. This parameter exists in beta.
+     *     (optional)
      * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
      *     (required)
      * @param subscriptionId An optional filter for actions destinations, to filter by a specific
@@ -1308,7 +1278,7 @@ public class DeliveryOverviewApi {
             String endTime,
             List<String> groupBy,
             String granularity,
-            DeliveryOverviewFilterBy filter,
+            DeliveryOverviewDestinationFilterBy filter,
             PaginationInput pagination,
             String subscriptionId,
             final ApiCallback<GetEgressFailedMetricsFromDeliveryOverview200Response> _callback)
@@ -1373,7 +1343,7 @@ public class DeliveryOverviewApi {
             String endTime,
             List<String> groupBy,
             String granularity,
-            DeliveryOverviewFilterBy filter,
+            DeliveryOverviewSourceFilterBy filter,
             PaginationInput pagination,
             final ApiCallback _callback)
             throws ApiException {
@@ -1468,7 +1438,7 @@ public class DeliveryOverviewApi {
             String endTime,
             List<String> groupBy,
             String granularity,
-            DeliveryOverviewFilterBy filter,
+            DeliveryOverviewSourceFilterBy filter,
             PaginationInput pagination,
             final ApiCallback _callback)
             throws ApiException {
@@ -1554,7 +1524,7 @@ public class DeliveryOverviewApi {
                     String endTime,
                     List<String> groupBy,
                     String granularity,
-                    DeliveryOverviewFilterBy filter,
+                    DeliveryOverviewSourceFilterBy filter,
                     PaginationInput pagination)
                     throws ApiException {
         ApiResponse<GetEgressFailedMetricsFromDeliveryOverview200Response> localVarResp =
@@ -1606,7 +1576,7 @@ public class DeliveryOverviewApi {
                     String endTime,
                     List<String> groupBy,
                     String granularity,
-                    DeliveryOverviewFilterBy filter,
+                    DeliveryOverviewSourceFilterBy filter,
                     PaginationInput pagination)
                     throws ApiException {
         okhttp3.Call localVarCall =
@@ -1667,7 +1637,7 @@ public class DeliveryOverviewApi {
             String endTime,
             List<String> groupBy,
             String granularity,
-            DeliveryOverviewFilterBy filter,
+            DeliveryOverviewSourceFilterBy filter,
             PaginationInput pagination,
             final ApiCallback<GetEgressFailedMetricsFromDeliveryOverview200Response> _callback)
             throws ApiException {
@@ -1729,7 +1699,7 @@ public class DeliveryOverviewApi {
             String endTime,
             List<String> groupBy,
             String granularity,
-            DeliveryOverviewFilterBy filter,
+            DeliveryOverviewSourceFilterBy filter,
             PaginationInput pagination,
             final ApiCallback _callback)
             throws ApiException {
@@ -1824,7 +1794,7 @@ public class DeliveryOverviewApi {
             String endTime,
             List<String> groupBy,
             String granularity,
-            DeliveryOverviewFilterBy filter,
+            DeliveryOverviewSourceFilterBy filter,
             PaginationInput pagination,
             final ApiCallback _callback)
             throws ApiException {
@@ -1909,7 +1879,7 @@ public class DeliveryOverviewApi {
                     String endTime,
                     List<String> groupBy,
                     String granularity,
-                    DeliveryOverviewFilterBy filter,
+                    DeliveryOverviewSourceFilterBy filter,
                     PaginationInput pagination)
                     throws ApiException {
         ApiResponse<GetEgressFailedMetricsFromDeliveryOverview200Response> localVarResp =
@@ -1960,7 +1930,7 @@ public class DeliveryOverviewApi {
                     String endTime,
                     List<String> groupBy,
                     String granularity,
-                    DeliveryOverviewFilterBy filter,
+                    DeliveryOverviewSourceFilterBy filter,
                     PaginationInput pagination)
                     throws ApiException {
         okhttp3.Call localVarCall =
@@ -2021,7 +1991,7 @@ public class DeliveryOverviewApi {
             String endTime,
             List<String> groupBy,
             String granularity,
-            DeliveryOverviewFilterBy filter,
+            DeliveryOverviewSourceFilterBy filter,
             PaginationInput pagination,
             final ApiCallback<GetEgressFailedMetricsFromDeliveryOverview200Response> _callback)
             throws ApiException {
@@ -2082,7 +2052,7 @@ public class DeliveryOverviewApi {
             String endTime,
             List<String> groupBy,
             String granularity,
-            DeliveryOverviewFilterBy filter,
+            DeliveryOverviewSuccessfullyReceivedFilterBy filter,
             PaginationInput pagination,
             final ApiCallback _callback)
             throws ApiException {
@@ -2177,7 +2147,7 @@ public class DeliveryOverviewApi {
             String endTime,
             List<String> groupBy,
             String granularity,
-            DeliveryOverviewFilterBy filter,
+            DeliveryOverviewSuccessfullyReceivedFilterBy filter,
             PaginationInput pagination,
             final ApiCallback _callback)
             throws ApiException {
@@ -2262,7 +2232,7 @@ public class DeliveryOverviewApi {
                     String endTime,
                     List<String> groupBy,
                     String granularity,
-                    DeliveryOverviewFilterBy filter,
+                    DeliveryOverviewSuccessfullyReceivedFilterBy filter,
                     PaginationInput pagination)
                     throws ApiException {
         ApiResponse<GetEgressFailedMetricsFromDeliveryOverview200Response> localVarResp =
@@ -2313,7 +2283,7 @@ public class DeliveryOverviewApi {
                     String endTime,
                     List<String> groupBy,
                     String granularity,
-                    DeliveryOverviewFilterBy filter,
+                    DeliveryOverviewSuccessfullyReceivedFilterBy filter,
                     PaginationInput pagination)
                     throws ApiException {
         okhttp3.Call localVarCall =
@@ -2373,7 +2343,7 @@ public class DeliveryOverviewApi {
             String endTime,
             List<String> groupBy,
             String granularity,
-            DeliveryOverviewFilterBy filter,
+            DeliveryOverviewSuccessfullyReceivedFilterBy filter,
             PaginationInput pagination,
             final ApiCallback<GetEgressFailedMetricsFromDeliveryOverview200Response> _callback)
             throws ApiException {

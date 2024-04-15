@@ -30,10 +30,10 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * The &#x60;DeliveryOverviewFilterBy&#x60; object is a map of the filterable fields and their
+ * The &#x60;DeliveryOverviewSourceFilterBy&#x60; object is a map of the filterable fields and their
  * values.
  */
-public class DeliveryOverviewFilterBy {
+public class DeliveryOverviewSourceFilterBy {
     public static final String SERIALIZED_NAME_DISCARD_REASON = "discardReason";
 
     @SerializedName(SERIALIZED_NAME_DISCARD_REASON)
@@ -54,15 +54,15 @@ public class DeliveryOverviewFilterBy {
     @SerializedName(SERIALIZED_NAME_APP_VERSION)
     private List<String> appVersion;
 
-    public DeliveryOverviewFilterBy() {}
+    public DeliveryOverviewSourceFilterBy() {}
 
-    public DeliveryOverviewFilterBy discardReason(List<String> discardReason) {
+    public DeliveryOverviewSourceFilterBy discardReason(List<String> discardReason) {
 
         this.discardReason = discardReason;
         return this;
     }
 
-    public DeliveryOverviewFilterBy addDiscardReasonItem(String discardReasonItem) {
+    public DeliveryOverviewSourceFilterBy addDiscardReasonItem(String discardReasonItem) {
         if (this.discardReason == null) {
             this.discardReason = new ArrayList<>();
         }
@@ -71,8 +71,7 @@ public class DeliveryOverviewFilterBy {
     }
 
     /**
-     * A list of strings of discard reasons. Can be used to filter all Source and Destination steps,
-     * except for Successfully Received. See [Discard Record
+     * A list of strings of discard reasons. See [Discard Record
      * Documentation](https://segment.com/docs/connections/delivery-overview/#troubleshooting) for
      * valid error codes.
      *
@@ -87,13 +86,13 @@ public class DeliveryOverviewFilterBy {
         this.discardReason = discardReason;
     }
 
-    public DeliveryOverviewFilterBy eventName(List<String> eventName) {
+    public DeliveryOverviewSourceFilterBy eventName(List<String> eventName) {
 
         this.eventName = eventName;
         return this;
     }
 
-    public DeliveryOverviewFilterBy addEventNameItem(String eventNameItem) {
+    public DeliveryOverviewSourceFilterBy addEventNameItem(String eventNameItem) {
         if (this.eventName == null) {
             this.eventName = new ArrayList<>();
         }
@@ -115,13 +114,13 @@ public class DeliveryOverviewFilterBy {
         this.eventName = eventName;
     }
 
-    public DeliveryOverviewFilterBy eventType(List<String> eventType) {
+    public DeliveryOverviewSourceFilterBy eventType(List<String> eventType) {
 
         this.eventType = eventType;
         return this;
     }
 
-    public DeliveryOverviewFilterBy addEventTypeItem(String eventTypeItem) {
+    public DeliveryOverviewSourceFilterBy addEventTypeItem(String eventTypeItem) {
         if (this.eventType == null) {
             this.eventType = new ArrayList<>();
         }
@@ -144,13 +143,13 @@ public class DeliveryOverviewFilterBy {
         this.eventType = eventType;
     }
 
-    public DeliveryOverviewFilterBy appVersion(List<String> appVersion) {
+    public DeliveryOverviewSourceFilterBy appVersion(List<String> appVersion) {
 
         this.appVersion = appVersion;
         return this;
     }
 
-    public DeliveryOverviewFilterBy addAppVersionItem(String appVersionItem) {
+    public DeliveryOverviewSourceFilterBy addAppVersionItem(String appVersionItem) {
         if (this.appVersion == null) {
             this.appVersion = new ArrayList<>();
         }
@@ -180,11 +179,12 @@ public class DeliveryOverviewFilterBy {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        DeliveryOverviewFilterBy deliveryOverviewFilterBy = (DeliveryOverviewFilterBy) o;
-        return Objects.equals(this.discardReason, deliveryOverviewFilterBy.discardReason)
-                && Objects.equals(this.eventName, deliveryOverviewFilterBy.eventName)
-                && Objects.equals(this.eventType, deliveryOverviewFilterBy.eventType)
-                && Objects.equals(this.appVersion, deliveryOverviewFilterBy.appVersion);
+        DeliveryOverviewSourceFilterBy deliveryOverviewSourceFilterBy =
+                (DeliveryOverviewSourceFilterBy) o;
+        return Objects.equals(this.discardReason, deliveryOverviewSourceFilterBy.discardReason)
+                && Objects.equals(this.eventName, deliveryOverviewSourceFilterBy.eventName)
+                && Objects.equals(this.eventType, deliveryOverviewSourceFilterBy.eventType)
+                && Objects.equals(this.appVersion, deliveryOverviewSourceFilterBy.appVersion);
     }
 
     @Override
@@ -195,7 +195,7 @@ public class DeliveryOverviewFilterBy {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class DeliveryOverviewFilterBy {\n");
+        sb.append("class DeliveryOverviewSourceFilterBy {\n");
         sb.append("    discardReason: ").append(toIndentedString(discardReason)).append("\n");
         sb.append("    eventName: ").append(toIndentedString(eventName)).append("\n");
         sb.append("    eventType: ").append(toIndentedString(eventType)).append("\n");
@@ -234,28 +234,29 @@ public class DeliveryOverviewFilterBy {
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to DeliveryOverviewFilterBy
+     * @throws IOException if the JSON Element is invalid with respect to
+     *     DeliveryOverviewSourceFilterBy
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!DeliveryOverviewFilterBy.openapiRequiredFields
+            if (!DeliveryOverviewSourceFilterBy.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in DeliveryOverviewFilterBy is not found"
-                                        + " in the empty JSON string",
-                                DeliveryOverviewFilterBy.openapiRequiredFields.toString()));
+                                "The required field(s) %s in DeliveryOverviewSourceFilterBy is not"
+                                        + " found in the empty JSON string",
+                                DeliveryOverviewSourceFilterBy.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!DeliveryOverviewFilterBy.openapiFields.contains(entry.getKey())) {
+            if (!DeliveryOverviewSourceFilterBy.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `DeliveryOverviewFilterBy` properties. JSON: %s",
+                                        + " `DeliveryOverviewSourceFilterBy` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
@@ -306,25 +307,27 @@ public class DeliveryOverviewFilterBy {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!DeliveryOverviewFilterBy.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'DeliveryOverviewFilterBy' and its
+            if (!DeliveryOverviewSourceFilterBy.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'DeliveryOverviewSourceFilterBy' and its
                 // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<DeliveryOverviewFilterBy> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(DeliveryOverviewFilterBy.class));
+            final TypeAdapter<DeliveryOverviewSourceFilterBy> thisAdapter =
+                    gson.getDelegateAdapter(
+                            this, TypeToken.get(DeliveryOverviewSourceFilterBy.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<DeliveryOverviewFilterBy>() {
+                    new TypeAdapter<DeliveryOverviewSourceFilterBy>() {
                         @Override
-                        public void write(JsonWriter out, DeliveryOverviewFilterBy value)
+                        public void write(JsonWriter out, DeliveryOverviewSourceFilterBy value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public DeliveryOverviewFilterBy read(JsonReader in) throws IOException {
+                        public DeliveryOverviewSourceFilterBy read(JsonReader in)
+                                throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -334,18 +337,19 @@ public class DeliveryOverviewFilterBy {
     }
 
     /**
-     * Create an instance of DeliveryOverviewFilterBy given an JSON string
+     * Create an instance of DeliveryOverviewSourceFilterBy given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of DeliveryOverviewFilterBy
-     * @throws IOException if the JSON string is invalid with respect to DeliveryOverviewFilterBy
+     * @return An instance of DeliveryOverviewSourceFilterBy
+     * @throws IOException if the JSON string is invalid with respect to
+     *     DeliveryOverviewSourceFilterBy
      */
-    public static DeliveryOverviewFilterBy fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, DeliveryOverviewFilterBy.class);
+    public static DeliveryOverviewSourceFilterBy fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, DeliveryOverviewSourceFilterBy.class);
     }
 
     /**
-     * Convert an instance of DeliveryOverviewFilterBy to an JSON string
+     * Convert an instance of DeliveryOverviewSourceFilterBy to an JSON string
      *
      * @return JSON string
      */

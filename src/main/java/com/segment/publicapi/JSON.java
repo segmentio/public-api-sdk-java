@@ -480,13 +480,19 @@ public class JSON {
                 new com.segment.publicapi.models.DeliveryMetricsSummaryBeta
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.DeliveryOverviewFilterBy
+                new com.segment.publicapi.models.DeliveryOverviewDestinationFilterBy
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.DeliveryOverviewMetricsDatapoint
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.DeliveryOverviewMetricsDataset
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.DeliveryOverviewSourceFilterBy
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.DeliveryOverviewSuccessfullyReceivedFilterBy
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.DestinationFilterActionV1
