@@ -27,16 +27,16 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** GetReverseETLSyncFromModel200Response */
-public class GetReverseETLSyncFromModel200Response {
+/** GetReverseETLSyncStatus200Response */
+public class GetReverseETLSyncStatus200Response {
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    private GetReverseETLSyncFromModelOutput data;
+    private GetReverseETLSyncStatusOutput data;
 
-    public GetReverseETLSyncFromModel200Response() {}
+    public GetReverseETLSyncStatus200Response() {}
 
-    public GetReverseETLSyncFromModel200Response data(GetReverseETLSyncFromModelOutput data) {
+    public GetReverseETLSyncStatus200Response data(GetReverseETLSyncStatusOutput data) {
 
         this.data = data;
         return this;
@@ -48,11 +48,11 @@ public class GetReverseETLSyncFromModel200Response {
      * @return data
      */
     @javax.annotation.Nullable
-    public GetReverseETLSyncFromModelOutput getData() {
+    public GetReverseETLSyncStatusOutput getData() {
         return data;
     }
 
-    public void setData(GetReverseETLSyncFromModelOutput data) {
+    public void setData(GetReverseETLSyncStatusOutput data) {
         this.data = data;
     }
 
@@ -64,9 +64,9 @@ public class GetReverseETLSyncFromModel200Response {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        GetReverseETLSyncFromModel200Response getReverseETLSyncFromModel200Response =
-                (GetReverseETLSyncFromModel200Response) o;
-        return Objects.equals(this.data, getReverseETLSyncFromModel200Response.data);
+        GetReverseETLSyncStatus200Response getReverseETLSyncStatus200Response =
+                (GetReverseETLSyncStatus200Response) o;
+        return Objects.equals(this.data, getReverseETLSyncStatus200Response.data);
     }
 
     @Override
@@ -77,7 +77,7 @@ public class GetReverseETLSyncFromModel200Response {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class GetReverseETLSyncFromModel200Response {\n");
+        sb.append("class GetReverseETLSyncStatus200Response {\n");
         sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -111,17 +111,17 @@ public class GetReverseETLSyncFromModel200Response {
      *
      * @param jsonElement JSON Element
      * @throws IOException if the JSON Element is invalid with respect to
-     *     GetReverseETLSyncFromModel200Response
+     *     GetReverseETLSyncStatus200Response
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!GetReverseETLSyncFromModel200Response.openapiRequiredFields
+            if (!GetReverseETLSyncStatus200Response.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in GetReverseETLSyncFromModel200Response"
-                                        + " is not found in the empty JSON string",
-                                GetReverseETLSyncFromModel200Response.openapiRequiredFields
+                                "The required field(s) %s in GetReverseETLSyncStatus200Response is"
+                                        + " not found in the empty JSON string",
+                                GetReverseETLSyncStatus200Response.openapiRequiredFields
                                         .toString()));
             }
         }
@@ -129,19 +129,18 @@ public class GetReverseETLSyncFromModel200Response {
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!GetReverseETLSyncFromModel200Response.openapiFields.contains(entry.getKey())) {
+            if (!GetReverseETLSyncStatus200Response.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                    + " `GetReverseETLSyncFromModel200Response` properties. JSON:"
-                                    + " %s",
+                                    + " `GetReverseETLSyncStatus200Response` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the optional field `data`
         if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-            GetReverseETLSyncFromModelOutput.validateJsonElement(jsonObj.get("data"));
+            GetReverseETLSyncStatusOutput.validateJsonElement(jsonObj.get("data"));
         }
     }
 
@@ -149,27 +148,26 @@ public class GetReverseETLSyncFromModel200Response {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!GetReverseETLSyncFromModel200Response.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'GetReverseETLSyncFromModel200Response'
-                // and its subtypes
+            if (!GetReverseETLSyncStatus200Response.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'GetReverseETLSyncStatus200Response' and
+                // its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<GetReverseETLSyncFromModel200Response> thisAdapter =
+            final TypeAdapter<GetReverseETLSyncStatus200Response> thisAdapter =
                     gson.getDelegateAdapter(
-                            this, TypeToken.get(GetReverseETLSyncFromModel200Response.class));
+                            this, TypeToken.get(GetReverseETLSyncStatus200Response.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<GetReverseETLSyncFromModel200Response>() {
+                    new TypeAdapter<GetReverseETLSyncStatus200Response>() {
                         @Override
-                        public void write(
-                                JsonWriter out, GetReverseETLSyncFromModel200Response value)
+                        public void write(JsonWriter out, GetReverseETLSyncStatus200Response value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public GetReverseETLSyncFromModel200Response read(JsonReader in)
+                        public GetReverseETLSyncStatus200Response read(JsonReader in)
                                 throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
@@ -180,20 +178,20 @@ public class GetReverseETLSyncFromModel200Response {
     }
 
     /**
-     * Create an instance of GetReverseETLSyncFromModel200Response given an JSON string
+     * Create an instance of GetReverseETLSyncStatus200Response given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of GetReverseETLSyncFromModel200Response
+     * @return An instance of GetReverseETLSyncStatus200Response
      * @throws IOException if the JSON string is invalid with respect to
-     *     GetReverseETLSyncFromModel200Response
+     *     GetReverseETLSyncStatus200Response
      */
-    public static GetReverseETLSyncFromModel200Response fromJson(String jsonString)
+    public static GetReverseETLSyncStatus200Response fromJson(String jsonString)
             throws IOException {
-        return JSON.getGson().fromJson(jsonString, GetReverseETLSyncFromModel200Response.class);
+        return JSON.getGson().fromJson(jsonString, GetReverseETLSyncStatus200Response.class);
     }
 
     /**
-     * Convert an instance of GetReverseETLSyncFromModel200Response to an JSON string
+     * Convert an instance of GetReverseETLSyncStatus200Response to an JSON string
      *
      * @return JSON string
      */

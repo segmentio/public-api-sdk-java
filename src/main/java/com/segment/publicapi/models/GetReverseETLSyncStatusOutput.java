@@ -28,32 +28,33 @@ import java.util.Objects;
 import java.util.Set;
 
 /** Output for triggering a manual sync for a RETL connection. */
-public class GetReverseETLSyncFromModelOutput {
-    public static final String SERIALIZED_NAME_REVERSE_E_T_L_SYNC = "reverseETLSync";
+public class GetReverseETLSyncStatusOutput {
+    public static final String SERIALIZED_NAME_REVERSE_E_T_L_SYNC_STATUS = "reverseETLSyncStatus";
 
-    @SerializedName(SERIALIZED_NAME_REVERSE_E_T_L_SYNC)
-    private ReverseETLSyncOutput reverseETLSync;
+    @SerializedName(SERIALIZED_NAME_REVERSE_E_T_L_SYNC_STATUS)
+    private ReverseETLSyncOutput reverseETLSyncStatus;
 
-    public GetReverseETLSyncFromModelOutput() {}
+    public GetReverseETLSyncStatusOutput() {}
 
-    public GetReverseETLSyncFromModelOutput reverseETLSync(ReverseETLSyncOutput reverseETLSync) {
+    public GetReverseETLSyncStatusOutput reverseETLSyncStatus(
+            ReverseETLSyncOutput reverseETLSyncStatus) {
 
-        this.reverseETLSync = reverseETLSync;
+        this.reverseETLSyncStatus = reverseETLSyncStatus;
         return this;
     }
 
     /**
-     * Get reverseETLSync
+     * Get reverseETLSyncStatus
      *
-     * @return reverseETLSync
+     * @return reverseETLSyncStatus
      */
     @javax.annotation.Nonnull
-    public ReverseETLSyncOutput getReverseETLSync() {
-        return reverseETLSync;
+    public ReverseETLSyncOutput getReverseETLSyncStatus() {
+        return reverseETLSyncStatus;
     }
 
-    public void setReverseETLSync(ReverseETLSyncOutput reverseETLSync) {
-        this.reverseETLSync = reverseETLSync;
+    public void setReverseETLSyncStatus(ReverseETLSyncOutput reverseETLSyncStatus) {
+        this.reverseETLSyncStatus = reverseETLSyncStatus;
     }
 
     @Override
@@ -64,21 +65,24 @@ public class GetReverseETLSyncFromModelOutput {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        GetReverseETLSyncFromModelOutput getReverseETLSyncFromModelOutput =
-                (GetReverseETLSyncFromModelOutput) o;
-        return Objects.equals(this.reverseETLSync, getReverseETLSyncFromModelOutput.reverseETLSync);
+        GetReverseETLSyncStatusOutput getReverseETLSyncStatusOutput =
+                (GetReverseETLSyncStatusOutput) o;
+        return Objects.equals(
+                this.reverseETLSyncStatus, getReverseETLSyncStatusOutput.reverseETLSyncStatus);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(reverseETLSync);
+        return Objects.hash(reverseETLSyncStatus);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class GetReverseETLSyncFromModelOutput {\n");
-        sb.append("    reverseETLSync: ").append(toIndentedString(reverseETLSync)).append("\n");
+        sb.append("class GetReverseETLSyncStatusOutput {\n");
+        sb.append("    reverseETLSyncStatus: ")
+                .append(toIndentedString(reverseETLSyncStatus))
+                .append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -100,11 +104,11 @@ public class GetReverseETLSyncFromModelOutput {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("reverseETLSync");
+        openapiFields.add("reverseETLSyncStatus");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("reverseETLSync");
+        openapiRequiredFields.add("reverseETLSyncStatus");
     }
 
     /**
@@ -112,34 +116,34 @@ public class GetReverseETLSyncFromModelOutput {
      *
      * @param jsonElement JSON Element
      * @throws IOException if the JSON Element is invalid with respect to
-     *     GetReverseETLSyncFromModelOutput
+     *     GetReverseETLSyncStatusOutput
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!GetReverseETLSyncFromModelOutput.openapiRequiredFields
+            if (!GetReverseETLSyncStatusOutput.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in GetReverseETLSyncFromModelOutput is"
-                                        + " not found in the empty JSON string",
-                                GetReverseETLSyncFromModelOutput.openapiRequiredFields.toString()));
+                                "The required field(s) %s in GetReverseETLSyncStatusOutput is not"
+                                        + " found in the empty JSON string",
+                                GetReverseETLSyncStatusOutput.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!GetReverseETLSyncFromModelOutput.openapiFields.contains(entry.getKey())) {
+            if (!GetReverseETLSyncStatusOutput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                    + " `GetReverseETLSyncFromModelOutput` properties. JSON: %s",
+                                        + " `GetReverseETLSyncStatusOutput` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : GetReverseETLSyncFromModelOutput.openapiRequiredFields) {
+        for (String requiredField : GetReverseETLSyncStatusOutput.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -148,34 +152,34 @@ public class GetReverseETLSyncFromModelOutput {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        // validate the required field `reverseETLSync`
-        ReverseETLSyncOutput.validateJsonElement(jsonObj.get("reverseETLSync"));
+        // validate the required field `reverseETLSyncStatus`
+        ReverseETLSyncOutput.validateJsonElement(jsonObj.get("reverseETLSyncStatus"));
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!GetReverseETLSyncFromModelOutput.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'GetReverseETLSyncFromModelOutput' and
-                // its subtypes
+            if (!GetReverseETLSyncStatusOutput.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'GetReverseETLSyncStatusOutput' and its
+                // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<GetReverseETLSyncFromModelOutput> thisAdapter =
+            final TypeAdapter<GetReverseETLSyncStatusOutput> thisAdapter =
                     gson.getDelegateAdapter(
-                            this, TypeToken.get(GetReverseETLSyncFromModelOutput.class));
+                            this, TypeToken.get(GetReverseETLSyncStatusOutput.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<GetReverseETLSyncFromModelOutput>() {
+                    new TypeAdapter<GetReverseETLSyncStatusOutput>() {
                         @Override
-                        public void write(JsonWriter out, GetReverseETLSyncFromModelOutput value)
+                        public void write(JsonWriter out, GetReverseETLSyncStatusOutput value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public GetReverseETLSyncFromModelOutput read(JsonReader in)
+                        public GetReverseETLSyncStatusOutput read(JsonReader in)
                                 throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
@@ -186,19 +190,19 @@ public class GetReverseETLSyncFromModelOutput {
     }
 
     /**
-     * Create an instance of GetReverseETLSyncFromModelOutput given an JSON string
+     * Create an instance of GetReverseETLSyncStatusOutput given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of GetReverseETLSyncFromModelOutput
+     * @return An instance of GetReverseETLSyncStatusOutput
      * @throws IOException if the JSON string is invalid with respect to
-     *     GetReverseETLSyncFromModelOutput
+     *     GetReverseETLSyncStatusOutput
      */
-    public static GetReverseETLSyncFromModelOutput fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, GetReverseETLSyncFromModelOutput.class);
+    public static GetReverseETLSyncStatusOutput fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, GetReverseETLSyncStatusOutput.class);
     }
 
     /**
-     * Convert an instance of GetReverseETLSyncFromModelOutput to an JSON string
+     * Convert an instance of GetReverseETLSyncStatusOutput to an JSON string
      *
      * @return JSON string
      */
