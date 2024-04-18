@@ -685,10 +685,10 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.GetRegulationV1Output.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.GetReverseETLSyncFromModel200Response
+                new com.segment.publicapi.models.GetReverseETLSyncStatus200Response
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.GetReverseETLSyncFromModelOutput
+                new com.segment.publicapi.models.GetReverseETLSyncStatusOutput
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.GetReverseEtlModel200Response

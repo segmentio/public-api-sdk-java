@@ -23,7 +23,7 @@ import com.segment.publicapi.models.CreateReverseETLManualSyncInput;
 import com.segment.publicapi.models.CreateReverseEtlModel201Response;
 import com.segment.publicapi.models.CreateReverseEtlModelInput;
 import com.segment.publicapi.models.DeleteReverseEtlModel200Response;
-import com.segment.publicapi.models.GetReverseETLSyncFromModel200Response;
+import com.segment.publicapi.models.GetReverseETLSyncStatus200Response;
 import com.segment.publicapi.models.GetReverseEtlModel200Response;
 import com.segment.publicapi.models.ListReverseEtlModels200Response;
 import com.segment.publicapi.models.PaginationInput;
@@ -588,7 +588,7 @@ public class ReverseEtlApi {
     }
 
     /**
-     * Build call for getReverseETLSyncFromModel
+     * Build call for getReverseETLSyncStatus
      *
      * @param modelId (required)
      * @param syncId (required)
@@ -604,7 +604,7 @@ public class ReverseEtlApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getReverseETLSyncFromModelCall(
+    public okhttp3.Call getReverseETLSyncStatusCall(
             String modelId, String syncId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -668,35 +668,36 @@ public class ReverseEtlApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getReverseETLSyncFromModelValidateBeforeCall(
+    private okhttp3.Call getReverseETLSyncStatusValidateBeforeCall(
             String modelId, String syncId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'modelId' is set
         if (modelId == null) {
             throw new ApiException(
                     "Missing the required parameter 'modelId' when calling"
-                            + " getReverseETLSyncFromModel(Async)");
+                            + " getReverseETLSyncStatus(Async)");
         }
 
         // verify the required parameter 'syncId' is set
         if (syncId == null) {
             throw new ApiException(
                     "Missing the required parameter 'syncId' when calling"
-                            + " getReverseETLSyncFromModel(Async)");
+                            + " getReverseETLSyncStatus(Async)");
         }
 
-        return getReverseETLSyncFromModelCall(modelId, syncId, _callback);
+        return getReverseETLSyncStatusCall(modelId, syncId, _callback);
     }
 
     /**
-     * Get Reverse ETL Sync from Model Get the sync status for a Reverse ETL sync. The rate limit
-     * for this endpoint is 250 requests per minute, which is lower than the default due to access
-     * pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code
-     * with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
-     * information.
+     * Get Reverse ETL Sync Status Get the sync status for a Reverse ETL sync. The sync status
+     * includes all detailed information about the sync, like sync status, duration, details about
+     * the extract and load phase if applicable, etc... The rate limit for this endpoint is 250
+     * requests per minute, which is lower than the default due to access pattern restrictions. Once
+     * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
+     * limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param modelId (required)
      * @param syncId (required)
-     * @return GetReverseETLSyncFromModel200Response
+     * @return GetReverseETLSyncStatus200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
      * @http.response.details
@@ -708,23 +709,24 @@ public class ReverseEtlApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public GetReverseETLSyncFromModel200Response getReverseETLSyncFromModel(
-            String modelId, String syncId) throws ApiException {
-        ApiResponse<GetReverseETLSyncFromModel200Response> localVarResp =
-                getReverseETLSyncFromModelWithHttpInfo(modelId, syncId);
+    public GetReverseETLSyncStatus200Response getReverseETLSyncStatus(String modelId, String syncId)
+            throws ApiException {
+        ApiResponse<GetReverseETLSyncStatus200Response> localVarResp =
+                getReverseETLSyncStatusWithHttpInfo(modelId, syncId);
         return localVarResp.getData();
     }
 
     /**
-     * Get Reverse ETL Sync from Model Get the sync status for a Reverse ETL sync. The rate limit
-     * for this endpoint is 250 requests per minute, which is lower than the default due to access
-     * pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code
-     * with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
-     * information.
+     * Get Reverse ETL Sync Status Get the sync status for a Reverse ETL sync. The sync status
+     * includes all detailed information about the sync, like sync status, duration, details about
+     * the extract and load phase if applicable, etc... The rate limit for this endpoint is 250
+     * requests per minute, which is lower than the default due to access pattern restrictions. Once
+     * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
+     * limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param modelId (required)
      * @param syncId (required)
-     * @return ApiResponse&lt;GetReverseETLSyncFromModel200Response&gt;
+     * @return ApiResponse&lt;GetReverseETLSyncStatus200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
      * @http.response.details
@@ -736,22 +738,22 @@ public class ReverseEtlApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<GetReverseETLSyncFromModel200Response>
-            getReverseETLSyncFromModelWithHttpInfo(String modelId, String syncId)
-                    throws ApiException {
+    public ApiResponse<GetReverseETLSyncStatus200Response> getReverseETLSyncStatusWithHttpInfo(
+            String modelId, String syncId) throws ApiException {
         okhttp3.Call localVarCall =
-                getReverseETLSyncFromModelValidateBeforeCall(modelId, syncId, null);
-        Type localVarReturnType =
-                new TypeToken<GetReverseETLSyncFromModel200Response>() {}.getType();
+                getReverseETLSyncStatusValidateBeforeCall(modelId, syncId, null);
+        Type localVarReturnType = new TypeToken<GetReverseETLSyncStatus200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Get Reverse ETL Sync from Model (asynchronously) Get the sync status for a Reverse ETL sync.
-     * The rate limit for this endpoint is 250 requests per minute, which is lower than the default
-     * due to access pattern restrictions. Once reached, this endpoint will respond with the 429
-     * HTTP status code with headers indicating the limit parameters. See [Rate
-     * Limiting](/#tag/Rate-Limits) for more information.
+     * Get Reverse ETL Sync Status (asynchronously) Get the sync status for a Reverse ETL sync. The
+     * sync status includes all detailed information about the sync, like sync status, duration,
+     * details about the extract and load phase if applicable, etc... The rate limit for this
+     * endpoint is 250 requests per minute, which is lower than the default due to access pattern
+     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
+     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
+     * information.
      *
      * @param modelId (required)
      * @param syncId (required)
@@ -768,16 +770,15 @@ public class ReverseEtlApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getReverseETLSyncFromModelAsync(
+    public okhttp3.Call getReverseETLSyncStatusAsync(
             String modelId,
             String syncId,
-            final ApiCallback<GetReverseETLSyncFromModel200Response> _callback)
+            final ApiCallback<GetReverseETLSyncStatus200Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
-                getReverseETLSyncFromModelValidateBeforeCall(modelId, syncId, _callback);
-        Type localVarReturnType =
-                new TypeToken<GetReverseETLSyncFromModel200Response>() {}.getType();
+                getReverseETLSyncStatusValidateBeforeCall(modelId, syncId, _callback);
+        Type localVarReturnType = new TypeToken<GetReverseETLSyncStatus200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
