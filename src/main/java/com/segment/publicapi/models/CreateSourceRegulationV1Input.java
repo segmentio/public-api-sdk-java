@@ -43,6 +43,8 @@ public class CreateSourceRegulationV1Input {
 
         SUPPRESS_WITH_DELETE("SUPPRESS_WITH_DELETE"),
 
+        SUPPRESS_WITH_DELETE_INTERNAL("SUPPRESS_WITH_DELETE_INTERNAL"),
+
         UNSUPPRESS("UNSUPPRESS");
 
         private String value;
