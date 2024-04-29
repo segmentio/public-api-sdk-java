@@ -27,13 +27,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Input to update a computed trait. */
-public class UpdateComputedTraitForSpaceAlphaInput {
-    public static final String SERIALIZED_NAME_ENABLED = "enabled";
-
-    @SerializedName(SERIALIZED_NAME_ENABLED)
-    private Boolean enabled;
-
+/** Input to create an audience. */
+public class CreateTraitAlphaInput {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
@@ -49,29 +44,9 @@ public class UpdateComputedTraitForSpaceAlphaInput {
     @SerializedName(SERIALIZED_NAME_DEFINITION)
     private TraitDefinition definition;
 
-    public UpdateComputedTraitForSpaceAlphaInput() {}
+    public CreateTraitAlphaInput() {}
 
-    public UpdateComputedTraitForSpaceAlphaInput enabled(Boolean enabled) {
-
-        this.enabled = enabled;
-        return this;
-    }
-
-    /**
-     * Enabled/disabled status for the computed trait.
-     *
-     * @return enabled
-     */
-    @javax.annotation.Nullable
-    public Boolean getEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
-    }
-
-    public UpdateComputedTraitForSpaceAlphaInput name(String name) {
+    public CreateTraitAlphaInput name(String name) {
 
         this.name = name;
         return this;
@@ -82,7 +57,7 @@ public class UpdateComputedTraitForSpaceAlphaInput {
      *
      * @return name
      */
-    @javax.annotation.Nullable
+    @javax.annotation.Nonnull
     public String getName() {
         return name;
     }
@@ -91,7 +66,7 @@ public class UpdateComputedTraitForSpaceAlphaInput {
         this.name = name;
     }
 
-    public UpdateComputedTraitForSpaceAlphaInput description(String description) {
+    public CreateTraitAlphaInput description(String description) {
 
         this.description = description;
         return this;
@@ -102,7 +77,7 @@ public class UpdateComputedTraitForSpaceAlphaInput {
      *
      * @return description
      */
-    @javax.annotation.Nullable
+    @javax.annotation.Nonnull
     public String getDescription() {
         return description;
     }
@@ -111,7 +86,7 @@ public class UpdateComputedTraitForSpaceAlphaInput {
         this.description = description;
     }
 
-    public UpdateComputedTraitForSpaceAlphaInput definition(TraitDefinition definition) {
+    public CreateTraitAlphaInput definition(TraitDefinition definition) {
 
         this.definition = definition;
         return this;
@@ -122,7 +97,7 @@ public class UpdateComputedTraitForSpaceAlphaInput {
      *
      * @return definition
      */
-    @javax.annotation.Nullable
+    @javax.annotation.Nonnull
     public TraitDefinition getDefinition() {
         return definition;
     }
@@ -139,26 +114,21 @@ public class UpdateComputedTraitForSpaceAlphaInput {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        UpdateComputedTraitForSpaceAlphaInput updateComputedTraitForSpaceAlphaInput =
-                (UpdateComputedTraitForSpaceAlphaInput) o;
-        return Objects.equals(this.enabled, updateComputedTraitForSpaceAlphaInput.enabled)
-                && Objects.equals(this.name, updateComputedTraitForSpaceAlphaInput.name)
-                && Objects.equals(
-                        this.description, updateComputedTraitForSpaceAlphaInput.description)
-                && Objects.equals(
-                        this.definition, updateComputedTraitForSpaceAlphaInput.definition);
+        CreateTraitAlphaInput createTraitAlphaInput = (CreateTraitAlphaInput) o;
+        return Objects.equals(this.name, createTraitAlphaInput.name)
+                && Objects.equals(this.description, createTraitAlphaInput.description)
+                && Objects.equals(this.definition, createTraitAlphaInput.definition);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(enabled, name, description, definition);
+        return Objects.hash(name, description, definition);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class UpdateComputedTraitForSpaceAlphaInput {\n");
-        sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+        sb.append("class CreateTraitAlphaInput {\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    definition: ").append(toIndentedString(definition)).append("\n");
@@ -183,96 +153,97 @@ public class UpdateComputedTraitForSpaceAlphaInput {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("enabled");
         openapiFields.add("name");
         openapiFields.add("description");
         openapiFields.add("definition");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
+        openapiRequiredFields.add("name");
+        openapiRequiredFields.add("description");
+        openapiRequiredFields.add("definition");
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to
-     *     UpdateComputedTraitForSpaceAlphaInput
+     * @throws IOException if the JSON Element is invalid with respect to CreateTraitAlphaInput
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!UpdateComputedTraitForSpaceAlphaInput.openapiRequiredFields
+            if (!CreateTraitAlphaInput.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in UpdateComputedTraitForSpaceAlphaInput"
-                                        + " is not found in the empty JSON string",
-                                UpdateComputedTraitForSpaceAlphaInput.openapiRequiredFields
-                                        .toString()));
+                                "The required field(s) %s in CreateTraitAlphaInput is not found in"
+                                        + " the empty JSON string",
+                                CreateTraitAlphaInput.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!UpdateComputedTraitForSpaceAlphaInput.openapiFields.contains(entry.getKey())) {
+            if (!CreateTraitAlphaInput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                    + " `UpdateComputedTraitForSpaceAlphaInput` properties. JSON:"
-                                    + " %s",
+                                        + " `CreateTraitAlphaInput` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
+
+        // check to make sure all required properties/fields are present in the JSON string
+        for (String requiredField : CreateTraitAlphaInput.openapiRequiredFields) {
+            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+                throw new IllegalArgumentException(
+                        String.format(
+                                "The required field `%s` is not found in the JSON string: %s",
+                                requiredField, jsonElement.toString()));
+            }
+        }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull())
-                && !jsonObj.get("name").isJsonPrimitive()) {
+        if (!jsonObj.get("name").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             "Expected the field `name` to be a primitive type in the JSON string"
                                     + " but got `%s`",
                             jsonObj.get("name").toString()));
         }
-        if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull())
-                && !jsonObj.get("description").isJsonPrimitive()) {
+        if (!jsonObj.get("description").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             "Expected the field `description` to be a primitive type in the JSON"
                                     + " string but got `%s`",
                             jsonObj.get("description").toString()));
         }
-        // validate the optional field `definition`
-        if (jsonObj.get("definition") != null && !jsonObj.get("definition").isJsonNull()) {
-            TraitDefinition.validateJsonElement(jsonObj.get("definition"));
-        }
+        // validate the required field `definition`
+        TraitDefinition.validateJsonElement(jsonObj.get("definition"));
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!UpdateComputedTraitForSpaceAlphaInput.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'UpdateComputedTraitForSpaceAlphaInput'
-                // and its subtypes
+            if (!CreateTraitAlphaInput.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'CreateTraitAlphaInput' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<UpdateComputedTraitForSpaceAlphaInput> thisAdapter =
-                    gson.getDelegateAdapter(
-                            this, TypeToken.get(UpdateComputedTraitForSpaceAlphaInput.class));
+            final TypeAdapter<CreateTraitAlphaInput> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(CreateTraitAlphaInput.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<UpdateComputedTraitForSpaceAlphaInput>() {
+                    new TypeAdapter<CreateTraitAlphaInput>() {
                         @Override
-                        public void write(
-                                JsonWriter out, UpdateComputedTraitForSpaceAlphaInput value)
+                        public void write(JsonWriter out, CreateTraitAlphaInput value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public UpdateComputedTraitForSpaceAlphaInput read(JsonReader in)
-                                throws IOException {
+                        public CreateTraitAlphaInput read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -282,20 +253,18 @@ public class UpdateComputedTraitForSpaceAlphaInput {
     }
 
     /**
-     * Create an instance of UpdateComputedTraitForSpaceAlphaInput given an JSON string
+     * Create an instance of CreateTraitAlphaInput given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of UpdateComputedTraitForSpaceAlphaInput
-     * @throws IOException if the JSON string is invalid with respect to
-     *     UpdateComputedTraitForSpaceAlphaInput
+     * @return An instance of CreateTraitAlphaInput
+     * @throws IOException if the JSON string is invalid with respect to CreateTraitAlphaInput
      */
-    public static UpdateComputedTraitForSpaceAlphaInput fromJson(String jsonString)
-            throws IOException {
-        return JSON.getGson().fromJson(jsonString, UpdateComputedTraitForSpaceAlphaInput.class);
+    public static CreateTraitAlphaInput fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, CreateTraitAlphaInput.class);
     }
 
     /**
-     * Convert an instance of UpdateComputedTraitForSpaceAlphaInput to an JSON string
+     * Convert an instance of CreateTraitAlphaInput to an JSON string
      *
      * @return JSON string
      */

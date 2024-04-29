@@ -34,6 +34,21 @@ public class UpdateAudienceForSpaceInput {
     @SerializedName(SERIALIZED_NAME_ENABLED)
     private Boolean enabled;
 
+    public static final String SERIALIZED_NAME_NAME = "name";
+
+    @SerializedName(SERIALIZED_NAME_NAME)
+    private String name;
+
+    public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+
+    @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+    private String description;
+
+    public static final String SERIALIZED_NAME_DEFINITION = "definition";
+
+    @SerializedName(SERIALIZED_NAME_DEFINITION)
+    private AudienceComputationDefinition definition;
+
     public UpdateAudienceForSpaceInput() {}
 
     public UpdateAudienceForSpaceInput enabled(Boolean enabled) {
@@ -56,6 +71,66 @@ public class UpdateAudienceForSpaceInput {
         this.enabled = enabled;
     }
 
+    public UpdateAudienceForSpaceInput name(String name) {
+
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * The name of the computation
+     *
+     * @return name
+     */
+    @javax.annotation.Nullable
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public UpdateAudienceForSpaceInput description(String description) {
+
+        this.description = description;
+        return this;
+    }
+
+    /**
+     * The description of the computation
+     *
+     * @return description
+     */
+    @javax.annotation.Nullable
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public UpdateAudienceForSpaceInput definition(AudienceComputationDefinition definition) {
+
+        this.definition = definition;
+        return this;
+    }
+
+    /**
+     * Get definition
+     *
+     * @return definition
+     */
+    @javax.annotation.Nullable
+    public AudienceComputationDefinition getDefinition() {
+        return definition;
+    }
+
+    public void setDefinition(AudienceComputationDefinition definition) {
+        this.definition = definition;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -65,12 +140,15 @@ public class UpdateAudienceForSpaceInput {
             return false;
         }
         UpdateAudienceForSpaceInput updateAudienceForSpaceInput = (UpdateAudienceForSpaceInput) o;
-        return Objects.equals(this.enabled, updateAudienceForSpaceInput.enabled);
+        return Objects.equals(this.enabled, updateAudienceForSpaceInput.enabled)
+                && Objects.equals(this.name, updateAudienceForSpaceInput.name)
+                && Objects.equals(this.description, updateAudienceForSpaceInput.description)
+                && Objects.equals(this.definition, updateAudienceForSpaceInput.definition);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(enabled);
+        return Objects.hash(enabled, name, description, definition);
     }
 
     @Override
@@ -78,6 +156,9 @@ public class UpdateAudienceForSpaceInput {
         StringBuilder sb = new StringBuilder();
         sb.append("class UpdateAudienceForSpaceInput {\n");
         sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
+        sb.append("    definition: ").append(toIndentedString(definition)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -100,6 +181,9 @@ public class UpdateAudienceForSpaceInput {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
         openapiFields.add("enabled");
+        openapiFields.add("name");
+        openapiFields.add("description");
+        openapiFields.add("definition");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
@@ -136,6 +220,26 @@ public class UpdateAudienceForSpaceInput {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+        if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull())
+                && !jsonObj.get("name").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `name` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
+                            jsonObj.get("name").toString()));
+        }
+        if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull())
+                && !jsonObj.get("description").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `description` to be a primitive type in the JSON"
+                                    + " string but got `%s`",
+                            jsonObj.get("description").toString()));
+        }
+        // validate the optional field `definition`
+        if (jsonObj.get("definition") != null && !jsonObj.get("definition").isJsonNull()) {
+            AudienceComputationDefinition.validateJsonElement(jsonObj.get("definition"));
+        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

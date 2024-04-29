@@ -27,33 +27,58 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** GetComputedTrait200Response */
-public class GetComputedTrait200Response {
-    public static final String SERIALIZED_NAME_DATA = "data";
+/** TraitDefinition */
+public class TraitDefinition {
+    public static final String SERIALIZED_NAME_TYPE = "type";
 
-    @SerializedName(SERIALIZED_NAME_DATA)
-    private GetComputedTraitAlphaOutput data;
+    @SerializedName(SERIALIZED_NAME_TYPE)
+    private String type;
 
-    public GetComputedTrait200Response() {}
+    public static final String SERIALIZED_NAME_QUERY = "query";
 
-    public GetComputedTrait200Response data(GetComputedTraitAlphaOutput data) {
+    @SerializedName(SERIALIZED_NAME_QUERY)
+    private String query;
 
-        this.data = data;
+    public TraitDefinition() {}
+
+    public TraitDefinition type(String type) {
+
+        this.type = type;
         return this;
     }
 
     /**
-     * Get data
+     * Get type
      *
-     * @return data
+     * @return type
      */
-    @javax.annotation.Nullable
-    public GetComputedTraitAlphaOutput getData() {
-        return data;
+    @javax.annotation.Nonnull
+    public String getType() {
+        return type;
     }
 
-    public void setData(GetComputedTraitAlphaOutput data) {
-        this.data = data;
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public TraitDefinition query(String query) {
+
+        this.query = query;
+        return this;
+    }
+
+    /**
+     * Get query
+     *
+     * @return query
+     */
+    @javax.annotation.Nonnull
+    public String getQuery() {
+        return query;
+    }
+
+    public void setQuery(String query) {
+        this.query = query;
     }
 
     @Override
@@ -64,20 +89,22 @@ public class GetComputedTrait200Response {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        GetComputedTrait200Response getComputedTrait200Response = (GetComputedTrait200Response) o;
-        return Objects.equals(this.data, getComputedTrait200Response.data);
+        TraitDefinition traitDefinition = (TraitDefinition) o;
+        return Objects.equals(this.type, traitDefinition.type)
+                && Objects.equals(this.query, traitDefinition.query);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(data);
+        return Objects.hash(type, query);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class GetComputedTrait200Response {\n");
-        sb.append("    data: ").append(toIndentedString(data)).append("\n");
+        sb.append("class TraitDefinition {\n");
+        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("    query: ").append(toIndentedString(query)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -99,46 +126,68 @@ public class GetComputedTrait200Response {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("data");
+        openapiFields.add("type");
+        openapiFields.add("query");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
+        openapiRequiredFields.add("type");
+        openapiRequiredFields.add("query");
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to
-     *     GetComputedTrait200Response
+     * @throws IOException if the JSON Element is invalid with respect to TraitDefinition
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!GetComputedTrait200Response.openapiRequiredFields
+            if (!TraitDefinition.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in GetComputedTrait200Response is not"
-                                        + " found in the empty JSON string",
-                                GetComputedTrait200Response.openapiRequiredFields.toString()));
+                                "The required field(s) %s in TraitDefinition is not found in the"
+                                        + " empty JSON string",
+                                TraitDefinition.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!GetComputedTrait200Response.openapiFields.contains(entry.getKey())) {
+            if (!TraitDefinition.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `GetComputedTrait200Response` properties. JSON: %s",
+                                        + " `TraitDefinition` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
+
+        // check to make sure all required properties/fields are present in the JSON string
+        for (String requiredField : TraitDefinition.openapiRequiredFields) {
+            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+                throw new IllegalArgumentException(
+                        String.format(
+                                "The required field `%s` is not found in the JSON string: %s",
+                                requiredField, jsonElement.toString()));
+            }
+        }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        // validate the optional field `data`
-        if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-            GetComputedTraitAlphaOutput.validateJsonElement(jsonObj.get("data"));
+        if (!jsonObj.get("type").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `type` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
+                            jsonObj.get("type").toString()));
+        }
+        if (!jsonObj.get("query").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `query` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
+                            jsonObj.get("query").toString()));
         }
     }
 
@@ -146,25 +195,24 @@ public class GetComputedTrait200Response {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!GetComputedTrait200Response.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'GetComputedTrait200Response' and its
-                // subtypes
+            if (!TraitDefinition.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'TraitDefinition' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<GetComputedTrait200Response> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(GetComputedTrait200Response.class));
+            final TypeAdapter<TraitDefinition> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(TraitDefinition.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<GetComputedTrait200Response>() {
+                    new TypeAdapter<TraitDefinition>() {
                         @Override
-                        public void write(JsonWriter out, GetComputedTrait200Response value)
+                        public void write(JsonWriter out, TraitDefinition value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public GetComputedTrait200Response read(JsonReader in) throws IOException {
+                        public TraitDefinition read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -174,18 +222,18 @@ public class GetComputedTrait200Response {
     }
 
     /**
-     * Create an instance of GetComputedTrait200Response given an JSON string
+     * Create an instance of TraitDefinition given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of GetComputedTrait200Response
-     * @throws IOException if the JSON string is invalid with respect to GetComputedTrait200Response
+     * @return An instance of TraitDefinition
+     * @throws IOException if the JSON string is invalid with respect to TraitDefinition
      */
-    public static GetComputedTrait200Response fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, GetComputedTrait200Response.class);
+    public static TraitDefinition fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, TraitDefinition.class);
     }
 
     /**
-     * Convert an instance of GetComputedTrait200Response to an JSON string
+     * Convert an instance of TraitDefinition to an JSON string
      *
      * @return JSON string
      */

@@ -4,6 +4,7 @@ All URIs are relative to *https://api.segmentapis.com*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
+| [**createComputedTrait**](ComputedTraitsApi.md#createComputedTrait) | **POST** /spaces/{spaceId}/computed-traits | Create Computed Trait |
 | [**getComputedTrait**](ComputedTraitsApi.md#getComputedTrait) | **GET** /spaces/{spaceId}/computed-traits/{id} | Get Computed Trait |
 | [**listComputedTraits**](ComputedTraitsApi.md#listComputedTraits) | **GET** /spaces/{spaceId}/computed-traits | List Computed Traits |
 | [**removeComputedTraitFromSpace**](ComputedTraitsApi.md#removeComputedTraitFromSpace) | **DELETE** /spaces/{spaceId}/computed-traits/{id} | Remove Computed Trait from Space |
@@ -11,9 +12,84 @@ All URIs are relative to *https://api.segmentapis.com*
 
 
 
+## Operation: createComputedTrait
+
+> CreateComputedTrait200Response createComputedTrait(spaceId, createTraitAlphaInput)
+
+Create Computed Trait
+
+Creates a Computed Trait  • This endpoint is in **Alpha** testing.  Please submit any feedback by sending email to friends@segment.com.   • In order to successfully call this endpoint, the specified Workspace needs to have the Computed Trait feature enabled. Please reach out to your customer success manager for more information.
+
+### Example
+
+```java
+// Import classes:
+import com.segment.publicapi.ApiClient;
+import com.segment.publicapi.ApiException;
+import com.segment.publicapi.Configuration;
+import com.segment.publicapi.auth.*;
+import com.segment.publicapi.models.*;
+import com.segment.publicapi.api.ComputedTraitsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        
+        // Configure HTTP bearer authorization: token
+        HttpBearerAuth token = (HttpBearerAuth) defaultClient.getAuthentication("token");
+        token.setBearerToken("BEARER TOKEN");
+
+        ComputedTraitsApi apiInstance = new ComputedTraitsApi(defaultClient);
+        String spaceId = "spaceId"; // String | 
+        CreateTraitAlphaInput createTraitAlphaInput = new CreateTraitAlphaInput(); // CreateTraitAlphaInput | 
+        try {
+            CreateComputedTrait200Response result = apiInstance.createComputedTrait(spaceId, createTraitAlphaInput);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ComputedTraitsApi#createComputedTrait");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **spaceId** | **String**|  | |
+| **createTraitAlphaInput** | [**CreateTraitAlphaInput**](CreateTraitAlphaInput.md)|  | |
+
+### Return type
+
+[**CreateComputedTrait200Response**](CreateComputedTrait200Response.md)
+
+### Authorization
+
+[token](../README.md#token)
+
+### HTTP request headers
+
+- **Content-Type**: application/vnd.segment.v1alpha+json
+- **Accept**: application/vnd.segment.v1alpha+json, application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **404** | Resource not found |  -  |
+| **422** | Validation failure |  -  |
+| **429** | Too many requests |  -  |
+
+
 ## Operation: getComputedTrait
 
-> GetComputedTrait200Response getComputedTrait(spaceId, id)
+> CreateComputedTrait200Response getComputedTrait(spaceId, id)
 
 Get Computed Trait
 
@@ -42,7 +118,7 @@ public class Example {
         String spaceId = "spaceId"; // String | 
         String id = "id"; // String | 
         try {
-            GetComputedTrait200Response result = apiInstance.getComputedTrait(spaceId, id);
+            CreateComputedTrait200Response result = apiInstance.getComputedTrait(spaceId, id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ComputedTraitsApi#getComputedTrait");
@@ -65,7 +141,7 @@ public class Example {
 
 ### Return type
 
-[**GetComputedTrait200Response**](GetComputedTrait200Response.md)
+[**CreateComputedTrait200Response**](CreateComputedTrait200Response.md)
 
 ### Authorization
 
