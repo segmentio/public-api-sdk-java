@@ -20,6 +20,7 @@ import com.segment.publicapi.Configuration;
 import com.segment.publicapi.Pair;
 import com.segment.publicapi.models.CreateComputedTrait200Response;
 import com.segment.publicapi.models.CreateTraitAlphaInput;
+import com.segment.publicapi.models.GetComputedTrait200Response;
 import com.segment.publicapi.models.ListComputedTraits200Response;
 import com.segment.publicapi.models.PaginationInput;
 import com.segment.publicapi.models.RemoveComputedTraitFromSpace200Response;
@@ -370,7 +371,7 @@ public class ComputedTraitsApi {
      *
      * @param spaceId (required)
      * @param id (required)
-     * @return CreateComputedTrait200Response
+     * @return GetComputedTrait200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
      * @http.response.details
@@ -382,9 +383,9 @@ public class ComputedTraitsApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public CreateComputedTrait200Response getComputedTrait(String spaceId, String id)
+    public GetComputedTrait200Response getComputedTrait(String spaceId, String id)
             throws ApiException {
-        ApiResponse<CreateComputedTrait200Response> localVarResp =
+        ApiResponse<GetComputedTrait200Response> localVarResp =
                 getComputedTraitWithHttpInfo(spaceId, id);
         return localVarResp.getData();
     }
@@ -401,7 +402,7 @@ public class ComputedTraitsApi {
      *
      * @param spaceId (required)
      * @param id (required)
-     * @return ApiResponse&lt;CreateComputedTrait200Response&gt;
+     * @return ApiResponse&lt;GetComputedTrait200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
      * @http.response.details
@@ -413,10 +414,10 @@ public class ComputedTraitsApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<CreateComputedTrait200Response> getComputedTraitWithHttpInfo(
+    public ApiResponse<GetComputedTrait200Response> getComputedTraitWithHttpInfo(
             String spaceId, String id) throws ApiException {
         okhttp3.Call localVarCall = getComputedTraitValidateBeforeCall(spaceId, id, null);
-        Type localVarReturnType = new TypeToken<CreateComputedTrait200Response>() {}.getType();
+        Type localVarReturnType = new TypeToken<GetComputedTrait200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -446,11 +447,11 @@ public class ComputedTraitsApi {
      * </table>
      */
     public okhttp3.Call getComputedTraitAsync(
-            String spaceId, String id, final ApiCallback<CreateComputedTrait200Response> _callback)
+            String spaceId, String id, final ApiCallback<GetComputedTrait200Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = getComputedTraitValidateBeforeCall(spaceId, id, _callback);
-        Type localVarReturnType = new TypeToken<CreateComputedTrait200Response>() {}.getType();
+        Type localVarReturnType = new TypeToken<GetComputedTrait200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

@@ -89,7 +89,7 @@ public class Example {
 
 ## Operation: getComputedTrait
 
-> CreateComputedTrait200Response getComputedTrait(spaceId, id)
+> GetComputedTrait200Response getComputedTrait(spaceId, id)
 
 Get Computed Trait
 
@@ -118,7 +118,7 @@ public class Example {
         String spaceId = "spaceId"; // String | 
         String id = "id"; // String | 
         try {
-            CreateComputedTrait200Response result = apiInstance.getComputedTrait(spaceId, id);
+            GetComputedTrait200Response result = apiInstance.getComputedTrait(spaceId, id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ComputedTraitsApi#getComputedTrait");
@@ -141,7 +141,7 @@ public class Example {
 
 ### Return type
 
-[**CreateComputedTrait200Response**](CreateComputedTrait200Response.md)
+[**GetComputedTrait200Response**](GetComputedTrait200Response.md)
 
 ### Authorization
 

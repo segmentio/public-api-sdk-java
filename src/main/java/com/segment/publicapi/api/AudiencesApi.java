@@ -20,6 +20,7 @@ import com.segment.publicapi.Configuration;
 import com.segment.publicapi.Pair;
 import com.segment.publicapi.models.CreateAudience200Response;
 import com.segment.publicapi.models.CreateAudienceAlphaInput;
+import com.segment.publicapi.models.GetAudience200Response;
 import com.segment.publicapi.models.ListAudiences200Response;
 import com.segment.publicapi.models.PaginationInput;
 import com.segment.publicapi.models.RemoveAudienceFromSpace200Response;
@@ -367,7 +368,7 @@ public class AudiencesApi {
      *
      * @param spaceId (required)
      * @param id (required)
-     * @return CreateAudience200Response
+     * @return GetAudience200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
      * @http.response.details
@@ -379,8 +380,8 @@ public class AudiencesApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public CreateAudience200Response getAudience(String spaceId, String id) throws ApiException {
-        ApiResponse<CreateAudience200Response> localVarResp = getAudienceWithHttpInfo(spaceId, id);
+    public GetAudience200Response getAudience(String spaceId, String id) throws ApiException {
+        ApiResponse<GetAudience200Response> localVarResp = getAudienceWithHttpInfo(spaceId, id);
         return localVarResp.getData();
     }
 
@@ -396,7 +397,7 @@ public class AudiencesApi {
      *
      * @param spaceId (required)
      * @param id (required)
-     * @return ApiResponse&lt;CreateAudience200Response&gt;
+     * @return ApiResponse&lt;GetAudience200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
      * @http.response.details
@@ -408,10 +409,10 @@ public class AudiencesApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<CreateAudience200Response> getAudienceWithHttpInfo(String spaceId, String id)
+    public ApiResponse<GetAudience200Response> getAudienceWithHttpInfo(String spaceId, String id)
             throws ApiException {
         okhttp3.Call localVarCall = getAudienceValidateBeforeCall(spaceId, id, null);
-        Type localVarReturnType = new TypeToken<CreateAudience200Response>() {}.getType();
+        Type localVarReturnType = new TypeToken<GetAudience200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -441,11 +442,11 @@ public class AudiencesApi {
      * </table>
      */
     public okhttp3.Call getAudienceAsync(
-            String spaceId, String id, final ApiCallback<CreateAudience200Response> _callback)
+            String spaceId, String id, final ApiCallback<GetAudience200Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = getAudienceValidateBeforeCall(spaceId, id, _callback);
-        Type localVarReturnType = new TypeToken<CreateAudience200Response>() {}.getType();
+        Type localVarReturnType = new TypeToken<GetAudience200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

@@ -27,33 +27,33 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Audience output for get. */
-public class GetAudienceAlphaOutput {
-    public static final String SERIALIZED_NAME_AUDIENCE = "audience";
+/** Computed Trait output for create. */
+public class CreateComputedTraitAlphaOutput {
+    public static final String SERIALIZED_NAME_COMPUTED_TRAIT = "computedTrait";
 
-    @SerializedName(SERIALIZED_NAME_AUDIENCE)
-    private AudienceSummary audience;
+    @SerializedName(SERIALIZED_NAME_COMPUTED_TRAIT)
+    private ComputedTraitSummary computedTrait;
 
-    public GetAudienceAlphaOutput() {}
+    public CreateComputedTraitAlphaOutput() {}
 
-    public GetAudienceAlphaOutput audience(AudienceSummary audience) {
+    public CreateComputedTraitAlphaOutput computedTrait(ComputedTraitSummary computedTrait) {
 
-        this.audience = audience;
+        this.computedTrait = computedTrait;
         return this;
     }
 
     /**
-     * Get audience
+     * Get computedTrait
      *
-     * @return audience
+     * @return computedTrait
      */
     @javax.annotation.Nonnull
-    public AudienceSummary getAudience() {
-        return audience;
+    public ComputedTraitSummary getComputedTrait() {
+        return computedTrait;
     }
 
-    public void setAudience(AudienceSummary audience) {
-        this.audience = audience;
+    public void setComputedTrait(ComputedTraitSummary computedTrait) {
+        this.computedTrait = computedTrait;
     }
 
     @Override
@@ -64,20 +64,21 @@ public class GetAudienceAlphaOutput {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        GetAudienceAlphaOutput getAudienceAlphaOutput = (GetAudienceAlphaOutput) o;
-        return Objects.equals(this.audience, getAudienceAlphaOutput.audience);
+        CreateComputedTraitAlphaOutput createComputedTraitAlphaOutput =
+                (CreateComputedTraitAlphaOutput) o;
+        return Objects.equals(this.computedTrait, createComputedTraitAlphaOutput.computedTrait);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(audience);
+        return Objects.hash(computedTrait);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class GetAudienceAlphaOutput {\n");
-        sb.append("    audience: ").append(toIndentedString(audience)).append("\n");
+        sb.append("class CreateComputedTraitAlphaOutput {\n");
+        sb.append("    computedTrait: ").append(toIndentedString(computedTrait)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -99,45 +100,46 @@ public class GetAudienceAlphaOutput {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("audience");
+        openapiFields.add("computedTrait");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("audience");
+        openapiRequiredFields.add("computedTrait");
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to GetAudienceAlphaOutput
+     * @throws IOException if the JSON Element is invalid with respect to
+     *     CreateComputedTraitAlphaOutput
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!GetAudienceAlphaOutput.openapiRequiredFields
+            if (!CreateComputedTraitAlphaOutput.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in GetAudienceAlphaOutput is not found in"
-                                        + " the empty JSON string",
-                                GetAudienceAlphaOutput.openapiRequiredFields.toString()));
+                                "The required field(s) %s in CreateComputedTraitAlphaOutput is not"
+                                        + " found in the empty JSON string",
+                                CreateComputedTraitAlphaOutput.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!GetAudienceAlphaOutput.openapiFields.contains(entry.getKey())) {
+            if (!CreateComputedTraitAlphaOutput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `GetAudienceAlphaOutput` properties. JSON: %s",
+                                        + " `CreateComputedTraitAlphaOutput` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : GetAudienceAlphaOutput.openapiRequiredFields) {
+        for (String requiredField : CreateComputedTraitAlphaOutput.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -146,32 +148,35 @@ public class GetAudienceAlphaOutput {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        // validate the required field `audience`
-        AudienceSummary.validateJsonElement(jsonObj.get("audience"));
+        // validate the required field `computedTrait`
+        ComputedTraitSummary.validateJsonElement(jsonObj.get("computedTrait"));
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!GetAudienceAlphaOutput.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'GetAudienceAlphaOutput' and its subtypes
+            if (!CreateComputedTraitAlphaOutput.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'CreateComputedTraitAlphaOutput' and its
+                // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<GetAudienceAlphaOutput> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(GetAudienceAlphaOutput.class));
+            final TypeAdapter<CreateComputedTraitAlphaOutput> thisAdapter =
+                    gson.getDelegateAdapter(
+                            this, TypeToken.get(CreateComputedTraitAlphaOutput.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<GetAudienceAlphaOutput>() {
+                    new TypeAdapter<CreateComputedTraitAlphaOutput>() {
                         @Override
-                        public void write(JsonWriter out, GetAudienceAlphaOutput value)
+                        public void write(JsonWriter out, CreateComputedTraitAlphaOutput value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public GetAudienceAlphaOutput read(JsonReader in) throws IOException {
+                        public CreateComputedTraitAlphaOutput read(JsonReader in)
+                                throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -181,18 +186,19 @@ public class GetAudienceAlphaOutput {
     }
 
     /**
-     * Create an instance of GetAudienceAlphaOutput given an JSON string
+     * Create an instance of CreateComputedTraitAlphaOutput given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of GetAudienceAlphaOutput
-     * @throws IOException if the JSON string is invalid with respect to GetAudienceAlphaOutput
+     * @return An instance of CreateComputedTraitAlphaOutput
+     * @throws IOException if the JSON string is invalid with respect to
+     *     CreateComputedTraitAlphaOutput
      */
-    public static GetAudienceAlphaOutput fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, GetAudienceAlphaOutput.class);
+    public static CreateComputedTraitAlphaOutput fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, CreateComputedTraitAlphaOutput.class);
     }
 
     /**
-     * Convert an instance of GetAudienceAlphaOutput to an JSON string
+     * Convert an instance of CreateComputedTraitAlphaOutput to an JSON string
      *
      * @return JSON string
      */

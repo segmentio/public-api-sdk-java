@@ -32,11 +32,11 @@ public class CreateComputedTrait200Response {
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    private GetComputedTraitAlphaOutput data;
+    private CreateComputedTraitAlphaOutput data;
 
     public CreateComputedTrait200Response() {}
 
-    public CreateComputedTrait200Response data(GetComputedTraitAlphaOutput data) {
+    public CreateComputedTrait200Response data(CreateComputedTraitAlphaOutput data) {
 
         this.data = data;
         return this;
@@ -48,11 +48,11 @@ public class CreateComputedTrait200Response {
      * @return data
      */
     @javax.annotation.Nullable
-    public GetComputedTraitAlphaOutput getData() {
+    public CreateComputedTraitAlphaOutput getData() {
         return data;
     }
 
-    public void setData(GetComputedTraitAlphaOutput data) {
+    public void setData(CreateComputedTraitAlphaOutput data) {
         this.data = data;
     }
 
@@ -139,7 +139,7 @@ public class CreateComputedTrait200Response {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the optional field `data`
         if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-            GetComputedTraitAlphaOutput.validateJsonElement(jsonObj.get("data"));
+            CreateComputedTraitAlphaOutput.validateJsonElement(jsonObj.get("data"));
         }
     }
 

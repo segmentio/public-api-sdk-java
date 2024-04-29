@@ -89,7 +89,7 @@ public class Example {
 
 ## Operation: getAudience
 
-> CreateAudience200Response getAudience(spaceId, id)
+> GetAudience200Response getAudience(spaceId, id)
 
 Get Audience
 
@@ -118,7 +118,7 @@ public class Example {
         String spaceId = "spaceId"; // String | 
         String id = "id"; // String | 
         try {
-            CreateAudience200Response result = apiInstance.getAudience(spaceId, id);
+            GetAudience200Response result = apiInstance.getAudience(spaceId, id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AudiencesApi#getAudience");
@@ -141,7 +141,7 @@ public class Example {
 
 ### Return type
 
-[**CreateAudience200Response**](CreateAudience200Response.md)
+[**GetAudience200Response**](GetAudience200Response.md)
 
 ### Authorization
 
