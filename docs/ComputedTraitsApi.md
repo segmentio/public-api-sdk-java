@@ -14,7 +14,7 @@ All URIs are relative to *https://api.segmentapis.com*
 
 ## Operation: createComputedTrait
 
-> CreateComputedTrait200Response createComputedTrait(spaceId, createTraitAlphaInput)
+> CreateComputedTrait200Response createComputedTrait(spaceId, createComputedTraitAlphaInput)
 
 Create Computed Trait
 
@@ -41,9 +41,9 @@ public class Example {
 
         ComputedTraitsApi apiInstance = new ComputedTraitsApi(defaultClient);
         String spaceId = "spaceId"; // String | 
-        CreateTraitAlphaInput createTraitAlphaInput = new CreateTraitAlphaInput(); // CreateTraitAlphaInput | 
+        CreateComputedTraitAlphaInput createComputedTraitAlphaInput = new CreateComputedTraitAlphaInput(); // CreateComputedTraitAlphaInput | 
         try {
-            CreateComputedTrait200Response result = apiInstance.createComputedTrait(spaceId, createTraitAlphaInput);
+            CreateComputedTrait200Response result = apiInstance.createComputedTrait(spaceId, createComputedTraitAlphaInput);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ComputedTraitsApi#createComputedTrait");
@@ -62,7 +62,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **spaceId** | **String**|  | |
-| **createTraitAlphaInput** | [**CreateTraitAlphaInput**](CreateTraitAlphaInput.md)|  | |
+| **createComputedTraitAlphaInput** | [**CreateComputedTraitAlphaInput**](CreateComputedTraitAlphaInput.md)|  | |
 
 ### Return type
 

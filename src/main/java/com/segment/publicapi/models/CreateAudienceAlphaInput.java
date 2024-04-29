@@ -53,7 +53,7 @@ public class CreateAudienceAlphaInput {
     }
 
     /**
-     * The name of the computation
+     * The name of the computation .
      *
      * @return name
      */
@@ -73,7 +73,7 @@ public class CreateAudienceAlphaInput {
     }
 
     /**
-     * The description of the computation
+     * The description of the computation.
      *
      * @return description
      */

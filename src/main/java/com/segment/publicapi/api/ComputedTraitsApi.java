@@ -19,7 +19,7 @@ import com.segment.publicapi.ApiResponse;
 import com.segment.publicapi.Configuration;
 import com.segment.publicapi.Pair;
 import com.segment.publicapi.models.CreateComputedTrait200Response;
-import com.segment.publicapi.models.CreateTraitAlphaInput;
+import com.segment.publicapi.models.CreateComputedTraitAlphaInput;
 import com.segment.publicapi.models.GetComputedTrait200Response;
 import com.segment.publicapi.models.ListComputedTraits200Response;
 import com.segment.publicapi.models.PaginationInput;
@@ -73,7 +73,7 @@ public class ComputedTraitsApi {
      * Build call for createComputedTrait
      *
      * @param spaceId (required)
-     * @param createTraitAlphaInput (required)
+     * @param createComputedTraitAlphaInput (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -88,7 +88,7 @@ public class ComputedTraitsApi {
      */
     public okhttp3.Call createComputedTraitCall(
             String spaceId,
-            CreateTraitAlphaInput createTraitAlphaInput,
+            CreateComputedTraitAlphaInput createComputedTraitAlphaInput,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -104,7 +104,7 @@ public class ComputedTraitsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = createTraitAlphaInput;
+        Object localVarPostBody = createComputedTraitAlphaInput;
 
         // create path and map variables
         String localVarPath =
@@ -152,7 +152,7 @@ public class ComputedTraitsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createComputedTraitValidateBeforeCall(
             String spaceId,
-            CreateTraitAlphaInput createTraitAlphaInput,
+            CreateComputedTraitAlphaInput createComputedTraitAlphaInput,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'spaceId' is set
@@ -162,14 +162,14 @@ public class ComputedTraitsApi {
                             + " createComputedTrait(Async)");
         }
 
-        // verify the required parameter 'createTraitAlphaInput' is set
-        if (createTraitAlphaInput == null) {
+        // verify the required parameter 'createComputedTraitAlphaInput' is set
+        if (createComputedTraitAlphaInput == null) {
             throw new ApiException(
-                    "Missing the required parameter 'createTraitAlphaInput' when calling"
+                    "Missing the required parameter 'createComputedTraitAlphaInput' when calling"
                             + " createComputedTrait(Async)");
         }
 
-        return createComputedTraitCall(spaceId, createTraitAlphaInput, _callback);
+        return createComputedTraitCall(spaceId, createComputedTraitAlphaInput, _callback);
     }
 
     /**
@@ -179,7 +179,7 @@ public class ComputedTraitsApi {
      * feature enabled. Please reach out to your customer success manager for more information.
      *
      * @param spaceId (required)
-     * @param createTraitAlphaInput (required)
+     * @param createComputedTraitAlphaInput (required)
      * @return CreateComputedTrait200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -193,9 +193,10 @@ public class ComputedTraitsApi {
      * </table>
      */
     public CreateComputedTrait200Response createComputedTrait(
-            String spaceId, CreateTraitAlphaInput createTraitAlphaInput) throws ApiException {
+            String spaceId, CreateComputedTraitAlphaInput createComputedTraitAlphaInput)
+            throws ApiException {
         ApiResponse<CreateComputedTrait200Response> localVarResp =
-                createComputedTraitWithHttpInfo(spaceId, createTraitAlphaInput);
+                createComputedTraitWithHttpInfo(spaceId, createComputedTraitAlphaInput);
         return localVarResp.getData();
     }
 
@@ -206,7 +207,7 @@ public class ComputedTraitsApi {
      * feature enabled. Please reach out to your customer success manager for more information.
      *
      * @param spaceId (required)
-     * @param createTraitAlphaInput (required)
+     * @param createComputedTraitAlphaInput (required)
      * @return ApiResponse&lt;CreateComputedTrait200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -220,9 +221,10 @@ public class ComputedTraitsApi {
      * </table>
      */
     public ApiResponse<CreateComputedTrait200Response> createComputedTraitWithHttpInfo(
-            String spaceId, CreateTraitAlphaInput createTraitAlphaInput) throws ApiException {
+            String spaceId, CreateComputedTraitAlphaInput createComputedTraitAlphaInput)
+            throws ApiException {
         okhttp3.Call localVarCall =
-                createComputedTraitValidateBeforeCall(spaceId, createTraitAlphaInput, null);
+                createComputedTraitValidateBeforeCall(spaceId, createComputedTraitAlphaInput, null);
         Type localVarReturnType = new TypeToken<CreateComputedTrait200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -235,7 +237,7 @@ public class ComputedTraitsApi {
      * information.
      *
      * @param spaceId (required)
-     * @param createTraitAlphaInput (required)
+     * @param createComputedTraitAlphaInput (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -251,12 +253,13 @@ public class ComputedTraitsApi {
      */
     public okhttp3.Call createComputedTraitAsync(
             String spaceId,
-            CreateTraitAlphaInput createTraitAlphaInput,
+            CreateComputedTraitAlphaInput createComputedTraitAlphaInput,
             final ApiCallback<CreateComputedTrait200Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
-                createComputedTraitValidateBeforeCall(spaceId, createTraitAlphaInput, _callback);
+                createComputedTraitValidateBeforeCall(
+                        spaceId, createComputedTraitAlphaInput, _callback);
         Type localVarReturnType = new TypeToken<CreateComputedTrait200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

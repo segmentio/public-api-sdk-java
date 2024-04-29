@@ -78,7 +78,7 @@ public class UpdateComputedTraitForSpaceAlphaInput {
     }
 
     /**
-     * The name of the computation
+     * The name of the computation.
      *
      * @return name
      */
@@ -98,7 +98,7 @@ public class UpdateComputedTraitForSpaceAlphaInput {
     }
 
     /**
-     * The description of the computation
+     * The description of the computation.
      *
      * @return description
      */
