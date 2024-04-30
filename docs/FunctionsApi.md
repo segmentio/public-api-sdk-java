@@ -732,7 +732,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **pagination** | [**PaginationInput**](.md)| Pagination parameters.  This parameter exists in v1. | |
-| **resourceType** | **String**| The Function type.  Config API note: equal to &#x60;type&#x60;.  This parameter exists in v1. | [enum: DESTINATION, INSERT_DESTINATION, SOURCE] |
+| **resourceType** | **String**| The Function type.  Config API note: equal to &#x60;type&#x60;.  This parameter exists in v1. | [enum: DESTINATION, INSERT_DESTINATION, INSERT_SOURCE, SOURCE] |
 
 ### Return type
 
