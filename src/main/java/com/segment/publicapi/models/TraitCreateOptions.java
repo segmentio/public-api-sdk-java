@@ -27,59 +27,58 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Query language definition and type. */
-public class Definition1 {
-    public static final String SERIALIZED_NAME_QUERY = "query";
+/** TraitCreateOptions */
+public class TraitCreateOptions {
+    public static final String SERIALIZED_NAME_INCLUDE_HISTORICAL = "includeHistorical";
 
-    @SerializedName(SERIALIZED_NAME_QUERY)
-    private String query;
+    @SerializedName(SERIALIZED_NAME_INCLUDE_HISTORICAL)
+    private Boolean includeHistorical;
 
-    public static final String SERIALIZED_NAME_TYPE = "type";
+    public static final String SERIALIZED_NAME_INCLUDE_ANONYMOUS = "includeAnonymous";
 
-    @SerializedName(SERIALIZED_NAME_TYPE)
-    private String type;
+    @SerializedName(SERIALIZED_NAME_INCLUDE_ANONYMOUS)
+    private Boolean includeAnonymous;
 
-    public Definition1() {}
+    public TraitCreateOptions() {}
 
-    public Definition1 query(String query) {
+    public TraitCreateOptions includeHistorical(Boolean includeHistorical) {
 
-        this.query = query;
+        this.includeHistorical = includeHistorical;
         return this;
     }
 
     /**
-     * The query language string defining the computed trait aggregation criteria.
+     * Get includeHistorical
      *
-     * @return query
+     * @return includeHistorical
      */
-    @javax.annotation.Nonnull
-    public String getQuery() {
-        return query;
+    @javax.annotation.Nullable
+    public Boolean getIncludeHistorical() {
+        return includeHistorical;
     }
 
-    public void setQuery(String query) {
-        this.query = query;
+    public void setIncludeHistorical(Boolean includeHistorical) {
+        this.includeHistorical = includeHistorical;
     }
 
-    public Definition1 type(String type) {
+    public TraitCreateOptions includeAnonymous(Boolean includeAnonymous) {
 
-        this.type = type;
+        this.includeAnonymous = includeAnonymous;
         return this;
     }
 
     /**
-     * The underlying data type being aggregated for this computed trait. Possible values: users,
-     * accounts.
+     * Get includeAnonymous
      *
-     * @return type
+     * @return includeAnonymous
      */
-    @javax.annotation.Nonnull
-    public String getType() {
-        return type;
+    @javax.annotation.Nullable
+    public Boolean getIncludeAnonymous() {
+        return includeAnonymous;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setIncludeAnonymous(Boolean includeAnonymous) {
+        this.includeAnonymous = includeAnonymous;
     }
 
     @Override
@@ -90,22 +89,24 @@ public class Definition1 {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Definition1 definition1 = (Definition1) o;
-        return Objects.equals(this.query, definition1.query)
-                && Objects.equals(this.type, definition1.type);
+        TraitCreateOptions traitCreateOptions = (TraitCreateOptions) o;
+        return Objects.equals(this.includeHistorical, traitCreateOptions.includeHistorical)
+                && Objects.equals(this.includeAnonymous, traitCreateOptions.includeAnonymous);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(query, type);
+        return Objects.hash(includeHistorical, includeAnonymous);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class Definition1 {\n");
-        sb.append("    query: ").append(toIndentedString(query)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("class TraitCreateOptions {\n");
+        sb.append("    includeHistorical: ")
+                .append(toIndentedString(includeHistorical))
+                .append("\n");
+        sb.append("    includeAnonymous: ").append(toIndentedString(includeAnonymous)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -127,92 +128,67 @@ public class Definition1 {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("query");
-        openapiFields.add("type");
+        openapiFields.add("includeHistorical");
+        openapiFields.add("includeAnonymous");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("query");
-        openapiRequiredFields.add("type");
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to Definition1
+     * @throws IOException if the JSON Element is invalid with respect to TraitCreateOptions
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!Definition1.openapiRequiredFields
+            if (!TraitCreateOptions.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in Definition1 is not found in the empty"
-                                        + " JSON string",
-                                Definition1.openapiRequiredFields.toString()));
+                                "The required field(s) %s in TraitCreateOptions is not found in the"
+                                        + " empty JSON string",
+                                TraitCreateOptions.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!Definition1.openapiFields.contains(entry.getKey())) {
+            if (!TraitCreateOptions.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `Definition1` properties. JSON: %s",
+                                        + " `TraitCreateOptions` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
-
-        // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : Definition1.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-                throw new IllegalArgumentException(
-                        String.format(
-                                "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonElement.toString()));
-            }
-        }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if (!jsonObj.get("query").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `query` to be a primitive type in the JSON string"
-                                    + " but got `%s`",
-                            jsonObj.get("query").toString()));
-        }
-        if (!jsonObj.get("type").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `type` to be a primitive type in the JSON string"
-                                    + " but got `%s`",
-                            jsonObj.get("type").toString()));
-        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!Definition1.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'Definition1' and its subtypes
+            if (!TraitCreateOptions.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'TraitCreateOptions' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<Definition1> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(Definition1.class));
+            final TypeAdapter<TraitCreateOptions> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(TraitCreateOptions.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<Definition1>() {
+                    new TypeAdapter<TraitCreateOptions>() {
                         @Override
-                        public void write(JsonWriter out, Definition1 value) throws IOException {
+                        public void write(JsonWriter out, TraitCreateOptions value)
+                                throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public Definition1 read(JsonReader in) throws IOException {
+                        public TraitCreateOptions read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -222,18 +198,18 @@ public class Definition1 {
     }
 
     /**
-     * Create an instance of Definition1 given an JSON string
+     * Create an instance of TraitCreateOptions given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of Definition1
-     * @throws IOException if the JSON string is invalid with respect to Definition1
+     * @return An instance of TraitCreateOptions
+     * @throws IOException if the JSON string is invalid with respect to TraitCreateOptions
      */
-    public static Definition1 fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, Definition1.class);
+    public static TraitCreateOptions fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, TraitCreateOptions.class);
     }
 
     /**
-     * Convert an instance of Definition1 to an JSON string
+     * Convert an instance of TraitCreateOptions to an JSON string
      *
      * @return JSON string
      */

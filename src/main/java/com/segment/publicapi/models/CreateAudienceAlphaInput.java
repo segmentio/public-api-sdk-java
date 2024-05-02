@@ -44,6 +44,11 @@ public class CreateAudienceAlphaInput {
     @SerializedName(SERIALIZED_NAME_DEFINITION)
     private AudienceComputationDefinition definition;
 
+    public static final String SERIALIZED_NAME_OPTIONS = "options";
+
+    @SerializedName(SERIALIZED_NAME_OPTIONS)
+    private AudienceCreateOptions options;
+
     public CreateAudienceAlphaInput() {}
 
     public CreateAudienceAlphaInput name(String name) {
@@ -106,6 +111,26 @@ public class CreateAudienceAlphaInput {
         this.definition = definition;
     }
 
+    public CreateAudienceAlphaInput options(AudienceCreateOptions options) {
+
+        this.options = options;
+        return this;
+    }
+
+    /**
+     * Get options
+     *
+     * @return options
+     */
+    @javax.annotation.Nullable
+    public AudienceCreateOptions getOptions() {
+        return options;
+    }
+
+    public void setOptions(AudienceCreateOptions options) {
+        this.options = options;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -117,12 +142,13 @@ public class CreateAudienceAlphaInput {
         CreateAudienceAlphaInput createAudienceAlphaInput = (CreateAudienceAlphaInput) o;
         return Objects.equals(this.name, createAudienceAlphaInput.name)
                 && Objects.equals(this.description, createAudienceAlphaInput.description)
-                && Objects.equals(this.definition, createAudienceAlphaInput.definition);
+                && Objects.equals(this.definition, createAudienceAlphaInput.definition)
+                && Objects.equals(this.options, createAudienceAlphaInput.options);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, description, definition);
+        return Objects.hash(name, description, definition, options);
     }
 
     @Override
@@ -132,6 +158,7 @@ public class CreateAudienceAlphaInput {
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    definition: ").append(toIndentedString(definition)).append("\n");
+        sb.append("    options: ").append(toIndentedString(options)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -156,6 +183,7 @@ public class CreateAudienceAlphaInput {
         openapiFields.add("name");
         openapiFields.add("description");
         openapiFields.add("definition");
+        openapiFields.add("options");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
@@ -220,6 +248,10 @@ public class CreateAudienceAlphaInput {
         }
         // validate the required field `definition`
         AudienceComputationDefinition.validateJsonElement(jsonObj.get("definition"));
+        // validate the optional field `options`
+        if (jsonObj.get("options") != null && !jsonObj.get("options").isJsonNull()) {
+            AudienceCreateOptions.validateJsonElement(jsonObj.get("options"));
+        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
