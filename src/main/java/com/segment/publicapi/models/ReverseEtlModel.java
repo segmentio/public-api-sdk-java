@@ -220,7 +220,7 @@ public class ReverseEtlModel {
      *
      * @return scheduleConfig
      */
-    @javax.annotation.Nonnull
+    @javax.annotation.Nullable
     public Map<String, Object> getScheduleConfig() {
         return scheduleConfig;
     }
@@ -359,7 +359,6 @@ public class ReverseEtlModel {
         openapiRequiredFields.add("description");
         openapiRequiredFields.add("enabled");
         openapiRequiredFields.add("scheduleStrategy");
-        openapiRequiredFields.add("scheduleConfig");
         openapiRequiredFields.add("query");
         openapiRequiredFields.add("queryIdentifierColumn");
     }
