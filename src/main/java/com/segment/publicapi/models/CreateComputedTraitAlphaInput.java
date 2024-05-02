@@ -44,6 +44,11 @@ public class CreateComputedTraitAlphaInput {
     @SerializedName(SERIALIZED_NAME_DEFINITION)
     private TraitDefinition definition;
 
+    public static final String SERIALIZED_NAME_OPTIONS = "options";
+
+    @SerializedName(SERIALIZED_NAME_OPTIONS)
+    private TraitCreateOptions options;
+
     public CreateComputedTraitAlphaInput() {}
 
     public CreateComputedTraitAlphaInput name(String name) {
@@ -106,6 +111,26 @@ public class CreateComputedTraitAlphaInput {
         this.definition = definition;
     }
 
+    public CreateComputedTraitAlphaInput options(TraitCreateOptions options) {
+
+        this.options = options;
+        return this;
+    }
+
+    /**
+     * Get options
+     *
+     * @return options
+     */
+    @javax.annotation.Nullable
+    public TraitCreateOptions getOptions() {
+        return options;
+    }
+
+    public void setOptions(TraitCreateOptions options) {
+        this.options = options;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -118,12 +143,13 @@ public class CreateComputedTraitAlphaInput {
                 (CreateComputedTraitAlphaInput) o;
         return Objects.equals(this.name, createComputedTraitAlphaInput.name)
                 && Objects.equals(this.description, createComputedTraitAlphaInput.description)
-                && Objects.equals(this.definition, createComputedTraitAlphaInput.definition);
+                && Objects.equals(this.definition, createComputedTraitAlphaInput.definition)
+                && Objects.equals(this.options, createComputedTraitAlphaInput.options);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, description, definition);
+        return Objects.hash(name, description, definition, options);
     }
 
     @Override
@@ -133,6 +159,7 @@ public class CreateComputedTraitAlphaInput {
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    definition: ").append(toIndentedString(definition)).append("\n");
+        sb.append("    options: ").append(toIndentedString(options)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -157,6 +184,7 @@ public class CreateComputedTraitAlphaInput {
         openapiFields.add("name");
         openapiFields.add("description");
         openapiFields.add("definition");
+        openapiFields.add("options");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
@@ -222,6 +250,10 @@ public class CreateComputedTraitAlphaInput {
         }
         // validate the required field `definition`
         TraitDefinition.validateJsonElement(jsonObj.get("definition"));
+        // validate the optional field `options`
+        if (jsonObj.get("options") != null && !jsonObj.get("options").isJsonNull()) {
+            TraitCreateOptions.validateJsonElement(jsonObj.get("options"));
+        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

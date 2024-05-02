@@ -27,59 +27,58 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Query language definition and type. */
-public class Definition {
-    public static final String SERIALIZED_NAME_QUERY = "query";
+/** AudienceCreateOptions */
+public class AudienceCreateOptions {
+    public static final String SERIALIZED_NAME_INCLUDE_HISTORICAL = "includeHistorical";
 
-    @SerializedName(SERIALIZED_NAME_QUERY)
-    private String query;
+    @SerializedName(SERIALIZED_NAME_INCLUDE_HISTORICAL)
+    private Boolean includeHistorical;
 
-    public static final String SERIALIZED_NAME_TYPE = "type";
+    public static final String SERIALIZED_NAME_INCLUDE_ANONYMOUS = "includeAnonymous";
 
-    @SerializedName(SERIALIZED_NAME_TYPE)
-    private String type;
+    @SerializedName(SERIALIZED_NAME_INCLUDE_ANONYMOUS)
+    private Boolean includeAnonymous;
 
-    public Definition() {}
+    public AudienceCreateOptions() {}
 
-    public Definition query(String query) {
+    public AudienceCreateOptions includeHistorical(Boolean includeHistorical) {
 
-        this.query = query;
+        this.includeHistorical = includeHistorical;
         return this;
     }
 
     /**
-     * The query language string defining the computed trait aggregation criteria.
+     * Get includeHistorical
      *
-     * @return query
+     * @return includeHistorical
      */
-    @javax.annotation.Nonnull
-    public String getQuery() {
-        return query;
+    @javax.annotation.Nullable
+    public Boolean getIncludeHistorical() {
+        return includeHistorical;
     }
 
-    public void setQuery(String query) {
-        this.query = query;
+    public void setIncludeHistorical(Boolean includeHistorical) {
+        this.includeHistorical = includeHistorical;
     }
 
-    public Definition type(String type) {
+    public AudienceCreateOptions includeAnonymous(Boolean includeAnonymous) {
 
-        this.type = type;
+        this.includeAnonymous = includeAnonymous;
         return this;
     }
 
     /**
-     * The underlying data type being aggregated for this computed trait. Possible values: users,
-     * accounts.
+     * Get includeAnonymous
      *
-     * @return type
+     * @return includeAnonymous
      */
-    @javax.annotation.Nonnull
-    public String getType() {
-        return type;
+    @javax.annotation.Nullable
+    public Boolean getIncludeAnonymous() {
+        return includeAnonymous;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setIncludeAnonymous(Boolean includeAnonymous) {
+        this.includeAnonymous = includeAnonymous;
     }
 
     @Override
@@ -90,22 +89,24 @@ public class Definition {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Definition definition = (Definition) o;
-        return Objects.equals(this.query, definition.query)
-                && Objects.equals(this.type, definition.type);
+        AudienceCreateOptions audienceCreateOptions = (AudienceCreateOptions) o;
+        return Objects.equals(this.includeHistorical, audienceCreateOptions.includeHistorical)
+                && Objects.equals(this.includeAnonymous, audienceCreateOptions.includeAnonymous);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(query, type);
+        return Objects.hash(includeHistorical, includeAnonymous);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class Definition {\n");
-        sb.append("    query: ").append(toIndentedString(query)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("class AudienceCreateOptions {\n");
+        sb.append("    includeHistorical: ")
+                .append(toIndentedString(includeHistorical))
+                .append("\n");
+        sb.append("    includeAnonymous: ").append(toIndentedString(includeAnonymous)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -127,92 +128,67 @@ public class Definition {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("query");
-        openapiFields.add("type");
+        openapiFields.add("includeHistorical");
+        openapiFields.add("includeAnonymous");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("query");
-        openapiRequiredFields.add("type");
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to Definition
+     * @throws IOException if the JSON Element is invalid with respect to AudienceCreateOptions
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!Definition.openapiRequiredFields
+            if (!AudienceCreateOptions.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in Definition is not found in the empty"
-                                        + " JSON string",
-                                Definition.openapiRequiredFields.toString()));
+                                "The required field(s) %s in AudienceCreateOptions is not found in"
+                                        + " the empty JSON string",
+                                AudienceCreateOptions.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!Definition.openapiFields.contains(entry.getKey())) {
+            if (!AudienceCreateOptions.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `Definition` properties. JSON: %s",
+                                        + " `AudienceCreateOptions` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
-
-        // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : Definition.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-                throw new IllegalArgumentException(
-                        String.format(
-                                "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonElement.toString()));
-            }
-        }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if (!jsonObj.get("query").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `query` to be a primitive type in the JSON string"
-                                    + " but got `%s`",
-                            jsonObj.get("query").toString()));
-        }
-        if (!jsonObj.get("type").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `type` to be a primitive type in the JSON string"
-                                    + " but got `%s`",
-                            jsonObj.get("type").toString()));
-        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!Definition.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'Definition' and its subtypes
+            if (!AudienceCreateOptions.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'AudienceCreateOptions' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<Definition> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(Definition.class));
+            final TypeAdapter<AudienceCreateOptions> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(AudienceCreateOptions.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<Definition>() {
+                    new TypeAdapter<AudienceCreateOptions>() {
                         @Override
-                        public void write(JsonWriter out, Definition value) throws IOException {
+                        public void write(JsonWriter out, AudienceCreateOptions value)
+                                throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public Definition read(JsonReader in) throws IOException {
+                        public AudienceCreateOptions read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -222,18 +198,18 @@ public class Definition {
     }
 
     /**
-     * Create an instance of Definition given an JSON string
+     * Create an instance of AudienceCreateOptions given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of Definition
-     * @throws IOException if the JSON string is invalid with respect to Definition
+     * @return An instance of AudienceCreateOptions
+     * @throws IOException if the JSON string is invalid with respect to AudienceCreateOptions
      */
-    public static Definition fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, Definition.class);
+    public static AudienceCreateOptions fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, AudienceCreateOptions.class);
     }
 
     /**
-     * Convert an instance of Definition to an JSON string
+     * Convert an instance of AudienceCreateOptions to an JSON string
      *
      * @return JSON string
      */
