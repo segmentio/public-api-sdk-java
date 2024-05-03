@@ -29,56 +29,56 @@ import java.util.Set;
 
 /** TraitCreateOptions */
 public class TraitCreateOptions {
-    public static final String SERIALIZED_NAME_INCLUDE_HISTORICAL = "includeHistorical";
+    public static final String SERIALIZED_NAME_INCLUDE_HISTORICAL_DATA = "includeHistoricalData";
 
-    @SerializedName(SERIALIZED_NAME_INCLUDE_HISTORICAL)
-    private Boolean includeHistorical;
+    @SerializedName(SERIALIZED_NAME_INCLUDE_HISTORICAL_DATA)
+    private Boolean includeHistoricalData;
 
-    public static final String SERIALIZED_NAME_INCLUDE_ANONYMOUS = "includeAnonymous";
+    public static final String SERIALIZED_NAME_INCLUDE_ANONYMOUS_USERS = "includeAnonymousUsers";
 
-    @SerializedName(SERIALIZED_NAME_INCLUDE_ANONYMOUS)
-    private Boolean includeAnonymous;
+    @SerializedName(SERIALIZED_NAME_INCLUDE_ANONYMOUS_USERS)
+    private Boolean includeAnonymousUsers;
 
     public TraitCreateOptions() {}
 
-    public TraitCreateOptions includeHistorical(Boolean includeHistorical) {
+    public TraitCreateOptions includeHistoricalData(Boolean includeHistoricalData) {
 
-        this.includeHistorical = includeHistorical;
+        this.includeHistoricalData = includeHistoricalData;
         return this;
     }
 
     /**
-     * Get includeHistorical
+     * Get includeHistoricalData
      *
-     * @return includeHistorical
+     * @return includeHistoricalData
      */
     @javax.annotation.Nullable
-    public Boolean getIncludeHistorical() {
-        return includeHistorical;
+    public Boolean getIncludeHistoricalData() {
+        return includeHistoricalData;
     }
 
-    public void setIncludeHistorical(Boolean includeHistorical) {
-        this.includeHistorical = includeHistorical;
+    public void setIncludeHistoricalData(Boolean includeHistoricalData) {
+        this.includeHistoricalData = includeHistoricalData;
     }
 
-    public TraitCreateOptions includeAnonymous(Boolean includeAnonymous) {
+    public TraitCreateOptions includeAnonymousUsers(Boolean includeAnonymousUsers) {
 
-        this.includeAnonymous = includeAnonymous;
+        this.includeAnonymousUsers = includeAnonymousUsers;
         return this;
     }
 
     /**
-     * Get includeAnonymous
+     * Get includeAnonymousUsers
      *
-     * @return includeAnonymous
+     * @return includeAnonymousUsers
      */
     @javax.annotation.Nullable
-    public Boolean getIncludeAnonymous() {
-        return includeAnonymous;
+    public Boolean getIncludeAnonymousUsers() {
+        return includeAnonymousUsers;
     }
 
-    public void setIncludeAnonymous(Boolean includeAnonymous) {
-        this.includeAnonymous = includeAnonymous;
+    public void setIncludeAnonymousUsers(Boolean includeAnonymousUsers) {
+        this.includeAnonymousUsers = includeAnonymousUsers;
     }
 
     @Override
@@ -90,23 +90,26 @@ public class TraitCreateOptions {
             return false;
         }
         TraitCreateOptions traitCreateOptions = (TraitCreateOptions) o;
-        return Objects.equals(this.includeHistorical, traitCreateOptions.includeHistorical)
-                && Objects.equals(this.includeAnonymous, traitCreateOptions.includeAnonymous);
+        return Objects.equals(this.includeHistoricalData, traitCreateOptions.includeHistoricalData)
+                && Objects.equals(
+                        this.includeAnonymousUsers, traitCreateOptions.includeAnonymousUsers);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(includeHistorical, includeAnonymous);
+        return Objects.hash(includeHistoricalData, includeAnonymousUsers);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class TraitCreateOptions {\n");
-        sb.append("    includeHistorical: ")
-                .append(toIndentedString(includeHistorical))
+        sb.append("    includeHistoricalData: ")
+                .append(toIndentedString(includeHistoricalData))
                 .append("\n");
-        sb.append("    includeAnonymous: ").append(toIndentedString(includeAnonymous)).append("\n");
+        sb.append("    includeAnonymousUsers: ")
+                .append(toIndentedString(includeAnonymousUsers))
+                .append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -128,8 +131,8 @@ public class TraitCreateOptions {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("includeHistorical");
-        openapiFields.add("includeAnonymous");
+        openapiFields.add("includeHistoricalData");
+        openapiFields.add("includeAnonymousUsers");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
