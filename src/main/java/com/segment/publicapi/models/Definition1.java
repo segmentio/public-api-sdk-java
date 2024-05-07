@@ -36,7 +36,8 @@ public class Definition1 {
     private String query;
 
     /**
-     * The underlying data type being segmented for this audience. Possible values: users, accounts.
+     * The underlying data type being aggregated for this computed trait. Possible values: users,
+     * accounts.
      */
     @JsonAdapter(TypeEnum.Adapter.class)
     public enum TypeEnum {
@@ -97,7 +98,7 @@ public class Definition1 {
     }
 
     /**
-     * The query language string defining the audience segmentation criteria.
+     * The query language string defining the computed trait aggregation criteria.
      *
      * @return query
      */
@@ -117,7 +118,8 @@ public class Definition1 {
     }
 
     /**
-     * The underlying data type being segmented for this audience. Possible values: users, accounts.
+     * The underlying data type being aggregated for this computed trait. Possible values: users,
+     * accounts.
      *
      * @return type
      */
