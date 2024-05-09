@@ -18,8 +18,6 @@ import com.segment.publicapi.ApiException;
 import com.segment.publicapi.ApiResponse;
 import com.segment.publicapi.Configuration;
 import com.segment.publicapi.Pair;
-import com.segment.publicapi.models.CreateComputedTrait200Response;
-import com.segment.publicapi.models.CreateComputedTraitAlphaInput;
 import com.segment.publicapi.models.GetComputedTrait200Response;
 import com.segment.publicapi.models.ListComputedTraits200Response;
 import com.segment.publicapi.models.PaginationInput;
@@ -67,202 +65,6 @@ public class ComputedTraitsApi {
 
     public void setCustomBaseUrl(String customBaseUrl) {
         this.localCustomBaseUrl = customBaseUrl;
-    }
-
-    /**
-     * Build call for createComputedTrait
-     *
-     * @param spaceId (required)
-     * @param createComputedTraitAlphaInput (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createComputedTraitCall(
-            String spaceId,
-            CreateComputedTraitAlphaInput createComputedTraitAlphaInput,
-            final ApiCallback _callback)
-            throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {};
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null) {
-            basePath = localCustomBaseUrl;
-        } else if (localBasePaths.length > 0) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = createComputedTraitAlphaInput;
-
-        // create path and map variables
-        String localVarPath =
-                "/spaces/{spaceId}/computed-traits"
-                        .replace(
-                                "{" + "spaceId" + "}",
-                                localVarApiClient.escapeString(spaceId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json", "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {"application/vnd.segment.v1alpha+json"};
-        final String localVarContentType =
-                localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {"token"};
-        return localVarApiClient.buildCall(
-                basePath,
-                localVarPath,
-                "POST",
-                localVarQueryParams,
-                localVarCollectionQueryParams,
-                localVarPostBody,
-                localVarHeaderParams,
-                localVarCookieParams,
-                localVarFormParams,
-                localVarAuthNames,
-                _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call createComputedTraitValidateBeforeCall(
-            String spaceId,
-            CreateComputedTraitAlphaInput createComputedTraitAlphaInput,
-            final ApiCallback _callback)
-            throws ApiException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'spaceId' when calling"
-                            + " createComputedTrait(Async)");
-        }
-
-        // verify the required parameter 'createComputedTraitAlphaInput' is set
-        if (createComputedTraitAlphaInput == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'createComputedTraitAlphaInput' when calling"
-                            + " createComputedTrait(Async)");
-        }
-
-        return createComputedTraitCall(spaceId, createComputedTraitAlphaInput, _callback);
-    }
-
-    /**
-     * Create Computed Trait Creates a Computed Trait • This endpoint is in **Alpha** testing.
-     * Please submit any feedback by sending email to friends@segment.com. • In order to
-     * successfully call this endpoint, the specified Workspace needs to have the Computed Trait
-     * feature enabled. Please reach out to your customer success manager for more information.
-     *
-     * @param spaceId (required)
-     * @param createComputedTraitAlphaInput (required)
-     * @return CreateComputedTrait200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
-     *     response body
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-     * </table>
-     */
-    public CreateComputedTrait200Response createComputedTrait(
-            String spaceId, CreateComputedTraitAlphaInput createComputedTraitAlphaInput)
-            throws ApiException {
-        ApiResponse<CreateComputedTrait200Response> localVarResp =
-                createComputedTraitWithHttpInfo(spaceId, createComputedTraitAlphaInput);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create Computed Trait Creates a Computed Trait • This endpoint is in **Alpha** testing.
-     * Please submit any feedback by sending email to friends@segment.com. • In order to
-     * successfully call this endpoint, the specified Workspace needs to have the Computed Trait
-     * feature enabled. Please reach out to your customer success manager for more information.
-     *
-     * @param spaceId (required)
-     * @param createComputedTraitAlphaInput (required)
-     * @return ApiResponse&lt;CreateComputedTrait200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
-     *     response body
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<CreateComputedTrait200Response> createComputedTraitWithHttpInfo(
-            String spaceId, CreateComputedTraitAlphaInput createComputedTraitAlphaInput)
-            throws ApiException {
-        okhttp3.Call localVarCall =
-                createComputedTraitValidateBeforeCall(spaceId, createComputedTraitAlphaInput, null);
-        Type localVarReturnType = new TypeToken<CreateComputedTrait200Response>() {}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Create Computed Trait (asynchronously) Creates a Computed Trait • This endpoint is in
-     * **Alpha** testing. Please submit any feedback by sending email to friends@segment.com. • In
-     * order to successfully call this endpoint, the specified Workspace needs to have the Computed
-     * Trait feature enabled. Please reach out to your customer success manager for more
-     * information.
-     *
-     * @param spaceId (required)
-     * @param createComputedTraitAlphaInput (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body
-     *     object
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createComputedTraitAsync(
-            String spaceId,
-            CreateComputedTraitAlphaInput createComputedTraitAlphaInput,
-            final ApiCallback<CreateComputedTrait200Response> _callback)
-            throws ApiException {
-
-        okhttp3.Call localVarCall =
-                createComputedTraitValidateBeforeCall(
-                        spaceId, createComputedTraitAlphaInput, _callback);
-        Type localVarReturnType = new TypeToken<CreateComputedTrait200Response>() {}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
     }
 
     /**
@@ -464,7 +266,7 @@ public class ComputedTraitsApi {
      *
      * @param spaceId (required)
      * @param pagination Information about the pagination of this response. This parameter exists in
-     *     alpha. (required)
+     *     alpha. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -553,13 +355,6 @@ public class ComputedTraitsApi {
                             + " listComputedTraits(Async)");
         }
 
-        // verify the required parameter 'pagination' is set
-        if (pagination == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'pagination' when calling"
-                            + " listComputedTraits(Async)");
-        }
-
         return listComputedTraitsCall(spaceId, pagination, _callback);
     }
 
@@ -575,7 +370,7 @@ public class ComputedTraitsApi {
      *
      * @param spaceId (required)
      * @param pagination Information about the pagination of this response. This parameter exists in
-     *     alpha. (required)
+     *     alpha. (optional)
      * @return ListComputedTraits200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -607,7 +402,7 @@ public class ComputedTraitsApi {
      *
      * @param spaceId (required)
      * @param pagination Information about the pagination of this response. This parameter exists in
-     *     alpha. (required)
+     *     alpha. (optional)
      * @return ApiResponse&lt;ListComputedTraits200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -639,7 +434,7 @@ public class ComputedTraitsApi {
      *
      * @param spaceId (required)
      * @param pagination Information about the pagination of this response. This parameter exists in
-     *     alpha. (required)
+     *     alpha. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body

@@ -134,7 +134,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **pagination** | [**PaginationInput**](.md)| Required pagination parameters used to filter the Destinations catalog.  This parameter exists in v1. | |
+| **pagination** | [**PaginationInput**](.md)| Required pagination parameters used to filter the Destinations catalog.  This parameter exists in v1. | [optional] |
 
 ### Return type
 

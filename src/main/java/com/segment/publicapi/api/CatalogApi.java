@@ -240,7 +240,7 @@ public class CatalogApi {
      * Build call for getDestinationsCatalog
      *
      * @param pagination Required pagination parameters used to filter the Destinations catalog.
-     *     This parameter exists in v1. (required)
+     *     This parameter exists in v1. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -319,13 +319,6 @@ public class CatalogApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getDestinationsCatalogValidateBeforeCall(
             PaginationInput pagination, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'pagination' is set
-        if (pagination == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'pagination' when calling"
-                            + " getDestinationsCatalog(Async)");
-        }
-
         return getDestinationsCatalogCall(pagination, _callback);
     }
 
@@ -333,7 +326,7 @@ public class CatalogApi {
      * Get Destinations Catalog Returns a list of all available Destinations in the Segment catalog.
      *
      * @param pagination Required pagination parameters used to filter the Destinations catalog.
-     *     This parameter exists in v1. (required)
+     *     This parameter exists in v1. (optional)
      * @return GetDestinationsCatalog200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -357,7 +350,7 @@ public class CatalogApi {
      * Get Destinations Catalog Returns a list of all available Destinations in the Segment catalog.
      *
      * @param pagination Required pagination parameters used to filter the Destinations catalog.
-     *     This parameter exists in v1. (required)
+     *     This parameter exists in v1. (optional)
      * @return ApiResponse&lt;GetDestinationsCatalog200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -382,7 +375,7 @@ public class CatalogApi {
      * Segment catalog.
      *
      * @param pagination Required pagination parameters used to filter the Destinations catalog.
-     *     This parameter exists in v1. (required)
+     *     This parameter exists in v1. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body

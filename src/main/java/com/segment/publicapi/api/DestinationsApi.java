@@ -1271,7 +1271,7 @@ public class DestinationsApi {
      * Build call for listDestinations
      *
      * @param pagination Required pagination params for the request. This parameter exists in v1.
-     *     (required)
+     *     (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1350,13 +1350,6 @@ public class DestinationsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listDestinationsValidateBeforeCall(
             PaginationInput pagination, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'pagination' is set
-        if (pagination == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'pagination' when calling"
-                            + " listDestinations(Async)");
-        }
-
         return listDestinationsCall(pagination, _callback);
     }
 
@@ -1364,7 +1357,7 @@ public class DestinationsApi {
      * List Destinations Returns a list of Destinations.
      *
      * @param pagination Required pagination params for the request. This parameter exists in v1.
-     *     (required)
+     *     (optional)
      * @return ListDestinations200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1388,7 +1381,7 @@ public class DestinationsApi {
      * List Destinations Returns a list of Destinations.
      *
      * @param pagination Required pagination params for the request. This parameter exists in v1.
-     *     (required)
+     *     (optional)
      * @return ApiResponse&lt;ListDestinations200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1412,7 +1405,7 @@ public class DestinationsApi {
      * List Destinations (asynchronously) Returns a list of Destinations.
      *
      * @param pagination Required pagination params for the request. This parameter exists in v1.
-     *     (required)
+     *     (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -1440,7 +1433,7 @@ public class DestinationsApi {
      * Build call for listSubscriptionsFromDestination
      *
      * @param destinationId (required)
-     * @param pagination Pagination options. This parameter exists in alpha. (required)
+     * @param pagination Pagination options. This parameter exists in alpha. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1529,13 +1522,6 @@ public class DestinationsApi {
                             + " listSubscriptionsFromDestination(Async)");
         }
 
-        // verify the required parameter 'pagination' is set
-        if (pagination == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'pagination' when calling"
-                            + " listSubscriptionsFromDestination(Async)");
-        }
-
         return listSubscriptionsFromDestinationCall(destinationId, pagination, _callback);
     }
 
@@ -1547,7 +1533,7 @@ public class DestinationsApi {
      * for more information.
      *
      * @param destinationId (required)
-     * @param pagination Pagination options. This parameter exists in alpha. (required)
+     * @param pagination Pagination options. This parameter exists in alpha. (optional)
      * @return ListSubscriptionsFromDestination200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1575,7 +1561,7 @@ public class DestinationsApi {
      * for more information.
      *
      * @param destinationId (required)
-     * @param pagination Pagination options. This parameter exists in alpha. (required)
+     * @param pagination Pagination options. This parameter exists in alpha. (optional)
      * @return ApiResponse&lt;ListSubscriptionsFromDestination200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1606,7 +1592,7 @@ public class DestinationsApi {
      * customer success manager for more information.
      *
      * @param destinationId (required)
-     * @param pagination Pagination options. This parameter exists in alpha. (required)
+     * @param pagination Pagination options. This parameter exists in alpha. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body

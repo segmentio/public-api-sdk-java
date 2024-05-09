@@ -1010,7 +1010,7 @@ public class DeletionAndSuppressionApi {
      *     v1. (optional)
      * @param regulationTypes The regulation types on which to filter returned regulations. This
      *     parameter exists in v1. (optional)
-     * @param pagination Pagination parameters. This parameter exists in v1. (required)
+     * @param pagination Pagination parameters. This parameter exists in v1. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1120,13 +1120,6 @@ public class DeletionAndSuppressionApi {
                             + " listRegulationsFromSource(Async)");
         }
 
-        // verify the required parameter 'pagination' is set
-        if (pagination == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'pagination' when calling"
-                            + " listRegulationsFromSource(Async)");
-        }
-
         return listRegulationsFromSourceCall(
                 sourceId, status, regulationTypes, pagination, _callback);
     }
@@ -1139,7 +1132,7 @@ public class DeletionAndSuppressionApi {
      *     v1. (optional)
      * @param regulationTypes The regulation types on which to filter returned regulations. This
      *     parameter exists in v1. (optional)
-     * @param pagination Pagination parameters. This parameter exists in v1. (required)
+     * @param pagination Pagination parameters. This parameter exists in v1. (optional)
      * @return ListRegulationsFromSource200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1172,7 +1165,7 @@ public class DeletionAndSuppressionApi {
      *     v1. (optional)
      * @param regulationTypes The regulation types on which to filter returned regulations. This
      *     parameter exists in v1. (optional)
-     * @param pagination Pagination parameters. This parameter exists in v1. (required)
+     * @param pagination Pagination parameters. This parameter exists in v1. (optional)
      * @return ApiResponse&lt;ListRegulationsFromSource200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1207,7 +1200,7 @@ public class DeletionAndSuppressionApi {
      *     v1. (optional)
      * @param regulationTypes The regulation types on which to filter returned regulations. This
      *     parameter exists in v1. (optional)
-     * @param pagination Pagination parameters. This parameter exists in v1. (required)
+     * @param pagination Pagination parameters. This parameter exists in v1. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -1241,7 +1234,7 @@ public class DeletionAndSuppressionApi {
     /**
      * Build call for listSuppressions
      *
-     * @param pagination Pagination parameters. This parameter exists in v1. (required)
+     * @param pagination Pagination parameters. This parameter exists in v1. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1320,20 +1313,13 @@ public class DeletionAndSuppressionApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listSuppressionsValidateBeforeCall(
             PaginationInput pagination, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'pagination' is set
-        if (pagination == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'pagination' when calling"
-                            + " listSuppressions(Async)");
-        }
-
         return listSuppressionsCall(pagination, _callback);
     }
 
     /**
      * List Suppressions Lists all suppressions in a given Workspace.
      *
-     * @param pagination Pagination parameters. This parameter exists in v1. (required)
+     * @param pagination Pagination parameters. This parameter exists in v1. (optional)
      * @return ListSuppressions200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1356,7 +1342,7 @@ public class DeletionAndSuppressionApi {
     /**
      * List Suppressions Lists all suppressions in a given Workspace.
      *
-     * @param pagination Pagination parameters. This parameter exists in v1. (required)
+     * @param pagination Pagination parameters. This parameter exists in v1. (optional)
      * @return ApiResponse&lt;ListSuppressions200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1379,7 +1365,7 @@ public class DeletionAndSuppressionApi {
     /**
      * List Suppressions (asynchronously) Lists all suppressions in a given Workspace.
      *
-     * @param pagination Pagination parameters. This parameter exists in v1. (required)
+     * @param pagination Pagination parameters. This parameter exists in v1. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -1410,7 +1396,7 @@ public class DeletionAndSuppressionApi {
      *     in v1. (optional)
      * @param regulationTypes The regulation types on which to filter returned regulations. This
      *     parameter exists in v1. (optional)
-     * @param pagination Pagination parameters. This parameter exists in v1. (required)
+     * @param pagination Pagination parameters. This parameter exists in v1. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1507,13 +1493,6 @@ public class DeletionAndSuppressionApi {
             PaginationInput pagination,
             final ApiCallback _callback)
             throws ApiException {
-        // verify the required parameter 'pagination' is set
-        if (pagination == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'pagination' when calling"
-                            + " listWorkspaceRegulations(Async)");
-        }
-
         return listWorkspaceRegulationsCall(status, regulationTypes, pagination, _callback);
     }
 
@@ -1524,7 +1503,7 @@ public class DeletionAndSuppressionApi {
      *     in v1. (optional)
      * @param regulationTypes The regulation types on which to filter returned regulations. This
      *     parameter exists in v1. (optional)
-     * @param pagination Pagination parameters. This parameter exists in v1. (required)
+     * @param pagination Pagination parameters. This parameter exists in v1. (optional)
      * @return ListWorkspaceRegulations200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1552,7 +1531,7 @@ public class DeletionAndSuppressionApi {
      *     in v1. (optional)
      * @param regulationTypes The regulation types on which to filter returned regulations. This
      *     parameter exists in v1. (optional)
-     * @param pagination Pagination parameters. This parameter exists in v1. (required)
+     * @param pagination Pagination parameters. This parameter exists in v1. (optional)
      * @return ApiResponse&lt;ListWorkspaceRegulations200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1582,7 +1561,7 @@ public class DeletionAndSuppressionApi {
      *     in v1. (optional)
      * @param regulationTypes The regulation types on which to filter returned regulations. This
      *     parameter exists in v1. (optional)
-     * @param pagination Pagination parameters. This parameter exists in v1. (required)
+     * @param pagination Pagination parameters. This parameter exists in v1. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body

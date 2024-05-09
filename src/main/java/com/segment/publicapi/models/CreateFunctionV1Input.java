@@ -60,8 +60,6 @@ public class CreateFunctionV1Input {
 
         INSERT_DESTINATION("INSERT_DESTINATION"),
 
-        INSERT_SOURCE("INSERT_SOURCE"),
-
         SOURCE("SOURCE");
 
         private String value;

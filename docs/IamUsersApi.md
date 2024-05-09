@@ -431,7 +431,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **pagination** | [**PaginationInput**](.md)| Defines the pagination parameters.  This parameter exists in v1. | |
+| **pagination** | [**PaginationInput**](.md)| Defines the pagination parameters.  This parameter exists in v1. | [optional] |
 
 ### Return type
 
@@ -506,7 +506,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **userId** | **String**|  | |
-| **pagination** | [**PaginationInput**](.md)| Pagination for groups.  This parameter exists in v1. | |
+| **pagination** | [**PaginationInput**](.md)| Pagination for groups.  This parameter exists in v1. | [optional] |
 
 ### Return type
 
@@ -579,7 +579,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **pagination** | [**PaginationInput**](.md)| Pagination for users.  This parameter exists in v1. | |
+| **pagination** | [**PaginationInput**](.md)| Pagination for users.  This parameter exists in v1. | [optional] |
 
 ### Return type
 

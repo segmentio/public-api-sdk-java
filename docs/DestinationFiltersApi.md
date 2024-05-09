@@ -213,7 +213,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **destinationId** | **String**|  | |
-| **pagination** | [**PaginationInput**](.md)| Pagination options.  This parameter exists in v1. | |
+| **pagination** | [**PaginationInput**](.md)| Pagination options.  This parameter exists in v1. | [optional] |
 
 ### Return type
 

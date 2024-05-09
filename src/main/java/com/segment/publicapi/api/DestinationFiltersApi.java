@@ -468,7 +468,7 @@ public class DestinationFiltersApi {
      * Build call for listFiltersFromDestination
      *
      * @param destinationId (required)
-     * @param pagination Pagination options. This parameter exists in v1. (required)
+     * @param pagination Pagination options. This parameter exists in v1. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -560,13 +560,6 @@ public class DestinationFiltersApi {
                             + " listFiltersFromDestination(Async)");
         }
 
-        // verify the required parameter 'pagination' is set
-        if (pagination == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'pagination' when calling"
-                            + " listFiltersFromDestination(Async)");
-        }
-
         return listFiltersFromDestinationCall(destinationId, pagination, _callback);
     }
 
@@ -574,7 +567,7 @@ public class DestinationFiltersApi {
      * List Filters from Destination Lists filters for a Destination.
      *
      * @param destinationId (required)
-     * @param pagination Pagination options. This parameter exists in v1. (required)
+     * @param pagination Pagination options. This parameter exists in v1. (optional)
      * @return ListFiltersFromDestination200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -598,7 +591,7 @@ public class DestinationFiltersApi {
      * List Filters from Destination Lists filters for a Destination.
      *
      * @param destinationId (required)
-     * @param pagination Pagination options. This parameter exists in v1. (required)
+     * @param pagination Pagination options. This parameter exists in v1. (optional)
      * @return ApiResponse&lt;ListFiltersFromDestination200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -625,7 +618,7 @@ public class DestinationFiltersApi {
      * List Filters from Destination (asynchronously) Lists filters for a Destination.
      *
      * @param destinationId (required)
-     * @param pagination Pagination options. This parameter exists in v1. (required)
+     * @param pagination Pagination options. This parameter exists in v1. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body

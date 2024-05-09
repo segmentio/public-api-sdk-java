@@ -27,7 +27,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Audience output for update. */
+/** Audience output for get. */
 public class UpdateAudienceForSpaceAlphaOutput {
     public static final String SERIALIZED_NAME_AUDIENCE = "audience";
 

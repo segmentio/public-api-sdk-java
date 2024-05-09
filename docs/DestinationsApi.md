@@ -516,7 +516,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **pagination** | [**PaginationInput**](.md)| Required pagination params for the request.  This parameter exists in v1. | |
+| **pagination** | [**PaginationInput**](.md)| Required pagination params for the request.  This parameter exists in v1. | [optional] |
 
 ### Return type
 
@@ -591,7 +591,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **destinationId** | **String**|  | |
-| **pagination** | [**PaginationInput**](.md)| Pagination options.  This parameter exists in alpha. | |
+| **pagination** | [**PaginationInput**](.md)| Pagination options.  This parameter exists in alpha. | [optional] |
 
 ### Return type
 
