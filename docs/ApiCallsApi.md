@@ -59,7 +59,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **period** | **String**| The start of the usage month in the ISO-8601 format.  This parameter exists in v1. | |
-| **pagination** | [**PaginationInput**](.md)| Pagination input for per Source API calls counts.  This parameter exists in v1. | |
+| **pagination** | [**PaginationInput**](.md)| Pagination input for per Source API calls counts.  This parameter exists in v1. | [optional] |
 
 ### Return type
 
@@ -134,7 +134,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **period** | **String**| The start of the usage month in the ISO-8601 format.  This parameter exists in v1. | |
-| **pagination** | [**PaginationInput**](.md)| Pagination input for Workspace API call counts.  This parameter exists in v1. | |
+| **pagination** | [**PaginationInput**](.md)| Pagination input for Workspace API call counts.  This parameter exists in v1. | [optional] |
 
 ### Return type
 

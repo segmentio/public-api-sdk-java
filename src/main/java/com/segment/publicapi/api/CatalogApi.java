@@ -576,7 +576,7 @@ public class CatalogApi {
     /**
      * Build call for getSourcesCatalog
      *
-     * @param pagination Defines the pagination parameters. This parameter exists in v1. (required)
+     * @param pagination Defines the pagination parameters. This parameter exists in v1. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -655,20 +655,13 @@ public class CatalogApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getSourcesCatalogValidateBeforeCall(
             PaginationInput pagination, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'pagination' is set
-        if (pagination == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'pagination' when calling"
-                            + " getSourcesCatalog(Async)");
-        }
-
         return getSourcesCatalogCall(pagination, _callback);
     }
 
     /**
      * Get Sources Catalog Returns a list of all available Sources in the Segment catalog.
      *
-     * @param pagination Defines the pagination parameters. This parameter exists in v1. (required)
+     * @param pagination Defines the pagination parameters. This parameter exists in v1. (optional)
      * @return GetSourcesCatalog200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -691,7 +684,7 @@ public class CatalogApi {
     /**
      * Get Sources Catalog Returns a list of all available Sources in the Segment catalog.
      *
-     * @param pagination Defines the pagination parameters. This parameter exists in v1. (required)
+     * @param pagination Defines the pagination parameters. This parameter exists in v1. (optional)
      * @return ApiResponse&lt;GetSourcesCatalog200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -715,7 +708,7 @@ public class CatalogApi {
      * Get Sources Catalog (asynchronously) Returns a list of all available Sources in the Segment
      * catalog.
      *
-     * @param pagination Defines the pagination parameters. This parameter exists in v1. (required)
+     * @param pagination Defines the pagination parameters. This parameter exists in v1. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -910,8 +903,8 @@ public class CatalogApi {
     /**
      * Build call for getWarehousesCatalog
      *
-     * @param pagination Required pagination params used to filter the Warehouses catalog. This
-     *     parameter exists in v1. (required)
+     * @param pagination Optional pagination params used to filter the Warehouses catalog. This
+     *     parameter exists in v1. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -990,21 +983,14 @@ public class CatalogApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getWarehousesCatalogValidateBeforeCall(
             PaginationInput pagination, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'pagination' is set
-        if (pagination == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'pagination' when calling"
-                            + " getWarehousesCatalog(Async)");
-        }
-
         return getWarehousesCatalogCall(pagination, _callback);
     }
 
     /**
      * Get Warehouses Catalog Returns a list of all available Warehouses in the Segment catalog.
      *
-     * @param pagination Required pagination params used to filter the Warehouses catalog. This
-     *     parameter exists in v1. (required)
+     * @param pagination Optional pagination params used to filter the Warehouses catalog. This
+     *     parameter exists in v1. (optional)
      * @return GetWarehousesCatalog200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1027,8 +1013,8 @@ public class CatalogApi {
     /**
      * Get Warehouses Catalog Returns a list of all available Warehouses in the Segment catalog.
      *
-     * @param pagination Required pagination params used to filter the Warehouses catalog. This
-     *     parameter exists in v1. (required)
+     * @param pagination Optional pagination params used to filter the Warehouses catalog. This
+     *     parameter exists in v1. (optional)
      * @return ApiResponse&lt;GetWarehousesCatalog200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1052,8 +1038,8 @@ public class CatalogApi {
      * Get Warehouses Catalog (asynchronously) Returns a list of all available Warehouses in the
      * Segment catalog.
      *
-     * @param pagination Required pagination params used to filter the Warehouses catalog. This
-     *     parameter exists in v1. (required)
+     * @param pagination Optional pagination params used to filter the Warehouses catalog. This
+     *     parameter exists in v1. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body

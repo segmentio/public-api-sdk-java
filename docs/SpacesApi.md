@@ -207,7 +207,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **pagination** | [**PaginationInput**](.md)| Pagination params  This parameter exists in alpha. | |
+| **pagination** | [**PaginationInput**](.md)| Pagination params  This parameter exists in alpha. | [optional] |
 
 ### Return type
 

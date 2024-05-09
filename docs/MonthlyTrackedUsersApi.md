@@ -59,7 +59,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **period** | **String**| The start of the usage month, in the ISO-8601 format.  This parameter exists in v1. | |
-| **pagination** | [**PaginationInput**](.md)| Pagination input for per Source MTU counts.  This parameter exists in v1. | |
+| **pagination** | [**PaginationInput**](.md)| Pagination input for per Source MTU counts.  This parameter exists in v1. | [optional] |
 
 ### Return type
 
@@ -134,7 +134,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **period** | **String**| The start of the usage month, in the ISO-8601 format.  This parameter exists in v1. | |
-| **pagination** | [**PaginationInput**](.md)| Pagination input for Workspace MTU counts.  This parameter exists in v1. | |
+| **pagination** | [**PaginationInput**](.md)| Pagination input for Workspace MTU counts.  This parameter exists in v1. | [optional] |
 
 ### Return type
 

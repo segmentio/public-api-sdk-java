@@ -451,7 +451,7 @@ public class SpacesApi {
     /**
      * Build call for listSpaces
      *
-     * @param pagination Pagination params This parameter exists in alpha. (required)
+     * @param pagination Pagination params This parameter exists in alpha. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -527,12 +527,6 @@ public class SpacesApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listSpacesValidateBeforeCall(
             PaginationInput pagination, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'pagination' is set
-        if (pagination == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'pagination' when calling listSpaces(Async)");
-        }
-
         return listSpacesCall(pagination, _callback);
     }
 
@@ -542,7 +536,7 @@ public class SpacesApi {
      * specified Workspace needs to have the Spaces feature enabled. Please reach out to your
      * customer success manager for more information.
      *
-     * @param pagination Pagination params This parameter exists in alpha. (required)
+     * @param pagination Pagination params This parameter exists in alpha. (optional)
      * @return ListSpaces200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -566,7 +560,7 @@ public class SpacesApi {
      * specified Workspace needs to have the Spaces feature enabled. Please reach out to your
      * customer success manager for more information.
      *
-     * @param pagination Pagination params This parameter exists in alpha. (required)
+     * @param pagination Pagination params This parameter exists in alpha. (optional)
      * @return ApiResponse&lt;ListSpaces200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -592,7 +586,7 @@ public class SpacesApi {
      * this endpoint, the specified Workspace needs to have the Spaces feature enabled. Please reach
      * out to your customer success manager for more information.
      *
-     * @param pagination Pagination params This parameter exists in alpha. (required)
+     * @param pagination Pagination params This parameter exists in alpha. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body

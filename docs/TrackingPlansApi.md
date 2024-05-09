@@ -363,7 +363,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **trackingPlanId** | **String**|  | |
-| **pagination** | [**PaginationInput**](.md)| Pagination options.  This parameter exists in v1. | |
+| **pagination** | [**PaginationInput**](.md)| Pagination options.  This parameter exists in v1. | [optional] |
 
 ### Return type
 
@@ -438,7 +438,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **trackingPlanId** | **String**|  | |
-| **pagination** | [**PaginationInput**](.md)| Pagination options.  This parameter exists in v1. | |
+| **pagination** | [**PaginationInput**](.md)| Pagination options.  This parameter exists in v1. | [optional] |
 
 ### Return type
 
@@ -513,7 +513,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **type** | **String**| Requests Tracking Plans of a certain type. If omitted, lists all types.  This parameter exists in v1. | [optional] [enum: ENGAGE, LIVE, PROPERTY_LIBRARY, RULE_LIBRARY, TEMPLATE] |
-| **pagination** | [**PaginationInput**](.md)| Pagination options.  This parameter exists in v1. | |
+| **pagination** | [**PaginationInput**](.md)| Pagination options.  This parameter exists in v1. | [optional] |
 
 ### Return type
 

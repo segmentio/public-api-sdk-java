@@ -70,7 +70,7 @@ public class MonthlyTrackedUsersApi {
      * @param period The start of the usage month, in the ISO-8601 format. This parameter exists in
      *     v1. (required)
      * @param pagination Pagination input for per Source MTU counts. This parameter exists in v1.
-     *     (required)
+     *     (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -162,13 +162,6 @@ public class MonthlyTrackedUsersApi {
                             + " getDailyPerSourceMTUUsage(Async)");
         }
 
-        // verify the required parameter 'pagination' is set
-        if (pagination == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'pagination' when calling"
-                            + " getDailyPerSourceMTUUsage(Async)");
-        }
-
         return getDailyPerSourceMTUUsageCall(period, pagination, _callback);
     }
 
@@ -179,7 +172,7 @@ public class MonthlyTrackedUsersApi {
      * @param period The start of the usage month, in the ISO-8601 format. This parameter exists in
      *     v1. (required)
      * @param pagination Pagination input for per Source MTU counts. This parameter exists in v1.
-     *     (required)
+     *     (optional)
      * @return GetDailyPerSourceMTUUsage200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -206,7 +199,7 @@ public class MonthlyTrackedUsersApi {
      * @param period The start of the usage month, in the ISO-8601 format. This parameter exists in
      *     v1. (required)
      * @param pagination Pagination input for per Source MTU counts. This parameter exists in v1.
-     *     (required)
+     *     (optional)
      * @return ApiResponse&lt;GetDailyPerSourceMTUUsage200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -235,7 +228,7 @@ public class MonthlyTrackedUsersApi {
      * @param period The start of the usage month, in the ISO-8601 format. This parameter exists in
      *     v1. (required)
      * @param pagination Pagination input for per Source MTU counts. This parameter exists in v1.
-     *     (required)
+     *     (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -269,7 +262,7 @@ public class MonthlyTrackedUsersApi {
      * @param period The start of the usage month, in the ISO-8601 format. This parameter exists in
      *     v1. (required)
      * @param pagination Pagination input for Workspace MTU counts. This parameter exists in v1.
-     *     (required)
+     *     (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -361,13 +354,6 @@ public class MonthlyTrackedUsersApi {
                             + " getDailyWorkspaceMTUUsage(Async)");
         }
 
-        // verify the required parameter 'pagination' is set
-        if (pagination == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'pagination' when calling"
-                            + " getDailyWorkspaceMTUUsage(Async)");
-        }
-
         return getDailyWorkspaceMTUUsageCall(period, pagination, _callback);
     }
 
@@ -377,7 +363,7 @@ public class MonthlyTrackedUsersApi {
      * @param period The start of the usage month, in the ISO-8601 format. This parameter exists in
      *     v1. (required)
      * @param pagination Pagination input for Workspace MTU counts. This parameter exists in v1.
-     *     (required)
+     *     (optional)
      * @return GetDailyWorkspaceMTUUsage200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -403,7 +389,7 @@ public class MonthlyTrackedUsersApi {
      * @param period The start of the usage month, in the ISO-8601 format. This parameter exists in
      *     v1. (required)
      * @param pagination Pagination input for Workspace MTU counts. This parameter exists in v1.
-     *     (required)
+     *     (optional)
      * @return ApiResponse&lt;GetDailyWorkspaceMTUUsage200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -432,7 +418,7 @@ public class MonthlyTrackedUsersApi {
      * @param period The start of the usage month, in the ISO-8601 format. This parameter exists in
      *     v1. (required)
      * @param pagination Pagination input for Workspace MTU counts. This parameter exists in v1.
-     *     (required)
+     *     (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
