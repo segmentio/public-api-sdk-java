@@ -948,7 +948,7 @@ public class ReverseEtlApi {
      * Build call for listReverseEtlModels
      *
      * @param pagination Defines the pagination parameters. This parameter exists in alpha.
-     *     (required)
+     *     (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1024,13 +1024,6 @@ public class ReverseEtlApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listReverseEtlModelsValidateBeforeCall(
             PaginationInput pagination, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'pagination' is set
-        if (pagination == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'pagination' when calling"
-                            + " listReverseEtlModels(Async)");
-        }
-
         return listReverseEtlModelsCall(pagination, _callback);
     }
 
@@ -1038,7 +1031,7 @@ public class ReverseEtlApi {
      * List Reverse Etl Models Returns a list of Reverse ETL Models.
      *
      * @param pagination Defines the pagination parameters. This parameter exists in alpha.
-     *     (required)
+     *     (optional)
      * @return ListReverseEtlModels200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1062,7 +1055,7 @@ public class ReverseEtlApi {
      * List Reverse Etl Models Returns a list of Reverse ETL Models.
      *
      * @param pagination Defines the pagination parameters. This parameter exists in alpha.
-     *     (required)
+     *     (optional)
      * @return ApiResponse&lt;ListReverseEtlModels200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1086,7 +1079,7 @@ public class ReverseEtlApi {
      * List Reverse Etl Models (asynchronously) Returns a list of Reverse ETL Models.
      *
      * @param pagination Defines the pagination parameters. This parameter exists in alpha.
-     *     (required)
+     *     (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body

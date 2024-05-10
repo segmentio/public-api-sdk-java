@@ -1484,7 +1484,7 @@ public class FunctionsApi {
      * Build call for listFunctionVersions
      *
      * @param functionId (required)
-     * @param pagination Pagination parameters. This parameter exists in alpha. (required)
+     * @param pagination Pagination parameters. This parameter exists in alpha. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1573,13 +1573,6 @@ public class FunctionsApi {
                             + " listFunctionVersions(Async)");
         }
 
-        // verify the required parameter 'pagination' is set
-        if (pagination == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'pagination' when calling"
-                            + " listFunctionVersions(Async)");
-        }
-
         return listFunctionVersionsCall(functionId, pagination, _callback);
     }
 
@@ -1589,7 +1582,7 @@ public class FunctionsApi {
      * enabled. Please reach out to your customer success manager for more information.
      *
      * @param functionId (required)
-     * @param pagination Pagination parameters. This parameter exists in alpha. (required)
+     * @param pagination Pagination parameters. This parameter exists in alpha. (optional)
      * @return ListFunctionVersions200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1615,7 +1608,7 @@ public class FunctionsApi {
      * enabled. Please reach out to your customer success manager for more information.
      *
      * @param functionId (required)
-     * @param pagination Pagination parameters. This parameter exists in alpha. (required)
+     * @param pagination Pagination parameters. This parameter exists in alpha. (optional)
      * @return ApiResponse&lt;ListFunctionVersions200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1642,7 +1635,7 @@ public class FunctionsApi {
      * feature enabled. Please reach out to your customer success manager for more information.
      *
      * @param functionId (required)
-     * @param pagination Pagination parameters. This parameter exists in alpha. (required)
+     * @param pagination Pagination parameters. This parameter exists in alpha. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -1672,7 +1665,7 @@ public class FunctionsApi {
     /**
      * Build call for listFunctions
      *
-     * @param pagination Pagination parameters. This parameter exists in v1. (required)
+     * @param pagination Pagination parameters. This parameter exists in v1. (optional)
      * @param resourceType The Function type. Config API note: equal to &#x60;type&#x60;. This
      *     parameter exists in v1. (required)
      * @param _callback Callback for upload/download progress
@@ -1760,13 +1753,6 @@ public class FunctionsApi {
     private okhttp3.Call listFunctionsValidateBeforeCall(
             PaginationInput pagination, String resourceType, final ApiCallback _callback)
             throws ApiException {
-        // verify the required parameter 'pagination' is set
-        if (pagination == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'pagination' when calling"
-                            + " listFunctions(Async)");
-        }
-
         // verify the required parameter 'resourceType' is set
         if (resourceType == null) {
             throw new ApiException(
@@ -1782,7 +1768,7 @@ public class FunctionsApi {
      * endpoint, the specified Workspace needs to have the Functions feature enabled. Please reach
      * out to your customer success manager for more information.
      *
-     * @param pagination Pagination parameters. This parameter exists in v1. (required)
+     * @param pagination Pagination parameters. This parameter exists in v1. (optional)
      * @param resourceType The Function type. Config API note: equal to &#x60;type&#x60;. This
      *     parameter exists in v1. (required)
      * @return ListFunctions200Response
@@ -1809,7 +1795,7 @@ public class FunctionsApi {
      * endpoint, the specified Workspace needs to have the Functions feature enabled. Please reach
      * out to your customer success manager for more information.
      *
-     * @param pagination Pagination parameters. This parameter exists in v1. (required)
+     * @param pagination Pagination parameters. This parameter exists in v1. (optional)
      * @param resourceType The Function type. Config API note: equal to &#x60;type&#x60;. This
      *     parameter exists in v1. (required)
      * @return ApiResponse&lt;ListFunctions200Response&gt;
@@ -1836,7 +1822,7 @@ public class FunctionsApi {
      * successfully call this endpoint, the specified Workspace needs to have the Functions feature
      * enabled. Please reach out to your customer success manager for more information.
      *
-     * @param pagination Pagination parameters. This parameter exists in v1. (required)
+     * @param pagination Pagination parameters. This parameter exists in v1. (optional)
      * @param resourceType The Function type. Config API note: equal to &#x60;type&#x60;. This
      *     parameter exists in v1. (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1868,7 +1854,7 @@ public class FunctionsApi {
     /**
      * Build call for listInsertFunctionInstances
      *
-     * @param pagination Pagination parameters. This parameter exists in alpha. (required)
+     * @param pagination Pagination parameters. This parameter exists in alpha. (optional)
      * @param functionId The insert Function class id to lookup. This parameter exists in alpha.
      *     (required)
      * @param _callback Callback for upload/download progress
@@ -1952,13 +1938,6 @@ public class FunctionsApi {
     private okhttp3.Call listInsertFunctionInstancesValidateBeforeCall(
             PaginationInput pagination, String functionId, final ApiCallback _callback)
             throws ApiException {
-        // verify the required parameter 'pagination' is set
-        if (pagination == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'pagination' when calling"
-                            + " listInsertFunctionInstances(Async)");
-        }
-
         // verify the required parameter 'functionId' is set
         if (functionId == null) {
             throw new ApiException(
@@ -1975,7 +1954,7 @@ public class FunctionsApi {
      * to have the Functions feature enabled. Please reach out to your customer success manager for
      * more information.
      *
-     * @param pagination Pagination parameters. This parameter exists in alpha. (required)
+     * @param pagination Pagination parameters. This parameter exists in alpha. (optional)
      * @param functionId The insert Function class id to lookup. This parameter exists in alpha.
      *     (required)
      * @return ListInsertFunctionInstances200Response
@@ -2003,7 +1982,7 @@ public class FunctionsApi {
      * to have the Functions feature enabled. Please reach out to your customer success manager for
      * more information.
      *
-     * @param pagination Pagination parameters. This parameter exists in alpha. (required)
+     * @param pagination Pagination parameters. This parameter exists in alpha. (optional)
      * @param functionId The insert Function class id to lookup. This parameter exists in alpha.
      *     (required)
      * @return ApiResponse&lt;ListInsertFunctionInstances200Response&gt;
@@ -2034,7 +2013,7 @@ public class FunctionsApi {
      * Workspace needs to have the Functions feature enabled. Please reach out to your customer
      * success manager for more information.
      *
-     * @param pagination Pagination parameters. This parameter exists in alpha. (required)
+     * @param pagination Pagination parameters. This parameter exists in alpha. (optional)
      * @param functionId The insert Function class id to lookup. This parameter exists in alpha.
      *     (required)
      * @param _callback The callback to be executed when the API call finishes

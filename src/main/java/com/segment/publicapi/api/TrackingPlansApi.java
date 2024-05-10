@@ -810,7 +810,7 @@ public class TrackingPlansApi {
      * Build call for listRulesFromTrackingPlan
      *
      * @param trackingPlanId (required)
-     * @param pagination Pagination options. This parameter exists in v1. (required)
+     * @param pagination Pagination options. This parameter exists in v1. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -902,13 +902,6 @@ public class TrackingPlansApi {
                             + " listRulesFromTrackingPlan(Async)");
         }
 
-        // verify the required parameter 'pagination' is set
-        if (pagination == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'pagination' when calling"
-                            + " listRulesFromTrackingPlan(Async)");
-        }
-
         return listRulesFromTrackingPlanCall(trackingPlanId, pagination, _callback);
     }
 
@@ -922,7 +915,7 @@ public class TrackingPlansApi {
      * information.
      *
      * @param trackingPlanId (required)
-     * @param pagination Pagination options. This parameter exists in v1. (required)
+     * @param pagination Pagination options. This parameter exists in v1. (optional)
      * @return ListRulesFromTrackingPlan200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -952,7 +945,7 @@ public class TrackingPlansApi {
      * information.
      *
      * @param trackingPlanId (required)
-     * @param pagination Pagination options. This parameter exists in v1. (required)
+     * @param pagination Pagination options. This parameter exists in v1. (optional)
      * @return ApiResponse&lt;ListRulesFromTrackingPlan200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -984,7 +977,7 @@ public class TrackingPlansApi {
      * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param trackingPlanId (required)
-     * @param pagination Pagination options. This parameter exists in v1. (required)
+     * @param pagination Pagination options. This parameter exists in v1. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -1016,7 +1009,7 @@ public class TrackingPlansApi {
      * Build call for listSourcesFromTrackingPlan
      *
      * @param trackingPlanId (required)
-     * @param pagination Pagination options. This parameter exists in v1. (required)
+     * @param pagination Pagination options. This parameter exists in v1. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1108,13 +1101,6 @@ public class TrackingPlansApi {
                             + " listSourcesFromTrackingPlan(Async)");
         }
 
-        // verify the required parameter 'pagination' is set
-        if (pagination == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'pagination' when calling"
-                            + " listSourcesFromTrackingPlan(Async)");
-        }
-
         return listSourcesFromTrackingPlanCall(trackingPlanId, pagination, _callback);
     }
 
@@ -1126,7 +1112,7 @@ public class TrackingPlansApi {
      * Tracking Plan Read-only
      *
      * @param trackingPlanId (required)
-     * @param pagination Pagination options. This parameter exists in v1. (required)
+     * @param pagination Pagination options. This parameter exists in v1. (optional)
      * @return ListSourcesFromTrackingPlan200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1154,7 +1140,7 @@ public class TrackingPlansApi {
      * Tracking Plan Read-only
      *
      * @param trackingPlanId (required)
-     * @param pagination Pagination options. This parameter exists in v1. (required)
+     * @param pagination Pagination options. This parameter exists in v1. (optional)
      * @return ApiResponse&lt;ListSourcesFromTrackingPlan200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1185,7 +1171,7 @@ public class TrackingPlansApi {
      * Source Read-only * Tracking Plan Read-only
      *
      * @param trackingPlanId (required)
-     * @param pagination Pagination options. This parameter exists in v1. (required)
+     * @param pagination Pagination options. This parameter exists in v1. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -1219,7 +1205,7 @@ public class TrackingPlansApi {
      *
      * @param type Requests Tracking Plans of a certain type. If omitted, lists all types. This
      *     parameter exists in v1. (optional)
-     * @param pagination Pagination options. This parameter exists in v1. (required)
+     * @param pagination Pagination options. This parameter exists in v1. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1304,13 +1290,6 @@ public class TrackingPlansApi {
     private okhttp3.Call listTrackingPlansValidateBeforeCall(
             String type, PaginationInput pagination, final ApiCallback _callback)
             throws ApiException {
-        // verify the required parameter 'pagination' is set
-        if (pagination == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'pagination' when calling"
-                            + " listTrackingPlans(Async)");
-        }
-
         return listTrackingPlansCall(type, pagination, _callback);
     }
 
@@ -1321,7 +1300,7 @@ public class TrackingPlansApi {
      *
      * @param type Requests Tracking Plans of a certain type. If omitted, lists all types. This
      *     parameter exists in v1. (optional)
-     * @param pagination Pagination options. This parameter exists in v1. (required)
+     * @param pagination Pagination options. This parameter exists in v1. (optional)
      * @return ListTrackingPlans200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1348,7 +1327,7 @@ public class TrackingPlansApi {
      *
      * @param type Requests Tracking Plans of a certain type. If omitted, lists all types. This
      *     parameter exists in v1. (optional)
-     * @param pagination Pagination options. This parameter exists in v1. (required)
+     * @param pagination Pagination options. This parameter exists in v1. (optional)
      * @return ApiResponse&lt;ListTrackingPlans200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1375,7 +1354,7 @@ public class TrackingPlansApi {
      *
      * @param type Requests Tracking Plans of a certain type. If omitted, lists all types. This
      *     parameter exists in v1. (optional)
-     * @param pagination Pagination options. This parameter exists in v1. (required)
+     * @param pagination Pagination options. This parameter exists in v1. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body

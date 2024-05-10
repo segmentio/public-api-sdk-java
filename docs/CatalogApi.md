@@ -134,7 +134,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **pagination** | [**PaginationInput**](.md)| Required pagination parameters used to filter the Destinations catalog.  This parameter exists in v1. | |
+| **pagination** | [**PaginationInput**](.md)| Required pagination parameters used to filter the Destinations catalog.  This parameter exists in v1. | [optional] |
 
 ### Return type
 
@@ -280,7 +280,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **pagination** | [**PaginationInput**](.md)| Defines the pagination parameters.  This parameter exists in v1. | |
+| **pagination** | [**PaginationInput**](.md)| Defines the pagination parameters.  This parameter exists in v1. | [optional] |
 
 ### Return type
 
@@ -406,7 +406,7 @@ public class Example {
         token.setBearerToken("BEARER TOKEN");
 
         CatalogApi apiInstance = new CatalogApi(defaultClient);
-        PaginationInput pagination = new PaginationInput(); // PaginationInput | Required pagination params used to filter the Warehouses catalog.  This parameter exists in v1.
+        PaginationInput pagination = new PaginationInput(); // PaginationInput | Optional pagination params used to filter the Warehouses catalog.  This parameter exists in v1.
         try {
             GetWarehousesCatalog200Response result = apiInstance.getWarehousesCatalog(pagination);
             System.out.println(result);
@@ -426,7 +426,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **pagination** | [**PaginationInput**](.md)| Required pagination params used to filter the Warehouses catalog.  This parameter exists in v1. | |
+| **pagination** | [**PaginationInput**](.md)| Optional pagination params used to filter the Warehouses catalog.  This parameter exists in v1. | [optional] |
 
 ### Return type
 

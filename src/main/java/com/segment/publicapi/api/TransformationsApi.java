@@ -601,7 +601,7 @@ public class TransformationsApi {
     /**
      * Build call for listTransformations
      *
-     * @param pagination Pagination options. This parameter exists in v1. (required)
+     * @param pagination Pagination options. This parameter exists in v1. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -680,13 +680,6 @@ public class TransformationsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listTransformationsValidateBeforeCall(
             PaginationInput pagination, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'pagination' is set
-        if (pagination == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'pagination' when calling"
-                            + " listTransformations(Async)");
-        }
-
         return listTransformationsCall(pagination, _callback);
     }
 
@@ -695,7 +688,7 @@ public class TransformationsApi {
      * call this endpoint, the specified Workspace needs to have the Protocols feature enabled.
      * Please reach out to your customer success manager for more information.
      *
-     * @param pagination Pagination options. This parameter exists in v1. (required)
+     * @param pagination Pagination options. This parameter exists in v1. (optional)
      * @return ListTransformations200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -720,7 +713,7 @@ public class TransformationsApi {
      * call this endpoint, the specified Workspace needs to have the Protocols feature enabled.
      * Please reach out to your customer success manager for more information.
      *
-     * @param pagination Pagination options. This parameter exists in v1. (required)
+     * @param pagination Pagination options. This parameter exists in v1. (optional)
      * @return ApiResponse&lt;ListTransformations200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -745,7 +738,7 @@ public class TransformationsApi {
      * to successfully call this endpoint, the specified Workspace needs to have the Protocols
      * feature enabled. Please reach out to your customer success manager for more information.
      *
-     * @param pagination Pagination options. This parameter exists in v1. (required)
+     * @param pagination Pagination options. This parameter exists in v1. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body

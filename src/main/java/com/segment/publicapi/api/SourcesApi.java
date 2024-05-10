@@ -949,7 +949,7 @@ public class SourcesApi {
      *
      * @param sourceId (required)
      * @param pagination Required pagination params for the request. This parameter exists in alpha.
-     *     (required)
+     *     (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1041,13 +1041,6 @@ public class SourcesApi {
                             + " listConnectedDestinationsFromSource(Async)");
         }
 
-        // verify the required parameter 'pagination' is set
-        if (pagination == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'pagination' when calling"
-                            + " listConnectedDestinationsFromSource(Async)");
-        }
-
         return listConnectedDestinationsFromSourceCall(sourceId, pagination, _callback);
     }
 
@@ -1056,7 +1049,7 @@ public class SourcesApi {
      *
      * @param sourceId (required)
      * @param pagination Required pagination params for the request. This parameter exists in alpha.
-     *     (required)
+     *     (optional)
      * @return ListConnectedDestinationsFromSource200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1081,7 +1074,7 @@ public class SourcesApi {
      *
      * @param sourceId (required)
      * @param pagination Required pagination params for the request. This parameter exists in alpha.
-     *     (required)
+     *     (optional)
      * @return ApiResponse&lt;ListConnectedDestinationsFromSource200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1110,7 +1103,7 @@ public class SourcesApi {
      *
      * @param sourceId (required)
      * @param pagination Required pagination params for the request. This parameter exists in alpha.
-     *     (required)
+     *     (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -1144,7 +1137,7 @@ public class SourcesApi {
      *
      * @param sourceId (required)
      * @param pagination Required pagination params for the request. This parameter exists in alpha.
-     *     (required)
+     *     (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1236,13 +1229,6 @@ public class SourcesApi {
                             + " listConnectedWarehousesFromSource(Async)");
         }
 
-        // verify the required parameter 'pagination' is set
-        if (pagination == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'pagination' when calling"
-                            + " listConnectedWarehousesFromSource(Async)");
-        }
-
         return listConnectedWarehousesFromSourceCall(sourceId, pagination, _callback);
     }
 
@@ -1251,7 +1237,7 @@ public class SourcesApi {
      *
      * @param sourceId (required)
      * @param pagination Required pagination params for the request. This parameter exists in alpha.
-     *     (required)
+     *     (optional)
      * @return ListConnectedWarehousesFromSource200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1276,7 +1262,7 @@ public class SourcesApi {
      *
      * @param sourceId (required)
      * @param pagination Required pagination params for the request. This parameter exists in alpha.
-     *     (required)
+     *     (optional)
      * @return ApiResponse&lt;ListConnectedWarehousesFromSource200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1305,7 +1291,7 @@ public class SourcesApi {
      *
      * @param sourceId (required)
      * @param pagination Required pagination params for the request. This parameter exists in alpha.
-     *     (required)
+     *     (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -1512,7 +1498,7 @@ public class SourcesApi {
      * Build call for listSources
      *
      * @param pagination Defines the pagination parameters. This parameter exists in alpha.
-     *     (required)
+     *     (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1591,12 +1577,6 @@ public class SourcesApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listSourcesValidateBeforeCall(
             PaginationInput pagination, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'pagination' is set
-        if (pagination == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'pagination' when calling listSources(Async)");
-        }
-
         return listSourcesCall(pagination, _callback);
     }
 
@@ -1604,7 +1584,7 @@ public class SourcesApi {
      * List Sources Returns a list of Sources.
      *
      * @param pagination Defines the pagination parameters. This parameter exists in alpha.
-     *     (required)
+     *     (optional)
      * @return ListSources200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1626,7 +1606,7 @@ public class SourcesApi {
      * List Sources Returns a list of Sources.
      *
      * @param pagination Defines the pagination parameters. This parameter exists in alpha.
-     *     (required)
+     *     (optional)
      * @return ApiResponse&lt;ListSources200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1650,7 +1630,7 @@ public class SourcesApi {
      * List Sources (asynchronously) Returns a list of Sources.
      *
      * @param pagination Defines the pagination parameters. This parameter exists in alpha.
-     *     (required)
+     *     (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body

@@ -657,7 +657,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **functionId** | **String**|  | |
-| **pagination** | [**PaginationInput**](.md)| Pagination parameters.  This parameter exists in alpha. | |
+| **pagination** | [**PaginationInput**](.md)| Pagination parameters.  This parameter exists in alpha. | [optional] |
 
 ### Return type
 
@@ -731,7 +731,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **pagination** | [**PaginationInput**](.md)| Pagination parameters.  This parameter exists in v1. | |
+| **pagination** | [**PaginationInput**](.md)| Pagination parameters.  This parameter exists in v1. | [optional] |
 | **resourceType** | **String**| The Function type.  Config API note: equal to &#x60;type&#x60;.  This parameter exists in v1. | [enum: DESTINATION, INSERT_DESTINATION, SOURCE] |
 
 ### Return type
@@ -806,7 +806,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **pagination** | [**PaginationInput**](.md)| Pagination parameters.  This parameter exists in alpha. | |
+| **pagination** | [**PaginationInput**](.md)| Pagination parameters.  This parameter exists in alpha. | [optional] |
 | **functionId** | **String**| The insert Function class id to lookup.  This parameter exists in alpha. | |
 
 ### Return type

@@ -438,7 +438,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **userGroupId** | **String**|  | |
-| **pagination** | [**PaginationInput**](.md)| Pagination for invites to the group.  This parameter exists in v1. | |
+| **pagination** | [**PaginationInput**](.md)| Pagination for invites to the group.  This parameter exists in v1. | [optional] |
 
 ### Return type
 
@@ -511,7 +511,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **pagination** | [**PaginationInput**](.md)| Pagination for user groups.  This parameter exists in v1. | |
+| **pagination** | [**PaginationInput**](.md)| Pagination for user groups.  This parameter exists in v1. | [optional] |
 
 ### Return type
 
@@ -586,7 +586,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **userGroupId** | **String**|  | |
-| **pagination** | [**PaginationInput**](.md)| Pagination for members of a group.  This parameter exists in v1. | |
+| **pagination** | [**PaginationInput**](.md)| Pagination for members of a group.  This parameter exists in v1. | [optional] |
 
 ### Return type
 
