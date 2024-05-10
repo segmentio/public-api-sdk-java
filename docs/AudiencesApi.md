@@ -136,7 +136,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **spaceId** | **String**|  | |
-| **pagination** | [**PaginationInput**](.md)| Information about the pagination of this response.  This parameter exists in alpha. | [optional] |
+| **pagination** | [**PaginationInput**](.md)| Information about the pagination of this response.  This parameter exists in alpha. | |
 
 ### Return type
 
