@@ -34,21 +34,6 @@ public class UpdateComputedTraitForSpaceAlphaInput {
     @SerializedName(SERIALIZED_NAME_ENABLED)
     private Boolean enabled;
 
-    public static final String SERIALIZED_NAME_NAME = "name";
-
-    @SerializedName(SERIALIZED_NAME_NAME)
-    private String name;
-
-    public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-
-    @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    private String description;
-
-    public static final String SERIALIZED_NAME_DEFINITION = "definition";
-
-    @SerializedName(SERIALIZED_NAME_DEFINITION)
-    private TraitDefinition definition;
-
     public UpdateComputedTraitForSpaceAlphaInput() {}
 
     public UpdateComputedTraitForSpaceAlphaInput enabled(Boolean enabled) {
@@ -71,66 +56,6 @@ public class UpdateComputedTraitForSpaceAlphaInput {
         this.enabled = enabled;
     }
 
-    public UpdateComputedTraitForSpaceAlphaInput name(String name) {
-
-        this.name = name;
-        return this;
-    }
-
-    /**
-     * The name of the computation.
-     *
-     * @return name
-     */
-    @javax.annotation.Nullable
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public UpdateComputedTraitForSpaceAlphaInput description(String description) {
-
-        this.description = description;
-        return this;
-    }
-
-    /**
-     * The description of the computation.
-     *
-     * @return description
-     */
-    @javax.annotation.Nullable
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public UpdateComputedTraitForSpaceAlphaInput definition(TraitDefinition definition) {
-
-        this.definition = definition;
-        return this;
-    }
-
-    /**
-     * Get definition
-     *
-     * @return definition
-     */
-    @javax.annotation.Nullable
-    public TraitDefinition getDefinition() {
-        return definition;
-    }
-
-    public void setDefinition(TraitDefinition definition) {
-        this.definition = definition;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -141,17 +66,12 @@ public class UpdateComputedTraitForSpaceAlphaInput {
         }
         UpdateComputedTraitForSpaceAlphaInput updateComputedTraitForSpaceAlphaInput =
                 (UpdateComputedTraitForSpaceAlphaInput) o;
-        return Objects.equals(this.enabled, updateComputedTraitForSpaceAlphaInput.enabled)
-                && Objects.equals(this.name, updateComputedTraitForSpaceAlphaInput.name)
-                && Objects.equals(
-                        this.description, updateComputedTraitForSpaceAlphaInput.description)
-                && Objects.equals(
-                        this.definition, updateComputedTraitForSpaceAlphaInput.definition);
+        return Objects.equals(this.enabled, updateComputedTraitForSpaceAlphaInput.enabled);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(enabled, name, description, definition);
+        return Objects.hash(enabled);
     }
 
     @Override
@@ -159,9 +79,6 @@ public class UpdateComputedTraitForSpaceAlphaInput {
         StringBuilder sb = new StringBuilder();
         sb.append("class UpdateComputedTraitForSpaceAlphaInput {\n");
         sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    definition: ").append(toIndentedString(definition)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -184,9 +101,6 @@ public class UpdateComputedTraitForSpaceAlphaInput {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
         openapiFields.add("enabled");
-        openapiFields.add("name");
-        openapiFields.add("description");
-        openapiFields.add("definition");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
@@ -225,26 +139,6 @@ public class UpdateComputedTraitForSpaceAlphaInput {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull())
-                && !jsonObj.get("name").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `name` to be a primitive type in the JSON string"
-                                    + " but got `%s`",
-                            jsonObj.get("name").toString()));
-        }
-        if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull())
-                && !jsonObj.get("description").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `description` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
-                            jsonObj.get("description").toString()));
-        }
-        // validate the optional field `definition`
-        if (jsonObj.get("definition") != null && !jsonObj.get("definition").isJsonNull()) {
-            TraitDefinition.validateJsonElement(jsonObj.get("definition"));
-        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
