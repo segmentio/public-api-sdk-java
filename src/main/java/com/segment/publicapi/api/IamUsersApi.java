@@ -996,7 +996,7 @@ public class IamUsersApi {
     /**
      * Build call for listInvites
      *
-     * @param pagination Defines the pagination parameters. This parameter exists in v1. (required)
+     * @param pagination Defines the pagination parameters. This parameter exists in v1. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1075,12 +1075,6 @@ public class IamUsersApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listInvitesValidateBeforeCall(
             PaginationInput pagination, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'pagination' is set
-        if (pagination == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'pagination' when calling listInvites(Async)");
-        }
-
         return listInvitesCall(pagination, _callback);
     }
 
@@ -1088,7 +1082,7 @@ public class IamUsersApi {
      * List Invites Returns a list of invitations to join a Workspace. Config API omitted fields: -
      * &#x60;parent&#x60;
      *
-     * @param pagination Defines the pagination parameters. This parameter exists in v1. (required)
+     * @param pagination Defines the pagination parameters. This parameter exists in v1. (optional)
      * @return ListInvites200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1110,7 +1104,7 @@ public class IamUsersApi {
      * List Invites Returns a list of invitations to join a Workspace. Config API omitted fields: -
      * &#x60;parent&#x60;
      *
-     * @param pagination Defines the pagination parameters. This parameter exists in v1. (required)
+     * @param pagination Defines the pagination parameters. This parameter exists in v1. (optional)
      * @return ApiResponse&lt;ListInvites200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1134,7 +1128,7 @@ public class IamUsersApi {
      * List Invites (asynchronously) Returns a list of invitations to join a Workspace. Config API
      * omitted fields: - &#x60;parent&#x60;
      *
-     * @param pagination Defines the pagination parameters. This parameter exists in v1. (required)
+     * @param pagination Defines the pagination parameters. This parameter exists in v1. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -1162,7 +1156,7 @@ public class IamUsersApi {
      * Build call for listUserGroupsFromUser
      *
      * @param userId (required)
-     * @param pagination Pagination for groups. This parameter exists in v1. (required)
+     * @param pagination Pagination for groups. This parameter exists in v1. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1254,13 +1248,6 @@ public class IamUsersApi {
                             + " listUserGroupsFromUser(Async)");
         }
 
-        // verify the required parameter 'pagination' is set
-        if (pagination == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'pagination' when calling"
-                            + " listUserGroupsFromUser(Async)");
-        }
-
         return listUserGroupsFromUserCall(userId, pagination, _callback);
     }
 
@@ -1268,7 +1255,7 @@ public class IamUsersApi {
      * List User Groups from User Returns all groups a user belongs to.
      *
      * @param userId (required)
-     * @param pagination Pagination for groups. This parameter exists in v1. (required)
+     * @param pagination Pagination for groups. This parameter exists in v1. (optional)
      * @return ListUserGroupsFromUser200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1292,7 +1279,7 @@ public class IamUsersApi {
      * List User Groups from User Returns all groups a user belongs to.
      *
      * @param userId (required)
-     * @param pagination Pagination for groups. This parameter exists in v1. (required)
+     * @param pagination Pagination for groups. This parameter exists in v1. (optional)
      * @return ApiResponse&lt;ListUserGroupsFromUser200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1317,7 +1304,7 @@ public class IamUsersApi {
      * List User Groups from User (asynchronously) Returns all groups a user belongs to.
      *
      * @param userId (required)
-     * @param pagination Pagination for groups. This parameter exists in v1. (required)
+     * @param pagination Pagination for groups. This parameter exists in v1. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -1347,7 +1334,7 @@ public class IamUsersApi {
     /**
      * Build call for listUsers
      *
-     * @param pagination Pagination for users. This parameter exists in v1. (required)
+     * @param pagination Pagination for users. This parameter exists in v1. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1426,19 +1413,13 @@ public class IamUsersApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listUsersValidateBeforeCall(
             PaginationInput pagination, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'pagination' is set
-        if (pagination == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'pagination' when calling listUsers(Async)");
-        }
-
         return listUsersCall(pagination, _callback);
     }
 
     /**
      * List Users Returns a list of users with access to the Workspace.
      *
-     * @param pagination Pagination for users. This parameter exists in v1. (required)
+     * @param pagination Pagination for users. This parameter exists in v1. (optional)
      * @return ListUsers200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1459,7 +1440,7 @@ public class IamUsersApi {
     /**
      * List Users Returns a list of users with access to the Workspace.
      *
-     * @param pagination Pagination for users. This parameter exists in v1. (required)
+     * @param pagination Pagination for users. This parameter exists in v1. (optional)
      * @return ApiResponse&lt;ListUsers200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1482,7 +1463,7 @@ public class IamUsersApi {
     /**
      * List Users (asynchronously) Returns a list of users with access to the Workspace.
      *
-     * @param pagination Pagination for users. This parameter exists in v1. (required)
+     * @param pagination Pagination for users. This parameter exists in v1. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body

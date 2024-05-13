@@ -258,7 +258,7 @@ public class SelectiveSyncApi {
      *
      * @param warehouseId (required)
      * @param sourceId (required)
-     * @param pagination Defines the pagination parameters. This parameter exists in v1. (required)
+     * @param pagination Defines the pagination parameters. This parameter exists in v1. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -366,13 +366,6 @@ public class SelectiveSyncApi {
                             + " listSelectiveSyncsFromWarehouseAndSource(Async)");
         }
 
-        // verify the required parameter 'pagination' is set
-        if (pagination == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'pagination' when calling"
-                            + " listSelectiveSyncsFromWarehouseAndSource(Async)");
-        }
-
         return listSelectiveSyncsFromWarehouseAndSourceCall(
                 warehouseId, sourceId, pagination, _callback);
     }
@@ -386,7 +379,7 @@ public class SelectiveSyncApi {
      *
      * @param warehouseId (required)
      * @param sourceId (required)
-     * @param pagination Defines the pagination parameters. This parameter exists in v1. (required)
+     * @param pagination Defines the pagination parameters. This parameter exists in v1. (optional)
      * @return ListSelectiveSyncsFromWarehouseAndSource200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -418,7 +411,7 @@ public class SelectiveSyncApi {
      *
      * @param warehouseId (required)
      * @param sourceId (required)
-     * @param pagination Defines the pagination parameters. This parameter exists in v1. (required)
+     * @param pagination Defines the pagination parameters. This parameter exists in v1. (optional)
      * @return ApiResponse&lt;ListSelectiveSyncsFromWarehouseAndSource200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -452,7 +445,7 @@ public class SelectiveSyncApi {
      *
      * @param warehouseId (required)
      * @param sourceId (required)
-     * @param pagination Defines the pagination parameters. This parameter exists in v1. (required)
+     * @param pagination Defines the pagination parameters. This parameter exists in v1. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -486,7 +479,7 @@ public class SelectiveSyncApi {
      * Build call for listSyncsFromWarehouse
      *
      * @param warehouseId (required)
-     * @param pagination Defines the pagination parameters. This parameter exists in v1. (required)
+     * @param pagination Defines the pagination parameters. This parameter exists in v1. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -578,13 +571,6 @@ public class SelectiveSyncApi {
                             + " listSyncsFromWarehouse(Async)");
         }
 
-        // verify the required parameter 'pagination' is set
-        if (pagination == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'pagination' when calling"
-                            + " listSyncsFromWarehouse(Async)");
-        }
-
         return listSyncsFromWarehouseCall(warehouseId, pagination, _callback);
     }
 
@@ -596,7 +582,7 @@ public class SelectiveSyncApi {
      * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param warehouseId (required)
-     * @param pagination Defines the pagination parameters. This parameter exists in v1. (required)
+     * @param pagination Defines the pagination parameters. This parameter exists in v1. (optional)
      * @return ListSyncsFromWarehouse200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -624,7 +610,7 @@ public class SelectiveSyncApi {
      * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param warehouseId (required)
-     * @param pagination Defines the pagination parameters. This parameter exists in v1. (required)
+     * @param pagination Defines the pagination parameters. This parameter exists in v1. (optional)
      * @return ApiResponse&lt;ListSyncsFromWarehouse200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -653,7 +639,7 @@ public class SelectiveSyncApi {
      * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param warehouseId (required)
-     * @param pagination Defines the pagination parameters. This parameter exists in v1. (required)
+     * @param pagination Defines the pagination parameters. This parameter exists in v1. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -685,7 +671,7 @@ public class SelectiveSyncApi {
      *
      * @param warehouseId (required)
      * @param sourceId (required)
-     * @param pagination Defines the pagination parameters. This parameter exists in v1. (required)
+     * @param pagination Defines the pagination parameters. This parameter exists in v1. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -793,13 +779,6 @@ public class SelectiveSyncApi {
                             + " listSyncsFromWarehouseAndSource(Async)");
         }
 
-        // verify the required parameter 'pagination' is set
-        if (pagination == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'pagination' when calling"
-                            + " listSyncsFromWarehouseAndSource(Async)");
-        }
-
         return listSyncsFromWarehouseAndSourceCall(warehouseId, sourceId, pagination, _callback);
     }
 
@@ -812,7 +791,7 @@ public class SelectiveSyncApi {
      *
      * @param warehouseId (required)
      * @param sourceId (required)
-     * @param pagination Defines the pagination parameters. This parameter exists in v1. (required)
+     * @param pagination Defines the pagination parameters. This parameter exists in v1. (optional)
      * @return ListSyncsFromWarehouseAndSource200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -841,7 +820,7 @@ public class SelectiveSyncApi {
      *
      * @param warehouseId (required)
      * @param sourceId (required)
-     * @param pagination Defines the pagination parameters. This parameter exists in v1. (required)
+     * @param pagination Defines the pagination parameters. This parameter exists in v1. (optional)
      * @return ApiResponse&lt;ListSyncsFromWarehouseAndSource200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -875,7 +854,7 @@ public class SelectiveSyncApi {
      *
      * @param warehouseId (required)
      * @param sourceId (required)
-     * @param pagination Defines the pagination parameters. This parameter exists in v1. (required)
+     * @param pagination Defines the pagination parameters. This parameter exists in v1. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body

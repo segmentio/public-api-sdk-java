@@ -459,7 +459,7 @@ public class ProfilesSyncApi {
      * @param spaceId (required)
      * @param warehouseId (required)
      * @param pagination Defines the pagination parameters. This parameter exists in alpha.
-     *     (required)
+     *     (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -564,13 +564,6 @@ public class ProfilesSyncApi {
                             + " listSelectiveSyncsFromWarehouseAndSpace(Async)");
         }
 
-        // verify the required parameter 'pagination' is set
-        if (pagination == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'pagination' when calling"
-                            + " listSelectiveSyncsFromWarehouseAndSpace(Async)");
-        }
-
         return listSelectiveSyncsFromWarehouseAndSpaceCall(
                 spaceId, warehouseId, pagination, _callback);
     }
@@ -582,7 +575,7 @@ public class ProfilesSyncApi {
      * @param spaceId (required)
      * @param warehouseId (required)
      * @param pagination Defines the pagination parameters. This parameter exists in alpha.
-     *     (required)
+     *     (optional)
      * @return ListSelectiveSyncsFromWarehouseAndSpace200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -612,7 +605,7 @@ public class ProfilesSyncApi {
      * @param spaceId (required)
      * @param warehouseId (required)
      * @param pagination Defines the pagination parameters. This parameter exists in alpha.
-     *     (required)
+     *     (optional)
      * @return ApiResponse&lt;ListSelectiveSyncsFromWarehouseAndSpace200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -644,7 +637,7 @@ public class ProfilesSyncApi {
      * @param spaceId (required)
      * @param warehouseId (required)
      * @param pagination Defines the pagination parameters. This parameter exists in alpha.
-     *     (required)
+     *     (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body

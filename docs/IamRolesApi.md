@@ -56,7 +56,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **pagination** | [**PaginationInput**](.md)| Pagination for roles.  This parameter exists in v1. | |
+| **pagination** | [**PaginationInput**](.md)| Pagination for roles.  This parameter exists in v1. | [optional] |
 
 ### Return type
 

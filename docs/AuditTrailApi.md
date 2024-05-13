@@ -64,7 +64,7 @@ public class Example {
 | **endTime** | **String**| Filter response to events that happened before this time. Defaults to the current time, or the end time from the pagination cursor.  This parameter exists in v1. | [optional] |
 | **resourceId** | **String**| Filter response to events that affect a specific resource, for example, a single Source.  This parameter exists in v1. | [optional] |
 | **resourceType** | **String**| Filter response to events that affect a specific type, for example, Sources, Warehouses, and Tracking Plans.  This parameter exists in v1. | [optional] |
-| **pagination** | [**PaginationInput**](.md)| Defines the pagination parameters.  This parameter exists in v1. | |
+| **pagination** | [**PaginationInput**](.md)| Defines the pagination parameters.  This parameter exists in v1. | [optional] |
 
 ### Return type
 

@@ -66,7 +66,7 @@ public class IamRolesApi {
     /**
      * Build call for listRoles
      *
-     * @param pagination Pagination for roles. This parameter exists in v1. (required)
+     * @param pagination Pagination for roles. This parameter exists in v1. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -145,19 +145,13 @@ public class IamRolesApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listRolesValidateBeforeCall(
             PaginationInput pagination, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'pagination' is set
-        if (pagination == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'pagination' when calling listRoles(Async)");
-        }
-
         return listRolesCall(pagination, _callback);
     }
 
     /**
      * List Roles Returns a list of Roles available to apply to permissions for users and/or groups.
      *
-     * @param pagination Pagination for roles. This parameter exists in v1. (required)
+     * @param pagination Pagination for roles. This parameter exists in v1. (optional)
      * @return ListRoles200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -178,7 +172,7 @@ public class IamRolesApi {
     /**
      * List Roles Returns a list of Roles available to apply to permissions for users and/or groups.
      *
-     * @param pagination Pagination for roles. This parameter exists in v1. (required)
+     * @param pagination Pagination for roles. This parameter exists in v1. (optional)
      * @return ApiResponse&lt;ListRoles200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -202,7 +196,7 @@ public class IamRolesApi {
      * List Roles (asynchronously) Returns a list of Roles available to apply to permissions for
      * users and/or groups.
      *
-     * @param pagination Pagination for roles. This parameter exists in v1. (required)
+     * @param pagination Pagination for roles. This parameter exists in v1. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body

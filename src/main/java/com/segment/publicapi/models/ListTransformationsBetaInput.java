@@ -47,7 +47,7 @@ public class ListTransformationsBetaInput {
      *
      * @return pagination
      */
-    @javax.annotation.Nonnull
+    @javax.annotation.Nullable
     public PaginationInput getPagination() {
         return pagination;
     }
@@ -104,7 +104,6 @@ public class ListTransformationsBetaInput {
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("pagination");
     }
 
     /**
@@ -137,19 +136,11 @@ public class ListTransformationsBetaInput {
                                 entry.getKey(), jsonElement.toString()));
             }
         }
-
-        // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : ListTransformationsBetaInput.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-                throw new IllegalArgumentException(
-                        String.format(
-                                "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonElement.toString()));
-            }
-        }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        // validate the required field `pagination`
-        PaginationInput.validateJsonElement(jsonObj.get("pagination"));
+        // validate the optional field `pagination`
+        if (jsonObj.get("pagination") != null && !jsonObj.get("pagination").isJsonNull()) {
+            PaginationInput.validateJsonElement(jsonObj.get("pagination"));
+        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

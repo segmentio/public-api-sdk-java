@@ -91,7 +91,7 @@ public class DeliveryOverviewApi {
      *     can be applied in addition to a &#x60;groupBy&#x60;. This parameter exists in beta.
      *     (optional)
      * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
-     *     (required)
+     *     (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -251,13 +251,6 @@ public class DeliveryOverviewApi {
                             + " getEgressFailedMetricsFromDeliveryOverview(Async)");
         }
 
-        // verify the required parameter 'pagination' is set
-        if (pagination == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'pagination' when calling"
-                            + " getEgressFailedMetricsFromDeliveryOverview(Async)");
-        }
-
         return getEgressFailedMetricsFromDeliveryOverviewCall(
                 sourceId,
                 destinationConfigId,
@@ -296,7 +289,7 @@ public class DeliveryOverviewApi {
      *     can be applied in addition to a &#x60;groupBy&#x60;. This parameter exists in beta.
      *     (optional)
      * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
-     *     (required)
+     *     (optional)
      * @return GetEgressFailedMetricsFromDeliveryOverview200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -359,7 +352,7 @@ public class DeliveryOverviewApi {
      *     can be applied in addition to a &#x60;groupBy&#x60;. This parameter exists in beta.
      *     (optional)
      * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
-     *     (required)
+     *     (optional)
      * @return ApiResponse&lt;GetEgressFailedMetricsFromDeliveryOverview200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -425,7 +418,7 @@ public class DeliveryOverviewApi {
      *     can be applied in addition to a &#x60;groupBy&#x60;. This parameter exists in beta.
      *     (optional)
      * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
-     *     (required)
+     *     (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -495,7 +488,7 @@ public class DeliveryOverviewApi {
      *     &#x60;successes.attempt.1&#x60; through &#x60;successes.attempt.10&#x60;. This parameter
      *     exists in beta. (optional)
      * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
-     *     (required)
+     *     (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -655,13 +648,6 @@ public class DeliveryOverviewApi {
                             + " getEgressSuccessMetricsFromDeliveryOverview(Async)");
         }
 
-        // verify the required parameter 'pagination' is set
-        if (pagination == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'pagination' when calling"
-                            + " getEgressSuccessMetricsFromDeliveryOverview(Async)");
-        }
-
         return getEgressSuccessMetricsFromDeliveryOverviewCall(
                 sourceId,
                 destinationConfigId,
@@ -702,7 +688,7 @@ public class DeliveryOverviewApi {
      *     &#x60;successes.attempt.1&#x60; through &#x60;successes.attempt.10&#x60;. This parameter
      *     exists in beta. (optional)
      * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
-     *     (required)
+     *     (optional)
      * @return GetEgressFailedMetricsFromDeliveryOverview200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -767,7 +753,7 @@ public class DeliveryOverviewApi {
      *     &#x60;successes.attempt.1&#x60; through &#x60;successes.attempt.10&#x60;. This parameter
      *     exists in beta. (optional)
      * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
-     *     (required)
+     *     (optional)
      * @return ApiResponse&lt;GetEgressFailedMetricsFromDeliveryOverview200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -835,7 +821,7 @@ public class DeliveryOverviewApi {
      *     &#x60;successes.attempt.1&#x60; through &#x60;successes.attempt.10&#x60;. This parameter
      *     exists in beta. (optional)
      * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
-     *     (required)
+     *     (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -903,7 +889,7 @@ public class DeliveryOverviewApi {
      *     can be applied in addition to a &#x60;groupBy&#x60;. This parameter exists in beta.
      *     (optional)
      * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
-     *     (required)
+     *     (optional)
      * @param subscriptionId An optional filter for actions destinations, to filter by a specific
      *     action. This parameter exists in beta. (optional)
      * @param _callback Callback for upload/download progress
@@ -1072,13 +1058,6 @@ public class DeliveryOverviewApi {
                             + " getFilteredAtDestinationMetricsFromDeliveryOverview(Async)");
         }
 
-        // verify the required parameter 'pagination' is set
-        if (pagination == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'pagination' when calling"
-                            + " getFilteredAtDestinationMetricsFromDeliveryOverview(Async)");
-        }
-
         return getFilteredAtDestinationMetricsFromDeliveryOverviewCall(
                 sourceId,
                 destinationConfigId,
@@ -1118,7 +1097,7 @@ public class DeliveryOverviewApi {
      *     can be applied in addition to a &#x60;groupBy&#x60;. This parameter exists in beta.
      *     (optional)
      * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
-     *     (required)
+     *     (optional)
      * @param subscriptionId An optional filter for actions destinations, to filter by a specific
      *     action. This parameter exists in beta. (optional)
      * @return GetEgressFailedMetricsFromDeliveryOverview200Response
@@ -1185,7 +1164,7 @@ public class DeliveryOverviewApi {
      *     can be applied in addition to a &#x60;groupBy&#x60;. This parameter exists in beta.
      *     (optional)
      * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
-     *     (required)
+     *     (optional)
      * @param subscriptionId An optional filter for actions destinations, to filter by a specific
      *     action. This parameter exists in beta. (optional)
      * @return ApiResponse&lt;GetEgressFailedMetricsFromDeliveryOverview200Response&gt;
@@ -1255,7 +1234,7 @@ public class DeliveryOverviewApi {
      *     can be applied in addition to a &#x60;groupBy&#x60;. This parameter exists in beta.
      *     (optional)
      * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
-     *     (required)
+     *     (optional)
      * @param subscriptionId An optional filter for actions destinations, to filter by a specific
      *     action. This parameter exists in beta. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -1324,7 +1303,7 @@ public class DeliveryOverviewApi {
      *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
      *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
      * @param pagination Optional params to specify the page cursor and count. This parameter exists
-     *     in beta. (required)
+     *     in beta. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1470,13 +1449,6 @@ public class DeliveryOverviewApi {
                             + " getFilteredAtSourceMetricsFromDeliveryOverview(Async)");
         }
 
-        // verify the required parameter 'pagination' is set
-        if (pagination == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'pagination' when calling"
-                            + " getFilteredAtSourceMetricsFromDeliveryOverview(Async)");
-        }
-
         return getFilteredAtSourceMetricsFromDeliveryOverviewCall(
                 sourceId, startTime, endTime, groupBy, granularity, filter, pagination, _callback);
     }
@@ -1504,7 +1476,7 @@ public class DeliveryOverviewApi {
      *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
      *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
      * @param pagination Optional params to specify the page cursor and count. This parameter exists
-     *     in beta. (required)
+     *     in beta. (optional)
      * @return GetEgressFailedMetricsFromDeliveryOverview200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1556,7 +1528,7 @@ public class DeliveryOverviewApi {
      *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
      *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
      * @param pagination Optional params to specify the page cursor and count. This parameter exists
-     *     in beta. (required)
+     *     in beta. (optional)
      * @return ApiResponse&lt;GetEgressFailedMetricsFromDeliveryOverview200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1617,7 +1589,7 @@ public class DeliveryOverviewApi {
      *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
      *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
      * @param pagination Optional params to specify the page cursor and count. This parameter exists
-     *     in beta. (required)
+     *     in beta. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -1680,7 +1652,7 @@ public class DeliveryOverviewApi {
      *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
      *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
      * @param pagination Optional params to specify the page cursor and count. This parameter exists
-     *     in beta. (required)
+     *     in beta. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1826,13 +1798,6 @@ public class DeliveryOverviewApi {
                             + " getIngressFailedMetricsFromDeliveryOverview(Async)");
         }
 
-        // verify the required parameter 'pagination' is set
-        if (pagination == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'pagination' when calling"
-                            + " getIngressFailedMetricsFromDeliveryOverview(Async)");
-        }
-
         return getIngressFailedMetricsFromDeliveryOverviewCall(
                 sourceId, startTime, endTime, groupBy, granularity, filter, pagination, _callback);
     }
@@ -1859,7 +1824,7 @@ public class DeliveryOverviewApi {
      *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
      *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
      * @param pagination Optional params to specify the page cursor and count. This parameter exists
-     *     in beta. (required)
+     *     in beta. (optional)
      * @return GetEgressFailedMetricsFromDeliveryOverview200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1910,7 +1875,7 @@ public class DeliveryOverviewApi {
      *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
      *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
      * @param pagination Optional params to specify the page cursor and count. This parameter exists
-     *     in beta. (required)
+     *     in beta. (optional)
      * @return ApiResponse&lt;GetEgressFailedMetricsFromDeliveryOverview200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1971,7 +1936,7 @@ public class DeliveryOverviewApi {
      *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
      *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
      * @param pagination Optional params to specify the page cursor and count. This parameter exists
-     *     in beta. (required)
+     *     in beta. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -2033,7 +1998,7 @@ public class DeliveryOverviewApi {
      *     &#x60;appVersion&#x60; that can be applied in addition to a &#x60;groupBy&#x60;. This
      *     parameter exists in beta. (optional)
      * @param pagination Optional params to specify the page cursor and count. This parameter exists
-     *     in beta. (required)
+     *     in beta. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2179,13 +2144,6 @@ public class DeliveryOverviewApi {
                             + " getIngressSuccessMetricsFromDeliveryOverview(Async)");
         }
 
-        // verify the required parameter 'pagination' is set
-        if (pagination == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'pagination' when calling"
-                            + " getIngressSuccessMetricsFromDeliveryOverview(Async)");
-        }
-
         return getIngressSuccessMetricsFromDeliveryOverviewCall(
                 sourceId, startTime, endTime, groupBy, granularity, filter, pagination, _callback);
     }
@@ -2212,7 +2170,7 @@ public class DeliveryOverviewApi {
      *     &#x60;appVersion&#x60; that can be applied in addition to a &#x60;groupBy&#x60;. This
      *     parameter exists in beta. (optional)
      * @param pagination Optional params to specify the page cursor and count. This parameter exists
-     *     in beta. (required)
+     *     in beta. (optional)
      * @return GetEgressFailedMetricsFromDeliveryOverview200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -2263,7 +2221,7 @@ public class DeliveryOverviewApi {
      *     &#x60;appVersion&#x60; that can be applied in addition to a &#x60;groupBy&#x60;. This
      *     parameter exists in beta. (optional)
      * @param pagination Optional params to specify the page cursor and count. This parameter exists
-     *     in beta. (required)
+     *     in beta. (optional)
      * @return ApiResponse&lt;GetEgressFailedMetricsFromDeliveryOverview200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -2323,7 +2281,7 @@ public class DeliveryOverviewApi {
      *     &#x60;appVersion&#x60; that can be applied in addition to a &#x60;groupBy&#x60;. This
      *     parameter exists in beta. (optional)
      * @param pagination Optional params to specify the page cursor and count. This parameter exists
-     *     in beta. (required)
+     *     in beta. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
