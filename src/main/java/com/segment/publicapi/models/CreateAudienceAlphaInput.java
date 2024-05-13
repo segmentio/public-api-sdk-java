@@ -47,7 +47,7 @@ public class CreateAudienceAlphaInput {
     public static final String SERIALIZED_NAME_OPTIONS = "options";
 
     @SerializedName(SERIALIZED_NAME_OPTIONS)
-    private AudienceCreateOptions options;
+    private AudienceOptions options;
 
     public CreateAudienceAlphaInput() {}
 
@@ -111,7 +111,7 @@ public class CreateAudienceAlphaInput {
         this.definition = definition;
     }
 
-    public CreateAudienceAlphaInput options(AudienceCreateOptions options) {
+    public CreateAudienceAlphaInput options(AudienceOptions options) {
 
         this.options = options;
         return this;
@@ -123,11 +123,11 @@ public class CreateAudienceAlphaInput {
      * @return options
      */
     @javax.annotation.Nullable
-    public AudienceCreateOptions getOptions() {
+    public AudienceOptions getOptions() {
         return options;
     }
 
-    public void setOptions(AudienceCreateOptions options) {
+    public void setOptions(AudienceOptions options) {
         this.options = options;
     }
 
@@ -250,7 +250,7 @@ public class CreateAudienceAlphaInput {
         AudienceComputationDefinition.validateJsonElement(jsonObj.get("definition"));
         // validate the optional field `options`
         if (jsonObj.get("options") != null && !jsonObj.get("options").isJsonNull()) {
-            AudienceCreateOptions.validateJsonElement(jsonObj.get("options"));
+            AudienceOptions.validateJsonElement(jsonObj.get("options"));
         }
     }
 

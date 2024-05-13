@@ -27,8 +27,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** AudienceCreateOptions */
-public class AudienceCreateOptions {
+/** AudienceOptions */
+public class AudienceOptions {
     public static final String SERIALIZED_NAME_INCLUDE_HISTORICAL_DATA = "includeHistoricalData";
 
     @SerializedName(SERIALIZED_NAME_INCLUDE_HISTORICAL_DATA)
@@ -39,9 +39,9 @@ public class AudienceCreateOptions {
     @SerializedName(SERIALIZED_NAME_INCLUDE_ANONYMOUS_USERS)
     private Boolean includeAnonymousUsers;
 
-    public AudienceCreateOptions() {}
+    public AudienceOptions() {}
 
-    public AudienceCreateOptions includeHistoricalData(Boolean includeHistoricalData) {
+    public AudienceOptions includeHistoricalData(Boolean includeHistoricalData) {
 
         this.includeHistoricalData = includeHistoricalData;
         return this;
@@ -61,7 +61,7 @@ public class AudienceCreateOptions {
         this.includeHistoricalData = includeHistoricalData;
     }
 
-    public AudienceCreateOptions includeAnonymousUsers(Boolean includeAnonymousUsers) {
+    public AudienceOptions includeAnonymousUsers(Boolean includeAnonymousUsers) {
 
         this.includeAnonymousUsers = includeAnonymousUsers;
         return this;
@@ -89,11 +89,10 @@ public class AudienceCreateOptions {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        AudienceCreateOptions audienceCreateOptions = (AudienceCreateOptions) o;
-        return Objects.equals(
-                        this.includeHistoricalData, audienceCreateOptions.includeHistoricalData)
+        AudienceOptions audienceOptions = (AudienceOptions) o;
+        return Objects.equals(this.includeHistoricalData, audienceOptions.includeHistoricalData)
                 && Objects.equals(
-                        this.includeAnonymousUsers, audienceCreateOptions.includeAnonymousUsers);
+                        this.includeAnonymousUsers, audienceOptions.includeAnonymousUsers);
     }
 
     @Override
@@ -104,7 +103,7 @@ public class AudienceCreateOptions {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AudienceCreateOptions {\n");
+        sb.append("class AudienceOptions {\n");
         sb.append("    includeHistoricalData: ")
                 .append(toIndentedString(includeHistoricalData))
                 .append("\n");
@@ -143,28 +142,28 @@ public class AudienceCreateOptions {
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to AudienceCreateOptions
+     * @throws IOException if the JSON Element is invalid with respect to AudienceOptions
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!AudienceCreateOptions.openapiRequiredFields
+            if (!AudienceOptions.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in AudienceCreateOptions is not found in"
-                                        + " the empty JSON string",
-                                AudienceCreateOptions.openapiRequiredFields.toString()));
+                                "The required field(s) %s in AudienceOptions is not found in the"
+                                        + " empty JSON string",
+                                AudienceOptions.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!AudienceCreateOptions.openapiFields.contains(entry.getKey())) {
+            if (!AudienceOptions.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `AudienceCreateOptions` properties. JSON: %s",
+                                        + " `AudienceOptions` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
@@ -175,24 +174,24 @@ public class AudienceCreateOptions {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!AudienceCreateOptions.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'AudienceCreateOptions' and its subtypes
+            if (!AudienceOptions.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'AudienceOptions' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<AudienceCreateOptions> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(AudienceCreateOptions.class));
+            final TypeAdapter<AudienceOptions> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(AudienceOptions.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<AudienceCreateOptions>() {
+                    new TypeAdapter<AudienceOptions>() {
                         @Override
-                        public void write(JsonWriter out, AudienceCreateOptions value)
+                        public void write(JsonWriter out, AudienceOptions value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public AudienceCreateOptions read(JsonReader in) throws IOException {
+                        public AudienceOptions read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -202,18 +201,18 @@ public class AudienceCreateOptions {
     }
 
     /**
-     * Create an instance of AudienceCreateOptions given an JSON string
+     * Create an instance of AudienceOptions given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of AudienceCreateOptions
-     * @throws IOException if the JSON string is invalid with respect to AudienceCreateOptions
+     * @return An instance of AudienceOptions
+     * @throws IOException if the JSON string is invalid with respect to AudienceOptions
      */
-    public static AudienceCreateOptions fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, AudienceCreateOptions.class);
+    public static AudienceOptions fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, AudienceOptions.class);
     }
 
     /**
-     * Convert an instance of AudienceCreateOptions to an JSON string
+     * Convert an instance of AudienceOptions to an JSON string
      *
      * @return JSON string
      */

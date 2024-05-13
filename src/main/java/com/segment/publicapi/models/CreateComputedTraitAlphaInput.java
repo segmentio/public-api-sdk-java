@@ -47,7 +47,7 @@ public class CreateComputedTraitAlphaInput {
     public static final String SERIALIZED_NAME_OPTIONS = "options";
 
     @SerializedName(SERIALIZED_NAME_OPTIONS)
-    private TraitCreateOptions options;
+    private TraitOptions options;
 
     public CreateComputedTraitAlphaInput() {}
 
@@ -111,7 +111,7 @@ public class CreateComputedTraitAlphaInput {
         this.definition = definition;
     }
 
-    public CreateComputedTraitAlphaInput options(TraitCreateOptions options) {
+    public CreateComputedTraitAlphaInput options(TraitOptions options) {
 
         this.options = options;
         return this;
@@ -123,11 +123,11 @@ public class CreateComputedTraitAlphaInput {
      * @return options
      */
     @javax.annotation.Nullable
-    public TraitCreateOptions getOptions() {
+    public TraitOptions getOptions() {
         return options;
     }
 
-    public void setOptions(TraitCreateOptions options) {
+    public void setOptions(TraitOptions options) {
         this.options = options;
     }
 
@@ -252,7 +252,7 @@ public class CreateComputedTraitAlphaInput {
         TraitDefinition.validateJsonElement(jsonObj.get("definition"));
         // validate the optional field `options`
         if (jsonObj.get("options") != null && !jsonObj.get("options").isJsonNull()) {
-            TraitCreateOptions.validateJsonElement(jsonObj.get("options"));
+            TraitOptions.validateJsonElement(jsonObj.get("options"));
         }
     }
 

@@ -27,8 +27,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** TraitCreateOptions */
-public class TraitCreateOptions {
+/** TraitOptions */
+public class TraitOptions {
     public static final String SERIALIZED_NAME_INCLUDE_HISTORICAL_DATA = "includeHistoricalData";
 
     @SerializedName(SERIALIZED_NAME_INCLUDE_HISTORICAL_DATA)
@@ -39,9 +39,9 @@ public class TraitCreateOptions {
     @SerializedName(SERIALIZED_NAME_INCLUDE_ANONYMOUS_USERS)
     private Boolean includeAnonymousUsers;
 
-    public TraitCreateOptions() {}
+    public TraitOptions() {}
 
-    public TraitCreateOptions includeHistoricalData(Boolean includeHistoricalData) {
+    public TraitOptions includeHistoricalData(Boolean includeHistoricalData) {
 
         this.includeHistoricalData = includeHistoricalData;
         return this;
@@ -61,7 +61,7 @@ public class TraitCreateOptions {
         this.includeHistoricalData = includeHistoricalData;
     }
 
-    public TraitCreateOptions includeAnonymousUsers(Boolean includeAnonymousUsers) {
+    public TraitOptions includeAnonymousUsers(Boolean includeAnonymousUsers) {
 
         this.includeAnonymousUsers = includeAnonymousUsers;
         return this;
@@ -89,10 +89,9 @@ public class TraitCreateOptions {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        TraitCreateOptions traitCreateOptions = (TraitCreateOptions) o;
-        return Objects.equals(this.includeHistoricalData, traitCreateOptions.includeHistoricalData)
-                && Objects.equals(
-                        this.includeAnonymousUsers, traitCreateOptions.includeAnonymousUsers);
+        TraitOptions traitOptions = (TraitOptions) o;
+        return Objects.equals(this.includeHistoricalData, traitOptions.includeHistoricalData)
+                && Objects.equals(this.includeAnonymousUsers, traitOptions.includeAnonymousUsers);
     }
 
     @Override
@@ -103,7 +102,7 @@ public class TraitCreateOptions {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class TraitCreateOptions {\n");
+        sb.append("class TraitOptions {\n");
         sb.append("    includeHistoricalData: ")
                 .append(toIndentedString(includeHistoricalData))
                 .append("\n");
@@ -142,28 +141,28 @@ public class TraitCreateOptions {
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to TraitCreateOptions
+     * @throws IOException if the JSON Element is invalid with respect to TraitOptions
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!TraitCreateOptions.openapiRequiredFields
+            if (!TraitOptions.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in TraitCreateOptions is not found in the"
-                                        + " empty JSON string",
-                                TraitCreateOptions.openapiRequiredFields.toString()));
+                                "The required field(s) %s in TraitOptions is not found in the empty"
+                                        + " JSON string",
+                                TraitOptions.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!TraitCreateOptions.openapiFields.contains(entry.getKey())) {
+            if (!TraitOptions.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `TraitCreateOptions` properties. JSON: %s",
+                                        + " `TraitOptions` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
@@ -174,24 +173,23 @@ public class TraitCreateOptions {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!TraitCreateOptions.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'TraitCreateOptions' and its subtypes
+            if (!TraitOptions.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'TraitOptions' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<TraitCreateOptions> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(TraitCreateOptions.class));
+            final TypeAdapter<TraitOptions> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(TraitOptions.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<TraitCreateOptions>() {
+                    new TypeAdapter<TraitOptions>() {
                         @Override
-                        public void write(JsonWriter out, TraitCreateOptions value)
-                                throws IOException {
+                        public void write(JsonWriter out, TraitOptions value) throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public TraitCreateOptions read(JsonReader in) throws IOException {
+                        public TraitOptions read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -201,18 +199,18 @@ public class TraitCreateOptions {
     }
 
     /**
-     * Create an instance of TraitCreateOptions given an JSON string
+     * Create an instance of TraitOptions given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of TraitCreateOptions
-     * @throws IOException if the JSON string is invalid with respect to TraitCreateOptions
+     * @return An instance of TraitOptions
+     * @throws IOException if the JSON string is invalid with respect to TraitOptions
      */
-    public static TraitCreateOptions fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, TraitCreateOptions.class);
+    public static TraitOptions fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, TraitOptions.class);
     }
 
     /**
-     * Convert an instance of TraitCreateOptions to an JSON string
+     * Convert an instance of TraitOptions to an JSON string
      *
      * @return JSON string
      */
