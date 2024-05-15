@@ -48,7 +48,8 @@ public class TraitOptions {
     }
 
     /**
-     * Get includeHistoricalData
+     * Determines whether data prior to the computed trait being created is included when
+     * determining the computed trait value.
      *
      * @return includeHistoricalData
      */
@@ -68,7 +69,8 @@ public class TraitOptions {
     }
 
     /**
-     * Get includeAnonymousUsers
+     * Determines whether anonymous users should be included when determining the computed trait
+     * value.
      *
      * @return includeAnonymousUsers
      */

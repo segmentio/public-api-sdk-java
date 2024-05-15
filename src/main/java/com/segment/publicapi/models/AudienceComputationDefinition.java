@@ -48,7 +48,7 @@ public class AudienceComputationDefinition {
     }
 
     /**
-     * Get type
+     * The underlying data type being segmented for this audience. Possible values: users, accounts.
      *
      * @return type
      */
@@ -68,7 +68,9 @@ public class AudienceComputationDefinition {
     }
 
     /**
-     * Get query
+     * The query language string defining the audience segmentation criteria. For guidance on using
+     * the query language, see the [Segment documentation
+     * site](https://segment.com/docs/api/public-api/query-language).
      *
      * @return query
      */

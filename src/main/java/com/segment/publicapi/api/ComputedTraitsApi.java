@@ -174,9 +174,14 @@ public class ComputedTraitsApi {
 
     /**
      * Create Computed Trait Creates a Computed Trait • This endpoint is in **Alpha** testing.
-     * Please submit any feedback by sending email to friends@segment.com. • In order to
+     * Please submit any feedback by sending an email to friends@segment.com. • In order to
      * successfully call this endpoint, the specified Workspace needs to have the Computed Trait
-     * feature enabled. Please reach out to your customer success manager for more information.
+     * feature enabled. Please reach out to your customer success manager for more information. •
+     * When called, this endpoint may generate the &#x60;Computed Trait Created&#x60; event in the
+     * [audit trail](/tag/Audit-Trail). The rate limit for this endpoint is 10 requests per minute,
+     * which is lower than the default due to access pattern restrictions. Once reached, this
+     * endpoint will respond with the 429 HTTP status code with headers indicating the limit
+     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
      * @param createComputedTraitAlphaInput (required)
@@ -202,9 +207,14 @@ public class ComputedTraitsApi {
 
     /**
      * Create Computed Trait Creates a Computed Trait • This endpoint is in **Alpha** testing.
-     * Please submit any feedback by sending email to friends@segment.com. • In order to
+     * Please submit any feedback by sending an email to friends@segment.com. • In order to
      * successfully call this endpoint, the specified Workspace needs to have the Computed Trait
-     * feature enabled. Please reach out to your customer success manager for more information.
+     * feature enabled. Please reach out to your customer success manager for more information. •
+     * When called, this endpoint may generate the &#x60;Computed Trait Created&#x60; event in the
+     * [audit trail](/tag/Audit-Trail). The rate limit for this endpoint is 10 requests per minute,
+     * which is lower than the default due to access pattern restrictions. Once reached, this
+     * endpoint will respond with the 429 HTTP status code with headers indicating the limit
+     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
      * @param createComputedTraitAlphaInput (required)
@@ -231,10 +241,14 @@ public class ComputedTraitsApi {
 
     /**
      * Create Computed Trait (asynchronously) Creates a Computed Trait • This endpoint is in
-     * **Alpha** testing. Please submit any feedback by sending email to friends@segment.com. • In
-     * order to successfully call this endpoint, the specified Workspace needs to have the Computed
-     * Trait feature enabled. Please reach out to your customer success manager for more
-     * information.
+     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
+     * In order to successfully call this endpoint, the specified Workspace needs to have the
+     * Computed Trait feature enabled. Please reach out to your customer success manager for more
+     * information. • When called, this endpoint may generate the &#x60;Computed Trait Created&#x60;
+     * event in the [audit trail](/tag/Audit-Trail). The rate limit for this endpoint is 10 requests
+     * per minute, which is lower than the default due to access pattern restrictions. Once reached,
+     * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
+     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
      * @param createComputedTraitAlphaInput (required)
@@ -364,9 +378,9 @@ public class ComputedTraitsApi {
 
     /**
      * Get Computed Trait Returns the Computed Trait by id and spaceId • This endpoint is in
-     * **Alpha** testing. Please submit any feedback by sending email to friends@segment.com. • In
-     * order to successfully call this endpoint, the specified Workspace needs to have the Computed
-     * Trait feature enabled. Please reach out to your customer success manager for more
+     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
+     * In order to successfully call this endpoint, the specified Workspace needs to have the
+     * Computed Trait feature enabled. Please reach out to your customer success manager for more
      * information. The rate limit for this endpoint is 100 requests per minute, which is lower than
      * the default due to access pattern restrictions. Once reached, this endpoint will respond with
      * the 429 HTTP status code with headers indicating the limit parameters. See [Rate
@@ -395,9 +409,9 @@ public class ComputedTraitsApi {
 
     /**
      * Get Computed Trait Returns the Computed Trait by id and spaceId • This endpoint is in
-     * **Alpha** testing. Please submit any feedback by sending email to friends@segment.com. • In
-     * order to successfully call this endpoint, the specified Workspace needs to have the Computed
-     * Trait feature enabled. Please reach out to your customer success manager for more
+     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
+     * In order to successfully call this endpoint, the specified Workspace needs to have the
+     * Computed Trait feature enabled. Please reach out to your customer success manager for more
      * information. The rate limit for this endpoint is 100 requests per minute, which is lower than
      * the default due to access pattern restrictions. Once reached, this endpoint will respond with
      * the 429 HTTP status code with headers indicating the limit parameters. See [Rate
@@ -426,7 +440,7 @@ public class ComputedTraitsApi {
 
     /**
      * Get Computed Trait (asynchronously) Returns the Computed Trait by id and spaceId • This
-     * endpoint is in **Alpha** testing. Please submit any feedback by sending email to
+     * endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
      * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
      * needs to have the Computed Trait feature enabled. Please reach out to your customer success
      * manager for more information. The rate limit for this endpoint is 100 requests per minute,
@@ -463,8 +477,9 @@ public class ComputedTraitsApi {
      * Build call for listComputedTraits
      *
      * @param spaceId (required)
-     * @param pagination Information about the pagination of this response. This parameter exists in
-     *     alpha. (required)
+     * @param pagination Information about the pagination of this response. [See
+     *     pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters)
+     *     for more info. This parameter exists in alpha. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -565,7 +580,7 @@ public class ComputedTraitsApi {
 
     /**
      * List Computed Traits Returns Computed Traits by spaceId. • This endpoint is in **Alpha**
-     * testing. Please submit any feedback by sending email to friends@segment.com. • In order to
+     * testing. Please submit any feedback by sending an email to friends@segment.com. • In order to
      * successfully call this endpoint, the specified Workspace needs to have the Computed Trait
      * feature enabled. Please reach out to your customer success manager for more information. The
      * rate limit for this endpoint is 25 requests per minute, which is lower than the default due
@@ -574,8 +589,9 @@ public class ComputedTraitsApi {
      * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
-     * @param pagination Information about the pagination of this response. This parameter exists in
-     *     alpha. (required)
+     * @param pagination Information about the pagination of this response. [See
+     *     pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters)
+     *     for more info. This parameter exists in alpha. (required)
      * @return ListComputedTraits200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -597,7 +613,7 @@ public class ComputedTraitsApi {
 
     /**
      * List Computed Traits Returns Computed Traits by spaceId. • This endpoint is in **Alpha**
-     * testing. Please submit any feedback by sending email to friends@segment.com. • In order to
+     * testing. Please submit any feedback by sending an email to friends@segment.com. • In order to
      * successfully call this endpoint, the specified Workspace needs to have the Computed Trait
      * feature enabled. Please reach out to your customer success manager for more information. The
      * rate limit for this endpoint is 25 requests per minute, which is lower than the default due
@@ -606,8 +622,9 @@ public class ComputedTraitsApi {
      * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
-     * @param pagination Information about the pagination of this response. This parameter exists in
-     *     alpha. (required)
+     * @param pagination Information about the pagination of this response. [See
+     *     pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters)
+     *     for more info. This parameter exists in alpha. (required)
      * @return ApiResponse&lt;ListComputedTraits200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -629,8 +646,8 @@ public class ComputedTraitsApi {
 
     /**
      * List Computed Traits (asynchronously) Returns Computed Traits by spaceId. • This endpoint is
-     * in **Alpha** testing. Please submit any feedback by sending email to friends@segment.com. •
-     * In order to successfully call this endpoint, the specified Workspace needs to have the
+     * in **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com.
+     * • In order to successfully call this endpoint, the specified Workspace needs to have the
      * Computed Trait feature enabled. Please reach out to your customer success manager for more
      * information. The rate limit for this endpoint is 25 requests per minute, which is lower than
      * the default due to access pattern restrictions. Once reached, this endpoint will respond with
@@ -638,8 +655,9 @@ public class ComputedTraitsApi {
      * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
-     * @param pagination Information about the pagination of this response. This parameter exists in
-     *     alpha. (required)
+     * @param pagination Information about the pagination of this response. [See
+     *     pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters)
+     *     for more info. This parameter exists in alpha. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -766,14 +784,15 @@ public class ComputedTraitsApi {
 
     /**
      * Remove Computed Trait from Space Deletes a Computed Trait by id and spaceId. • This endpoint
-     * is in **Alpha** testing. Please submit any feedback by sending email to friends@segment.com.
-     * • In order to successfully call this endpoint, the specified Workspace needs to have the
-     * Computed Trait feature enabled. Please reach out to your customer success manager for more
-     * information. • When called, this endpoint may generate the &#x60;Computed Trait Deleted&#x60;
-     * event in the [audit trail](/tag/Audit-Trail). The rate limit for this endpoint is 20 requests
-     * per minute, which is lower than the default due to access pattern restrictions. Once reached,
-     * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
-     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * is in **Alpha** testing. Please submit any feedback by sending an email to
+     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
+     * needs to have the Computed Trait feature enabled. Please reach out to your customer success
+     * manager for more information. • When called, this endpoint may generate the &#x60;Computed
+     * Trait Deleted&#x60; event in the [audit trail](/tag/Audit-Trail). The rate limit for this
+     * endpoint is 20 requests per minute, which is lower than the default due to access pattern
+     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
+     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
+     * information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -798,14 +817,15 @@ public class ComputedTraitsApi {
 
     /**
      * Remove Computed Trait from Space Deletes a Computed Trait by id and spaceId. • This endpoint
-     * is in **Alpha** testing. Please submit any feedback by sending email to friends@segment.com.
-     * • In order to successfully call this endpoint, the specified Workspace needs to have the
-     * Computed Trait feature enabled. Please reach out to your customer success manager for more
-     * information. • When called, this endpoint may generate the &#x60;Computed Trait Deleted&#x60;
-     * event in the [audit trail](/tag/Audit-Trail). The rate limit for this endpoint is 20 requests
-     * per minute, which is lower than the default due to access pattern restrictions. Once reached,
-     * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
-     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * is in **Alpha** testing. Please submit any feedback by sending an email to
+     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
+     * needs to have the Computed Trait feature enabled. Please reach out to your customer success
+     * manager for more information. • When called, this endpoint may generate the &#x60;Computed
+     * Trait Deleted&#x60; event in the [audit trail](/tag/Audit-Trail). The rate limit for this
+     * endpoint is 20 requests per minute, which is lower than the default due to access pattern
+     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
+     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
+     * information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -833,7 +853,7 @@ public class ComputedTraitsApi {
 
     /**
      * Remove Computed Trait from Space (asynchronously) Deletes a Computed Trait by id and spaceId.
-     * • This endpoint is in **Alpha** testing. Please submit any feedback by sending email to
+     * • This endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
      * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
      * needs to have the Computed Trait feature enabled. Please reach out to your customer success
      * manager for more information. • When called, this endpoint may generate the &#x60;Computed
@@ -989,7 +1009,7 @@ public class ComputedTraitsApi {
 
     /**
      * Update Computed Trait for Space Updates the enabled status for a computed trait. • This
-     * endpoint is in **Alpha** testing. Please submit any feedback by sending email to
+     * endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
      * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
      * needs to have the Computed Trait feature enabled. Please reach out to your customer success
      * manager for more information. • When called, this endpoint may generate the &#x60;Computed
@@ -1030,7 +1050,7 @@ public class ComputedTraitsApi {
 
     /**
      * Update Computed Trait for Space Updates the enabled status for a computed trait. • This
-     * endpoint is in **Alpha** testing. Please submit any feedback by sending email to
+     * endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
      * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
      * needs to have the Computed Trait feature enabled. Please reach out to your customer success
      * manager for more information. • When called, this endpoint may generate the &#x60;Computed
@@ -1074,8 +1094,8 @@ public class ComputedTraitsApi {
 
     /**
      * Update Computed Trait for Space (asynchronously) Updates the enabled status for a computed
-     * trait. • This endpoint is in **Alpha** testing. Please submit any feedback by sending email
-     * to friends@segment.com. • In order to successfully call this endpoint, the specified
+     * trait. • This endpoint is in **Alpha** testing. Please submit any feedback by sending an
+     * email to friends@segment.com. • In order to successfully call this endpoint, the specified
      * Workspace needs to have the Computed Trait feature enabled. Please reach out to your customer
      * success manager for more information. • When called, this endpoint may generate the
      * &#x60;Computed Trait Modified&#x60; event in the [audit trail](/tag/Audit-Trail). • Note that

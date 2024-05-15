@@ -173,9 +173,14 @@ public class AudiencesApi {
 
     /**
      * Create Audience Creates Audience. • This endpoint is in **Alpha** testing. Please submit any
-     * feedback by sending email to friends@segment.com. • In order to successfully call this
+     * feedback by sending an email to friends@segment.com. • In order to successfully call this
      * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
-     * out to your customer success manager for more information.
+     * out to your customer success manager for more information. • When called, this endpoint may
+     * generate the &#x60;Audience Created&#x60; event in the [audit trail](/tag/Audit-Trail). The
+     * rate limit for this endpoint is 10 requests per minute, which is lower than the default due
+     * to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
+     * status code with headers indicating the limit parameters. See [Rate
+     * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
      * @param createAudienceAlphaInput (required)
@@ -200,9 +205,14 @@ public class AudiencesApi {
 
     /**
      * Create Audience Creates Audience. • This endpoint is in **Alpha** testing. Please submit any
-     * feedback by sending email to friends@segment.com. • In order to successfully call this
+     * feedback by sending an email to friends@segment.com. • In order to successfully call this
      * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
-     * out to your customer success manager for more information.
+     * out to your customer success manager for more information. • When called, this endpoint may
+     * generate the &#x60;Audience Created&#x60; event in the [audit trail](/tag/Audit-Trail). The
+     * rate limit for this endpoint is 10 requests per minute, which is lower than the default due
+     * to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
+     * status code with headers indicating the limit parameters. See [Rate
+     * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
      * @param createAudienceAlphaInput (required)
@@ -228,9 +238,14 @@ public class AudiencesApi {
 
     /**
      * Create Audience (asynchronously) Creates Audience. • This endpoint is in **Alpha** testing.
-     * Please submit any feedback by sending email to friends@segment.com. • In order to
+     * Please submit any feedback by sending an email to friends@segment.com. • In order to
      * successfully call this endpoint, the specified Workspace needs to have the Audience feature
-     * enabled. Please reach out to your customer success manager for more information.
+     * enabled. Please reach out to your customer success manager for more information. • When
+     * called, this endpoint may generate the &#x60;Audience Created&#x60; event in the [audit
+     * trail](/tag/Audit-Trail). The rate limit for this endpoint is 10 requests per minute, which
+     * is lower than the default due to access pattern restrictions. Once reached, this endpoint
+     * will respond with the 429 HTTP status code with headers indicating the limit parameters. See
+     * [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
      * @param createAudienceAlphaInput (required)
@@ -358,7 +373,7 @@ public class AudiencesApi {
 
     /**
      * Get Audience Returns the Audience by id and spaceId. • This endpoint is in **Alpha** testing.
-     * Please submit any feedback by sending email to friends@segment.com. • In order to
+     * Please submit any feedback by sending an email to friends@segment.com. • In order to
      * successfully call this endpoint, the specified Workspace needs to have the Audience feature
      * enabled. Please reach out to your customer success manager for more information. The rate
      * limit for this endpoint is 100 requests per minute, which is lower than the default due to
@@ -387,7 +402,7 @@ public class AudiencesApi {
 
     /**
      * Get Audience Returns the Audience by id and spaceId. • This endpoint is in **Alpha** testing.
-     * Please submit any feedback by sending email to friends@segment.com. • In order to
+     * Please submit any feedback by sending an email to friends@segment.com. • In order to
      * successfully call this endpoint, the specified Workspace needs to have the Audience feature
      * enabled. Please reach out to your customer success manager for more information. The rate
      * limit for this endpoint is 100 requests per minute, which is lower than the default due to
@@ -418,12 +433,12 @@ public class AudiencesApi {
 
     /**
      * Get Audience (asynchronously) Returns the Audience by id and spaceId. • This endpoint is in
-     * **Alpha** testing. Please submit any feedback by sending email to friends@segment.com. • In
-     * order to successfully call this endpoint, the specified Workspace needs to have the Audience
-     * feature enabled. Please reach out to your customer success manager for more information. The
-     * rate limit for this endpoint is 100 requests per minute, which is lower than the default due
-     * to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
-     * status code with headers indicating the limit parameters. See [Rate
+     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
+     * In order to successfully call this endpoint, the specified Workspace needs to have the
+     * Audience feature enabled. Please reach out to your customer success manager for more
+     * information. The rate limit for this endpoint is 100 requests per minute, which is lower than
+     * the default due to access pattern restrictions. Once reached, this endpoint will respond with
+     * the 429 HTTP status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
@@ -455,8 +470,9 @@ public class AudiencesApi {
      * Build call for listAudiences
      *
      * @param spaceId (required)
-     * @param pagination Information about the pagination of this response. This parameter exists in
-     *     alpha. (required)
+     * @param pagination Information about the pagination of this response. [See
+     *     pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters)
+     *     for more info. This parameter exists in alpha. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -556,17 +572,18 @@ public class AudiencesApi {
 
     /**
      * List Audiences Returns Audiences by spaceId. • This endpoint is in **Alpha** testing. Please
-     * submit any feedback by sending email to friends@segment.com. • In order to successfully call
-     * this endpoint, the specified Workspace needs to have the Audience feature enabled. Please
-     * reach out to your customer success manager for more information. The rate limit for this
-     * endpoint is 25 requests per minute, which is lower than the default due to access pattern
-     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
-     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
+     * submit any feedback by sending an email to friends@segment.com. • In order to successfully
+     * call this endpoint, the specified Workspace needs to have the Audience feature enabled.
+     * Please reach out to your customer success manager for more information. The rate limit for
+     * this endpoint is 25 requests per minute, which is lower than the default due to access
+     * pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code
+     * with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
      * information.
      *
      * @param spaceId (required)
-     * @param pagination Information about the pagination of this response. This parameter exists in
-     *     alpha. (required)
+     * @param pagination Information about the pagination of this response. [See
+     *     pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters)
+     *     for more info. This parameter exists in alpha. (required)
      * @return ListAudiences200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -588,17 +605,18 @@ public class AudiencesApi {
 
     /**
      * List Audiences Returns Audiences by spaceId. • This endpoint is in **Alpha** testing. Please
-     * submit any feedback by sending email to friends@segment.com. • In order to successfully call
-     * this endpoint, the specified Workspace needs to have the Audience feature enabled. Please
-     * reach out to your customer success manager for more information. The rate limit for this
-     * endpoint is 25 requests per minute, which is lower than the default due to access pattern
-     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
-     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
+     * submit any feedback by sending an email to friends@segment.com. • In order to successfully
+     * call this endpoint, the specified Workspace needs to have the Audience feature enabled.
+     * Please reach out to your customer success manager for more information. The rate limit for
+     * this endpoint is 25 requests per minute, which is lower than the default due to access
+     * pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code
+     * with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
      * information.
      *
      * @param spaceId (required)
-     * @param pagination Information about the pagination of this response. This parameter exists in
-     *     alpha. (required)
+     * @param pagination Information about the pagination of this response. [See
+     *     pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters)
+     *     for more info. This parameter exists in alpha. (required)
      * @return ApiResponse&lt;ListAudiences200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -620,7 +638,7 @@ public class AudiencesApi {
 
     /**
      * List Audiences (asynchronously) Returns Audiences by spaceId. • This endpoint is in **Alpha**
-     * testing. Please submit any feedback by sending email to friends@segment.com. • In order to
+     * testing. Please submit any feedback by sending an email to friends@segment.com. • In order to
      * successfully call this endpoint, the specified Workspace needs to have the Audience feature
      * enabled. Please reach out to your customer success manager for more information. The rate
      * limit for this endpoint is 25 requests per minute, which is lower than the default due to
@@ -629,8 +647,9 @@ public class AudiencesApi {
      * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
-     * @param pagination Information about the pagination of this response. This parameter exists in
-     *     alpha. (required)
+     * @param pagination Information about the pagination of this response. [See
+     *     pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters)
+     *     for more info. This parameter exists in alpha. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -756,14 +775,14 @@ public class AudiencesApi {
 
     /**
      * Remove Audience from Space Deletes an Audience by id and spaceId. • This endpoint is in
-     * **Alpha** testing. Please submit any feedback by sending email to friends@segment.com. • In
-     * order to successfully call this endpoint, the specified Workspace needs to have the Audience
-     * feature enabled. Please reach out to your customer success manager for more information. •
-     * When called, this endpoint may generate the &#x60;Audience Deleted&#x60; event in the [audit
-     * trail](/tag/Audit-Trail). The rate limit for this endpoint is 20 requests per minute, which
-     * is lower than the default due to access pattern restrictions. Once reached, this endpoint
-     * will respond with the 429 HTTP status code with headers indicating the limit parameters. See
-     * [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
+     * In order to successfully call this endpoint, the specified Workspace needs to have the
+     * Audience feature enabled. Please reach out to your customer success manager for more
+     * information. • When called, this endpoint may generate the &#x60;Audience Deleted&#x60; event
+     * in the [audit trail](/tag/Audit-Trail). The rate limit for this endpoint is 20 requests per
+     * minute, which is lower than the default due to access pattern restrictions. Once reached,
+     * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
+     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -788,14 +807,14 @@ public class AudiencesApi {
 
     /**
      * Remove Audience from Space Deletes an Audience by id and spaceId. • This endpoint is in
-     * **Alpha** testing. Please submit any feedback by sending email to friends@segment.com. • In
-     * order to successfully call this endpoint, the specified Workspace needs to have the Audience
-     * feature enabled. Please reach out to your customer success manager for more information. •
-     * When called, this endpoint may generate the &#x60;Audience Deleted&#x60; event in the [audit
-     * trail](/tag/Audit-Trail). The rate limit for this endpoint is 20 requests per minute, which
-     * is lower than the default due to access pattern restrictions. Once reached, this endpoint
-     * will respond with the 429 HTTP status code with headers indicating the limit parameters. See
-     * [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
+     * In order to successfully call this endpoint, the specified Workspace needs to have the
+     * Audience feature enabled. Please reach out to your customer success manager for more
+     * information. • When called, this endpoint may generate the &#x60;Audience Deleted&#x60; event
+     * in the [audit trail](/tag/Audit-Trail). The rate limit for this endpoint is 20 requests per
+     * minute, which is lower than the default due to access pattern restrictions. Once reached,
+     * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
+     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -820,7 +839,7 @@ public class AudiencesApi {
 
     /**
      * Remove Audience from Space (asynchronously) Deletes an Audience by id and spaceId. • This
-     * endpoint is in **Alpha** testing. Please submit any feedback by sending email to
+     * endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
      * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
      * needs to have the Audience feature enabled. Please reach out to your customer success manager
      * for more information. • When called, this endpoint may generate the &#x60;Audience
@@ -974,13 +993,13 @@ public class AudiencesApi {
 
     /**
      * Update Audience for Space Updates the enabled status for an audience • This endpoint is in
-     * **Alpha** testing. Please submit any feedback by sending email to friends@segment.com. • In
-     * order to successfully call this endpoint, the specified Workspace needs to have the Audience
-     * feature enabled. Please reach out to your customer success manager for more information. •
-     * When called, this endpoint may generate the &#x60;Audience Modified&#x60; event in the [audit
-     * trail](/tag/Audit-Trail). • Note that when an Audience is updated, the Audience will be
-     * locked from future edits until the changes have been incorporated. You can find more
-     * information [in the Segment
+     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
+     * In order to successfully call this endpoint, the specified Workspace needs to have the
+     * Audience feature enabled. Please reach out to your customer success manager for more
+     * information. • When called, this endpoint may generate the &#x60;Audience Modified&#x60;
+     * event in the [audit trail](/tag/Audit-Trail). • Note that when an Audience is updated, the
+     * Audience will be locked from future edits until the changes have been incorporated. You can
+     * find more information [in the Segment
      * docs](https://segment-docs.netlify.app/docs/engage/audiences/#editing-realtime-audiences-and-traits).
      * The rate limit for this endpoint is 10 requests per minute, which is lower than the default
      * due to access pattern restrictions. Once reached, this endpoint will respond with the 429
@@ -1012,13 +1031,13 @@ public class AudiencesApi {
 
     /**
      * Update Audience for Space Updates the enabled status for an audience • This endpoint is in
-     * **Alpha** testing. Please submit any feedback by sending email to friends@segment.com. • In
-     * order to successfully call this endpoint, the specified Workspace needs to have the Audience
-     * feature enabled. Please reach out to your customer success manager for more information. •
-     * When called, this endpoint may generate the &#x60;Audience Modified&#x60; event in the [audit
-     * trail](/tag/Audit-Trail). • Note that when an Audience is updated, the Audience will be
-     * locked from future edits until the changes have been incorporated. You can find more
-     * information [in the Segment
+     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
+     * In order to successfully call this endpoint, the specified Workspace needs to have the
+     * Audience feature enabled. Please reach out to your customer success manager for more
+     * information. • When called, this endpoint may generate the &#x60;Audience Modified&#x60;
+     * event in the [audit trail](/tag/Audit-Trail). • Note that when an Audience is updated, the
+     * Audience will be locked from future edits until the changes have been incorporated. You can
+     * find more information [in the Segment
      * docs](https://segment-docs.netlify.app/docs/engage/audiences/#editing-realtime-audiences-and-traits).
      * The rate limit for this endpoint is 10 requests per minute, which is lower than the default
      * due to access pattern restrictions. Once reached, this endpoint will respond with the 429
@@ -1052,7 +1071,7 @@ public class AudiencesApi {
 
     /**
      * Update Audience for Space (asynchronously) Updates the enabled status for an audience • This
-     * endpoint is in **Alpha** testing. Please submit any feedback by sending email to
+     * endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
      * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
      * needs to have the Audience feature enabled. Please reach out to your customer success manager
      * for more information. • When called, this endpoint may generate the &#x60;Audience

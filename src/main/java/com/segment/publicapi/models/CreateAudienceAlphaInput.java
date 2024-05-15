@@ -58,7 +58,7 @@ public class CreateAudienceAlphaInput {
     }
 
     /**
-     * The name of the computation .
+     * Name of the audience.
      *
      * @return name
      */
@@ -78,7 +78,7 @@ public class CreateAudienceAlphaInput {
     }
 
     /**
-     * The description of the computation.
+     * Description of the audience.
      *
      * @return description
      */

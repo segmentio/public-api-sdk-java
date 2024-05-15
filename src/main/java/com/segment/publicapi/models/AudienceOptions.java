@@ -48,7 +48,8 @@ public class AudienceOptions {
     }
 
     /**
-     * Get includeHistoricalData
+     * Determines whether data prior to the audience being created is included when determining
+     * audience membership.
      *
      * @return includeHistoricalData
      */
@@ -68,7 +69,7 @@ public class AudienceOptions {
     }
 
     /**
-     * Get includeAnonymousUsers
+     * Determines whether anonymous users should be included when determining audience membership.
      *
      * @return includeAnonymousUsers
      */
