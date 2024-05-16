@@ -27,13 +27,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Input to update a computed trait. */
-public class UpdateComputedTraitForSpaceAlphaInput {
-    public static final String SERIALIZED_NAME_ENABLED = "enabled";
-
-    @SerializedName(SERIALIZED_NAME_ENABLED)
-    private Boolean enabled;
-
+/** Input to create an audience. */
+public class CreateAudienceAlphaInput {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
@@ -47,42 +42,27 @@ public class UpdateComputedTraitForSpaceAlphaInput {
     public static final String SERIALIZED_NAME_DEFINITION = "definition";
 
     @SerializedName(SERIALIZED_NAME_DEFINITION)
-    private TraitDefinition definition;
+    private AudienceComputationDefinition definition;
 
-    public UpdateComputedTraitForSpaceAlphaInput() {}
+    public static final String SERIALIZED_NAME_OPTIONS = "options";
 
-    public UpdateComputedTraitForSpaceAlphaInput enabled(Boolean enabled) {
+    @SerializedName(SERIALIZED_NAME_OPTIONS)
+    private AudienceOptions options;
 
-        this.enabled = enabled;
-        return this;
-    }
+    public CreateAudienceAlphaInput() {}
 
-    /**
-     * Enabled/disabled status for the computed trait.
-     *
-     * @return enabled
-     */
-    @javax.annotation.Nullable
-    public Boolean getEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
-    }
-
-    public UpdateComputedTraitForSpaceAlphaInput name(String name) {
+    public CreateAudienceAlphaInput name(String name) {
 
         this.name = name;
         return this;
     }
 
     /**
-     * The name of the computation.
+     * Name of the audience.
      *
      * @return name
      */
-    @javax.annotation.Nullable
+    @javax.annotation.Nonnull
     public String getName() {
         return name;
     }
@@ -91,18 +71,18 @@ public class UpdateComputedTraitForSpaceAlphaInput {
         this.name = name;
     }
 
-    public UpdateComputedTraitForSpaceAlphaInput description(String description) {
+    public CreateAudienceAlphaInput description(String description) {
 
         this.description = description;
         return this;
     }
 
     /**
-     * The description of the computation.
+     * Description of the audience.
      *
      * @return description
      */
-    @javax.annotation.Nullable
+    @javax.annotation.Nonnull
     public String getDescription() {
         return description;
     }
@@ -111,7 +91,7 @@ public class UpdateComputedTraitForSpaceAlphaInput {
         this.description = description;
     }
 
-    public UpdateComputedTraitForSpaceAlphaInput definition(TraitDefinition definition) {
+    public CreateAudienceAlphaInput definition(AudienceComputationDefinition definition) {
 
         this.definition = definition;
         return this;
@@ -122,13 +102,33 @@ public class UpdateComputedTraitForSpaceAlphaInput {
      *
      * @return definition
      */
-    @javax.annotation.Nullable
-    public TraitDefinition getDefinition() {
+    @javax.annotation.Nonnull
+    public AudienceComputationDefinition getDefinition() {
         return definition;
     }
 
-    public void setDefinition(TraitDefinition definition) {
+    public void setDefinition(AudienceComputationDefinition definition) {
         this.definition = definition;
+    }
+
+    public CreateAudienceAlphaInput options(AudienceOptions options) {
+
+        this.options = options;
+        return this;
+    }
+
+    /**
+     * Get options
+     *
+     * @return options
+     */
+    @javax.annotation.Nullable
+    public AudienceOptions getOptions() {
+        return options;
+    }
+
+    public void setOptions(AudienceOptions options) {
+        this.options = options;
     }
 
     @Override
@@ -139,29 +139,26 @@ public class UpdateComputedTraitForSpaceAlphaInput {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        UpdateComputedTraitForSpaceAlphaInput updateComputedTraitForSpaceAlphaInput =
-                (UpdateComputedTraitForSpaceAlphaInput) o;
-        return Objects.equals(this.enabled, updateComputedTraitForSpaceAlphaInput.enabled)
-                && Objects.equals(this.name, updateComputedTraitForSpaceAlphaInput.name)
-                && Objects.equals(
-                        this.description, updateComputedTraitForSpaceAlphaInput.description)
-                && Objects.equals(
-                        this.definition, updateComputedTraitForSpaceAlphaInput.definition);
+        CreateAudienceAlphaInput createAudienceAlphaInput = (CreateAudienceAlphaInput) o;
+        return Objects.equals(this.name, createAudienceAlphaInput.name)
+                && Objects.equals(this.description, createAudienceAlphaInput.description)
+                && Objects.equals(this.definition, createAudienceAlphaInput.definition)
+                && Objects.equals(this.options, createAudienceAlphaInput.options);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(enabled, name, description, definition);
+        return Objects.hash(name, description, definition, options);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class UpdateComputedTraitForSpaceAlphaInput {\n");
-        sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+        sb.append("class CreateAudienceAlphaInput {\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    definition: ").append(toIndentedString(definition)).append("\n");
+        sb.append("    options: ").append(toIndentedString(options)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -183,67 +180,77 @@ public class UpdateComputedTraitForSpaceAlphaInput {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("enabled");
         openapiFields.add("name");
         openapiFields.add("description");
         openapiFields.add("definition");
+        openapiFields.add("options");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
+        openapiRequiredFields.add("name");
+        openapiRequiredFields.add("description");
+        openapiRequiredFields.add("definition");
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to
-     *     UpdateComputedTraitForSpaceAlphaInput
+     * @throws IOException if the JSON Element is invalid with respect to CreateAudienceAlphaInput
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!UpdateComputedTraitForSpaceAlphaInput.openapiRequiredFields
+            if (!CreateAudienceAlphaInput.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in UpdateComputedTraitForSpaceAlphaInput"
-                                        + " is not found in the empty JSON string",
-                                UpdateComputedTraitForSpaceAlphaInput.openapiRequiredFields
-                                        .toString()));
+                                "The required field(s) %s in CreateAudienceAlphaInput is not found"
+                                        + " in the empty JSON string",
+                                CreateAudienceAlphaInput.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!UpdateComputedTraitForSpaceAlphaInput.openapiFields.contains(entry.getKey())) {
+            if (!CreateAudienceAlphaInput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                    + " `UpdateComputedTraitForSpaceAlphaInput` properties. JSON:"
-                                    + " %s",
+                                        + " `CreateAudienceAlphaInput` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
+
+        // check to make sure all required properties/fields are present in the JSON string
+        for (String requiredField : CreateAudienceAlphaInput.openapiRequiredFields) {
+            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+                throw new IllegalArgumentException(
+                        String.format(
+                                "The required field `%s` is not found in the JSON string: %s",
+                                requiredField, jsonElement.toString()));
+            }
+        }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull())
-                && !jsonObj.get("name").isJsonPrimitive()) {
+        if (!jsonObj.get("name").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             "Expected the field `name` to be a primitive type in the JSON string"
                                     + " but got `%s`",
                             jsonObj.get("name").toString()));
         }
-        if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull())
-                && !jsonObj.get("description").isJsonPrimitive()) {
+        if (!jsonObj.get("description").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             "Expected the field `description` to be a primitive type in the JSON"
                                     + " string but got `%s`",
                             jsonObj.get("description").toString()));
         }
-        // validate the optional field `definition`
-        if (jsonObj.get("definition") != null && !jsonObj.get("definition").isJsonNull()) {
-            TraitDefinition.validateJsonElement(jsonObj.get("definition"));
+        // validate the required field `definition`
+        AudienceComputationDefinition.validateJsonElement(jsonObj.get("definition"));
+        // validate the optional field `options`
+        if (jsonObj.get("options") != null && !jsonObj.get("options").isJsonNull()) {
+            AudienceOptions.validateJsonElement(jsonObj.get("options"));
         }
     }
 
@@ -251,28 +258,25 @@ public class UpdateComputedTraitForSpaceAlphaInput {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!UpdateComputedTraitForSpaceAlphaInput.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'UpdateComputedTraitForSpaceAlphaInput'
-                // and its subtypes
+            if (!CreateAudienceAlphaInput.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'CreateAudienceAlphaInput' and its
+                // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<UpdateComputedTraitForSpaceAlphaInput> thisAdapter =
-                    gson.getDelegateAdapter(
-                            this, TypeToken.get(UpdateComputedTraitForSpaceAlphaInput.class));
+            final TypeAdapter<CreateAudienceAlphaInput> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(CreateAudienceAlphaInput.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<UpdateComputedTraitForSpaceAlphaInput>() {
+                    new TypeAdapter<CreateAudienceAlphaInput>() {
                         @Override
-                        public void write(
-                                JsonWriter out, UpdateComputedTraitForSpaceAlphaInput value)
+                        public void write(JsonWriter out, CreateAudienceAlphaInput value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public UpdateComputedTraitForSpaceAlphaInput read(JsonReader in)
-                                throws IOException {
+                        public CreateAudienceAlphaInput read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -282,20 +286,18 @@ public class UpdateComputedTraitForSpaceAlphaInput {
     }
 
     /**
-     * Create an instance of UpdateComputedTraitForSpaceAlphaInput given an JSON string
+     * Create an instance of CreateAudienceAlphaInput given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of UpdateComputedTraitForSpaceAlphaInput
-     * @throws IOException if the JSON string is invalid with respect to
-     *     UpdateComputedTraitForSpaceAlphaInput
+     * @return An instance of CreateAudienceAlphaInput
+     * @throws IOException if the JSON string is invalid with respect to CreateAudienceAlphaInput
      */
-    public static UpdateComputedTraitForSpaceAlphaInput fromJson(String jsonString)
-            throws IOException {
-        return JSON.getGson().fromJson(jsonString, UpdateComputedTraitForSpaceAlphaInput.class);
+    public static CreateAudienceAlphaInput fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, CreateAudienceAlphaInput.class);
     }
 
     /**
-     * Convert an instance of UpdateComputedTraitForSpaceAlphaInput to an JSON string
+     * Convert an instance of CreateAudienceAlphaInput to an JSON string
      *
      * @return JSON string
      */

@@ -177,7 +177,7 @@ public class SpacesApi {
 
     /**
      * Batch Query Messaging Subscriptions for Space Get Messaging Subscriptions for space. • This
-     * endpoint is in **Alpha** testing. Please submit any feedback by sending email to
+     * endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
      * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
      * needs to have the Spaces feature enabled. Please reach out to your customer success manager
      * for more information.
@@ -210,7 +210,7 @@ public class SpacesApi {
 
     /**
      * Batch Query Messaging Subscriptions for Space Get Messaging Subscriptions for space. • This
-     * endpoint is in **Alpha** testing. Please submit any feedback by sending email to
+     * endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
      * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
      * needs to have the Spaces feature enabled. Please reach out to your customer success manager
      * for more information.
@@ -245,7 +245,7 @@ public class SpacesApi {
 
     /**
      * Batch Query Messaging Subscriptions for Space (asynchronously) Get Messaging Subscriptions
-     * for space. • This endpoint is in **Alpha** testing. Please submit any feedback by sending
+     * for space. • This endpoint is in **Alpha** testing. Please submit any feedback by sending an
      * email to friends@segment.com. • In order to successfully call this endpoint, the specified
      * Workspace needs to have the Spaces feature enabled. Please reach out to your customer success
      * manager for more information.
@@ -371,7 +371,7 @@ public class SpacesApi {
 
     /**
      * Get Space Returns the Space by id. • This endpoint is in **Alpha** testing. Please submit any
-     * feedback by sending email to friends@segment.com. • In order to successfully call this
+     * feedback by sending an email to friends@segment.com. • In order to successfully call this
      * endpoint, the specified Workspace needs to have the Spaces feature enabled. Please reach out
      * to your customer success manager for more information.
      *
@@ -395,7 +395,7 @@ public class SpacesApi {
 
     /**
      * Get Space Returns the Space by id. • This endpoint is in **Alpha** testing. Please submit any
-     * feedback by sending email to friends@segment.com. • In order to successfully call this
+     * feedback by sending an email to friends@segment.com. • In order to successfully call this
      * endpoint, the specified Workspace needs to have the Spaces feature enabled. Please reach out
      * to your customer success manager for more information.
      *
@@ -421,7 +421,7 @@ public class SpacesApi {
 
     /**
      * Get Space (asynchronously) Returns the Space by id. • This endpoint is in **Alpha** testing.
-     * Please submit any feedback by sending email to friends@segment.com. • In order to
+     * Please submit any feedback by sending an email to friends@segment.com. • In order to
      * successfully call this endpoint, the specified Workspace needs to have the Spaces feature
      * enabled. Please reach out to your customer success manager for more information.
      *
@@ -532,8 +532,8 @@ public class SpacesApi {
 
     /**
      * List Spaces List Spaces. • This endpoint is in **Alpha** testing. Please submit any feedback
-     * by sending email to friends@segment.com. • In order to successfully call this endpoint, the
-     * specified Workspace needs to have the Spaces feature enabled. Please reach out to your
+     * by sending an email to friends@segment.com. • In order to successfully call this endpoint,
+     * the specified Workspace needs to have the Spaces feature enabled. Please reach out to your
      * customer success manager for more information.
      *
      * @param pagination Pagination params This parameter exists in alpha. (optional)
@@ -556,8 +556,8 @@ public class SpacesApi {
 
     /**
      * List Spaces List Spaces. • This endpoint is in **Alpha** testing. Please submit any feedback
-     * by sending email to friends@segment.com. • In order to successfully call this endpoint, the
-     * specified Workspace needs to have the Spaces feature enabled. Please reach out to your
+     * by sending an email to friends@segment.com. • In order to successfully call this endpoint,
+     * the specified Workspace needs to have the Spaces feature enabled. Please reach out to your
      * customer success manager for more information.
      *
      * @param pagination Pagination params This parameter exists in alpha. (optional)
@@ -582,9 +582,9 @@ public class SpacesApi {
 
     /**
      * List Spaces (asynchronously) List Spaces. • This endpoint is in **Alpha** testing. Please
-     * submit any feedback by sending email to friends@segment.com. • In order to successfully call
-     * this endpoint, the specified Workspace needs to have the Spaces feature enabled. Please reach
-     * out to your customer success manager for more information.
+     * submit any feedback by sending an email to friends@segment.com. • In order to successfully
+     * call this endpoint, the specified Workspace needs to have the Spaces feature enabled. Please
+     * reach out to your customer success manager for more information.
      *
      * @param pagination Pagination params This parameter exists in alpha. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -719,7 +719,7 @@ public class SpacesApi {
 
     /**
      * Replace Messaging Subscriptions in Spaces Replace Messaging Subscriptions in Spaces. • This
-     * endpoint is in **Alpha** testing. Please submit any feedback by sending email to
+     * endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
      * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
      * needs to have the Spaces feature enabled. Please reach out to your customer success manager
      * for more information. The rate limit for this endpoint is 60 requests per minute, which is
@@ -754,7 +754,7 @@ public class SpacesApi {
 
     /**
      * Replace Messaging Subscriptions in Spaces Replace Messaging Subscriptions in Spaces. • This
-     * endpoint is in **Alpha** testing. Please submit any feedback by sending email to
+     * endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
      * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
      * needs to have the Spaces feature enabled. Please reach out to your customer success manager
      * for more information. The rate limit for this endpoint is 60 requests per minute, which is
@@ -792,8 +792,8 @@ public class SpacesApi {
 
     /**
      * Replace Messaging Subscriptions in Spaces (asynchronously) Replace Messaging Subscriptions in
-     * Spaces. • This endpoint is in **Alpha** testing. Please submit any feedback by sending email
-     * to friends@segment.com. • In order to successfully call this endpoint, the specified
+     * Spaces. • This endpoint is in **Alpha** testing. Please submit any feedback by sending an
+     * email to friends@segment.com. • In order to successfully call this endpoint, the specified
      * Workspace needs to have the Spaces feature enabled. Please reach out to your customer success
      * manager for more information. The rate limit for this endpoint is 60 requests per minute,
      * which is lower than the default due to access pattern restrictions. Once reached, this

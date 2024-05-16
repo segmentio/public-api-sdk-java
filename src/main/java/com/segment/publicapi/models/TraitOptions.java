@@ -27,33 +27,60 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Audience output for get. */
-public class GetAudienceAlphaOutput {
-    public static final String SERIALIZED_NAME_AUDIENCE = "audience";
+/** TraitOptions */
+public class TraitOptions {
+    public static final String SERIALIZED_NAME_INCLUDE_HISTORICAL_DATA = "includeHistoricalData";
 
-    @SerializedName(SERIALIZED_NAME_AUDIENCE)
-    private AudienceSummary audience;
+    @SerializedName(SERIALIZED_NAME_INCLUDE_HISTORICAL_DATA)
+    private Boolean includeHistoricalData;
 
-    public GetAudienceAlphaOutput() {}
+    public static final String SERIALIZED_NAME_INCLUDE_ANONYMOUS_USERS = "includeAnonymousUsers";
 
-    public GetAudienceAlphaOutput audience(AudienceSummary audience) {
+    @SerializedName(SERIALIZED_NAME_INCLUDE_ANONYMOUS_USERS)
+    private Boolean includeAnonymousUsers;
 
-        this.audience = audience;
+    public TraitOptions() {}
+
+    public TraitOptions includeHistoricalData(Boolean includeHistoricalData) {
+
+        this.includeHistoricalData = includeHistoricalData;
         return this;
     }
 
     /**
-     * Get audience
+     * Determines whether data prior to the computed trait being created is included when
+     * determining the computed trait value.
      *
-     * @return audience
+     * @return includeHistoricalData
      */
-    @javax.annotation.Nonnull
-    public AudienceSummary getAudience() {
-        return audience;
+    @javax.annotation.Nullable
+    public Boolean getIncludeHistoricalData() {
+        return includeHistoricalData;
     }
 
-    public void setAudience(AudienceSummary audience) {
-        this.audience = audience;
+    public void setIncludeHistoricalData(Boolean includeHistoricalData) {
+        this.includeHistoricalData = includeHistoricalData;
+    }
+
+    public TraitOptions includeAnonymousUsers(Boolean includeAnonymousUsers) {
+
+        this.includeAnonymousUsers = includeAnonymousUsers;
+        return this;
+    }
+
+    /**
+     * Determines whether anonymous users should be included when determining the computed trait
+     * value.
+     *
+     * @return includeAnonymousUsers
+     */
+    @javax.annotation.Nullable
+    public Boolean getIncludeAnonymousUsers() {
+        return includeAnonymousUsers;
+    }
+
+    public void setIncludeAnonymousUsers(Boolean includeAnonymousUsers) {
+        this.includeAnonymousUsers = includeAnonymousUsers;
     }
 
     @Override
@@ -64,20 +91,26 @@ public class GetAudienceAlphaOutput {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        GetAudienceAlphaOutput getAudienceAlphaOutput = (GetAudienceAlphaOutput) o;
-        return Objects.equals(this.audience, getAudienceAlphaOutput.audience);
+        TraitOptions traitOptions = (TraitOptions) o;
+        return Objects.equals(this.includeHistoricalData, traitOptions.includeHistoricalData)
+                && Objects.equals(this.includeAnonymousUsers, traitOptions.includeAnonymousUsers);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(audience);
+        return Objects.hash(includeHistoricalData, includeAnonymousUsers);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class GetAudienceAlphaOutput {\n");
-        sb.append("    audience: ").append(toIndentedString(audience)).append("\n");
+        sb.append("class TraitOptions {\n");
+        sb.append("    includeHistoricalData: ")
+                .append(toIndentedString(includeHistoricalData))
+                .append("\n");
+        sb.append("    includeAnonymousUsers: ")
+                .append(toIndentedString(includeAnonymousUsers))
+                .append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -99,79 +132,66 @@ public class GetAudienceAlphaOutput {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("audience");
+        openapiFields.add("includeHistoricalData");
+        openapiFields.add("includeAnonymousUsers");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("audience");
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to GetAudienceAlphaOutput
+     * @throws IOException if the JSON Element is invalid with respect to TraitOptions
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!GetAudienceAlphaOutput.openapiRequiredFields
+            if (!TraitOptions.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in GetAudienceAlphaOutput is not found in"
-                                        + " the empty JSON string",
-                                GetAudienceAlphaOutput.openapiRequiredFields.toString()));
+                                "The required field(s) %s in TraitOptions is not found in the empty"
+                                        + " JSON string",
+                                TraitOptions.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!GetAudienceAlphaOutput.openapiFields.contains(entry.getKey())) {
+            if (!TraitOptions.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `GetAudienceAlphaOutput` properties. JSON: %s",
+                                        + " `TraitOptions` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
-
-        // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : GetAudienceAlphaOutput.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-                throw new IllegalArgumentException(
-                        String.format(
-                                "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonElement.toString()));
-            }
-        }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        // validate the required field `audience`
-        AudienceSummary.validateJsonElement(jsonObj.get("audience"));
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!GetAudienceAlphaOutput.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'GetAudienceAlphaOutput' and its subtypes
+            if (!TraitOptions.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'TraitOptions' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<GetAudienceAlphaOutput> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(GetAudienceAlphaOutput.class));
+            final TypeAdapter<TraitOptions> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(TraitOptions.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<GetAudienceAlphaOutput>() {
+                    new TypeAdapter<TraitOptions>() {
                         @Override
-                        public void write(JsonWriter out, GetAudienceAlphaOutput value)
-                                throws IOException {
+                        public void write(JsonWriter out, TraitOptions value) throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public GetAudienceAlphaOutput read(JsonReader in) throws IOException {
+                        public TraitOptions read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -181,18 +201,18 @@ public class GetAudienceAlphaOutput {
     }
 
     /**
-     * Create an instance of GetAudienceAlphaOutput given an JSON string
+     * Create an instance of TraitOptions given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of GetAudienceAlphaOutput
-     * @throws IOException if the JSON string is invalid with respect to GetAudienceAlphaOutput
+     * @return An instance of TraitOptions
+     * @throws IOException if the JSON string is invalid with respect to TraitOptions
      */
-    public static GetAudienceAlphaOutput fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, GetAudienceAlphaOutput.class);
+    public static TraitOptions fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, TraitOptions.class);
     }
 
     /**
-     * Convert an instance of GetAudienceAlphaOutput to an JSON string
+     * Convert an instance of TraitOptions to an JSON string
      *
      * @return JSON string
      */

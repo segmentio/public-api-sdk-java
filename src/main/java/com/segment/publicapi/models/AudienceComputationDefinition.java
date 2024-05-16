@@ -27,29 +27,49 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Defines an computed trait definition. */
-public class ComputedTraitsDefinition {
-    public static final String SERIALIZED_NAME_QUERY = "query";
-
-    @SerializedName(SERIALIZED_NAME_QUERY)
-    private String query;
-
+/** AudienceComputationDefinition */
+public class AudienceComputationDefinition {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
     private String type;
 
-    public ComputedTraitsDefinition() {}
+    public static final String SERIALIZED_NAME_QUERY = "query";
 
-    public ComputedTraitsDefinition query(String query) {
+    @SerializedName(SERIALIZED_NAME_QUERY)
+    private String query;
+
+    public AudienceComputationDefinition() {}
+
+    public AudienceComputationDefinition type(String type) {
+
+        this.type = type;
+        return this;
+    }
+
+    /**
+     * The underlying data type being segmented for this audience. Possible values: users, accounts.
+     *
+     * @return type
+     */
+    @javax.annotation.Nonnull
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public AudienceComputationDefinition query(String query) {
 
         this.query = query;
         return this;
     }
 
     /**
-     * The query language string defining the computed trait aggregation criteria. For guidance on
-     * using the query language, see the [Segment documentation
+     * The query language string defining the audience segmentation criteria. For guidance on using
+     * the query language, see the [Segment documentation
      * site](https://segment.com/docs/api/public-api/query-language).
      *
      * @return query
@@ -63,27 +83,6 @@ public class ComputedTraitsDefinition {
         this.query = query;
     }
 
-    public ComputedTraitsDefinition type(String type) {
-
-        this.type = type;
-        return this;
-    }
-
-    /**
-     * The underlying data type being aggregated for this computed trait. Possible values: users,
-     * accounts.
-     *
-     * @return type
-     */
-    @javax.annotation.Nonnull
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -92,22 +91,23 @@ public class ComputedTraitsDefinition {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        ComputedTraitsDefinition computedTraitsDefinition = (ComputedTraitsDefinition) o;
-        return Objects.equals(this.query, computedTraitsDefinition.query)
-                && Objects.equals(this.type, computedTraitsDefinition.type);
+        AudienceComputationDefinition audienceComputationDefinition =
+                (AudienceComputationDefinition) o;
+        return Objects.equals(this.type, audienceComputationDefinition.type)
+                && Objects.equals(this.query, audienceComputationDefinition.query);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(query, type);
+        return Objects.hash(type, query);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ComputedTraitsDefinition {\n");
-        sb.append("    query: ").append(toIndentedString(query)).append("\n");
+        sb.append("class AudienceComputationDefinition {\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("    query: ").append(toIndentedString(query)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -129,47 +129,48 @@ public class ComputedTraitsDefinition {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("query");
         openapiFields.add("type");
+        openapiFields.add("query");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("query");
         openapiRequiredFields.add("type");
+        openapiRequiredFields.add("query");
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to ComputedTraitsDefinition
+     * @throws IOException if the JSON Element is invalid with respect to
+     *     AudienceComputationDefinition
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!ComputedTraitsDefinition.openapiRequiredFields
+            if (!AudienceComputationDefinition.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in ComputedTraitsDefinition is not found"
-                                        + " in the empty JSON string",
-                                ComputedTraitsDefinition.openapiRequiredFields.toString()));
+                                "The required field(s) %s in AudienceComputationDefinition is not"
+                                        + " found in the empty JSON string",
+                                AudienceComputationDefinition.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!ComputedTraitsDefinition.openapiFields.contains(entry.getKey())) {
+            if (!AudienceComputationDefinition.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `ComputedTraitsDefinition` properties. JSON: %s",
+                                        + " `AudienceComputationDefinition` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : ComputedTraitsDefinition.openapiRequiredFields) {
+        for (String requiredField : AudienceComputationDefinition.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -178,13 +179,6 @@ public class ComputedTraitsDefinition {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if (!jsonObj.get("query").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `query` to be a primitive type in the JSON string"
-                                    + " but got `%s`",
-                            jsonObj.get("query").toString()));
-        }
         if (!jsonObj.get("type").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -192,31 +186,40 @@ public class ComputedTraitsDefinition {
                                     + " but got `%s`",
                             jsonObj.get("type").toString()));
         }
+        if (!jsonObj.get("query").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `query` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
+                            jsonObj.get("query").toString()));
+        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!ComputedTraitsDefinition.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'ComputedTraitsDefinition' and its
+            if (!AudienceComputationDefinition.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'AudienceComputationDefinition' and its
                 // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<ComputedTraitsDefinition> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(ComputedTraitsDefinition.class));
+            final TypeAdapter<AudienceComputationDefinition> thisAdapter =
+                    gson.getDelegateAdapter(
+                            this, TypeToken.get(AudienceComputationDefinition.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<ComputedTraitsDefinition>() {
+                    new TypeAdapter<AudienceComputationDefinition>() {
                         @Override
-                        public void write(JsonWriter out, ComputedTraitsDefinition value)
+                        public void write(JsonWriter out, AudienceComputationDefinition value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public ComputedTraitsDefinition read(JsonReader in) throws IOException {
+                        public AudienceComputationDefinition read(JsonReader in)
+                                throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -226,18 +229,19 @@ public class ComputedTraitsDefinition {
     }
 
     /**
-     * Create an instance of ComputedTraitsDefinition given an JSON string
+     * Create an instance of AudienceComputationDefinition given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of ComputedTraitsDefinition
-     * @throws IOException if the JSON string is invalid with respect to ComputedTraitsDefinition
+     * @return An instance of AudienceComputationDefinition
+     * @throws IOException if the JSON string is invalid with respect to
+     *     AudienceComputationDefinition
      */
-    public static ComputedTraitsDefinition fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, ComputedTraitsDefinition.class);
+    public static AudienceComputationDefinition fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, AudienceComputationDefinition.class);
     }
 
     /**
-     * Convert an instance of ComputedTraitsDefinition to an JSON string
+     * Convert an instance of AudienceComputationDefinition to an JSON string
      *
      * @return JSON string
      */
