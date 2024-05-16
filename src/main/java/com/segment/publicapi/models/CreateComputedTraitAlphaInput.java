@@ -34,6 +34,11 @@ public class CreateComputedTraitAlphaInput {
     @SerializedName(SERIALIZED_NAME_NAME)
     private String name;
 
+    public static final String SERIALIZED_NAME_ENABLED = "enabled";
+
+    @SerializedName(SERIALIZED_NAME_ENABLED)
+    private Boolean enabled;
+
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -69,6 +74,26 @@ public class CreateComputedTraitAlphaInput {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public CreateComputedTraitAlphaInput enabled(Boolean enabled) {
+
+        this.enabled = enabled;
+        return this;
+    }
+
+    /**
+     * Determines whether a computation is enabled.
+     *
+     * @return enabled
+     */
+    @javax.annotation.Nullable
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
 
     public CreateComputedTraitAlphaInput description(String description) {
@@ -142,6 +167,7 @@ public class CreateComputedTraitAlphaInput {
         CreateComputedTraitAlphaInput createComputedTraitAlphaInput =
                 (CreateComputedTraitAlphaInput) o;
         return Objects.equals(this.name, createComputedTraitAlphaInput.name)
+                && Objects.equals(this.enabled, createComputedTraitAlphaInput.enabled)
                 && Objects.equals(this.description, createComputedTraitAlphaInput.description)
                 && Objects.equals(this.definition, createComputedTraitAlphaInput.definition)
                 && Objects.equals(this.options, createComputedTraitAlphaInput.options);
@@ -149,7 +175,7 @@ public class CreateComputedTraitAlphaInput {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, description, definition, options);
+        return Objects.hash(name, enabled, description, definition, options);
     }
 
     @Override
@@ -157,6 +183,7 @@ public class CreateComputedTraitAlphaInput {
         StringBuilder sb = new StringBuilder();
         sb.append("class CreateComputedTraitAlphaInput {\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    definition: ").append(toIndentedString(definition)).append("\n");
         sb.append("    options: ").append(toIndentedString(options)).append("\n");
@@ -182,6 +209,7 @@ public class CreateComputedTraitAlphaInput {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
         openapiFields.add("name");
+        openapiFields.add("enabled");
         openapiFields.add("description");
         openapiFields.add("definition");
         openapiFields.add("options");

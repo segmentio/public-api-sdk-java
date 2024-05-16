@@ -34,6 +34,11 @@ public class CreateAudienceAlphaInput {
     @SerializedName(SERIALIZED_NAME_NAME)
     private String name;
 
+    public static final String SERIALIZED_NAME_ENABLED = "enabled";
+
+    @SerializedName(SERIALIZED_NAME_ENABLED)
+    private Boolean enabled;
+
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -69,6 +74,26 @@ public class CreateAudienceAlphaInput {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public CreateAudienceAlphaInput enabled(Boolean enabled) {
+
+        this.enabled = enabled;
+        return this;
+    }
+
+    /**
+     * Determines whether a computation is enabled.
+     *
+     * @return enabled
+     */
+    @javax.annotation.Nullable
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
 
     public CreateAudienceAlphaInput description(String description) {
@@ -141,6 +166,7 @@ public class CreateAudienceAlphaInput {
         }
         CreateAudienceAlphaInput createAudienceAlphaInput = (CreateAudienceAlphaInput) o;
         return Objects.equals(this.name, createAudienceAlphaInput.name)
+                && Objects.equals(this.enabled, createAudienceAlphaInput.enabled)
                 && Objects.equals(this.description, createAudienceAlphaInput.description)
                 && Objects.equals(this.definition, createAudienceAlphaInput.definition)
                 && Objects.equals(this.options, createAudienceAlphaInput.options);
@@ -148,7 +174,7 @@ public class CreateAudienceAlphaInput {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, description, definition, options);
+        return Objects.hash(name, enabled, description, definition, options);
     }
 
     @Override
@@ -156,6 +182,7 @@ public class CreateAudienceAlphaInput {
         StringBuilder sb = new StringBuilder();
         sb.append("class CreateAudienceAlphaInput {\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    definition: ").append(toIndentedString(definition)).append("\n");
         sb.append("    options: ").append(toIndentedString(options)).append("\n");
@@ -181,6 +208,7 @@ public class CreateAudienceAlphaInput {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
         openapiFields.add("name");
+        openapiFields.add("enabled");
         openapiFields.add("description");
         openapiFields.add("definition");
         openapiFields.add("options");
