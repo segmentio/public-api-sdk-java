@@ -62,7 +62,7 @@ public class ComputedTraitSummary {
     public static final String SERIALIZED_NAME_DEFINITION = "definition";
 
     @SerializedName(SERIALIZED_NAME_DEFINITION)
-    private Definition definition;
+    private Definition1 definition;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
@@ -216,7 +216,7 @@ public class ComputedTraitSummary {
         this.enabled = enabled;
     }
 
-    public ComputedTraitSummary definition(Definition definition) {
+    public ComputedTraitSummary definition(Definition1 definition) {
 
         this.definition = definition;
         return this;
@@ -228,11 +228,11 @@ public class ComputedTraitSummary {
      * @return definition
      */
     @javax.annotation.Nullable
-    public Definition getDefinition() {
+    public Definition1 getDefinition() {
         return definition;
     }
 
-    public void setDefinition(Definition definition) {
+    public void setDefinition(Definition1 definition) {
         this.definition = definition;
     }
 
@@ -542,7 +542,7 @@ public class ComputedTraitSummary {
                             jsonObj.get("key").toString()));
         }
         // validate the required field `definition`
-        Definition.validateJsonElement(jsonObj.get("definition"));
+        Definition1.validateJsonElement(jsonObj.get("definition"));
         if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull())
                 && !jsonObj.get("status").isJsonPrimitive()) {
             throw new IllegalArgumentException(
