@@ -83,7 +83,7 @@ public class CreateAudienceAlphaInput {
     }
 
     /**
-     * Determines whether a computation is enabled
+     * Determines whether a computation is enabled.
      *
      * @return enabled
      */
