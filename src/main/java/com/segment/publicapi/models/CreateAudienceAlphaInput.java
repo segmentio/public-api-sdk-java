@@ -107,7 +107,7 @@ public class CreateAudienceAlphaInput {
      *
      * @return description
      */
-    @javax.annotation.Nonnull
+    @javax.annotation.Nullable
     public String getDescription() {
         return description;
     }
@@ -216,7 +216,6 @@ public class CreateAudienceAlphaInput {
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
         openapiRequiredFields.add("name");
-        openapiRequiredFields.add("description");
         openapiRequiredFields.add("definition");
     }
 
@@ -267,7 +266,8 @@ public class CreateAudienceAlphaInput {
                                     + " but got `%s`",
                             jsonObj.get("name").toString()));
         }
-        if (!jsonObj.get("description").isJsonPrimitive()) {
+        if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull())
+                && !jsonObj.get("description").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             "Expected the field `description` to be a primitive type in the JSON"
