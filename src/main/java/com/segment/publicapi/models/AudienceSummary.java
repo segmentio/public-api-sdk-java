@@ -62,7 +62,7 @@ public class AudienceSummary {
     public static final String SERIALIZED_NAME_DEFINITION = "definition";
 
     @SerializedName(SERIALIZED_NAME_DEFINITION)
-    private Definition definition;
+    private Definition1 definition;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
@@ -167,7 +167,7 @@ public class AudienceSummary {
      *
      * @return description
      */
-    @javax.annotation.Nonnull
+    @javax.annotation.Nullable
     public String getDescription() {
         return description;
     }
@@ -216,7 +216,7 @@ public class AudienceSummary {
         this.enabled = enabled;
     }
 
-    public AudienceSummary definition(Definition definition) {
+    public AudienceSummary definition(Definition1 definition) {
 
         this.definition = definition;
         return this;
@@ -228,11 +228,11 @@ public class AudienceSummary {
      * @return definition
      */
     @javax.annotation.Nullable
-    public Definition getDefinition() {
+    public Definition1 getDefinition() {
         return definition;
     }
 
-    public void setDefinition(Definition definition) {
+    public void setDefinition(Definition1 definition) {
         this.definition = definition;
     }
 
@@ -456,7 +456,6 @@ public class AudienceSummary {
         openapiRequiredFields.add("id");
         openapiRequiredFields.add("spaceId");
         openapiRequiredFields.add("name");
-        openapiRequiredFields.add("description");
         openapiRequiredFields.add("key");
         openapiRequiredFields.add("enabled");
         openapiRequiredFields.add("definition");
@@ -527,7 +526,8 @@ public class AudienceSummary {
                                     + " but got `%s`",
                             jsonObj.get("name").toString()));
         }
-        if (!jsonObj.get("description").isJsonPrimitive()) {
+        if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull())
+                && !jsonObj.get("description").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             "Expected the field `description` to be a primitive type in the JSON"
@@ -542,7 +542,7 @@ public class AudienceSummary {
                             jsonObj.get("key").toString()));
         }
         // validate the required field `definition`
-        Definition.validateJsonElement(jsonObj.get("definition"));
+        Definition1.validateJsonElement(jsonObj.get("definition"));
         if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull())
                 && !jsonObj.get("status").isJsonPrimitive()) {
             throw new IllegalArgumentException(
