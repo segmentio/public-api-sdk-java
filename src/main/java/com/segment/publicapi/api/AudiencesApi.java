@@ -176,11 +176,11 @@ public class AudiencesApi {
      * feedback by sending an email to friends@segment.com. • In order to successfully call this
      * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
      * out to your customer success manager for more information. • When called, this endpoint may
-     * generate the &#x60;Audience Created&#x60; event in the [audit trail](/tag/Audit-Trail).\\
-     * Note: The definition for an Audience created via the API is not editable via the Segment App.
-     * The rate limit for this endpoint is 10 requests per minute, which is lower than the default
-     * due to access pattern restrictions. Once reached, this endpoint will respond with the 429
-     * HTTP status code with headers indicating the limit parameters. See [Rate
+     * generate the &#x60;Audience Created&#x60; event in the [audit trail](/tag/Audit-Trail). Note:
+     * The definition for an Audience created via the API is not editable via the Segment App. The
+     * rate limit for this endpoint is 10 requests per minute, which is lower than the default due
+     * to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
+     * status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
@@ -209,11 +209,11 @@ public class AudiencesApi {
      * feedback by sending an email to friends@segment.com. • In order to successfully call this
      * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
      * out to your customer success manager for more information. • When called, this endpoint may
-     * generate the &#x60;Audience Created&#x60; event in the [audit trail](/tag/Audit-Trail).\\
-     * Note: The definition for an Audience created via the API is not editable via the Segment App.
-     * The rate limit for this endpoint is 10 requests per minute, which is lower than the default
-     * due to access pattern restrictions. Once reached, this endpoint will respond with the 429
-     * HTTP status code with headers indicating the limit parameters. See [Rate
+     * generate the &#x60;Audience Created&#x60; event in the [audit trail](/tag/Audit-Trail). Note:
+     * The definition for an Audience created via the API is not editable via the Segment App. The
+     * rate limit for this endpoint is 10 requests per minute, which is lower than the default due
+     * to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
+     * status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
@@ -244,7 +244,7 @@ public class AudiencesApi {
      * successfully call this endpoint, the specified Workspace needs to have the Audience feature
      * enabled. Please reach out to your customer success manager for more information. • When
      * called, this endpoint may generate the &#x60;Audience Created&#x60; event in the [audit
-     * trail](/tag/Audit-Trail).\\ Note: The definition for an Audience created via the API is not
+     * trail](/tag/Audit-Trail). Note: The definition for an Audience created via the API is not
      * editable via the Segment App. The rate limit for this endpoint is 10 requests per minute,
      * which is lower than the default due to access pattern restrictions. Once reached, this
      * endpoint will respond with the 429 HTTP status code with headers indicating the limit
