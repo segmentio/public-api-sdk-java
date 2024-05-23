@@ -16,6 +16,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
@@ -29,10 +30,59 @@ import java.util.Set;
 
 /** TraitDefinition */
 public class TraitDefinition {
+    /**
+     * The underlying data type being aggregated for this computed trait. Possible values: users,
+     * accounts.
+     */
+    @JsonAdapter(TypeEnum.Adapter.class)
+    public enum TypeEnum {
+        ACCOUNTS("accounts"),
+
+        USERS("users");
+
+        private String value;
+
+        TypeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static TypeEnum fromValue(String value) {
+            for (TypeEnum b : TypeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<TypeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final TypeEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public TypeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return TypeEnum.fromValue(value);
+            }
+        }
+    }
+
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    private String type;
+    private TypeEnum type;
 
     public static final String SERIALIZED_NAME_QUERY = "query";
 
@@ -41,7 +91,7 @@ public class TraitDefinition {
 
     public TraitDefinition() {}
 
-    public TraitDefinition type(String type) {
+    public TraitDefinition type(TypeEnum type) {
 
         this.type = type;
         return this;
@@ -54,11 +104,11 @@ public class TraitDefinition {
      * @return type
      */
     @javax.annotation.Nonnull
-    public String getType() {
+    public TypeEnum getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(TypeEnum type) {
         this.type = type;
     }
 
