@@ -20,7 +20,7 @@ All URIs are relative to *https://api.segmentapis.com*
 
 Create Reverse ETL Manual Sync
 
-Triggers a manual sync for a Reverse ETL Connection.   In the request body, the &#x60;subscriptionId&#x60; is the id that follows after /mappings/ in the URL of the mapping page.   For example, the &#x60;subscriptionId&#x60; would be &#x60;2&#x60; for this sync: https://.../example-workspace/reverse-etl/destinations/example-destination/sources/example-source/instances/1/mappings/2/source-id/3/model-id/4/sync-details   The rate limit for this endpoint is 20 requests per minute, which is lower than the default due to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+Triggers a manual sync for a Reverse ETL Connection.   In the request body, the &#x60;subscriptionId&#x60; is the id that follows after &#x60;/mappings/&#x60; portion in the URL of the sync.   For example, the &#x60;subscriptionId&#x60; would be &#x60;2&#x60; for this sync: https://app.Segment.com/example-workspace/reverse-etl/destinations/example-destination/sources/example-source/instances/1/mappings/2/source-id/3/model-id/4/sync-details   The rate limit for this endpoint is 20 requests per minute, which is lower than the default due to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
 
 ### Example
 
