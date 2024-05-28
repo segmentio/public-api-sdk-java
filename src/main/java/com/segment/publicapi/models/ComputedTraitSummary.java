@@ -89,6 +89,11 @@ public class ComputedTraitSummary {
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
     private String updatedAt;
 
+    public static final String SERIALIZED_NAME_OPTIONS = "options";
+
+    @SerializedName(SERIALIZED_NAME_OPTIONS)
+    private TraitOptions options;
+
     public ComputedTraitSummary() {}
 
     public ComputedTraitSummary id(String id) {
@@ -162,7 +167,7 @@ public class ComputedTraitSummary {
      *
      * @return description
      */
-    @javax.annotation.Nonnull
+    @javax.annotation.Nullable
     public String getDescription() {
         return description;
     }
@@ -332,6 +337,26 @@ public class ComputedTraitSummary {
         this.updatedAt = updatedAt;
     }
 
+    public ComputedTraitSummary options(TraitOptions options) {
+
+        this.options = options;
+        return this;
+    }
+
+    /**
+     * Get options
+     *
+     * @return options
+     */
+    @javax.annotation.Nullable
+    public TraitOptions getOptions() {
+        return options;
+    }
+
+    public void setOptions(TraitOptions options) {
+        this.options = options;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -352,7 +377,8 @@ public class ComputedTraitSummary {
                 && Objects.equals(this.createdBy, computedTraitSummary.createdBy)
                 && Objects.equals(this.updatedBy, computedTraitSummary.updatedBy)
                 && Objects.equals(this.createdAt, computedTraitSummary.createdAt)
-                && Objects.equals(this.updatedAt, computedTraitSummary.updatedAt);
+                && Objects.equals(this.updatedAt, computedTraitSummary.updatedAt)
+                && Objects.equals(this.options, computedTraitSummary.options);
     }
 
     @Override
@@ -369,7 +395,8 @@ public class ComputedTraitSummary {
                 createdBy,
                 updatedBy,
                 createdAt,
-                updatedAt);
+                updatedAt,
+                options);
     }
 
     @Override
@@ -388,6 +415,7 @@ public class ComputedTraitSummary {
         sb.append("    updatedBy: ").append(toIndentedString(updatedBy)).append("\n");
         sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
         sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+        sb.append("    options: ").append(toIndentedString(options)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -421,13 +449,13 @@ public class ComputedTraitSummary {
         openapiFields.add("updatedBy");
         openapiFields.add("createdAt");
         openapiFields.add("updatedAt");
+        openapiFields.add("options");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
         openapiRequiredFields.add("id");
         openapiRequiredFields.add("spaceId");
         openapiRequiredFields.add("name");
-        openapiRequiredFields.add("description");
         openapiRequiredFields.add("key");
         openapiRequiredFields.add("enabled");
         openapiRequiredFields.add("definition");
@@ -498,7 +526,8 @@ public class ComputedTraitSummary {
                                     + " but got `%s`",
                             jsonObj.get("name").toString()));
         }
-        if (!jsonObj.get("description").isJsonPrimitive()) {
+        if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull())
+                && !jsonObj.get("description").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             "Expected the field `description` to be a primitive type in the JSON"
@@ -549,6 +578,10 @@ public class ComputedTraitSummary {
                             "Expected the field `updatedAt` to be a primitive type in the JSON"
                                     + " string but got `%s`",
                             jsonObj.get("updatedAt").toString()));
+        }
+        // validate the optional field `options`
+        if (jsonObj.get("options") != null && !jsonObj.get("options").isJsonNull()) {
+            TraitOptions.validateJsonElement(jsonObj.get("options"));
         }
     }
 

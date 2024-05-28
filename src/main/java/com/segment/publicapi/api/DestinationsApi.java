@@ -358,8 +358,8 @@ public class DestinationsApi {
 
     /**
      * Create Destination Subscription Creates a new Destination subscription. • This endpoint is in
-     * **Alpha** testing. Please submit any feedback by sending email to friends@segment.com. • In
-     * order to successfully call this endpoint, the specified Workspace needs to have the
+     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
+     * In order to successfully call this endpoint, the specified Workspace needs to have the
      * Destination Subscriptions feature enabled. Please reach out to your customer success manager
      * for more information.
      *
@@ -389,8 +389,8 @@ public class DestinationsApi {
 
     /**
      * Create Destination Subscription Creates a new Destination subscription. • This endpoint is in
-     * **Alpha** testing. Please submit any feedback by sending email to friends@segment.com. • In
-     * order to successfully call this endpoint, the specified Workspace needs to have the
+     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
+     * In order to successfully call this endpoint, the specified Workspace needs to have the
      * Destination Subscriptions feature enabled. Please reach out to your customer success manager
      * for more information.
      *
@@ -423,7 +423,7 @@ public class DestinationsApi {
 
     /**
      * Create Destination Subscription (asynchronously) Creates a new Destination subscription. •
-     * This endpoint is in **Alpha** testing. Please submit any feedback by sending email to
+     * This endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
      * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
      * needs to have the Destination Subscriptions feature enabled. Please reach out to your
      * customer success manager for more information.
@@ -896,8 +896,8 @@ public class DestinationsApi {
 
     /**
      * Get Subscription from Destination Gets a Destination subscription by id. • This endpoint is
-     * in **Alpha** testing. Please submit any feedback by sending email to friends@segment.com. •
-     * In order to successfully call this endpoint, the specified Workspace needs to have the
+     * in **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com.
+     * • In order to successfully call this endpoint, the specified Workspace needs to have the
      * Destination Subscriptions feature enabled. Please reach out to your customer success manager
      * for more information.
      *
@@ -924,8 +924,8 @@ public class DestinationsApi {
 
     /**
      * Get Subscription from Destination Gets a Destination subscription by id. • This endpoint is
-     * in **Alpha** testing. Please submit any feedback by sending email to friends@segment.com. •
-     * In order to successfully call this endpoint, the specified Workspace needs to have the
+     * in **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com.
+     * • In order to successfully call this endpoint, the specified Workspace needs to have the
      * Destination Subscriptions feature enabled. Please reach out to your customer success manager
      * for more information.
      *
@@ -955,7 +955,7 @@ public class DestinationsApi {
 
     /**
      * Get Subscription from Destination (asynchronously) Gets a Destination subscription by id. •
-     * This endpoint is in **Alpha** testing. Please submit any feedback by sending email to
+     * This endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
      * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
      * needs to have the Destination Subscriptions feature enabled. Please reach out to your
      * customer success manager for more information.
@@ -1527,8 +1527,8 @@ public class DestinationsApi {
 
     /**
      * List Subscriptions from Destination Lists subscriptions for a Destination. • This endpoint is
-     * in **Alpha** testing. Please submit any feedback by sending email to friends@segment.com. •
-     * In order to successfully call this endpoint, the specified Workspace needs to have the
+     * in **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com.
+     * • In order to successfully call this endpoint, the specified Workspace needs to have the
      * Destination Subscriptions feature enabled. Please reach out to your customer success manager
      * for more information.
      *
@@ -1555,8 +1555,8 @@ public class DestinationsApi {
 
     /**
      * List Subscriptions from Destination Lists subscriptions for a Destination. • This endpoint is
-     * in **Alpha** testing. Please submit any feedback by sending email to friends@segment.com. •
-     * In order to successfully call this endpoint, the specified Workspace needs to have the
+     * in **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com.
+     * • In order to successfully call this endpoint, the specified Workspace needs to have the
      * Destination Subscriptions feature enabled. Please reach out to your customer success manager
      * for more information.
      *
@@ -1586,7 +1586,7 @@ public class DestinationsApi {
 
     /**
      * List Subscriptions from Destination (asynchronously) Lists subscriptions for a Destination. •
-     * This endpoint is in **Alpha** testing. Please submit any feedback by sending email to
+     * This endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
      * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
      * needs to have the Destination Subscriptions feature enabled. Please reach out to your
      * customer success manager for more information.
@@ -1721,7 +1721,7 @@ public class DestinationsApi {
 
     /**
      * Remove Subscription from Destination Deletes an existing Destination subscription. • This
-     * endpoint is in **Alpha** testing. Please submit any feedback by sending email to
+     * endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
      * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
      * needs to have the Destination Subscriptions feature enabled. Please reach out to your
      * customer success manager for more information.
@@ -1749,7 +1749,7 @@ public class DestinationsApi {
 
     /**
      * Remove Subscription from Destination Deletes an existing Destination subscription. • This
-     * endpoint is in **Alpha** testing. Please submit any feedback by sending email to
+     * endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
      * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
      * needs to have the Destination Subscriptions feature enabled. Please reach out to your
      * customer success manager for more information.
@@ -1781,7 +1781,7 @@ public class DestinationsApi {
     /**
      * Remove Subscription from Destination (asynchronously) Deletes an existing Destination
      * subscription. • This endpoint is in **Alpha** testing. Please submit any feedback by sending
-     * email to friends@segment.com. • In order to successfully call this endpoint, the specified
+     * an email to friends@segment.com. • In order to successfully call this endpoint, the specified
      * Workspace needs to have the Destination Subscriptions feature enabled. Please reach out to
      * your customer success manager for more information.
      *
@@ -2144,7 +2144,7 @@ public class DestinationsApi {
 
     /**
      * Update Subscription for Destination Updates an existing Destination subscription. • This
-     * endpoint is in **Alpha** testing. Please submit any feedback by sending email to
+     * endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
      * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
      * needs to have the Destination Subscriptions feature enabled. Please reach out to your
      * customer success manager for more information.
@@ -2177,7 +2177,7 @@ public class DestinationsApi {
 
     /**
      * Update Subscription for Destination Updates an existing Destination subscription. • This
-     * endpoint is in **Alpha** testing. Please submit any feedback by sending email to
+     * endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
      * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
      * needs to have the Destination Subscriptions feature enabled. Please reach out to your
      * customer success manager for more information.
@@ -2215,7 +2215,7 @@ public class DestinationsApi {
     /**
      * Update Subscription for Destination (asynchronously) Updates an existing Destination
      * subscription. • This endpoint is in **Alpha** testing. Please submit any feedback by sending
-     * email to friends@segment.com. • In order to successfully call this endpoint, the specified
+     * an email to friends@segment.com. • In order to successfully call this endpoint, the specified
      * Workspace needs to have the Destination Subscriptions feature enabled. Please reach out to
      * your customer success manager for more information.
      *
