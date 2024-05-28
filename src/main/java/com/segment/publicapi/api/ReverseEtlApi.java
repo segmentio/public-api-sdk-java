@@ -162,10 +162,14 @@ public class ReverseEtlApi {
     }
 
     /**
-     * Create Reverse ETL Manual Sync Triggers a manual sync for a Reverse ETL Connection. The rate
-     * limit for this endpoint is 20 requests per minute, which is lower than the default due to
-     * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
-     * status code with headers indicating the limit parameters. See [Rate
+     * Create Reverse ETL Manual Sync Triggers a manual sync for a Reverse ETL Connection. In the
+     * request body, the &#x60;subscriptionId&#x60; is the id that follows after
+     * &#x60;/mappings/&#x60; portion in the URL of the sync. For example, the
+     * &#x60;subscriptionId&#x60; would be &#x60;2&#x60; for this sync:
+     * https://app.Segment.com/example-workspace/reverse-etl/destinations/example-destination/sources/example-source/instances/1/mappings/2/source-id/3/model-id/4/sync-details
+     * The rate limit for this endpoint is 20 requests per minute, which is lower than the default
+     * due to access pattern restrictions. Once reached, this endpoint will respond with the 429
+     * HTTP status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param createReverseETLManualSyncInput (required)
@@ -189,10 +193,14 @@ public class ReverseEtlApi {
     }
 
     /**
-     * Create Reverse ETL Manual Sync Triggers a manual sync for a Reverse ETL Connection. The rate
-     * limit for this endpoint is 20 requests per minute, which is lower than the default due to
-     * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
-     * status code with headers indicating the limit parameters. See [Rate
+     * Create Reverse ETL Manual Sync Triggers a manual sync for a Reverse ETL Connection. In the
+     * request body, the &#x60;subscriptionId&#x60; is the id that follows after
+     * &#x60;/mappings/&#x60; portion in the URL of the sync. For example, the
+     * &#x60;subscriptionId&#x60; would be &#x60;2&#x60; for this sync:
+     * https://app.Segment.com/example-workspace/reverse-etl/destinations/example-destination/sources/example-source/instances/1/mappings/2/source-id/3/model-id/4/sync-details
+     * The rate limit for this endpoint is 20 requests per minute, which is lower than the default
+     * due to access pattern restrictions. Once reached, this endpoint will respond with the 429
+     * HTTP status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param createReverseETLManualSyncInput (required)
@@ -221,9 +229,13 @@ public class ReverseEtlApi {
 
     /**
      * Create Reverse ETL Manual Sync (asynchronously) Triggers a manual sync for a Reverse ETL
-     * Connection. The rate limit for this endpoint is 20 requests per minute, which is lower than
-     * the default due to access pattern restrictions. Once reached, this endpoint will respond with
-     * the 429 HTTP status code with headers indicating the limit parameters. See [Rate
+     * Connection. In the request body, the &#x60;subscriptionId&#x60; is the id that follows after
+     * &#x60;/mappings/&#x60; portion in the URL of the sync. For example, the
+     * &#x60;subscriptionId&#x60; would be &#x60;2&#x60; for this sync:
+     * https://app.Segment.com/example-workspace/reverse-etl/destinations/example-destination/sources/example-source/instances/1/mappings/2/source-id/3/model-id/4/sync-details
+     * The rate limit for this endpoint is 20 requests per minute, which is lower than the default
+     * due to access pattern restrictions. Once reached, this endpoint will respond with the 429
+     * HTTP status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param createReverseETLManualSyncInput (required)
@@ -689,11 +701,11 @@ public class ReverseEtlApi {
 
     /**
      * Get Reverse ETL Sync Status Get the sync status for a Reverse ETL sync. The sync status
-     * includes all detailed information about the sync, like sync status, duration, details about
-     * the extract and load phase if applicable, etc... The rate limit for this endpoint is 250
-     * requests per minute, which is lower than the default due to access pattern restrictions. Once
-     * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
-     * limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * includes all detailed information about the sync - sync status, duration, details about the
+     * extract and load phase if applicable, etc. The rate limit for this endpoint is 250 requests
+     * per minute, which is lower than the default due to access pattern restrictions. Once reached,
+     * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
+     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param modelId (required)
      * @param syncId (required)
@@ -718,11 +730,11 @@ public class ReverseEtlApi {
 
     /**
      * Get Reverse ETL Sync Status Get the sync status for a Reverse ETL sync. The sync status
-     * includes all detailed information about the sync, like sync status, duration, details about
-     * the extract and load phase if applicable, etc... The rate limit for this endpoint is 250
-     * requests per minute, which is lower than the default due to access pattern restrictions. Once
-     * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
-     * limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * includes all detailed information about the sync - sync status, duration, details about the
+     * extract and load phase if applicable, etc. The rate limit for this endpoint is 250 requests
+     * per minute, which is lower than the default due to access pattern restrictions. Once reached,
+     * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
+     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param modelId (required)
      * @param syncId (required)
@@ -748,12 +760,11 @@ public class ReverseEtlApi {
 
     /**
      * Get Reverse ETL Sync Status (asynchronously) Get the sync status for a Reverse ETL sync. The
-     * sync status includes all detailed information about the sync, like sync status, duration,
-     * details about the extract and load phase if applicable, etc... The rate limit for this
-     * endpoint is 250 requests per minute, which is lower than the default due to access pattern
-     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
-     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
-     * information.
+     * sync status includes all detailed information about the sync - sync status, duration, details
+     * about the extract and load phase if applicable, etc. The rate limit for this endpoint is 250
+     * requests per minute, which is lower than the default due to access pattern restrictions. Once
+     * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
+     * limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param modelId (required)
      * @param syncId (required)
