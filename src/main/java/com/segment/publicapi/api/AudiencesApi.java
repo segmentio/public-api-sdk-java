@@ -475,7 +475,7 @@ public class AudiencesApi {
      * @param spaceId (required)
      * @param pagination Information about the pagination of this response. [See
      *     pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters)
-     *     for more info. This parameter exists in alpha. (required)
+     *     for more info. This parameter exists in alpha. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -563,13 +563,6 @@ public class AudiencesApi {
                     "Missing the required parameter 'spaceId' when calling listAudiences(Async)");
         }
 
-        // verify the required parameter 'pagination' is set
-        if (pagination == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'pagination' when calling"
-                            + " listAudiences(Async)");
-        }
-
         return listAudiencesCall(spaceId, pagination, _callback);
     }
 
@@ -586,7 +579,7 @@ public class AudiencesApi {
      * @param spaceId (required)
      * @param pagination Information about the pagination of this response. [See
      *     pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters)
-     *     for more info. This parameter exists in alpha. (required)
+     *     for more info. This parameter exists in alpha. (optional)
      * @return ListAudiences200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -619,7 +612,7 @@ public class AudiencesApi {
      * @param spaceId (required)
      * @param pagination Information about the pagination of this response. [See
      *     pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters)
-     *     for more info. This parameter exists in alpha. (required)
+     *     for more info. This parameter exists in alpha. (optional)
      * @return ApiResponse&lt;ListAudiences200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -652,7 +645,7 @@ public class AudiencesApi {
      * @param spaceId (required)
      * @param pagination Information about the pagination of this response. [See
      *     pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters)
-     *     for more info. This parameter exists in alpha. (required)
+     *     for more info. This parameter exists in alpha. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
