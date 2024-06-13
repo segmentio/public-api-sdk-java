@@ -639,9 +639,6 @@ public class JSON {
                 new com.segment.publicapi.models.GetDailyWorkspaceMTUUsageV1Output
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.GetDeliveryOverviewLinkedAudienceSuccessBetaInput
-                        .CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.GetDeliveryOverviewMetricsBetaOutput
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
