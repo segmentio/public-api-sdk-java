@@ -2339,10 +2339,7 @@ public class DeliveryOverviewApi {
      *     beta. (required)
      * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
      *     &#x60;activationId&#x60;, &#x60;audienceId&#x60;, and/or &#x60;spaceId&#x60; that can be
-     *     applied in addition to a &#x60;groupBy&#x60;. If you would like to view retry attempts
-     *     for a successful delivery, you can filter &#x60;discardReason&#x60; from
-     *     &#x60;successes.attempt.1&#x60; through &#x60;successes.attempt.10&#x60;. This parameter
-     *     exists in beta. (optional)
+     *     applied in addition to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
      * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
      *     (optional)
      * @param _callback Callback for upload/download progress
@@ -2539,10 +2536,7 @@ public class DeliveryOverviewApi {
      *     beta. (required)
      * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
      *     &#x60;activationId&#x60;, &#x60;audienceId&#x60;, and/or &#x60;spaceId&#x60; that can be
-     *     applied in addition to a &#x60;groupBy&#x60;. If you would like to view retry attempts
-     *     for a successful delivery, you can filter &#x60;discardReason&#x60; from
-     *     &#x60;successes.attempt.1&#x60; through &#x60;successes.attempt.10&#x60;. This parameter
-     *     exists in beta. (optional)
+     *     applied in addition to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
      * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
      *     (optional)
      * @return GetEgressFailedMetricsFromDeliveryOverview200Response
@@ -2604,10 +2598,7 @@ public class DeliveryOverviewApi {
      *     beta. (required)
      * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
      *     &#x60;activationId&#x60;, &#x60;audienceId&#x60;, and/or &#x60;spaceId&#x60; that can be
-     *     applied in addition to a &#x60;groupBy&#x60;. If you would like to view retry attempts
-     *     for a successful delivery, you can filter &#x60;discardReason&#x60; from
-     *     &#x60;successes.attempt.1&#x60; through &#x60;successes.attempt.10&#x60;. This parameter
-     *     exists in beta. (optional)
+     *     applied in addition to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
      * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
      *     (optional)
      * @return ApiResponse&lt;GetEgressFailedMetricsFromDeliveryOverview200Response&gt;
@@ -2672,10 +2663,7 @@ public class DeliveryOverviewApi {
      *     beta. (required)
      * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
      *     &#x60;activationId&#x60;, &#x60;audienceId&#x60;, and/or &#x60;spaceId&#x60; that can be
-     *     applied in addition to a &#x60;groupBy&#x60;. If you would like to view retry attempts
-     *     for a successful delivery, you can filter &#x60;discardReason&#x60; from
-     *     &#x60;successes.attempt.1&#x60; through &#x60;successes.attempt.10&#x60;. This parameter
-     *     exists in beta. (optional)
+     *     applied in addition to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
      * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
      *     (optional)
      * @param _callback The callback to be executed when the API call finishes
