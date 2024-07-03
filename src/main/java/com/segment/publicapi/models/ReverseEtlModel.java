@@ -22,12 +22,11 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
-import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Defines a Reverse ETL Model. */
 public class ReverseEtlModel {
@@ -64,7 +63,7 @@ public class ReverseEtlModel {
     public static final String SERIALIZED_NAME_SCHEDULE_CONFIG = "scheduleConfig";
 
     @SerializedName(SERIALIZED_NAME_SCHEDULE_CONFIG)
-    private ScheduleConfig scheduleConfig;
+    private Map<String, Object> scheduleConfig;
 
     public static final String SERIALIZED_NAME_QUERY = "query";
 
@@ -201,23 +200,32 @@ public class ReverseEtlModel {
         this.scheduleStrategy = scheduleStrategy;
     }
 
-    public ReverseEtlModel scheduleConfig(ScheduleConfig scheduleConfig) {
+    public ReverseEtlModel scheduleConfig(Map<String, Object> scheduleConfig) {
 
         this.scheduleConfig = scheduleConfig;
         return this;
     }
 
+    public ReverseEtlModel putScheduleConfigItem(String key, Object scheduleConfigItem) {
+        if (this.scheduleConfig == null) {
+            this.scheduleConfig = new HashMap<>();
+        }
+        this.scheduleConfig.put(key, scheduleConfigItem);
+        return this;
+    }
+
     /**
-     * Get scheduleConfig
+     * Defines a configuration object used for scheduling, which can vary depending on the
+     * configured strategy, but must always be an object with at least 1 level of keys.
      *
      * @return scheduleConfig
      */
     @javax.annotation.Nullable
-    public ScheduleConfig getScheduleConfig() {
+    public Map<String, Object> getScheduleConfig() {
         return scheduleConfig;
     }
 
-    public void setScheduleConfig(ScheduleConfig scheduleConfig) {
+    public void setScheduleConfig(Map<String, Object> scheduleConfig) {
         this.scheduleConfig = scheduleConfig;
     }
 
@@ -283,15 +291,6 @@ public class ReverseEtlModel {
                         this.queryIdentifierColumn, reverseEtlModel.queryIdentifierColumn);
     }
 
-    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-        return a == b
-                || (a != null
-                        && b != null
-                        && a.isPresent()
-                        && b.isPresent()
-                        && Objects.deepEquals(a.get(), b.get()));
-    }
-
     @Override
     public int hashCode() {
         return Objects.hash(
@@ -304,13 +303,6 @@ public class ReverseEtlModel {
                 scheduleConfig,
                 query,
                 queryIdentifierColumn);
-    }
-
-    private static <T> int hashCodeNullable(JsonNullable<T> a) {
-        if (a == null) {
-            return 1;
-        }
-        return a.isPresent() ? Arrays.deepHashCode(new Object[] {a.get()}) : 31;
     }
 
     @Override
@@ -445,10 +437,6 @@ public class ReverseEtlModel {
                             "Expected the field `scheduleStrategy` to be a primitive type in the"
                                     + " JSON string but got `%s`",
                             jsonObj.get("scheduleStrategy").toString()));
-        }
-        // validate the optional field `scheduleConfig`
-        if (jsonObj.get("scheduleConfig") != null && !jsonObj.get("scheduleConfig").isJsonNull()) {
-            ScheduleConfig.validateJsonElement(jsonObj.get("scheduleConfig"));
         }
         if (!jsonObj.get("query").isJsonPrimitive()) {
             throw new IllegalArgumentException(

@@ -22,13 +22,11 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 /** DestinationSubscription */
 public class DestinationSubscription {
@@ -76,11 +74,6 @@ public class DestinationSubscription {
 
     @SerializedName(SERIALIZED_NAME_MODEL_ID)
     private String modelId;
-
-    public static final String SERIALIZED_NAME_REVERSE_E_T_L_SCHEDULE = "reverseETLSchedule";
-
-    @SerializedName(SERIALIZED_NAME_REVERSE_E_T_L_SCHEDULE)
-    private Object reverseETLSchedule;
 
     public DestinationSubscription() {}
 
@@ -273,26 +266,6 @@ public class DestinationSubscription {
         this.modelId = modelId;
     }
 
-    public DestinationSubscription reverseETLSchedule(Object reverseETLSchedule) {
-
-        this.reverseETLSchedule = reverseETLSchedule;
-        return this;
-    }
-
-    /**
-     * The schedule for the Reverse ETL subscription.
-     *
-     * @return reverseETLSchedule
-     */
-    @javax.annotation.Nullable
-    public Object getReverseETLSchedule() {
-        return reverseETLSchedule;
-    }
-
-    public void setReverseETLSchedule(Object reverseETLSchedule) {
-        this.reverseETLSchedule = reverseETLSchedule;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -310,40 +283,13 @@ public class DestinationSubscription {
                 && Objects.equals(this.enabled, destinationSubscription.enabled)
                 && Objects.equals(this.settings, destinationSubscription.settings)
                 && Objects.equals(this.trigger, destinationSubscription.trigger)
-                && Objects.equals(this.modelId, destinationSubscription.modelId)
-                && Objects.equals(
-                        this.reverseETLSchedule, destinationSubscription.reverseETLSchedule);
-    }
-
-    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-        return a == b
-                || (a != null
-                        && b != null
-                        && a.isPresent()
-                        && b.isPresent()
-                        && Objects.deepEquals(a.get(), b.get()));
+                && Objects.equals(this.modelId, destinationSubscription.modelId);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(
-                id,
-                name,
-                actionId,
-                actionSlug,
-                destinationId,
-                enabled,
-                settings,
-                trigger,
-                modelId,
-                reverseETLSchedule);
-    }
-
-    private static <T> int hashCodeNullable(JsonNullable<T> a) {
-        if (a == null) {
-            return 1;
-        }
-        return a.isPresent() ? Arrays.deepHashCode(new Object[] {a.get()}) : 31;
+                id, name, actionId, actionSlug, destinationId, enabled, settings, trigger, modelId);
     }
 
     @Override
@@ -359,9 +305,6 @@ public class DestinationSubscription {
         sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
         sb.append("    trigger: ").append(toIndentedString(trigger)).append("\n");
         sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
-        sb.append("    reverseETLSchedule: ")
-                .append(toIndentedString(reverseETLSchedule))
-                .append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -392,7 +335,6 @@ public class DestinationSubscription {
         openapiFields.add("settings");
         openapiFields.add("trigger");
         openapiFields.add("modelId");
-        openapiFields.add("reverseETLSchedule");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
