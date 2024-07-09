@@ -23,30 +23,30 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Query language definition and type. */
-public class Definition {
-    public static final String SERIALIZED_NAME_QUERY = "query";
+/**
+ * Defines a configuration object used for scheduling, which can vary depending on the configured
+ * strategy.
+ */
+public class ReverseEtlScheduleDefinition {
+    /** Strategy supports three modes: Periodic, Specific Days, or Manual. */
+    @JsonAdapter(StrategyEnum.Adapter.class)
+    public enum StrategyEnum {
+        MANUAL("MANUAL"),
 
-    @SerializedName(SERIALIZED_NAME_QUERY)
-    private String query;
+        PERIODIC("PERIODIC"),
 
-    /**
-     * The underlying data type being segmented for this audience. Possible values: users, accounts.
-     */
-    @JsonAdapter(TypeEnum.Adapter.class)
-    public enum TypeEnum {
-        ACCOUNTS("ACCOUNTS"),
-
-        USERS("USERS");
+        SPECIFIC_DAYS("SPECIFIC_DAYS");
 
         private String value;
 
-        TypeEnum(String value) {
+        StrategyEnum(String value) {
             this.value = value;
         }
 
@@ -59,8 +59,8 @@ public class Definition {
             return String.valueOf(value);
         }
 
-        public static TypeEnum fromValue(String value) {
-            for (TypeEnum b : TypeEnum.values()) {
+        public static StrategyEnum fromValue(String value) {
+            for (StrategyEnum b : StrategyEnum.values()) {
                 if (b.value.equals(value)) {
                     return b;
                 }
@@ -68,66 +68,71 @@ public class Definition {
             throw new IllegalArgumentException("Unexpected value '" + value + "'");
         }
 
-        public static class Adapter extends TypeAdapter<TypeEnum> {
+        public static class Adapter extends TypeAdapter<StrategyEnum> {
             @Override
-            public void write(final JsonWriter jsonWriter, final TypeEnum enumeration)
+            public void write(final JsonWriter jsonWriter, final StrategyEnum enumeration)
                     throws IOException {
                 jsonWriter.value(enumeration.getValue());
             }
 
             @Override
-            public TypeEnum read(final JsonReader jsonReader) throws IOException {
+            public StrategyEnum read(final JsonReader jsonReader) throws IOException {
                 String value = jsonReader.nextString();
-                return TypeEnum.fromValue(value);
+                return StrategyEnum.fromValue(value);
             }
         }
     }
 
-    public static final String SERIALIZED_NAME_TYPE = "type";
+    public static final String SERIALIZED_NAME_STRATEGY = "strategy";
 
-    @SerializedName(SERIALIZED_NAME_TYPE)
-    private TypeEnum type;
+    @SerializedName(SERIALIZED_NAME_STRATEGY)
+    private StrategyEnum strategy;
 
-    public Definition() {}
+    public static final String SERIALIZED_NAME_CONFIG = "config";
 
-    public Definition query(String query) {
+    @SerializedName(SERIALIZED_NAME_CONFIG)
+    private Config config;
 
-        this.query = query;
+    public ReverseEtlScheduleDefinition() {}
+
+    public ReverseEtlScheduleDefinition strategy(StrategyEnum strategy) {
+
+        this.strategy = strategy;
         return this;
     }
 
     /**
-     * The query language string defining the audience segmentation criteria.
+     * Strategy supports three modes: Periodic, Specific Days, or Manual.
      *
-     * @return query
+     * @return strategy
      */
     @javax.annotation.Nonnull
-    public String getQuery() {
-        return query;
+    public StrategyEnum getStrategy() {
+        return strategy;
     }
 
-    public void setQuery(String query) {
-        this.query = query;
+    public void setStrategy(StrategyEnum strategy) {
+        this.strategy = strategy;
     }
 
-    public Definition type(TypeEnum type) {
+    public ReverseEtlScheduleDefinition config(Config config) {
 
-        this.type = type;
+        this.config = config;
         return this;
     }
 
     /**
-     * The underlying data type being segmented for this audience. Possible values: users, accounts.
+     * Get config
      *
-     * @return type
+     * @return config
      */
-    @javax.annotation.Nonnull
-    public TypeEnum getType() {
-        return type;
+    @javax.annotation.Nullable
+    public Config getConfig() {
+        return config;
     }
 
-    public void setType(TypeEnum type) {
-        this.type = type;
+    public void setConfig(Config config) {
+        this.config = config;
     }
 
     @Override
@@ -138,22 +143,39 @@ public class Definition {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Definition definition = (Definition) o;
-        return Objects.equals(this.query, definition.query)
-                && Objects.equals(this.type, definition.type);
+        ReverseEtlScheduleDefinition reverseEtlScheduleDefinition =
+                (ReverseEtlScheduleDefinition) o;
+        return Objects.equals(this.strategy, reverseEtlScheduleDefinition.strategy)
+                && Objects.equals(this.config, reverseEtlScheduleDefinition.config);
+    }
+
+    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+        return a == b
+                || (a != null
+                        && b != null
+                        && a.isPresent()
+                        && b.isPresent()
+                        && Objects.deepEquals(a.get(), b.get()));
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(query, type);
+        return Objects.hash(strategy, config);
+    }
+
+    private static <T> int hashCodeNullable(JsonNullable<T> a) {
+        if (a == null) {
+            return 1;
+        }
+        return a.isPresent() ? Arrays.deepHashCode(new Object[] {a.get()}) : 31;
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class Definition {\n");
-        sb.append("    query: ").append(toIndentedString(query)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("class ReverseEtlScheduleDefinition {\n");
+        sb.append("    strategy: ").append(toIndentedString(strategy)).append("\n");
+        sb.append("    config: ").append(toIndentedString(config)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -175,47 +197,47 @@ public class Definition {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("query");
-        openapiFields.add("type");
+        openapiFields.add("strategy");
+        openapiFields.add("config");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("query");
-        openapiRequiredFields.add("type");
+        openapiRequiredFields.add("strategy");
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to Definition
+     * @throws IOException if the JSON Element is invalid with respect to
+     *     ReverseEtlScheduleDefinition
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!Definition.openapiRequiredFields
+            if (!ReverseEtlScheduleDefinition.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in Definition is not found in the empty"
-                                        + " JSON string",
-                                Definition.openapiRequiredFields.toString()));
+                                "The required field(s) %s in ReverseEtlScheduleDefinition is not"
+                                        + " found in the empty JSON string",
+                                ReverseEtlScheduleDefinition.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!Definition.openapiFields.contains(entry.getKey())) {
+            if (!ReverseEtlScheduleDefinition.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `Definition` properties. JSON: %s",
+                                        + " `ReverseEtlScheduleDefinition` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : Definition.openapiRequiredFields) {
+        for (String requiredField : ReverseEtlScheduleDefinition.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -224,19 +246,16 @@ public class Definition {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if (!jsonObj.get("query").isJsonPrimitive()) {
+        if (!jsonObj.get("strategy").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `query` to be a primitive type in the JSON string"
-                                    + " but got `%s`",
-                            jsonObj.get("query").toString()));
+                            "Expected the field `strategy` to be a primitive type in the JSON"
+                                    + " string but got `%s`",
+                            jsonObj.get("strategy").toString()));
         }
-        if (!jsonObj.get("type").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `type` to be a primitive type in the JSON string"
-                                    + " but got `%s`",
-                            jsonObj.get("type").toString()));
+        // validate the optional field `config`
+        if (jsonObj.get("config") != null && !jsonObj.get("config").isJsonNull()) {
+            Config.validateJsonElement(jsonObj.get("config"));
         }
     }
 
@@ -244,23 +263,26 @@ public class Definition {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!Definition.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'Definition' and its subtypes
+            if (!ReverseEtlScheduleDefinition.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'ReverseEtlScheduleDefinition' and its
+                // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<Definition> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(Definition.class));
+            final TypeAdapter<ReverseEtlScheduleDefinition> thisAdapter =
+                    gson.getDelegateAdapter(
+                            this, TypeToken.get(ReverseEtlScheduleDefinition.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<Definition>() {
+                    new TypeAdapter<ReverseEtlScheduleDefinition>() {
                         @Override
-                        public void write(JsonWriter out, Definition value) throws IOException {
+                        public void write(JsonWriter out, ReverseEtlScheduleDefinition value)
+                                throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public Definition read(JsonReader in) throws IOException {
+                        public ReverseEtlScheduleDefinition read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -270,18 +292,19 @@ public class Definition {
     }
 
     /**
-     * Create an instance of Definition given an JSON string
+     * Create an instance of ReverseEtlScheduleDefinition given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of Definition
-     * @throws IOException if the JSON string is invalid with respect to Definition
+     * @return An instance of ReverseEtlScheduleDefinition
+     * @throws IOException if the JSON string is invalid with respect to
+     *     ReverseEtlScheduleDefinition
      */
-    public static Definition fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, Definition.class);
+    public static ReverseEtlScheduleDefinition fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, ReverseEtlScheduleDefinition.class);
     }
 
     /**
-     * Convert an instance of Definition to an JSON string
+     * Convert an instance of ReverseEtlScheduleDefinition to an JSON string
      *
      * @return JSON string
      */
