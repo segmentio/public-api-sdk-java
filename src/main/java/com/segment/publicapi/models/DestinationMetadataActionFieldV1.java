@@ -158,6 +158,11 @@ public class DestinationMetadataActionFieldV1 {
     @SerializedName(SERIALIZED_NAME_ALLOW_NULL)
     private Boolean allowNull;
 
+    public static final String SERIALIZED_NAME_HIDDEN = "hidden";
+
+    @SerializedName(SERIALIZED_NAME_HIDDEN)
+    private Boolean hidden;
+
     public DestinationMetadataActionFieldV1() {}
 
     public DestinationMetadataActionFieldV1 id(String id) {
@@ -423,6 +428,26 @@ public class DestinationMetadataActionFieldV1 {
         this.allowNull = allowNull;
     }
 
+    public DestinationMetadataActionFieldV1 hidden(Boolean hidden) {
+
+        this.hidden = hidden;
+        return this;
+    }
+
+    /**
+     * Whether the action field should be hidden or not.
+     *
+     * @return hidden
+     */
+    @javax.annotation.Nullable
+    public Boolean getHidden() {
+        return hidden;
+    }
+
+    public void setHidden(Boolean hidden) {
+        this.hidden = hidden;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -445,7 +470,8 @@ public class DestinationMetadataActionFieldV1 {
                 && Objects.equals(this.multiple, destinationMetadataActionFieldV1.multiple)
                 && Objects.equals(this.choices, destinationMetadataActionFieldV1.choices)
                 && Objects.equals(this.dynamic, destinationMetadataActionFieldV1.dynamic)
-                && Objects.equals(this.allowNull, destinationMetadataActionFieldV1.allowNull);
+                && Objects.equals(this.allowNull, destinationMetadataActionFieldV1.allowNull)
+                && Objects.equals(this.hidden, destinationMetadataActionFieldV1.hidden);
     }
 
     private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -472,7 +498,8 @@ public class DestinationMetadataActionFieldV1 {
                 multiple,
                 choices,
                 dynamic,
-                allowNull);
+                allowNull,
+                hidden);
     }
 
     private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -499,6 +526,7 @@ public class DestinationMetadataActionFieldV1 {
         sb.append("    choices: ").append(toIndentedString(choices)).append("\n");
         sb.append("    dynamic: ").append(toIndentedString(dynamic)).append("\n");
         sb.append("    allowNull: ").append(toIndentedString(allowNull)).append("\n");
+        sb.append("    hidden: ").append(toIndentedString(hidden)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -533,6 +561,7 @@ public class DestinationMetadataActionFieldV1 {
         openapiFields.add("choices");
         openapiFields.add("dynamic");
         openapiFields.add("allowNull");
+        openapiFields.add("hidden");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
