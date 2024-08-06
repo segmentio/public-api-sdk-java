@@ -17,6 +17,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
@@ -71,6 +72,72 @@ public class SourceMetadataV1 {
 
     @SerializedName(SERIALIZED_NAME_IS_CLOUD_EVENT_SOURCE)
     private Boolean isCloudEventSource;
+
+    /** Support status of the Source. */
+    @JsonAdapter(StatusEnum.Adapter.class)
+    public enum StatusEnum {
+        DEPRECATED("DEPRECATED"),
+
+        PRIVATE_BETA("PRIVATE_BETA"),
+
+        PRIVATE_BUILDING("PRIVATE_BUILDING"),
+
+        PRIVATE_SUBMITTED("PRIVATE_SUBMITTED"),
+
+        PUBLIC("PUBLIC"),
+
+        PUBLIC_BETA("PUBLIC_BETA"),
+
+        UNAVAILABLE("UNAVAILABLE");
+
+        private String value;
+
+        StatusEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static StatusEnum fromValue(String value) {
+            for (StatusEnum b : StatusEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<StatusEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final StatusEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public StatusEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return StatusEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_STATUS = "status";
+
+    @SerializedName(SERIALIZED_NAME_STATUS)
+    private StatusEnum status;
+
+    public static final String SERIALIZED_NAME_PARTNER_OWNED = "partnerOwned";
+
+    @SerializedName(SERIALIZED_NAME_PARTNER_OWNED)
+    private Boolean partnerOwned;
 
     public SourceMetadataV1() {}
 
@@ -252,6 +319,46 @@ public class SourceMetadataV1 {
         this.isCloudEventSource = isCloudEventSource;
     }
 
+    public SourceMetadataV1 status(StatusEnum status) {
+
+        this.status = status;
+        return this;
+    }
+
+    /**
+     * Support status of the Source.
+     *
+     * @return status
+     */
+    @javax.annotation.Nonnull
+    public StatusEnum getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusEnum status) {
+        this.status = status;
+    }
+
+    public SourceMetadataV1 partnerOwned(Boolean partnerOwned) {
+
+        this.partnerOwned = partnerOwned;
+        return this;
+    }
+
+    /**
+     * Partner Owned flag.
+     *
+     * @return partnerOwned
+     */
+    @javax.annotation.Nullable
+    public Boolean getPartnerOwned() {
+        return partnerOwned;
+    }
+
+    public void setPartnerOwned(Boolean partnerOwned) {
+        this.partnerOwned = partnerOwned;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -268,13 +375,24 @@ public class SourceMetadataV1 {
                 && Objects.equals(this.logos, sourceMetadataV1.logos)
                 && Objects.equals(this.options, sourceMetadataV1.options)
                 && Objects.equals(this.categories, sourceMetadataV1.categories)
-                && Objects.equals(this.isCloudEventSource, sourceMetadataV1.isCloudEventSource);
+                && Objects.equals(this.isCloudEventSource, sourceMetadataV1.isCloudEventSource)
+                && Objects.equals(this.status, sourceMetadataV1.status)
+                && Objects.equals(this.partnerOwned, sourceMetadataV1.partnerOwned);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(
-                id, name, slug, description, logos, options, categories, isCloudEventSource);
+                id,
+                name,
+                slug,
+                description,
+                logos,
+                options,
+                categories,
+                isCloudEventSource,
+                status,
+                partnerOwned);
     }
 
     @Override
@@ -291,6 +409,8 @@ public class SourceMetadataV1 {
         sb.append("    isCloudEventSource: ")
                 .append(toIndentedString(isCloudEventSource))
                 .append("\n");
+        sb.append("    status: ").append(toIndentedString(status)).append("\n");
+        sb.append("    partnerOwned: ").append(toIndentedString(partnerOwned)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -320,6 +440,8 @@ public class SourceMetadataV1 {
         openapiFields.add("options");
         openapiFields.add("categories");
         openapiFields.add("isCloudEventSource");
+        openapiFields.add("status");
+        openapiFields.add("partnerOwned");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
@@ -331,6 +453,7 @@ public class SourceMetadataV1 {
         openapiRequiredFields.add("options");
         openapiRequiredFields.add("categories");
         openapiRequiredFields.add("isCloudEventSource");
+        openapiRequiredFields.add("status");
     }
 
     /**
@@ -429,6 +552,13 @@ public class SourceMetadataV1 {
                             "Expected the field `categories` to be an array in the JSON string but"
                                     + " got `%s`",
                             jsonObj.get("categories").toString()));
+        }
+        if (!jsonObj.get("status").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `status` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
+                            jsonObj.get("status").toString()));
         }
     }
 
