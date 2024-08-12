@@ -1294,9 +1294,8 @@ public class DeliveryOverviewApi {
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
      *     beta. (required)
      * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, &#x60;activationId&#x60;,
-     *     &#x60;audienceId&#x60;, and/or &#x60;spaceId&#x60; that can be applied in addition to a
-     *     &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
+     *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
      * @param pagination Optional params to specify the page cursor and count. This parameter exists
      *     in beta. (optional)
      * @param _callback Callback for upload/download progress
@@ -1468,9 +1467,8 @@ public class DeliveryOverviewApi {
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
      *     beta. (required)
      * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, &#x60;activationId&#x60;,
-     *     &#x60;audienceId&#x60;, and/or &#x60;spaceId&#x60; that can be applied in addition to a
-     *     &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
+     *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
      * @param pagination Optional params to specify the page cursor and count. This parameter exists
      *     in beta. (optional)
      * @return GetEgressFailedMetricsFromDeliveryOverview200Response
@@ -1521,9 +1519,8 @@ public class DeliveryOverviewApi {
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
      *     beta. (required)
      * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, &#x60;activationId&#x60;,
-     *     &#x60;audienceId&#x60;, and/or &#x60;spaceId&#x60; that can be applied in addition to a
-     *     &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
+     *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
      * @param pagination Optional params to specify the page cursor and count. This parameter exists
      *     in beta. (optional)
      * @return ApiResponse&lt;GetEgressFailedMetricsFromDeliveryOverview200Response&gt;
@@ -1583,9 +1580,8 @@ public class DeliveryOverviewApi {
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
      *     beta. (required)
      * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, &#x60;activationId&#x60;,
-     *     &#x60;audienceId&#x60;, and/or &#x60;spaceId&#x60; that can be applied in addition to a
-     *     &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
+     *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
      * @param pagination Optional params to specify the page cursor and count. This parameter exists
      *     in beta. (optional)
      * @param _callback The callback to be executed when the API call finishes
