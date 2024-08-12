@@ -54,21 +54,6 @@ public class DeliveryOverviewSourceFilterBy {
     @SerializedName(SERIALIZED_NAME_APP_VERSION)
     private List<String> appVersion;
 
-    public static final String SERIALIZED_NAME_ACTIVATION_ID = "activationId";
-
-    @SerializedName(SERIALIZED_NAME_ACTIVATION_ID)
-    private List<String> activationId;
-
-    public static final String SERIALIZED_NAME_AUDIENCE_ID = "audienceId";
-
-    @SerializedName(SERIALIZED_NAME_AUDIENCE_ID)
-    private List<String> audienceId;
-
-    public static final String SERIALIZED_NAME_SPACE_ID = "spaceId";
-
-    @SerializedName(SERIALIZED_NAME_SPACE_ID)
-    private List<String> spaceId;
-
     public DeliveryOverviewSourceFilterBy() {}
 
     public DeliveryOverviewSourceFilterBy discardReason(List<String> discardReason) {
@@ -186,90 +171,6 @@ public class DeliveryOverviewSourceFilterBy {
         this.appVersion = appVersion;
     }
 
-    public DeliveryOverviewSourceFilterBy activationId(List<String> activationId) {
-
-        this.activationId = activationId;
-        return this;
-    }
-
-    public DeliveryOverviewSourceFilterBy addActivationIdItem(String activationIdItem) {
-        if (this.activationId == null) {
-            this.activationId = new ArrayList<>();
-        }
-        this.activationId.add(activationIdItem);
-        return this;
-    }
-
-    /**
-     * A list of strings of event context IDs from a Linked Audience mapping/activation.
-     *
-     * @return activationId
-     */
-    @javax.annotation.Nullable
-    public List<String> getActivationId() {
-        return activationId;
-    }
-
-    public void setActivationId(List<String> activationId) {
-        this.activationId = activationId;
-    }
-
-    public DeliveryOverviewSourceFilterBy audienceId(List<String> audienceId) {
-
-        this.audienceId = audienceId;
-        return this;
-    }
-
-    public DeliveryOverviewSourceFilterBy addAudienceIdItem(String audienceIdItem) {
-        if (this.audienceId == null) {
-            this.audienceId = new ArrayList<>();
-        }
-        this.audienceId.add(audienceIdItem);
-        return this;
-    }
-
-    /**
-     * A list of strings of audienceIDs for a Linked Audience.
-     *
-     * @return audienceId
-     */
-    @javax.annotation.Nullable
-    public List<String> getAudienceId() {
-        return audienceId;
-    }
-
-    public void setAudienceId(List<String> audienceId) {
-        this.audienceId = audienceId;
-    }
-
-    public DeliveryOverviewSourceFilterBy spaceId(List<String> spaceId) {
-
-        this.spaceId = spaceId;
-        return this;
-    }
-
-    public DeliveryOverviewSourceFilterBy addSpaceIdItem(String spaceIdItem) {
-        if (this.spaceId == null) {
-            this.spaceId = new ArrayList<>();
-        }
-        this.spaceId.add(spaceIdItem);
-        return this;
-    }
-
-    /**
-     * A list of strings of spaceIDs for a Linked Audience.
-     *
-     * @return spaceId
-     */
-    @javax.annotation.Nullable
-    public List<String> getSpaceId() {
-        return spaceId;
-    }
-
-    public void setSpaceId(List<String> spaceId) {
-        this.spaceId = spaceId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -283,16 +184,12 @@ public class DeliveryOverviewSourceFilterBy {
         return Objects.equals(this.discardReason, deliveryOverviewSourceFilterBy.discardReason)
                 && Objects.equals(this.eventName, deliveryOverviewSourceFilterBy.eventName)
                 && Objects.equals(this.eventType, deliveryOverviewSourceFilterBy.eventType)
-                && Objects.equals(this.appVersion, deliveryOverviewSourceFilterBy.appVersion)
-                && Objects.equals(this.activationId, deliveryOverviewSourceFilterBy.activationId)
-                && Objects.equals(this.audienceId, deliveryOverviewSourceFilterBy.audienceId)
-                && Objects.equals(this.spaceId, deliveryOverviewSourceFilterBy.spaceId);
+                && Objects.equals(this.appVersion, deliveryOverviewSourceFilterBy.appVersion);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(
-                discardReason, eventName, eventType, appVersion, activationId, audienceId, spaceId);
+        return Objects.hash(discardReason, eventName, eventType, appVersion);
     }
 
     @Override
@@ -303,9 +200,6 @@ public class DeliveryOverviewSourceFilterBy {
         sb.append("    eventName: ").append(toIndentedString(eventName)).append("\n");
         sb.append("    eventType: ").append(toIndentedString(eventType)).append("\n");
         sb.append("    appVersion: ").append(toIndentedString(appVersion)).append("\n");
-        sb.append("    activationId: ").append(toIndentedString(activationId)).append("\n");
-        sb.append("    audienceId: ").append(toIndentedString(audienceId)).append("\n");
-        sb.append("    spaceId: ").append(toIndentedString(spaceId)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -331,9 +225,6 @@ public class DeliveryOverviewSourceFilterBy {
         openapiFields.add("eventName");
         openapiFields.add("eventType");
         openapiFields.add("appVersion");
-        openapiFields.add("activationId");
-        openapiFields.add("audienceId");
-        openapiFields.add("spaceId");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
@@ -409,36 +300,6 @@ public class DeliveryOverviewSourceFilterBy {
                             "Expected the field `appVersion` to be an array in the JSON string but"
                                     + " got `%s`",
                             jsonObj.get("appVersion").toString()));
-        }
-        // ensure the optional json data is an array if present
-        if (jsonObj.get("activationId") != null
-                && !jsonObj.get("activationId").isJsonNull()
-                && !jsonObj.get("activationId").isJsonArray()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `activationId` to be an array in the JSON string"
-                                    + " but got `%s`",
-                            jsonObj.get("activationId").toString()));
-        }
-        // ensure the optional json data is an array if present
-        if (jsonObj.get("audienceId") != null
-                && !jsonObj.get("audienceId").isJsonNull()
-                && !jsonObj.get("audienceId").isJsonArray()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `audienceId` to be an array in the JSON string but"
-                                    + " got `%s`",
-                            jsonObj.get("audienceId").toString()));
-        }
-        // ensure the optional json data is an array if present
-        if (jsonObj.get("spaceId") != null
-                && !jsonObj.get("spaceId").isJsonNull()
-                && !jsonObj.get("spaceId").isJsonArray()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `spaceId` to be an array in the JSON string but got"
-                                    + " `%s`",
-                            jsonObj.get("spaceId").toString()));
         }
     }
 
