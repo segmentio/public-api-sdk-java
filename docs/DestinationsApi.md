@@ -267,7 +267,7 @@ public class Example {
         token.setBearerToken("BEARER TOKEN");
 
         DestinationsApi apiInstance = new DestinationsApi(defaultClient);
-        String destinationId = "fP7qoQw2HTWt9WdMr718gn"; // String | 
+        String destinationId = "qtiZHLLqqsHmpvLXNtP5du"; // String | 
         try {
             GetDestination200Response result = apiInstance.getDestination(destinationId);
             System.out.println(result);
@@ -719,7 +719,7 @@ public class Example {
         token.setBearerToken("BEARER TOKEN");
 
         DestinationsApi apiInstance = new DestinationsApi(defaultClient);
-        String destinationId = "fP7qoQw2HTWt9WdMr718gn"; // String | 
+        String destinationId = "qtiZHLLqqsHmpvLXNtP5du"; // String | 
         UpdateDestinationV1Input updateDestinationV1Input = new UpdateDestinationV1Input(); // UpdateDestinationV1Input | 
         try {
             UpdateDestination200Response result = apiInstance.updateDestination(destinationId, updateDestinationV1Input);
