@@ -191,7 +191,7 @@ public class Example {
         token.setBearerToken("BEARER TOKEN");
 
         DestinationFiltersApi apiInstance = new DestinationFiltersApi(defaultClient);
-        String destinationId = "fP7qoQw2HTWt9WdMr718gn"; // String | 
+        String destinationId = "qtiZHLLqqsHmpvLXNtP5du"; // String | 
         PaginationInput pagination = new PaginationInput(); // PaginationInput | Pagination options.  This parameter exists in v1.
         try {
             ListFiltersFromDestination200Response result = apiInstance.listFiltersFromDestination(destinationId, pagination);

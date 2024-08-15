@@ -888,7 +888,7 @@ public class DeliveryOverviewApi {
      *     timeframe, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
      *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, and &#x60;subscriptionId&#x60;,
+     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, &#x60;subscriptionId&#x60;,
      *     &#x60;activationId&#x60;, &#x60;audienceId&#x60;, and &#x60;spaceId&#x60;. This parameter
      *     exists in beta. (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
@@ -1087,7 +1087,7 @@ public class DeliveryOverviewApi {
      *     timeframe, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
      *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, and &#x60;subscriptionId&#x60;,
+     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, &#x60;subscriptionId&#x60;,
      *     &#x60;activationId&#x60;, &#x60;audienceId&#x60;, and &#x60;spaceId&#x60;. This parameter
      *     exists in beta. (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
@@ -1151,7 +1151,7 @@ public class DeliveryOverviewApi {
      *     timeframe, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
      *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, and &#x60;subscriptionId&#x60;,
+     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, &#x60;subscriptionId&#x60;,
      *     &#x60;activationId&#x60;, &#x60;audienceId&#x60;, and &#x60;spaceId&#x60;. This parameter
      *     exists in beta. (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
@@ -1218,7 +1218,7 @@ public class DeliveryOverviewApi {
      *     timeframe, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
      *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, and &#x60;subscriptionId&#x60;,
+     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, &#x60;subscriptionId&#x60;,
      *     &#x60;activationId&#x60;, &#x60;audienceId&#x60;, and &#x60;spaceId&#x60;. This parameter
      *     exists in beta. (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
