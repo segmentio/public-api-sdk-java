@@ -50,6 +50,12 @@ public class CreateSourceV1Input {
     @SerializedName(SERIALIZED_NAME_SETTINGS)
     private Map<String, Object> settings;
 
+    public static final String SERIALIZED_NAME_DISCONNECT_ALL_WAREHOUSES =
+            "disconnectAllWarehouses";
+
+    @SerializedName(SERIALIZED_NAME_DISCONNECT_ALL_WAREHOUSES)
+    private Boolean disconnectAllWarehouses;
+
     public CreateSourceV1Input() {}
 
     public CreateSourceV1Input slug(String slug) {
@@ -142,6 +148,26 @@ public class CreateSourceV1Input {
         this.settings = settings;
     }
 
+    public CreateSourceV1Input disconnectAllWarehouses(Boolean disconnectAllWarehouses) {
+
+        this.disconnectAllWarehouses = disconnectAllWarehouses;
+        return this;
+    }
+
+    /**
+     * Whether to disconnect all Warehouses from the Source.
+     *
+     * @return disconnectAllWarehouses
+     */
+    @javax.annotation.Nullable
+    public Boolean getDisconnectAllWarehouses() {
+        return disconnectAllWarehouses;
+    }
+
+    public void setDisconnectAllWarehouses(Boolean disconnectAllWarehouses) {
+        this.disconnectAllWarehouses = disconnectAllWarehouses;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -154,12 +180,14 @@ public class CreateSourceV1Input {
         return Objects.equals(this.slug, createSourceV1Input.slug)
                 && Objects.equals(this.enabled, createSourceV1Input.enabled)
                 && Objects.equals(this.metadataId, createSourceV1Input.metadataId)
-                && Objects.equals(this.settings, createSourceV1Input.settings);
+                && Objects.equals(this.settings, createSourceV1Input.settings)
+                && Objects.equals(
+                        this.disconnectAllWarehouses, createSourceV1Input.disconnectAllWarehouses);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(slug, enabled, metadataId, settings);
+        return Objects.hash(slug, enabled, metadataId, settings, disconnectAllWarehouses);
     }
 
     @Override
@@ -170,6 +198,9 @@ public class CreateSourceV1Input {
         sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
         sb.append("    metadataId: ").append(toIndentedString(metadataId)).append("\n");
         sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
+        sb.append("    disconnectAllWarehouses: ")
+                .append(toIndentedString(disconnectAllWarehouses))
+                .append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -195,6 +226,7 @@ public class CreateSourceV1Input {
         openapiFields.add("enabled");
         openapiFields.add("metadataId");
         openapiFields.add("settings");
+        openapiFields.add("disconnectAllWarehouses");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();

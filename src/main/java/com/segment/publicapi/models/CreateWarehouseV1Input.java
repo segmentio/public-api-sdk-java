@@ -50,6 +50,11 @@ public class CreateWarehouseV1Input {
     @SerializedName(SERIALIZED_NAME_SETTINGS)
     private Map<String, Object> settings;
 
+    public static final String SERIALIZED_NAME_DISCONNECT_ALL_SOURCES = "disconnectAllSources";
+
+    @SerializedName(SERIALIZED_NAME_DISCONNECT_ALL_SOURCES)
+    private Boolean disconnectAllSources;
+
     public CreateWarehouseV1Input() {}
 
     public CreateWarehouseV1Input metadataId(String metadataId) {
@@ -140,6 +145,26 @@ public class CreateWarehouseV1Input {
         this.settings = settings;
     }
 
+    public CreateWarehouseV1Input disconnectAllSources(Boolean disconnectAllSources) {
+
+        this.disconnectAllSources = disconnectAllSources;
+        return this;
+    }
+
+    /**
+     * Whether to disconnect all Sources from this Warehouse.
+     *
+     * @return disconnectAllSources
+     */
+    @javax.annotation.Nullable
+    public Boolean getDisconnectAllSources() {
+        return disconnectAllSources;
+    }
+
+    public void setDisconnectAllSources(Boolean disconnectAllSources) {
+        this.disconnectAllSources = disconnectAllSources;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -152,12 +177,14 @@ public class CreateWarehouseV1Input {
         return Objects.equals(this.metadataId, createWarehouseV1Input.metadataId)
                 && Objects.equals(this.name, createWarehouseV1Input.name)
                 && Objects.equals(this.enabled, createWarehouseV1Input.enabled)
-                && Objects.equals(this.settings, createWarehouseV1Input.settings);
+                && Objects.equals(this.settings, createWarehouseV1Input.settings)
+                && Objects.equals(
+                        this.disconnectAllSources, createWarehouseV1Input.disconnectAllSources);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(metadataId, name, enabled, settings);
+        return Objects.hash(metadataId, name, enabled, settings, disconnectAllSources);
     }
 
     @Override
@@ -168,6 +195,9 @@ public class CreateWarehouseV1Input {
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
         sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
+        sb.append("    disconnectAllSources: ")
+                .append(toIndentedString(disconnectAllSources))
+                .append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -193,6 +223,7 @@ public class CreateWarehouseV1Input {
         openapiFields.add("name");
         openapiFields.add("enabled");
         openapiFields.add("settings");
+        openapiFields.add("disconnectAllSources");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
