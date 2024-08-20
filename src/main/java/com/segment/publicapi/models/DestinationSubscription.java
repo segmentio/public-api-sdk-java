@@ -80,7 +80,7 @@ public class DestinationSubscription {
     public static final String SERIALIZED_NAME_REVERSE_E_T_L_SCHEDULE = "reverseETLSchedule";
 
     @SerializedName(SERIALIZED_NAME_REVERSE_E_T_L_SCHEDULE)
-    private Object reverseETLSchedule;
+    private Object reverseETLSchedule = null;
 
     public DestinationSubscription() {}
 

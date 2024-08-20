@@ -13,147 +13,21 @@ package com.segment.publicapi.models;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
-import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-/** Depending on the chosen strategy, configures the schedule for this model. */
-public class ScheduleConfig {
-    public static final String SERIALIZED_NAME_INTERVAL = "interval";
-
-    @SerializedName(SERIALIZED_NAME_INTERVAL)
-    private String interval;
-
-    public ScheduleConfig() {}
-
-    public ScheduleConfig interval(String interval) {
-
-        this.interval = interval;
-        return this;
-    }
-
-    /**
-     * Duration is specified as a string, eg: 15m, 3h25m30s.
-     *
-     * @return interval
-     */
-    @javax.annotation.Nonnull
-    public String getInterval() {
-        return interval;
-    }
-
-    public void setInterval(String interval) {
-        this.interval = interval;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        ScheduleConfig scheduleConfig = (ScheduleConfig) o;
-        return Objects.equals(this.interval, scheduleConfig.interval);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(interval);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class ScheduleConfig {\n");
-        sb.append("    interval: ").append(toIndentedString(interval)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces (except the first
-     * line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
-
-    public static HashSet<String> openapiFields;
-    public static HashSet<String> openapiRequiredFields;
-
-    static {
-        // a set of all properties/fields (JSON key names)
-        openapiFields = new HashSet<String>();
-        openapiFields.add("interval");
-
-        // a set of required properties/fields (JSON key names)
-        openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("interval");
-    }
-
-    /**
-     * Validates the JSON Element and throws an exception if issues found
-     *
-     * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to ScheduleConfig
-     */
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        if (jsonElement == null) {
-            if (!ScheduleConfig.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON element is null
-                throw new IllegalArgumentException(
-                        String.format(
-                                "The required field(s) %s in ScheduleConfig is not found in the"
-                                        + " empty JSON string",
-                                ScheduleConfig.openapiRequiredFields.toString()));
-            }
-        }
-
-        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-        // check to see if the JSON string contains additional fields
-        for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!ScheduleConfig.openapiFields.contains(entry.getKey())) {
-                throw new IllegalArgumentException(
-                        String.format(
-                                "The field `%s` in the JSON string is not defined in the"
-                                        + " `ScheduleConfig` properties. JSON: %s",
-                                entry.getKey(), jsonElement.toString()));
-            }
-        }
-
-        // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : ScheduleConfig.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-                throw new IllegalArgumentException(
-                        String.format(
-                                "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonElement.toString()));
-            }
-        }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if (!jsonObj.get("interval").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `interval` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
-                            jsonObj.get("interval").toString()));
-        }
-    }
+public class ScheduleConfig extends AbstractOpenApiSchema {
+    private static final Logger log = Logger.getLogger(ScheduleConfig.class.getName());
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
@@ -163,25 +37,253 @@ public class ScheduleConfig {
                 return null; // this class only serializes 'ScheduleConfig' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<ScheduleConfig> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(ScheduleConfig.class));
+            final TypeAdapter<ReverseEtlPeriodicScheduleConfig>
+                    adapterReverseEtlPeriodicScheduleConfig =
+                            gson.getDelegateAdapter(
+                                    this, TypeToken.get(ReverseEtlPeriodicScheduleConfig.class));
+            final TypeAdapter<ReverseEtlSpecificTimeScheduleConfig>
+                    adapterReverseEtlSpecificTimeScheduleConfig =
+                            gson.getDelegateAdapter(
+                                    this,
+                                    TypeToken.get(ReverseEtlSpecificTimeScheduleConfig.class));
 
             return (TypeAdapter<T>)
                     new TypeAdapter<ScheduleConfig>() {
                         @Override
                         public void write(JsonWriter out, ScheduleConfig value) throws IOException {
-                            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-                            elementAdapter.write(out, obj);
+                            if (value == null || value.getActualInstance() == null) {
+                                elementAdapter.write(out, null);
+                                return;
+                            }
+
+                            // check if the actual instance is of the type
+                            // `ReverseEtlPeriodicScheduleConfig`
+                            if (value.getActualInstance()
+                                    instanceof ReverseEtlPeriodicScheduleConfig) {
+                                JsonElement element =
+                                        adapterReverseEtlPeriodicScheduleConfig.toJsonTree(
+                                                (ReverseEtlPeriodicScheduleConfig)
+                                                        value.getActualInstance());
+                                elementAdapter.write(out, element);
+                                return;
+                            }
+                            // check if the actual instance is of the type
+                            // `ReverseEtlSpecificTimeScheduleConfig`
+                            if (value.getActualInstance()
+                                    instanceof ReverseEtlSpecificTimeScheduleConfig) {
+                                JsonElement element =
+                                        adapterReverseEtlSpecificTimeScheduleConfig.toJsonTree(
+                                                (ReverseEtlSpecificTimeScheduleConfig)
+                                                        value.getActualInstance());
+                                elementAdapter.write(out, element);
+                                return;
+                            }
+                            throw new IOException(
+                                    "Failed to serialize as the type doesn't match anyOf schemae:"
+                                            + " ReverseEtlPeriodicScheduleConfig,"
+                                            + " ReverseEtlSpecificTimeScheduleConfig");
                         }
 
                         @Override
                         public ScheduleConfig read(JsonReader in) throws IOException {
+                            Object deserialized = null;
                             JsonElement jsonElement = elementAdapter.read(in);
-                            validateJsonElement(jsonElement);
-                            return thisAdapter.fromJsonTree(jsonElement);
+
+                            ArrayList<String> errorMessages = new ArrayList<>();
+                            TypeAdapter actualAdapter = elementAdapter;
+
+                            // deserialize ReverseEtlPeriodicScheduleConfig
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                ReverseEtlPeriodicScheduleConfig.validateJsonElement(jsonElement);
+                                actualAdapter = adapterReverseEtlPeriodicScheduleConfig;
+                                ScheduleConfig ret = new ScheduleConfig();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                return ret;
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                "Deserialization for"
+                                                        + " ReverseEtlPeriodicScheduleConfig failed"
+                                                        + " with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema"
+                                                + " 'ReverseEtlPeriodicScheduleConfig'",
+                                        e);
+                            }
+                            // deserialize ReverseEtlSpecificTimeScheduleConfig
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                ReverseEtlSpecificTimeScheduleConfig.validateJsonElement(
+                                        jsonElement);
+                                actualAdapter = adapterReverseEtlSpecificTimeScheduleConfig;
+                                ScheduleConfig ret = new ScheduleConfig();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                return ret;
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                "Deserialization for"
+                                                    + " ReverseEtlSpecificTimeScheduleConfig failed"
+                                                    + " with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema"
+                                                + " 'ReverseEtlSpecificTimeScheduleConfig'",
+                                        e);
+                            }
+
+                            throw new IOException(
+                                    String.format(
+                                            "Failed deserialization for ScheduleConfig: no class"
+                                                + " matches result, expected at least 1. Detailed"
+                                                + " failure message for anyOf schemas: %s. JSON:"
+                                                + " %s",
+                                            errorMessages, jsonElement.toString()));
                         }
                     }.nullSafe();
         }
+    }
+
+    // store a list of schema names defined in anyOf
+    public static final Map<String, Class<?>> schemas = new HashMap<String, Class<?>>();
+
+    public ScheduleConfig() {
+        super("anyOf", Boolean.TRUE);
+    }
+
+    public ScheduleConfig(ReverseEtlPeriodicScheduleConfig o) {
+        super("anyOf", Boolean.TRUE);
+        setActualInstance(o);
+    }
+
+    public ScheduleConfig(ReverseEtlSpecificTimeScheduleConfig o) {
+        super("anyOf", Boolean.TRUE);
+        setActualInstance(o);
+    }
+
+    static {
+        schemas.put("ReverseEtlPeriodicScheduleConfig", ReverseEtlPeriodicScheduleConfig.class);
+        schemas.put(
+                "ReverseEtlSpecificTimeScheduleConfig", ReverseEtlSpecificTimeScheduleConfig.class);
+    }
+
+    @Override
+    public Map<String, Class<?>> getSchemas() {
+        return ScheduleConfig.schemas;
+    }
+
+    /**
+     * Set the instance that matches the anyOf child schema, check the instance parameter is valid
+     * against the anyOf child schemas: ReverseEtlPeriodicScheduleConfig,
+     * ReverseEtlSpecificTimeScheduleConfig
+     *
+     * <p>It could be an instance of the 'anyOf' schemas.
+     */
+    @Override
+    public void setActualInstance(Object instance) {
+        if (instance == null) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof ReverseEtlPeriodicScheduleConfig) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof ReverseEtlSpecificTimeScheduleConfig) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        throw new RuntimeException(
+                "Invalid instance type. Must be ReverseEtlPeriodicScheduleConfig,"
+                        + " ReverseEtlSpecificTimeScheduleConfig");
+    }
+
+    /**
+     * Get the actual instance, which can be the following: ReverseEtlPeriodicScheduleConfig,
+     * ReverseEtlSpecificTimeScheduleConfig
+     *
+     * @return The actual instance (ReverseEtlPeriodicScheduleConfig,
+     *     ReverseEtlSpecificTimeScheduleConfig)
+     */
+    @Override
+    public Object getActualInstance() {
+        return super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `ReverseEtlPeriodicScheduleConfig`. If the actual instance is not
+     * `ReverseEtlPeriodicScheduleConfig`, the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ReverseEtlPeriodicScheduleConfig`
+     * @throws ClassCastException if the instance is not `ReverseEtlPeriodicScheduleConfig`
+     */
+    public ReverseEtlPeriodicScheduleConfig getReverseEtlPeriodicScheduleConfig()
+            throws ClassCastException {
+        return (ReverseEtlPeriodicScheduleConfig) super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `ReverseEtlSpecificTimeScheduleConfig`. If the actual instance is
+     * not `ReverseEtlSpecificTimeScheduleConfig`, the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ReverseEtlSpecificTimeScheduleConfig`
+     * @throws ClassCastException if the instance is not `ReverseEtlSpecificTimeScheduleConfig`
+     */
+    public ReverseEtlSpecificTimeScheduleConfig getReverseEtlSpecificTimeScheduleConfig()
+            throws ClassCastException {
+        return (ReverseEtlSpecificTimeScheduleConfig) super.getActualInstance();
+    }
+
+    /**
+     * Validates the JSON Element and throws an exception if issues found
+     *
+     * @param jsonElement JSON Element
+     * @throws IOException if the JSON Element is invalid with respect to ScheduleConfig
+     */
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        // validate anyOf schemas one by one
+        ArrayList<String> errorMessages = new ArrayList<>();
+        // validate the json string with ReverseEtlPeriodicScheduleConfig
+        try {
+            ReverseEtlPeriodicScheduleConfig.validateJsonElement(jsonElement);
+            return;
+        } catch (Exception e) {
+            errorMessages.add(
+                    String.format(
+                            "Deserialization for ReverseEtlPeriodicScheduleConfig failed with"
+                                    + " `%s`.",
+                            e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with ReverseEtlSpecificTimeScheduleConfig
+        try {
+            ReverseEtlSpecificTimeScheduleConfig.validateJsonElement(jsonElement);
+            return;
+        } catch (Exception e) {
+            errorMessages.add(
+                    String.format(
+                            "Deserialization for ReverseEtlSpecificTimeScheduleConfig failed with"
+                                    + " `%s`.",
+                            e.getMessage()));
+            // continue to the next one
+        }
+        throw new IOException(
+                String.format(
+                        "The JSON string is invalid for ScheduleConfig with anyOf schemas:"
+                            + " ReverseEtlPeriodicScheduleConfig,"
+                            + " ReverseEtlSpecificTimeScheduleConfig. no class match the result,"
+                            + " expected at least 1. Detailed failure message for anyOf schemas:"
+                            + " %s. JSON: %s",
+                        errorMessages, jsonElement.toString()));
     }
 
     /**
