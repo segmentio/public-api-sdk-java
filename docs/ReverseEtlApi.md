@@ -8,6 +8,7 @@ All URIs are relative to *https://api.segmentapis.com*
 | [**createReverseEtlModel**](ReverseEtlApi.md#createReverseEtlModel) | **POST** /reverse-etl-models | Create Reverse Etl Model |
 | [**deleteReverseEtlModel**](ReverseEtlApi.md#deleteReverseEtlModel) | **DELETE** /reverse-etl-models/{modelId} | Delete Reverse Etl Model |
 | [**getReverseETLSyncStatus**](ReverseEtlApi.md#getReverseETLSyncStatus) | **GET** /reverse-etl-models/{modelId}/syncs/{syncId} | Get Reverse ETL Sync Status |
+| [**getReverseETLSyncStatusesBySubscriptionId**](ReverseEtlApi.md#getReverseETLSyncStatusesBySubscriptionId) | **GET** /reverse-etl-models/{modelId}/subscriptionId/{subscriptionId}/syncs | Get Reverse ETL Sync Statuses By Subscription Id |
 | [**getReverseEtlModel**](ReverseEtlApi.md#getReverseEtlModel) | **GET** /reverse-etl-models/{modelId} | Get Reverse Etl Model |
 | [**listReverseEtlModels**](ReverseEtlApi.md#listReverseEtlModels) | **GET** /reverse-etl-models | List Reverse Etl Models |
 | [**updateReverseEtlModel**](ReverseEtlApi.md#updateReverseEtlModel) | **PATCH** /reverse-etl-models/{modelId} | Update Reverse Etl Model |
@@ -288,6 +289,83 @@ public class Example {
 ### Return type
 
 [**GetReverseETLSyncStatus200Response**](GetReverseETLSyncStatus200Response.md)
+
+### Authorization
+
+[token](../README.md#token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/vnd.segment.v1alpha+json, application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **404** | Resource not found |  -  |
+| **422** | Validation failure |  -  |
+| **429** | Too many requests |  -  |
+
+
+## Operation: getReverseETLSyncStatusesBySubscriptionId
+
+> GetReverseETLSyncStatusesBySubscriptionId200Response getReverseETLSyncStatusesBySubscriptionId(modelId, subscriptionId, pagination)
+
+Get Reverse ETL Sync Statuses By Subscription Id
+
+Get the sync statuses for a Reverse ETL mapping subscription.  The sync status includes all detailed information about the sync - sync status, duration, details about the extract and load phase if applicable, etc.  The default page count is 10, and then the next page can be fetched by passing the &#x60;cursor&#x60; query parameter.
+
+### Example
+
+```java
+// Import classes:
+import com.segment.publicapi.ApiClient;
+import com.segment.publicapi.ApiException;
+import com.segment.publicapi.Configuration;
+import com.segment.publicapi.auth.*;
+import com.segment.publicapi.models.*;
+import com.segment.publicapi.api.ReverseEtlApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        
+        // Configure HTTP bearer authorization: token
+        HttpBearerAuth token = (HttpBearerAuth) defaultClient.getAuthentication("token");
+        token.setBearerToken("BEARER TOKEN");
+
+        ReverseEtlApi apiInstance = new ReverseEtlApi(defaultClient);
+        String modelId = "modelId"; // String | 
+        String subscriptionId = "subscriptionId"; // String | 
+        PaginationInput pagination = new PaginationInput(); // PaginationInput | Optional pagination params.  This parameter exists in alpha.
+        try {
+            GetReverseETLSyncStatusesBySubscriptionId200Response result = apiInstance.getReverseETLSyncStatusesBySubscriptionId(modelId, subscriptionId, pagination);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ReverseEtlApi#getReverseETLSyncStatusesBySubscriptionId");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **modelId** | **String**|  | |
+| **subscriptionId** | **String**|  | |
+| **pagination** | [**PaginationInput**](.md)| Optional pagination params.  This parameter exists in alpha. | [optional] |
+
+### Return type
+
+[**GetReverseETLSyncStatusesBySubscriptionId200Response**](GetReverseETLSyncStatusesBySubscriptionId200Response.md)
 
 ### Authorization
 

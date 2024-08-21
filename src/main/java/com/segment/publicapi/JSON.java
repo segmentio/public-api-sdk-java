@@ -710,6 +710,13 @@ public class JSON {
                 new com.segment.publicapi.models.GetReverseETLSyncStatusOutput
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models
+                        .GetReverseETLSyncStatusesBySubscriptionId200Response
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.GetReverseETLSyncStatusesBySubscriptionIdOutput
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.GetReverseEtlModel200Response
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
@@ -1280,7 +1287,7 @@ public class JSON {
                 new com.segment.publicapi.models.ReverseETLManualSyncJobOutput
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.ReverseETLSyncOutput.CustomTypeAdapterFactory());
+                new com.segment.publicapi.models.ReverseETLSyncStatus.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.ReverseEtlModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
