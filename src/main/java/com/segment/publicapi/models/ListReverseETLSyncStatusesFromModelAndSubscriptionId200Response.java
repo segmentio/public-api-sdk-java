@@ -27,17 +27,17 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** GetReverseETLSyncStatusesBySubscriptionId200Response */
-public class GetReverseETLSyncStatusesBySubscriptionId200Response {
+/** ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response */
+public class ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response {
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    private GetReverseETLSyncStatusesBySubscriptionIdOutput data;
+    private ListReverseETLSyncStatusesFromModelAndSubscriptionIdOutput data;
 
-    public GetReverseETLSyncStatusesBySubscriptionId200Response() {}
+    public ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response() {}
 
-    public GetReverseETLSyncStatusesBySubscriptionId200Response data(
-            GetReverseETLSyncStatusesBySubscriptionIdOutput data) {
+    public ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response data(
+            ListReverseETLSyncStatusesFromModelAndSubscriptionIdOutput data) {
 
         this.data = data;
         return this;
@@ -49,11 +49,11 @@ public class GetReverseETLSyncStatusesBySubscriptionId200Response {
      * @return data
      */
     @javax.annotation.Nullable
-    public GetReverseETLSyncStatusesBySubscriptionIdOutput getData() {
+    public ListReverseETLSyncStatusesFromModelAndSubscriptionIdOutput getData() {
         return data;
     }
 
-    public void setData(GetReverseETLSyncStatusesBySubscriptionIdOutput data) {
+    public void setData(ListReverseETLSyncStatusesFromModelAndSubscriptionIdOutput data) {
         this.data = data;
     }
 
@@ -65,10 +65,11 @@ public class GetReverseETLSyncStatusesBySubscriptionId200Response {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        GetReverseETLSyncStatusesBySubscriptionId200Response
-                getReverseETLSyncStatusesBySubscriptionId200Response =
-                        (GetReverseETLSyncStatusesBySubscriptionId200Response) o;
-        return Objects.equals(this.data, getReverseETLSyncStatusesBySubscriptionId200Response.data);
+        ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response
+                listReverseETLSyncStatusesFromModelAndSubscriptionId200Response =
+                        (ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response) o;
+        return Objects.equals(
+                this.data, listReverseETLSyncStatusesFromModelAndSubscriptionId200Response.data);
     }
 
     @Override
@@ -79,7 +80,7 @@ public class GetReverseETLSyncStatusesBySubscriptionId200Response {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class GetReverseETLSyncStatusesBySubscriptionId200Response {\n");
+        sb.append("class ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response {\n");
         sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -113,18 +114,19 @@ public class GetReverseETLSyncStatusesBySubscriptionId200Response {
      *
      * @param jsonElement JSON Element
      * @throws IOException if the JSON Element is invalid with respect to
-     *     GetReverseETLSyncStatusesBySubscriptionId200Response
+     *     ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!GetReverseETLSyncStatusesBySubscriptionId200Response.openapiRequiredFields
+            if (!ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response
+                    .openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in"
-                                    + " GetReverseETLSyncStatusesBySubscriptionId200Response is not"
-                                    + " found in the empty JSON string",
-                                GetReverseETLSyncStatusesBySubscriptionId200Response
+                                    + " ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response"
+                                    + " is not found in the empty JSON string",
+                                ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response
                                         .openapiRequiredFields
                                         .toString()));
             }
@@ -133,20 +135,20 @@ public class GetReverseETLSyncStatusesBySubscriptionId200Response {
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!GetReverseETLSyncStatusesBySubscriptionId200Response.openapiFields.contains(
-                    entry.getKey())) {
+            if (!ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response.openapiFields
+                    .contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `GetReverseETLSyncStatusesBySubscriptionId200Response`"
-                                        + " properties. JSON: %s",
+                                    + " `ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response`"
+                                    + " properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the optional field `data`
         if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-            GetReverseETLSyncStatusesBySubscriptionIdOutput.validateJsonElement(
+            ListReverseETLSyncStatusesFromModelAndSubscriptionIdOutput.validateJsonElement(
                     jsonObj.get("data"));
         }
     }
@@ -155,32 +157,36 @@ public class GetReverseETLSyncStatusesBySubscriptionId200Response {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!GetReverseETLSyncStatusesBySubscriptionId200Response.class.isAssignableFrom(
-                    type.getRawType())) {
+            if (!ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response.class
+                    .isAssignableFrom(type.getRawType())) {
                 return null; // this class only serializes
-                // 'GetReverseETLSyncStatusesBySubscriptionId200Response' and its
-                // subtypes
+                // 'ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response'
+                // and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<GetReverseETLSyncStatusesBySubscriptionId200Response> thisAdapter =
-                    gson.getDelegateAdapter(
-                            this,
-                            TypeToken.get(
-                                    GetReverseETLSyncStatusesBySubscriptionId200Response.class));
+            final TypeAdapter<ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response>
+                    thisAdapter =
+                            gson.getDelegateAdapter(
+                                    this,
+                                    TypeToken.get(
+                                            ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response
+                                                    .class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<GetReverseETLSyncStatusesBySubscriptionId200Response>() {
+                    new TypeAdapter<
+                            ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response>() {
                         @Override
                         public void write(
                                 JsonWriter out,
-                                GetReverseETLSyncStatusesBySubscriptionId200Response value)
+                                ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response
+                                        value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public GetReverseETLSyncStatusesBySubscriptionId200Response read(
+                        public ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response read(
                                 JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
@@ -191,22 +197,25 @@ public class GetReverseETLSyncStatusesBySubscriptionId200Response {
     }
 
     /**
-     * Create an instance of GetReverseETLSyncStatusesBySubscriptionId200Response given an JSON
-     * string
+     * Create an instance of ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response given
+     * an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of GetReverseETLSyncStatusesBySubscriptionId200Response
+     * @return An instance of ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response
      * @throws IOException if the JSON string is invalid with respect to
-     *     GetReverseETLSyncStatusesBySubscriptionId200Response
+     *     ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response
      */
-    public static GetReverseETLSyncStatusesBySubscriptionId200Response fromJson(String jsonString)
-            throws IOException {
+    public static ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response fromJson(
+            String jsonString) throws IOException {
         return JSON.getGson()
-                .fromJson(jsonString, GetReverseETLSyncStatusesBySubscriptionId200Response.class);
+                .fromJson(
+                        jsonString,
+                        ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response.class);
     }
 
     /**
-     * Convert an instance of GetReverseETLSyncStatusesBySubscriptionId200Response to an JSON string
+     * Convert an instance of ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response to an
+     * JSON string
      *
      * @return JSON string
      */
