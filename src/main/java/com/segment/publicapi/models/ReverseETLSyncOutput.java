@@ -28,7 +28,7 @@ import java.util.Objects;
 import java.util.Set;
 
 /** Defines the result of getting the sync status of a RETL connection. */
-public class ReverseETLSyncStatus {
+public class ReverseETLSyncOutput {
     public static final String SERIALIZED_NAME_SYNC_ID = "syncId";
 
     @SerializedName(SERIALIZED_NAME_SYNC_ID)
@@ -84,9 +84,9 @@ public class ReverseETLSyncStatus {
     @SerializedName(SERIALIZED_NAME_ERROR_CODE)
     private String errorCode;
 
-    public ReverseETLSyncStatus() {}
+    public ReverseETLSyncOutput() {}
 
-    public ReverseETLSyncStatus syncId(String syncId) {
+    public ReverseETLSyncOutput syncId(String syncId) {
 
         this.syncId = syncId;
         return this;
@@ -106,7 +106,7 @@ public class ReverseETLSyncStatus {
         this.syncId = syncId;
     }
 
-    public ReverseETLSyncStatus modelId(String modelId) {
+    public ReverseETLSyncOutput modelId(String modelId) {
 
         this.modelId = modelId;
         return this;
@@ -126,7 +126,7 @@ public class ReverseETLSyncStatus {
         this.modelId = modelId;
     }
 
-    public ReverseETLSyncStatus sourceId(String sourceId) {
+    public ReverseETLSyncOutput sourceId(String sourceId) {
 
         this.sourceId = sourceId;
         return this;
@@ -146,7 +146,7 @@ public class ReverseETLSyncStatus {
         this.sourceId = sourceId;
     }
 
-    public ReverseETLSyncStatus syncStatus(String syncStatus) {
+    public ReverseETLSyncOutput syncStatus(String syncStatus) {
 
         this.syncStatus = syncStatus;
         return this;
@@ -166,7 +166,7 @@ public class ReverseETLSyncStatus {
         this.syncStatus = syncStatus;
     }
 
-    public ReverseETLSyncStatus duration(String duration) {
+    public ReverseETLSyncOutput duration(String duration) {
 
         this.duration = duration;
         return this;
@@ -186,7 +186,7 @@ public class ReverseETLSyncStatus {
         this.duration = duration;
     }
 
-    public ReverseETLSyncStatus startedAt(String startedAt) {
+    public ReverseETLSyncOutput startedAt(String startedAt) {
 
         this.startedAt = startedAt;
         return this;
@@ -206,7 +206,7 @@ public class ReverseETLSyncStatus {
         this.startedAt = startedAt;
     }
 
-    public ReverseETLSyncStatus finishedAt(String finishedAt) {
+    public ReverseETLSyncOutput finishedAt(String finishedAt) {
 
         this.finishedAt = finishedAt;
         return this;
@@ -226,7 +226,7 @@ public class ReverseETLSyncStatus {
         this.finishedAt = finishedAt;
     }
 
-    public ReverseETLSyncStatus extractPhase(SyncExtractPhase extractPhase) {
+    public ReverseETLSyncOutput extractPhase(SyncExtractPhase extractPhase) {
 
         this.extractPhase = extractPhase;
         return this;
@@ -246,7 +246,7 @@ public class ReverseETLSyncStatus {
         this.extractPhase = extractPhase;
     }
 
-    public ReverseETLSyncStatus loadPhase(SyncLoadPhase loadPhase) {
+    public ReverseETLSyncOutput loadPhase(SyncLoadPhase loadPhase) {
 
         this.loadPhase = loadPhase;
         return this;
@@ -266,7 +266,7 @@ public class ReverseETLSyncStatus {
         this.loadPhase = loadPhase;
     }
 
-    public ReverseETLSyncStatus error(String error) {
+    public ReverseETLSyncOutput error(String error) {
 
         this.error = error;
         return this;
@@ -286,7 +286,7 @@ public class ReverseETLSyncStatus {
         this.error = error;
     }
 
-    public ReverseETLSyncStatus errorCode(String errorCode) {
+    public ReverseETLSyncOutput errorCode(String errorCode) {
 
         this.errorCode = errorCode;
         return this;
@@ -314,18 +314,18 @@ public class ReverseETLSyncStatus {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        ReverseETLSyncStatus reverseETLSyncStatus = (ReverseETLSyncStatus) o;
-        return Objects.equals(this.syncId, reverseETLSyncStatus.syncId)
-                && Objects.equals(this.modelId, reverseETLSyncStatus.modelId)
-                && Objects.equals(this.sourceId, reverseETLSyncStatus.sourceId)
-                && Objects.equals(this.syncStatus, reverseETLSyncStatus.syncStatus)
-                && Objects.equals(this.duration, reverseETLSyncStatus.duration)
-                && Objects.equals(this.startedAt, reverseETLSyncStatus.startedAt)
-                && Objects.equals(this.finishedAt, reverseETLSyncStatus.finishedAt)
-                && Objects.equals(this.extractPhase, reverseETLSyncStatus.extractPhase)
-                && Objects.equals(this.loadPhase, reverseETLSyncStatus.loadPhase)
-                && Objects.equals(this.error, reverseETLSyncStatus.error)
-                && Objects.equals(this.errorCode, reverseETLSyncStatus.errorCode);
+        ReverseETLSyncOutput reverseETLSyncOutput = (ReverseETLSyncOutput) o;
+        return Objects.equals(this.syncId, reverseETLSyncOutput.syncId)
+                && Objects.equals(this.modelId, reverseETLSyncOutput.modelId)
+                && Objects.equals(this.sourceId, reverseETLSyncOutput.sourceId)
+                && Objects.equals(this.syncStatus, reverseETLSyncOutput.syncStatus)
+                && Objects.equals(this.duration, reverseETLSyncOutput.duration)
+                && Objects.equals(this.startedAt, reverseETLSyncOutput.startedAt)
+                && Objects.equals(this.finishedAt, reverseETLSyncOutput.finishedAt)
+                && Objects.equals(this.extractPhase, reverseETLSyncOutput.extractPhase)
+                && Objects.equals(this.loadPhase, reverseETLSyncOutput.loadPhase)
+                && Objects.equals(this.error, reverseETLSyncOutput.error)
+                && Objects.equals(this.errorCode, reverseETLSyncOutput.errorCode);
     }
 
     @Override
@@ -347,7 +347,7 @@ public class ReverseETLSyncStatus {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ReverseETLSyncStatus {\n");
+        sb.append("class ReverseETLSyncOutput {\n");
         sb.append("    syncId: ").append(toIndentedString(syncId)).append("\n");
         sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
         sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
@@ -406,34 +406,34 @@ public class ReverseETLSyncStatus {
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to ReverseETLSyncStatus
+     * @throws IOException if the JSON Element is invalid with respect to ReverseETLSyncOutput
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!ReverseETLSyncStatus.openapiRequiredFields
+            if (!ReverseETLSyncOutput.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in ReverseETLSyncStatus is not found in"
+                                "The required field(s) %s in ReverseETLSyncOutput is not found in"
                                         + " the empty JSON string",
-                                ReverseETLSyncStatus.openapiRequiredFields.toString()));
+                                ReverseETLSyncOutput.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!ReverseETLSyncStatus.openapiFields.contains(entry.getKey())) {
+            if (!ReverseETLSyncOutput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `ReverseETLSyncStatus` properties. JSON: %s",
+                                        + " `ReverseETLSyncOutput` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : ReverseETLSyncStatus.openapiRequiredFields) {
+        for (String requiredField : ReverseETLSyncOutput.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -522,24 +522,24 @@ public class ReverseETLSyncStatus {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!ReverseETLSyncStatus.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'ReverseETLSyncStatus' and its subtypes
+            if (!ReverseETLSyncOutput.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'ReverseETLSyncOutput' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<ReverseETLSyncStatus> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(ReverseETLSyncStatus.class));
+            final TypeAdapter<ReverseETLSyncOutput> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(ReverseETLSyncOutput.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<ReverseETLSyncStatus>() {
+                    new TypeAdapter<ReverseETLSyncOutput>() {
                         @Override
-                        public void write(JsonWriter out, ReverseETLSyncStatus value)
+                        public void write(JsonWriter out, ReverseETLSyncOutput value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public ReverseETLSyncStatus read(JsonReader in) throws IOException {
+                        public ReverseETLSyncOutput read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -549,18 +549,18 @@ public class ReverseETLSyncStatus {
     }
 
     /**
-     * Create an instance of ReverseETLSyncStatus given an JSON string
+     * Create an instance of ReverseETLSyncOutput given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of ReverseETLSyncStatus
-     * @throws IOException if the JSON string is invalid with respect to ReverseETLSyncStatus
+     * @return An instance of ReverseETLSyncOutput
+     * @throws IOException if the JSON string is invalid with respect to ReverseETLSyncOutput
      */
-    public static ReverseETLSyncStatus fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, ReverseETLSyncStatus.class);
+    public static ReverseETLSyncOutput fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, ReverseETLSyncOutput.class);
     }
 
     /**
-     * Convert an instance of ReverseETLSyncStatus to an JSON string
+     * Convert an instance of ReverseETLSyncOutput to an JSON string
      *
      * @return JSON string
      */

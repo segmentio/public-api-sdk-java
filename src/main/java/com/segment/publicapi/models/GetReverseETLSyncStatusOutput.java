@@ -32,12 +32,12 @@ public class GetReverseETLSyncStatusOutput {
     public static final String SERIALIZED_NAME_REVERSE_E_T_L_SYNC_STATUS = "reverseETLSyncStatus";
 
     @SerializedName(SERIALIZED_NAME_REVERSE_E_T_L_SYNC_STATUS)
-    private ReverseETLSyncStatus reverseETLSyncStatus;
+    private ReverseETLSyncOutput reverseETLSyncStatus;
 
     public GetReverseETLSyncStatusOutput() {}
 
     public GetReverseETLSyncStatusOutput reverseETLSyncStatus(
-            ReverseETLSyncStatus reverseETLSyncStatus) {
+            ReverseETLSyncOutput reverseETLSyncStatus) {
 
         this.reverseETLSyncStatus = reverseETLSyncStatus;
         return this;
@@ -49,11 +49,11 @@ public class GetReverseETLSyncStatusOutput {
      * @return reverseETLSyncStatus
      */
     @javax.annotation.Nonnull
-    public ReverseETLSyncStatus getReverseETLSyncStatus() {
+    public ReverseETLSyncOutput getReverseETLSyncStatus() {
         return reverseETLSyncStatus;
     }
 
-    public void setReverseETLSyncStatus(ReverseETLSyncStatus reverseETLSyncStatus) {
+    public void setReverseETLSyncStatus(ReverseETLSyncOutput reverseETLSyncStatus) {
         this.reverseETLSyncStatus = reverseETLSyncStatus;
     }
 
@@ -153,7 +153,7 @@ public class GetReverseETLSyncStatusOutput {
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the required field `reverseETLSyncStatus`
-        ReverseETLSyncStatus.validateJsonElement(jsonObj.get("reverseETLSyncStatus"));
+        ReverseETLSyncOutput.validateJsonElement(jsonObj.get("reverseETLSyncStatus"));
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
