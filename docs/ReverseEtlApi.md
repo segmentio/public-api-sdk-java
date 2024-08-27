@@ -9,6 +9,7 @@ All URIs are relative to *https://api.segmentapis.com*
 | [**deleteReverseEtlModel**](ReverseEtlApi.md#deleteReverseEtlModel) | **DELETE** /reverse-etl-models/{modelId} | Delete Reverse Etl Model |
 | [**getReverseETLSyncStatus**](ReverseEtlApi.md#getReverseETLSyncStatus) | **GET** /reverse-etl-models/{modelId}/syncs/{syncId} | Get Reverse ETL Sync Status |
 | [**getReverseEtlModel**](ReverseEtlApi.md#getReverseEtlModel) | **GET** /reverse-etl-models/{modelId} | Get Reverse Etl Model |
+| [**listReverseETLSyncStatusesFromModelAndSubscriptionId**](ReverseEtlApi.md#listReverseETLSyncStatusesFromModelAndSubscriptionId) | **GET** /reverse-etl-models/{modelId}/subscriptionId/{subscriptionId}/syncs | List Reverse ETL Sync Statuses from Model And Subscription Id |
 | [**listReverseEtlModels**](ReverseEtlApi.md#listReverseEtlModels) | **GET** /reverse-etl-models | List Reverse Etl Models |
 | [**updateReverseEtlModel**](ReverseEtlApi.md#updateReverseEtlModel) | **PATCH** /reverse-etl-models/{modelId} | Update Reverse Etl Model |
 
@@ -361,6 +362,85 @@ public class Example {
 ### Return type
 
 [**GetReverseEtlModel200Response**](GetReverseEtlModel200Response.md)
+
+### Authorization
+
+[token](../README.md#token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/vnd.segment.v1alpha+json, application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **404** | Resource not found |  -  |
+| **422** | Validation failure |  -  |
+| **429** | Too many requests |  -  |
+
+
+## Operation: listReverseETLSyncStatusesFromModelAndSubscriptionId
+
+> ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response listReverseETLSyncStatusesFromModelAndSubscriptionId(modelId, subscriptionId, count, cursor)
+
+List Reverse ETL Sync Statuses from Model And Subscription Id
+
+Get the sync statuses for a Reverse ETL mapping subscription.  The sync status includes all detailed information about the sync - sync status, duration, details about the extract and load phase if applicable, etc.  The default page count is 10, and then the next page can be fetched by passing the &#x60;cursor&#x60; query parameter.
+
+### Example
+
+```java
+// Import classes:
+import com.segment.publicapi.ApiClient;
+import com.segment.publicapi.ApiException;
+import com.segment.publicapi.Configuration;
+import com.segment.publicapi.auth.*;
+import com.segment.publicapi.models.*;
+import com.segment.publicapi.api.ReverseEtlApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        
+        // Configure HTTP bearer authorization: token
+        HttpBearerAuth token = (HttpBearerAuth) defaultClient.getAuthentication("token");
+        token.setBearerToken("BEARER TOKEN");
+
+        ReverseEtlApi apiInstance = new ReverseEtlApi(defaultClient);
+        String modelId = "modelId"; // String | 
+        String subscriptionId = "subscriptionId"; // String | 
+        BigDecimal count = new BigDecimal(78); // BigDecimal | The number of items to retrieve in a page, between 1 and 100. Default is 10  This parameter exists in alpha.
+        String cursor = "cursor_example"; // String | The page to request. Acceptable values to use are from the `current`, `next`, and `previous` keys.  This parameter exists in alpha.
+        try {
+            ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response result = apiInstance.listReverseETLSyncStatusesFromModelAndSubscriptionId(modelId, subscriptionId, count, cursor);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ReverseEtlApi#listReverseETLSyncStatusesFromModelAndSubscriptionId");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **modelId** | **String**|  | |
+| **subscriptionId** | **String**|  | |
+| **count** | **BigDecimal**| The number of items to retrieve in a page, between 1 and 100. Default is 10  This parameter exists in alpha. | [optional] |
+| **cursor** | **String**| The page to request. Acceptable values to use are from the &#x60;current&#x60;, &#x60;next&#x60;, and &#x60;previous&#x60; keys.  This parameter exists in alpha. | [optional] |
+
+### Return type
+
+[**ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response**](ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response.md)
 
 ### Authorization
 
