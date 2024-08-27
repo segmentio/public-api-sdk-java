@@ -31,6 +31,7 @@ import com.segment.publicapi.models.PaginationInput;
 import com.segment.publicapi.models.UpdateReverseEtlModel200Response;
 import com.segment.publicapi.models.UpdateReverseEtlModelInput;
 import java.lang.reflect.Type;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -961,7 +962,11 @@ public class ReverseEtlApi {
      *
      * @param modelId (required)
      * @param subscriptionId (required)
-     * @param pagination Optional pagination params. This parameter exists in alpha. (optional)
+     * @param count The number of items to retrieve in a page, between 1 and 100. Default is 10 This
+     *     parameter exists in alpha. (optional)
+     * @param cursor The page to request. Acceptable values to use here are in PaginationOutput
+     *     objects, in the &#x60;current&#x60;, &#x60;next&#x60;, and &#x60;previous&#x60; keys.
+     *     This parameter exists in alpha. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -977,7 +982,8 @@ public class ReverseEtlApi {
     public okhttp3.Call listReverseETLSyncStatusesFromModelAndSubscriptionIdCall(
             String modelId,
             String subscriptionId,
-            PaginationInput pagination,
+            BigDecimal count,
+            String cursor,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1011,8 +1017,12 @@ public class ReverseEtlApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if (pagination != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pagination", pagination));
+        if (count != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("count", count));
+        }
+
+        if (cursor != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("cursor", cursor));
         }
 
         final String[] localVarAccepts = {
@@ -1049,7 +1059,8 @@ public class ReverseEtlApi {
     private okhttp3.Call listReverseETLSyncStatusesFromModelAndSubscriptionIdValidateBeforeCall(
             String modelId,
             String subscriptionId,
-            PaginationInput pagination,
+            BigDecimal count,
+            String cursor,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'modelId' is set
@@ -1067,7 +1078,7 @@ public class ReverseEtlApi {
         }
 
         return listReverseETLSyncStatusesFromModelAndSubscriptionIdCall(
-                modelId, subscriptionId, pagination, _callback);
+                modelId, subscriptionId, count, cursor, _callback);
     }
 
     /**
@@ -1079,7 +1090,11 @@ public class ReverseEtlApi {
      *
      * @param modelId (required)
      * @param subscriptionId (required)
-     * @param pagination Optional pagination params. This parameter exists in alpha. (optional)
+     * @param count The number of items to retrieve in a page, between 1 and 100. Default is 10 This
+     *     parameter exists in alpha. (optional)
+     * @param cursor The page to request. Acceptable values to use here are in PaginationOutput
+     *     objects, in the &#x60;current&#x60;, &#x60;next&#x60;, and &#x60;previous&#x60; keys.
+     *     This parameter exists in alpha. (optional)
      * @return ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1094,11 +1109,11 @@ public class ReverseEtlApi {
      */
     public ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response
             listReverseETLSyncStatusesFromModelAndSubscriptionId(
-                    String modelId, String subscriptionId, PaginationInput pagination)
+                    String modelId, String subscriptionId, BigDecimal count, String cursor)
                     throws ApiException {
         ApiResponse<ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response> localVarResp =
                 listReverseETLSyncStatusesFromModelAndSubscriptionIdWithHttpInfo(
-                        modelId, subscriptionId, pagination);
+                        modelId, subscriptionId, count, cursor);
         return localVarResp.getData();
     }
 
@@ -1111,7 +1126,11 @@ public class ReverseEtlApi {
      *
      * @param modelId (required)
      * @param subscriptionId (required)
-     * @param pagination Optional pagination params. This parameter exists in alpha. (optional)
+     * @param count The number of items to retrieve in a page, between 1 and 100. Default is 10 This
+     *     parameter exists in alpha. (optional)
+     * @param cursor The page to request. Acceptable values to use here are in PaginationOutput
+     *     objects, in the &#x60;current&#x60;, &#x60;next&#x60;, and &#x60;previous&#x60; keys.
+     *     This parameter exists in alpha. (optional)
      * @return ApiResponse&lt;ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1126,11 +1145,11 @@ public class ReverseEtlApi {
      */
     public ApiResponse<ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response>
             listReverseETLSyncStatusesFromModelAndSubscriptionIdWithHttpInfo(
-                    String modelId, String subscriptionId, PaginationInput pagination)
+                    String modelId, String subscriptionId, BigDecimal count, String cursor)
                     throws ApiException {
         okhttp3.Call localVarCall =
                 listReverseETLSyncStatusesFromModelAndSubscriptionIdValidateBeforeCall(
-                        modelId, subscriptionId, pagination, null);
+                        modelId, subscriptionId, count, cursor, null);
         Type localVarReturnType =
                 new TypeToken<
                         ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response>() {}.getType();
@@ -1146,7 +1165,11 @@ public class ReverseEtlApi {
      *
      * @param modelId (required)
      * @param subscriptionId (required)
-     * @param pagination Optional pagination params. This parameter exists in alpha. (optional)
+     * @param count The number of items to retrieve in a page, between 1 and 100. Default is 10 This
+     *     parameter exists in alpha. (optional)
+     * @param cursor The page to request. Acceptable values to use here are in PaginationOutput
+     *     objects, in the &#x60;current&#x60;, &#x60;next&#x60;, and &#x60;previous&#x60; keys.
+     *     This parameter exists in alpha. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -1163,14 +1186,15 @@ public class ReverseEtlApi {
     public okhttp3.Call listReverseETLSyncStatusesFromModelAndSubscriptionIdAsync(
             String modelId,
             String subscriptionId,
-            PaginationInput pagination,
+            BigDecimal count,
+            String cursor,
             final ApiCallback<ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response>
                     _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 listReverseETLSyncStatusesFromModelAndSubscriptionIdValidateBeforeCall(
-                        modelId, subscriptionId, pagination, _callback);
+                        modelId, subscriptionId, count, cursor, _callback);
         Type localVarReturnType =
                 new TypeToken<
                         ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response>() {}.getType();

@@ -384,7 +384,7 @@ public class Example {
 
 ## Operation: listReverseETLSyncStatusesFromModelAndSubscriptionId
 
-> ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response listReverseETLSyncStatusesFromModelAndSubscriptionId(modelId, subscriptionId, pagination)
+> ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response listReverseETLSyncStatusesFromModelAndSubscriptionId(modelId, subscriptionId, count, cursor)
 
 List Reverse ETL Sync Statuses from Model And Subscription Id
 
@@ -412,9 +412,10 @@ public class Example {
         ReverseEtlApi apiInstance = new ReverseEtlApi(defaultClient);
         String modelId = "modelId"; // String | 
         String subscriptionId = "subscriptionId"; // String | 
-        PaginationInput pagination = new PaginationInput(); // PaginationInput | Optional pagination params.  This parameter exists in alpha.
+        BigDecimal count = new BigDecimal(78); // BigDecimal | The number of items to retrieve in a page, between 1 and 100. Default is 10  This parameter exists in alpha.
+        String cursor = "cursor_example"; // String | The page to request. Acceptable values to use here are in PaginationOutput objects, in the `current`, `next`, and `previous` keys.  This parameter exists in alpha.
         try {
-            ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response result = apiInstance.listReverseETLSyncStatusesFromModelAndSubscriptionId(modelId, subscriptionId, pagination);
+            ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response result = apiInstance.listReverseETLSyncStatusesFromModelAndSubscriptionId(modelId, subscriptionId, count, cursor);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ReverseEtlApi#listReverseETLSyncStatusesFromModelAndSubscriptionId");
@@ -434,7 +435,8 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **modelId** | **String**|  | |
 | **subscriptionId** | **String**|  | |
-| **pagination** | [**PaginationInput**](.md)| Optional pagination params.  This parameter exists in alpha. | [optional] |
+| **count** | **BigDecimal**| The number of items to retrieve in a page, between 1 and 100. Default is 10  This parameter exists in alpha. | [optional] |
+| **cursor** | **String**| The page to request. Acceptable values to use here are in PaginationOutput objects, in the &#x60;current&#x60;, &#x60;next&#x60;, and &#x60;previous&#x60; keys.  This parameter exists in alpha. | [optional] |
 
 ### Return type
 
