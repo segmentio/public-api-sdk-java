@@ -964,9 +964,9 @@ public class ReverseEtlApi {
      * @param subscriptionId (required)
      * @param count The number of items to retrieve in a page, between 1 and 100. Default is 10 This
      *     parameter exists in alpha. (optional)
-     * @param cursor The page to request. Acceptable values to use here are in PaginationOutput
-     *     objects, in the &#x60;current&#x60;, &#x60;next&#x60;, and &#x60;previous&#x60; keys.
-     *     This parameter exists in alpha. (optional)
+     * @param cursor The page to request. Acceptable values to use here are in the
+     *     &#x60;current&#x60;, &#x60;next&#x60;, and &#x60;previous&#x60; keys. This parameter
+     *     exists in alpha. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1092,9 +1092,9 @@ public class ReverseEtlApi {
      * @param subscriptionId (required)
      * @param count The number of items to retrieve in a page, between 1 and 100. Default is 10 This
      *     parameter exists in alpha. (optional)
-     * @param cursor The page to request. Acceptable values to use here are in PaginationOutput
-     *     objects, in the &#x60;current&#x60;, &#x60;next&#x60;, and &#x60;previous&#x60; keys.
-     *     This parameter exists in alpha. (optional)
+     * @param cursor The page to request. Acceptable values to use here are in the
+     *     &#x60;current&#x60;, &#x60;next&#x60;, and &#x60;previous&#x60; keys. This parameter
+     *     exists in alpha. (optional)
      * @return ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1128,9 +1128,9 @@ public class ReverseEtlApi {
      * @param subscriptionId (required)
      * @param count The number of items to retrieve in a page, between 1 and 100. Default is 10 This
      *     parameter exists in alpha. (optional)
-     * @param cursor The page to request. Acceptable values to use here are in PaginationOutput
-     *     objects, in the &#x60;current&#x60;, &#x60;next&#x60;, and &#x60;previous&#x60; keys.
-     *     This parameter exists in alpha. (optional)
+     * @param cursor The page to request. Acceptable values to use here are in the
+     *     &#x60;current&#x60;, &#x60;next&#x60;, and &#x60;previous&#x60; keys. This parameter
+     *     exists in alpha. (optional)
      * @return ApiResponse&lt;ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1167,9 +1167,9 @@ public class ReverseEtlApi {
      * @param subscriptionId (required)
      * @param count The number of items to retrieve in a page, between 1 and 100. Default is 10 This
      *     parameter exists in alpha. (optional)
-     * @param cursor The page to request. Acceptable values to use here are in PaginationOutput
-     *     objects, in the &#x60;current&#x60;, &#x60;next&#x60;, and &#x60;previous&#x60; keys.
-     *     This parameter exists in alpha. (optional)
+     * @param cursor The page to request. Acceptable values to use here are in the
+     *     &#x60;current&#x60;, &#x60;next&#x60;, and &#x60;previous&#x60; keys. This parameter
+     *     exists in alpha. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
