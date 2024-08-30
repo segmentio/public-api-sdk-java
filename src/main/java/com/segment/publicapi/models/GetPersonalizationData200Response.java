@@ -27,33 +27,33 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Gets a single Function. */
-public class GetFunctionV1Output {
-    public static final String SERIALIZED_NAME_FUNCTION = "function";
+/** GetPersonalizationData200Response */
+public class GetPersonalizationData200Response {
+    public static final String SERIALIZED_NAME_DATA = "data";
 
-    @SerializedName(SERIALIZED_NAME_FUNCTION)
-    private FunctionV1 function;
+    @SerializedName(SERIALIZED_NAME_DATA)
+    private GetPersonalizationDataOutput data;
 
-    public GetFunctionV1Output() {}
+    public GetPersonalizationData200Response() {}
 
-    public GetFunctionV1Output function(FunctionV1 function) {
+    public GetPersonalizationData200Response data(GetPersonalizationDataOutput data) {
 
-        this.function = function;
+        this.data = data;
         return this;
     }
 
     /**
-     * Get function
+     * Get data
      *
-     * @return function
+     * @return data
      */
     @javax.annotation.Nullable
-    public FunctionV1 getFunction() {
-        return function;
+    public GetPersonalizationDataOutput getData() {
+        return data;
     }
 
-    public void setFunction(FunctionV1 function) {
-        this.function = function;
+    public void setData(GetPersonalizationDataOutput data) {
+        this.data = data;
     }
 
     @Override
@@ -64,20 +64,21 @@ public class GetFunctionV1Output {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        GetFunctionV1Output getFunctionV1Output = (GetFunctionV1Output) o;
-        return Objects.equals(this.function, getFunctionV1Output.function);
+        GetPersonalizationData200Response getPersonalizationData200Response =
+                (GetPersonalizationData200Response) o;
+        return Objects.equals(this.data, getPersonalizationData200Response.data);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(function);
+        return Objects.hash(data);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class GetFunctionV1Output {\n");
-        sb.append("    function: ").append(toIndentedString(function)).append("\n");
+        sb.append("class GetPersonalizationData200Response {\n");
+        sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -99,79 +100,75 @@ public class GetFunctionV1Output {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("function");
+        openapiFields.add("data");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("function");
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to GetFunctionV1Output
+     * @throws IOException if the JSON Element is invalid with respect to
+     *     GetPersonalizationData200Response
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!GetFunctionV1Output.openapiRequiredFields
+            if (!GetPersonalizationData200Response.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in GetFunctionV1Output is not found in"
-                                        + " the empty JSON string",
-                                GetFunctionV1Output.openapiRequiredFields.toString()));
+                                "The required field(s) %s in GetPersonalizationData200Response is"
+                                        + " not found in the empty JSON string",
+                                GetPersonalizationData200Response.openapiRequiredFields
+                                        .toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!GetFunctionV1Output.openapiFields.contains(entry.getKey())) {
+            if (!GetPersonalizationData200Response.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `GetFunctionV1Output` properties. JSON: %s",
+                                    + " `GetPersonalizationData200Response` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
-
-        // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : GetFunctionV1Output.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-                throw new IllegalArgumentException(
-                        String.format(
-                                "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonElement.toString()));
-            }
-        }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        // validate the required field `function`
-        FunctionV1.validateJsonElement(jsonObj.get("function"));
+        // validate the optional field `data`
+        if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
+            GetPersonalizationDataOutput.validateJsonElement(jsonObj.get("data"));
+        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!GetFunctionV1Output.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'GetFunctionV1Output' and its subtypes
+            if (!GetPersonalizationData200Response.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'GetPersonalizationData200Response' and
+                // its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<GetFunctionV1Output> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(GetFunctionV1Output.class));
+            final TypeAdapter<GetPersonalizationData200Response> thisAdapter =
+                    gson.getDelegateAdapter(
+                            this, TypeToken.get(GetPersonalizationData200Response.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<GetFunctionV1Output>() {
+                    new TypeAdapter<GetPersonalizationData200Response>() {
                         @Override
-                        public void write(JsonWriter out, GetFunctionV1Output value)
+                        public void write(JsonWriter out, GetPersonalizationData200Response value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public GetFunctionV1Output read(JsonReader in) throws IOException {
+                        public GetPersonalizationData200Response read(JsonReader in)
+                                throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -181,18 +178,19 @@ public class GetFunctionV1Output {
     }
 
     /**
-     * Create an instance of GetFunctionV1Output given an JSON string
+     * Create an instance of GetPersonalizationData200Response given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of GetFunctionV1Output
-     * @throws IOException if the JSON string is invalid with respect to GetFunctionV1Output
+     * @return An instance of GetPersonalizationData200Response
+     * @throws IOException if the JSON string is invalid with respect to
+     *     GetPersonalizationData200Response
      */
-    public static GetFunctionV1Output fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, GetFunctionV1Output.class);
+    public static GetPersonalizationData200Response fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, GetPersonalizationData200Response.class);
     }
 
     /**
-     * Convert an instance of GetFunctionV1Output to an JSON string
+     * Convert an instance of GetPersonalizationData200Response to an JSON string
      *
      * @return JSON string
      */
