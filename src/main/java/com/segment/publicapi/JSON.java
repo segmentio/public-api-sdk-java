@@ -699,7 +699,7 @@ public class JSON {
                 new com.segment.publicapi.models.GetMessagingSubscriptionSuccessResponse
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.GetPersonalizationDataInput
+                new com.segment.publicapi.models.GetPersonalizationData200Response
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.GetPersonalizationDataOutput
