@@ -413,7 +413,7 @@ public class Example {
         String modelId = "modelId"; // String | 
         String subscriptionId = "subscriptionId"; // String | 
         BigDecimal count = new BigDecimal(78); // BigDecimal | The number of items to retrieve in a page, between 1 and 100. Default is 10  This parameter exists in alpha.
-        String cursor = "cursor_example"; // String | The page to request. Acceptable values to use are from the `current`, `next`, and `previous` keys.  This parameter exists in alpha.
+        String cursor = "cursor_example"; // String | The page to request. Acceptable values to use here are in the `current`, `next`, and `previous` keys.  This parameter exists in alpha.
         try {
             ListReverseETLSyncStatusesFromModelAndSubscriptionId200Response result = apiInstance.listReverseETLSyncStatusesFromModelAndSubscriptionId(modelId, subscriptionId, count, cursor);
             System.out.println(result);
@@ -436,7 +436,7 @@ public class Example {
 | **modelId** | **String**|  | |
 | **subscriptionId** | **String**|  | |
 | **count** | **BigDecimal**| The number of items to retrieve in a page, between 1 and 100. Default is 10  This parameter exists in alpha. | [optional] |
-| **cursor** | **String**| The page to request. Acceptable values to use are from the &#x60;current&#x60;, &#x60;next&#x60;, and &#x60;previous&#x60; keys.  This parameter exists in alpha. | [optional] |
+| **cursor** | **String**| The page to request. Acceptable values to use here are in the &#x60;current&#x60;, &#x60;next&#x60;, and &#x60;previous&#x60; keys.  This parameter exists in alpha. | [optional] |
 
 ### Return type
 
