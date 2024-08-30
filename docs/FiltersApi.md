@@ -261,7 +261,7 @@ public class Example {
         FiltersApi apiInstance = new FiltersApi(defaultClient);
         String integrationId = "<id>"; // String | 
         String productArea = "spaces"; // String | The product area of the filter, which should be spaces (endpoint table should be able to determine the resource)  This parameter exists in alpha.
-        PaginationInput pagination = new PaginationInput(); // PaginationInput | Pagination parameters.  This parameter exists in alpha.
+        ListFiltersPaginationInput pagination = new ListFiltersPaginationInput(); // ListFiltersPaginationInput | Pagination parameters.  This parameter exists in alpha.
         try {
             apiInstance.listFiltersByIntegrationId(integrationId, productArea, pagination);
         } catch (ApiException e) {
@@ -282,7 +282,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **integrationId** | **String**|  | |
 | **productArea** | **String**| The product area of the filter, which should be spaces (endpoint table should be able to determine the resource)  This parameter exists in alpha. | |
-| **pagination** | [**PaginationInput**](.md)| Pagination parameters.  This parameter exists in alpha. | [optional] |
+| **pagination** | [**ListFiltersPaginationInput**](.md)| Pagination parameters.  This parameter exists in alpha. | [optional] |
 
 ### Return type
 

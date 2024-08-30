@@ -40,7 +40,7 @@ public class ListFiltersByIntegrationIdOutput {
     public static final String SERIALIZED_NAME_PAGINATION = "pagination";
 
     @SerializedName(SERIALIZED_NAME_PAGINATION)
-    private PaginationOutput pagination;
+    private ListFiltersPaginationOutput pagination;
 
     public ListFiltersByIntegrationIdOutput() {}
 
@@ -72,7 +72,7 @@ public class ListFiltersByIntegrationIdOutput {
         this.filters = filters;
     }
 
-    public ListFiltersByIntegrationIdOutput pagination(PaginationOutput pagination) {
+    public ListFiltersByIntegrationIdOutput pagination(ListFiltersPaginationOutput pagination) {
 
         this.pagination = pagination;
         return this;
@@ -84,11 +84,11 @@ public class ListFiltersByIntegrationIdOutput {
      * @return pagination
      */
     @javax.annotation.Nullable
-    public PaginationOutput getPagination() {
+    public ListFiltersPaginationOutput getPagination() {
         return pagination;
     }
 
-    public void setPagination(PaginationOutput pagination) {
+    public void setPagination(ListFiltersPaginationOutput pagination) {
         this.pagination = pagination;
     }
 
@@ -197,7 +197,7 @@ public class ListFiltersByIntegrationIdOutput {
         }
         // validate the optional field `pagination`
         if (jsonObj.get("pagination") != null && !jsonObj.get("pagination").isJsonNull()) {
-            PaginationOutput.validateJsonElement(jsonObj.get("pagination"));
+            ListFiltersPaginationOutput.validateJsonElement(jsonObj.get("pagination"));
         }
     }
 

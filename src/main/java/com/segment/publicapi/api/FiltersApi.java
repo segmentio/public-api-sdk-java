@@ -18,7 +18,7 @@ import com.segment.publicapi.ApiResponse;
 import com.segment.publicapi.Configuration;
 import com.segment.publicapi.Pair;
 import com.segment.publicapi.models.CreateFilterInput;
-import com.segment.publicapi.models.PaginationInput;
+import com.segment.publicapi.models.ListFiltersPaginationInput;
 import com.segment.publicapi.models.UpdateFilterByIdInput;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -585,7 +585,7 @@ public class FiltersApi {
     public okhttp3.Call listFiltersByIntegrationIdCall(
             String integrationId,
             String productArea,
-            PaginationInput pagination,
+            ListFiltersPaginationInput pagination,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -657,7 +657,7 @@ public class FiltersApi {
     private okhttp3.Call listFiltersByIntegrationIdValidateBeforeCall(
             String integrationId,
             String productArea,
-            PaginationInput pagination,
+            ListFiltersPaginationInput pagination,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'integrationId' is set
@@ -695,7 +695,7 @@ public class FiltersApi {
      * </table>
      */
     public void listFiltersByIntegrationId(
-            String integrationId, String productArea, PaginationInput pagination)
+            String integrationId, String productArea, ListFiltersPaginationInput pagination)
             throws ApiException {
         listFiltersByIntegrationIdWithHttpInfo(integrationId, productArea, pagination);
     }
@@ -719,7 +719,7 @@ public class FiltersApi {
      * </table>
      */
     public ApiResponse<Void> listFiltersByIntegrationIdWithHttpInfo(
-            String integrationId, String productArea, PaginationInput pagination)
+            String integrationId, String productArea, ListFiltersPaginationInput pagination)
             throws ApiException {
         okhttp3.Call localVarCall =
                 listFiltersByIntegrationIdValidateBeforeCall(
@@ -749,7 +749,7 @@ public class FiltersApi {
     public okhttp3.Call listFiltersByIntegrationIdAsync(
             String integrationId,
             String productArea,
-            PaginationInput pagination,
+            ListFiltersPaginationInput pagination,
             final ApiCallback<Void> _callback)
             throws ApiException {
 
