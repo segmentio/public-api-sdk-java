@@ -16,6 +16,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
@@ -27,83 +28,106 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Space matching the given id. */
-public class Space {
-    public static final String SERIALIZED_NAME_ID = "id";
+/** Query language definition and type. */
+public class Definition {
+    public static final String SERIALIZED_NAME_QUERY = "query";
 
-    @SerializedName(SERIALIZED_NAME_ID)
-    private String id;
+    @SerializedName(SERIALIZED_NAME_QUERY)
+    private String query;
 
-    public static final String SERIALIZED_NAME_SLUG = "slug";
+    /**
+     * The underlying data type being segmented for this audience. Possible values: users, accounts.
+     */
+    @JsonAdapter(TypeEnum.Adapter.class)
+    public enum TypeEnum {
+        ACCOUNTS("ACCOUNTS"),
 
-    @SerializedName(SERIALIZED_NAME_SLUG)
-    private String slug;
+        USERS("USERS");
 
-    public static final String SERIALIZED_NAME_NAME = "name";
+        private String value;
 
-    @SerializedName(SERIALIZED_NAME_NAME)
-    private String name;
+        TypeEnum(String value) {
+            this.value = value;
+        }
 
-    public Space() {}
+        public String getValue() {
+            return value;
+        }
 
-    public Space id(String id) {
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
 
-        this.id = id;
+        public static TypeEnum fromValue(String value) {
+            for (TypeEnum b : TypeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<TypeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final TypeEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public TypeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return TypeEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_TYPE = "type";
+
+    @SerializedName(SERIALIZED_NAME_TYPE)
+    private TypeEnum type;
+
+    public Definition() {}
+
+    public Definition query(String query) {
+
+        this.query = query;
         return this;
     }
 
     /**
-     * Get id
+     * The query language string defining the audience segmentation criteria.
      *
-     * @return id
+     * @return query
      */
     @javax.annotation.Nonnull
-    public String getId() {
-        return id;
+    public String getQuery() {
+        return query;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setQuery(String query) {
+        this.query = query;
     }
 
-    public Space slug(String slug) {
+    public Definition type(TypeEnum type) {
 
-        this.slug = slug;
+        this.type = type;
         return this;
     }
 
     /**
-     * Get slug
+     * The underlying data type being segmented for this audience. Possible values: users, accounts.
      *
-     * @return slug
+     * @return type
      */
     @javax.annotation.Nonnull
-    public String getSlug() {
-        return slug;
+    public TypeEnum getType() {
+        return type;
     }
 
-    public void setSlug(String slug) {
-        this.slug = slug;
-    }
-
-    public Space name(String name) {
-
-        this.name = name;
-        return this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return name
-     */
-    @javax.annotation.Nonnull
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setType(TypeEnum type) {
+        this.type = type;
     }
 
     @Override
@@ -114,24 +138,22 @@ public class Space {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Space space = (Space) o;
-        return Objects.equals(this.id, space.id)
-                && Objects.equals(this.slug, space.slug)
-                && Objects.equals(this.name, space.name);
+        Definition definition = (Definition) o;
+        return Objects.equals(this.query, definition.query)
+                && Objects.equals(this.type, definition.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, slug, name);
+        return Objects.hash(query, type);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class Space {\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    slug: ").append(toIndentedString(slug)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("class Definition {\n");
+        sb.append("    query: ").append(toIndentedString(query)).append("\n");
+        sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -153,49 +175,47 @@ public class Space {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("id");
-        openapiFields.add("slug");
-        openapiFields.add("name");
+        openapiFields.add("query");
+        openapiFields.add("type");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("id");
-        openapiRequiredFields.add("slug");
-        openapiRequiredFields.add("name");
+        openapiRequiredFields.add("query");
+        openapiRequiredFields.add("type");
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to Space
+     * @throws IOException if the JSON Element is invalid with respect to Definition
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!Space.openapiRequiredFields
+            if (!Definition.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in Space is not found in the empty JSON"
-                                        + " string",
-                                Space.openapiRequiredFields.toString()));
+                                "The required field(s) %s in Definition is not found in the empty"
+                                        + " JSON string",
+                                Definition.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!Space.openapiFields.contains(entry.getKey())) {
+            if (!Definition.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
-                                "The field `%s` in the JSON string is not defined in the `Space`"
-                                        + " properties. JSON: %s",
+                                "The field `%s` in the JSON string is not defined in the"
+                                        + " `Definition` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : Space.openapiRequiredFields) {
+        for (String requiredField : Definition.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -204,26 +224,19 @@ public class Space {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if (!jsonObj.get("id").isJsonPrimitive()) {
+        if (!jsonObj.get("query").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `id` to be a primitive type in the JSON string but"
-                                    + " got `%s`",
-                            jsonObj.get("id").toString()));
-        }
-        if (!jsonObj.get("slug").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `slug` to be a primitive type in the JSON string"
+                            "Expected the field `query` to be a primitive type in the JSON string"
                                     + " but got `%s`",
-                            jsonObj.get("slug").toString()));
+                            jsonObj.get("query").toString()));
         }
-        if (!jsonObj.get("name").isJsonPrimitive()) {
+        if (!jsonObj.get("type").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `name` to be a primitive type in the JSON string"
+                            "Expected the field `type` to be a primitive type in the JSON string"
                                     + " but got `%s`",
-                            jsonObj.get("name").toString()));
+                            jsonObj.get("type").toString()));
         }
     }
 
@@ -231,23 +244,23 @@ public class Space {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!Space.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'Space' and its subtypes
+            if (!Definition.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'Definition' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<Space> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(Space.class));
+            final TypeAdapter<Definition> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(Definition.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<Space>() {
+                    new TypeAdapter<Definition>() {
                         @Override
-                        public void write(JsonWriter out, Space value) throws IOException {
+                        public void write(JsonWriter out, Definition value) throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public Space read(JsonReader in) throws IOException {
+                        public Definition read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -257,18 +270,18 @@ public class Space {
     }
 
     /**
-     * Create an instance of Space given an JSON string
+     * Create an instance of Definition given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of Space
-     * @throws IOException if the JSON string is invalid with respect to Space
+     * @return An instance of Definition
+     * @throws IOException if the JSON string is invalid with respect to Definition
      */
-    public static Space fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, Space.class);
+    public static Definition fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, Definition.class);
     }
 
     /**
-     * Convert an instance of Space to an JSON string
+     * Convert an instance of Definition to an JSON string
      *
      * @return JSON string
      */

@@ -32,11 +32,11 @@ public class GetFunctionV1Output {
     public static final String SERIALIZED_NAME_FUNCTION = "function";
 
     @SerializedName(SERIALIZED_NAME_FUNCTION)
-    private FunctionV1 function;
+    private Function function;
 
     public GetFunctionV1Output() {}
 
-    public GetFunctionV1Output function(FunctionV1 function) {
+    public GetFunctionV1Output function(Function function) {
 
         this.function = function;
         return this;
@@ -48,11 +48,11 @@ public class GetFunctionV1Output {
      * @return function
      */
     @javax.annotation.Nullable
-    public FunctionV1 getFunction() {
+    public Function getFunction() {
         return function;
     }
 
-    public void setFunction(FunctionV1 function) {
+    public void setFunction(Function function) {
         this.function = function;
     }
 
@@ -147,7 +147,7 @@ public class GetFunctionV1Output {
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the required field `function`
-        FunctionV1.validateJsonElement(jsonObj.get("function"));
+        Function.validateJsonElement(jsonObj.get("function"));
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
