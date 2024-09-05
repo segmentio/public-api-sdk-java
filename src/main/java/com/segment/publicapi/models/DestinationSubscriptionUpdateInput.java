@@ -50,6 +50,16 @@ public class DestinationSubscriptionUpdateInput {
     @SerializedName(SERIALIZED_NAME_SETTINGS)
     private Map<String, Object> settings;
 
+    public static final String SERIALIZED_NAME_REVERSE_E_T_L_MODEL_ID = "reverseETLModelId";
+
+    @SerializedName(SERIALIZED_NAME_REVERSE_E_T_L_MODEL_ID)
+    private String reverseETLModelId;
+
+    public static final String SERIALIZED_NAME_REVERSE_E_T_L_SCHEDULE = "reverseETLSchedule";
+
+    @SerializedName(SERIALIZED_NAME_REVERSE_E_T_L_SCHEDULE)
+    private ReverseEtlScheduleDefinition reverseETLSchedule;
+
     public DestinationSubscriptionUpdateInput() {}
 
     public DestinationSubscriptionUpdateInput name(String name) {
@@ -140,6 +150,47 @@ public class DestinationSubscriptionUpdateInput {
         this.settings = settings;
     }
 
+    public DestinationSubscriptionUpdateInput reverseETLModelId(String reverseETLModelId) {
+
+        this.reverseETLModelId = reverseETLModelId;
+        return this;
+    }
+
+    /**
+     * (Reverse ETL only) The reverse ETL model to attach this subscription to.
+     *
+     * @return reverseETLModelId
+     */
+    @javax.annotation.Nullable
+    public String getReverseETLModelId() {
+        return reverseETLModelId;
+    }
+
+    public void setReverseETLModelId(String reverseETLModelId) {
+        this.reverseETLModelId = reverseETLModelId;
+    }
+
+    public DestinationSubscriptionUpdateInput reverseETLSchedule(
+            ReverseEtlScheduleDefinition reverseETLSchedule) {
+
+        this.reverseETLSchedule = reverseETLSchedule;
+        return this;
+    }
+
+    /**
+     * Get reverseETLSchedule
+     *
+     * @return reverseETLSchedule
+     */
+    @javax.annotation.Nullable
+    public ReverseEtlScheduleDefinition getReverseETLSchedule() {
+        return reverseETLSchedule;
+    }
+
+    public void setReverseETLSchedule(ReverseEtlScheduleDefinition reverseETLSchedule) {
+        this.reverseETLSchedule = reverseETLSchedule;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -153,12 +204,19 @@ public class DestinationSubscriptionUpdateInput {
         return Objects.equals(this.name, destinationSubscriptionUpdateInput.name)
                 && Objects.equals(this.trigger, destinationSubscriptionUpdateInput.trigger)
                 && Objects.equals(this.enabled, destinationSubscriptionUpdateInput.enabled)
-                && Objects.equals(this.settings, destinationSubscriptionUpdateInput.settings);
+                && Objects.equals(this.settings, destinationSubscriptionUpdateInput.settings)
+                && Objects.equals(
+                        this.reverseETLModelId,
+                        destinationSubscriptionUpdateInput.reverseETLModelId)
+                && Objects.equals(
+                        this.reverseETLSchedule,
+                        destinationSubscriptionUpdateInput.reverseETLSchedule);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, trigger, enabled, settings);
+        return Objects.hash(
+                name, trigger, enabled, settings, reverseETLModelId, reverseETLSchedule);
     }
 
     @Override
@@ -169,6 +227,12 @@ public class DestinationSubscriptionUpdateInput {
         sb.append("    trigger: ").append(toIndentedString(trigger)).append("\n");
         sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
         sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
+        sb.append("    reverseETLModelId: ")
+                .append(toIndentedString(reverseETLModelId))
+                .append("\n");
+        sb.append("    reverseETLSchedule: ")
+                .append(toIndentedString(reverseETLSchedule))
+                .append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -194,6 +258,8 @@ public class DestinationSubscriptionUpdateInput {
         openapiFields.add("trigger");
         openapiFields.add("enabled");
         openapiFields.add("settings");
+        openapiFields.add("reverseETLModelId");
+        openapiFields.add("reverseETLSchedule");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
@@ -246,6 +312,20 @@ public class DestinationSubscriptionUpdateInput {
                             "Expected the field `trigger` to be a primitive type in the JSON string"
                                     + " but got `%s`",
                             jsonObj.get("trigger").toString()));
+        }
+        if ((jsonObj.get("reverseETLModelId") != null
+                        && !jsonObj.get("reverseETLModelId").isJsonNull())
+                && !jsonObj.get("reverseETLModelId").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `reverseETLModelId` to be a primitive type in the"
+                                    + " JSON string but got `%s`",
+                            jsonObj.get("reverseETLModelId").toString()));
+        }
+        // validate the optional field `reverseETLSchedule`
+        if (jsonObj.get("reverseETLSchedule") != null
+                && !jsonObj.get("reverseETLSchedule").isJsonNull()) {
+            ReverseEtlScheduleDefinition.validateJsonElement(jsonObj.get("reverseETLSchedule"));
         }
     }
 
