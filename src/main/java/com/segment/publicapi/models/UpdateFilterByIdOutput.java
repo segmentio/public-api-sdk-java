@@ -27,7 +27,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Output for UpdateFilterById */
+/** Output for UpdateFilterById. */
 public class UpdateFilterByIdOutput {
     public static final String SERIALIZED_NAME_FILTER = "filter";
 

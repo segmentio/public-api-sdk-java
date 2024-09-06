@@ -30,7 +30,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Output for ListFiltersByIntegrationId */
+/** Output for ListFiltersByIntegrationId. */
 public class ListFiltersByIntegrationIdOutput {
     public static final String SERIALIZED_NAME_FILTERS = "filters";
 

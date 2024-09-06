@@ -65,7 +65,6 @@ public class FiltersApi {
     /**
      * Build call for createFilter
      *
-     * @param integrationId (required)
      * @param createFilterInput (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -79,8 +78,7 @@ public class FiltersApi {
      * </table>
      */
     public okhttp3.Call createFilterCall(
-            String integrationId, CreateFilterInput createFilterInput, final ApiCallback _callback)
-            throws ApiException {
+            CreateFilterInput createFilterInput, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -97,11 +95,7 @@ public class FiltersApi {
         Object localVarPostBody = createFilterInput;
 
         // create path and map variables
-        String localVarPath =
-                "/filters/create/{integrationId}"
-                        .replace(
-                                "{" + "integrationId" + "}",
-                                localVarApiClient.escapeString(integrationId.toString()));
+        String localVarPath = "/filters";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -139,15 +133,7 @@ public class FiltersApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createFilterValidateBeforeCall(
-            String integrationId, CreateFilterInput createFilterInput, final ApiCallback _callback)
-            throws ApiException {
-        // verify the required parameter 'integrationId' is set
-        if (integrationId == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'integrationId' when calling"
-                            + " createFilter(Async)");
-        }
-
+            CreateFilterInput createFilterInput, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'createFilterInput' is set
         if (createFilterInput == null) {
             throw new ApiException(
@@ -155,14 +141,13 @@ public class FiltersApi {
                             + " createFilter(Async)");
         }
 
-        return createFilterCall(integrationId, createFilterInput, _callback);
+        return createFilterCall(createFilterInput, _callback);
     }
 
     /**
      * Create Filter Creates a filter. • When called, this endpoint may generate the &#x60;Filter
      * Created&#x60; event in the [audit trail](/tag/Audit-Trail).
      *
-     * @param integrationId (required)
      * @param createFilterInput (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -174,16 +159,14 @@ public class FiltersApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public void createFilter(String integrationId, CreateFilterInput createFilterInput)
-            throws ApiException {
-        createFilterWithHttpInfo(integrationId, createFilterInput);
+    public void createFilter(CreateFilterInput createFilterInput) throws ApiException {
+        createFilterWithHttpInfo(createFilterInput);
     }
 
     /**
      * Create Filter Creates a filter. • When called, this endpoint may generate the &#x60;Filter
      * Created&#x60; event in the [audit trail](/tag/Audit-Trail).
      *
-     * @param integrationId (required)
      * @param createFilterInput (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -196,10 +179,9 @@ public class FiltersApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<Void> createFilterWithHttpInfo(
-            String integrationId, CreateFilterInput createFilterInput) throws ApiException {
-        okhttp3.Call localVarCall =
-                createFilterValidateBeforeCall(integrationId, createFilterInput, null);
+    public ApiResponse<Void> createFilterWithHttpInfo(CreateFilterInput createFilterInput)
+            throws ApiException {
+        okhttp3.Call localVarCall = createFilterValidateBeforeCall(createFilterInput, null);
         return localVarApiClient.execute(localVarCall);
     }
 
@@ -207,7 +189,6 @@ public class FiltersApi {
      * Create Filter (asynchronously) Creates a filter. • When called, this endpoint may generate
      * the &#x60;Filter Created&#x60; event in the [audit trail](/tag/Audit-Trail).
      *
-     * @param integrationId (required)
      * @param createFilterInput (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -222,13 +203,10 @@ public class FiltersApi {
      * </table>
      */
     public okhttp3.Call createFilterAsync(
-            String integrationId,
-            CreateFilterInput createFilterInput,
-            final ApiCallback<Void> _callback)
+            CreateFilterInput createFilterInput, final ApiCallback<Void> _callback)
             throws ApiException {
 
-        okhttp3.Call localVarCall =
-                createFilterValidateBeforeCall(integrationId, createFilterInput, _callback);
+        okhttp3.Call localVarCall = createFilterValidateBeforeCall(createFilterInput, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -237,7 +215,7 @@ public class FiltersApi {
      * Build call for deleteFilterById
      *
      * @param id (required)
-     * @param productArea The product area of the filter This parameter exists in alpha. (required)
+     * @param productArea The product area of the filter. This parameter exists in alpha. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -268,7 +246,7 @@ public class FiltersApi {
 
         // create path and map variables
         String localVarPath =
-                "/filters/delete/{id}"
+                "/filters/{id}"
                         .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -334,7 +312,7 @@ public class FiltersApi {
      * &#x60;Filter Deleted&#x60; event in the [audit trail](/tag/Audit-Trail).
      *
      * @param id (required)
-     * @param productArea The product area of the filter This parameter exists in alpha. (required)
+     * @param productArea The product area of the filter. This parameter exists in alpha. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
      * @http.response.details
@@ -354,7 +332,7 @@ public class FiltersApi {
      * &#x60;Filter Deleted&#x60; event in the [audit trail](/tag/Audit-Trail).
      *
      * @param id (required)
-     * @param productArea The product area of the filter This parameter exists in alpha. (required)
+     * @param productArea The product area of the filter. This parameter exists in alpha. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -377,7 +355,7 @@ public class FiltersApi {
      * generate the &#x60;Filter Deleted&#x60; event in the [audit trail](/tag/Audit-Trail).
      *
      * @param id (required)
-     * @param productArea The product area of the filter This parameter exists in alpha. (required)
+     * @param productArea The product area of the filter. This parameter exists in alpha. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -403,7 +381,7 @@ public class FiltersApi {
      *
      * @param id (required)
      * @param productArea The product area of the filter, which should be spaces (endpoint table
-     *     should be able to determine the resource) This parameter exists in alpha. (required)
+     *     should be able to determine the resource). This parameter exists in alpha. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -434,7 +412,7 @@ public class FiltersApi {
 
         // create path and map variables
         String localVarPath =
-                "/filters/filter/{id}"
+                "/filters/{id}"
                         .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -500,7 +478,7 @@ public class FiltersApi {
      *
      * @param id (required)
      * @param productArea The product area of the filter, which should be spaces (endpoint table
-     *     should be able to determine the resource) This parameter exists in alpha. (required)
+     *     should be able to determine the resource). This parameter exists in alpha. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
      * @http.response.details
@@ -520,7 +498,7 @@ public class FiltersApi {
      *
      * @param id (required)
      * @param productArea The product area of the filter, which should be spaces (endpoint table
-     *     should be able to determine the resource) This parameter exists in alpha. (required)
+     *     should be able to determine the resource). This parameter exists in alpha. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -543,7 +521,7 @@ public class FiltersApi {
      *
      * @param id (required)
      * @param productArea The product area of the filter, which should be spaces (endpoint table
-     *     should be able to determine the resource) This parameter exists in alpha. (required)
+     *     should be able to determine the resource). This parameter exists in alpha. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -567,9 +545,10 @@ public class FiltersApi {
     /**
      * Build call for listFiltersByIntegrationId
      *
-     * @param integrationId (required)
+     * @param integrationId The integration id used to fetch filters. This parameter exists in
+     *     alpha. (required)
      * @param productArea The product area of the filter, which should be spaces (endpoint table
-     *     should be able to determine the resource) This parameter exists in alpha. (required)
+     *     should be able to determine the resource). This parameter exists in alpha. (required)
      * @param pagination Pagination parameters. This parameter exists in alpha. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -604,17 +583,18 @@ public class FiltersApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath =
-                "/filters/{integrationId}"
-                        .replace(
-                                "{" + "integrationId" + "}",
-                                localVarApiClient.escapeString(integrationId.toString()));
+        String localVarPath = "/filters";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (integrationId != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("integrationId", integrationId));
+        }
 
         if (productArea != null) {
             localVarQueryParams.addAll(
@@ -680,9 +660,10 @@ public class FiltersApi {
     /**
      * List Filters By Integration Id Lists filters by integration id.
      *
-     * @param integrationId (required)
+     * @param integrationId The integration id used to fetch filters. This parameter exists in
+     *     alpha. (required)
      * @param productArea The product area of the filter, which should be spaces (endpoint table
-     *     should be able to determine the resource) This parameter exists in alpha. (required)
+     *     should be able to determine the resource). This parameter exists in alpha. (required)
      * @param pagination Pagination parameters. This parameter exists in alpha. (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -703,9 +684,10 @@ public class FiltersApi {
     /**
      * List Filters By Integration Id Lists filters by integration id.
      *
-     * @param integrationId (required)
+     * @param integrationId The integration id used to fetch filters. This parameter exists in
+     *     alpha. (required)
      * @param productArea The product area of the filter, which should be spaces (endpoint table
-     *     should be able to determine the resource) This parameter exists in alpha. (required)
+     *     should be able to determine the resource). This parameter exists in alpha. (required)
      * @param pagination Pagination parameters. This parameter exists in alpha. (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -730,9 +712,10 @@ public class FiltersApi {
     /**
      * List Filters By Integration Id (asynchronously) Lists filters by integration id.
      *
-     * @param integrationId (required)
+     * @param integrationId The integration id used to fetch filters. This parameter exists in
+     *     alpha. (required)
      * @param productArea The product area of the filter, which should be spaces (endpoint table
-     *     should be able to determine the resource) This parameter exists in alpha. (required)
+     *     should be able to determine the resource). This parameter exists in alpha. (required)
      * @param pagination Pagination parameters. This parameter exists in alpha. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -796,7 +779,7 @@ public class FiltersApi {
 
         // create path and map variables
         String localVarPath =
-                "/filters/update/{id}"
+                "/filters/{id}"
                         .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();

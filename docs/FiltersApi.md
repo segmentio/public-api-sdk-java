@@ -4,17 +4,17 @@ All URIs are relative to *https://api.segmentapis.com*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createFilter**](FiltersApi.md#createFilter) | **POST** /filters/create/{integrationId} | Create Filter |
-| [**deleteFilterById**](FiltersApi.md#deleteFilterById) | **DELETE** /filters/delete/{id} | Delete Filter By Id |
-| [**getFilterById**](FiltersApi.md#getFilterById) | **GET** /filters/filter/{id} | Get Filter By Id |
-| [**listFiltersByIntegrationId**](FiltersApi.md#listFiltersByIntegrationId) | **GET** /filters/{integrationId} | List Filters By Integration Id |
-| [**updateFilterById**](FiltersApi.md#updateFilterById) | **PATCH** /filters/update/{id} | Update Filter By Id |
+| [**createFilter**](FiltersApi.md#createFilter) | **POST** /filters | Create Filter |
+| [**deleteFilterById**](FiltersApi.md#deleteFilterById) | **DELETE** /filters/{id} | Delete Filter By Id |
+| [**getFilterById**](FiltersApi.md#getFilterById) | **GET** /filters/{id} | Get Filter By Id |
+| [**listFiltersByIntegrationId**](FiltersApi.md#listFiltersByIntegrationId) | **GET** /filters | List Filters By Integration Id |
+| [**updateFilterById**](FiltersApi.md#updateFilterById) | **PATCH** /filters/{id} | Update Filter By Id |
 
 
 
 ## Operation: createFilter
 
-> createFilter(integrationId, createFilterInput)
+> createFilter(createFilterInput)
 
 Create Filter
 
@@ -40,10 +40,9 @@ public class Example {
         token.setBearerToken("BEARER TOKEN");
 
         FiltersApi apiInstance = new FiltersApi(defaultClient);
-        String integrationId = "<id>"; // String | 
         CreateFilterInput createFilterInput = new CreateFilterInput(); // CreateFilterInput | 
         try {
-            apiInstance.createFilter(integrationId, createFilterInput);
+            apiInstance.createFilter(createFilterInput);
         } catch (ApiException e) {
             System.err.println("Exception when calling FiltersApi#createFilter");
             System.err.println("Status code: " + e.getCode());
@@ -60,7 +59,6 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **integrationId** | **String**|  | |
 | **createFilterInput** | [**CreateFilterInput**](CreateFilterInput.md)|  | |
 
 ### Return type
@@ -114,7 +112,7 @@ public class Example {
 
         FiltersApi apiInstance = new FiltersApi(defaultClient);
         String id = "<id>"; // String | 
-        String productArea = "spaces"; // String | The product area of the filter  This parameter exists in alpha.
+        String productArea = "spaces"; // String | The product area of the filter.  This parameter exists in alpha.
         try {
             apiInstance.deleteFilterById(id, productArea);
         } catch (ApiException e) {
@@ -134,7 +132,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**|  | |
-| **productArea** | **String**| The product area of the filter  This parameter exists in alpha. | |
+| **productArea** | **String**| The product area of the filter.  This parameter exists in alpha. | |
 
 ### Return type
 
@@ -187,7 +185,7 @@ public class Example {
 
         FiltersApi apiInstance = new FiltersApi(defaultClient);
         String id = "<id>"; // String | 
-        String productArea = "spaces"; // String | The product area of the filter, which should be spaces (endpoint table should be able to determine the resource)  This parameter exists in alpha.
+        String productArea = "spaces"; // String | The product area of the filter, which should be spaces (endpoint table should be able to determine the resource).  This parameter exists in alpha.
         try {
             apiInstance.getFilterById(id, productArea);
         } catch (ApiException e) {
@@ -207,7 +205,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **id** | **String**|  | |
-| **productArea** | **String**| The product area of the filter, which should be spaces (endpoint table should be able to determine the resource)  This parameter exists in alpha. | |
+| **productArea** | **String**| The product area of the filter, which should be spaces (endpoint table should be able to determine the resource).  This parameter exists in alpha. | |
 
 ### Return type
 
@@ -259,8 +257,8 @@ public class Example {
         token.setBearerToken("BEARER TOKEN");
 
         FiltersApi apiInstance = new FiltersApi(defaultClient);
-        String integrationId = "<id>"; // String | 
-        String productArea = "spaces"; // String | The product area of the filter, which should be spaces (endpoint table should be able to determine the resource)  This parameter exists in alpha.
+        String integrationId = "<id>"; // String | The integration id used to fetch filters.  This parameter exists in alpha.
+        String productArea = "spaces"; // String | The product area of the filter, which should be spaces (endpoint table should be able to determine the resource).  This parameter exists in alpha.
         ListFiltersPaginationInput pagination = new ListFiltersPaginationInput(); // ListFiltersPaginationInput | Pagination parameters.  This parameter exists in alpha.
         try {
             apiInstance.listFiltersByIntegrationId(integrationId, productArea, pagination);
@@ -280,8 +278,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **integrationId** | **String**|  | |
-| **productArea** | **String**| The product area of the filter, which should be spaces (endpoint table should be able to determine the resource)  This parameter exists in alpha. | |
+| **integrationId** | **String**| The integration id used to fetch filters.  This parameter exists in alpha. | |
+| **productArea** | **String**| The product area of the filter, which should be spaces (endpoint table should be able to determine the resource).  This parameter exists in alpha. | |
 | **pagination** | [**ListFiltersPaginationInput**](.md)| Pagination parameters.  This parameter exists in alpha. | [optional] |
 
 ### Return type

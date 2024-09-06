@@ -29,7 +29,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Input for UpdateFilterById */
+/** Input for UpdateFilterById. */
 public class UpdateFilterByIdInput {
     public static final String SERIALIZED_NAME_INTEGRATION_ID = "integrationId";
 
@@ -85,7 +85,7 @@ public class UpdateFilterByIdInput {
     }
 
     /**
-     * The integration id of the resource
+     * The integration id of the resource.
      *
      * @return integrationId
      */
@@ -105,7 +105,7 @@ public class UpdateFilterByIdInput {
     }
 
     /**
-     * Whether the filter is enabled
+     * Whether the filter is enabled.
      *
      * @return enabled
      */
@@ -125,7 +125,7 @@ public class UpdateFilterByIdInput {
     }
 
     /**
-     * Whether the event is dropped
+     * Whether the event is dropped.
      *
      * @return drop
      */
@@ -145,7 +145,7 @@ public class UpdateFilterByIdInput {
     }
 
     /**
-     * The name of the filter
+     * The name of the filter.
      *
      * @return name
      */
@@ -165,7 +165,7 @@ public class UpdateFilterByIdInput {
     }
 
     /**
-     * The description of the filter
+     * The description of the filter.
      *
      * @return description
      */
@@ -185,7 +185,7 @@ public class UpdateFilterByIdInput {
     }
 
     /**
-     * The \&quot;if\&quot; statement for a filter
+     * The \&quot;if\&quot; statement for a filter.
      *
      * @return _if
      */
@@ -206,7 +206,7 @@ public class UpdateFilterByIdInput {
 
     /**
      * The product area of the filter, which should be spaces (endpoint table should be able to
-     * determine the resource)
+     * determine the resource).
      *
      * @return productArea
      */

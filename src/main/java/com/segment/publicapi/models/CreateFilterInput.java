@@ -31,6 +31,11 @@ import java.util.Set;
 
 /** Input for CreateFilter. */
 public class CreateFilterInput {
+    public static final String SERIALIZED_NAME_INTEGRATION_ID = "integrationId";
+
+    @SerializedName(SERIALIZED_NAME_INTEGRATION_ID)
+    private String integrationId;
+
     public static final String SERIALIZED_NAME_ENABLED = "enabled";
 
     @SerializedName(SERIALIZED_NAME_ENABLED)
@@ -73,6 +78,26 @@ public class CreateFilterInput {
 
     public CreateFilterInput() {}
 
+    public CreateFilterInput integrationId(String integrationId) {
+
+        this.integrationId = integrationId;
+        return this;
+    }
+
+    /**
+     * The integration id of the resource.
+     *
+     * @return integrationId
+     */
+    @javax.annotation.Nonnull
+    public String getIntegrationId() {
+        return integrationId;
+    }
+
+    public void setIntegrationId(String integrationId) {
+        this.integrationId = integrationId;
+    }
+
     public CreateFilterInput enabled(Boolean enabled) {
 
         this.enabled = enabled;
@@ -80,7 +105,7 @@ public class CreateFilterInput {
     }
 
     /**
-     * Whether the filter is enabled
+     * Whether the filter is enabled.
      *
      * @return enabled
      */
@@ -100,7 +125,7 @@ public class CreateFilterInput {
     }
 
     /**
-     * Whether the event is dropped
+     * Whether the event is dropped.
      *
      * @return drop
      */
@@ -120,7 +145,7 @@ public class CreateFilterInput {
     }
 
     /**
-     * The name of the filter
+     * The name of the filter.
      *
      * @return name
      */
@@ -140,7 +165,7 @@ public class CreateFilterInput {
     }
 
     /**
-     * The description of the filter
+     * The description of the filter.
      *
      * @return description
      */
@@ -160,7 +185,7 @@ public class CreateFilterInput {
     }
 
     /**
-     * The \&quot;if\&quot; statement for a filter
+     * The \&quot;if\&quot; statement for a filter.
      *
      * @return _if
      */
@@ -181,7 +206,7 @@ public class CreateFilterInput {
 
     /**
      * The product area of the filter, which should be spaces (endpoint table should be able to
-     * determine the resource)
+     * determine the resource).
      *
      * @return productArea
      */
@@ -259,7 +284,8 @@ public class CreateFilterInput {
             return false;
         }
         CreateFilterInput createFilterInput = (CreateFilterInput) o;
-        return Objects.equals(this.enabled, createFilterInput.enabled)
+        return Objects.equals(this.integrationId, createFilterInput.integrationId)
+                && Objects.equals(this.enabled, createFilterInput.enabled)
                 && Objects.equals(this.drop, createFilterInput.drop)
                 && Objects.equals(this.name, createFilterInput.name)
                 && Objects.equals(this.description, createFilterInput.description)
@@ -272,13 +298,22 @@ public class CreateFilterInput {
     @Override
     public int hashCode() {
         return Objects.hash(
-                enabled, drop, name, description, _if, productArea, propertyDrops, allowProperties);
+                integrationId,
+                enabled,
+                drop,
+                name,
+                description,
+                _if,
+                productArea,
+                propertyDrops,
+                allowProperties);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class CreateFilterInput {\n");
+        sb.append("    integrationId: ").append(toIndentedString(integrationId)).append("\n");
         sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
         sb.append("    drop: ").append(toIndentedString(drop)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -308,6 +343,7 @@ public class CreateFilterInput {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
+        openapiFields.add("integrationId");
         openapiFields.add("enabled");
         openapiFields.add("drop");
         openapiFields.add("name");
@@ -319,6 +355,7 @@ public class CreateFilterInput {
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
+        openapiRequiredFields.add("integrationId");
         openapiRequiredFields.add("name");
         openapiRequiredFields.add("if");
     }
@@ -363,6 +400,13 @@ public class CreateFilterInput {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+        if (!jsonObj.get("integrationId").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `integrationId` to be a primitive type in the JSON"
+                                    + " string but got `%s`",
+                            jsonObj.get("integrationId").toString()));
+        }
         if (!jsonObj.get("name").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(

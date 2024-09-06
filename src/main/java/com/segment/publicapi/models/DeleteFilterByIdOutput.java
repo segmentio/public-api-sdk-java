@@ -27,7 +27,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Output for DeleteFilterById */
+/** Output for DeleteFilterById. */
 public class DeleteFilterByIdOutput {
     public static final String SERIALIZED_NAME_DELETED = "deleted";
 

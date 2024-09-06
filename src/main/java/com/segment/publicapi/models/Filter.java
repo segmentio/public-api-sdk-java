@@ -29,7 +29,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Filter output */
+/** Filter output. */
 public class Filter {
     public static final String SERIALIZED_NAME_ID = "id";
 
@@ -95,7 +95,7 @@ public class Filter {
     }
 
     /**
-     * The newly created filter ID
+     * The newly created filter ID.
      *
      * @return id
      */
@@ -115,7 +115,7 @@ public class Filter {
     }
 
     /**
-     * The workspace id to create the filter
+     * The workspace id to create the filter.
      *
      * @return workspaceId
      */
@@ -135,7 +135,7 @@ public class Filter {
     }
 
     /**
-     * The integration id of the resource
+     * The integration id of the resource.
      *
      * @return integrationId
      */
@@ -155,7 +155,7 @@ public class Filter {
     }
 
     /**
-     * Whether the filter is enabled
+     * Whether the filter is enabled.
      *
      * @return enabled
      */
@@ -175,7 +175,7 @@ public class Filter {
     }
 
     /**
-     * Whether the event is dropped
+     * Whether the event is dropped.
      *
      * @return drop
      */
@@ -195,7 +195,7 @@ public class Filter {
     }
 
     /**
-     * The name of the filter
+     * The name of the filter.
      *
      * @return name
      */
@@ -215,7 +215,7 @@ public class Filter {
     }
 
     /**
-     * The description of the filter
+     * The description of the filter.
      *
      * @return description
      */
@@ -235,7 +235,7 @@ public class Filter {
     }
 
     /**
-     * The \&quot;if\&quot; statement for a filter
+     * The \&quot;if\&quot; statement for a filter.
      *
      * @return _if
      */
@@ -255,7 +255,7 @@ public class Filter {
     }
 
     /**
-     * The product area of the filter, which should be spaces
+     * The product area of the filter, which should be spaces.
      *
      * @return productArea
      */

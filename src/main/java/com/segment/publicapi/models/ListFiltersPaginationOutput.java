@@ -28,7 +28,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Pagination for list filters */
+/** Pagination for list filters. */
 public class ListFiltersPaginationOutput {
     public static final String SERIALIZED_NAME_CURRENT = "current";
 
