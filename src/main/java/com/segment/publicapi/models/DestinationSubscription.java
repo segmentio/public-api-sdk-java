@@ -22,13 +22,11 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 /** DestinationSubscription */
 public class DestinationSubscription {
@@ -80,7 +78,7 @@ public class DestinationSubscription {
     public static final String SERIALIZED_NAME_REVERSE_E_T_L_SCHEDULE = "reverseETLSchedule";
 
     @SerializedName(SERIALIZED_NAME_REVERSE_E_T_L_SCHEDULE)
-    private Object reverseETLSchedule;
+    private ReverseEtlScheduleDefinition reverseETLSchedule;
 
     public DestinationSubscription() {}
 
@@ -273,23 +271,24 @@ public class DestinationSubscription {
         this.modelId = modelId;
     }
 
-    public DestinationSubscription reverseETLSchedule(Object reverseETLSchedule) {
+    public DestinationSubscription reverseETLSchedule(
+            ReverseEtlScheduleDefinition reverseETLSchedule) {
 
         this.reverseETLSchedule = reverseETLSchedule;
         return this;
     }
 
     /**
-     * The schedule for the Reverse ETL subscription.
+     * Get reverseETLSchedule
      *
      * @return reverseETLSchedule
      */
     @javax.annotation.Nullable
-    public Object getReverseETLSchedule() {
+    public ReverseEtlScheduleDefinition getReverseETLSchedule() {
         return reverseETLSchedule;
     }
 
-    public void setReverseETLSchedule(Object reverseETLSchedule) {
+    public void setReverseETLSchedule(ReverseEtlScheduleDefinition reverseETLSchedule) {
         this.reverseETLSchedule = reverseETLSchedule;
     }
 
@@ -315,15 +314,6 @@ public class DestinationSubscription {
                         this.reverseETLSchedule, destinationSubscription.reverseETLSchedule);
     }
 
-    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-        return a == b
-                || (a != null
-                        && b != null
-                        && a.isPresent()
-                        && b.isPresent()
-                        && Objects.deepEquals(a.get(), b.get()));
-    }
-
     @Override
     public int hashCode() {
         return Objects.hash(
@@ -337,13 +327,6 @@ public class DestinationSubscription {
                 trigger,
                 modelId,
                 reverseETLSchedule);
-    }
-
-    private static <T> int hashCodeNullable(JsonNullable<T> a) {
-        if (a == null) {
-            return 1;
-        }
-        return a.isPresent() ? Arrays.deepHashCode(new Object[] {a.get()}) : 31;
     }
 
     @Override
@@ -495,6 +478,11 @@ public class DestinationSubscription {
                             "Expected the field `modelId` to be a primitive type in the JSON string"
                                     + " but got `%s`",
                             jsonObj.get("modelId").toString()));
+        }
+        // validate the optional field `reverseETLSchedule`
+        if (jsonObj.get("reverseETLSchedule") != null
+                && !jsonObj.get("reverseETLSchedule").isJsonNull()) {
+            ReverseEtlScheduleDefinition.validateJsonElement(jsonObj.get("reverseETLSchedule"));
         }
     }
 
