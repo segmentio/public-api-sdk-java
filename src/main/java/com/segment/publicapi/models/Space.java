@@ -27,7 +27,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Space matching the given id. */
+/** Space */
 public class Space {
     public static final String SERIALIZED_NAME_ID = "id";
 

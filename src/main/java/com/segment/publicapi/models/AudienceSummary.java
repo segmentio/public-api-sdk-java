@@ -62,7 +62,7 @@ public class AudienceSummary {
     public static final String SERIALIZED_NAME_DEFINITION = "definition";
 
     @SerializedName(SERIALIZED_NAME_DEFINITION)
-    private Definition definition;
+    private AudienceDefinition definition;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
@@ -216,7 +216,7 @@ public class AudienceSummary {
         this.enabled = enabled;
     }
 
-    public AudienceSummary definition(Definition definition) {
+    public AudienceSummary definition(AudienceDefinition definition) {
 
         this.definition = definition;
         return this;
@@ -228,11 +228,11 @@ public class AudienceSummary {
      * @return definition
      */
     @javax.annotation.Nullable
-    public Definition getDefinition() {
+    public AudienceDefinition getDefinition() {
         return definition;
     }
 
-    public void setDefinition(Definition definition) {
+    public void setDefinition(AudienceDefinition definition) {
         this.definition = definition;
     }
 
@@ -542,7 +542,7 @@ public class AudienceSummary {
                             jsonObj.get("key").toString()));
         }
         // validate the required field `definition`
-        Definition.validateJsonElement(jsonObj.get("definition"));
+        AudienceDefinition.validateJsonElement(jsonObj.get("definition"));
         if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull())
                 && !jsonObj.get("status").isJsonPrimitive()) {
             throw new IllegalArgumentException(
