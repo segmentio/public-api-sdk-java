@@ -27,33 +27,33 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Definition for periodic interval. */
-public class ReverseEtlPeriodicScheduleConfig {
-    public static final String SERIALIZED_NAME_INTERVAL = "interval";
+/** Output for DeleteFilterById. */
+public class DeleteFilterByIdOutput {
+    public static final String SERIALIZED_NAME_DELETED = "deleted";
 
-    @SerializedName(SERIALIZED_NAME_INTERVAL)
-    private String interval;
+    @SerializedName(SERIALIZED_NAME_DELETED)
+    private Boolean deleted;
 
-    public ReverseEtlPeriodicScheduleConfig() {}
+    public DeleteFilterByIdOutput() {}
 
-    public ReverseEtlPeriodicScheduleConfig interval(String interval) {
+    public DeleteFilterByIdOutput deleted(Boolean deleted) {
 
-        this.interval = interval;
+        this.deleted = deleted;
         return this;
     }
 
     /**
-     * Duration is specified as a string, EG: 15m, 3h25m30s.
+     * Filter deleted by filter id.
      *
-     * @return interval
+     * @return deleted
      */
     @javax.annotation.Nonnull
-    public String getInterval() {
-        return interval;
+    public Boolean getDeleted() {
+        return deleted;
     }
 
-    public void setInterval(String interval) {
-        this.interval = interval;
+    public void setDeleted(Boolean deleted) {
+        this.deleted = deleted;
     }
 
     @Override
@@ -64,21 +64,20 @@ public class ReverseEtlPeriodicScheduleConfig {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        ReverseEtlPeriodicScheduleConfig reverseEtlPeriodicScheduleConfig =
-                (ReverseEtlPeriodicScheduleConfig) o;
-        return Objects.equals(this.interval, reverseEtlPeriodicScheduleConfig.interval);
+        DeleteFilterByIdOutput deleteFilterByIdOutput = (DeleteFilterByIdOutput) o;
+        return Objects.equals(this.deleted, deleteFilterByIdOutput.deleted);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(interval);
+        return Objects.hash(deleted);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ReverseEtlPeriodicScheduleConfig {\n");
-        sb.append("    interval: ").append(toIndentedString(interval)).append("\n");
+        sb.append("class DeleteFilterByIdOutput {\n");
+        sb.append("    deleted: ").append(toIndentedString(deleted)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -100,46 +99,45 @@ public class ReverseEtlPeriodicScheduleConfig {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("interval");
+        openapiFields.add("deleted");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("interval");
+        openapiRequiredFields.add("deleted");
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to
-     *     ReverseEtlPeriodicScheduleConfig
+     * @throws IOException if the JSON Element is invalid with respect to DeleteFilterByIdOutput
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!ReverseEtlPeriodicScheduleConfig.openapiRequiredFields
+            if (!DeleteFilterByIdOutput.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in ReverseEtlPeriodicScheduleConfig is"
-                                        + " not found in the empty JSON string",
-                                ReverseEtlPeriodicScheduleConfig.openapiRequiredFields.toString()));
+                                "The required field(s) %s in DeleteFilterByIdOutput is not found in"
+                                        + " the empty JSON string",
+                                DeleteFilterByIdOutput.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!ReverseEtlPeriodicScheduleConfig.openapiFields.contains(entry.getKey())) {
+            if (!DeleteFilterByIdOutput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                    + " `ReverseEtlPeriodicScheduleConfig` properties. JSON: %s",
+                                        + " `DeleteFilterByIdOutput` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : ReverseEtlPeriodicScheduleConfig.openapiRequiredFields) {
+        for (String requiredField : DeleteFilterByIdOutput.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -148,40 +146,30 @@ public class ReverseEtlPeriodicScheduleConfig {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if (!jsonObj.get("interval").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `interval` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
-                            jsonObj.get("interval").toString()));
-        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!ReverseEtlPeriodicScheduleConfig.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'ReverseEtlPeriodicScheduleConfig' and
-                // its subtypes
+            if (!DeleteFilterByIdOutput.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'DeleteFilterByIdOutput' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<ReverseEtlPeriodicScheduleConfig> thisAdapter =
-                    gson.getDelegateAdapter(
-                            this, TypeToken.get(ReverseEtlPeriodicScheduleConfig.class));
+            final TypeAdapter<DeleteFilterByIdOutput> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(DeleteFilterByIdOutput.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<ReverseEtlPeriodicScheduleConfig>() {
+                    new TypeAdapter<DeleteFilterByIdOutput>() {
                         @Override
-                        public void write(JsonWriter out, ReverseEtlPeriodicScheduleConfig value)
+                        public void write(JsonWriter out, DeleteFilterByIdOutput value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public ReverseEtlPeriodicScheduleConfig read(JsonReader in)
-                                throws IOException {
+                        public DeleteFilterByIdOutput read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -191,19 +179,18 @@ public class ReverseEtlPeriodicScheduleConfig {
     }
 
     /**
-     * Create an instance of ReverseEtlPeriodicScheduleConfig given an JSON string
+     * Create an instance of DeleteFilterByIdOutput given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of ReverseEtlPeriodicScheduleConfig
-     * @throws IOException if the JSON string is invalid with respect to
-     *     ReverseEtlPeriodicScheduleConfig
+     * @return An instance of DeleteFilterByIdOutput
+     * @throws IOException if the JSON string is invalid with respect to DeleteFilterByIdOutput
      */
-    public static ReverseEtlPeriodicScheduleConfig fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, ReverseEtlPeriodicScheduleConfig.class);
+    public static DeleteFilterByIdOutput fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, DeleteFilterByIdOutput.class);
     }
 
     /**
-     * Convert an instance of ReverseEtlPeriodicScheduleConfig to an JSON string
+     * Convert an instance of DeleteFilterByIdOutput to an JSON string
      *
      * @return JSON string
      */

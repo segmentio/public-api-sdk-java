@@ -61,7 +61,7 @@ public class ListReverseETLSyncStatusesFromModelAndSubscriptionIdOutput {
     }
 
     /**
-     * The reverse ETL sync statuses that were looked up of the subscriptionId.
+     * The reverse ETL sync statuses that were looked up of the subscription id.
      *
      * @return syncStatuses
      */

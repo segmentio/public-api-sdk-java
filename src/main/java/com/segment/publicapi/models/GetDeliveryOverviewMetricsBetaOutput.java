@@ -31,7 +31,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Output of the Delivery Overview public api endpoints. */
+/** Output of the Delivery Overview public API endpoints. */
 public class GetDeliveryOverviewMetricsBetaOutput {
     public static final String SERIALIZED_NAME_TOTAL = "total";
 
@@ -87,7 +87,7 @@ public class GetDeliveryOverviewMetricsBetaOutput {
     }
 
     /**
-     * Represents the list of series broken down by the dimensions and timeframe requested.
+     * Represents the list of series broken down by the dimensions and time frame requested.
      *
      * @return dataset
      */

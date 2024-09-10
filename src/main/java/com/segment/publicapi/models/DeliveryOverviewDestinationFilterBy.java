@@ -206,7 +206,7 @@ public class DeliveryOverviewDestinationFilterBy {
     }
 
     /**
-     * A list of strings of subscriptionIDs for Actions Destinations.
+     * A list of strings of subscription IDs for Actions Destinations.
      *
      * @return subscriptionId
      */
@@ -262,7 +262,7 @@ public class DeliveryOverviewDestinationFilterBy {
     }
 
     /**
-     * A list of strings of audienceIDs for a Linked Audience.
+     * A list of strings of audience IDs for a Linked Audience.
      *
      * @return audienceId
      */
@@ -290,7 +290,7 @@ public class DeliveryOverviewDestinationFilterBy {
     }
 
     /**
-     * A list of strings of spaceIDs for a Linked Audience.
+     * A list of strings of space IDs for a Linked Audience.
      *
      * @return spaceId
      */

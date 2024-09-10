@@ -178,9 +178,9 @@ public class ComputedTraitsApi {
      * successfully call this endpoint, the specified Workspace needs to have the Computed Trait
      * feature enabled. Please reach out to your customer success manager for more information. •
      * When called, this endpoint may generate the &#x60;Computed Trait Created&#x60; event in the
-     * [audit trail](/tag/Audit-Trail). Note: The definition for a Computed Trait created via the
-     * API is not editable via the Segment App. The rate limit for this endpoint is 10 requests per
-     * minute, which is lower than the default due to access pattern restrictions. Once reached,
+     * [audit trail](/tag/Audit-Trail). Note: The definition for a Computed Trait created using the
+     * API is not editable through the Segment App. The rate limit for this endpoint is 10 requests
+     * per minute, which is lower than the default due to access pattern restrictions. Once reached,
      * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
      * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
@@ -212,9 +212,9 @@ public class ComputedTraitsApi {
      * successfully call this endpoint, the specified Workspace needs to have the Computed Trait
      * feature enabled. Please reach out to your customer success manager for more information. •
      * When called, this endpoint may generate the &#x60;Computed Trait Created&#x60; event in the
-     * [audit trail](/tag/Audit-Trail). Note: The definition for a Computed Trait created via the
-     * API is not editable via the Segment App. The rate limit for this endpoint is 10 requests per
-     * minute, which is lower than the default due to access pattern restrictions. Once reached,
+     * [audit trail](/tag/Audit-Trail). Note: The definition for a Computed Trait created using the
+     * API is not editable through the Segment App. The rate limit for this endpoint is 10 requests
+     * per minute, which is lower than the default due to access pattern restrictions. Once reached,
      * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
      * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
@@ -248,10 +248,11 @@ public class ComputedTraitsApi {
      * Computed Trait feature enabled. Please reach out to your customer success manager for more
      * information. • When called, this endpoint may generate the &#x60;Computed Trait Created&#x60;
      * event in the [audit trail](/tag/Audit-Trail). Note: The definition for a Computed Trait
-     * created via the API is not editable via the Segment App. The rate limit for this endpoint is
-     * 10 requests per minute, which is lower than the default due to access pattern restrictions.
-     * Once reached, this endpoint will respond with the 429 HTTP status code with headers
-     * indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * created using the API is not editable through the Segment App. The rate limit for this
+     * endpoint is 10 requests per minute, which is lower than the default due to access pattern
+     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
+     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
+     * information.
      *
      * @param spaceId (required)
      * @param createComputedTraitAlphaInput (required)
@@ -1013,10 +1014,10 @@ public class ComputedTraitsApi {
      * Computed Trait is updated, the Computed Trait will be locked from future edits until the
      * changes have been incorporated. You can find more information [in the Segment
      * docs](https://segment-docs.netlify.app/docs/unify/traits/computed-traits/#editing-realtime-traits).
-     * Note: The definition for a Computed Trait updated via the API is not editable via the Segment
-     * App. The rate limit for this endpoint is 10 requests per minute, which is lower than the
-     * default due to access pattern restrictions. Once reached, this endpoint will respond with the
-     * 429 HTTP status code with headers indicating the limit parameters. See [Rate
+     * Note: The definition for a Computed Trait updated using the API is not editable through the
+     * Segment App. The rate limit for this endpoint is 10 requests per minute, which is lower than
+     * the default due to access pattern restrictions. Once reached, this endpoint will respond with
+     * the 429 HTTP status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
@@ -1055,10 +1056,10 @@ public class ComputedTraitsApi {
      * Computed Trait is updated, the Computed Trait will be locked from future edits until the
      * changes have been incorporated. You can find more information [in the Segment
      * docs](https://segment-docs.netlify.app/docs/unify/traits/computed-traits/#editing-realtime-traits).
-     * Note: The definition for a Computed Trait updated via the API is not editable via the Segment
-     * App. The rate limit for this endpoint is 10 requests per minute, which is lower than the
-     * default due to access pattern restrictions. Once reached, this endpoint will respond with the
-     * 429 HTTP status code with headers indicating the limit parameters. See [Rate
+     * Note: The definition for a Computed Trait updated using the API is not editable through the
+     * Segment App. The rate limit for this endpoint is 10 requests per minute, which is lower than
+     * the default due to access pattern restrictions. Once reached, this endpoint will respond with
+     * the 429 HTTP status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
@@ -1100,10 +1101,10 @@ public class ComputedTraitsApi {
      * when a Computed Trait is updated, the Computed Trait will be locked from future edits until
      * the changes have been incorporated. You can find more information [in the Segment
      * docs](https://segment-docs.netlify.app/docs/unify/traits/computed-traits/#editing-realtime-traits).
-     * Note: The definition for a Computed Trait updated via the API is not editable via the Segment
-     * App. The rate limit for this endpoint is 10 requests per minute, which is lower than the
-     * default due to access pattern restrictions. Once reached, this endpoint will respond with the
-     * 429 HTTP status code with headers indicating the limit parameters. See [Rate
+     * Note: The definition for a Computed Trait updated using the API is not editable through the
+     * Segment App. The rate limit for this endpoint is 10 requests per minute, which is lower than
+     * the default due to access pattern restrictions. Once reached, this endpoint will respond with
+     * the 429 HTTP status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)

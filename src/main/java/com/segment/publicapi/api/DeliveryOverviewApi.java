@@ -73,12 +73,12 @@ public class DeliveryOverviewApi {
      * @param destinationConfigId The id tied to a Workspace Destination. This parameter exists in
      *     beta. (required)
      * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
-     *     requested timeframe, inclusive. This parameter exists in beta. (required)
-     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
-     *     timeframe, noninclusive. This parameter exists in beta. (required)
+     *     requested time frame, inclusive. This parameter exists in beta. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested time
+     *     frame, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
-     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, &#x60;subscriptionId&#x60;,
+     *     the result by. Valid options are: &#x60;event Name&#x60;, &#x60;event Type&#x60;,
+     *     &#x60;discard Reason&#x60;, &#x60;app Version&#x60;, &#x60;subscription Id&#x60;,
      *     &#x60;activationId&#x60;, &#x60;audienceId&#x60;, and &#x60;spaceId&#x60;. This parameter
      *     exists in beta. (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
@@ -87,10 +87,10 @@ public class DeliveryOverviewApi {
      *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
      *     beta. (required)
-     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, &#x60;subscriptionId&#x60;,
+     * @param filter An optional filter for &#x60;event Name&#x60;, &#x60;event Type&#x60;,
+     *     &#x60;discard Reason&#x60;, &#x60;app Version&#x60;, &#x60;subscription Id&#x60;,
      *     &#x60;activationId&#x60;, &#x60;audienceId&#x60;, and/or &#x60;spaceId&#x60; that can be
-     *     applied in addition to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     *     applied in addition to a &#x60;group By&#x60;. This parameter exists in beta. (optional)
      * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
      *     (optional)
      * @param _callback Callback for upload/download progress
@@ -272,12 +272,12 @@ public class DeliveryOverviewApi {
      * @param destinationConfigId The id tied to a Workspace Destination. This parameter exists in
      *     beta. (required)
      * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
-     *     requested timeframe, inclusive. This parameter exists in beta. (required)
-     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
-     *     timeframe, noninclusive. This parameter exists in beta. (required)
+     *     requested time frame, inclusive. This parameter exists in beta. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested time
+     *     frame, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
-     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, &#x60;subscriptionId&#x60;,
+     *     the result by. Valid options are: &#x60;event Name&#x60;, &#x60;event Type&#x60;,
+     *     &#x60;discard Reason&#x60;, &#x60;app Version&#x60;, &#x60;subscription Id&#x60;,
      *     &#x60;activationId&#x60;, &#x60;audienceId&#x60;, and &#x60;spaceId&#x60;. This parameter
      *     exists in beta. (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
@@ -286,10 +286,10 @@ public class DeliveryOverviewApi {
      *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
      *     beta. (required)
-     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, &#x60;subscriptionId&#x60;,
+     * @param filter An optional filter for &#x60;event Name&#x60;, &#x60;event Type&#x60;,
+     *     &#x60;discard Reason&#x60;, &#x60;app Version&#x60;, &#x60;subscription Id&#x60;,
      *     &#x60;activationId&#x60;, &#x60;audienceId&#x60;, and/or &#x60;spaceId&#x60; that can be
-     *     applied in addition to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     *     applied in addition to a &#x60;group By&#x60;. This parameter exists in beta. (optional)
      * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
      *     (optional)
      * @return GetEgressFailedMetricsFromDeliveryOverview200Response
@@ -336,12 +336,12 @@ public class DeliveryOverviewApi {
      * @param destinationConfigId The id tied to a Workspace Destination. This parameter exists in
      *     beta. (required)
      * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
-     *     requested timeframe, inclusive. This parameter exists in beta. (required)
-     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
-     *     timeframe, noninclusive. This parameter exists in beta. (required)
+     *     requested time frame, inclusive. This parameter exists in beta. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested time
+     *     frame, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
-     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, &#x60;subscriptionId&#x60;,
+     *     the result by. Valid options are: &#x60;event Name&#x60;, &#x60;event Type&#x60;,
+     *     &#x60;discard Reason&#x60;, &#x60;app Version&#x60;, &#x60;subscription Id&#x60;,
      *     &#x60;activationId&#x60;, &#x60;audienceId&#x60;, and &#x60;spaceId&#x60;. This parameter
      *     exists in beta. (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
@@ -350,10 +350,10 @@ public class DeliveryOverviewApi {
      *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
      *     beta. (required)
-     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, &#x60;subscriptionId&#x60;,
+     * @param filter An optional filter for &#x60;event Name&#x60;, &#x60;event Type&#x60;,
+     *     &#x60;discard Reason&#x60;, &#x60;app Version&#x60;, &#x60;subscription Id&#x60;,
      *     &#x60;activationId&#x60;, &#x60;audienceId&#x60;, and/or &#x60;spaceId&#x60; that can be
-     *     applied in addition to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     *     applied in addition to a &#x60;group By&#x60;. This parameter exists in beta. (optional)
      * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
      *     (optional)
      * @return ApiResponse&lt;GetEgressFailedMetricsFromDeliveryOverview200Response&gt;
@@ -403,12 +403,12 @@ public class DeliveryOverviewApi {
      * @param destinationConfigId The id tied to a Workspace Destination. This parameter exists in
      *     beta. (required)
      * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
-     *     requested timeframe, inclusive. This parameter exists in beta. (required)
-     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
-     *     timeframe, noninclusive. This parameter exists in beta. (required)
+     *     requested time frame, inclusive. This parameter exists in beta. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested time
+     *     frame, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
-     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, &#x60;subscriptionId&#x60;,
+     *     the result by. Valid options are: &#x60;event Name&#x60;, &#x60;event Type&#x60;,
+     *     &#x60;discard Reason&#x60;, &#x60;app Version&#x60;, &#x60;subscription Id&#x60;,
      *     &#x60;activationId&#x60;, &#x60;audienceId&#x60;, and &#x60;spaceId&#x60;. This parameter
      *     exists in beta. (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
@@ -417,10 +417,10 @@ public class DeliveryOverviewApi {
      *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
      *     beta. (required)
-     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, &#x60;subscriptionId&#x60;,
+     * @param filter An optional filter for &#x60;event Name&#x60;, &#x60;event Type&#x60;,
+     *     &#x60;discard Reason&#x60;, &#x60;app Version&#x60;, &#x60;subscription Id&#x60;,
      *     &#x60;activationId&#x60;, &#x60;audienceId&#x60;, and/or &#x60;spaceId&#x60; that can be
-     *     applied in addition to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     *     applied in addition to a &#x60;group By&#x60;. This parameter exists in beta. (optional)
      * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
      *     (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -472,12 +472,12 @@ public class DeliveryOverviewApi {
      * @param destinationConfigId The id tied to a Workspace Destination. This parameter exists in
      *     beta. (required)
      * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
-     *     requested timeframe, inclusive. This parameter exists in beta. (required)
-     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
-     *     timeframe, noninclusive. This parameter exists in beta. (required)
+     *     requested time frame, inclusive. This parameter exists in beta. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested time
+     *     frame, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
-     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, &#x60;subscriptionId&#x60;,
+     *     the result by. Valid options are: &#x60;event Name&#x60;, &#x60;event Type&#x60;,
+     *     &#x60;discard Reason&#x60;, &#x60;app Version&#x60;, &#x60;subscription Id&#x60;,
      *     &#x60;activationId&#x60;, &#x60;audienceId&#x60;, and &#x60;spaceId&#x60;. This parameter
      *     exists in beta. (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
@@ -486,11 +486,11 @@ public class DeliveryOverviewApi {
      *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
      *     beta. (required)
-     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, &#x60;subscriptionId&#x60;,
+     * @param filter An optional filter for &#x60;event Name&#x60;, &#x60;event Type&#x60;,
+     *     &#x60;discard Reason&#x60;, &#x60;appVersion&#x60;, &#x60;subscription Id&#x60;,
      *     &#x60;activationId&#x60;, &#x60;audienceId&#x60;, or &#x60;spaceId&#x60; that can be
-     *     applied in addition to a &#x60;groupBy&#x60;. If you would like to view retry attempts
-     *     for a successful delivery, you can filter &#x60;discardReason&#x60; from
+     *     applied in addition to a &#x60;group By&#x60;. If you would like to view retry attempts
+     *     for a successful delivery, you can filter &#x60;discard Reason&#x60; from
      *     &#x60;successes.attempt.1&#x60; through &#x60;successes.attempt.10&#x60;. This parameter
      *     exists in beta. (optional)
      * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
@@ -674,12 +674,12 @@ public class DeliveryOverviewApi {
      * @param destinationConfigId The id tied to a Workspace Destination. This parameter exists in
      *     beta. (required)
      * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
-     *     requested timeframe, inclusive. This parameter exists in beta. (required)
-     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
-     *     timeframe, noninclusive. This parameter exists in beta. (required)
+     *     requested time frame, inclusive. This parameter exists in beta. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested time
+     *     frame, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
-     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, &#x60;subscriptionId&#x60;,
+     *     the result by. Valid options are: &#x60;event Name&#x60;, &#x60;event Type&#x60;,
+     *     &#x60;discard Reason&#x60;, &#x60;app Version&#x60;, &#x60;subscription Id&#x60;,
      *     &#x60;activationId&#x60;, &#x60;audienceId&#x60;, and &#x60;spaceId&#x60;. This parameter
      *     exists in beta. (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
@@ -688,11 +688,11 @@ public class DeliveryOverviewApi {
      *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
      *     beta. (required)
-     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, &#x60;subscriptionId&#x60;,
+     * @param filter An optional filter for &#x60;event Name&#x60;, &#x60;event Type&#x60;,
+     *     &#x60;discard Reason&#x60;, &#x60;appVersion&#x60;, &#x60;subscription Id&#x60;,
      *     &#x60;activationId&#x60;, &#x60;audienceId&#x60;, or &#x60;spaceId&#x60; that can be
-     *     applied in addition to a &#x60;groupBy&#x60;. If you would like to view retry attempts
-     *     for a successful delivery, you can filter &#x60;discardReason&#x60; from
+     *     applied in addition to a &#x60;group By&#x60;. If you would like to view retry attempts
+     *     for a successful delivery, you can filter &#x60;discard Reason&#x60; from
      *     &#x60;successes.attempt.1&#x60; through &#x60;successes.attempt.10&#x60;. This parameter
      *     exists in beta. (optional)
      * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
@@ -741,12 +741,12 @@ public class DeliveryOverviewApi {
      * @param destinationConfigId The id tied to a Workspace Destination. This parameter exists in
      *     beta. (required)
      * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
-     *     requested timeframe, inclusive. This parameter exists in beta. (required)
-     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
-     *     timeframe, noninclusive. This parameter exists in beta. (required)
+     *     requested time frame, inclusive. This parameter exists in beta. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested time
+     *     frame, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
-     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, &#x60;subscriptionId&#x60;,
+     *     the result by. Valid options are: &#x60;event Name&#x60;, &#x60;event Type&#x60;,
+     *     &#x60;discard Reason&#x60;, &#x60;app Version&#x60;, &#x60;subscription Id&#x60;,
      *     &#x60;activationId&#x60;, &#x60;audienceId&#x60;, and &#x60;spaceId&#x60;. This parameter
      *     exists in beta. (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
@@ -755,11 +755,11 @@ public class DeliveryOverviewApi {
      *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
      *     beta. (required)
-     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, &#x60;subscriptionId&#x60;,
+     * @param filter An optional filter for &#x60;event Name&#x60;, &#x60;event Type&#x60;,
+     *     &#x60;discard Reason&#x60;, &#x60;appVersion&#x60;, &#x60;subscription Id&#x60;,
      *     &#x60;activationId&#x60;, &#x60;audienceId&#x60;, or &#x60;spaceId&#x60; that can be
-     *     applied in addition to a &#x60;groupBy&#x60;. If you would like to view retry attempts
-     *     for a successful delivery, you can filter &#x60;discardReason&#x60; from
+     *     applied in addition to a &#x60;group By&#x60;. If you would like to view retry attempts
+     *     for a successful delivery, you can filter &#x60;discard Reason&#x60; from
      *     &#x60;successes.attempt.1&#x60; through &#x60;successes.attempt.10&#x60;. This parameter
      *     exists in beta. (optional)
      * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
@@ -811,12 +811,12 @@ public class DeliveryOverviewApi {
      * @param destinationConfigId The id tied to a Workspace Destination. This parameter exists in
      *     beta. (required)
      * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
-     *     requested timeframe, inclusive. This parameter exists in beta. (required)
-     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
-     *     timeframe, noninclusive. This parameter exists in beta. (required)
+     *     requested time frame, inclusive. This parameter exists in beta. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested time
+     *     frame, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
-     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, &#x60;subscriptionId&#x60;,
+     *     the result by. Valid options are: &#x60;event Name&#x60;, &#x60;event Type&#x60;,
+     *     &#x60;discard Reason&#x60;, &#x60;app Version&#x60;, &#x60;subscription Id&#x60;,
      *     &#x60;activationId&#x60;, &#x60;audienceId&#x60;, and &#x60;spaceId&#x60;. This parameter
      *     exists in beta. (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
@@ -825,11 +825,11 @@ public class DeliveryOverviewApi {
      *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
      *     beta. (required)
-     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, &#x60;subscriptionId&#x60;,
+     * @param filter An optional filter for &#x60;event Name&#x60;, &#x60;event Type&#x60;,
+     *     &#x60;discard Reason&#x60;, &#x60;appVersion&#x60;, &#x60;subscription Id&#x60;,
      *     &#x60;activationId&#x60;, &#x60;audienceId&#x60;, or &#x60;spaceId&#x60; that can be
-     *     applied in addition to a &#x60;groupBy&#x60;. If you would like to view retry attempts
-     *     for a successful delivery, you can filter &#x60;discardReason&#x60; from
+     *     applied in addition to a &#x60;group By&#x60;. If you would like to view retry attempts
+     *     for a successful delivery, you can filter &#x60;discard Reason&#x60; from
      *     &#x60;successes.attempt.1&#x60; through &#x60;successes.attempt.10&#x60;. This parameter
      *     exists in beta. (optional)
      * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
@@ -883,12 +883,12 @@ public class DeliveryOverviewApi {
      * @param destinationConfigId The id tied to a Workspace Destination. This parameter exists in
      *     beta. (required)
      * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
-     *     requested timeframe, inclusive. This parameter exists in beta. (required)
-     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
-     *     timeframe, noninclusive. This parameter exists in beta. (required)
+     *     requested time frame, inclusive. This parameter exists in beta. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested time
+     *     frame, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
-     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, &#x60;subscriptionId&#x60;,
+     *     the result by. Valid options are: &#x60;event Name&#x60;, &#x60;event Type&#x60;,
+     *     &#x60;discard Reason&#x60;, &#x60;app Version&#x60;, &#x60;subscription Id&#x60;,
      *     &#x60;activationId&#x60;, &#x60;audienceId&#x60;, and &#x60;spaceId&#x60;. This parameter
      *     exists in beta. (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
@@ -897,10 +897,10 @@ public class DeliveryOverviewApi {
      *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
      *     beta. (required)
-     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, &#x60;subscriptionId&#x60;,
+     * @param filter An optional filter for &#x60;event Name&#x60;, &#x60;event Type&#x60;,
+     *     &#x60;discard Reason&#x60;, &#x60;app Version&#x60;, &#x60;subscription Id&#x60;,
      *     &#x60;activationId&#x60;, &#x60;audienceId&#x60;, and/or &#x60;spaceId&#x60; that can be
-     *     applied in addition to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     *     applied in addition to a &#x60;group By&#x60;. This parameter exists in beta. (optional)
      * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
      *     (optional)
      * @param _callback Callback for upload/download progress
@@ -1082,12 +1082,12 @@ public class DeliveryOverviewApi {
      * @param destinationConfigId The id tied to a Workspace Destination. This parameter exists in
      *     beta. (required)
      * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
-     *     requested timeframe, inclusive. This parameter exists in beta. (required)
-     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
-     *     timeframe, noninclusive. This parameter exists in beta. (required)
+     *     requested time frame, inclusive. This parameter exists in beta. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested time
+     *     frame, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
-     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, &#x60;subscriptionId&#x60;,
+     *     the result by. Valid options are: &#x60;event Name&#x60;, &#x60;event Type&#x60;,
+     *     &#x60;discard Reason&#x60;, &#x60;app Version&#x60;, &#x60;subscription Id&#x60;,
      *     &#x60;activationId&#x60;, &#x60;audienceId&#x60;, and &#x60;spaceId&#x60;. This parameter
      *     exists in beta. (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
@@ -1096,10 +1096,10 @@ public class DeliveryOverviewApi {
      *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
      *     beta. (required)
-     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, &#x60;subscriptionId&#x60;,
+     * @param filter An optional filter for &#x60;event Name&#x60;, &#x60;event Type&#x60;,
+     *     &#x60;discard Reason&#x60;, &#x60;app Version&#x60;, &#x60;subscription Id&#x60;,
      *     &#x60;activationId&#x60;, &#x60;audienceId&#x60;, and/or &#x60;spaceId&#x60; that can be
-     *     applied in addition to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     *     applied in addition to a &#x60;group By&#x60;. This parameter exists in beta. (optional)
      * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
      *     (optional)
      * @return GetEgressFailedMetricsFromDeliveryOverview200Response
@@ -1146,12 +1146,12 @@ public class DeliveryOverviewApi {
      * @param destinationConfigId The id tied to a Workspace Destination. This parameter exists in
      *     beta. (required)
      * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
-     *     requested timeframe, inclusive. This parameter exists in beta. (required)
-     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
-     *     timeframe, noninclusive. This parameter exists in beta. (required)
+     *     requested time frame, inclusive. This parameter exists in beta. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested time
+     *     frame, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
-     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, &#x60;subscriptionId&#x60;,
+     *     the result by. Valid options are: &#x60;event Name&#x60;, &#x60;event Type&#x60;,
+     *     &#x60;discard Reason&#x60;, &#x60;app Version&#x60;, &#x60;subscription Id&#x60;,
      *     &#x60;activationId&#x60;, &#x60;audienceId&#x60;, and &#x60;spaceId&#x60;. This parameter
      *     exists in beta. (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
@@ -1160,10 +1160,10 @@ public class DeliveryOverviewApi {
      *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
      *     beta. (required)
-     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, &#x60;subscriptionId&#x60;,
+     * @param filter An optional filter for &#x60;event Name&#x60;, &#x60;event Type&#x60;,
+     *     &#x60;discard Reason&#x60;, &#x60;app Version&#x60;, &#x60;subscription Id&#x60;,
      *     &#x60;activationId&#x60;, &#x60;audienceId&#x60;, and/or &#x60;spaceId&#x60; that can be
-     *     applied in addition to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     *     applied in addition to a &#x60;group By&#x60;. This parameter exists in beta. (optional)
      * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
      *     (optional)
      * @return ApiResponse&lt;GetEgressFailedMetricsFromDeliveryOverview200Response&gt;
@@ -1213,12 +1213,12 @@ public class DeliveryOverviewApi {
      * @param destinationConfigId The id tied to a Workspace Destination. This parameter exists in
      *     beta. (required)
      * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
-     *     requested timeframe, inclusive. This parameter exists in beta. (required)
-     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
-     *     timeframe, noninclusive. This parameter exists in beta. (required)
+     *     requested time frame, inclusive. This parameter exists in beta. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested time
+     *     frame, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
-     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, &#x60;subscriptionId&#x60;,
+     *     the result by. Valid options are: &#x60;event Name&#x60;, &#x60;event Type&#x60;,
+     *     &#x60;discard Reason&#x60;, &#x60;app Version&#x60;, &#x60;subscription Id&#x60;,
      *     &#x60;activationId&#x60;, &#x60;audienceId&#x60;, and &#x60;spaceId&#x60;. This parameter
      *     exists in beta. (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
@@ -1227,10 +1227,10 @@ public class DeliveryOverviewApi {
      *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
      *     beta. (required)
-     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, &#x60;appVersion&#x60;, &#x60;subscriptionId&#x60;,
+     * @param filter An optional filter for &#x60;event Name&#x60;, &#x60;event Type&#x60;,
+     *     &#x60;discard Reason&#x60;, &#x60;app Version&#x60;, &#x60;subscription Id&#x60;,
      *     &#x60;activationId&#x60;, &#x60;audienceId&#x60;, and/or &#x60;spaceId&#x60; that can be
-     *     applied in addition to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     *     applied in addition to a &#x60;group By&#x60;. This parameter exists in beta. (optional)
      * @param pagination Params to specify the page cursor and count. This parameter exists in beta.
      *     (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -1280,12 +1280,12 @@ public class DeliveryOverviewApi {
      *
      * @param sourceId The sourceId for the Workspace. This parameter exists in beta. (required)
      * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
-     *     requested timeframe, inclusive. This parameter exists in beta. (required)
-     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
-     *     timeframe, noninclusive. This parameter exists in beta. (required)
+     *     requested time frame, inclusive. This parameter exists in beta. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested time
+     *     frame, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
-     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in beta.
+     *     the result by. Valid options are: &#x60;event Name&#x60;, &#x60;event Type&#x60;,
+     *     &#x60;discard Reason&#x60;, and &#x60;app Version&#x60;. This parameter exists in beta.
      *     (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
      *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
@@ -1293,9 +1293,9 @@ public class DeliveryOverviewApi {
      *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
      *     beta. (required)
-     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
-     *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     * @param filter An optional filter for &#x60;event Name&#x60;, &#x60;event Type&#x60;,
+     *     &#x60;discard Reason&#x60;, and/or &#x60;app Version&#x60; that can be applied in
+     *     addition to a &#x60;group By&#x60;. This parameter exists in beta. (optional)
      * @param pagination Optional params to specify the page cursor and count. This parameter exists
      *     in beta. (optional)
      * @param _callback Callback for upload/download progress
@@ -1453,12 +1453,12 @@ public class DeliveryOverviewApi {
      *
      * @param sourceId The sourceId for the Workspace. This parameter exists in beta. (required)
      * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
-     *     requested timeframe, inclusive. This parameter exists in beta. (required)
-     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
-     *     timeframe, noninclusive. This parameter exists in beta. (required)
+     *     requested time frame, inclusive. This parameter exists in beta. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested time
+     *     frame, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
-     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in beta.
+     *     the result by. Valid options are: &#x60;event Name&#x60;, &#x60;event Type&#x60;,
+     *     &#x60;discard Reason&#x60;, and &#x60;app Version&#x60;. This parameter exists in beta.
      *     (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
      *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
@@ -1466,9 +1466,9 @@ public class DeliveryOverviewApi {
      *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
      *     beta. (required)
-     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
-     *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     * @param filter An optional filter for &#x60;event Name&#x60;, &#x60;event Type&#x60;,
+     *     &#x60;discard Reason&#x60;, and/or &#x60;app Version&#x60; that can be applied in
+     *     addition to a &#x60;group By&#x60;. This parameter exists in beta. (optional)
      * @param pagination Optional params to specify the page cursor and count. This parameter exists
      *     in beta. (optional)
      * @return GetEgressFailedMetricsFromDeliveryOverview200Response
@@ -1505,12 +1505,12 @@ public class DeliveryOverviewApi {
      *
      * @param sourceId The sourceId for the Workspace. This parameter exists in beta. (required)
      * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
-     *     requested timeframe, inclusive. This parameter exists in beta. (required)
-     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
-     *     timeframe, noninclusive. This parameter exists in beta. (required)
+     *     requested time frame, inclusive. This parameter exists in beta. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested time
+     *     frame, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
-     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in beta.
+     *     the result by. Valid options are: &#x60;event Name&#x60;, &#x60;event Type&#x60;,
+     *     &#x60;discard Reason&#x60;, and &#x60;app Version&#x60;. This parameter exists in beta.
      *     (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
      *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
@@ -1518,9 +1518,9 @@ public class DeliveryOverviewApi {
      *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
      *     beta. (required)
-     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
-     *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     * @param filter An optional filter for &#x60;event Name&#x60;, &#x60;event Type&#x60;,
+     *     &#x60;discard Reason&#x60;, and/or &#x60;app Version&#x60; that can be applied in
+     *     addition to a &#x60;group By&#x60;. This parameter exists in beta. (optional)
      * @param pagination Optional params to specify the page cursor and count. This parameter exists
      *     in beta. (optional)
      * @return ApiResponse&lt;GetEgressFailedMetricsFromDeliveryOverview200Response&gt;
@@ -1566,12 +1566,12 @@ public class DeliveryOverviewApi {
      *
      * @param sourceId The sourceId for the Workspace. This parameter exists in beta. (required)
      * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
-     *     requested timeframe, inclusive. This parameter exists in beta. (required)
-     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
-     *     timeframe, noninclusive. This parameter exists in beta. (required)
+     *     requested time frame, inclusive. This parameter exists in beta. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested time
+     *     frame, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
-     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and &#x60;appVersion&#x60;. This parameter exists in beta.
+     *     the result by. Valid options are: &#x60;event Name&#x60;, &#x60;event Type&#x60;,
+     *     &#x60;discard Reason&#x60;, and &#x60;app Version&#x60;. This parameter exists in beta.
      *     (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
      *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
@@ -1579,9 +1579,9 @@ public class DeliveryOverviewApi {
      *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
      *     beta. (required)
-     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
-     *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     * @param filter An optional filter for &#x60;event Name&#x60;, &#x60;event Type&#x60;,
+     *     &#x60;discard Reason&#x60;, and/or &#x60;app Version&#x60; that can be applied in
+     *     addition to a &#x60;group By&#x60;. This parameter exists in beta. (optional)
      * @param pagination Optional params to specify the page cursor and count. This parameter exists
      *     in beta. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -1629,12 +1629,12 @@ public class DeliveryOverviewApi {
      *
      * @param sourceId The sourceId for the Workspace. This parameter exists in beta. (required)
      * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
-     *     requested timeframe, inclusive. This parameter exists in beta. (required)
-     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
-     *     timeframe, noninclusive. This parameter exists in beta. (required)
+     *     requested time frame, inclusive. This parameter exists in beta. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested time
+     *     frame, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
-     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60;. This parameter exists in beta.
+     *     the result by. Valid options are: &#x60;event Name&#x60;, &#x60;event Type&#x60;,
+     *     &#x60;discard Reason&#x60;, and/or &#x60;appVersion&#x60;. This parameter exists in beta.
      *     (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
      *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
@@ -1642,9 +1642,9 @@ public class DeliveryOverviewApi {
      *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
      *     beta. (required)
-     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
-     *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     * @param filter An optional filter for &#x60;event Name&#x60;, &#x60;event Type&#x60;,
+     *     &#x60;discard Reason&#x60;, and/or &#x60;app Version&#x60; that can be applied in
+     *     addition to a &#x60;group By&#x60;. This parameter exists in beta. (optional)
      * @param pagination Optional params to specify the page cursor and count. This parameter exists
      *     in beta. (optional)
      * @param _callback Callback for upload/download progress
@@ -1801,12 +1801,12 @@ public class DeliveryOverviewApi {
      *
      * @param sourceId The sourceId for the Workspace. This parameter exists in beta. (required)
      * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
-     *     requested timeframe, inclusive. This parameter exists in beta. (required)
-     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
-     *     timeframe, noninclusive. This parameter exists in beta. (required)
+     *     requested time frame, inclusive. This parameter exists in beta. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested time
+     *     frame, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
-     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60;. This parameter exists in beta.
+     *     the result by. Valid options are: &#x60;event Name&#x60;, &#x60;event Type&#x60;,
+     *     &#x60;discard Reason&#x60;, and/or &#x60;appVersion&#x60;. This parameter exists in beta.
      *     (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
      *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
@@ -1814,9 +1814,9 @@ public class DeliveryOverviewApi {
      *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
      *     beta. (required)
-     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
-     *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     * @param filter An optional filter for &#x60;event Name&#x60;, &#x60;event Type&#x60;,
+     *     &#x60;discard Reason&#x60;, and/or &#x60;app Version&#x60; that can be applied in
+     *     addition to a &#x60;group By&#x60;. This parameter exists in beta. (optional)
      * @param pagination Optional params to specify the page cursor and count. This parameter exists
      *     in beta. (optional)
      * @return GetEgressFailedMetricsFromDeliveryOverview200Response
@@ -1852,12 +1852,12 @@ public class DeliveryOverviewApi {
      *
      * @param sourceId The sourceId for the Workspace. This parameter exists in beta. (required)
      * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
-     *     requested timeframe, inclusive. This parameter exists in beta. (required)
-     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
-     *     timeframe, noninclusive. This parameter exists in beta. (required)
+     *     requested time frame, inclusive. This parameter exists in beta. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested time
+     *     frame, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
-     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60;. This parameter exists in beta.
+     *     the result by. Valid options are: &#x60;event Name&#x60;, &#x60;event Type&#x60;,
+     *     &#x60;discard Reason&#x60;, and/or &#x60;appVersion&#x60;. This parameter exists in beta.
      *     (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
      *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
@@ -1865,9 +1865,9 @@ public class DeliveryOverviewApi {
      *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
      *     beta. (required)
-     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
-     *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     * @param filter An optional filter for &#x60;event Name&#x60;, &#x60;event Type&#x60;,
+     *     &#x60;discard Reason&#x60;, and/or &#x60;app Version&#x60; that can be applied in
+     *     addition to a &#x60;group By&#x60;. This parameter exists in beta. (optional)
      * @param pagination Optional params to specify the page cursor and count. This parameter exists
      *     in beta. (optional)
      * @return ApiResponse&lt;GetEgressFailedMetricsFromDeliveryOverview200Response&gt;
@@ -1913,12 +1913,12 @@ public class DeliveryOverviewApi {
      *
      * @param sourceId The sourceId for the Workspace. This parameter exists in beta. (required)
      * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
-     *     requested timeframe, inclusive. This parameter exists in beta. (required)
-     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
-     *     timeframe, noninclusive. This parameter exists in beta. (required)
+     *     requested time frame, inclusive. This parameter exists in beta. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested time
+     *     frame, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
-     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60;. This parameter exists in beta.
+     *     the result by. Valid options are: &#x60;event Name&#x60;, &#x60;event Type&#x60;,
+     *     &#x60;discard Reason&#x60;, and/or &#x60;appVersion&#x60;. This parameter exists in beta.
      *     (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
      *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
@@ -1926,9 +1926,9 @@ public class DeliveryOverviewApi {
      *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
      *     beta. (required)
-     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;,
-     *     &#x60;discardReason&#x60;, and/or &#x60;appVersion&#x60; that can be applied in addition
-     *     to a &#x60;groupBy&#x60;. This parameter exists in beta. (optional)
+     * @param filter An optional filter for &#x60;event Name&#x60;, &#x60;event Type&#x60;,
+     *     &#x60;discard Reason&#x60;, and/or &#x60;app Version&#x60; that can be applied in
+     *     addition to a &#x60;group By&#x60;. This parameter exists in beta. (optional)
      * @param pagination Optional params to specify the page cursor and count. This parameter exists
      *     in beta. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -1976,20 +1976,20 @@ public class DeliveryOverviewApi {
      *
      * @param sourceId The sourceId for the Workspace. This parameter exists in beta. (required)
      * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
-     *     requested timeframe, inclusive. This parameter exists in beta. (required)
-     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
-     *     timeframe, noninclusive. This parameter exists in beta. (required)
+     *     requested time frame, inclusive. This parameter exists in beta. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested time
+     *     frame, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
-     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;, and/or
-     *     &#x60;appVersion&#x60;. This parameter exists in beta. (optional)
+     *     the result by. Valid options are: &#x60;event Name&#x60;, &#x60;event Type&#x60;, and/or
+     *     &#x60;app Version&#x60;. This parameter exists in beta. (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
      *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
      *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
      *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
      *     beta. (required)
-     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;, and/or
-     *     &#x60;appVersion&#x60; that can be applied in addition to a &#x60;groupBy&#x60;. This
+     * @param filter An optional filter for &#x60;event Name&#x60;, &#x60;event Type&#x60;, and/or
+     *     &#x60;app Version&#x60; that can be applied in addition to a &#x60;group By&#x60;. This
      *     parameter exists in beta. (optional)
      * @param pagination Optional params to specify the page cursor and count. This parameter exists
      *     in beta. (optional)
@@ -2148,20 +2148,20 @@ public class DeliveryOverviewApi {
      *
      * @param sourceId The sourceId for the Workspace. This parameter exists in beta. (required)
      * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
-     *     requested timeframe, inclusive. This parameter exists in beta. (required)
-     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
-     *     timeframe, noninclusive. This parameter exists in beta. (required)
+     *     requested time frame, inclusive. This parameter exists in beta. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested time
+     *     frame, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
-     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;, and/or
-     *     &#x60;appVersion&#x60;. This parameter exists in beta. (optional)
+     *     the result by. Valid options are: &#x60;event Name&#x60;, &#x60;event Type&#x60;, and/or
+     *     &#x60;app Version&#x60;. This parameter exists in beta. (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
      *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
      *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
      *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
      *     beta. (required)
-     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;, and/or
-     *     &#x60;appVersion&#x60; that can be applied in addition to a &#x60;groupBy&#x60;. This
+     * @param filter An optional filter for &#x60;event Name&#x60;, &#x60;event Type&#x60;, and/or
+     *     &#x60;app Version&#x60; that can be applied in addition to a &#x60;group By&#x60;. This
      *     parameter exists in beta. (optional)
      * @param pagination Optional params to specify the page cursor and count. This parameter exists
      *     in beta. (optional)
@@ -2199,20 +2199,20 @@ public class DeliveryOverviewApi {
      *
      * @param sourceId The sourceId for the Workspace. This parameter exists in beta. (required)
      * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
-     *     requested timeframe, inclusive. This parameter exists in beta. (required)
-     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
-     *     timeframe, noninclusive. This parameter exists in beta. (required)
+     *     requested time frame, inclusive. This parameter exists in beta. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested time
+     *     frame, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
-     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;, and/or
-     *     &#x60;appVersion&#x60;. This parameter exists in beta. (optional)
+     *     the result by. Valid options are: &#x60;event Name&#x60;, &#x60;event Type&#x60;, and/or
+     *     &#x60;app Version&#x60;. This parameter exists in beta. (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
      *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
      *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
      *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
      *     beta. (required)
-     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;, and/or
-     *     &#x60;appVersion&#x60; that can be applied in addition to a &#x60;groupBy&#x60;. This
+     * @param filter An optional filter for &#x60;event Name&#x60;, &#x60;event Type&#x60;, and/or
+     *     &#x60;app Version&#x60; that can be applied in addition to a &#x60;group By&#x60;. This
      *     parameter exists in beta. (optional)
      * @param pagination Optional params to specify the page cursor and count. This parameter exists
      *     in beta. (optional)
@@ -2259,20 +2259,20 @@ public class DeliveryOverviewApi {
      *
      * @param sourceId The sourceId for the Workspace. This parameter exists in beta. (required)
      * @param startTime The ISO8601 formatted timestamp corresponding to the beginning of the
-     *     requested timeframe, inclusive. This parameter exists in beta. (required)
-     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested
-     *     timeframe, noninclusive. This parameter exists in beta. (required)
+     *     requested time frame, inclusive. This parameter exists in beta. (required)
+     * @param endTime The ISO8601 formatted timestamp corresponding to the end of the requested time
+     *     frame, noninclusive. This parameter exists in beta. (required)
      * @param groupBy A comma-delimited list of strings representing one or more dimensions to group
-     *     the result by. Valid options are: &#x60;eventName&#x60;, &#x60;eventType&#x60;, and/or
-     *     &#x60;appVersion&#x60;. This parameter exists in beta. (optional)
+     *     the result by. Valid options are: &#x60;event Name&#x60;, &#x60;event Type&#x60;, and/or
+     *     &#x60;app Version&#x60;. This parameter exists in beta. (optional)
      * @param granularity The size of each bucket in the requested window. Based on the granularity
      *     chosen, there are restrictions on the time range you can query: **Minute**: - Max time
      *     range: 4 hours - Oldest possible start time: 48 hours in the past **Hour**: - Max Time
      *     range: 14 days - Oldest possible start time: 30 days in the past **Day**: - Max time
      *     range: 30 days - Oldest possible start time: 30 days in the past This parameter exists in
      *     beta. (required)
-     * @param filter An optional filter for &#x60;eventName&#x60;, &#x60;eventType&#x60;, and/or
-     *     &#x60;appVersion&#x60; that can be applied in addition to a &#x60;groupBy&#x60;. This
+     * @param filter An optional filter for &#x60;event Name&#x60;, &#x60;event Type&#x60;, and/or
+     *     &#x60;app Version&#x60; that can be applied in addition to a &#x60;group By&#x60;. This
      *     parameter exists in beta. (optional)
      * @param pagination Optional params to specify the page cursor and count. This parameter exists
      *     in beta. (optional)

@@ -75,7 +75,7 @@ public class DeliveryOverviewMetricsDatapoint {
     }
 
     /**
-     * Holds the number of events within the specified granularity and groupBy options.
+     * Holds the number of events within the specified granularity and group By options.
      *
      * @return count
      */
