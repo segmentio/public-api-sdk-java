@@ -32,16 +32,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class FiltersApi {
+public class SpaceFiltersApi {
     private ApiClient localVarApiClient;
     private int localHostIndex;
     private String localCustomBaseUrl;
 
-    public FiltersApi() {
+    public SpaceFiltersApi() {
         this(Configuration.getDefaultApiClient());
     }
 
-    public FiltersApi(ApiClient apiClient) {
+    public SpaceFiltersApi(ApiClient apiClient) {
         this.localVarApiClient = apiClient;
     }
 
@@ -157,9 +157,9 @@ public class FiltersApi {
     /**
      * Create Filter Creates a filter. • This endpoint is in **Alpha** testing. Please submit any
      * feedback by sending an email to friends@segment.com. • In order to successfully call this
-     * endpoint, the specified Workspace needs to have the Filters feature enabled. Please reach out
-     * to your customer success manager for more information. • When called, this endpoint may
-     * generate the &#x60;Filter Created&#x60; event in the [audit trail](/tag/Audit-Trail).
+     * endpoint, the specified Workspace needs to have the Space Filters feature enabled. Please
+     * reach out to your customer success manager for more information. • When called, this endpoint
+     * may generate the &#x60;Filter Created&#x60; event in the [audit trail](/tag/Audit-Trail).
      *
      * @param createFilterInput (required)
      * @return CreateFilter200Response
@@ -184,9 +184,9 @@ public class FiltersApi {
     /**
      * Create Filter Creates a filter. • This endpoint is in **Alpha** testing. Please submit any
      * feedback by sending an email to friends@segment.com. • In order to successfully call this
-     * endpoint, the specified Workspace needs to have the Filters feature enabled. Please reach out
-     * to your customer success manager for more information. • When called, this endpoint may
-     * generate the &#x60;Filter Created&#x60; event in the [audit trail](/tag/Audit-Trail).
+     * endpoint, the specified Workspace needs to have the Space Filters feature enabled. Please
+     * reach out to your customer success manager for more information. • When called, this endpoint
+     * may generate the &#x60;Filter Created&#x60; event in the [audit trail](/tag/Audit-Trail).
      *
      * @param createFilterInput (required)
      * @return ApiResponse&lt;CreateFilter200Response&gt;
@@ -211,9 +211,9 @@ public class FiltersApi {
     /**
      * Create Filter (asynchronously) Creates a filter. • This endpoint is in **Alpha** testing.
      * Please submit any feedback by sending an email to friends@segment.com. • In order to
-     * successfully call this endpoint, the specified Workspace needs to have the Filters feature
-     * enabled. Please reach out to your customer success manager for more information. • When
-     * called, this endpoint may generate the &#x60;Filter Created&#x60; event in the [audit
+     * successfully call this endpoint, the specified Workspace needs to have the Space Filters
+     * feature enabled. Please reach out to your customer success manager for more information. •
+     * When called, this endpoint may generate the &#x60;Filter Created&#x60; event in the [audit
      * trail](/tag/Audit-Trail).
      *
      * @param createFilterInput (required)
@@ -330,9 +330,10 @@ public class FiltersApi {
     /**
      * Delete Filter By Id Deletes a filter by id. • This endpoint is in **Alpha** testing. Please
      * submit any feedback by sending an email to friends@segment.com. • In order to successfully
-     * call this endpoint, the specified Workspace needs to have the Filters feature enabled. Please
-     * reach out to your customer success manager for more information. • When called, this endpoint
-     * may generate the &#x60;Filter Deleted&#x60; event in the [audit trail](/tag/Audit-Trail).
+     * call this endpoint, the specified Workspace needs to have the Space Filters feature enabled.
+     * Please reach out to your customer success manager for more information. • When called, this
+     * endpoint may generate the &#x60;Filter Deleted&#x60; event in the [audit
+     * trail](/tag/Audit-Trail).
      *
      * @param id (required)
      * @return DeleteFilterById200Response
@@ -355,9 +356,10 @@ public class FiltersApi {
     /**
      * Delete Filter By Id Deletes a filter by id. • This endpoint is in **Alpha** testing. Please
      * submit any feedback by sending an email to friends@segment.com. • In order to successfully
-     * call this endpoint, the specified Workspace needs to have the Filters feature enabled. Please
-     * reach out to your customer success manager for more information. • When called, this endpoint
-     * may generate the &#x60;Filter Deleted&#x60; event in the [audit trail](/tag/Audit-Trail).
+     * call this endpoint, the specified Workspace needs to have the Space Filters feature enabled.
+     * Please reach out to your customer success manager for more information. • When called, this
+     * endpoint may generate the &#x60;Filter Deleted&#x60; event in the [audit
+     * trail](/tag/Audit-Trail).
      *
      * @param id (required)
      * @return ApiResponse&lt;DeleteFilterById200Response&gt;
@@ -382,9 +384,9 @@ public class FiltersApi {
     /**
      * Delete Filter By Id (asynchronously) Deletes a filter by id. • This endpoint is in **Alpha**
      * testing. Please submit any feedback by sending an email to friends@segment.com. • In order to
-     * successfully call this endpoint, the specified Workspace needs to have the Filters feature
-     * enabled. Please reach out to your customer success manager for more information. • When
-     * called, this endpoint may generate the &#x60;Filter Deleted&#x60; event in the [audit
+     * successfully call this endpoint, the specified Workspace needs to have the Space Filters
+     * feature enabled. Please reach out to your customer success manager for more information. •
+     * When called, this endpoint may generate the &#x60;Filter Deleted&#x60; event in the [audit
      * trail](/tag/Audit-Trail).
      *
      * @param id (required)
@@ -500,8 +502,8 @@ public class FiltersApi {
     /**
      * Get Filter By Id Gets a filter by id. • This endpoint is in **Alpha** testing. Please submit
      * any feedback by sending an email to friends@segment.com. • In order to successfully call this
-     * endpoint, the specified Workspace needs to have the Filters feature enabled. Please reach out
-     * to your customer success manager for more information.
+     * endpoint, the specified Workspace needs to have the Space Filters feature enabled. Please
+     * reach out to your customer success manager for more information.
      *
      * @param id (required)
      * @return GetFilterById200Response
@@ -524,8 +526,8 @@ public class FiltersApi {
     /**
      * Get Filter By Id Gets a filter by id. • This endpoint is in **Alpha** testing. Please submit
      * any feedback by sending an email to friends@segment.com. • In order to successfully call this
-     * endpoint, the specified Workspace needs to have the Filters feature enabled. Please reach out
-     * to your customer success manager for more information.
+     * endpoint, the specified Workspace needs to have the Space Filters feature enabled. Please
+     * reach out to your customer success manager for more information.
      *
      * @param id (required)
      * @return ApiResponse&lt;GetFilterById200Response&gt;
@@ -550,8 +552,8 @@ public class FiltersApi {
     /**
      * Get Filter By Id (asynchronously) Gets a filter by id. • This endpoint is in **Alpha**
      * testing. Please submit any feedback by sending an email to friends@segment.com. • In order to
-     * successfully call this endpoint, the specified Workspace needs to have the Filters feature
-     * enabled. Please reach out to your customer success manager for more information.
+     * successfully call this endpoint, the specified Workspace needs to have the Space Filters
+     * feature enabled. Please reach out to your customer success manager for more information.
      *
      * @param id (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -681,7 +683,7 @@ public class FiltersApi {
     /**
      * List Filters By Integration Id Lists filters by Integration id. • This endpoint is in
      * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
-     * In order to successfully call this endpoint, the specified Workspace needs to have the
+     * In order to successfully call this endpoint, the specified Workspace needs to have the Space
      * Filters feature enabled. Please reach out to your customer success manager for more
      * information.
      *
@@ -710,7 +712,7 @@ public class FiltersApi {
     /**
      * List Filters By Integration Id Lists filters by Integration id. • This endpoint is in
      * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
-     * In order to successfully call this endpoint, the specified Workspace needs to have the
+     * In order to successfully call this endpoint, the specified Workspace needs to have the Space
      * Filters feature enabled. Please reach out to your customer success manager for more
      * information.
      *
@@ -744,8 +746,8 @@ public class FiltersApi {
      * List Filters By Integration Id (asynchronously) Lists filters by Integration id. • This
      * endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
      * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
-     * needs to have the Filters feature enabled. Please reach out to your customer success manager
-     * for more information.
+     * needs to have the Space Filters feature enabled. Please reach out to your customer success
+     * manager for more information.
      *
      * @param integrationId The integration id used to fetch filters. This parameter exists in
      *     alpha. (required)
@@ -877,8 +879,8 @@ public class FiltersApi {
      * Update Filter By Id Updates a filter by id and replaces the existing filter. • This endpoint
      * is in **Alpha** testing. Please submit any feedback by sending an email to
      * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
-     * needs to have the Filters feature enabled. Please reach out to your customer success manager
-     * for more information. • When called, this endpoint may generate the &#x60;Filter
+     * needs to have the Space Filters feature enabled. Please reach out to your customer success
+     * manager for more information. • When called, this endpoint may generate the &#x60;Filter
      * Updated&#x60; event in the [audit trail](/tag/Audit-Trail).
      *
      * @param id (required)
@@ -906,8 +908,8 @@ public class FiltersApi {
      * Update Filter By Id Updates a filter by id and replaces the existing filter. • This endpoint
      * is in **Alpha** testing. Please submit any feedback by sending an email to
      * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
-     * needs to have the Filters feature enabled. Please reach out to your customer success manager
-     * for more information. • When called, this endpoint may generate the &#x60;Filter
+     * needs to have the Space Filters feature enabled. Please reach out to your customer success
+     * manager for more information. • When called, this endpoint may generate the &#x60;Filter
      * Updated&#x60; event in the [audit trail](/tag/Audit-Trail).
      *
      * @param id (required)
@@ -936,8 +938,8 @@ public class FiltersApi {
      * Update Filter By Id (asynchronously) Updates a filter by id and replaces the existing filter.
      * • This endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
      * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
-     * needs to have the Filters feature enabled. Please reach out to your customer success manager
-     * for more information. • When called, this endpoint may generate the &#x60;Filter
+     * needs to have the Space Filters feature enabled. Please reach out to your customer success
+     * manager for more information. • When called, this endpoint may generate the &#x60;Filter
      * Updated&#x60; event in the [audit trail](/tag/Audit-Trail).
      *
      * @param id (required)
