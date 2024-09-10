@@ -18,30 +18,30 @@ import com.segment.publicapi.ApiException;
 import com.segment.publicapi.ApiResponse;
 import com.segment.publicapi.Configuration;
 import com.segment.publicapi.Pair;
-import com.segment.publicapi.models.CreateAudience200Response;
-import com.segment.publicapi.models.CreateAudienceAlphaInput;
-import com.segment.publicapi.models.GetAudience200Response;
-import com.segment.publicapi.models.ListAudiences200Response;
-import com.segment.publicapi.models.PaginationInput;
-import com.segment.publicapi.models.RemoveAudienceFromSpace200Response;
-import com.segment.publicapi.models.UpdateAudienceForSpace200Response;
-import com.segment.publicapi.models.UpdateAudienceForSpaceInput;
+import com.segment.publicapi.models.CreateFilter200Response;
+import com.segment.publicapi.models.CreateFilterInput;
+import com.segment.publicapi.models.DeleteFilterById200Response;
+import com.segment.publicapi.models.GetFilterById200Response;
+import com.segment.publicapi.models.ListFiltersByIntegrationId200Response;
+import com.segment.publicapi.models.ListFiltersPaginationInput;
+import com.segment.publicapi.models.UpdateFilterById200Response;
+import com.segment.publicapi.models.UpdateFilterByIdInput;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class AudiencesApi {
+public class SpaceFiltersApi {
     private ApiClient localVarApiClient;
     private int localHostIndex;
     private String localCustomBaseUrl;
 
-    public AudiencesApi() {
+    public SpaceFiltersApi() {
         this(Configuration.getDefaultApiClient());
     }
 
-    public AudiencesApi(ApiClient apiClient) {
+    public SpaceFiltersApi(ApiClient apiClient) {
         this.localVarApiClient = apiClient;
     }
 
@@ -70,10 +70,9 @@ public class AudiencesApi {
     }
 
     /**
-     * Build call for createAudience
+     * Build call for createFilter
      *
-     * @param spaceId (required)
-     * @param createAudienceAlphaInput (required)
+     * @param createFilterInput (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -86,11 +85,8 @@ public class AudiencesApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call createAudienceCall(
-            String spaceId,
-            CreateAudienceAlphaInput createAudienceAlphaInput,
-            final ApiCallback _callback)
-            throws ApiException {
+    public okhttp3.Call createFilterCall(
+            CreateFilterInput createFilterInput, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -104,14 +100,10 @@ public class AudiencesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = createAudienceAlphaInput;
+        Object localVarPostBody = createFilterInput;
 
         // create path and map variables
-        String localVarPath =
-                "/spaces/{spaceId}/audiences"
-                        .replace(
-                                "{" + "spaceId" + "}",
-                                localVarApiClient.escapeString(spaceId.toString()));
+        String localVarPath = "/filters";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -150,42 +142,27 @@ public class AudiencesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createAudienceValidateBeforeCall(
-            String spaceId,
-            CreateAudienceAlphaInput createAudienceAlphaInput,
-            final ApiCallback _callback)
-            throws ApiException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
+    private okhttp3.Call createFilterValidateBeforeCall(
+            CreateFilterInput createFilterInput, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'createFilterInput' is set
+        if (createFilterInput == null) {
             throw new ApiException(
-                    "Missing the required parameter 'spaceId' when calling createAudience(Async)");
+                    "Missing the required parameter 'createFilterInput' when calling"
+                            + " createFilter(Async)");
         }
 
-        // verify the required parameter 'createAudienceAlphaInput' is set
-        if (createAudienceAlphaInput == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'createAudienceAlphaInput' when calling"
-                            + " createAudience(Async)");
-        }
-
-        return createAudienceCall(spaceId, createAudienceAlphaInput, _callback);
+        return createFilterCall(createFilterInput, _callback);
     }
 
     /**
-     * Create Audience Creates Audience. • This endpoint is in **Alpha** testing. Please submit any
+     * Create Filter Creates a filter. • This endpoint is in **Alpha** testing. Please submit any
      * feedback by sending an email to friends@segment.com. • In order to successfully call this
-     * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
-     * out to your customer success manager for more information. • When called, this endpoint may
-     * generate the &#x60;Audience Created&#x60; event in the [audit trail](/tag/Audit-Trail). Note:
-     * The definition for an Audience created using the API is not editable through the Segment App.
-     * The rate limit for this endpoint is 10 requests per minute, which is lower than the default
-     * due to access pattern restrictions. Once reached, this endpoint will respond with the 429
-     * HTTP status code with headers indicating the limit parameters. See [Rate
-     * Limiting](/#tag/Rate-Limits) for more information.
+     * endpoint, the specified Workspace needs to have the Space Filters feature enabled. Please
+     * reach out to your customer success manager for more information. • When called, this endpoint
+     * may generate the &#x60;Filter Created&#x60; event in the [audit trail](/tag/Audit-Trail).
      *
-     * @param spaceId (required)
-     * @param createAudienceAlphaInput (required)
-     * @return CreateAudience200Response
+     * @param createFilterInput (required)
+     * @return CreateFilter200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
      * @http.response.details
@@ -197,28 +174,22 @@ public class AudiencesApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public CreateAudience200Response createAudience(
-            String spaceId, CreateAudienceAlphaInput createAudienceAlphaInput) throws ApiException {
-        ApiResponse<CreateAudience200Response> localVarResp =
-                createAudienceWithHttpInfo(spaceId, createAudienceAlphaInput);
+    public CreateFilter200Response createFilter(CreateFilterInput createFilterInput)
+            throws ApiException {
+        ApiResponse<CreateFilter200Response> localVarResp =
+                createFilterWithHttpInfo(createFilterInput);
         return localVarResp.getData();
     }
 
     /**
-     * Create Audience Creates Audience. • This endpoint is in **Alpha** testing. Please submit any
+     * Create Filter Creates a filter. • This endpoint is in **Alpha** testing. Please submit any
      * feedback by sending an email to friends@segment.com. • In order to successfully call this
-     * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
-     * out to your customer success manager for more information. • When called, this endpoint may
-     * generate the &#x60;Audience Created&#x60; event in the [audit trail](/tag/Audit-Trail). Note:
-     * The definition for an Audience created using the API is not editable through the Segment App.
-     * The rate limit for this endpoint is 10 requests per minute, which is lower than the default
-     * due to access pattern restrictions. Once reached, this endpoint will respond with the 429
-     * HTTP status code with headers indicating the limit parameters. See [Rate
-     * Limiting](/#tag/Rate-Limits) for more information.
+     * endpoint, the specified Workspace needs to have the Space Filters feature enabled. Please
+     * reach out to your customer success manager for more information. • When called, this endpoint
+     * may generate the &#x60;Filter Created&#x60; event in the [audit trail](/tag/Audit-Trail).
      *
-     * @param spaceId (required)
-     * @param createAudienceAlphaInput (required)
-     * @return ApiResponse&lt;CreateAudience200Response&gt;
+     * @param createFilterInput (required)
+     * @return ApiResponse&lt;CreateFilter200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
      * @http.response.details
@@ -230,28 +201,22 @@ public class AudiencesApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<CreateAudience200Response> createAudienceWithHttpInfo(
-            String spaceId, CreateAudienceAlphaInput createAudienceAlphaInput) throws ApiException {
-        okhttp3.Call localVarCall =
-                createAudienceValidateBeforeCall(spaceId, createAudienceAlphaInput, null);
-        Type localVarReturnType = new TypeToken<CreateAudience200Response>() {}.getType();
+    public ApiResponse<CreateFilter200Response> createFilterWithHttpInfo(
+            CreateFilterInput createFilterInput) throws ApiException {
+        okhttp3.Call localVarCall = createFilterValidateBeforeCall(createFilterInput, null);
+        Type localVarReturnType = new TypeToken<CreateFilter200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Create Audience (asynchronously) Creates Audience. • This endpoint is in **Alpha** testing.
+     * Create Filter (asynchronously) Creates a filter. • This endpoint is in **Alpha** testing.
      * Please submit any feedback by sending an email to friends@segment.com. • In order to
-     * successfully call this endpoint, the specified Workspace needs to have the Audience feature
-     * enabled. Please reach out to your customer success manager for more information. • When
-     * called, this endpoint may generate the &#x60;Audience Created&#x60; event in the [audit
-     * trail](/tag/Audit-Trail). Note: The definition for an Audience created using the API is not
-     * editable through the Segment App. The rate limit for this endpoint is 10 requests per minute,
-     * which is lower than the default due to access pattern restrictions. Once reached, this
-     * endpoint will respond with the 429 HTTP status code with headers indicating the limit
-     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * successfully call this endpoint, the specified Workspace needs to have the Space Filters
+     * feature enabled. Please reach out to your customer success manager for more information. •
+     * When called, this endpoint may generate the &#x60;Filter Created&#x60; event in the [audit
+     * trail](/tag/Audit-Trail).
      *
-     * @param spaceId (required)
-     * @param createAudienceAlphaInput (required)
+     * @param createFilterInput (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -265,23 +230,20 @@ public class AudiencesApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call createAudienceAsync(
-            String spaceId,
-            CreateAudienceAlphaInput createAudienceAlphaInput,
-            final ApiCallback<CreateAudience200Response> _callback)
+    public okhttp3.Call createFilterAsync(
+            CreateFilterInput createFilterInput,
+            final ApiCallback<CreateFilter200Response> _callback)
             throws ApiException {
 
-        okhttp3.Call localVarCall =
-                createAudienceValidateBeforeCall(spaceId, createAudienceAlphaInput, _callback);
-        Type localVarReturnType = new TypeToken<CreateAudience200Response>() {}.getType();
+        okhttp3.Call localVarCall = createFilterValidateBeforeCall(createFilterInput, _callback);
+        Type localVarReturnType = new TypeToken<CreateFilter200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
     /**
-     * Build call for getAudience
+     * Build call for deleteFilterById
      *
-     * @param spaceId (required)
      * @param id (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -295,7 +257,7 @@ public class AudiencesApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getAudienceCall(String spaceId, String id, final ApiCallback _callback)
+    public okhttp3.Call deleteFilterByIdCall(String id, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -314,403 +276,7 @@ public class AudiencesApi {
 
         // create path and map variables
         String localVarPath =
-                "/spaces/{spaceId}/audiences/{id}"
-                        .replace(
-                                "{" + "spaceId" + "}",
-                                localVarApiClient.escapeString(spaceId.toString()))
-                        .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json", "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {};
-        final String localVarContentType =
-                localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {"token"};
-        return localVarApiClient.buildCall(
-                basePath,
-                localVarPath,
-                "GET",
-                localVarQueryParams,
-                localVarCollectionQueryParams,
-                localVarPostBody,
-                localVarHeaderParams,
-                localVarCookieParams,
-                localVarFormParams,
-                localVarAuthNames,
-                _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAudienceValidateBeforeCall(
-            String spaceId, String id, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'spaceId' when calling getAudience(Async)");
-        }
-
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'id' when calling getAudience(Async)");
-        }
-
-        return getAudienceCall(spaceId, id, _callback);
-    }
-
-    /**
-     * Get Audience Returns the Audience by id and spaceId. • This endpoint is in **Alpha** testing.
-     * Please submit any feedback by sending an email to friends@segment.com. • In order to
-     * successfully call this endpoint, the specified Workspace needs to have the Audience feature
-     * enabled. Please reach out to your customer success manager for more information. The rate
-     * limit for this endpoint is 100 requests per minute, which is lower than the default due to
-     * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
-     * status code with headers indicating the limit parameters. See [Rate
-     * Limiting](/#tag/Rate-Limits) for more information.
-     *
-     * @param spaceId (required)
-     * @param id (required)
-     * @return GetAudience200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
-     *     response body
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-     * </table>
-     */
-    public GetAudience200Response getAudience(String spaceId, String id) throws ApiException {
-        ApiResponse<GetAudience200Response> localVarResp = getAudienceWithHttpInfo(spaceId, id);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get Audience Returns the Audience by id and spaceId. • This endpoint is in **Alpha** testing.
-     * Please submit any feedback by sending an email to friends@segment.com. • In order to
-     * successfully call this endpoint, the specified Workspace needs to have the Audience feature
-     * enabled. Please reach out to your customer success manager for more information. The rate
-     * limit for this endpoint is 100 requests per minute, which is lower than the default due to
-     * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
-     * status code with headers indicating the limit parameters. See [Rate
-     * Limiting](/#tag/Rate-Limits) for more information.
-     *
-     * @param spaceId (required)
-     * @param id (required)
-     * @return ApiResponse&lt;GetAudience200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
-     *     response body
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<GetAudience200Response> getAudienceWithHttpInfo(String spaceId, String id)
-            throws ApiException {
-        okhttp3.Call localVarCall = getAudienceValidateBeforeCall(spaceId, id, null);
-        Type localVarReturnType = new TypeToken<GetAudience200Response>() {}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Get Audience (asynchronously) Returns the Audience by id and spaceId. • This endpoint is in
-     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
-     * In order to successfully call this endpoint, the specified Workspace needs to have the
-     * Audience feature enabled. Please reach out to your customer success manager for more
-     * information. The rate limit for this endpoint is 100 requests per minute, which is lower than
-     * the default due to access pattern restrictions. Once reached, this endpoint will respond with
-     * the 429 HTTP status code with headers indicating the limit parameters. See [Rate
-     * Limiting](/#tag/Rate-Limits) for more information.
-     *
-     * @param spaceId (required)
-     * @param id (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body
-     *     object
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getAudienceAsync(
-            String spaceId, String id, final ApiCallback<GetAudience200Response> _callback)
-            throws ApiException {
-
-        okhttp3.Call localVarCall = getAudienceValidateBeforeCall(spaceId, id, _callback);
-        Type localVarReturnType = new TypeToken<GetAudience200Response>() {}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-
-    /**
-     * Build call for listAudiences
-     *
-     * @param spaceId (required)
-     * @param pagination Information about the pagination of this response. [See
-     *     pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters)
-     *     for more info. This parameter exists in alpha. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listAudiencesCall(
-            String spaceId, PaginationInput pagination, final ApiCallback _callback)
-            throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {};
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null) {
-            basePath = localCustomBaseUrl;
-        } else if (localBasePaths.length > 0) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath =
-                "/spaces/{spaceId}/audiences"
-                        .replace(
-                                "{" + "spaceId" + "}",
-                                localVarApiClient.escapeString(spaceId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (pagination != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pagination", pagination));
-        }
-
-        final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json", "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {};
-        final String localVarContentType =
-                localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {"token"};
-        return localVarApiClient.buildCall(
-                basePath,
-                localVarPath,
-                "GET",
-                localVarQueryParams,
-                localVarCollectionQueryParams,
-                localVarPostBody,
-                localVarHeaderParams,
-                localVarCookieParams,
-                localVarFormParams,
-                localVarAuthNames,
-                _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call listAudiencesValidateBeforeCall(
-            String spaceId, PaginationInput pagination, final ApiCallback _callback)
-            throws ApiException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'spaceId' when calling listAudiences(Async)");
-        }
-
-        return listAudiencesCall(spaceId, pagination, _callback);
-    }
-
-    /**
-     * List Audiences Returns Audiences by spaceId. • This endpoint is in **Alpha** testing. Please
-     * submit any feedback by sending an email to friends@segment.com. • In order to successfully
-     * call this endpoint, the specified Workspace needs to have the Audience feature enabled.
-     * Please reach out to your customer success manager for more information. The rate limit for
-     * this endpoint is 25 requests per minute, which is lower than the default due to access
-     * pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code
-     * with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
-     * information.
-     *
-     * @param spaceId (required)
-     * @param pagination Information about the pagination of this response. [See
-     *     pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters)
-     *     for more info. This parameter exists in alpha. (optional)
-     * @return ListAudiences200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
-     *     response body
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ListAudiences200Response listAudiences(String spaceId, PaginationInput pagination)
-            throws ApiException {
-        ApiResponse<ListAudiences200Response> localVarResp =
-                listAudiencesWithHttpInfo(spaceId, pagination);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List Audiences Returns Audiences by spaceId. • This endpoint is in **Alpha** testing. Please
-     * submit any feedback by sending an email to friends@segment.com. • In order to successfully
-     * call this endpoint, the specified Workspace needs to have the Audience feature enabled.
-     * Please reach out to your customer success manager for more information. The rate limit for
-     * this endpoint is 25 requests per minute, which is lower than the default due to access
-     * pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code
-     * with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
-     * information.
-     *
-     * @param spaceId (required)
-     * @param pagination Information about the pagination of this response. [See
-     *     pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters)
-     *     for more info. This parameter exists in alpha. (optional)
-     * @return ApiResponse&lt;ListAudiences200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
-     *     response body
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<ListAudiences200Response> listAudiencesWithHttpInfo(
-            String spaceId, PaginationInput pagination) throws ApiException {
-        okhttp3.Call localVarCall = listAudiencesValidateBeforeCall(spaceId, pagination, null);
-        Type localVarReturnType = new TypeToken<ListAudiences200Response>() {}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * List Audiences (asynchronously) Returns Audiences by spaceId. • This endpoint is in **Alpha**
-     * testing. Please submit any feedback by sending an email to friends@segment.com. • In order to
-     * successfully call this endpoint, the specified Workspace needs to have the Audience feature
-     * enabled. Please reach out to your customer success manager for more information. The rate
-     * limit for this endpoint is 25 requests per minute, which is lower than the default due to
-     * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
-     * status code with headers indicating the limit parameters. See [Rate
-     * Limiting](/#tag/Rate-Limits) for more information.
-     *
-     * @param spaceId (required)
-     * @param pagination Information about the pagination of this response. [See
-     *     pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters)
-     *     for more info. This parameter exists in alpha. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body
-     *     object
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listAudiencesAsync(
-            String spaceId,
-            PaginationInput pagination,
-            final ApiCallback<ListAudiences200Response> _callback)
-            throws ApiException {
-
-        okhttp3.Call localVarCall = listAudiencesValidateBeforeCall(spaceId, pagination, _callback);
-        Type localVarReturnType = new TypeToken<ListAudiences200Response>() {}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-
-    /**
-     * Build call for removeAudienceFromSpace
-     *
-     * @param spaceId (required)
-     * @param id (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call removeAudienceFromSpaceCall(
-            String spaceId, String id, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {};
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null) {
-            basePath = localCustomBaseUrl;
-        } else if (localBasePaths.length > 0) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath =
-                "/spaces/{spaceId}/audiences/{id}"
-                        .replace(
-                                "{" + "spaceId" + "}",
-                                localVarApiClient.escapeString(spaceId.toString()))
+                "/filters/{id}"
                         .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -750,39 +316,27 @@ public class AudiencesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call removeAudienceFromSpaceValidateBeforeCall(
-            String spaceId, String id, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'spaceId' when calling"
-                            + " removeAudienceFromSpace(Async)");
-        }
-
+    private okhttp3.Call deleteFilterByIdValidateBeforeCall(String id, final ApiCallback _callback)
+            throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException(
-                    "Missing the required parameter 'id' when calling"
-                            + " removeAudienceFromSpace(Async)");
+                    "Missing the required parameter 'id' when calling deleteFilterById(Async)");
         }
 
-        return removeAudienceFromSpaceCall(spaceId, id, _callback);
+        return deleteFilterByIdCall(id, _callback);
     }
 
     /**
-     * Remove Audience from Space Deletes an Audience by id and spaceId. • This endpoint is in
-     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
-     * In order to successfully call this endpoint, the specified Workspace needs to have the
-     * Audience feature enabled. Please reach out to your customer success manager for more
-     * information. • When called, this endpoint may generate the &#x60;Audience Deleted&#x60; event
-     * in the [audit trail](/tag/Audit-Trail). The rate limit for this endpoint is 20 requests per
-     * minute, which is lower than the default due to access pattern restrictions. Once reached,
-     * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
-     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * Delete Filter By Id Deletes a filter by id. • This endpoint is in **Alpha** testing. Please
+     * submit any feedback by sending an email to friends@segment.com. • In order to successfully
+     * call this endpoint, the specified Workspace needs to have the Space Filters feature enabled.
+     * Please reach out to your customer success manager for more information. • When called, this
+     * endpoint may generate the &#x60;Filter Deleted&#x60; event in the [audit
+     * trail](/tag/Audit-Trail).
      *
-     * @param spaceId (required)
      * @param id (required)
-     * @return RemoveAudienceFromSpace200Response
+     * @return DeleteFilterById200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
      * @http.response.details
@@ -794,27 +348,21 @@ public class AudiencesApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public RemoveAudienceFromSpace200Response removeAudienceFromSpace(String spaceId, String id)
-            throws ApiException {
-        ApiResponse<RemoveAudienceFromSpace200Response> localVarResp =
-                removeAudienceFromSpaceWithHttpInfo(spaceId, id);
+    public DeleteFilterById200Response deleteFilterById(String id) throws ApiException {
+        ApiResponse<DeleteFilterById200Response> localVarResp = deleteFilterByIdWithHttpInfo(id);
         return localVarResp.getData();
     }
 
     /**
-     * Remove Audience from Space Deletes an Audience by id and spaceId. • This endpoint is in
-     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
-     * In order to successfully call this endpoint, the specified Workspace needs to have the
-     * Audience feature enabled. Please reach out to your customer success manager for more
-     * information. • When called, this endpoint may generate the &#x60;Audience Deleted&#x60; event
-     * in the [audit trail](/tag/Audit-Trail). The rate limit for this endpoint is 20 requests per
-     * minute, which is lower than the default due to access pattern restrictions. Once reached,
-     * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
-     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * Delete Filter By Id Deletes a filter by id. • This endpoint is in **Alpha** testing. Please
+     * submit any feedback by sending an email to friends@segment.com. • In order to successfully
+     * call this endpoint, the specified Workspace needs to have the Space Filters feature enabled.
+     * Please reach out to your customer success manager for more information. • When called, this
+     * endpoint may generate the &#x60;Filter Deleted&#x60; event in the [audit
+     * trail](/tag/Audit-Trail).
      *
-     * @param spaceId (required)
      * @param id (required)
-     * @return ApiResponse&lt;RemoveAudienceFromSpace200Response&gt;
+     * @return ApiResponse&lt;DeleteFilterById200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
      * @http.response.details
@@ -826,26 +374,21 @@ public class AudiencesApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<RemoveAudienceFromSpace200Response> removeAudienceFromSpaceWithHttpInfo(
-            String spaceId, String id) throws ApiException {
-        okhttp3.Call localVarCall = removeAudienceFromSpaceValidateBeforeCall(spaceId, id, null);
-        Type localVarReturnType = new TypeToken<RemoveAudienceFromSpace200Response>() {}.getType();
+    public ApiResponse<DeleteFilterById200Response> deleteFilterByIdWithHttpInfo(String id)
+            throws ApiException {
+        okhttp3.Call localVarCall = deleteFilterByIdValidateBeforeCall(id, null);
+        Type localVarReturnType = new TypeToken<DeleteFilterById200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Remove Audience from Space (asynchronously) Deletes an Audience by id and spaceId. • This
-     * endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
-     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
-     * needs to have the Audience feature enabled. Please reach out to your customer success manager
-     * for more information. • When called, this endpoint may generate the &#x60;Audience
-     * Deleted&#x60; event in the [audit trail](/tag/Audit-Trail). The rate limit for this endpoint
-     * is 20 requests per minute, which is lower than the default due to access pattern
-     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
-     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
-     * information.
+     * Delete Filter By Id (asynchronously) Deletes a filter by id. • This endpoint is in **Alpha**
+     * testing. Please submit any feedback by sending an email to friends@segment.com. • In order to
+     * successfully call this endpoint, the specified Workspace needs to have the Space Filters
+     * feature enabled. Please reach out to your customer success manager for more information. •
+     * When called, this endpoint may generate the &#x60;Filter Deleted&#x60; event in the [audit
+     * trail](/tag/Audit-Trail).
      *
-     * @param spaceId (required)
      * @param id (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -860,25 +403,20 @@ public class AudiencesApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call removeAudienceFromSpaceAsync(
-            String spaceId,
-            String id,
-            final ApiCallback<RemoveAudienceFromSpace200Response> _callback)
+    public okhttp3.Call deleteFilterByIdAsync(
+            String id, final ApiCallback<DeleteFilterById200Response> _callback)
             throws ApiException {
 
-        okhttp3.Call localVarCall =
-                removeAudienceFromSpaceValidateBeforeCall(spaceId, id, _callback);
-        Type localVarReturnType = new TypeToken<RemoveAudienceFromSpace200Response>() {}.getType();
+        okhttp3.Call localVarCall = deleteFilterByIdValidateBeforeCall(id, _callback);
+        Type localVarReturnType = new TypeToken<DeleteFilterById200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
     /**
-     * Build call for updateAudienceForSpace
+     * Build call for getFilterById
      *
-     * @param spaceId (required)
      * @param id (required)
-     * @param updateAudienceForSpaceInput (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -891,10 +429,176 @@ public class AudiencesApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateAudienceForSpaceCall(
-            String spaceId,
-            String id,
-            UpdateAudienceForSpaceInput updateAudienceForSpaceInput,
+    public okhttp3.Call getFilterByIdCall(String id, final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/filters/{id}"
+                        .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.segment.v1alpha+json", "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"token"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getFilterByIdValidateBeforeCall(String id, final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'id' when calling getFilterById(Async)");
+        }
+
+        return getFilterByIdCall(id, _callback);
+    }
+
+    /**
+     * Get Filter By Id Gets a filter by id. • This endpoint is in **Alpha** testing. Please submit
+     * any feedback by sending an email to friends@segment.com. • In order to successfully call this
+     * endpoint, the specified Workspace needs to have the Space Filters feature enabled. Please
+     * reach out to your customer success manager for more information.
+     *
+     * @param id (required)
+     * @return GetFilterById200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public GetFilterById200Response getFilterById(String id) throws ApiException {
+        ApiResponse<GetFilterById200Response> localVarResp = getFilterByIdWithHttpInfo(id);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get Filter By Id Gets a filter by id. • This endpoint is in **Alpha** testing. Please submit
+     * any feedback by sending an email to friends@segment.com. • In order to successfully call this
+     * endpoint, the specified Workspace needs to have the Space Filters feature enabled. Please
+     * reach out to your customer success manager for more information.
+     *
+     * @param id (required)
+     * @return ApiResponse&lt;GetFilterById200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<GetFilterById200Response> getFilterByIdWithHttpInfo(String id)
+            throws ApiException {
+        okhttp3.Call localVarCall = getFilterByIdValidateBeforeCall(id, null);
+        Type localVarReturnType = new TypeToken<GetFilterById200Response>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get Filter By Id (asynchronously) Gets a filter by id. • This endpoint is in **Alpha**
+     * testing. Please submit any feedback by sending an email to friends@segment.com. • In order to
+     * successfully call this endpoint, the specified Workspace needs to have the Space Filters
+     * feature enabled. Please reach out to your customer success manager for more information.
+     *
+     * @param id (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body
+     *     object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getFilterByIdAsync(
+            String id, final ApiCallback<GetFilterById200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getFilterByIdValidateBeforeCall(id, _callback);
+        Type localVarReturnType = new TypeToken<GetFilterById200Response>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for listFiltersByIntegrationId
+     *
+     * @param integrationId The integration id used to fetch filters. This parameter exists in
+     *     alpha. (required)
+     * @param pagination Pagination parameters. This parameter exists in alpha. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listFiltersByIntegrationIdCall(
+            String integrationId,
+            ListFiltersPaginationInput pagination,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -910,14 +614,209 @@ public class AudiencesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = updateAudienceForSpaceInput;
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/filters";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (integrationId != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("integrationId", integrationId));
+        }
+
+        if (pagination != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pagination", pagination));
+        }
+
+        final String[] localVarAccepts = {
+            "application/vnd.segment.v1alpha+json", "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"token"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listFiltersByIntegrationIdValidateBeforeCall(
+            String integrationId,
+            ListFiltersPaginationInput pagination,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'integrationId' is set
+        if (integrationId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'integrationId' when calling"
+                            + " listFiltersByIntegrationId(Async)");
+        }
+
+        return listFiltersByIntegrationIdCall(integrationId, pagination, _callback);
+    }
+
+    /**
+     * List Filters By Integration Id Lists filters by Integration id. • This endpoint is in
+     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
+     * In order to successfully call this endpoint, the specified Workspace needs to have the Space
+     * Filters feature enabled. Please reach out to your customer success manager for more
+     * information.
+     *
+     * @param integrationId The integration id used to fetch filters. This parameter exists in
+     *     alpha. (required)
+     * @param pagination Pagination parameters. This parameter exists in alpha. (optional)
+     * @return ListFiltersByIntegrationId200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ListFiltersByIntegrationId200Response listFiltersByIntegrationId(
+            String integrationId, ListFiltersPaginationInput pagination) throws ApiException {
+        ApiResponse<ListFiltersByIntegrationId200Response> localVarResp =
+                listFiltersByIntegrationIdWithHttpInfo(integrationId, pagination);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List Filters By Integration Id Lists filters by Integration id. • This endpoint is in
+     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
+     * In order to successfully call this endpoint, the specified Workspace needs to have the Space
+     * Filters feature enabled. Please reach out to your customer success manager for more
+     * information.
+     *
+     * @param integrationId The integration id used to fetch filters. This parameter exists in
+     *     alpha. (required)
+     * @param pagination Pagination parameters. This parameter exists in alpha. (optional)
+     * @return ApiResponse&lt;ListFiltersByIntegrationId200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<ListFiltersByIntegrationId200Response>
+            listFiltersByIntegrationIdWithHttpInfo(
+                    String integrationId, ListFiltersPaginationInput pagination)
+                    throws ApiException {
+        okhttp3.Call localVarCall =
+                listFiltersByIntegrationIdValidateBeforeCall(integrationId, pagination, null);
+        Type localVarReturnType =
+                new TypeToken<ListFiltersByIntegrationId200Response>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List Filters By Integration Id (asynchronously) Lists filters by Integration id. • This
+     * endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
+     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
+     * needs to have the Space Filters feature enabled. Please reach out to your customer success
+     * manager for more information.
+     *
+     * @param integrationId The integration id used to fetch filters. This parameter exists in
+     *     alpha. (required)
+     * @param pagination Pagination parameters. This parameter exists in alpha. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body
+     *     object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listFiltersByIntegrationIdAsync(
+            String integrationId,
+            ListFiltersPaginationInput pagination,
+            final ApiCallback<ListFiltersByIntegrationId200Response> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                listFiltersByIntegrationIdValidateBeforeCall(integrationId, pagination, _callback);
+        Type localVarReturnType =
+                new TypeToken<ListFiltersByIntegrationId200Response>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for updateFilterById
+     *
+     * @param id (required)
+     * @param updateFilterByIdInput (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call updateFilterByIdCall(
+            String id, UpdateFilterByIdInput updateFilterByIdInput, final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = updateFilterByIdInput;
 
         // create path and map variables
         String localVarPath =
-                "/spaces/{spaceId}/audiences/{id}"
-                        .replace(
-                                "{" + "spaceId" + "}",
-                                localVarApiClient.escapeString(spaceId.toString()))
+                "/filters/{id}"
                         .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
@@ -957,56 +856,36 @@ public class AudiencesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateAudienceForSpaceValidateBeforeCall(
-            String spaceId,
-            String id,
-            UpdateAudienceForSpaceInput updateAudienceForSpaceInput,
-            final ApiCallback _callback)
+    private okhttp3.Call updateFilterByIdValidateBeforeCall(
+            String id, UpdateFilterByIdInput updateFilterByIdInput, final ApiCallback _callback)
             throws ApiException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'spaceId' when calling"
-                            + " updateAudienceForSpace(Async)");
-        }
-
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException(
-                    "Missing the required parameter 'id' when calling"
-                            + " updateAudienceForSpace(Async)");
+                    "Missing the required parameter 'id' when calling updateFilterById(Async)");
         }
 
-        // verify the required parameter 'updateAudienceForSpaceInput' is set
-        if (updateAudienceForSpaceInput == null) {
+        // verify the required parameter 'updateFilterByIdInput' is set
+        if (updateFilterByIdInput == null) {
             throw new ApiException(
-                    "Missing the required parameter 'updateAudienceForSpaceInput' when calling"
-                            + " updateAudienceForSpace(Async)");
+                    "Missing the required parameter 'updateFilterByIdInput' when calling"
+                            + " updateFilterById(Async)");
         }
 
-        return updateAudienceForSpaceCall(spaceId, id, updateAudienceForSpaceInput, _callback);
+        return updateFilterByIdCall(id, updateFilterByIdInput, _callback);
     }
 
     /**
-     * Update Audience for Space Updates the enabled status for an audience • This endpoint is in
-     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
-     * In order to successfully call this endpoint, the specified Workspace needs to have the
-     * Audience feature enabled. Please reach out to your customer success manager for more
-     * information. • When called, this endpoint may generate the &#x60;Audience Modified&#x60;
-     * event in the [audit trail](/tag/Audit-Trail). • Note that when an Audience is updated, the
-     * Audience will be locked from future edits until the changes have been incorporated. You can
-     * find more information [in the Segment
-     * docs](https://segment-docs.netlify.app/docs/engage/audiences/#editing-realtime-audiences-and-traits).
-     * Note: The definition for an Audience updated using the API is not editable through the
-     * Segment App. The rate limit for this endpoint is 10 requests per minute, which is lower than
-     * the default due to access pattern restrictions. Once reached, this endpoint will respond with
-     * the 429 HTTP status code with headers indicating the limit parameters. See [Rate
-     * Limiting](/#tag/Rate-Limits) for more information.
+     * Update Filter By Id Updates a filter by id and replaces the existing filter. • This endpoint
+     * is in **Alpha** testing. Please submit any feedback by sending an email to
+     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
+     * needs to have the Space Filters feature enabled. Please reach out to your customer success
+     * manager for more information. • When called, this endpoint may generate the &#x60;Filter
+     * Updated&#x60; event in the [audit trail](/tag/Audit-Trail).
      *
-     * @param spaceId (required)
      * @param id (required)
-     * @param updateAudienceForSpaceInput (required)
-     * @return UpdateAudienceForSpace200Response
+     * @param updateFilterByIdInput (required)
+     * @return UpdateFilterById200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
      * @http.response.details
@@ -1018,34 +897,24 @@ public class AudiencesApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public UpdateAudienceForSpace200Response updateAudienceForSpace(
-            String spaceId, String id, UpdateAudienceForSpaceInput updateAudienceForSpaceInput)
-            throws ApiException {
-        ApiResponse<UpdateAudienceForSpace200Response> localVarResp =
-                updateAudienceForSpaceWithHttpInfo(spaceId, id, updateAudienceForSpaceInput);
+    public UpdateFilterById200Response updateFilterById(
+            String id, UpdateFilterByIdInput updateFilterByIdInput) throws ApiException {
+        ApiResponse<UpdateFilterById200Response> localVarResp =
+                updateFilterByIdWithHttpInfo(id, updateFilterByIdInput);
         return localVarResp.getData();
     }
 
     /**
-     * Update Audience for Space Updates the enabled status for an audience • This endpoint is in
-     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
-     * In order to successfully call this endpoint, the specified Workspace needs to have the
-     * Audience feature enabled. Please reach out to your customer success manager for more
-     * information. • When called, this endpoint may generate the &#x60;Audience Modified&#x60;
-     * event in the [audit trail](/tag/Audit-Trail). • Note that when an Audience is updated, the
-     * Audience will be locked from future edits until the changes have been incorporated. You can
-     * find more information [in the Segment
-     * docs](https://segment-docs.netlify.app/docs/engage/audiences/#editing-realtime-audiences-and-traits).
-     * Note: The definition for an Audience updated using the API is not editable through the
-     * Segment App. The rate limit for this endpoint is 10 requests per minute, which is lower than
-     * the default due to access pattern restrictions. Once reached, this endpoint will respond with
-     * the 429 HTTP status code with headers indicating the limit parameters. See [Rate
-     * Limiting](/#tag/Rate-Limits) for more information.
+     * Update Filter By Id Updates a filter by id and replaces the existing filter. • This endpoint
+     * is in **Alpha** testing. Please submit any feedback by sending an email to
+     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
+     * needs to have the Space Filters feature enabled. Please reach out to your customer success
+     * manager for more information. • When called, this endpoint may generate the &#x60;Filter
+     * Updated&#x60; event in the [audit trail](/tag/Audit-Trail).
      *
-     * @param spaceId (required)
      * @param id (required)
-     * @param updateAudienceForSpaceInput (required)
-     * @return ApiResponse&lt;UpdateAudienceForSpace200Response&gt;
+     * @param updateFilterByIdInput (required)
+     * @return ApiResponse&lt;UpdateFilterById200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
      * @http.response.details
@@ -1057,35 +926,24 @@ public class AudiencesApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<UpdateAudienceForSpace200Response> updateAudienceForSpaceWithHttpInfo(
-            String spaceId, String id, UpdateAudienceForSpaceInput updateAudienceForSpaceInput)
-            throws ApiException {
+    public ApiResponse<UpdateFilterById200Response> updateFilterByIdWithHttpInfo(
+            String id, UpdateFilterByIdInput updateFilterByIdInput) throws ApiException {
         okhttp3.Call localVarCall =
-                updateAudienceForSpaceValidateBeforeCall(
-                        spaceId, id, updateAudienceForSpaceInput, null);
-        Type localVarReturnType = new TypeToken<UpdateAudienceForSpace200Response>() {}.getType();
+                updateFilterByIdValidateBeforeCall(id, updateFilterByIdInput, null);
+        Type localVarReturnType = new TypeToken<UpdateFilterById200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Update Audience for Space (asynchronously) Updates the enabled status for an audience • This
-     * endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
+     * Update Filter By Id (asynchronously) Updates a filter by id and replaces the existing filter.
+     * • This endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
      * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
-     * needs to have the Audience feature enabled. Please reach out to your customer success manager
-     * for more information. • When called, this endpoint may generate the &#x60;Audience
-     * Modified&#x60; event in the [audit trail](/tag/Audit-Trail). • Note that when an Audience is
-     * updated, the Audience will be locked from future edits until the changes have been
-     * incorporated. You can find more information [in the Segment
-     * docs](https://segment-docs.netlify.app/docs/engage/audiences/#editing-realtime-audiences-and-traits).
-     * Note: The definition for an Audience updated using the API is not editable through the
-     * Segment App. The rate limit for this endpoint is 10 requests per minute, which is lower than
-     * the default due to access pattern restrictions. Once reached, this endpoint will respond with
-     * the 429 HTTP status code with headers indicating the limit parameters. See [Rate
-     * Limiting](/#tag/Rate-Limits) for more information.
+     * needs to have the Space Filters feature enabled. Please reach out to your customer success
+     * manager for more information. • When called, this endpoint may generate the &#x60;Filter
+     * Updated&#x60; event in the [audit trail](/tag/Audit-Trail).
      *
-     * @param spaceId (required)
      * @param id (required)
-     * @param updateAudienceForSpaceInput (required)
+     * @param updateFilterByIdInput (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -1099,17 +957,15 @@ public class AudiencesApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateAudienceForSpaceAsync(
-            String spaceId,
+    public okhttp3.Call updateFilterByIdAsync(
             String id,
-            UpdateAudienceForSpaceInput updateAudienceForSpaceInput,
-            final ApiCallback<UpdateAudienceForSpace200Response> _callback)
+            UpdateFilterByIdInput updateFilterByIdInput,
+            final ApiCallback<UpdateFilterById200Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
-                updateAudienceForSpaceValidateBeforeCall(
-                        spaceId, id, updateAudienceForSpaceInput, _callback);
-        Type localVarReturnType = new TypeToken<UpdateAudienceForSpace200Response>() {}.getType();
+                updateFilterByIdValidateBeforeCall(id, updateFilterByIdInput, _callback);
+        Type localVarReturnType = new TypeToken<UpdateFilterById200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

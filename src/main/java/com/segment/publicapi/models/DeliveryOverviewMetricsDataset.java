@@ -77,7 +77,7 @@ public class DeliveryOverviewMetricsDataset {
     }
 
     /**
-     * The name of the event if groupBy[] included &#39;eventName&#39; in the request.
+     * The name of the event if group By[] included &#39;event Name&#39; in the request.
      *
      * @return eventName
      */
@@ -97,7 +97,7 @@ public class DeliveryOverviewMetricsDataset {
     }
 
     /**
-     * The version of the app if groupBy[] included &#39;appVersion&#39; in the request.
+     * The version of the app if group By[] included &#39;app Version&#39; in the request.
      *
      * @return appVersion
      */
@@ -117,7 +117,7 @@ public class DeliveryOverviewMetricsDataset {
     }
 
     /**
-     * The event type if groupBy[] included &#39;eventType&#39; in the request.
+     * The event type if group By[] included &#39;event Type&#39; in the request.
      *
      * @return eventType
      */
@@ -137,7 +137,7 @@ public class DeliveryOverviewMetricsDataset {
     }
 
     /**
-     * The discard reason for dropped events if groupBy[] included &#39;discardReason&#39; in the
+     * The discard reason for dropped events if group By[] included &#39;discard Reason&#39; in the
      * request.
      *
      * @return discardReason
@@ -158,7 +158,7 @@ public class DeliveryOverviewMetricsDataset {
     }
 
     /**
-     * Holds the count of all event counts over the timeframe of the series.
+     * Holds the count of all event counts over the time frame of the series.
      *
      * @return total
      */
@@ -187,7 +187,7 @@ public class DeliveryOverviewMetricsDataset {
     }
 
     /**
-     * A list of the event counts broken down by the requested granularity, timeframe, and groupBy
+     * A list of the event counts broken down by the requested granularity, time frame, and group By
      * options.
      *
      * @return series

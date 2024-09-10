@@ -22,38 +22,64 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Definition for periodic interval. */
-public class ReverseEtlPeriodicScheduleConfig {
-    public static final String SERIALIZED_NAME_INTERVAL = "interval";
+/** Pagination for list filters. */
+public class ListFiltersPaginationInput {
+    public static final String SERIALIZED_NAME_CURSOR = "cursor";
 
-    @SerializedName(SERIALIZED_NAME_INTERVAL)
-    private String interval;
+    @SerializedName(SERIALIZED_NAME_CURSOR)
+    private BigDecimal cursor;
 
-    public ReverseEtlPeriodicScheduleConfig() {}
+    public static final String SERIALIZED_NAME_COUNT = "count";
 
-    public ReverseEtlPeriodicScheduleConfig interval(String interval) {
+    @SerializedName(SERIALIZED_NAME_COUNT)
+    private BigDecimal count;
 
-        this.interval = interval;
+    public ListFiltersPaginationInput() {}
+
+    public ListFiltersPaginationInput cursor(BigDecimal cursor) {
+
+        this.cursor = cursor;
         return this;
     }
 
     /**
-     * Duration is specified as a string, EG: 15m, 3h25m30s.
+     * The offset.
      *
-     * @return interval
+     * @return cursor
      */
-    @javax.annotation.Nonnull
-    public String getInterval() {
-        return interval;
+    @javax.annotation.Nullable
+    public BigDecimal getCursor() {
+        return cursor;
     }
 
-    public void setInterval(String interval) {
-        this.interval = interval;
+    public void setCursor(BigDecimal cursor) {
+        this.cursor = cursor;
+    }
+
+    public ListFiltersPaginationInput count(BigDecimal count) {
+
+        this.count = count;
+        return this;
+    }
+
+    /**
+     * The number of items to retrieve in a page, between 1 and 10.
+     *
+     * @return count
+     */
+    @javax.annotation.Nonnull
+    public BigDecimal getCount() {
+        return count;
+    }
+
+    public void setCount(BigDecimal count) {
+        this.count = count;
     }
 
     @Override
@@ -64,21 +90,22 @@ public class ReverseEtlPeriodicScheduleConfig {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        ReverseEtlPeriodicScheduleConfig reverseEtlPeriodicScheduleConfig =
-                (ReverseEtlPeriodicScheduleConfig) o;
-        return Objects.equals(this.interval, reverseEtlPeriodicScheduleConfig.interval);
+        ListFiltersPaginationInput listFiltersPaginationInput = (ListFiltersPaginationInput) o;
+        return Objects.equals(this.cursor, listFiltersPaginationInput.cursor)
+                && Objects.equals(this.count, listFiltersPaginationInput.count);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(interval);
+        return Objects.hash(cursor, count);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ReverseEtlPeriodicScheduleConfig {\n");
-        sb.append("    interval: ").append(toIndentedString(interval)).append("\n");
+        sb.append("class ListFiltersPaginationInput {\n");
+        sb.append("    cursor: ").append(toIndentedString(cursor)).append("\n");
+        sb.append("    count: ").append(toIndentedString(count)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -100,46 +127,46 @@ public class ReverseEtlPeriodicScheduleConfig {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("interval");
+        openapiFields.add("cursor");
+        openapiFields.add("count");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("interval");
+        openapiRequiredFields.add("count");
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to
-     *     ReverseEtlPeriodicScheduleConfig
+     * @throws IOException if the JSON Element is invalid with respect to ListFiltersPaginationInput
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!ReverseEtlPeriodicScheduleConfig.openapiRequiredFields
+            if (!ListFiltersPaginationInput.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in ReverseEtlPeriodicScheduleConfig is"
-                                        + " not found in the empty JSON string",
-                                ReverseEtlPeriodicScheduleConfig.openapiRequiredFields.toString()));
+                                "The required field(s) %s in ListFiltersPaginationInput is not"
+                                        + " found in the empty JSON string",
+                                ListFiltersPaginationInput.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!ReverseEtlPeriodicScheduleConfig.openapiFields.contains(entry.getKey())) {
+            if (!ListFiltersPaginationInput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                    + " `ReverseEtlPeriodicScheduleConfig` properties. JSON: %s",
+                                        + " `ListFiltersPaginationInput` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : ReverseEtlPeriodicScheduleConfig.openapiRequiredFields) {
+        for (String requiredField : ListFiltersPaginationInput.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -148,40 +175,31 @@ public class ReverseEtlPeriodicScheduleConfig {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if (!jsonObj.get("interval").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `interval` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
-                            jsonObj.get("interval").toString()));
-        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!ReverseEtlPeriodicScheduleConfig.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'ReverseEtlPeriodicScheduleConfig' and
-                // its subtypes
+            if (!ListFiltersPaginationInput.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'ListFiltersPaginationInput' and its
+                // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<ReverseEtlPeriodicScheduleConfig> thisAdapter =
-                    gson.getDelegateAdapter(
-                            this, TypeToken.get(ReverseEtlPeriodicScheduleConfig.class));
+            final TypeAdapter<ListFiltersPaginationInput> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(ListFiltersPaginationInput.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<ReverseEtlPeriodicScheduleConfig>() {
+                    new TypeAdapter<ListFiltersPaginationInput>() {
                         @Override
-                        public void write(JsonWriter out, ReverseEtlPeriodicScheduleConfig value)
+                        public void write(JsonWriter out, ListFiltersPaginationInput value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public ReverseEtlPeriodicScheduleConfig read(JsonReader in)
-                                throws IOException {
+                        public ListFiltersPaginationInput read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -191,19 +209,18 @@ public class ReverseEtlPeriodicScheduleConfig {
     }
 
     /**
-     * Create an instance of ReverseEtlPeriodicScheduleConfig given an JSON string
+     * Create an instance of ListFiltersPaginationInput given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of ReverseEtlPeriodicScheduleConfig
-     * @throws IOException if the JSON string is invalid with respect to
-     *     ReverseEtlPeriodicScheduleConfig
+     * @return An instance of ListFiltersPaginationInput
+     * @throws IOException if the JSON string is invalid with respect to ListFiltersPaginationInput
      */
-    public static ReverseEtlPeriodicScheduleConfig fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, ReverseEtlPeriodicScheduleConfig.class);
+    public static ListFiltersPaginationInput fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, ListFiltersPaginationInput.class);
     }
 
     /**
-     * Convert an instance of ReverseEtlPeriodicScheduleConfig to an JSON string
+     * Convert an instance of ListFiltersPaginationInput to an JSON string
      *
      * @return JSON string
      */
