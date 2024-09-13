@@ -41,11 +41,6 @@ public class UpdateFilterByIdInput {
     @SerializedName(SERIALIZED_NAME_ENABLED)
     private Boolean enabled;
 
-    public static final String SERIALIZED_NAME_DROP = "drop";
-
-    @SerializedName(SERIALIZED_NAME_DROP)
-    private Boolean drop;
-
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
@@ -61,10 +56,15 @@ public class UpdateFilterByIdInput {
     @SerializedName(SERIALIZED_NAME_IF)
     private String _if;
 
-    public static final String SERIALIZED_NAME_PROPERTY_DROPS = "propertyDrops";
+    public static final String SERIALIZED_NAME_DROP = "drop";
 
-    @SerializedName(SERIALIZED_NAME_PROPERTY_DROPS)
-    private List<String> propertyDrops;
+    @SerializedName(SERIALIZED_NAME_DROP)
+    private Boolean drop;
+
+    public static final String SERIALIZED_NAME_DROP_PROPERTIES = "dropProperties";
+
+    @SerializedName(SERIALIZED_NAME_DROP_PROPERTIES)
+    private List<String> dropProperties;
 
     public static final String SERIALIZED_NAME_ALLOW_PROPERTIES = "allowProperties";
 
@@ -111,26 +111,6 @@ public class UpdateFilterByIdInput {
 
     public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
-    }
-
-    public UpdateFilterByIdInput drop(Boolean drop) {
-
-        this.drop = drop;
-        return this;
-    }
-
-    /**
-     * Whether the event is dropped.
-     *
-     * @return drop
-     */
-    @javax.annotation.Nullable
-    public Boolean getDrop() {
-        return drop;
-    }
-
-    public void setDrop(Boolean drop) {
-        this.drop = drop;
     }
 
     public UpdateFilterByIdInput name(String name) {
@@ -193,32 +173,52 @@ public class UpdateFilterByIdInput {
         this._if = _if;
     }
 
-    public UpdateFilterByIdInput propertyDrops(List<String> propertyDrops) {
+    public UpdateFilterByIdInput drop(Boolean drop) {
 
-        this.propertyDrops = propertyDrops;
+        this.drop = drop;
         return this;
     }
 
-    public UpdateFilterByIdInput addPropertyDropsItem(String propertyDropsItem) {
-        if (this.propertyDrops == null) {
-            this.propertyDrops = new ArrayList<>();
+    /**
+     * Whether the event is dropped.
+     *
+     * @return drop
+     */
+    @javax.annotation.Nullable
+    public Boolean getDrop() {
+        return drop;
+    }
+
+    public void setDrop(Boolean drop) {
+        this.drop = drop;
+    }
+
+    public UpdateFilterByIdInput dropProperties(List<String> dropProperties) {
+
+        this.dropProperties = dropProperties;
+        return this;
+    }
+
+    public UpdateFilterByIdInput addDropPropertiesItem(String dropPropertiesItem) {
+        if (this.dropProperties == null) {
+            this.dropProperties = new ArrayList<>();
         }
-        this.propertyDrops.add(propertyDropsItem);
+        this.dropProperties.add(dropPropertiesItem);
         return this;
     }
 
     /**
      * Describes the properties to be dropped on events that match the \&quot;if\&quot; statement.
      *
-     * @return propertyDrops
+     * @return dropProperties
      */
     @javax.annotation.Nullable
-    public List<String> getPropertyDrops() {
-        return propertyDrops;
+    public List<String> getDropProperties() {
+        return dropProperties;
     }
 
-    public void setPropertyDrops(List<String> propertyDrops) {
-        this.propertyDrops = propertyDrops;
+    public void setDropProperties(List<String> dropProperties) {
+        this.dropProperties = dropProperties;
     }
 
     public UpdateFilterByIdInput allowProperties(List<String> allowProperties) {
@@ -260,11 +260,11 @@ public class UpdateFilterByIdInput {
         UpdateFilterByIdInput updateFilterByIdInput = (UpdateFilterByIdInput) o;
         return Objects.equals(this.integrationId, updateFilterByIdInput.integrationId)
                 && Objects.equals(this.enabled, updateFilterByIdInput.enabled)
-                && Objects.equals(this.drop, updateFilterByIdInput.drop)
                 && Objects.equals(this.name, updateFilterByIdInput.name)
                 && Objects.equals(this.description, updateFilterByIdInput.description)
                 && Objects.equals(this._if, updateFilterByIdInput._if)
-                && Objects.equals(this.propertyDrops, updateFilterByIdInput.propertyDrops)
+                && Objects.equals(this.drop, updateFilterByIdInput.drop)
+                && Objects.equals(this.dropProperties, updateFilterByIdInput.dropProperties)
                 && Objects.equals(this.allowProperties, updateFilterByIdInput.allowProperties);
     }
 
@@ -273,11 +273,11 @@ public class UpdateFilterByIdInput {
         return Objects.hash(
                 integrationId,
                 enabled,
-                drop,
                 name,
                 description,
                 _if,
-                propertyDrops,
+                drop,
+                dropProperties,
                 allowProperties);
     }
 
@@ -287,11 +287,11 @@ public class UpdateFilterByIdInput {
         sb.append("class UpdateFilterByIdInput {\n");
         sb.append("    integrationId: ").append(toIndentedString(integrationId)).append("\n");
         sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
-        sb.append("    drop: ").append(toIndentedString(drop)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    _if: ").append(toIndentedString(_if)).append("\n");
-        sb.append("    propertyDrops: ").append(toIndentedString(propertyDrops)).append("\n");
+        sb.append("    drop: ").append(toIndentedString(drop)).append("\n");
+        sb.append("    dropProperties: ").append(toIndentedString(dropProperties)).append("\n");
         sb.append("    allowProperties: ").append(toIndentedString(allowProperties)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -316,11 +316,11 @@ public class UpdateFilterByIdInput {
         openapiFields = new HashSet<String>();
         openapiFields.add("integrationId");
         openapiFields.add("enabled");
-        openapiFields.add("drop");
         openapiFields.add("name");
         openapiFields.add("description");
         openapiFields.add("if");
-        openapiFields.add("propertyDrops");
+        openapiFields.add("drop");
+        openapiFields.add("dropProperties");
         openapiFields.add("allowProperties");
 
         // a set of required properties/fields (JSON key names)
@@ -400,14 +400,14 @@ public class UpdateFilterByIdInput {
                             jsonObj.get("if").toString()));
         }
         // ensure the optional json data is an array if present
-        if (jsonObj.get("propertyDrops") != null
-                && !jsonObj.get("propertyDrops").isJsonNull()
-                && !jsonObj.get("propertyDrops").isJsonArray()) {
+        if (jsonObj.get("dropProperties") != null
+                && !jsonObj.get("dropProperties").isJsonNull()
+                && !jsonObj.get("dropProperties").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `propertyDrops` to be an array in the JSON string"
+                            "Expected the field `dropProperties` to be an array in the JSON string"
                                     + " but got `%s`",
-                            jsonObj.get("propertyDrops").toString()));
+                            jsonObj.get("dropProperties").toString()));
         }
         // ensure the optional json data is an array if present
         if (jsonObj.get("allowProperties") != null
