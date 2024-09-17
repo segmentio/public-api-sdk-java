@@ -18,11 +18,11 @@ import com.segment.publicapi.ApiException;
 import com.segment.publicapi.ApiResponse;
 import com.segment.publicapi.Configuration;
 import com.segment.publicapi.Pair;
-import com.segment.publicapi.models.CreateFilter200Response;
-import com.segment.publicapi.models.CreateFilterInput;
+import com.segment.publicapi.models.CreateFilterForSpace200Response;
+import com.segment.publicapi.models.CreateFilterForSpaceInput;
 import com.segment.publicapi.models.DeleteFilterById200Response;
 import com.segment.publicapi.models.GetFilterById200Response;
-import com.segment.publicapi.models.ListFiltersByIntegrationId200Response;
+import com.segment.publicapi.models.ListFiltersForSpace200Response;
 import com.segment.publicapi.models.ListFiltersPaginationInput;
 import com.segment.publicapi.models.UpdateFilterById200Response;
 import com.segment.publicapi.models.UpdateFilterByIdInput;
@@ -70,9 +70,9 @@ public class SpaceFiltersApi {
     }
 
     /**
-     * Build call for createFilter
+     * Build call for createFilterForSpace
      *
-     * @param createFilterInput (required)
+     * @param createFilterForSpaceInput (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -85,8 +85,9 @@ public class SpaceFiltersApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call createFilterCall(
-            CreateFilterInput createFilterInput, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createFilterForSpaceCall(
+            CreateFilterForSpaceInput createFilterForSpaceInput, final ApiCallback _callback)
+            throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -100,7 +101,7 @@ public class SpaceFiltersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = createFilterInput;
+        Object localVarPostBody = createFilterForSpaceInput;
 
         // create path and map variables
         String localVarPath = "/filters";
@@ -112,14 +113,18 @@ public class SpaceFiltersApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json", "application/json"
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json",
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
             localVarHeaderParams.put("Accept", localVarAccept);
         }
 
-        final String[] localVarContentTypes = {"application/vnd.segment.v1alpha+json"};
+        final String[] localVarContentTypes = {
+            "application/vnd.segment.v1beta+json", "application/vnd.segment.v1alpha+json"
+        };
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -142,27 +147,29 @@ public class SpaceFiltersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createFilterValidateBeforeCall(
-            CreateFilterInput createFilterInput, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'createFilterInput' is set
-        if (createFilterInput == null) {
+    private okhttp3.Call createFilterForSpaceValidateBeforeCall(
+            CreateFilterForSpaceInput createFilterForSpaceInput, final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'createFilterForSpaceInput' is set
+        if (createFilterForSpaceInput == null) {
             throw new ApiException(
-                    "Missing the required parameter 'createFilterInput' when calling"
-                            + " createFilter(Async)");
+                    "Missing the required parameter 'createFilterForSpaceInput' when calling"
+                            + " createFilterForSpace(Async)");
         }
 
-        return createFilterCall(createFilterInput, _callback);
+        return createFilterForSpaceCall(createFilterForSpaceInput, _callback);
     }
 
     /**
-     * Create Filter Creates a filter. • This endpoint is in **Alpha** testing. Please submit any
-     * feedback by sending an email to friends@segment.com. • In order to successfully call this
+     * Create Filter for Space Creates a filter for a space. A space filter applies to events coming
+     * from all Sources connected to a space. • This endpoint is in **Beta** testing. Please submit
+     * any feedback by sending an email to friends@segment.com. • In order to successfully call this
      * endpoint, the specified Workspace needs to have the Space Filters feature enabled. Please
      * reach out to your customer success manager for more information. • When called, this endpoint
      * may generate the &#x60;Filter Created&#x60; event in the [audit trail](/tag/Audit-Trail).
      *
-     * @param createFilterInput (required)
-     * @return CreateFilter200Response
+     * @param createFilterForSpaceInput (required)
+     * @return CreateFilterForSpace200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
      * @http.response.details
@@ -174,22 +181,23 @@ public class SpaceFiltersApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public CreateFilter200Response createFilter(CreateFilterInput createFilterInput)
-            throws ApiException {
-        ApiResponse<CreateFilter200Response> localVarResp =
-                createFilterWithHttpInfo(createFilterInput);
+    public CreateFilterForSpace200Response createFilterForSpace(
+            CreateFilterForSpaceInput createFilterForSpaceInput) throws ApiException {
+        ApiResponse<CreateFilterForSpace200Response> localVarResp =
+                createFilterForSpaceWithHttpInfo(createFilterForSpaceInput);
         return localVarResp.getData();
     }
 
     /**
-     * Create Filter Creates a filter. • This endpoint is in **Alpha** testing. Please submit any
-     * feedback by sending an email to friends@segment.com. • In order to successfully call this
+     * Create Filter for Space Creates a filter for a space. A space filter applies to events coming
+     * from all Sources connected to a space. • This endpoint is in **Beta** testing. Please submit
+     * any feedback by sending an email to friends@segment.com. • In order to successfully call this
      * endpoint, the specified Workspace needs to have the Space Filters feature enabled. Please
      * reach out to your customer success manager for more information. • When called, this endpoint
      * may generate the &#x60;Filter Created&#x60; event in the [audit trail](/tag/Audit-Trail).
      *
-     * @param createFilterInput (required)
-     * @return ApiResponse&lt;CreateFilter200Response&gt;
+     * @param createFilterForSpaceInput (required)
+     * @return ApiResponse&lt;CreateFilterForSpace200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
      * @http.response.details
@@ -201,22 +209,24 @@ public class SpaceFiltersApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<CreateFilter200Response> createFilterWithHttpInfo(
-            CreateFilterInput createFilterInput) throws ApiException {
-        okhttp3.Call localVarCall = createFilterValidateBeforeCall(createFilterInput, null);
-        Type localVarReturnType = new TypeToken<CreateFilter200Response>() {}.getType();
+    public ApiResponse<CreateFilterForSpace200Response> createFilterForSpaceWithHttpInfo(
+            CreateFilterForSpaceInput createFilterForSpaceInput) throws ApiException {
+        okhttp3.Call localVarCall =
+                createFilterForSpaceValidateBeforeCall(createFilterForSpaceInput, null);
+        Type localVarReturnType = new TypeToken<CreateFilterForSpace200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Create Filter (asynchronously) Creates a filter. • This endpoint is in **Alpha** testing.
-     * Please submit any feedback by sending an email to friends@segment.com. • In order to
+     * Create Filter for Space (asynchronously) Creates a filter for a space. A space filter applies
+     * to events coming from all Sources connected to a space. • This endpoint is in **Beta**
+     * testing. Please submit any feedback by sending an email to friends@segment.com. • In order to
      * successfully call this endpoint, the specified Workspace needs to have the Space Filters
      * feature enabled. Please reach out to your customer success manager for more information. •
      * When called, this endpoint may generate the &#x60;Filter Created&#x60; event in the [audit
      * trail](/tag/Audit-Trail).
      *
-     * @param createFilterInput (required)
+     * @param createFilterForSpaceInput (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -230,13 +240,14 @@ public class SpaceFiltersApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call createFilterAsync(
-            CreateFilterInput createFilterInput,
-            final ApiCallback<CreateFilter200Response> _callback)
+    public okhttp3.Call createFilterForSpaceAsync(
+            CreateFilterForSpaceInput createFilterForSpaceInput,
+            final ApiCallback<CreateFilterForSpace200Response> _callback)
             throws ApiException {
 
-        okhttp3.Call localVarCall = createFilterValidateBeforeCall(createFilterInput, _callback);
-        Type localVarReturnType = new TypeToken<CreateFilter200Response>() {}.getType();
+        okhttp3.Call localVarCall =
+                createFilterForSpaceValidateBeforeCall(createFilterForSpaceInput, _callback);
+        Type localVarReturnType = new TypeToken<CreateFilterForSpace200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -286,7 +297,9 @@ public class SpaceFiltersApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json", "application/json"
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json",
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -328,7 +341,7 @@ public class SpaceFiltersApi {
     }
 
     /**
-     * Delete Filter By Id Deletes a filter by id. • This endpoint is in **Alpha** testing. Please
+     * Delete Filter By Id Deletes a filter by id. • This endpoint is in **Beta** testing. Please
      * submit any feedback by sending an email to friends@segment.com. • In order to successfully
      * call this endpoint, the specified Workspace needs to have the Space Filters feature enabled.
      * Please reach out to your customer success manager for more information. • When called, this
@@ -354,7 +367,7 @@ public class SpaceFiltersApi {
     }
 
     /**
-     * Delete Filter By Id Deletes a filter by id. • This endpoint is in **Alpha** testing. Please
+     * Delete Filter By Id Deletes a filter by id. • This endpoint is in **Beta** testing. Please
      * submit any feedback by sending an email to friends@segment.com. • In order to successfully
      * call this endpoint, the specified Workspace needs to have the Space Filters feature enabled.
      * Please reach out to your customer success manager for more information. • When called, this
@@ -382,7 +395,7 @@ public class SpaceFiltersApi {
     }
 
     /**
-     * Delete Filter By Id (asynchronously) Deletes a filter by id. • This endpoint is in **Alpha**
+     * Delete Filter By Id (asynchronously) Deletes a filter by id. • This endpoint is in **Beta**
      * testing. Please submit any feedback by sending an email to friends@segment.com. • In order to
      * successfully call this endpoint, the specified Workspace needs to have the Space Filters
      * feature enabled. Please reach out to your customer success manager for more information. •
@@ -458,7 +471,9 @@ public class SpaceFiltersApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json", "application/json"
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json",
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -500,7 +515,7 @@ public class SpaceFiltersApi {
     }
 
     /**
-     * Get Filter By Id Gets a filter by id. • This endpoint is in **Alpha** testing. Please submit
+     * Get Filter By Id Gets a filter by id. • This endpoint is in **Beta** testing. Please submit
      * any feedback by sending an email to friends@segment.com. • In order to successfully call this
      * endpoint, the specified Workspace needs to have the Space Filters feature enabled. Please
      * reach out to your customer success manager for more information.
@@ -524,7 +539,7 @@ public class SpaceFiltersApi {
     }
 
     /**
-     * Get Filter By Id Gets a filter by id. • This endpoint is in **Alpha** testing. Please submit
+     * Get Filter By Id Gets a filter by id. • This endpoint is in **Beta** testing. Please submit
      * any feedback by sending an email to friends@segment.com. • In order to successfully call this
      * endpoint, the specified Workspace needs to have the Space Filters feature enabled. Please
      * reach out to your customer success manager for more information.
@@ -550,7 +565,7 @@ public class SpaceFiltersApi {
     }
 
     /**
-     * Get Filter By Id (asynchronously) Gets a filter by id. • This endpoint is in **Alpha**
+     * Get Filter By Id (asynchronously) Gets a filter by id. • This endpoint is in **Beta**
      * testing. Please submit any feedback by sending an email to friends@segment.com. • In order to
      * successfully call this endpoint, the specified Workspace needs to have the Space Filters
      * feature enabled. Please reach out to your customer success manager for more information.
@@ -579,11 +594,11 @@ public class SpaceFiltersApi {
     }
 
     /**
-     * Build call for listFiltersByIntegrationId
+     * Build call for listFiltersForSpace
      *
-     * @param integrationId The integration id used to fetch filters. This parameter exists in
-     *     alpha. (required)
-     * @param pagination Pagination parameters. This parameter exists in alpha. (optional)
+     * @param integrationId The Space Id for which to fetch filters This parameter exists in beta.
+     *     (required)
+     * @param pagination Pagination parameters. This parameter exists in beta. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -596,7 +611,7 @@ public class SpaceFiltersApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listFiltersByIntegrationIdCall(
+    public okhttp3.Call listFiltersForSpaceCall(
             String integrationId,
             ListFiltersPaginationInput pagination,
             final ApiCallback _callback)
@@ -635,7 +650,9 @@ public class SpaceFiltersApi {
         }
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json", "application/json"
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json",
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -665,7 +682,7 @@ public class SpaceFiltersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listFiltersByIntegrationIdValidateBeforeCall(
+    private okhttp3.Call listFiltersForSpaceValidateBeforeCall(
             String integrationId,
             ListFiltersPaginationInput pagination,
             final ApiCallback _callback)
@@ -674,23 +691,22 @@ public class SpaceFiltersApi {
         if (integrationId == null) {
             throw new ApiException(
                     "Missing the required parameter 'integrationId' when calling"
-                            + " listFiltersByIntegrationId(Async)");
+                            + " listFiltersForSpace(Async)");
         }
 
-        return listFiltersByIntegrationIdCall(integrationId, pagination, _callback);
+        return listFiltersForSpaceCall(integrationId, pagination, _callback);
     }
 
     /**
-     * List Filters By Integration Id Lists filters by Integration id. • This endpoint is in
-     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
-     * In order to successfully call this endpoint, the specified Workspace needs to have the Space
-     * Filters feature enabled. Please reach out to your customer success manager for more
-     * information.
+     * List Filters for Space Lists filters for a space. • This endpoint is in **Beta** testing.
+     * Please submit any feedback by sending an email to friends@segment.com. • In order to
+     * successfully call this endpoint, the specified Workspace needs to have the Space Filters
+     * feature enabled. Please reach out to your customer success manager for more information.
      *
-     * @param integrationId The integration id used to fetch filters. This parameter exists in
-     *     alpha. (required)
-     * @param pagination Pagination parameters. This parameter exists in alpha. (optional)
-     * @return ListFiltersByIntegrationId200Response
+     * @param integrationId The Space Id for which to fetch filters This parameter exists in beta.
+     *     (required)
+     * @param pagination Pagination parameters. This parameter exists in beta. (optional)
+     * @return ListFiltersForSpace200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
      * @http.response.details
@@ -702,24 +718,23 @@ public class SpaceFiltersApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public ListFiltersByIntegrationId200Response listFiltersByIntegrationId(
+    public ListFiltersForSpace200Response listFiltersForSpace(
             String integrationId, ListFiltersPaginationInput pagination) throws ApiException {
-        ApiResponse<ListFiltersByIntegrationId200Response> localVarResp =
-                listFiltersByIntegrationIdWithHttpInfo(integrationId, pagination);
+        ApiResponse<ListFiltersForSpace200Response> localVarResp =
+                listFiltersForSpaceWithHttpInfo(integrationId, pagination);
         return localVarResp.getData();
     }
 
     /**
-     * List Filters By Integration Id Lists filters by Integration id. • This endpoint is in
-     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
-     * In order to successfully call this endpoint, the specified Workspace needs to have the Space
-     * Filters feature enabled. Please reach out to your customer success manager for more
-     * information.
+     * List Filters for Space Lists filters for a space. • This endpoint is in **Beta** testing.
+     * Please submit any feedback by sending an email to friends@segment.com. • In order to
+     * successfully call this endpoint, the specified Workspace needs to have the Space Filters
+     * feature enabled. Please reach out to your customer success manager for more information.
      *
-     * @param integrationId The integration id used to fetch filters. This parameter exists in
-     *     alpha. (required)
-     * @param pagination Pagination parameters. This parameter exists in alpha. (optional)
-     * @return ApiResponse&lt;ListFiltersByIntegrationId200Response&gt;
+     * @param integrationId The Space Id for which to fetch filters This parameter exists in beta.
+     *     (required)
+     * @param pagination Pagination parameters. This parameter exists in beta. (optional)
+     * @return ApiResponse&lt;ListFiltersForSpace200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
      * @http.response.details
@@ -731,27 +746,24 @@ public class SpaceFiltersApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<ListFiltersByIntegrationId200Response>
-            listFiltersByIntegrationIdWithHttpInfo(
-                    String integrationId, ListFiltersPaginationInput pagination)
-                    throws ApiException {
+    public ApiResponse<ListFiltersForSpace200Response> listFiltersForSpaceWithHttpInfo(
+            String integrationId, ListFiltersPaginationInput pagination) throws ApiException {
         okhttp3.Call localVarCall =
-                listFiltersByIntegrationIdValidateBeforeCall(integrationId, pagination, null);
-        Type localVarReturnType =
-                new TypeToken<ListFiltersByIntegrationId200Response>() {}.getType();
+                listFiltersForSpaceValidateBeforeCall(integrationId, pagination, null);
+        Type localVarReturnType = new TypeToken<ListFiltersForSpace200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * List Filters By Integration Id (asynchronously) Lists filters by Integration id. • This
-     * endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
-     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
-     * needs to have the Space Filters feature enabled. Please reach out to your customer success
-     * manager for more information.
+     * List Filters for Space (asynchronously) Lists filters for a space. • This endpoint is in
+     * **Beta** testing. Please submit any feedback by sending an email to friends@segment.com. • In
+     * order to successfully call this endpoint, the specified Workspace needs to have the Space
+     * Filters feature enabled. Please reach out to your customer success manager for more
+     * information.
      *
-     * @param integrationId The integration id used to fetch filters. This parameter exists in
-     *     alpha. (required)
-     * @param pagination Pagination parameters. This parameter exists in alpha. (optional)
+     * @param integrationId The Space Id for which to fetch filters This parameter exists in beta.
+     *     (required)
+     * @param pagination Pagination parameters. This parameter exists in beta. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -765,16 +777,15 @@ public class SpaceFiltersApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listFiltersByIntegrationIdAsync(
+    public okhttp3.Call listFiltersForSpaceAsync(
             String integrationId,
             ListFiltersPaginationInput pagination,
-            final ApiCallback<ListFiltersByIntegrationId200Response> _callback)
+            final ApiCallback<ListFiltersForSpace200Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
-                listFiltersByIntegrationIdValidateBeforeCall(integrationId, pagination, _callback);
-        Type localVarReturnType =
-                new TypeToken<ListFiltersByIntegrationId200Response>() {}.getType();
+                listFiltersForSpaceValidateBeforeCall(integrationId, pagination, _callback);
+        Type localVarReturnType = new TypeToken<ListFiltersForSpace200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -826,14 +837,18 @@ public class SpaceFiltersApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json", "application/json"
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json",
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
             localVarHeaderParams.put("Accept", localVarAccept);
         }
 
-        final String[] localVarContentTypes = {"application/vnd.segment.v1alpha+json"};
+        final String[] localVarContentTypes = {
+            "application/vnd.segment.v1beta+json", "application/vnd.segment.v1alpha+json"
+        };
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -877,7 +892,7 @@ public class SpaceFiltersApi {
 
     /**
      * Update Filter By Id Updates a filter by id and replaces the existing filter. • This endpoint
-     * is in **Alpha** testing. Please submit any feedback by sending an email to
+     * is in **Beta** testing. Please submit any feedback by sending an email to
      * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
      * needs to have the Space Filters feature enabled. Please reach out to your customer success
      * manager for more information. • When called, this endpoint may generate the &#x60;Filter
@@ -906,7 +921,7 @@ public class SpaceFiltersApi {
 
     /**
      * Update Filter By Id Updates a filter by id and replaces the existing filter. • This endpoint
-     * is in **Alpha** testing. Please submit any feedback by sending an email to
+     * is in **Beta** testing. Please submit any feedback by sending an email to
      * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
      * needs to have the Space Filters feature enabled. Please reach out to your customer success
      * manager for more information. • When called, this endpoint may generate the &#x60;Filter
@@ -936,7 +951,7 @@ public class SpaceFiltersApi {
 
     /**
      * Update Filter By Id (asynchronously) Updates a filter by id and replaces the existing filter.
-     * • This endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
+     * • This endpoint is in **Beta** testing. Please submit any feedback by sending an email to
      * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
      * needs to have the Space Filters feature enabled. Please reach out to your customer success
      * manager for more information. • When called, this endpoint may generate the &#x60;Filter

@@ -27,33 +27,33 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Output for CreateFilter. */
-public class CreateFilterOutput {
-    public static final String SERIALIZED_NAME_FILTER = "filter";
+/** CreateFilterForSpace200Response */
+public class CreateFilterForSpace200Response {
+    public static final String SERIALIZED_NAME_DATA = "data";
 
-    @SerializedName(SERIALIZED_NAME_FILTER)
-    private Filter filter;
+    @SerializedName(SERIALIZED_NAME_DATA)
+    private CreateFilterForSpaceOutput data;
 
-    public CreateFilterOutput() {}
+    public CreateFilterForSpace200Response() {}
 
-    public CreateFilterOutput filter(Filter filter) {
+    public CreateFilterForSpace200Response data(CreateFilterForSpaceOutput data) {
 
-        this.filter = filter;
+        this.data = data;
         return this;
     }
 
     /**
-     * Get filter
+     * Get data
      *
-     * @return filter
+     * @return data
      */
-    @javax.annotation.Nonnull
-    public Filter getFilter() {
-        return filter;
+    @javax.annotation.Nullable
+    public CreateFilterForSpaceOutput getData() {
+        return data;
     }
 
-    public void setFilter(Filter filter) {
-        this.filter = filter;
+    public void setData(CreateFilterForSpaceOutput data) {
+        this.data = data;
     }
 
     @Override
@@ -64,20 +64,21 @@ public class CreateFilterOutput {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        CreateFilterOutput createFilterOutput = (CreateFilterOutput) o;
-        return Objects.equals(this.filter, createFilterOutput.filter);
+        CreateFilterForSpace200Response createFilterForSpace200Response =
+                (CreateFilterForSpace200Response) o;
+        return Objects.equals(this.data, createFilterForSpace200Response.data);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(filter);
+        return Objects.hash(data);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CreateFilterOutput {\n");
-        sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
+        sb.append("class CreateFilterForSpace200Response {\n");
+        sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -99,79 +100,74 @@ public class CreateFilterOutput {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("filter");
+        openapiFields.add("data");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("filter");
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to CreateFilterOutput
+     * @throws IOException if the JSON Element is invalid with respect to
+     *     CreateFilterForSpace200Response
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!CreateFilterOutput.openapiRequiredFields
+            if (!CreateFilterForSpace200Response.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in CreateFilterOutput is not found in the"
-                                        + " empty JSON string",
-                                CreateFilterOutput.openapiRequiredFields.toString()));
+                                "The required field(s) %s in CreateFilterForSpace200Response is not"
+                                        + " found in the empty JSON string",
+                                CreateFilterForSpace200Response.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!CreateFilterOutput.openapiFields.contains(entry.getKey())) {
+            if (!CreateFilterForSpace200Response.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `CreateFilterOutput` properties. JSON: %s",
+                                        + " `CreateFilterForSpace200Response` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
-
-        // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : CreateFilterOutput.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-                throw new IllegalArgumentException(
-                        String.format(
-                                "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonElement.toString()));
-            }
-        }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        // validate the required field `filter`
-        Filter.validateJsonElement(jsonObj.get("filter"));
+        // validate the optional field `data`
+        if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
+            CreateFilterForSpaceOutput.validateJsonElement(jsonObj.get("data"));
+        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!CreateFilterOutput.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'CreateFilterOutput' and its subtypes
+            if (!CreateFilterForSpace200Response.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'CreateFilterForSpace200Response' and its
+                // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<CreateFilterOutput> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(CreateFilterOutput.class));
+            final TypeAdapter<CreateFilterForSpace200Response> thisAdapter =
+                    gson.getDelegateAdapter(
+                            this, TypeToken.get(CreateFilterForSpace200Response.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<CreateFilterOutput>() {
+                    new TypeAdapter<CreateFilterForSpace200Response>() {
                         @Override
-                        public void write(JsonWriter out, CreateFilterOutput value)
+                        public void write(JsonWriter out, CreateFilterForSpace200Response value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public CreateFilterOutput read(JsonReader in) throws IOException {
+                        public CreateFilterForSpace200Response read(JsonReader in)
+                                throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -181,18 +177,19 @@ public class CreateFilterOutput {
     }
 
     /**
-     * Create an instance of CreateFilterOutput given an JSON string
+     * Create an instance of CreateFilterForSpace200Response given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of CreateFilterOutput
-     * @throws IOException if the JSON string is invalid with respect to CreateFilterOutput
+     * @return An instance of CreateFilterForSpace200Response
+     * @throws IOException if the JSON string is invalid with respect to
+     *     CreateFilterForSpace200Response
      */
-    public static CreateFilterOutput fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, CreateFilterOutput.class);
+    public static CreateFilterForSpace200Response fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, CreateFilterForSpace200Response.class);
     }
 
     /**
-     * Convert an instance of CreateFilterOutput to an JSON string
+     * Convert an instance of CreateFilterForSpace200Response to an JSON string
      *
      * @return JSON string
      */

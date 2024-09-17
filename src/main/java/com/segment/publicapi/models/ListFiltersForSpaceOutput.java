@@ -31,7 +31,7 @@ import java.util.Objects;
 import java.util.Set;
 
 /** Output for ListFiltersByIntegrationId. */
-public class ListFiltersByIntegrationIdOutput {
+public class ListFiltersForSpaceOutput {
     public static final String SERIALIZED_NAME_FILTERS = "filters";
 
     @SerializedName(SERIALIZED_NAME_FILTERS)
@@ -42,15 +42,15 @@ public class ListFiltersByIntegrationIdOutput {
     @SerializedName(SERIALIZED_NAME_PAGINATION)
     private ListFiltersPaginationOutput pagination;
 
-    public ListFiltersByIntegrationIdOutput() {}
+    public ListFiltersForSpaceOutput() {}
 
-    public ListFiltersByIntegrationIdOutput filters(List<Filter> filters) {
+    public ListFiltersForSpaceOutput filters(List<Filter> filters) {
 
         this.filters = filters;
         return this;
     }
 
-    public ListFiltersByIntegrationIdOutput addFiltersItem(Filter filtersItem) {
+    public ListFiltersForSpaceOutput addFiltersItem(Filter filtersItem) {
         if (this.filters == null) {
             this.filters = new ArrayList<>();
         }
@@ -72,7 +72,7 @@ public class ListFiltersByIntegrationIdOutput {
         this.filters = filters;
     }
 
-    public ListFiltersByIntegrationIdOutput pagination(ListFiltersPaginationOutput pagination) {
+    public ListFiltersForSpaceOutput pagination(ListFiltersPaginationOutput pagination) {
 
         this.pagination = pagination;
         return this;
@@ -100,10 +100,9 @@ public class ListFiltersByIntegrationIdOutput {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        ListFiltersByIntegrationIdOutput listFiltersByIntegrationIdOutput =
-                (ListFiltersByIntegrationIdOutput) o;
-        return Objects.equals(this.filters, listFiltersByIntegrationIdOutput.filters)
-                && Objects.equals(this.pagination, listFiltersByIntegrationIdOutput.pagination);
+        ListFiltersForSpaceOutput listFiltersForSpaceOutput = (ListFiltersForSpaceOutput) o;
+        return Objects.equals(this.filters, listFiltersForSpaceOutput.filters)
+                && Objects.equals(this.pagination, listFiltersForSpaceOutput.pagination);
     }
 
     @Override
@@ -114,7 +113,7 @@ public class ListFiltersByIntegrationIdOutput {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ListFiltersByIntegrationIdOutput {\n");
+        sb.append("class ListFiltersForSpaceOutput {\n");
         sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
         sb.append("    pagination: ").append(toIndentedString(pagination)).append("\n");
         sb.append("}");
@@ -149,29 +148,28 @@ public class ListFiltersByIntegrationIdOutput {
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to
-     *     ListFiltersByIntegrationIdOutput
+     * @throws IOException if the JSON Element is invalid with respect to ListFiltersForSpaceOutput
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!ListFiltersByIntegrationIdOutput.openapiRequiredFields
+            if (!ListFiltersForSpaceOutput.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in ListFiltersByIntegrationIdOutput is"
-                                        + " not found in the empty JSON string",
-                                ListFiltersByIntegrationIdOutput.openapiRequiredFields.toString()));
+                                "The required field(s) %s in ListFiltersForSpaceOutput is not found"
+                                        + " in the empty JSON string",
+                                ListFiltersForSpaceOutput.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!ListFiltersByIntegrationIdOutput.openapiFields.contains(entry.getKey())) {
+            if (!ListFiltersForSpaceOutput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                    + " `ListFiltersByIntegrationIdOutput` properties. JSON: %s",
+                                        + " `ListFiltersForSpaceOutput` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
@@ -205,27 +203,25 @@ public class ListFiltersByIntegrationIdOutput {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!ListFiltersByIntegrationIdOutput.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'ListFiltersByIntegrationIdOutput' and
-                // its subtypes
+            if (!ListFiltersForSpaceOutput.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'ListFiltersForSpaceOutput' and its
+                // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<ListFiltersByIntegrationIdOutput> thisAdapter =
-                    gson.getDelegateAdapter(
-                            this, TypeToken.get(ListFiltersByIntegrationIdOutput.class));
+            final TypeAdapter<ListFiltersForSpaceOutput> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(ListFiltersForSpaceOutput.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<ListFiltersByIntegrationIdOutput>() {
+                    new TypeAdapter<ListFiltersForSpaceOutput>() {
                         @Override
-                        public void write(JsonWriter out, ListFiltersByIntegrationIdOutput value)
+                        public void write(JsonWriter out, ListFiltersForSpaceOutput value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public ListFiltersByIntegrationIdOutput read(JsonReader in)
-                                throws IOException {
+                        public ListFiltersForSpaceOutput read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -235,19 +231,18 @@ public class ListFiltersByIntegrationIdOutput {
     }
 
     /**
-     * Create an instance of ListFiltersByIntegrationIdOutput given an JSON string
+     * Create an instance of ListFiltersForSpaceOutput given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of ListFiltersByIntegrationIdOutput
-     * @throws IOException if the JSON string is invalid with respect to
-     *     ListFiltersByIntegrationIdOutput
+     * @return An instance of ListFiltersForSpaceOutput
+     * @throws IOException if the JSON string is invalid with respect to ListFiltersForSpaceOutput
      */
-    public static ListFiltersByIntegrationIdOutput fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, ListFiltersByIntegrationIdOutput.class);
+    public static ListFiltersForSpaceOutput fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, ListFiltersForSpaceOutput.class);
     }
 
     /**
-     * Convert an instance of ListFiltersByIntegrationIdOutput to an JSON string
+     * Convert an instance of ListFiltersForSpaceOutput to an JSON string
      *
      * @return JSON string
      */

@@ -4,21 +4,21 @@ All URIs are relative to *https://api.segmentapis.com*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createFilter**](SpaceFiltersApi.md#createFilter) | **POST** /filters | Create Filter |
+| [**createFilterForSpace**](SpaceFiltersApi.md#createFilterForSpace) | **POST** /filters | Create Filter for Space |
 | [**deleteFilterById**](SpaceFiltersApi.md#deleteFilterById) | **DELETE** /filters/{id} | Delete Filter By Id |
 | [**getFilterById**](SpaceFiltersApi.md#getFilterById) | **GET** /filters/{id} | Get Filter By Id |
-| [**listFiltersByIntegrationId**](SpaceFiltersApi.md#listFiltersByIntegrationId) | **GET** /filters | List Filters By Integration Id |
+| [**listFiltersForSpace**](SpaceFiltersApi.md#listFiltersForSpace) | **GET** /filters | List Filters for Space |
 | [**updateFilterById**](SpaceFiltersApi.md#updateFilterById) | **PATCH** /filters/{id} | Update Filter By Id |
 
 
 
-## Operation: createFilter
+## Operation: createFilterForSpace
 
-> CreateFilter200Response createFilter(createFilterInput)
+> CreateFilterForSpace200Response createFilterForSpace(createFilterForSpaceInput)
 
-Create Filter
+Create Filter for Space
 
-Creates a filter.    • This endpoint is in **Alpha** testing.  Please submit any feedback by sending an email to friends@segment.com.    • In order to successfully call this endpoint, the specified Workspace needs to have the Space Filters feature enabled. Please reach out to your customer success manager for more information.   • When called, this endpoint may generate the &#x60;Filter Created&#x60; event in the [audit trail](/tag/Audit-Trail).       
+Creates a filter for a space. A space filter applies to events coming from all Sources connected to a space.    • This endpoint is in **Beta** testing.  Please submit any feedback by sending an email to friends@segment.com.    • In order to successfully call this endpoint, the specified Workspace needs to have the Space Filters feature enabled. Please reach out to your customer success manager for more information.   • When called, this endpoint may generate the &#x60;Filter Created&#x60; event in the [audit trail](/tag/Audit-Trail).       
 
 ### Example
 
@@ -40,12 +40,12 @@ public class Example {
         token.setBearerToken("BEARER TOKEN");
 
         SpaceFiltersApi apiInstance = new SpaceFiltersApi(defaultClient);
-        CreateFilterInput createFilterInput = new CreateFilterInput(); // CreateFilterInput | 
+        CreateFilterForSpaceInput createFilterForSpaceInput = new CreateFilterForSpaceInput(); // CreateFilterForSpaceInput | 
         try {
-            CreateFilter200Response result = apiInstance.createFilter(createFilterInput);
+            CreateFilterForSpace200Response result = apiInstance.createFilterForSpace(createFilterForSpaceInput);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SpaceFiltersApi#createFilter");
+            System.err.println("Exception when calling SpaceFiltersApi#createFilterForSpace");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -60,11 +60,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **createFilterInput** | [**CreateFilterInput**](CreateFilterInput.md)|  | |
+| **createFilterForSpaceInput** | [**CreateFilterForSpaceInput**](CreateFilterForSpaceInput.md)|  | |
 
 ### Return type
 
-[**CreateFilter200Response**](CreateFilter200Response.md)
+[**CreateFilterForSpace200Response**](CreateFilterForSpace200Response.md)
 
 ### Authorization
 
@@ -72,8 +72,8 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: application/vnd.segment.v1alpha+json
-- **Accept**: application/vnd.segment.v1alpha+json, application/json
+- **Content-Type**: application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
+- **Accept**: application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json, application/json
 
 
 ### HTTP response details
@@ -91,7 +91,7 @@ public class Example {
 
 Delete Filter By Id
 
-Deletes a filter by id.    • This endpoint is in **Alpha** testing.  Please submit any feedback by sending an email to friends@segment.com.    • In order to successfully call this endpoint, the specified Workspace needs to have the Space Filters feature enabled. Please reach out to your customer success manager for more information.   • When called, this endpoint may generate the &#x60;Filter Deleted&#x60; event in the [audit trail](/tag/Audit-Trail).       
+Deletes a filter by id.    • This endpoint is in **Beta** testing.  Please submit any feedback by sending an email to friends@segment.com.    • In order to successfully call this endpoint, the specified Workspace needs to have the Space Filters feature enabled. Please reach out to your customer success manager for more information.   • When called, this endpoint may generate the &#x60;Filter Deleted&#x60; event in the [audit trail](/tag/Audit-Trail).       
 
 ### Example
 
@@ -146,7 +146,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/vnd.segment.v1alpha+json, application/json
+- **Accept**: application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json, application/json
 
 
 ### HTTP response details
@@ -164,7 +164,7 @@ public class Example {
 
 Get Filter By Id
 
-Gets a filter by id.  • This endpoint is in **Alpha** testing.  Please submit any feedback by sending an email to friends@segment.com.   • In order to successfully call this endpoint, the specified Workspace needs to have the Space Filters feature enabled. Please reach out to your customer success manager for more information.
+Gets a filter by id.  • This endpoint is in **Beta** testing.  Please submit any feedback by sending an email to friends@segment.com.   • In order to successfully call this endpoint, the specified Workspace needs to have the Space Filters feature enabled. Please reach out to your customer success manager for more information.
 
 ### Example
 
@@ -219,7 +219,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/vnd.segment.v1alpha+json, application/json
+- **Accept**: application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json, application/json
 
 
 ### HTTP response details
@@ -231,13 +231,13 @@ public class Example {
 | **429** | Too many requests |  -  |
 
 
-## Operation: listFiltersByIntegrationId
+## Operation: listFiltersForSpace
 
-> ListFiltersByIntegrationId200Response listFiltersByIntegrationId(integrationId, pagination)
+> ListFiltersForSpace200Response listFiltersForSpace(integrationId, pagination)
 
-List Filters By Integration Id
+List Filters for Space
 
-Lists filters by Integration id.  • This endpoint is in **Alpha** testing.  Please submit any feedback by sending an email to friends@segment.com.   • In order to successfully call this endpoint, the specified Workspace needs to have the Space Filters feature enabled. Please reach out to your customer success manager for more information.
+Lists filters for a space.  • This endpoint is in **Beta** testing.  Please submit any feedback by sending an email to friends@segment.com.   • In order to successfully call this endpoint, the specified Workspace needs to have the Space Filters feature enabled. Please reach out to your customer success manager for more information.
 
 ### Example
 
@@ -259,13 +259,13 @@ public class Example {
         token.setBearerToken("BEARER TOKEN");
 
         SpaceFiltersApi apiInstance = new SpaceFiltersApi(defaultClient);
-        String integrationId = "<id>"; // String | The integration id used to fetch filters.  This parameter exists in alpha.
-        ListFiltersPaginationInput pagination = new ListFiltersPaginationInput(); // ListFiltersPaginationInput | Pagination parameters.  This parameter exists in alpha.
+        String integrationId = "<id>"; // String | The Space Id for which to fetch filters  This parameter exists in beta.
+        ListFiltersPaginationInput pagination = new ListFiltersPaginationInput(); // ListFiltersPaginationInput | Pagination parameters.  This parameter exists in beta.
         try {
-            ListFiltersByIntegrationId200Response result = apiInstance.listFiltersByIntegrationId(integrationId, pagination);
+            ListFiltersForSpace200Response result = apiInstance.listFiltersForSpace(integrationId, pagination);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SpaceFiltersApi#listFiltersByIntegrationId");
+            System.err.println("Exception when calling SpaceFiltersApi#listFiltersForSpace");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -280,12 +280,12 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **integrationId** | **String**| The integration id used to fetch filters.  This parameter exists in alpha. | |
-| **pagination** | [**ListFiltersPaginationInput**](.md)| Pagination parameters.  This parameter exists in alpha. | [optional] |
+| **integrationId** | **String**| The Space Id for which to fetch filters  This parameter exists in beta. | |
+| **pagination** | [**ListFiltersPaginationInput**](.md)| Pagination parameters.  This parameter exists in beta. | [optional] |
 
 ### Return type
 
-[**ListFiltersByIntegrationId200Response**](ListFiltersByIntegrationId200Response.md)
+[**ListFiltersForSpace200Response**](ListFiltersForSpace200Response.md)
 
 ### Authorization
 
@@ -294,7 +294,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/vnd.segment.v1alpha+json, application/json
+- **Accept**: application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json, application/json
 
 
 ### HTTP response details
@@ -312,7 +312,7 @@ public class Example {
 
 Update Filter By Id
 
-Updates a filter by id and replaces the existing filter.    • This endpoint is in **Alpha** testing.  Please submit any feedback by sending an email to friends@segment.com.    • In order to successfully call this endpoint, the specified Workspace needs to have the Space Filters feature enabled. Please reach out to your customer success manager for more information.   • When called, this endpoint may generate the &#x60;Filter Updated&#x60; event in the [audit trail](/tag/Audit-Trail).       
+Updates a filter by id and replaces the existing filter.    • This endpoint is in **Beta** testing.  Please submit any feedback by sending an email to friends@segment.com.    • In order to successfully call this endpoint, the specified Workspace needs to have the Space Filters feature enabled. Please reach out to your customer success manager for more information.   • When called, this endpoint may generate the &#x60;Filter Updated&#x60; event in the [audit trail](/tag/Audit-Trail).       
 
 ### Example
 
@@ -368,8 +368,8 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: application/vnd.segment.v1alpha+json
-- **Accept**: application/vnd.segment.v1alpha+json, application/json
+- **Content-Type**: application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
+- **Accept**: application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json, application/json
 
 
 ### HTTP response details
