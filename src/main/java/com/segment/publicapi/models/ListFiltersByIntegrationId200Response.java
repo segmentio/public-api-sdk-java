@@ -27,16 +27,16 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** ListFiltersForSpace200Response */
-public class ListFiltersForSpace200Response {
+/** ListFiltersByIntegrationId200Response */
+public class ListFiltersByIntegrationId200Response {
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    private ListFiltersForSpaceOutput data;
+    private ListFiltersByIntegrationIdOutput data;
 
-    public ListFiltersForSpace200Response() {}
+    public ListFiltersByIntegrationId200Response() {}
 
-    public ListFiltersForSpace200Response data(ListFiltersForSpaceOutput data) {
+    public ListFiltersByIntegrationId200Response data(ListFiltersByIntegrationIdOutput data) {
 
         this.data = data;
         return this;
@@ -48,11 +48,11 @@ public class ListFiltersForSpace200Response {
      * @return data
      */
     @javax.annotation.Nullable
-    public ListFiltersForSpaceOutput getData() {
+    public ListFiltersByIntegrationIdOutput getData() {
         return data;
     }
 
-    public void setData(ListFiltersForSpaceOutput data) {
+    public void setData(ListFiltersByIntegrationIdOutput data) {
         this.data = data;
     }
 
@@ -64,9 +64,9 @@ public class ListFiltersForSpace200Response {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        ListFiltersForSpace200Response listFiltersForSpace200Response =
-                (ListFiltersForSpace200Response) o;
-        return Objects.equals(this.data, listFiltersForSpace200Response.data);
+        ListFiltersByIntegrationId200Response listFiltersByIntegrationId200Response =
+                (ListFiltersByIntegrationId200Response) o;
+        return Objects.equals(this.data, listFiltersByIntegrationId200Response.data);
     }
 
     @Override
@@ -77,7 +77,7 @@ public class ListFiltersForSpace200Response {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ListFiltersForSpace200Response {\n");
+        sb.append("class ListFiltersByIntegrationId200Response {\n");
         sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -111,35 +111,37 @@ public class ListFiltersForSpace200Response {
      *
      * @param jsonElement JSON Element
      * @throws IOException if the JSON Element is invalid with respect to
-     *     ListFiltersForSpace200Response
+     *     ListFiltersByIntegrationId200Response
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!ListFiltersForSpace200Response.openapiRequiredFields
+            if (!ListFiltersByIntegrationId200Response.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in ListFiltersForSpace200Response is not"
-                                        + " found in the empty JSON string",
-                                ListFiltersForSpace200Response.openapiRequiredFields.toString()));
+                                "The required field(s) %s in ListFiltersByIntegrationId200Response"
+                                        + " is not found in the empty JSON string",
+                                ListFiltersByIntegrationId200Response.openapiRequiredFields
+                                        .toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!ListFiltersForSpace200Response.openapiFields.contains(entry.getKey())) {
+            if (!ListFiltersByIntegrationId200Response.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `ListFiltersForSpace200Response` properties. JSON: %s",
+                                    + " `ListFiltersByIntegrationId200Response` properties. JSON:"
+                                    + " %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the optional field `data`
         if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-            ListFiltersForSpaceOutput.validateJsonElement(jsonObj.get("data"));
+            ListFiltersByIntegrationIdOutput.validateJsonElement(jsonObj.get("data"));
         }
     }
 
@@ -147,26 +149,27 @@ public class ListFiltersForSpace200Response {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!ListFiltersForSpace200Response.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'ListFiltersForSpace200Response' and its
-                // subtypes
+            if (!ListFiltersByIntegrationId200Response.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'ListFiltersByIntegrationId200Response'
+                // and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<ListFiltersForSpace200Response> thisAdapter =
+            final TypeAdapter<ListFiltersByIntegrationId200Response> thisAdapter =
                     gson.getDelegateAdapter(
-                            this, TypeToken.get(ListFiltersForSpace200Response.class));
+                            this, TypeToken.get(ListFiltersByIntegrationId200Response.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<ListFiltersForSpace200Response>() {
+                    new TypeAdapter<ListFiltersByIntegrationId200Response>() {
                         @Override
-                        public void write(JsonWriter out, ListFiltersForSpace200Response value)
+                        public void write(
+                                JsonWriter out, ListFiltersByIntegrationId200Response value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public ListFiltersForSpace200Response read(JsonReader in)
+                        public ListFiltersByIntegrationId200Response read(JsonReader in)
                                 throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
@@ -177,19 +180,20 @@ public class ListFiltersForSpace200Response {
     }
 
     /**
-     * Create an instance of ListFiltersForSpace200Response given an JSON string
+     * Create an instance of ListFiltersByIntegrationId200Response given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of ListFiltersForSpace200Response
+     * @return An instance of ListFiltersByIntegrationId200Response
      * @throws IOException if the JSON string is invalid with respect to
-     *     ListFiltersForSpace200Response
+     *     ListFiltersByIntegrationId200Response
      */
-    public static ListFiltersForSpace200Response fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, ListFiltersForSpace200Response.class);
+    public static ListFiltersByIntegrationId200Response fromJson(String jsonString)
+            throws IOException {
+        return JSON.getGson().fromJson(jsonString, ListFiltersByIntegrationId200Response.class);
     }
 
     /**
-     * Convert an instance of ListFiltersForSpace200Response to an JSON string
+     * Convert an instance of ListFiltersByIntegrationId200Response to an JSON string
      *
      * @return JSON string
      */

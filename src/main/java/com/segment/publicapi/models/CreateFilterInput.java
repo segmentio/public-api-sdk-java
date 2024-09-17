@@ -30,7 +30,7 @@ import java.util.Objects;
 import java.util.Set;
 
 /** Input for CreateFilter. */
-public class CreateFilterForSpaceInput {
+public class CreateFilterInput {
     public static final String SERIALIZED_NAME_INTEGRATION_ID = "integrationId";
 
     @SerializedName(SERIALIZED_NAME_INTEGRATION_ID)
@@ -71,16 +71,16 @@ public class CreateFilterForSpaceInput {
     @SerializedName(SERIALIZED_NAME_ALLOW_PROPERTIES)
     private List<String> allowProperties;
 
-    public CreateFilterForSpaceInput() {}
+    public CreateFilterInput() {}
 
-    public CreateFilterForSpaceInput integrationId(String integrationId) {
+    public CreateFilterInput integrationId(String integrationId) {
 
         this.integrationId = integrationId;
         return this;
     }
 
     /**
-     * The Space id to filer on.
+     * The Integration id of the resource.
      *
      * @return integrationId
      */
@@ -93,7 +93,7 @@ public class CreateFilterForSpaceInput {
         this.integrationId = integrationId;
     }
 
-    public CreateFilterForSpaceInput enabled(Boolean enabled) {
+    public CreateFilterInput enabled(Boolean enabled) {
 
         this.enabled = enabled;
         return this;
@@ -113,7 +113,7 @@ public class CreateFilterForSpaceInput {
         this.enabled = enabled;
     }
 
-    public CreateFilterForSpaceInput name(String name) {
+    public CreateFilterInput name(String name) {
 
         this.name = name;
         return this;
@@ -133,7 +133,7 @@ public class CreateFilterForSpaceInput {
         this.name = name;
     }
 
-    public CreateFilterForSpaceInput description(String description) {
+    public CreateFilterInput description(String description) {
 
         this.description = description;
         return this;
@@ -153,7 +153,7 @@ public class CreateFilterForSpaceInput {
         this.description = description;
     }
 
-    public CreateFilterForSpaceInput _if(String _if) {
+    public CreateFilterInput _if(String _if) {
 
         this._if = _if;
         return this;
@@ -173,7 +173,7 @@ public class CreateFilterForSpaceInput {
         this._if = _if;
     }
 
-    public CreateFilterForSpaceInput drop(Boolean drop) {
+    public CreateFilterInput drop(Boolean drop) {
 
         this.drop = drop;
         return this;
@@ -193,13 +193,13 @@ public class CreateFilterForSpaceInput {
         this.drop = drop;
     }
 
-    public CreateFilterForSpaceInput dropProperties(List<String> dropProperties) {
+    public CreateFilterInput dropProperties(List<String> dropProperties) {
 
         this.dropProperties = dropProperties;
         return this;
     }
 
-    public CreateFilterForSpaceInput addDropPropertiesItem(String dropPropertiesItem) {
+    public CreateFilterInput addDropPropertiesItem(String dropPropertiesItem) {
         if (this.dropProperties == null) {
             this.dropProperties = new ArrayList<>();
         }
@@ -221,13 +221,13 @@ public class CreateFilterForSpaceInput {
         this.dropProperties = dropProperties;
     }
 
-    public CreateFilterForSpaceInput allowProperties(List<String> allowProperties) {
+    public CreateFilterInput allowProperties(List<String> allowProperties) {
 
         this.allowProperties = allowProperties;
         return this;
     }
 
-    public CreateFilterForSpaceInput addAllowPropertiesItem(String allowPropertiesItem) {
+    public CreateFilterInput addAllowPropertiesItem(String allowPropertiesItem) {
         if (this.allowProperties == null) {
             this.allowProperties = new ArrayList<>();
         }
@@ -257,15 +257,15 @@ public class CreateFilterForSpaceInput {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        CreateFilterForSpaceInput createFilterForSpaceInput = (CreateFilterForSpaceInput) o;
-        return Objects.equals(this.integrationId, createFilterForSpaceInput.integrationId)
-                && Objects.equals(this.enabled, createFilterForSpaceInput.enabled)
-                && Objects.equals(this.name, createFilterForSpaceInput.name)
-                && Objects.equals(this.description, createFilterForSpaceInput.description)
-                && Objects.equals(this._if, createFilterForSpaceInput._if)
-                && Objects.equals(this.drop, createFilterForSpaceInput.drop)
-                && Objects.equals(this.dropProperties, createFilterForSpaceInput.dropProperties)
-                && Objects.equals(this.allowProperties, createFilterForSpaceInput.allowProperties);
+        CreateFilterInput createFilterInput = (CreateFilterInput) o;
+        return Objects.equals(this.integrationId, createFilterInput.integrationId)
+                && Objects.equals(this.enabled, createFilterInput.enabled)
+                && Objects.equals(this.name, createFilterInput.name)
+                && Objects.equals(this.description, createFilterInput.description)
+                && Objects.equals(this._if, createFilterInput._if)
+                && Objects.equals(this.drop, createFilterInput.drop)
+                && Objects.equals(this.dropProperties, createFilterInput.dropProperties)
+                && Objects.equals(this.allowProperties, createFilterInput.allowProperties);
     }
 
     @Override
@@ -284,7 +284,7 @@ public class CreateFilterForSpaceInput {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CreateFilterForSpaceInput {\n");
+        sb.append("class CreateFilterInput {\n");
         sb.append("    integrationId: ").append(toIndentedString(integrationId)).append("\n");
         sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -334,34 +334,34 @@ public class CreateFilterForSpaceInput {
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to CreateFilterForSpaceInput
+     * @throws IOException if the JSON Element is invalid with respect to CreateFilterInput
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!CreateFilterForSpaceInput.openapiRequiredFields
+            if (!CreateFilterInput.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in CreateFilterForSpaceInput is not found"
-                                        + " in the empty JSON string",
-                                CreateFilterForSpaceInput.openapiRequiredFields.toString()));
+                                "The required field(s) %s in CreateFilterInput is not found in the"
+                                        + " empty JSON string",
+                                CreateFilterInput.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!CreateFilterForSpaceInput.openapiFields.contains(entry.getKey())) {
+            if (!CreateFilterInput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `CreateFilterForSpaceInput` properties. JSON: %s",
+                                        + " `CreateFilterInput` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : CreateFilterForSpaceInput.openapiRequiredFields) {
+        for (String requiredField : CreateFilterInput.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -425,25 +425,24 @@ public class CreateFilterForSpaceInput {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!CreateFilterForSpaceInput.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'CreateFilterForSpaceInput' and its
-                // subtypes
+            if (!CreateFilterInput.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'CreateFilterInput' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<CreateFilterForSpaceInput> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(CreateFilterForSpaceInput.class));
+            final TypeAdapter<CreateFilterInput> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(CreateFilterInput.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<CreateFilterForSpaceInput>() {
+                    new TypeAdapter<CreateFilterInput>() {
                         @Override
-                        public void write(JsonWriter out, CreateFilterForSpaceInput value)
+                        public void write(JsonWriter out, CreateFilterInput value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public CreateFilterForSpaceInput read(JsonReader in) throws IOException {
+                        public CreateFilterInput read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -453,18 +452,18 @@ public class CreateFilterForSpaceInput {
     }
 
     /**
-     * Create an instance of CreateFilterForSpaceInput given an JSON string
+     * Create an instance of CreateFilterInput given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of CreateFilterForSpaceInput
-     * @throws IOException if the JSON string is invalid with respect to CreateFilterForSpaceInput
+     * @return An instance of CreateFilterInput
+     * @throws IOException if the JSON string is invalid with respect to CreateFilterInput
      */
-    public static CreateFilterForSpaceInput fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, CreateFilterForSpaceInput.class);
+    public static CreateFilterInput fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, CreateFilterInput.class);
     }
 
     /**
-     * Convert an instance of CreateFilterForSpaceInput to an JSON string
+     * Convert an instance of CreateFilterInput to an JSON string
      *
      * @return JSON string
      */

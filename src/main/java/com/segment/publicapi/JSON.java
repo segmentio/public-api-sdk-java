@@ -251,6 +251,9 @@ public class JSON {
                 new com.segment.publicapi.models.CreateEdgeFunctionsAlphaOutput
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.CreateFilter200Response
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.CreateFilterForDestination200Response
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
@@ -260,14 +263,9 @@ public class JSON {
                 new com.segment.publicapi.models.CreateFilterForDestinationV1Output
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.CreateFilterForSpace200Response
-                        .CustomTypeAdapterFactory());
+                new com.segment.publicapi.models.CreateFilterInput.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.CreateFilterForSpaceInput
-                        .CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.CreateFilterForSpaceOutput
-                        .CustomTypeAdapterFactory());
+                new com.segment.publicapi.models.CreateFilterOutput.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.CreateFunction200Response
                         .CustomTypeAdapterFactory());
@@ -910,10 +908,10 @@ public class JSON {
                 new com.segment.publicapi.models.ListDestinationsV1Output
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.ListFiltersForSpace200Response
+                new com.segment.publicapi.models.ListFiltersByIntegrationId200Response
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.ListFiltersForSpaceOutput
+                new com.segment.publicapi.models.ListFiltersByIntegrationIdOutput
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.ListFiltersFromDestination200Response
