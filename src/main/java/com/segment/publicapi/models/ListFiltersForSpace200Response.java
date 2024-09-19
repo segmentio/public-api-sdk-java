@@ -27,58 +27,33 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** ReverseEtlCronScheduleConfig */
-public class ReverseEtlCronScheduleConfig {
-    public static final String SERIALIZED_NAME_SPEC = "spec";
+/** ListFiltersForSpace200Response */
+public class ListFiltersForSpace200Response {
+    public static final String SERIALIZED_NAME_DATA = "data";
 
-    @SerializedName(SERIALIZED_NAME_SPEC)
-    private String spec;
+    @SerializedName(SERIALIZED_NAME_DATA)
+    private ListFiltersForSpaceOutput data;
 
-    public static final String SERIALIZED_NAME_TIMEZONE = "timezone";
+    public ListFiltersForSpace200Response() {}
 
-    @SerializedName(SERIALIZED_NAME_TIMEZONE)
-    private String timezone;
+    public ListFiltersForSpace200Response data(ListFiltersForSpaceOutput data) {
 
-    public ReverseEtlCronScheduleConfig() {}
-
-    public ReverseEtlCronScheduleConfig spec(String spec) {
-
-        this.spec = spec;
+        this.data = data;
         return this;
     }
 
     /**
-     * 5 field cron string expression. The cron expression must be larger than 15 minutes.
+     * Get data
      *
-     * @return spec
+     * @return data
      */
-    @javax.annotation.Nonnull
-    public String getSpec() {
-        return spec;
+    @javax.annotation.Nullable
+    public ListFiltersForSpaceOutput getData() {
+        return data;
     }
 
-    public void setSpec(String spec) {
-        this.spec = spec;
-    }
-
-    public ReverseEtlCronScheduleConfig timezone(String timezone) {
-
-        this.timezone = timezone;
-        return this;
-    }
-
-    /**
-     * Timezone for the specified times.
-     *
-     * @return timezone
-     */
-    @javax.annotation.Nonnull
-    public String getTimezone() {
-        return timezone;
-    }
-
-    public void setTimezone(String timezone) {
-        this.timezone = timezone;
+    public void setData(ListFiltersForSpaceOutput data) {
+        this.data = data;
     }
 
     @Override
@@ -89,23 +64,21 @@ public class ReverseEtlCronScheduleConfig {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        ReverseEtlCronScheduleConfig reverseEtlCronScheduleConfig =
-                (ReverseEtlCronScheduleConfig) o;
-        return Objects.equals(this.spec, reverseEtlCronScheduleConfig.spec)
-                && Objects.equals(this.timezone, reverseEtlCronScheduleConfig.timezone);
+        ListFiltersForSpace200Response listFiltersForSpace200Response =
+                (ListFiltersForSpace200Response) o;
+        return Objects.equals(this.data, listFiltersForSpace200Response.data);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(spec, timezone);
+        return Objects.hash(data);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ReverseEtlCronScheduleConfig {\n");
-        sb.append("    spec: ").append(toIndentedString(spec)).append("\n");
-        sb.append("    timezone: ").append(toIndentedString(timezone)).append("\n");
+        sb.append("class ListFiltersForSpace200Response {\n");
+        sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -127,13 +100,10 @@ public class ReverseEtlCronScheduleConfig {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("spec");
-        openapiFields.add("timezone");
+        openapiFields.add("data");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("spec");
-        openapiRequiredFields.add("timezone");
     }
 
     /**
@@ -141,55 +111,35 @@ public class ReverseEtlCronScheduleConfig {
      *
      * @param jsonElement JSON Element
      * @throws IOException if the JSON Element is invalid with respect to
-     *     ReverseEtlCronScheduleConfig
+     *     ListFiltersForSpace200Response
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!ReverseEtlCronScheduleConfig.openapiRequiredFields
+            if (!ListFiltersForSpace200Response.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in ReverseEtlCronScheduleConfig is not"
+                                "The required field(s) %s in ListFiltersForSpace200Response is not"
                                         + " found in the empty JSON string",
-                                ReverseEtlCronScheduleConfig.openapiRequiredFields.toString()));
+                                ListFiltersForSpace200Response.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!ReverseEtlCronScheduleConfig.openapiFields.contains(entry.getKey())) {
+            if (!ListFiltersForSpace200Response.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `ReverseEtlCronScheduleConfig` properties. JSON: %s",
+                                        + " `ListFiltersForSpace200Response` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
-
-        // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : ReverseEtlCronScheduleConfig.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-                throw new IllegalArgumentException(
-                        String.format(
-                                "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonElement.toString()));
-            }
-        }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if (!jsonObj.get("spec").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `spec` to be a primitive type in the JSON string"
-                                    + " but got `%s`",
-                            jsonObj.get("spec").toString()));
-        }
-        if (!jsonObj.get("timezone").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `timezone` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
-                            jsonObj.get("timezone").toString()));
+        // validate the optional field `data`
+        if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
+            ListFiltersForSpaceOutput.validateJsonElement(jsonObj.get("data"));
         }
     }
 
@@ -197,26 +147,27 @@ public class ReverseEtlCronScheduleConfig {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!ReverseEtlCronScheduleConfig.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'ReverseEtlCronScheduleConfig' and its
+            if (!ListFiltersForSpace200Response.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'ListFiltersForSpace200Response' and its
                 // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<ReverseEtlCronScheduleConfig> thisAdapter =
+            final TypeAdapter<ListFiltersForSpace200Response> thisAdapter =
                     gson.getDelegateAdapter(
-                            this, TypeToken.get(ReverseEtlCronScheduleConfig.class));
+                            this, TypeToken.get(ListFiltersForSpace200Response.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<ReverseEtlCronScheduleConfig>() {
+                    new TypeAdapter<ListFiltersForSpace200Response>() {
                         @Override
-                        public void write(JsonWriter out, ReverseEtlCronScheduleConfig value)
+                        public void write(JsonWriter out, ListFiltersForSpace200Response value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public ReverseEtlCronScheduleConfig read(JsonReader in) throws IOException {
+                        public ListFiltersForSpace200Response read(JsonReader in)
+                                throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -226,19 +177,19 @@ public class ReverseEtlCronScheduleConfig {
     }
 
     /**
-     * Create an instance of ReverseEtlCronScheduleConfig given an JSON string
+     * Create an instance of ListFiltersForSpace200Response given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of ReverseEtlCronScheduleConfig
+     * @return An instance of ListFiltersForSpace200Response
      * @throws IOException if the JSON string is invalid with respect to
-     *     ReverseEtlCronScheduleConfig
+     *     ListFiltersForSpace200Response
      */
-    public static ReverseEtlCronScheduleConfig fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, ReverseEtlCronScheduleConfig.class);
+    public static ListFiltersForSpace200Response fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, ListFiltersForSpace200Response.class);
     }
 
     /**
-     * Convert an instance of ReverseEtlCronScheduleConfig to an JSON string
+     * Convert an instance of ListFiltersForSpace200Response to an JSON string
      *
      * @return JSON string
      */
