@@ -81,6 +81,16 @@ public class Filter {
     @SerializedName(SERIALIZED_NAME_ALLOW_PROPERTIES)
     private List<String> allowProperties;
 
+    public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
+
+    @SerializedName(SERIALIZED_NAME_CREATED_AT)
+    private String createdAt;
+
+    public static final String SERIALIZED_NAME_UPDATED_AT = "updatedAt";
+
+    @SerializedName(SERIALIZED_NAME_UPDATED_AT)
+    private String updatedAt;
+
     public Filter() {}
 
     public Filter id(String id) {
@@ -299,6 +309,46 @@ public class Filter {
         this.allowProperties = allowProperties;
     }
 
+    public Filter createdAt(String createdAt) {
+
+        this.createdAt = createdAt;
+        return this;
+    }
+
+    /**
+     * The timestamp of this filter&#39;s creation.
+     *
+     * @return createdAt
+     */
+    @javax.annotation.Nonnull
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Filter updatedAt(String updatedAt) {
+
+        this.updatedAt = updatedAt;
+        return this;
+    }
+
+    /**
+     * The timestamp of this filter&#39;s last change.
+     *
+     * @return updatedAt
+     */
+    @javax.annotation.Nonnull
+    public String getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -317,7 +367,9 @@ public class Filter {
                 && Objects.equals(this._if, filter._if)
                 && Objects.equals(this.drop, filter.drop)
                 && Objects.equals(this.dropProperties, filter.dropProperties)
-                && Objects.equals(this.allowProperties, filter.allowProperties);
+                && Objects.equals(this.allowProperties, filter.allowProperties)
+                && Objects.equals(this.createdAt, filter.createdAt)
+                && Objects.equals(this.updatedAt, filter.updatedAt);
     }
 
     @Override
@@ -332,7 +384,9 @@ public class Filter {
                 _if,
                 drop,
                 dropProperties,
-                allowProperties);
+                allowProperties,
+                createdAt,
+                updatedAt);
     }
 
     @Override
@@ -349,6 +403,8 @@ public class Filter {
         sb.append("    drop: ").append(toIndentedString(drop)).append("\n");
         sb.append("    dropProperties: ").append(toIndentedString(dropProperties)).append("\n");
         sb.append("    allowProperties: ").append(toIndentedString(allowProperties)).append("\n");
+        sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+        sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -380,12 +436,16 @@ public class Filter {
         openapiFields.add("drop");
         openapiFields.add("dropProperties");
         openapiFields.add("allowProperties");
+        openapiFields.add("createdAt");
+        openapiFields.add("updatedAt");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
         openapiRequiredFields.add("id");
         openapiRequiredFields.add("workspaceId");
         openapiRequiredFields.add("integrationId");
+        openapiRequiredFields.add("createdAt");
+        openapiRequiredFields.add("updatedAt");
     }
 
     /**
@@ -492,6 +552,20 @@ public class Filter {
                             "Expected the field `allowProperties` to be an array in the JSON string"
                                     + " but got `%s`",
                             jsonObj.get("allowProperties").toString()));
+        }
+        if (!jsonObj.get("createdAt").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `createdAt` to be a primitive type in the JSON"
+                                    + " string but got `%s`",
+                            jsonObj.get("createdAt").toString()));
+        }
+        if (!jsonObj.get("updatedAt").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `updatedAt` to be a primitive type in the JSON"
+                                    + " string but got `%s`",
+                            jsonObj.get("updatedAt").toString()));
         }
     }
 
