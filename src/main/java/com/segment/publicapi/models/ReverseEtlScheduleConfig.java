@@ -47,6 +47,9 @@ public class ReverseEtlScheduleConfig extends AbstractOpenApiSchema {
                             gson.getDelegateAdapter(
                                     this,
                                     TypeToken.get(ReverseEtlSpecificTimeScheduleConfig.class));
+            final TypeAdapter<ReverseEtlCronScheduleConfig> adapterReverseEtlCronScheduleConfig =
+                    gson.getDelegateAdapter(
+                            this, TypeToken.get(ReverseEtlCronScheduleConfig.class));
 
             return (TypeAdapter<T>)
                     new TypeAdapter<ReverseEtlScheduleConfig>() {
@@ -80,8 +83,19 @@ public class ReverseEtlScheduleConfig extends AbstractOpenApiSchema {
                                 elementAdapter.write(out, element);
                                 return;
                             }
+                            // check if the actual instance is of the type
+                            // `ReverseEtlCronScheduleConfig`
+                            if (value.getActualInstance() instanceof ReverseEtlCronScheduleConfig) {
+                                JsonElement element =
+                                        adapterReverseEtlCronScheduleConfig.toJsonTree(
+                                                (ReverseEtlCronScheduleConfig)
+                                                        value.getActualInstance());
+                                elementAdapter.write(out, element);
+                                return;
+                            }
                             throw new IOException(
                                     "Failed to serialize as the type doesn't match anyOf schemae:"
+                                            + " ReverseEtlCronScheduleConfig,"
                                             + " ReverseEtlPeriodicScheduleConfig,"
                                             + " ReverseEtlSpecificTimeScheduleConfig");
                         }
@@ -139,6 +153,27 @@ public class ReverseEtlScheduleConfig extends AbstractOpenApiSchema {
                                                 + " 'ReverseEtlSpecificTimeScheduleConfig'",
                                         e);
                             }
+                            // deserialize ReverseEtlCronScheduleConfig
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                ReverseEtlCronScheduleConfig.validateJsonElement(jsonElement);
+                                actualAdapter = adapterReverseEtlCronScheduleConfig;
+                                ReverseEtlScheduleConfig ret = new ReverseEtlScheduleConfig();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                return ret;
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                "Deserialization for ReverseEtlCronScheduleConfig"
+                                                        + " failed with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema"
+                                                + " 'ReverseEtlCronScheduleConfig'",
+                                        e);
+                            }
 
                             throw new IOException(
                                     String.format(
@@ -159,6 +194,11 @@ public class ReverseEtlScheduleConfig extends AbstractOpenApiSchema {
         super("anyOf", Boolean.FALSE);
     }
 
+    public ReverseEtlScheduleConfig(ReverseEtlCronScheduleConfig o) {
+        super("anyOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
     public ReverseEtlScheduleConfig(ReverseEtlPeriodicScheduleConfig o) {
         super("anyOf", Boolean.FALSE);
         setActualInstance(o);
@@ -173,6 +213,7 @@ public class ReverseEtlScheduleConfig extends AbstractOpenApiSchema {
         schemas.put("ReverseEtlPeriodicScheduleConfig", ReverseEtlPeriodicScheduleConfig.class);
         schemas.put(
                 "ReverseEtlSpecificTimeScheduleConfig", ReverseEtlSpecificTimeScheduleConfig.class);
+        schemas.put("ReverseEtlCronScheduleConfig", ReverseEtlCronScheduleConfig.class);
     }
 
     @Override
@@ -182,8 +223,8 @@ public class ReverseEtlScheduleConfig extends AbstractOpenApiSchema {
 
     /**
      * Set the instance that matches the anyOf child schema, check the instance parameter is valid
-     * against the anyOf child schemas: ReverseEtlPeriodicScheduleConfig,
-     * ReverseEtlSpecificTimeScheduleConfig
+     * against the anyOf child schemas: ReverseEtlCronScheduleConfig,
+     * ReverseEtlPeriodicScheduleConfig, ReverseEtlSpecificTimeScheduleConfig
      *
      * <p>It could be an instance of the 'anyOf' schemas.
      */
@@ -199,16 +240,21 @@ public class ReverseEtlScheduleConfig extends AbstractOpenApiSchema {
             return;
         }
 
+        if (instance instanceof ReverseEtlCronScheduleConfig) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         throw new RuntimeException(
-                "Invalid instance type. Must be ReverseEtlPeriodicScheduleConfig,"
-                        + " ReverseEtlSpecificTimeScheduleConfig");
+                "Invalid instance type. Must be ReverseEtlCronScheduleConfig,"
+                    + " ReverseEtlPeriodicScheduleConfig, ReverseEtlSpecificTimeScheduleConfig");
     }
 
     /**
-     * Get the actual instance, which can be the following: ReverseEtlPeriodicScheduleConfig,
-     * ReverseEtlSpecificTimeScheduleConfig
+     * Get the actual instance, which can be the following: ReverseEtlCronScheduleConfig,
+     * ReverseEtlPeriodicScheduleConfig, ReverseEtlSpecificTimeScheduleConfig
      *
-     * @return The actual instance (ReverseEtlPeriodicScheduleConfig,
+     * @return The actual instance (ReverseEtlCronScheduleConfig, ReverseEtlPeriodicScheduleConfig,
      *     ReverseEtlSpecificTimeScheduleConfig)
      */
     @Override
@@ -238,6 +284,18 @@ public class ReverseEtlScheduleConfig extends AbstractOpenApiSchema {
     public ReverseEtlSpecificTimeScheduleConfig getReverseEtlSpecificTimeScheduleConfig()
             throws ClassCastException {
         return (ReverseEtlSpecificTimeScheduleConfig) super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `ReverseEtlCronScheduleConfig`. If the actual instance is not
+     * `ReverseEtlCronScheduleConfig`, the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ReverseEtlCronScheduleConfig`
+     * @throws ClassCastException if the instance is not `ReverseEtlCronScheduleConfig`
+     */
+    public ReverseEtlCronScheduleConfig getReverseEtlCronScheduleConfig()
+            throws ClassCastException {
+        return (ReverseEtlCronScheduleConfig) super.getActualInstance();
     }
 
     /**
@@ -273,10 +331,22 @@ public class ReverseEtlScheduleConfig extends AbstractOpenApiSchema {
                             e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with ReverseEtlCronScheduleConfig
+        try {
+            ReverseEtlCronScheduleConfig.validateJsonElement(jsonElement);
+            return;
+        } catch (Exception e) {
+            errorMessages.add(
+                    String.format(
+                            "Deserialization for ReverseEtlCronScheduleConfig failed with `%s`.",
+                            e.getMessage()));
+            // continue to the next one
+        }
         throw new IOException(
                 String.format(
                         "The JSON string is invalid for ReverseEtlScheduleConfig with anyOf"
-                            + " schemas: ReverseEtlPeriodicScheduleConfig,"
+                            + " schemas: ReverseEtlCronScheduleConfig,"
+                            + " ReverseEtlPeriodicScheduleConfig,"
                             + " ReverseEtlSpecificTimeScheduleConfig. no class match the result,"
                             + " expected at least 1. Detailed failure message for anyOf schemas:"
                             + " %s. JSON: %s",
