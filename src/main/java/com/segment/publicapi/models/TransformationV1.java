@@ -62,6 +62,11 @@ public class TransformationV1 {
     @SerializedName(SERIALIZED_NAME_IF)
     private String _if;
 
+    public static final String SERIALIZED_NAME_DROP = "drop";
+
+    @SerializedName(SERIALIZED_NAME_DROP)
+    private Boolean drop;
+
     public static final String SERIALIZED_NAME_NEW_EVENT_NAME = "newEventName";
 
     @SerializedName(SERIALIZED_NAME_NEW_EVENT_NAME)
@@ -218,6 +223,27 @@ public class TransformationV1 {
 
     public void setIf(String _if) {
         this._if = _if;
+    }
+
+    public TransformationV1 drop(Boolean drop) {
+
+        this.drop = drop;
+        return this;
+    }
+
+    /**
+     * Optional boolean value if the Transformation should drop the event entirely when the if
+     * statement matches, ignores all other transforms.
+     *
+     * @return drop
+     */
+    @javax.annotation.Nullable
+    public Boolean getDrop() {
+        return drop;
+    }
+
+    public void setDrop(Boolean drop) {
+        this.drop = drop;
     }
 
     public TransformationV1 newEventName(String newEventName) {
@@ -395,6 +421,7 @@ public class TransformationV1 {
                         this.destinationMetadataId, transformationV1.destinationMetadataId)
                 && Objects.equals(this.enabled, transformationV1.enabled)
                 && Objects.equals(this._if, transformationV1._if)
+                && Objects.equals(this.drop, transformationV1.drop)
                 && Objects.equals(this.newEventName, transformationV1.newEventName)
                 && Objects.equals(this.propertyRenames, transformationV1.propertyRenames)
                 && Objects.equals(
@@ -416,6 +443,7 @@ public class TransformationV1 {
                 destinationMetadataId,
                 enabled,
                 _if,
+                drop,
                 newEventName,
                 propertyRenames,
                 propertyValueTransformations,
@@ -436,6 +464,7 @@ public class TransformationV1 {
                 .append("\n");
         sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
         sb.append("    _if: ").append(toIndentedString(_if)).append("\n");
+        sb.append("    drop: ").append(toIndentedString(drop)).append("\n");
         sb.append("    newEventName: ").append(toIndentedString(newEventName)).append("\n");
         sb.append("    propertyRenames: ").append(toIndentedString(propertyRenames)).append("\n");
         sb.append("    propertyValueTransformations: ")
@@ -475,6 +504,7 @@ public class TransformationV1 {
         openapiFields.add("destinationMetadataId");
         openapiFields.add("enabled");
         openapiFields.add("if");
+        openapiFields.add("drop");
         openapiFields.add("newEventName");
         openapiFields.add("propertyRenames");
         openapiFields.add("propertyValueTransformations");
