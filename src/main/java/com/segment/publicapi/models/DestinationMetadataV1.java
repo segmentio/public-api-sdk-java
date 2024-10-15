@@ -192,6 +192,12 @@ public class DestinationMetadataV1 {
     @SerializedName(SERIALIZED_NAME_REGION_ENDPOINTS)
     private List<String> regionEndpoints;
 
+    public static final String SERIALIZED_NAME_MULTI_INSTANCE_SUPPORTED_VERSION =
+            "multiInstanceSupportedVersion";
+
+    @SerializedName(SERIALIZED_NAME_MULTI_INSTANCE_SUPPORTED_VERSION)
+    private String multiInstanceSupportedVersion;
+
     public DestinationMetadataV1() {}
 
     public DestinationMetadataV1 id(String id) {
@@ -670,6 +676,27 @@ public class DestinationMetadataV1 {
         this.regionEndpoints = regionEndpoints;
     }
 
+    public DestinationMetadataV1 multiInstanceSupportedVersion(
+            String multiInstanceSupportedVersion) {
+
+        this.multiInstanceSupportedVersion = multiInstanceSupportedVersion;
+        return this;
+    }
+
+    /**
+     * This Destination&#39;s support for multiple instance types.
+     *
+     * @return multiInstanceSupportedVersion
+     */
+    @javax.annotation.Nullable
+    public String getMultiInstanceSupportedVersion() {
+        return multiInstanceSupportedVersion;
+    }
+
+    public void setMultiInstanceSupportedVersion(String multiInstanceSupportedVersion) {
+        this.multiInstanceSupportedVersion = multiInstanceSupportedVersion;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -698,7 +725,10 @@ public class DestinationMetadataV1 {
                 && Objects.equals(this.contacts, destinationMetadataV1.contacts)
                 && Objects.equals(this.partnerOwned, destinationMetadataV1.partnerOwned)
                 && Objects.equals(this.supportedRegions, destinationMetadataV1.supportedRegions)
-                && Objects.equals(this.regionEndpoints, destinationMetadataV1.regionEndpoints);
+                && Objects.equals(this.regionEndpoints, destinationMetadataV1.regionEndpoints)
+                && Objects.equals(
+                        this.multiInstanceSupportedVersion,
+                        destinationMetadataV1.multiInstanceSupportedVersion);
     }
 
     @Override
@@ -723,7 +753,8 @@ public class DestinationMetadataV1 {
                 contacts,
                 partnerOwned,
                 supportedRegions,
-                regionEndpoints);
+                regionEndpoints,
+                multiInstanceSupportedVersion);
     }
 
     @Override
@@ -754,6 +785,9 @@ public class DestinationMetadataV1 {
         sb.append("    partnerOwned: ").append(toIndentedString(partnerOwned)).append("\n");
         sb.append("    supportedRegions: ").append(toIndentedString(supportedRegions)).append("\n");
         sb.append("    regionEndpoints: ").append(toIndentedString(regionEndpoints)).append("\n");
+        sb.append("    multiInstanceSupportedVersion: ")
+                .append(toIndentedString(multiInstanceSupportedVersion))
+                .append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -795,6 +829,7 @@ public class DestinationMetadataV1 {
         openapiFields.add("partnerOwned");
         openapiFields.add("supportedRegions");
         openapiFields.add("regionEndpoints");
+        openapiFields.add("multiInstanceSupportedVersion");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
@@ -1028,6 +1063,15 @@ public class DestinationMetadataV1 {
                             "Expected the field `regionEndpoints` to be an array in the JSON string"
                                     + " but got `%s`",
                             jsonObj.get("regionEndpoints").toString()));
+        }
+        if ((jsonObj.get("multiInstanceSupportedVersion") != null
+                        && !jsonObj.get("multiInstanceSupportedVersion").isJsonNull())
+                && !jsonObj.get("multiInstanceSupportedVersion").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `multiInstanceSupportedVersion` to be a primitive"
+                                    + " type in the JSON string but got `%s`",
+                            jsonObj.get("multiInstanceSupportedVersion").toString()));
         }
     }
 
