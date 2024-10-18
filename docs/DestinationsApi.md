@@ -794,8 +794,8 @@ public class Example {
         token.setBearerToken("BEARER TOKEN");
 
         DestinationsApi apiInstance = new DestinationsApi(defaultClient);
-        String destinationId = "fP7qoQw2HTWt9WdMr718gn"; // String | 
-        String id = "3ELMSracBm5MMikXBYfo1c"; // String | 
+        String destinationId = "qtiZHLLqqsHmpvLXNtP5du"; // String | 
+        String id = "pJtn52LjrcD1TrQcm2ZSwp"; // String | 
         UpdateSubscriptionForDestinationAlphaInput updateSubscriptionForDestinationAlphaInput = new UpdateSubscriptionForDestinationAlphaInput(); // UpdateSubscriptionForDestinationAlphaInput | 
         try {
             UpdateSubscriptionForDestination200Response result = apiInstance.updateSubscriptionForDestination(destinationId, id, updateSubscriptionForDestinationAlphaInput);
