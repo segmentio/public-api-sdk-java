@@ -361,7 +361,7 @@ public class DestinationsApi {
      * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
      * In order to successfully call this endpoint, the specified Workspace needs to have the
      * Destination Subscriptions feature enabled. Please reach out to your customer success manager
-     * for more information. The rate limit for this endpoint is 50 requests per minute, which is
+     * for more information. The rate limit for this endpoint is 5 requests per minute, which is
      * lower than the default due to access pattern restrictions. Once reached, this endpoint will
      * respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.
@@ -395,7 +395,7 @@ public class DestinationsApi {
      * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
      * In order to successfully call this endpoint, the specified Workspace needs to have the
      * Destination Subscriptions feature enabled. Please reach out to your customer success manager
-     * for more information. The rate limit for this endpoint is 50 requests per minute, which is
+     * for more information. The rate limit for this endpoint is 5 requests per minute, which is
      * lower than the default due to access pattern restrictions. Once reached, this endpoint will
      * respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.
@@ -432,10 +432,10 @@ public class DestinationsApi {
      * This endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
      * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
      * needs to have the Destination Subscriptions feature enabled. Please reach out to your
-     * customer success manager for more information. The rate limit for this endpoint is 50
-     * requests per minute, which is lower than the default due to access pattern restrictions. Once
-     * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
-     * limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * customer success manager for more information. The rate limit for this endpoint is 5 requests
+     * per minute, which is lower than the default due to access pattern restrictions. Once reached,
+     * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
+     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param destinationId (required)
      * @param createDestinationSubscriptionAlphaInput (required)
@@ -1733,10 +1733,10 @@ public class DestinationsApi {
      * endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
      * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
      * needs to have the Destination Subscriptions feature enabled. Please reach out to your
-     * customer success manager for more information. The rate limit for this endpoint is 50
-     * requests per minute, which is lower than the default due to access pattern restrictions. Once
-     * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
-     * limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * customer success manager for more information. The rate limit for this endpoint is 5 requests
+     * per minute, which is lower than the default due to access pattern restrictions. Once reached,
+     * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
+     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param destinationId (required)
      * @param id (required)
@@ -1764,10 +1764,10 @@ public class DestinationsApi {
      * endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
      * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
      * needs to have the Destination Subscriptions feature enabled. Please reach out to your
-     * customer success manager for more information. The rate limit for this endpoint is 50
-     * requests per minute, which is lower than the default due to access pattern restrictions. Once
-     * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
-     * limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * customer success manager for more information. The rate limit for this endpoint is 5 requests
+     * per minute, which is lower than the default due to access pattern restrictions. Once reached,
+     * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
+     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param destinationId (required)
      * @param id (required)
@@ -1798,7 +1798,7 @@ public class DestinationsApi {
      * subscription. • This endpoint is in **Alpha** testing. Please submit any feedback by sending
      * an email to friends@segment.com. • In order to successfully call this endpoint, the specified
      * Workspace needs to have the Destination Subscriptions feature enabled. Please reach out to
-     * your customer success manager for more information. The rate limit for this endpoint is 50
+     * your customer success manager for more information. The rate limit for this endpoint is 5
      * requests per minute, which is lower than the default due to access pattern restrictions. Once
      * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
      * limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
@@ -2165,10 +2165,10 @@ public class DestinationsApi {
      * endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
      * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
      * needs to have the Destination Subscriptions feature enabled. Please reach out to your
-     * customer success manager for more information. The rate limit for this endpoint is 50
-     * requests per minute, which is lower than the default due to access pattern restrictions. Once
-     * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
-     * limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * customer success manager for more information. The rate limit for this endpoint is 5 requests
+     * per minute, which is lower than the default due to access pattern restrictions. Once reached,
+     * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
+     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param destinationId (required)
      * @param id (required)
@@ -2201,10 +2201,10 @@ public class DestinationsApi {
      * endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
      * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
      * needs to have the Destination Subscriptions feature enabled. Please reach out to your
-     * customer success manager for more information. The rate limit for this endpoint is 50
-     * requests per minute, which is lower than the default due to access pattern restrictions. Once
-     * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
-     * limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * customer success manager for more information. The rate limit for this endpoint is 5 requests
+     * per minute, which is lower than the default due to access pattern restrictions. Once reached,
+     * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
+     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param destinationId (required)
      * @param id (required)
@@ -2241,7 +2241,7 @@ public class DestinationsApi {
      * subscription. • This endpoint is in **Alpha** testing. Please submit any feedback by sending
      * an email to friends@segment.com. • In order to successfully call this endpoint, the specified
      * Workspace needs to have the Destination Subscriptions feature enabled. Please reach out to
-     * your customer success manager for more information. The rate limit for this endpoint is 50
+     * your customer success manager for more information. The rate limit for this endpoint is 5
      * requests per minute, which is lower than the default due to access pattern restrictions. Once
      * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
      * limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
