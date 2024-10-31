@@ -35,9 +35,11 @@ import org.openapitools.jackson.nullable.JsonNullable;
  * strategy.
  */
 public class ReverseEtlScheduleDefinition {
-    /** Strategy supports three modes: Periodic, Specific Days, or Manual. */
+    /** Strategy supports: Periodic, Specific Days, Manual, CRON. */
     @JsonAdapter(StrategyEnum.Adapter.class)
     public enum StrategyEnum {
+        CRON("CRON"),
+
         MANUAL("MANUAL"),
 
         PERIODIC("PERIODIC"),
@@ -102,7 +104,7 @@ public class ReverseEtlScheduleDefinition {
     }
 
     /**
-     * Strategy supports three modes: Periodic, Specific Days, or Manual.
+     * Strategy supports: Periodic, Specific Days, Manual, CRON.
      *
      * @return strategy
      */

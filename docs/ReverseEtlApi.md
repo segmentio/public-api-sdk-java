@@ -337,7 +337,7 @@ public class Example {
         token.setBearerToken("BEARER TOKEN");
 
         ReverseEtlApi apiInstance = new ReverseEtlApi(defaultClient);
-        String modelId = "dY1JLx4HgWHKUNsB76tEU"; // String | 
+        String modelId = "jSAVzDH3z89geNDZwoNY9V"; // String | 
         try {
             GetReverseEtlModel200Response result = apiInstance.getReverseEtlModel(modelId);
             System.out.println(result);
@@ -562,7 +562,7 @@ public class Example {
         token.setBearerToken("BEARER TOKEN");
 
         ReverseEtlApi apiInstance = new ReverseEtlApi(defaultClient);
-        String modelId = "gFBTkmP2ENiu6BQRmdHBkr"; // String | 
+        String modelId = "6BthE21tPsXyA2cK3QPQFQ"; // String | 
         UpdateReverseEtlModelInput updateReverseEtlModelInput = new UpdateReverseEtlModelInput(); // UpdateReverseEtlModelInput | 
         try {
             UpdateReverseEtlModel200Response result = apiInstance.updateReverseEtlModel(modelId, updateReverseEtlModelInput);

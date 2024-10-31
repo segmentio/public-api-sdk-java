@@ -16,14 +16,12 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
@@ -45,67 +43,6 @@ public class UpdateReverseEtlModelInput {
 
     @SerializedName(SERIALIZED_NAME_ENABLED)
     private Boolean enabled;
-
-    /**
-     * Determines the strategy used for triggering syncs, which will be used in conjunction with
-     * scheduleConfig.
-     */
-    @JsonAdapter(ScheduleStrategyEnum.Adapter.class)
-    public enum ScheduleStrategyEnum {
-        MANUAL("MANUAL"),
-
-        PERIODIC("PERIODIC"),
-
-        SPECIFIC_DAYS("SPECIFIC_DAYS");
-
-        private String value;
-
-        ScheduleStrategyEnum(String value) {
-            this.value = value;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        public static ScheduleStrategyEnum fromValue(String value) {
-            for (ScheduleStrategyEnum b : ScheduleStrategyEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
-        }
-
-        public static class Adapter extends TypeAdapter<ScheduleStrategyEnum> {
-            @Override
-            public void write(final JsonWriter jsonWriter, final ScheduleStrategyEnum enumeration)
-                    throws IOException {
-                jsonWriter.value(enumeration.getValue());
-            }
-
-            @Override
-            public ScheduleStrategyEnum read(final JsonReader jsonReader) throws IOException {
-                String value = jsonReader.nextString();
-                return ScheduleStrategyEnum.fromValue(value);
-            }
-        }
-    }
-
-    public static final String SERIALIZED_NAME_SCHEDULE_STRATEGY = "scheduleStrategy";
-
-    @SerializedName(SERIALIZED_NAME_SCHEDULE_STRATEGY)
-    private ScheduleStrategyEnum scheduleStrategy;
-
-    public static final String SERIALIZED_NAME_SCHEDULE_CONFIG = "scheduleConfig";
-
-    @SerializedName(SERIALIZED_NAME_SCHEDULE_CONFIG)
-    private Map<String, Object> scheduleConfig;
 
     public static final String SERIALIZED_NAME_QUERY = "query";
 
@@ -180,56 +117,6 @@ public class UpdateReverseEtlModelInput {
         this.enabled = enabled;
     }
 
-    public UpdateReverseEtlModelInput scheduleStrategy(ScheduleStrategyEnum scheduleStrategy) {
-
-        this.scheduleStrategy = scheduleStrategy;
-        return this;
-    }
-
-    /**
-     * Determines the strategy used for triggering syncs, which will be used in conjunction with
-     * scheduleConfig.
-     *
-     * @return scheduleStrategy
-     */
-    @javax.annotation.Nullable
-    public ScheduleStrategyEnum getScheduleStrategy() {
-        return scheduleStrategy;
-    }
-
-    public void setScheduleStrategy(ScheduleStrategyEnum scheduleStrategy) {
-        this.scheduleStrategy = scheduleStrategy;
-    }
-
-    public UpdateReverseEtlModelInput scheduleConfig(Map<String, Object> scheduleConfig) {
-
-        this.scheduleConfig = scheduleConfig;
-        return this;
-    }
-
-    public UpdateReverseEtlModelInput putScheduleConfigItem(String key, Object scheduleConfigItem) {
-        if (this.scheduleConfig == null) {
-            this.scheduleConfig = new HashMap<>();
-        }
-        this.scheduleConfig.put(key, scheduleConfigItem);
-        return this;
-    }
-
-    /**
-     * Defines a configuration object used for scheduling, which can vary depending on the
-     * configured strategy, but must always be an object with at least 1 level of keys.
-     *
-     * @return scheduleConfig
-     */
-    @javax.annotation.Nullable
-    public Map<String, Object> getScheduleConfig() {
-        return scheduleConfig;
-    }
-
-    public void setScheduleConfig(Map<String, Object> scheduleConfig) {
-        this.scheduleConfig = scheduleConfig;
-    }
-
     public UpdateReverseEtlModelInput query(String query) {
 
         this.query = query;
@@ -283,9 +170,6 @@ public class UpdateReverseEtlModelInput {
         return Objects.equals(this.name, updateReverseEtlModelInput.name)
                 && Objects.equals(this.description, updateReverseEtlModelInput.description)
                 && Objects.equals(this.enabled, updateReverseEtlModelInput.enabled)
-                && Objects.equals(
-                        this.scheduleStrategy, updateReverseEtlModelInput.scheduleStrategy)
-                && Objects.equals(this.scheduleConfig, updateReverseEtlModelInput.scheduleConfig)
                 && Objects.equals(this.query, updateReverseEtlModelInput.query)
                 && Objects.equals(
                         this.queryIdentifierColumn,
@@ -294,14 +178,7 @@ public class UpdateReverseEtlModelInput {
 
     @Override
     public int hashCode() {
-        return Objects.hash(
-                name,
-                description,
-                enabled,
-                scheduleStrategy,
-                scheduleConfig,
-                query,
-                queryIdentifierColumn);
+        return Objects.hash(name, description, enabled, query, queryIdentifierColumn);
     }
 
     @Override
@@ -311,8 +188,6 @@ public class UpdateReverseEtlModelInput {
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
-        sb.append("    scheduleStrategy: ").append(toIndentedString(scheduleStrategy)).append("\n");
-        sb.append("    scheduleConfig: ").append(toIndentedString(scheduleConfig)).append("\n");
         sb.append("    query: ").append(toIndentedString(query)).append("\n");
         sb.append("    queryIdentifierColumn: ")
                 .append(toIndentedString(queryIdentifierColumn))
@@ -341,8 +216,6 @@ public class UpdateReverseEtlModelInput {
         openapiFields.add("name");
         openapiFields.add("description");
         openapiFields.add("enabled");
-        openapiFields.add("scheduleStrategy");
-        openapiFields.add("scheduleConfig");
         openapiFields.add("query");
         openapiFields.add("queryIdentifierColumn");
 
@@ -395,15 +268,6 @@ public class UpdateReverseEtlModelInput {
                             "Expected the field `description` to be a primitive type in the JSON"
                                     + " string but got `%s`",
                             jsonObj.get("description").toString()));
-        }
-        if ((jsonObj.get("scheduleStrategy") != null
-                        && !jsonObj.get("scheduleStrategy").isJsonNull())
-                && !jsonObj.get("scheduleStrategy").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `scheduleStrategy` to be a primitive type in the"
-                                    + " JSON string but got `%s`",
-                            jsonObj.get("scheduleStrategy").toString()));
         }
         if ((jsonObj.get("query") != null && !jsonObj.get("query").isJsonNull())
                 && !jsonObj.get("query").isJsonPrimitive()) {

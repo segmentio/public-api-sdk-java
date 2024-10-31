@@ -68,7 +68,8 @@ public class ReverseEtlCronScheduleConfig {
     }
 
     /**
-     * Timezone for the specified times.
+     * Timezone respected by the cron string. Format must be in IANA Timezone Identifier. Example:
+     * &#39;America/Los_Angeles&#39;.
      *
      * @return timezone
      */
