@@ -30,15 +30,10 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * The &#x60;DeliveryOverviewDestinationFilterBy&#x60; object is a map of the filterable fields and
+ * The &#x60;DeliveryOverviewAudienceFilterBy&#x60; object is a map of the filterable fields and
  * their values.
  */
-public class DeliveryOverviewDestinationFilterBy {
-    public static final String SERIALIZED_NAME_DISCARD_REASON = "discardReason";
-
-    @SerializedName(SERIALIZED_NAME_DISCARD_REASON)
-    private List<String> discardReason;
-
+public class DeliveryOverviewAudienceFilterBy {
     public static final String SERIALIZED_NAME_EVENT_NAME = "eventName";
 
     @SerializedName(SERIALIZED_NAME_EVENT_NAME)
@@ -48,16 +43,6 @@ public class DeliveryOverviewDestinationFilterBy {
 
     @SerializedName(SERIALIZED_NAME_EVENT_TYPE)
     private List<String> eventType;
-
-    public static final String SERIALIZED_NAME_APP_VERSION = "appVersion";
-
-    @SerializedName(SERIALIZED_NAME_APP_VERSION)
-    private List<String> appVersion;
-
-    public static final String SERIALIZED_NAME_SUBSCRIPTION_ID = "subscriptionId";
-
-    @SerializedName(SERIALIZED_NAME_SUBSCRIPTION_ID)
-    private List<String> subscriptionId;
 
     public static final String SERIALIZED_NAME_ACTIVATION_ID = "activationId";
 
@@ -74,45 +59,15 @@ public class DeliveryOverviewDestinationFilterBy {
     @SerializedName(SERIALIZED_NAME_SPACE_ID)
     private List<String> spaceId;
 
-    public DeliveryOverviewDestinationFilterBy() {}
+    public DeliveryOverviewAudienceFilterBy() {}
 
-    public DeliveryOverviewDestinationFilterBy discardReason(List<String> discardReason) {
-
-        this.discardReason = discardReason;
-        return this;
-    }
-
-    public DeliveryOverviewDestinationFilterBy addDiscardReasonItem(String discardReasonItem) {
-        if (this.discardReason == null) {
-            this.discardReason = new ArrayList<>();
-        }
-        this.discardReason.add(discardReasonItem);
-        return this;
-    }
-
-    /**
-     * A list of strings of discard reasons. See [Discard Record
-     * Documentation](https://segment.com/docs/connections/delivery-overview/#troubleshooting) for
-     * valid error codes.
-     *
-     * @return discardReason
-     */
-    @javax.annotation.Nullable
-    public List<String> getDiscardReason() {
-        return discardReason;
-    }
-
-    public void setDiscardReason(List<String> discardReason) {
-        this.discardReason = discardReason;
-    }
-
-    public DeliveryOverviewDestinationFilterBy eventName(List<String> eventName) {
+    public DeliveryOverviewAudienceFilterBy eventName(List<String> eventName) {
 
         this.eventName = eventName;
         return this;
     }
 
-    public DeliveryOverviewDestinationFilterBy addEventNameItem(String eventNameItem) {
+    public DeliveryOverviewAudienceFilterBy addEventNameItem(String eventNameItem) {
         if (this.eventName == null) {
             this.eventName = new ArrayList<>();
         }
@@ -134,13 +89,13 @@ public class DeliveryOverviewDestinationFilterBy {
         this.eventName = eventName;
     }
 
-    public DeliveryOverviewDestinationFilterBy eventType(List<String> eventType) {
+    public DeliveryOverviewAudienceFilterBy eventType(List<String> eventType) {
 
         this.eventType = eventType;
         return this;
     }
 
-    public DeliveryOverviewDestinationFilterBy addEventTypeItem(String eventTypeItem) {
+    public DeliveryOverviewAudienceFilterBy addEventTypeItem(String eventTypeItem) {
         if (this.eventType == null) {
             this.eventType = new ArrayList<>();
         }
@@ -163,69 +118,13 @@ public class DeliveryOverviewDestinationFilterBy {
         this.eventType = eventType;
     }
 
-    public DeliveryOverviewDestinationFilterBy appVersion(List<String> appVersion) {
-
-        this.appVersion = appVersion;
-        return this;
-    }
-
-    public DeliveryOverviewDestinationFilterBy addAppVersionItem(String appVersionItem) {
-        if (this.appVersion == null) {
-            this.appVersion = new ArrayList<>();
-        }
-        this.appVersion.add(appVersionItem);
-        return this;
-    }
-
-    /**
-     * A list of strings of app versions.
-     *
-     * @return appVersion
-     */
-    @javax.annotation.Nullable
-    public List<String> getAppVersion() {
-        return appVersion;
-    }
-
-    public void setAppVersion(List<String> appVersion) {
-        this.appVersion = appVersion;
-    }
-
-    public DeliveryOverviewDestinationFilterBy subscriptionId(List<String> subscriptionId) {
-
-        this.subscriptionId = subscriptionId;
-        return this;
-    }
-
-    public DeliveryOverviewDestinationFilterBy addSubscriptionIdItem(String subscriptionIdItem) {
-        if (this.subscriptionId == null) {
-            this.subscriptionId = new ArrayList<>();
-        }
-        this.subscriptionId.add(subscriptionIdItem);
-        return this;
-    }
-
-    /**
-     * A list of strings of subscription IDs for Actions Destinations.
-     *
-     * @return subscriptionId
-     */
-    @javax.annotation.Nullable
-    public List<String> getSubscriptionId() {
-        return subscriptionId;
-    }
-
-    public void setSubscriptionId(List<String> subscriptionId) {
-        this.subscriptionId = subscriptionId;
-    }
-
-    public DeliveryOverviewDestinationFilterBy activationId(List<String> activationId) {
+    public DeliveryOverviewAudienceFilterBy activationId(List<String> activationId) {
 
         this.activationId = activationId;
         return this;
     }
 
-    public DeliveryOverviewDestinationFilterBy addActivationIdItem(String activationIdItem) {
+    public DeliveryOverviewAudienceFilterBy addActivationIdItem(String activationIdItem) {
         if (this.activationId == null) {
             this.activationId = new ArrayList<>();
         }
@@ -247,13 +146,13 @@ public class DeliveryOverviewDestinationFilterBy {
         this.activationId = activationId;
     }
 
-    public DeliveryOverviewDestinationFilterBy audienceId(List<String> audienceId) {
+    public DeliveryOverviewAudienceFilterBy audienceId(List<String> audienceId) {
 
         this.audienceId = audienceId;
         return this;
     }
 
-    public DeliveryOverviewDestinationFilterBy addAudienceIdItem(String audienceIdItem) {
+    public DeliveryOverviewAudienceFilterBy addAudienceIdItem(String audienceIdItem) {
         if (this.audienceId == null) {
             this.audienceId = new ArrayList<>();
         }
@@ -262,7 +161,7 @@ public class DeliveryOverviewDestinationFilterBy {
     }
 
     /**
-     * A list of strings of audienceIDs for a Linked Audience.
+     * A list of strings of audience IDs for a Linked Audience.
      *
      * @return audienceId
      */
@@ -275,13 +174,13 @@ public class DeliveryOverviewDestinationFilterBy {
         this.audienceId = audienceId;
     }
 
-    public DeliveryOverviewDestinationFilterBy spaceId(List<String> spaceId) {
+    public DeliveryOverviewAudienceFilterBy spaceId(List<String> spaceId) {
 
         this.spaceId = spaceId;
         return this;
     }
 
-    public DeliveryOverviewDestinationFilterBy addSpaceIdItem(String spaceIdItem) {
+    public DeliveryOverviewAudienceFilterBy addSpaceIdItem(String spaceIdItem) {
         if (this.spaceId == null) {
             this.spaceId = new ArrayList<>();
         }
@@ -290,7 +189,7 @@ public class DeliveryOverviewDestinationFilterBy {
     }
 
     /**
-     * A list of strings of spaceIDs for a Linked Audience.
+     * A list of strings of space IDs for a Linked Audience.
      *
      * @return spaceId
      */
@@ -311,42 +210,26 @@ public class DeliveryOverviewDestinationFilterBy {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        DeliveryOverviewDestinationFilterBy deliveryOverviewDestinationFilterBy =
-                (DeliveryOverviewDestinationFilterBy) o;
-        return Objects.equals(this.discardReason, deliveryOverviewDestinationFilterBy.discardReason)
-                && Objects.equals(this.eventName, deliveryOverviewDestinationFilterBy.eventName)
-                && Objects.equals(this.eventType, deliveryOverviewDestinationFilterBy.eventType)
-                && Objects.equals(this.appVersion, deliveryOverviewDestinationFilterBy.appVersion)
-                && Objects.equals(
-                        this.subscriptionId, deliveryOverviewDestinationFilterBy.subscriptionId)
-                && Objects.equals(
-                        this.activationId, deliveryOverviewDestinationFilterBy.activationId)
-                && Objects.equals(this.audienceId, deliveryOverviewDestinationFilterBy.audienceId)
-                && Objects.equals(this.spaceId, deliveryOverviewDestinationFilterBy.spaceId);
+        DeliveryOverviewAudienceFilterBy deliveryOverviewAudienceFilterBy =
+                (DeliveryOverviewAudienceFilterBy) o;
+        return Objects.equals(this.eventName, deliveryOverviewAudienceFilterBy.eventName)
+                && Objects.equals(this.eventType, deliveryOverviewAudienceFilterBy.eventType)
+                && Objects.equals(this.activationId, deliveryOverviewAudienceFilterBy.activationId)
+                && Objects.equals(this.audienceId, deliveryOverviewAudienceFilterBy.audienceId)
+                && Objects.equals(this.spaceId, deliveryOverviewAudienceFilterBy.spaceId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(
-                discardReason,
-                eventName,
-                eventType,
-                appVersion,
-                subscriptionId,
-                activationId,
-                audienceId,
-                spaceId);
+        return Objects.hash(eventName, eventType, activationId, audienceId, spaceId);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class DeliveryOverviewDestinationFilterBy {\n");
-        sb.append("    discardReason: ").append(toIndentedString(discardReason)).append("\n");
+        sb.append("class DeliveryOverviewAudienceFilterBy {\n");
         sb.append("    eventName: ").append(toIndentedString(eventName)).append("\n");
         sb.append("    eventType: ").append(toIndentedString(eventType)).append("\n");
-        sb.append("    appVersion: ").append(toIndentedString(appVersion)).append("\n");
-        sb.append("    subscriptionId: ").append(toIndentedString(subscriptionId)).append("\n");
         sb.append("    activationId: ").append(toIndentedString(activationId)).append("\n");
         sb.append("    audienceId: ").append(toIndentedString(audienceId)).append("\n");
         sb.append("    spaceId: ").append(toIndentedString(spaceId)).append("\n");
@@ -371,11 +254,8 @@ public class DeliveryOverviewDestinationFilterBy {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("discardReason");
         openapiFields.add("eventName");
         openapiFields.add("eventType");
-        openapiFields.add("appVersion");
-        openapiFields.add("subscriptionId");
         openapiFields.add("activationId");
         openapiFields.add("audienceId");
         openapiFields.add("spaceId");
@@ -389,43 +269,32 @@ public class DeliveryOverviewDestinationFilterBy {
      *
      * @param jsonElement JSON Element
      * @throws IOException if the JSON Element is invalid with respect to
-     *     DeliveryOverviewDestinationFilterBy
+     *     DeliveryOverviewAudienceFilterBy
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!DeliveryOverviewDestinationFilterBy.openapiRequiredFields
+            if (!DeliveryOverviewAudienceFilterBy.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in DeliveryOverviewDestinationFilterBy is"
+                                "The required field(s) %s in DeliveryOverviewAudienceFilterBy is"
                                         + " not found in the empty JSON string",
-                                DeliveryOverviewDestinationFilterBy.openapiRequiredFields
-                                        .toString()));
+                                DeliveryOverviewAudienceFilterBy.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!DeliveryOverviewDestinationFilterBy.openapiFields.contains(entry.getKey())) {
+            if (!DeliveryOverviewAudienceFilterBy.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                    + " `DeliveryOverviewDestinationFilterBy` properties. JSON: %s",
+                                    + " `DeliveryOverviewAudienceFilterBy` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        // ensure the optional json data is an array if present
-        if (jsonObj.get("discardReason") != null
-                && !jsonObj.get("discardReason").isJsonNull()
-                && !jsonObj.get("discardReason").isJsonArray()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `discardReason` to be an array in the JSON string"
-                                    + " but got `%s`",
-                            jsonObj.get("discardReason").toString()));
-        }
         // ensure the optional json data is an array if present
         if (jsonObj.get("eventName") != null
                 && !jsonObj.get("eventName").isJsonNull()
@@ -445,26 +314,6 @@ public class DeliveryOverviewDestinationFilterBy {
                             "Expected the field `eventType` to be an array in the JSON string but"
                                     + " got `%s`",
                             jsonObj.get("eventType").toString()));
-        }
-        // ensure the optional json data is an array if present
-        if (jsonObj.get("appVersion") != null
-                && !jsonObj.get("appVersion").isJsonNull()
-                && !jsonObj.get("appVersion").isJsonArray()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `appVersion` to be an array in the JSON string but"
-                                    + " got `%s`",
-                            jsonObj.get("appVersion").toString()));
-        }
-        // ensure the optional json data is an array if present
-        if (jsonObj.get("subscriptionId") != null
-                && !jsonObj.get("subscriptionId").isJsonNull()
-                && !jsonObj.get("subscriptionId").isJsonArray()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `subscriptionId` to be an array in the JSON string"
-                                    + " but got `%s`",
-                            jsonObj.get("subscriptionId").toString()));
         }
         // ensure the optional json data is an array if present
         if (jsonObj.get("activationId") != null
@@ -502,26 +351,26 @@ public class DeliveryOverviewDestinationFilterBy {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!DeliveryOverviewDestinationFilterBy.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'DeliveryOverviewDestinationFilterBy' and
+            if (!DeliveryOverviewAudienceFilterBy.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'DeliveryOverviewAudienceFilterBy' and
                 // its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<DeliveryOverviewDestinationFilterBy> thisAdapter =
+            final TypeAdapter<DeliveryOverviewAudienceFilterBy> thisAdapter =
                     gson.getDelegateAdapter(
-                            this, TypeToken.get(DeliveryOverviewDestinationFilterBy.class));
+                            this, TypeToken.get(DeliveryOverviewAudienceFilterBy.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<DeliveryOverviewDestinationFilterBy>() {
+                    new TypeAdapter<DeliveryOverviewAudienceFilterBy>() {
                         @Override
-                        public void write(JsonWriter out, DeliveryOverviewDestinationFilterBy value)
+                        public void write(JsonWriter out, DeliveryOverviewAudienceFilterBy value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public DeliveryOverviewDestinationFilterBy read(JsonReader in)
+                        public DeliveryOverviewAudienceFilterBy read(JsonReader in)
                                 throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
@@ -532,20 +381,19 @@ public class DeliveryOverviewDestinationFilterBy {
     }
 
     /**
-     * Create an instance of DeliveryOverviewDestinationFilterBy given an JSON string
+     * Create an instance of DeliveryOverviewAudienceFilterBy given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of DeliveryOverviewDestinationFilterBy
+     * @return An instance of DeliveryOverviewAudienceFilterBy
      * @throws IOException if the JSON string is invalid with respect to
-     *     DeliveryOverviewDestinationFilterBy
+     *     DeliveryOverviewAudienceFilterBy
      */
-    public static DeliveryOverviewDestinationFilterBy fromJson(String jsonString)
-            throws IOException {
-        return JSON.getGson().fromJson(jsonString, DeliveryOverviewDestinationFilterBy.class);
+    public static DeliveryOverviewAudienceFilterBy fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, DeliveryOverviewAudienceFilterBy.class);
     }
 
     /**
-     * Convert an instance of DeliveryOverviewDestinationFilterBy to an JSON string
+     * Convert an instance of DeliveryOverviewAudienceFilterBy to an JSON string
      *
      * @return JSON string
      */

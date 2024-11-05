@@ -524,6 +524,9 @@ public class JSON {
                 new com.segment.publicapi.models.DeliveryMetricsSummaryBeta
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.DeliveryOverviewAudienceFilterBy
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.DeliveryOverviewDestinationFilterBy
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(

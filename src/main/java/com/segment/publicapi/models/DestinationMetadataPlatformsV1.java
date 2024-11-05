@@ -54,6 +54,11 @@ public class DestinationMetadataPlatformsV1 {
     @SerializedName(SERIALIZED_NAME_CLOUD_APP_OBJECT)
     private Boolean cloudAppObject;
 
+    public static final String SERIALIZED_NAME_LINKED_AUDIENCES = "linkedAudiences";
+
+    @SerializedName(SERIALIZED_NAME_LINKED_AUDIENCES)
+    private Boolean linkedAudiences;
+
     public DestinationMetadataPlatformsV1() {}
 
     public DestinationMetadataPlatformsV1 browser(Boolean browser) {
@@ -156,6 +161,26 @@ public class DestinationMetadataPlatformsV1 {
         this.cloudAppObject = cloudAppObject;
     }
 
+    public DestinationMetadataPlatformsV1 linkedAudiences(Boolean linkedAudiences) {
+
+        this.linkedAudiences = linkedAudiences;
+        return this;
+    }
+
+    /**
+     * Whether this Destination supports linked audiences.
+     *
+     * @return linkedAudiences
+     */
+    @javax.annotation.Nullable
+    public Boolean getLinkedAudiences() {
+        return linkedAudiences;
+    }
+
+    public void setLinkedAudiences(Boolean linkedAudiences) {
+        this.linkedAudiences = linkedAudiences;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -171,12 +196,14 @@ public class DestinationMetadataPlatformsV1 {
                 && Objects.equals(this.mobile, destinationMetadataPlatformsV1.mobile)
                 && Objects.equals(this.warehouse, destinationMetadataPlatformsV1.warehouse)
                 && Objects.equals(
-                        this.cloudAppObject, destinationMetadataPlatformsV1.cloudAppObject);
+                        this.cloudAppObject, destinationMetadataPlatformsV1.cloudAppObject)
+                && Objects.equals(
+                        this.linkedAudiences, destinationMetadataPlatformsV1.linkedAudiences);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(browser, server, mobile, warehouse, cloudAppObject);
+        return Objects.hash(browser, server, mobile, warehouse, cloudAppObject, linkedAudiences);
     }
 
     @Override
@@ -188,6 +215,7 @@ public class DestinationMetadataPlatformsV1 {
         sb.append("    mobile: ").append(toIndentedString(mobile)).append("\n");
         sb.append("    warehouse: ").append(toIndentedString(warehouse)).append("\n");
         sb.append("    cloudAppObject: ").append(toIndentedString(cloudAppObject)).append("\n");
+        sb.append("    linkedAudiences: ").append(toIndentedString(linkedAudiences)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -214,6 +242,7 @@ public class DestinationMetadataPlatformsV1 {
         openapiFields.add("mobile");
         openapiFields.add("warehouse");
         openapiFields.add("cloudAppObject");
+        openapiFields.add("linkedAudiences");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
