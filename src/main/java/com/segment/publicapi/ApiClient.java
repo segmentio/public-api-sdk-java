@@ -123,7 +123,7 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("Public API SDK 57.0.0 (Java)");
+        setUserAgent("Public API SDK 57.1.0 (Java)");
 
         authentications = new HashMap<String, Authentication>();
     }
