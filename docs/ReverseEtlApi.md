@@ -4,7 +4,6 @@ All URIs are relative to *https://api.segmentapis.com*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**cancelReverseETLSyncForModel**](ReverseEtlApi.md#cancelReverseETLSyncForModel) | **POST** /reverse-etl-models/{modelId}/syncs/{syncId}/cancel | Cancel Reverse ETL Sync for Model |
 | [**createReverseETLManualSync**](ReverseEtlApi.md#createReverseETLManualSync) | **POST** /reverse-etl-syncs | Create Reverse ETL Manual Sync |
 | [**createReverseEtlModel**](ReverseEtlApi.md#createReverseEtlModel) | **POST** /reverse-etl-models | Create Reverse Etl Model |
 | [**deleteReverseEtlModel**](ReverseEtlApi.md#deleteReverseEtlModel) | **DELETE** /reverse-etl-models/{modelId} | Delete Reverse Etl Model |
@@ -14,83 +13,6 @@ All URIs are relative to *https://api.segmentapis.com*
 | [**listReverseEtlModels**](ReverseEtlApi.md#listReverseEtlModels) | **GET** /reverse-etl-models | List Reverse Etl Models |
 | [**updateReverseEtlModel**](ReverseEtlApi.md#updateReverseEtlModel) | **PATCH** /reverse-etl-models/{modelId} | Update Reverse Etl Model |
 
-
-
-## Operation: cancelReverseETLSyncForModel
-
-> CancelReverseETLSyncForModel200Response cancelReverseETLSyncForModel(modelId, syncId, cancelReverseETLSyncForModelInput)
-
-Cancel Reverse ETL Sync for Model
-
-Cancels a sync for a Reverse ETL Connection. It might take a few seconds to completely cancel the sync.   Will return an error if the sync is already completed or cancelled.
-
-### Example
-
-```java
-// Import classes:
-import com.segment.publicapi.ApiClient;
-import com.segment.publicapi.ApiException;
-import com.segment.publicapi.Configuration;
-import com.segment.publicapi.auth.*;
-import com.segment.publicapi.models.*;
-import com.segment.publicapi.api.ReverseEtlApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        
-        // Configure HTTP bearer authorization: token
-        HttpBearerAuth token = (HttpBearerAuth) defaultClient.getAuthentication("token");
-        token.setBearerToken("BEARER TOKEN");
-
-        ReverseEtlApi apiInstance = new ReverseEtlApi(defaultClient);
-        String modelId = "modelId"; // String | 
-        String syncId = "1"; // String | 
-        CancelReverseETLSyncForModelInput cancelReverseETLSyncForModelInput = new CancelReverseETLSyncForModelInput(); // CancelReverseETLSyncForModelInput | 
-        try {
-            CancelReverseETLSyncForModel200Response result = apiInstance.cancelReverseETLSyncForModel(modelId, syncId, cancelReverseETLSyncForModelInput);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling ReverseEtlApi#cancelReverseETLSyncForModel");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **modelId** | **String**|  | |
-| **syncId** | **String**|  | |
-| **cancelReverseETLSyncForModelInput** | [**CancelReverseETLSyncForModelInput**](CancelReverseETLSyncForModelInput.md)|  | |
-
-### Return type
-
-[**CancelReverseETLSyncForModel200Response**](CancelReverseETLSyncForModel200Response.md)
-
-### Authorization
-
-[token](../README.md#token)
-
-### HTTP request headers
-
-- **Content-Type**: application/vnd.segment.v1alpha+json
-- **Accept**: application/vnd.segment.v1alpha+json, application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **404** | Resource not found |  -  |
-| **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
 
 
 ## Operation: createReverseETLManualSync

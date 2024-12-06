@@ -988,14 +988,14 @@ public class AudiencesApi {
     }
 
     /**
-     * Update Audience for Space Updates the enabled status for an audience • This endpoint is in
-     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
-     * In order to successfully call this endpoint, the specified Workspace needs to have the
-     * Audience feature enabled. Please reach out to your customer success manager for more
-     * information. • When called, this endpoint may generate the &#x60;Audience Modified&#x60;
-     * event in the [audit trail](/tag/Audit-Trail). • Note that when an Audience is updated, the
-     * Audience will be locked from future edits until the changes have been incorporated. You can
-     * find more information [in the Segment
+     * Update Audience for Space Updates the Audience. • This endpoint is in **Alpha** testing.
+     * Please submit any feedback by sending an email to friends@segment.com. • In order to
+     * successfully call this endpoint, the specified Workspace needs to have the Audience feature
+     * enabled. Please reach out to your customer success manager for more information. • When
+     * called, this endpoint may generate the &#x60;Audience Modified&#x60; event in the [audit
+     * trail](/tag/Audit-Trail). • Note that when an Audience is updated, the Audience will be
+     * locked from future edits until the changes have been incorporated. You can find more
+     * information [in the Segment
      * docs](https://segment-docs.netlify.app/docs/engage/audiences/#editing-realtime-audiences-and-traits).
      * Note: The definition for an Audience updated using the API is not editable through the
      * Segment App. The rate limit for this endpoint is 10 requests per minute, which is lower than
@@ -1027,14 +1027,14 @@ public class AudiencesApi {
     }
 
     /**
-     * Update Audience for Space Updates the enabled status for an audience • This endpoint is in
-     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
-     * In order to successfully call this endpoint, the specified Workspace needs to have the
-     * Audience feature enabled. Please reach out to your customer success manager for more
-     * information. • When called, this endpoint may generate the &#x60;Audience Modified&#x60;
-     * event in the [audit trail](/tag/Audit-Trail). • Note that when an Audience is updated, the
-     * Audience will be locked from future edits until the changes have been incorporated. You can
-     * find more information [in the Segment
+     * Update Audience for Space Updates the Audience. • This endpoint is in **Alpha** testing.
+     * Please submit any feedback by sending an email to friends@segment.com. • In order to
+     * successfully call this endpoint, the specified Workspace needs to have the Audience feature
+     * enabled. Please reach out to your customer success manager for more information. • When
+     * called, this endpoint may generate the &#x60;Audience Modified&#x60; event in the [audit
+     * trail](/tag/Audit-Trail). • Note that when an Audience is updated, the Audience will be
+     * locked from future edits until the changes have been incorporated. You can find more
+     * information [in the Segment
      * docs](https://segment-docs.netlify.app/docs/engage/audiences/#editing-realtime-audiences-and-traits).
      * Note: The definition for an Audience updated using the API is not editable through the
      * Segment App. The rate limit for this endpoint is 10 requests per minute, which is lower than
@@ -1068,14 +1068,14 @@ public class AudiencesApi {
     }
 
     /**
-     * Update Audience for Space (asynchronously) Updates the enabled status for an audience • This
-     * endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
-     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
-     * needs to have the Audience feature enabled. Please reach out to your customer success manager
-     * for more information. • When called, this endpoint may generate the &#x60;Audience
-     * Modified&#x60; event in the [audit trail](/tag/Audit-Trail). • Note that when an Audience is
-     * updated, the Audience will be locked from future edits until the changes have been
-     * incorporated. You can find more information [in the Segment
+     * Update Audience for Space (asynchronously) Updates the Audience. • This endpoint is in
+     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
+     * In order to successfully call this endpoint, the specified Workspace needs to have the
+     * Audience feature enabled. Please reach out to your customer success manager for more
+     * information. • When called, this endpoint may generate the &#x60;Audience Modified&#x60;
+     * event in the [audit trail](/tag/Audit-Trail). • Note that when an Audience is updated, the
+     * Audience will be locked from future edits until the changes have been incorporated. You can
+     * find more information [in the Segment
      * docs](https://segment-docs.netlify.app/docs/engage/audiences/#editing-realtime-audiences-and-traits).
      * Note: The definition for an Audience updated using the API is not editable through the
      * Segment App. The rate limit for this endpoint is 10 requests per minute, which is lower than

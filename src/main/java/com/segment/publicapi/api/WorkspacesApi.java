@@ -143,10 +143,6 @@ public class WorkspacesApi {
 
     /**
      * Get Workspace Returns the Workspace associated with the token used to access this resource.
-     * The rate limit for this endpoint is 5 requests per minute, which is lower than the default
-     * due to access pattern restrictions. Once reached, this endpoint will respond with the 429
-     * HTTP status code with headers indicating the limit parameters. See [Rate
-     * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @return GetWorkspace200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -167,10 +163,6 @@ public class WorkspacesApi {
 
     /**
      * Get Workspace Returns the Workspace associated with the token used to access this resource.
-     * The rate limit for this endpoint is 5 requests per minute, which is lower than the default
-     * due to access pattern restrictions. Once reached, this endpoint will respond with the 429
-     * HTTP status code with headers indicating the limit parameters. See [Rate
-     * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @return ApiResponse&lt;GetWorkspace200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -192,10 +184,7 @@ public class WorkspacesApi {
 
     /**
      * Get Workspace (asynchronously) Returns the Workspace associated with the token used to access
-     * this resource. The rate limit for this endpoint is 5 requests per minute, which is lower than
-     * the default due to access pattern restrictions. Once reached, this endpoint will respond with
-     * the 429 HTTP status code with headers indicating the limit parameters. See [Rate
-     * Limiting](/#tag/Rate-Limits) for more information.
+     * this resource.
      *
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
