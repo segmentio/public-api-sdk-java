@@ -116,6 +116,8 @@ public class RegulationListEntryV1 {
     /** The regulation type. */
     @JsonAdapter(RegulationTypeEnum.Adapter.class)
     public enum RegulationTypeEnum {
+        DELETE_ARCHIVE_ONLY("DELETE_ARCHIVE_ONLY"),
+
         DELETE_INTERNAL("DELETE_INTERNAL"),
 
         DELETE_ONLY("DELETE_ONLY"),

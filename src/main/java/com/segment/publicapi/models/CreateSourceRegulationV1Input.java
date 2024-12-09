@@ -35,6 +35,8 @@ public class CreateSourceRegulationV1Input {
     /** The regulation type to create. */
     @JsonAdapter(RegulationTypeEnum.Adapter.class)
     public enum RegulationTypeEnum {
+        DELETE_ARCHIVE_ONLY("DELETE_ARCHIVE_ONLY"),
+
         DELETE_INTERNAL("DELETE_INTERNAL"),
 
         DELETE_ONLY("DELETE_ONLY"),
@@ -94,6 +96,8 @@ public class CreateSourceRegulationV1Input {
     /** The subject type. */
     @JsonAdapter(SubjectTypeEnum.Adapter.class)
     public enum SubjectTypeEnum {
+        ANONYMOUS_ID("ANONYMOUS_ID"),
+
         USER_ID("USER_ID");
 
         private String value;
