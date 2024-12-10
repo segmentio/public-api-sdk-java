@@ -18,6 +18,8 @@ import com.segment.publicapi.ApiException;
 import com.segment.publicapi.ApiResponse;
 import com.segment.publicapi.Configuration;
 import com.segment.publicapi.Pair;
+import com.segment.publicapi.models.CancelReverseETLSyncForModel200Response;
+import com.segment.publicapi.models.CancelReverseETLSyncForModelInput;
 import com.segment.publicapi.models.CreateReverseETLManualSync200Response;
 import com.segment.publicapi.models.CreateReverseETLManualSyncInput;
 import com.segment.publicapi.models.CreateReverseEtlModel201Response;
@@ -72,6 +74,225 @@ public class ReverseEtlApi {
 
     public void setCustomBaseUrl(String customBaseUrl) {
         this.localCustomBaseUrl = customBaseUrl;
+    }
+
+    /**
+     * Build call for cancelReverseETLSyncForModel
+     *
+     * @param modelId (required)
+     * @param syncId (required)
+     * @param cancelReverseETLSyncForModelInput (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call cancelReverseETLSyncForModelCall(
+            String modelId,
+            String syncId,
+            CancelReverseETLSyncForModelInput cancelReverseETLSyncForModelInput,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = cancelReverseETLSyncForModelInput;
+
+        // create path and map variables
+        String localVarPath =
+                "/reverse-etl-models/{modelId}/syncs/{syncId}/cancel"
+                        .replace(
+                                "{" + "modelId" + "}",
+                                localVarApiClient.escapeString(modelId.toString()))
+                        .replace(
+                                "{" + "syncId" + "}",
+                                localVarApiClient.escapeString(syncId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.segment.v1alpha+json", "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/vnd.segment.v1alpha+json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"token"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call cancelReverseETLSyncForModelValidateBeforeCall(
+            String modelId,
+            String syncId,
+            CancelReverseETLSyncForModelInput cancelReverseETLSyncForModelInput,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'modelId' is set
+        if (modelId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'modelId' when calling"
+                            + " cancelReverseETLSyncForModel(Async)");
+        }
+
+        // verify the required parameter 'syncId' is set
+        if (syncId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'syncId' when calling"
+                            + " cancelReverseETLSyncForModel(Async)");
+        }
+
+        // verify the required parameter 'cancelReverseETLSyncForModelInput' is set
+        if (cancelReverseETLSyncForModelInput == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'cancelReverseETLSyncForModelInput' when"
+                            + " calling cancelReverseETLSyncForModel(Async)");
+        }
+
+        return cancelReverseETLSyncForModelCall(
+                modelId, syncId, cancelReverseETLSyncForModelInput, _callback);
+    }
+
+    /**
+     * Cancel Reverse ETL Sync for Model Cancels a sync for a Reverse ETL Connection. It might take
+     * a few seconds to completely cancel the sync. Will return an error if the sync is already
+     * completed or cancelled.
+     *
+     * @param modelId (required)
+     * @param syncId (required)
+     * @param cancelReverseETLSyncForModelInput (required)
+     * @return CancelReverseETLSyncForModel200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public CancelReverseETLSyncForModel200Response cancelReverseETLSyncForModel(
+            String modelId,
+            String syncId,
+            CancelReverseETLSyncForModelInput cancelReverseETLSyncForModelInput)
+            throws ApiException {
+        ApiResponse<CancelReverseETLSyncForModel200Response> localVarResp =
+                cancelReverseETLSyncForModelWithHttpInfo(
+                        modelId, syncId, cancelReverseETLSyncForModelInput);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Cancel Reverse ETL Sync for Model Cancels a sync for a Reverse ETL Connection. It might take
+     * a few seconds to completely cancel the sync. Will return an error if the sync is already
+     * completed or cancelled.
+     *
+     * @param modelId (required)
+     * @param syncId (required)
+     * @param cancelReverseETLSyncForModelInput (required)
+     * @return ApiResponse&lt;CancelReverseETLSyncForModel200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<CancelReverseETLSyncForModel200Response>
+            cancelReverseETLSyncForModelWithHttpInfo(
+                    String modelId,
+                    String syncId,
+                    CancelReverseETLSyncForModelInput cancelReverseETLSyncForModelInput)
+                    throws ApiException {
+        okhttp3.Call localVarCall =
+                cancelReverseETLSyncForModelValidateBeforeCall(
+                        modelId, syncId, cancelReverseETLSyncForModelInput, null);
+        Type localVarReturnType =
+                new TypeToken<CancelReverseETLSyncForModel200Response>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Cancel Reverse ETL Sync for Model (asynchronously) Cancels a sync for a Reverse ETL
+     * Connection. It might take a few seconds to completely cancel the sync. Will return an error
+     * if the sync is already completed or cancelled.
+     *
+     * @param modelId (required)
+     * @param syncId (required)
+     * @param cancelReverseETLSyncForModelInput (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body
+     *     object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call cancelReverseETLSyncForModelAsync(
+            String modelId,
+            String syncId,
+            CancelReverseETLSyncForModelInput cancelReverseETLSyncForModelInput,
+            final ApiCallback<CancelReverseETLSyncForModel200Response> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                cancelReverseETLSyncForModelValidateBeforeCall(
+                        modelId, syncId, cancelReverseETLSyncForModelInput, _callback);
+        Type localVarReturnType =
+                new TypeToken<CancelReverseETLSyncForModel200Response>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
     }
 
     /**
