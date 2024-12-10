@@ -24,6 +24,7 @@ jobs:
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
           gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
       - name: Publish package
+        if: steps.changed-pom.outputs.any_changed == 'true'
         run: mvn --batch-mode clean deploy
         env:
           MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
