@@ -27,7 +27,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Definition for dbt cloud job event schedule. */
+/** Definition for a schedule triggered by dbt Cloud job events. */
 public class ReverseEtlDbtCloudScheduleConfig {
     public static final String SERIALIZED_NAME_JOB_ID = "jobId";
 
@@ -48,7 +48,7 @@ public class ReverseEtlDbtCloudScheduleConfig {
     }
 
     /**
-     * The dbt cloud job id used to start a reverse ETL sync.
+     * The dbt Cloud job used to trigger a sync for a Reverse ETL Connection.
      *
      * @return jobId
      */
@@ -68,7 +68,7 @@ public class ReverseEtlDbtCloudScheduleConfig {
     }
 
     /**
-     * The dbt cloud account id where the job belongs to.
+     * The dbt Cloud account where the job belongs to.
      *
      * @return accountId
      */

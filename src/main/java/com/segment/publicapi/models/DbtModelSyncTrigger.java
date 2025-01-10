@@ -27,7 +27,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Defines the DBT Model Sync Trigger. */
+/** Defines the dbt Model Sync Trigger. */
 public class DbtModelSyncTrigger {
     public static final String SERIALIZED_NAME_ID = "id";
 
@@ -53,7 +53,7 @@ public class DbtModelSyncTrigger {
     }
 
     /**
-     * The id of the DBT Model Sync.
+     * The id of the dbt model sync.
      *
      * @return id
      */
