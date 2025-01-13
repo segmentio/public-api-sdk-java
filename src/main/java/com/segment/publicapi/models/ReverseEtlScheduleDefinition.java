@@ -35,10 +35,12 @@ import org.openapitools.jackson.nullable.JsonNullable;
  * strategy.
  */
 public class ReverseEtlScheduleDefinition {
-    /** Strategy supports: Periodic, Specific Days, Manual, CRON. */
+    /** Strategy supports: Periodic, Specific Days, Manual, CRON and DBT_CLOUD. */
     @JsonAdapter(StrategyEnum.Adapter.class)
     public enum StrategyEnum {
         CRON("CRON"),
+
+        DBT_CLOUD("DBT_CLOUD"),
 
         MANUAL("MANUAL"),
 
@@ -104,7 +106,7 @@ public class ReverseEtlScheduleDefinition {
     }
 
     /**
-     * Strategy supports: Periodic, Specific Days, Manual, CRON.
+     * Strategy supports: Periodic, Specific Days, Manual, CRON and DBT_CLOUD.
      *
      * @return strategy
      */

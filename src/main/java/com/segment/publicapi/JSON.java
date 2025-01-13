@@ -1346,6 +1346,9 @@ public class JSON {
                 new com.segment.publicapi.models.ReverseEtlCronScheduleConfig
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.ReverseEtlDbtCloudScheduleConfig
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.ReverseEtlModel.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.ReverseEtlPeriodicScheduleConfig

@@ -49,6 +49,10 @@ public class Config extends AbstractOpenApiSchema {
             final TypeAdapter<ReverseEtlCronScheduleConfig> adapterReverseEtlCronScheduleConfig =
                     gson.getDelegateAdapter(
                             this, TypeToken.get(ReverseEtlCronScheduleConfig.class));
+            final TypeAdapter<ReverseEtlDbtCloudScheduleConfig>
+                    adapterReverseEtlDbtCloudScheduleConfig =
+                            gson.getDelegateAdapter(
+                                    this, TypeToken.get(ReverseEtlDbtCloudScheduleConfig.class));
 
             return (TypeAdapter<T>)
                     new TypeAdapter<Config>() {
@@ -91,9 +95,21 @@ public class Config extends AbstractOpenApiSchema {
                                 elementAdapter.write(out, element);
                                 return;
                             }
+                            // check if the actual instance is of the type
+                            // `ReverseEtlDbtCloudScheduleConfig`
+                            if (value.getActualInstance()
+                                    instanceof ReverseEtlDbtCloudScheduleConfig) {
+                                JsonElement element =
+                                        adapterReverseEtlDbtCloudScheduleConfig.toJsonTree(
+                                                (ReverseEtlDbtCloudScheduleConfig)
+                                                        value.getActualInstance());
+                                elementAdapter.write(out, element);
+                                return;
+                            }
                             throw new IOException(
                                     "Failed to serialize as the type doesn't match anyOf schemae:"
                                             + " ReverseEtlCronScheduleConfig,"
+                                            + " ReverseEtlDbtCloudScheduleConfig,"
                                             + " ReverseEtlPeriodicScheduleConfig,"
                                             + " ReverseEtlSpecificTimeScheduleConfig");
                         }
@@ -172,6 +188,28 @@ public class Config extends AbstractOpenApiSchema {
                                                 + " 'ReverseEtlCronScheduleConfig'",
                                         e);
                             }
+                            // deserialize ReverseEtlDbtCloudScheduleConfig
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                ReverseEtlDbtCloudScheduleConfig.validateJsonElement(jsonElement);
+                                actualAdapter = adapterReverseEtlDbtCloudScheduleConfig;
+                                Config ret = new Config();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                return ret;
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                "Deserialization for"
+                                                        + " ReverseEtlDbtCloudScheduleConfig failed"
+                                                        + " with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema"
+                                                + " 'ReverseEtlDbtCloudScheduleConfig'",
+                                        e);
+                            }
 
                             throw new IOException(
                                     String.format(
@@ -196,6 +234,11 @@ public class Config extends AbstractOpenApiSchema {
         setActualInstance(o);
     }
 
+    public Config(ReverseEtlDbtCloudScheduleConfig o) {
+        super("anyOf", Boolean.TRUE);
+        setActualInstance(o);
+    }
+
     public Config(ReverseEtlPeriodicScheduleConfig o) {
         super("anyOf", Boolean.TRUE);
         setActualInstance(o);
@@ -211,6 +254,7 @@ public class Config extends AbstractOpenApiSchema {
         schemas.put(
                 "ReverseEtlSpecificTimeScheduleConfig", ReverseEtlSpecificTimeScheduleConfig.class);
         schemas.put("ReverseEtlCronScheduleConfig", ReverseEtlCronScheduleConfig.class);
+        schemas.put("ReverseEtlDbtCloudScheduleConfig", ReverseEtlDbtCloudScheduleConfig.class);
     }
 
     @Override
@@ -221,7 +265,8 @@ public class Config extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the anyOf child schema, check the instance parameter is valid
      * against the anyOf child schemas: ReverseEtlCronScheduleConfig,
-     * ReverseEtlPeriodicScheduleConfig, ReverseEtlSpecificTimeScheduleConfig
+     * ReverseEtlDbtCloudScheduleConfig, ReverseEtlPeriodicScheduleConfig,
+     * ReverseEtlSpecificTimeScheduleConfig
      *
      * <p>It could be an instance of the 'anyOf' schemas.
      */
@@ -247,17 +292,24 @@ public class Config extends AbstractOpenApiSchema {
             return;
         }
 
+        if (instance instanceof ReverseEtlDbtCloudScheduleConfig) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         throw new RuntimeException(
                 "Invalid instance type. Must be ReverseEtlCronScheduleConfig,"
-                    + " ReverseEtlPeriodicScheduleConfig, ReverseEtlSpecificTimeScheduleConfig");
+                        + " ReverseEtlDbtCloudScheduleConfig, ReverseEtlPeriodicScheduleConfig,"
+                        + " ReverseEtlSpecificTimeScheduleConfig");
     }
 
     /**
      * Get the actual instance, which can be the following: ReverseEtlCronScheduleConfig,
-     * ReverseEtlPeriodicScheduleConfig, ReverseEtlSpecificTimeScheduleConfig
+     * ReverseEtlDbtCloudScheduleConfig, ReverseEtlPeriodicScheduleConfig,
+     * ReverseEtlSpecificTimeScheduleConfig
      *
-     * @return The actual instance (ReverseEtlCronScheduleConfig, ReverseEtlPeriodicScheduleConfig,
-     *     ReverseEtlSpecificTimeScheduleConfig)
+     * @return The actual instance (ReverseEtlCronScheduleConfig, ReverseEtlDbtCloudScheduleConfig,
+     *     ReverseEtlPeriodicScheduleConfig, ReverseEtlSpecificTimeScheduleConfig)
      */
     @Override
     public Object getActualInstance() {
@@ -298,6 +350,18 @@ public class Config extends AbstractOpenApiSchema {
     public ReverseEtlCronScheduleConfig getReverseEtlCronScheduleConfig()
             throws ClassCastException {
         return (ReverseEtlCronScheduleConfig) super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `ReverseEtlDbtCloudScheduleConfig`. If the actual instance is not
+     * `ReverseEtlDbtCloudScheduleConfig`, the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ReverseEtlDbtCloudScheduleConfig`
+     * @throws ClassCastException if the instance is not `ReverseEtlDbtCloudScheduleConfig`
+     */
+    public ReverseEtlDbtCloudScheduleConfig getReverseEtlDbtCloudScheduleConfig()
+            throws ClassCastException {
+        return (ReverseEtlDbtCloudScheduleConfig) super.getActualInstance();
     }
 
     /**
@@ -344,10 +408,23 @@ public class Config extends AbstractOpenApiSchema {
                             e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with ReverseEtlDbtCloudScheduleConfig
+        try {
+            ReverseEtlDbtCloudScheduleConfig.validateJsonElement(jsonElement);
+            return;
+        } catch (Exception e) {
+            errorMessages.add(
+                    String.format(
+                            "Deserialization for ReverseEtlDbtCloudScheduleConfig failed with"
+                                    + " `%s`.",
+                            e.getMessage()));
+            // continue to the next one
+        }
         throw new IOException(
                 String.format(
                         "The JSON string is invalid for Config with anyOf schemas:"
-                            + " ReverseEtlCronScheduleConfig, ReverseEtlPeriodicScheduleConfig,"
+                            + " ReverseEtlCronScheduleConfig, ReverseEtlDbtCloudScheduleConfig,"
+                            + " ReverseEtlPeriodicScheduleConfig,"
                             + " ReverseEtlSpecificTimeScheduleConfig. no class match the result,"
                             + " expected at least 1. Detailed failure message for anyOf schemas:"
                             + " %s. JSON: %s",

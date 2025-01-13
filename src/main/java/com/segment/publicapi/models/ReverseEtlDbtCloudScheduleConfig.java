@@ -27,83 +27,58 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Defines the dbt Model Sync Trigger. */
-public class DbtModelSyncTrigger {
-    public static final String SERIALIZED_NAME_ID = "id";
+/** Definition for a schedule triggered by dbt Cloud job events. */
+public class ReverseEtlDbtCloudScheduleConfig {
+    public static final String SERIALIZED_NAME_JOB_ID = "jobId";
 
-    @SerializedName(SERIALIZED_NAME_ID)
-    private String id;
+    @SerializedName(SERIALIZED_NAME_JOB_ID)
+    private String jobId;
 
-    public static final String SERIALIZED_NAME_SOURCE_ID = "sourceId";
+    public static final String SERIALIZED_NAME_ACCOUNT_ID = "accountId";
 
-    @SerializedName(SERIALIZED_NAME_SOURCE_ID)
-    private String sourceId;
+    @SerializedName(SERIALIZED_NAME_ACCOUNT_ID)
+    private String accountId;
 
-    public static final String SERIALIZED_NAME_STATUS = "status";
+    public ReverseEtlDbtCloudScheduleConfig() {}
 
-    @SerializedName(SERIALIZED_NAME_STATUS)
-    private String status;
+    public ReverseEtlDbtCloudScheduleConfig jobId(String jobId) {
 
-    public DbtModelSyncTrigger() {}
-
-    public DbtModelSyncTrigger id(String id) {
-
-        this.id = id;
+        this.jobId = jobId;
         return this;
     }
 
     /**
-     * The id of the dbt model sync.
+     * The dbt Cloud job used to trigger a sync for a Reverse ETL Connection.
      *
-     * @return id
+     * @return jobId
      */
     @javax.annotation.Nonnull
-    public String getId() {
-        return id;
+    public String getJobId() {
+        return jobId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setJobId(String jobId) {
+        this.jobId = jobId;
     }
 
-    public DbtModelSyncTrigger sourceId(String sourceId) {
+    public ReverseEtlDbtCloudScheduleConfig accountId(String accountId) {
 
-        this.sourceId = sourceId;
+        this.accountId = accountId;
         return this;
     }
 
     /**
-     * The Source id that was triggered.
+     * The dbt Cloud account where the job belongs to.
      *
-     * @return sourceId
-     */
-    @javax.annotation.Nullable
-    public String getSourceId() {
-        return sourceId;
-    }
-
-    public void setSourceId(String sourceId) {
-        this.sourceId = sourceId;
-    }
-
-    public DbtModelSyncTrigger status(String status) {
-
-        this.status = status;
-        return this;
-    }
-
-    /**
-     * The status of the trigger.
-     *
-     * @return status
+     * @return accountId
      */
     @javax.annotation.Nonnull
-    public String getStatus() {
-        return status;
+    public String getAccountId() {
+        return accountId;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setAccountId(String accountId) {
+        this.accountId = accountId;
     }
 
     @Override
@@ -114,24 +89,23 @@ public class DbtModelSyncTrigger {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        DbtModelSyncTrigger dbtModelSyncTrigger = (DbtModelSyncTrigger) o;
-        return Objects.equals(this.id, dbtModelSyncTrigger.id)
-                && Objects.equals(this.sourceId, dbtModelSyncTrigger.sourceId)
-                && Objects.equals(this.status, dbtModelSyncTrigger.status);
+        ReverseEtlDbtCloudScheduleConfig reverseEtlDbtCloudScheduleConfig =
+                (ReverseEtlDbtCloudScheduleConfig) o;
+        return Objects.equals(this.jobId, reverseEtlDbtCloudScheduleConfig.jobId)
+                && Objects.equals(this.accountId, reverseEtlDbtCloudScheduleConfig.accountId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, sourceId, status);
+        return Objects.hash(jobId, accountId);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class DbtModelSyncTrigger {\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
-        sb.append("    status: ").append(toIndentedString(status)).append("\n");
+        sb.append("class ReverseEtlDbtCloudScheduleConfig {\n");
+        sb.append("    jobId: ").append(toIndentedString(jobId)).append("\n");
+        sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -153,48 +127,48 @@ public class DbtModelSyncTrigger {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("id");
-        openapiFields.add("sourceId");
-        openapiFields.add("status");
+        openapiFields.add("jobId");
+        openapiFields.add("accountId");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("id");
-        openapiRequiredFields.add("status");
+        openapiRequiredFields.add("jobId");
+        openapiRequiredFields.add("accountId");
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to DbtModelSyncTrigger
+     * @throws IOException if the JSON Element is invalid with respect to
+     *     ReverseEtlDbtCloudScheduleConfig
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!DbtModelSyncTrigger.openapiRequiredFields
+            if (!ReverseEtlDbtCloudScheduleConfig.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in DbtModelSyncTrigger is not found in"
-                                        + " the empty JSON string",
-                                DbtModelSyncTrigger.openapiRequiredFields.toString()));
+                                "The required field(s) %s in ReverseEtlDbtCloudScheduleConfig is"
+                                        + " not found in the empty JSON string",
+                                ReverseEtlDbtCloudScheduleConfig.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!DbtModelSyncTrigger.openapiFields.contains(entry.getKey())) {
+            if (!ReverseEtlDbtCloudScheduleConfig.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `DbtModelSyncTrigger` properties. JSON: %s",
+                                    + " `ReverseEtlDbtCloudScheduleConfig` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : DbtModelSyncTrigger.openapiRequiredFields) {
+        for (String requiredField : ReverseEtlDbtCloudScheduleConfig.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -203,27 +177,19 @@ public class DbtModelSyncTrigger {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if (!jsonObj.get("id").isJsonPrimitive()) {
+        if (!jsonObj.get("jobId").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `id` to be a primitive type in the JSON string but"
-                                    + " got `%s`",
-                            jsonObj.get("id").toString()));
-        }
-        if ((jsonObj.get("sourceId") != null && !jsonObj.get("sourceId").isJsonNull())
-                && !jsonObj.get("sourceId").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `sourceId` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
-                            jsonObj.get("sourceId").toString()));
-        }
-        if (!jsonObj.get("status").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `status` to be a primitive type in the JSON string"
+                            "Expected the field `jobId` to be a primitive type in the JSON string"
                                     + " but got `%s`",
-                            jsonObj.get("status").toString()));
+                            jsonObj.get("jobId").toString()));
+        }
+        if (!jsonObj.get("accountId").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `accountId` to be a primitive type in the JSON"
+                                    + " string but got `%s`",
+                            jsonObj.get("accountId").toString()));
         }
     }
 
@@ -231,24 +197,27 @@ public class DbtModelSyncTrigger {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!DbtModelSyncTrigger.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'DbtModelSyncTrigger' and its subtypes
+            if (!ReverseEtlDbtCloudScheduleConfig.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'ReverseEtlDbtCloudScheduleConfig' and
+                // its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<DbtModelSyncTrigger> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(DbtModelSyncTrigger.class));
+            final TypeAdapter<ReverseEtlDbtCloudScheduleConfig> thisAdapter =
+                    gson.getDelegateAdapter(
+                            this, TypeToken.get(ReverseEtlDbtCloudScheduleConfig.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<DbtModelSyncTrigger>() {
+                    new TypeAdapter<ReverseEtlDbtCloudScheduleConfig>() {
                         @Override
-                        public void write(JsonWriter out, DbtModelSyncTrigger value)
+                        public void write(JsonWriter out, ReverseEtlDbtCloudScheduleConfig value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public DbtModelSyncTrigger read(JsonReader in) throws IOException {
+                        public ReverseEtlDbtCloudScheduleConfig read(JsonReader in)
+                                throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -258,18 +227,19 @@ public class DbtModelSyncTrigger {
     }
 
     /**
-     * Create an instance of DbtModelSyncTrigger given an JSON string
+     * Create an instance of ReverseEtlDbtCloudScheduleConfig given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of DbtModelSyncTrigger
-     * @throws IOException if the JSON string is invalid with respect to DbtModelSyncTrigger
+     * @return An instance of ReverseEtlDbtCloudScheduleConfig
+     * @throws IOException if the JSON string is invalid with respect to
+     *     ReverseEtlDbtCloudScheduleConfig
      */
-    public static DbtModelSyncTrigger fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, DbtModelSyncTrigger.class);
+    public static ReverseEtlDbtCloudScheduleConfig fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, ReverseEtlDbtCloudScheduleConfig.class);
     }
 
     /**
-     * Convert an instance of DbtModelSyncTrigger to an JSON string
+     * Convert an instance of ReverseEtlDbtCloudScheduleConfig to an JSON string
      *
      * @return JSON string
      */
