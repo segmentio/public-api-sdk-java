@@ -32,7 +32,10 @@ import java.util.Set;
 
 /** The input to create a Source-scoped regulation. */
 public class CreateSourceRegulationV1Input {
-    /** The regulation type to create. */
+    /**
+     * The regulation type to create. Please note that &#x60;DELETE_ARCHIVE_ONLY&#x60; is only
+     * supported for limited Workspaces for Source-scoped regulations.
+     */
     @JsonAdapter(RegulationTypeEnum.Adapter.class)
     public enum RegulationTypeEnum {
         DELETE_ARCHIVE_ONLY("DELETE_ARCHIVE_ONLY"),
@@ -158,7 +161,8 @@ public class CreateSourceRegulationV1Input {
     }
 
     /**
-     * The regulation type to create.
+     * The regulation type to create. Please note that &#x60;DELETE_ARCHIVE_ONLY&#x60; is only
+     * supported for limited Workspaces for Source-scoped regulations.
      *
      * @return regulationType
      */
