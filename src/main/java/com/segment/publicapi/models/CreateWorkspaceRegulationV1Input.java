@@ -35,8 +35,6 @@ public class CreateWorkspaceRegulationV1Input {
     /** The regulation type to create. */
     @JsonAdapter(RegulationTypeEnum.Adapter.class)
     public enum RegulationTypeEnum {
-        DELETE_ARCHIVE_ONLY("DELETE_ARCHIVE_ONLY"),
-
         DELETE_INTERNAL("DELETE_INTERNAL"),
 
         DELETE_ONLY("DELETE_ONLY"),
@@ -96,8 +94,6 @@ public class CreateWorkspaceRegulationV1Input {
     /** The subject type. Use &#x60;objectId&#x60; for Cloud Source regulations. */
     @JsonAdapter(SubjectTypeEnum.Adapter.class)
     public enum SubjectTypeEnum {
-        ANONYMOUS_ID("ANONYMOUS_ID"),
-
         OBJECT_ID("OBJECT_ID"),
 
         USER_ID("USER_ID");
