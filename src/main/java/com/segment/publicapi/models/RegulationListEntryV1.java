@@ -58,11 +58,11 @@ public class RegulationListEntryV1 {
 
         INVALID("INVALID"),
 
+        IN_PROGRESS("IN_PROGRESS"),
+
         NOT_SUPPORTED("NOT_SUPPORTED"),
 
-        PARTIAL_SUCCESS("PARTIAL_SUCCESS"),
-
-        RUNNING("RUNNING");
+        PARTIAL_SUCCESS("PARTIAL_SUCCESS");
 
         private String value;
 
