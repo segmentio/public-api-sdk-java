@@ -96,7 +96,11 @@ public class CreateSourceRegulationV1Input {
     @SerializedName(SERIALIZED_NAME_REGULATION_TYPE)
     private RegulationTypeEnum regulationType;
 
-    /** The subject type. */
+    /**
+     * The subject type. Note: &#x60;ANONYMOUS_ID&#x60; is only supported for limited Workspaces for
+     * Source-scoped regulations. &#x60;ANONYMOUS_ID&#x60; is only supported when regulationType is
+     * &#x60;DELETE_ARCHIVE_ONLY&#x60;.
+     */
     @JsonAdapter(SubjectTypeEnum.Adapter.class)
     public enum SubjectTypeEnum {
         ANONYMOUS_ID("ANONYMOUS_ID"),
@@ -182,7 +186,9 @@ public class CreateSourceRegulationV1Input {
     }
 
     /**
-     * The subject type.
+     * The subject type. Note: &#x60;ANONYMOUS_ID&#x60; is only supported for limited Workspaces for
+     * Source-scoped regulations. &#x60;ANONYMOUS_ID&#x60; is only supported when regulationType is
+     * &#x60;DELETE_ARCHIVE_ONLY&#x60;.
      *
      * @return subjectType
      */
@@ -210,8 +216,8 @@ public class CreateSourceRegulationV1Input {
     }
 
     /**
-     * The list of &#x60;userId&#x60; or &#x60;objectId&#x60; values of the subjects to regulate.
-     * Config API note: equal to &#x60;parent&#x60; but allows an array.
+     * The list of &#x60;userId&#x60; or &#x60;objectId&#x60; or &#x60;anonymousId&#x60; values of
+     * the subjects to regulate. Config API note: equal to &#x60;parent&#x60; but allows an array.
      *
      * @return subjectIds
      */

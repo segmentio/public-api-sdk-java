@@ -437,7 +437,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **sourceId** | **String**|  | |
 | **status** | **String**| The status on which to filter returned regulations.  This parameter exists in v1. | [optional] [enum: FAILED, FINISHED, INITIALIZED, INVALID, NOT_SUPPORTED, PARTIAL_SUCCESS, RUNNING] |
-| **regulationTypes** | [**List&lt;String&gt;**](String.md)| The regulation types on which to filter returned regulations.  This parameter exists in v1. | [optional] [enum: DELETE_INTERNAL, DELETE_ONLY, SUPPRESS_ONLY, SUPPRESS_WITH_DELETE, SUPPRESS_WITH_DELETE_INTERNAL, UNSUPPRESS] |
+| **regulationTypes** | [**List&lt;String&gt;**](String.md)| The regulation types on which to filter returned regulations.  This parameter exists in v1. | [optional] [enum: DELETE_ARCHIVE_ONLY, DELETE_INTERNAL, DELETE_ONLY, SUPPRESS_ONLY, SUPPRESS_WITH_DELETE, SUPPRESS_WITH_DELETE_INTERNAL, UNSUPPRESS] |
 | **pagination** | [**PaginationInput**](.md)| Pagination parameters.  This parameter exists in v1. | [optional] |
 
 ### Return type
@@ -587,7 +587,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **status** | **String**| The status on which to filter the returned regulations.  This parameter exists in v1. | [optional] [enum: FAILED, FINISHED, INITIALIZED, INVALID, NOT_SUPPORTED, PARTIAL_SUCCESS, RUNNING] |
-| **regulationTypes** | [**List&lt;String&gt;**](String.md)| The regulation types on which to filter returned regulations.  This parameter exists in v1. | [optional] [enum: DELETE_ARCHIVE_ONLY, DELETE_INTERNAL, DELETE_ONLY, SUPPRESS_ONLY, SUPPRESS_WITH_DELETE, SUPPRESS_WITH_DELETE_INTERNAL, UNSUPPRESS] |
+| **regulationTypes** | [**List&lt;String&gt;**](String.md)| The regulation types on which to filter returned regulations.  This parameter exists in v1. | [optional] [enum: DELETE_INTERNAL, DELETE_ONLY, SUPPRESS_ONLY, SUPPRESS_WITH_DELETE, SUPPRESS_WITH_DELETE_INTERNAL, UNSUPPRESS] |
 | **pagination** | [**PaginationInput**](.md)| Pagination parameters.  This parameter exists in v1. | [optional] |
 
 ### Return type
