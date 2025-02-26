@@ -51,11 +51,11 @@ public class DestinationStatusV1 {
 
         INVALID("INVALID"),
 
-        IN_PROGRESS("IN_PROGRESS"),
-
         NOT_SUPPORTED("NOT_SUPPORTED"),
 
-        PARTIAL_SUCCESS("PARTIAL_SUCCESS");
+        PARTIAL_SUCCESS("PARTIAL_SUCCESS"),
+
+        RUNNING("RUNNING");
 
         private String value;
 
