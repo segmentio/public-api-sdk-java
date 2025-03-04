@@ -26,28 +26,27 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class StatesInner extends AbstractOpenApiSchema {
-    private static final Logger log = Logger.getLogger(StatesInner.class.getName());
+public class DestinationsInner extends AbstractOpenApiSchema {
+    private static final Logger log = Logger.getLogger(DestinationsInner.class.getName());
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!StatesInner.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'StatesInner' and its subtypes
+            if (!DestinationsInner.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'DestinationsInner' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
             final TypeAdapter<DestinationState> adapterDestinationState =
                     gson.getDelegateAdapter(this, TypeToken.get(DestinationState.class));
-            final TypeAdapter<EventExitRule> adapterEventExitRule =
-                    gson.getDelegateAdapter(this, TypeToken.get(EventExitRule.class));
-            final TypeAdapter<AudienceExitRule> adapterAudienceExitRule =
-                    gson.getDelegateAdapter(this, TypeToken.get(AudienceExitRule.class));
+            final TypeAdapter<ExitDestinationState> adapterExitDestinationState =
+                    gson.getDelegateAdapter(this, TypeToken.get(ExitDestinationState.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<StatesInner>() {
+                    new TypeAdapter<DestinationsInner>() {
                         @Override
-                        public void write(JsonWriter out, StatesInner value) throws IOException {
+                        public void write(JsonWriter out, DestinationsInner value)
+                                throws IOException {
                             if (value == null || value.getActualInstance() == null) {
                                 elementAdapter.write(out, null);
                                 return;
@@ -61,29 +60,21 @@ public class StatesInner extends AbstractOpenApiSchema {
                                 elementAdapter.write(out, element);
                                 return;
                             }
-                            // check if the actual instance is of the type `EventExitRule`
-                            if (value.getActualInstance() instanceof EventExitRule) {
+                            // check if the actual instance is of the type `ExitDestinationState`
+                            if (value.getActualInstance() instanceof ExitDestinationState) {
                                 JsonElement element =
-                                        adapterEventExitRule.toJsonTree(
-                                                (EventExitRule) value.getActualInstance());
-                                elementAdapter.write(out, element);
-                                return;
-                            }
-                            // check if the actual instance is of the type `AudienceExitRule`
-                            if (value.getActualInstance() instanceof AudienceExitRule) {
-                                JsonElement element =
-                                        adapterAudienceExitRule.toJsonTree(
-                                                (AudienceExitRule) value.getActualInstance());
+                                        adapterExitDestinationState.toJsonTree(
+                                                (ExitDestinationState) value.getActualInstance());
                                 elementAdapter.write(out, element);
                                 return;
                             }
                             throw new IOException(
                                     "Failed to serialize as the type doesn't match anyOf schemae:"
-                                            + " AudienceExitRule, DestinationState, EventExitRule");
+                                            + " DestinationState, ExitDestinationState");
                         }
 
                         @Override
-                        public StatesInner read(JsonReader in) throws IOException {
+                        public DestinationsInner read(JsonReader in) throws IOException {
                             Object deserialized = null;
                             JsonElement jsonElement = elementAdapter.read(in);
 
@@ -95,7 +86,7 @@ public class StatesInner extends AbstractOpenApiSchema {
                                 // validate the JSON object to see if any exception is thrown
                                 DestinationState.validateJsonElement(jsonElement);
                                 actualAdapter = adapterDestinationState;
-                                StatesInner ret = new StatesInner();
+                                DestinationsInner ret = new DestinationsInner();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
                                 return ret;
                             } catch (Exception e) {
@@ -110,50 +101,30 @@ public class StatesInner extends AbstractOpenApiSchema {
                                         "Input data does not match schema 'DestinationState'",
                                         e);
                             }
-                            // deserialize EventExitRule
+                            // deserialize ExitDestinationState
                             try {
                                 // validate the JSON object to see if any exception is thrown
-                                EventExitRule.validateJsonElement(jsonElement);
-                                actualAdapter = adapterEventExitRule;
-                                StatesInner ret = new StatesInner();
+                                ExitDestinationState.validateJsonElement(jsonElement);
+                                actualAdapter = adapterExitDestinationState;
+                                DestinationsInner ret = new DestinationsInner();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
                                 return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
                                         String.format(
-                                                "Deserialization for EventExitRule failed with"
-                                                        + " `%s`.",
+                                                "Deserialization for ExitDestinationState failed"
+                                                        + " with `%s`.",
                                                 e.getMessage()));
                                 log.log(
                                         Level.FINER,
-                                        "Input data does not match schema 'EventExitRule'",
-                                        e);
-                            }
-                            // deserialize AudienceExitRule
-                            try {
-                                // validate the JSON object to see if any exception is thrown
-                                AudienceExitRule.validateJsonElement(jsonElement);
-                                actualAdapter = adapterAudienceExitRule;
-                                StatesInner ret = new StatesInner();
-                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                                return ret;
-                            } catch (Exception e) {
-                                // deserialization failed, continue
-                                errorMessages.add(
-                                        String.format(
-                                                "Deserialization for AudienceExitRule failed with"
-                                                        + " `%s`.",
-                                                e.getMessage()));
-                                log.log(
-                                        Level.FINER,
-                                        "Input data does not match schema 'AudienceExitRule'",
+                                        "Input data does not match schema 'ExitDestinationState'",
                                         e);
                             }
 
                             throw new IOException(
                                     String.format(
-                                            "Failed deserialization for StatesInner: no class"
+                                            "Failed deserialization for DestinationsInner: no class"
                                                 + " matches result, expected at least 1. Detailed"
                                                 + " failure message for anyOf schemas: %s. JSON:"
                                                 + " %s",
@@ -166,39 +137,33 @@ public class StatesInner extends AbstractOpenApiSchema {
     // store a list of schema names defined in anyOf
     public static final Map<String, Class<?>> schemas = new HashMap<String, Class<?>>();
 
-    public StatesInner() {
+    public DestinationsInner() {
         super("anyOf", Boolean.FALSE);
     }
 
-    public StatesInner(AudienceExitRule o) {
-        super("anyOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-
-    public StatesInner(DestinationState o) {
+    public DestinationsInner(DestinationState o) {
         super("anyOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public StatesInner(EventExitRule o) {
+    public DestinationsInner(ExitDestinationState o) {
         super("anyOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
     static {
         schemas.put("DestinationState", DestinationState.class);
-        schemas.put("EventExitRule", EventExitRule.class);
-        schemas.put("AudienceExitRule", AudienceExitRule.class);
+        schemas.put("ExitDestinationState", ExitDestinationState.class);
     }
 
     @Override
     public Map<String, Class<?>> getSchemas() {
-        return StatesInner.schemas;
+        return DestinationsInner.schemas;
     }
 
     /**
      * Set the instance that matches the anyOf child schema, check the instance parameter is valid
-     * against the anyOf child schemas: AudienceExitRule, DestinationState, EventExitRule
+     * against the anyOf child schemas: DestinationState, ExitDestinationState
      *
      * <p>It could be an instance of the 'anyOf' schemas.
      */
@@ -209,25 +174,19 @@ public class StatesInner extends AbstractOpenApiSchema {
             return;
         }
 
-        if (instance instanceof EventExitRule) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        if (instance instanceof AudienceExitRule) {
+        if (instance instanceof ExitDestinationState) {
             super.setActualInstance(instance);
             return;
         }
 
         throw new RuntimeException(
-                "Invalid instance type. Must be AudienceExitRule, DestinationState, EventExitRule");
+                "Invalid instance type. Must be DestinationState, ExitDestinationState");
     }
 
     /**
-     * Get the actual instance, which can be the following: AudienceExitRule, DestinationState,
-     * EventExitRule
+     * Get the actual instance, which can be the following: DestinationState, ExitDestinationState
      *
-     * @return The actual instance (AudienceExitRule, DestinationState, EventExitRule)
+     * @return The actual instance (DestinationState, ExitDestinationState)
      */
     @Override
     public Object getActualInstance() {
@@ -246,32 +205,21 @@ public class StatesInner extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `EventExitRule`. If the actual instance is not `EventExitRule`,
-     * the ClassCastException will be thrown.
+     * Get the actual instance of `ExitDestinationState`. If the actual instance is not
+     * `ExitDestinationState`, the ClassCastException will be thrown.
      *
-     * @return The actual instance of `EventExitRule`
-     * @throws ClassCastException if the instance is not `EventExitRule`
+     * @return The actual instance of `ExitDestinationState`
+     * @throws ClassCastException if the instance is not `ExitDestinationState`
      */
-    public EventExitRule getEventExitRule() throws ClassCastException {
-        return (EventExitRule) super.getActualInstance();
-    }
-
-    /**
-     * Get the actual instance of `AudienceExitRule`. If the actual instance is not
-     * `AudienceExitRule`, the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `AudienceExitRule`
-     * @throws ClassCastException if the instance is not `AudienceExitRule`
-     */
-    public AudienceExitRule getAudienceExitRule() throws ClassCastException {
-        return (AudienceExitRule) super.getActualInstance();
+    public ExitDestinationState getExitDestinationState() throws ClassCastException {
+        return (ExitDestinationState) super.getActualInstance();
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to StatesInner
+     * @throws IOException if the JSON Element is invalid with respect to DestinationsInner
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         // validate anyOf schemas one by one
@@ -287,49 +235,39 @@ public class StatesInner extends AbstractOpenApiSchema {
                             e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with EventExitRule
+        // validate the json string with ExitDestinationState
         try {
-            EventExitRule.validateJsonElement(jsonElement);
+            ExitDestinationState.validateJsonElement(jsonElement);
             return;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
-                            "Deserialization for EventExitRule failed with `%s`.", e.getMessage()));
-            // continue to the next one
-        }
-        // validate the json string with AudienceExitRule
-        try {
-            AudienceExitRule.validateJsonElement(jsonElement);
-            return;
-        } catch (Exception e) {
-            errorMessages.add(
-                    String.format(
-                            "Deserialization for AudienceExitRule failed with `%s`.",
+                            "Deserialization for ExitDestinationState failed with `%s`.",
                             e.getMessage()));
             // continue to the next one
         }
         throw new IOException(
                 String.format(
-                        "The JSON string is invalid for StatesInner with anyOf schemas:"
-                            + " AudienceExitRule, DestinationState, EventExitRule. no class match"
-                            + " the result, expected at least 1. Detailed failure message for anyOf"
-                            + " schemas: %s. JSON: %s",
+                        "The JSON string is invalid for DestinationsInner with anyOf schemas:"
+                            + " DestinationState, ExitDestinationState. no class match the result,"
+                            + " expected at least 1. Detailed failure message for anyOf schemas:"
+                            + " %s. JSON: %s",
                         errorMessages, jsonElement.toString()));
     }
 
     /**
-     * Create an instance of StatesInner given an JSON string
+     * Create an instance of DestinationsInner given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of StatesInner
-     * @throws IOException if the JSON string is invalid with respect to StatesInner
+     * @return An instance of DestinationsInner
+     * @throws IOException if the JSON string is invalid with respect to DestinationsInner
      */
-    public static StatesInner fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, StatesInner.class);
+    public static DestinationsInner fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, DestinationsInner.class);
     }
 
     /**
-     * Convert an instance of StatesInner to an JSON string
+     * Convert an instance of DestinationsInner to an JSON string
      *
      * @return JSON string
      */

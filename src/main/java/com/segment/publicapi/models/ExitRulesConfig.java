@@ -37,10 +37,15 @@ public class ExitRulesConfig {
     @SerializedName(SERIALIZED_NAME_ENABLED)
     private Boolean enabled;
 
-    public static final String SERIALIZED_NAME_STATES = "states";
+    public static final String SERIALIZED_NAME_RULES = "rules";
 
-    @SerializedName(SERIALIZED_NAME_STATES)
-    private List<StatesInner> states = new ArrayList<>();
+    @SerializedName(SERIALIZED_NAME_RULES)
+    private List<RulesInner> rules = new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_RELATED_DESTINATIONS = "relatedDestinations";
+
+    @SerializedName(SERIALIZED_NAME_RELATED_DESTINATIONS)
+    private List<ExitDestinationState> relatedDestinations;
 
     public ExitRulesConfig() {}
 
@@ -64,32 +69,61 @@ public class ExitRulesConfig {
         this.enabled = enabled;
     }
 
-    public ExitRulesConfig states(List<StatesInner> states) {
+    public ExitRulesConfig rules(List<RulesInner> rules) {
 
-        this.states = states;
+        this.rules = rules;
         return this;
     }
 
-    public ExitRulesConfig addStatesItem(StatesInner statesItem) {
-        if (this.states == null) {
-            this.states = new ArrayList<>();
+    public ExitRulesConfig addRulesItem(RulesInner rulesItem) {
+        if (this.rules == null) {
+            this.rules = new ArrayList<>();
         }
-        this.states.add(statesItem);
+        this.rules.add(rulesItem);
         return this;
     }
 
     /**
-     * Get states
+     * Get rules
      *
-     * @return states
+     * @return rules
      */
     @javax.annotation.Nonnull
-    public List<StatesInner> getStates() {
-        return states;
+    public List<RulesInner> getRules() {
+        return rules;
     }
 
-    public void setStates(List<StatesInner> states) {
-        this.states = states;
+    public void setRules(List<RulesInner> rules) {
+        this.rules = rules;
+    }
+
+    public ExitRulesConfig relatedDestinations(List<ExitDestinationState> relatedDestinations) {
+
+        this.relatedDestinations = relatedDestinations;
+        return this;
+    }
+
+    public ExitRulesConfig addRelatedDestinationsItem(
+            ExitDestinationState relatedDestinationsItem) {
+        if (this.relatedDestinations == null) {
+            this.relatedDestinations = new ArrayList<>();
+        }
+        this.relatedDestinations.add(relatedDestinationsItem);
+        return this;
+    }
+
+    /**
+     * Get relatedDestinations
+     *
+     * @return relatedDestinations
+     */
+    @javax.annotation.Nullable
+    public List<ExitDestinationState> getRelatedDestinations() {
+        return relatedDestinations;
+    }
+
+    public void setRelatedDestinations(List<ExitDestinationState> relatedDestinations) {
+        this.relatedDestinations = relatedDestinations;
     }
 
     @Override
@@ -102,12 +136,13 @@ public class ExitRulesConfig {
         }
         ExitRulesConfig exitRulesConfig = (ExitRulesConfig) o;
         return Objects.equals(this.enabled, exitRulesConfig.enabled)
-                && Objects.equals(this.states, exitRulesConfig.states);
+                && Objects.equals(this.rules, exitRulesConfig.rules)
+                && Objects.equals(this.relatedDestinations, exitRulesConfig.relatedDestinations);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(enabled, states);
+        return Objects.hash(enabled, rules, relatedDestinations);
     }
 
     @Override
@@ -115,7 +150,10 @@ public class ExitRulesConfig {
         StringBuilder sb = new StringBuilder();
         sb.append("class ExitRulesConfig {\n");
         sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
-        sb.append("    states: ").append(toIndentedString(states)).append("\n");
+        sb.append("    rules: ").append(toIndentedString(rules)).append("\n");
+        sb.append("    relatedDestinations: ")
+                .append(toIndentedString(relatedDestinations))
+                .append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -138,12 +176,13 @@ public class ExitRulesConfig {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
         openapiFields.add("enabled");
-        openapiFields.add("states");
+        openapiFields.add("rules");
+        openapiFields.add("relatedDestinations");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
         openapiRequiredFields.add("enabled");
-        openapiRequiredFields.add("states");
+        openapiRequiredFields.add("rules");
     }
 
     /**
@@ -187,20 +226,40 @@ public class ExitRulesConfig {
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // ensure the json data is an array
-        if (!jsonObj.get("states").isJsonArray()) {
+        if (!jsonObj.get("rules").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `states` to be an array in the JSON string but got"
+                            "Expected the field `rules` to be an array in the JSON string but got"
                                     + " `%s`",
-                            jsonObj.get("states").toString()));
+                            jsonObj.get("rules").toString()));
         }
 
-        JsonArray jsonArraystates = jsonObj.getAsJsonArray("states");
-        // validate the required field `states` (array)
-        for (int i = 0; i < jsonArraystates.size(); i++) {
-            StatesInner.validateJsonElement(jsonArraystates.get(i));
+        JsonArray jsonArrayrules = jsonObj.getAsJsonArray("rules");
+        // validate the required field `rules` (array)
+        for (int i = 0; i < jsonArrayrules.size(); i++) {
+            RulesInner.validateJsonElement(jsonArrayrules.get(i));
         }
         ;
+        if (jsonObj.get("relatedDestinations") != null
+                && !jsonObj.get("relatedDestinations").isJsonNull()) {
+            JsonArray jsonArrayrelatedDestinations = jsonObj.getAsJsonArray("relatedDestinations");
+            if (jsonArrayrelatedDestinations != null) {
+                // ensure the json data is an array
+                if (!jsonObj.get("relatedDestinations").isJsonArray()) {
+                    throw new IllegalArgumentException(
+                            String.format(
+                                    "Expected the field `relatedDestinations` to be an array in the"
+                                            + " JSON string but got `%s`",
+                                    jsonObj.get("relatedDestinations").toString()));
+                }
+
+                // validate the optional field `relatedDestinations` (array)
+                for (int i = 0; i < jsonArrayrelatedDestinations.size(); i++) {
+                    ExitDestinationState.validateJsonElement(jsonArrayrelatedDestinations.get(i));
+                }
+                ;
+            }
+        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

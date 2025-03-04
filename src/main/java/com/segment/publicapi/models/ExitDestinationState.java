@@ -17,13 +17,13 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -31,74 +31,96 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** DESTINATION update response. */
-public class UpdateDestinationsForJourneyAlphaOutput {
-    public static final String SERIALIZED_NAME_CONTAINER_ID = "containerId";
+/** ExitDestinationState */
+public class ExitDestinationState {
+    /** Gets or Sets type */
+    @JsonAdapter(TypeEnum.Adapter.class)
+    public enum TypeEnum {
+        DESTINATION("DESTINATION");
 
-    @SerializedName(SERIALIZED_NAME_CONTAINER_ID)
-    private String containerId;
+        private String value;
 
-    public static final String SERIALIZED_NAME_VERSION = "version";
+        TypeEnum(String value) {
+            this.value = value;
+        }
 
-    @SerializedName(SERIALIZED_NAME_VERSION)
-    private BigDecimal version;
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static TypeEnum fromValue(String value) {
+            for (TypeEnum b : TypeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<TypeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final TypeEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public TypeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return TypeEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_TYPE = "type";
+
+    @SerializedName(SERIALIZED_NAME_TYPE)
+    private TypeEnum type;
 
     public static final String SERIALIZED_NAME_DESTINATIONS = "destinations";
 
     @SerializedName(SERIALIZED_NAME_DESTINATIONS)
-    private List<DestinationsInner> destinations = new ArrayList<>();
+    private List<Destination> destinations = new ArrayList<>();
 
-    public UpdateDestinationsForJourneyAlphaOutput() {}
+    public static final String SERIALIZED_NAME_KEY = "key";
 
-    public UpdateDestinationsForJourneyAlphaOutput containerId(String containerId) {
+    @SerializedName(SERIALIZED_NAME_KEY)
+    private Key key;
 
-        this.containerId = containerId;
+    public ExitDestinationState() {}
+
+    public ExitDestinationState type(TypeEnum type) {
+
+        this.type = type;
         return this;
     }
 
     /**
-     * The journey container id.
+     * Get type
      *
-     * @return containerId
+     * @return type
      */
     @javax.annotation.Nonnull
-    public String getContainerId() {
-        return containerId;
+    public TypeEnum getType() {
+        return type;
     }
 
-    public void setContainerId(String containerId) {
-        this.containerId = containerId;
+    public void setType(TypeEnum type) {
+        this.type = type;
     }
 
-    public UpdateDestinationsForJourneyAlphaOutput version(BigDecimal version) {
-
-        this.version = version;
-        return this;
-    }
-
-    /**
-     * The version of journey.
-     *
-     * @return version
-     */
-    @javax.annotation.Nullable
-    public BigDecimal getVersion() {
-        return version;
-    }
-
-    public void setVersion(BigDecimal version) {
-        this.version = version;
-    }
-
-    public UpdateDestinationsForJourneyAlphaOutput destinations(
-            List<DestinationsInner> destinations) {
+    public ExitDestinationState destinations(List<Destination> destinations) {
 
         this.destinations = destinations;
         return this;
     }
 
-    public UpdateDestinationsForJourneyAlphaOutput addDestinationsItem(
-            DestinationsInner destinationsItem) {
+    public ExitDestinationState addDestinationsItem(Destination destinationsItem) {
         if (this.destinations == null) {
             this.destinations = new ArrayList<>();
         }
@@ -107,17 +129,37 @@ public class UpdateDestinationsForJourneyAlphaOutput {
     }
 
     /**
-     * The updated DESTINATIONS.
+     * Get destinations
      *
      * @return destinations
      */
     @javax.annotation.Nonnull
-    public List<DestinationsInner> getDestinations() {
+    public List<Destination> getDestinations() {
         return destinations;
     }
 
-    public void setDestinations(List<DestinationsInner> destinations) {
+    public void setDestinations(List<Destination> destinations) {
         this.destinations = destinations;
+    }
+
+    public ExitDestinationState key(Key key) {
+
+        this.key = key;
+        return this;
+    }
+
+    /**
+     * Get key
+     *
+     * @return key
+     */
+    @javax.annotation.Nonnull
+    public Key getKey() {
+        return key;
+    }
+
+    public void setKey(Key key) {
+        this.key = key;
     }
 
     @Override
@@ -128,26 +170,24 @@ public class UpdateDestinationsForJourneyAlphaOutput {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        UpdateDestinationsForJourneyAlphaOutput updateDestinationsForJourneyAlphaOutput =
-                (UpdateDestinationsForJourneyAlphaOutput) o;
-        return Objects.equals(this.containerId, updateDestinationsForJourneyAlphaOutput.containerId)
-                && Objects.equals(this.version, updateDestinationsForJourneyAlphaOutput.version)
-                && Objects.equals(
-                        this.destinations, updateDestinationsForJourneyAlphaOutput.destinations);
+        ExitDestinationState exitDestinationState = (ExitDestinationState) o;
+        return Objects.equals(this.type, exitDestinationState.type)
+                && Objects.equals(this.destinations, exitDestinationState.destinations)
+                && Objects.equals(this.key, exitDestinationState.key);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(containerId, version, destinations);
+        return Objects.hash(type, destinations, key);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class UpdateDestinationsForJourneyAlphaOutput {\n");
-        sb.append("    containerId: ").append(toIndentedString(containerId)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
+        sb.append("class ExitDestinationState {\n");
+        sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("    destinations: ").append(toIndentedString(destinations)).append("\n");
+        sb.append("    key: ").append(toIndentedString(key)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -169,52 +209,49 @@ public class UpdateDestinationsForJourneyAlphaOutput {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("containerId");
-        openapiFields.add("version");
+        openapiFields.add("type");
         openapiFields.add("destinations");
+        openapiFields.add("key");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("containerId");
+        openapiRequiredFields.add("type");
         openapiRequiredFields.add("destinations");
+        openapiRequiredFields.add("key");
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to
-     *     UpdateDestinationsForJourneyAlphaOutput
+     * @throws IOException if the JSON Element is invalid with respect to ExitDestinationState
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!UpdateDestinationsForJourneyAlphaOutput.openapiRequiredFields
+            if (!ExitDestinationState.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in"
-                                    + " UpdateDestinationsForJourneyAlphaOutput is not found in the"
-                                    + " empty JSON string",
-                                UpdateDestinationsForJourneyAlphaOutput.openapiRequiredFields
-                                        .toString()));
+                                "The required field(s) %s in ExitDestinationState is not found in"
+                                        + " the empty JSON string",
+                                ExitDestinationState.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!UpdateDestinationsForJourneyAlphaOutput.openapiFields.contains(entry.getKey())) {
+            if (!ExitDestinationState.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                    + " `UpdateDestinationsForJourneyAlphaOutput` properties. JSON:"
-                                    + " %s",
+                                        + " `ExitDestinationState` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : UpdateDestinationsForJourneyAlphaOutput.openapiRequiredFields) {
+        for (String requiredField : ExitDestinationState.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -223,12 +260,12 @@ public class UpdateDestinationsForJourneyAlphaOutput {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if (!jsonObj.get("containerId").isJsonPrimitive()) {
+        if (!jsonObj.get("type").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `containerId` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
-                            jsonObj.get("containerId").toString()));
+                            "Expected the field `type` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
+                            jsonObj.get("type").toString()));
         }
         // ensure the json data is an array
         if (!jsonObj.get("destinations").isJsonArray()) {
@@ -242,38 +279,35 @@ public class UpdateDestinationsForJourneyAlphaOutput {
         JsonArray jsonArraydestinations = jsonObj.getAsJsonArray("destinations");
         // validate the required field `destinations` (array)
         for (int i = 0; i < jsonArraydestinations.size(); i++) {
-            DestinationsInner.validateJsonElement(jsonArraydestinations.get(i));
+            Destination.validateJsonElement(jsonArraydestinations.get(i));
         }
         ;
+        // validate the required field `key`
+        Key.validateJsonElement(jsonObj.get("key"));
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!UpdateDestinationsForJourneyAlphaOutput.class.isAssignableFrom(
-                    type.getRawType())) {
-                return null; // this class only serializes 'UpdateDestinationsForJourneyAlphaOutput'
-                // and its subtypes
+            if (!ExitDestinationState.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'ExitDestinationState' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<UpdateDestinationsForJourneyAlphaOutput> thisAdapter =
-                    gson.getDelegateAdapter(
-                            this, TypeToken.get(UpdateDestinationsForJourneyAlphaOutput.class));
+            final TypeAdapter<ExitDestinationState> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(ExitDestinationState.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<UpdateDestinationsForJourneyAlphaOutput>() {
+                    new TypeAdapter<ExitDestinationState>() {
                         @Override
-                        public void write(
-                                JsonWriter out, UpdateDestinationsForJourneyAlphaOutput value)
+                        public void write(JsonWriter out, ExitDestinationState value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public UpdateDestinationsForJourneyAlphaOutput read(JsonReader in)
-                                throws IOException {
+                        public ExitDestinationState read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -283,20 +317,18 @@ public class UpdateDestinationsForJourneyAlphaOutput {
     }
 
     /**
-     * Create an instance of UpdateDestinationsForJourneyAlphaOutput given an JSON string
+     * Create an instance of ExitDestinationState given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of UpdateDestinationsForJourneyAlphaOutput
-     * @throws IOException if the JSON string is invalid with respect to
-     *     UpdateDestinationsForJourneyAlphaOutput
+     * @return An instance of ExitDestinationState
+     * @throws IOException if the JSON string is invalid with respect to ExitDestinationState
      */
-    public static UpdateDestinationsForJourneyAlphaOutput fromJson(String jsonString)
-            throws IOException {
-        return JSON.getGson().fromJson(jsonString, UpdateDestinationsForJourneyAlphaOutput.class);
+    public static ExitDestinationState fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, ExitDestinationState.class);
     }
 
     /**
-     * Convert an instance of UpdateDestinationsForJourneyAlphaOutput to an JSON string
+     * Convert an instance of ExitDestinationState to an JSON string
      *
      * @return JSON string
      */

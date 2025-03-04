@@ -40,6 +40,8 @@ public class RandomSplitState {
 
         EXIT("EXIT"),
 
+        DESTINATION("DESTINATION"),
+
         EXIT_RULE("EXIT_RULE");
 
         private String value;

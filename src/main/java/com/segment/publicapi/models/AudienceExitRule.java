@@ -12,7 +12,6 @@
 package com.segment.publicapi.models;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
@@ -146,10 +145,10 @@ public class AudienceExitRule {
     @SerializedName(SERIALIZED_NAME_CONCURRENCY_ENABLED)
     private Boolean concurrencyEnabled;
 
-    public static final String SERIALIZED_NAME_TRANSITIONS = "transitions";
+    public static final String SERIALIZED_NAME_CONNECTED_DESTINATIONS = "connectedDestinations";
 
-    @SerializedName(SERIALIZED_NAME_TRANSITIONS)
-    private List<Transitions> transitions;
+    @SerializedName(SERIALIZED_NAME_CONNECTED_DESTINATIONS)
+    private List<String> connectedDestinations;
 
     public static final String SERIALIZED_NAME_KEY = "key";
 
@@ -258,32 +257,32 @@ public class AudienceExitRule {
         this.concurrencyEnabled = concurrencyEnabled;
     }
 
-    public AudienceExitRule transitions(List<Transitions> transitions) {
+    public AudienceExitRule connectedDestinations(List<String> connectedDestinations) {
 
-        this.transitions = transitions;
+        this.connectedDestinations = connectedDestinations;
         return this;
     }
 
-    public AudienceExitRule addTransitionsItem(Transitions transitionsItem) {
-        if (this.transitions == null) {
-            this.transitions = new ArrayList<>();
+    public AudienceExitRule addConnectedDestinationsItem(String connectedDestinationsItem) {
+        if (this.connectedDestinations == null) {
+            this.connectedDestinations = new ArrayList<>();
         }
-        this.transitions.add(transitionsItem);
+        this.connectedDestinations.add(connectedDestinationsItem);
         return this;
     }
 
     /**
-     * Get transitions
+     * Get connectedDestinations
      *
-     * @return transitions
+     * @return connectedDestinations
      */
     @javax.annotation.Nullable
-    public List<Transitions> getTransitions() {
-        return transitions;
+    public List<String> getConnectedDestinations() {
+        return connectedDestinations;
     }
 
-    public void setTransitions(List<Transitions> transitions) {
-        this.transitions = transitions;
+    public void setConnectedDestinations(List<String> connectedDestinations) {
+        this.connectedDestinations = connectedDestinations;
     }
 
     public AudienceExitRule key(Key key) {
@@ -320,14 +319,21 @@ public class AudienceExitRule {
                 && Objects.equals(this.type, audienceExitRule.type)
                 && Objects.equals(this.enabled, audienceExitRule.enabled)
                 && Objects.equals(this.concurrencyEnabled, audienceExitRule.concurrencyEnabled)
-                && Objects.equals(this.transitions, audienceExitRule.transitions)
+                && Objects.equals(
+                        this.connectedDestinations, audienceExitRule.connectedDestinations)
                 && Objects.equals(this.key, audienceExitRule.key);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(
-                exitType, audienceId, type, enabled, concurrencyEnabled, transitions, key);
+                exitType,
+                audienceId,
+                type,
+                enabled,
+                concurrencyEnabled,
+                connectedDestinations,
+                key);
     }
 
     @Override
@@ -341,7 +347,9 @@ public class AudienceExitRule {
         sb.append("    concurrencyEnabled: ")
                 .append(toIndentedString(concurrencyEnabled))
                 .append("\n");
-        sb.append("    transitions: ").append(toIndentedString(transitions)).append("\n");
+        sb.append("    connectedDestinations: ")
+                .append(toIndentedString(connectedDestinations))
+                .append("\n");
         sb.append("    key: ").append(toIndentedString(key)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -369,7 +377,7 @@ public class AudienceExitRule {
         openapiFields.add("type");
         openapiFields.add("enabled");
         openapiFields.add("concurrencyEnabled");
-        openapiFields.add("transitions");
+        openapiFields.add("connectedDestinations");
         openapiFields.add("key");
 
         // a set of required properties/fields (JSON key names)
@@ -443,24 +451,15 @@ public class AudienceExitRule {
                                     + " but got `%s`",
                             jsonObj.get("type").toString()));
         }
-        if (jsonObj.get("transitions") != null && !jsonObj.get("transitions").isJsonNull()) {
-            JsonArray jsonArraytransitions = jsonObj.getAsJsonArray("transitions");
-            if (jsonArraytransitions != null) {
-                // ensure the json data is an array
-                if (!jsonObj.get("transitions").isJsonArray()) {
-                    throw new IllegalArgumentException(
-                            String.format(
-                                    "Expected the field `transitions` to be an array in the JSON"
-                                            + " string but got `%s`",
-                                    jsonObj.get("transitions").toString()));
-                }
-
-                // validate the optional field `transitions` (array)
-                for (int i = 0; i < jsonArraytransitions.size(); i++) {
-                    Transitions.validateJsonElement(jsonArraytransitions.get(i));
-                }
-                ;
-            }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("connectedDestinations") != null
+                && !jsonObj.get("connectedDestinations").isJsonNull()
+                && !jsonObj.get("connectedDestinations").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `connectedDestinations` to be an array in the JSON"
+                                    + " string but got `%s`",
+                            jsonObj.get("connectedDestinations").toString()));
         }
         // validate the required field `key`
         Key.validateJsonElement(jsonObj.get("key"));

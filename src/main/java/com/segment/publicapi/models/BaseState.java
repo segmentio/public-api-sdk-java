@@ -41,6 +41,8 @@ public class BaseState extends AbstractOpenApiSchema {
                     gson.getDelegateAdapter(this, TypeToken.get(TransitionState.class));
             final TypeAdapter<ExitState> adapterExitState =
                     gson.getDelegateAdapter(this, TypeToken.get(ExitState.class));
+            final TypeAdapter<ExitDestinationState> adapterExitDestinationState =
+                    gson.getDelegateAdapter(this, TypeToken.get(ExitDestinationState.class));
             final TypeAdapter<ExitRule> adapterExitRule =
                     gson.getDelegateAdapter(this, TypeToken.get(ExitRule.class));
 
@@ -69,6 +71,14 @@ public class BaseState extends AbstractOpenApiSchema {
                                 elementAdapter.write(out, element);
                                 return;
                             }
+                            // check if the actual instance is of the type `ExitDestinationState`
+                            if (value.getActualInstance() instanceof ExitDestinationState) {
+                                JsonElement element =
+                                        adapterExitDestinationState.toJsonTree(
+                                                (ExitDestinationState) value.getActualInstance());
+                                elementAdapter.write(out, element);
+                                return;
+                            }
                             // check if the actual instance is of the type `ExitRule`
                             if (value.getActualInstance() instanceof ExitRule) {
                                 JsonElement element =
@@ -79,7 +89,8 @@ public class BaseState extends AbstractOpenApiSchema {
                             }
                             throw new IOException(
                                     "Failed to serialize as the type doesn't match oneOf schemas:"
-                                            + " ExitRule, ExitState, TransitionState");
+                                            + " ExitDestinationState, ExitRule, ExitState,"
+                                            + " TransitionState");
                         }
 
                         @Override
@@ -128,6 +139,27 @@ public class BaseState extends AbstractOpenApiSchema {
                                         "Input data does not match schema 'ExitState'",
                                         e);
                             }
+                            // deserialize ExitDestinationState
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                ExitDestinationState.validateJsonElement(jsonElement);
+                                actualAdapter = adapterExitDestinationState;
+                                match++;
+                                log.log(
+                                        Level.FINER,
+                                        "Input data matches schema 'ExitDestinationState'");
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                "Deserialization for ExitDestinationState failed"
+                                                        + " with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema 'ExitDestinationState'",
+                                        e);
+                            }
                             // deserialize ExitRule
                             try {
                                 // validate the JSON object to see if any exception is thrown
@@ -171,6 +203,11 @@ public class BaseState extends AbstractOpenApiSchema {
         super("oneOf", Boolean.FALSE);
     }
 
+    public BaseState(ExitDestinationState o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
     public BaseState(ExitRule o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
@@ -189,6 +226,7 @@ public class BaseState extends AbstractOpenApiSchema {
     static {
         schemas.put("TransitionState", TransitionState.class);
         schemas.put("ExitState", ExitState.class);
+        schemas.put("ExitDestinationState", ExitDestinationState.class);
         schemas.put("ExitRule", ExitRule.class);
     }
 
@@ -199,7 +237,7 @@ public class BaseState extends AbstractOpenApiSchema {
 
     /**
      * Set the instance that matches the oneOf child schema, check the instance parameter is valid
-     * against the oneOf child schemas: ExitRule, ExitState, TransitionState
+     * against the oneOf child schemas: ExitDestinationState, ExitRule, ExitState, TransitionState
      *
      * <p>It could be an instance of the 'oneOf' schemas.
      */
@@ -215,19 +253,26 @@ public class BaseState extends AbstractOpenApiSchema {
             return;
         }
 
+        if (instance instanceof ExitDestinationState) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         if (instance instanceof ExitRule) {
             super.setActualInstance(instance);
             return;
         }
 
         throw new RuntimeException(
-                "Invalid instance type. Must be ExitRule, ExitState, TransitionState");
+                "Invalid instance type. Must be ExitDestinationState, ExitRule, ExitState,"
+                        + " TransitionState");
     }
 
     /**
-     * Get the actual instance, which can be the following: ExitRule, ExitState, TransitionState
+     * Get the actual instance, which can be the following: ExitDestinationState, ExitRule,
+     * ExitState, TransitionState
      *
-     * @return The actual instance (ExitRule, ExitState, TransitionState)
+     * @return The actual instance (ExitDestinationState, ExitRule, ExitState, TransitionState)
      */
     @Override
     public Object getActualInstance() {
@@ -254,6 +299,17 @@ public class BaseState extends AbstractOpenApiSchema {
      */
     public ExitState getExitState() throws ClassCastException {
         return (ExitState) super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `ExitDestinationState`. If the actual instance is not
+     * `ExitDestinationState`, the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ExitDestinationState`
+     * @throws ClassCastException if the instance is not `ExitDestinationState`
+     */
+    public ExitDestinationState getExitDestinationState() throws ClassCastException {
+        return (ExitDestinationState) super.getActualInstance();
     }
 
     /**
@@ -298,6 +354,17 @@ public class BaseState extends AbstractOpenApiSchema {
                             "Deserialization for ExitState failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with ExitDestinationState
+        try {
+            ExitDestinationState.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(
+                    String.format(
+                            "Deserialization for ExitDestinationState failed with `%s`.",
+                            e.getMessage()));
+            // continue to the next one
+        }
         // validate the json string with ExitRule
         try {
             ExitRule.validateJsonElement(jsonElement);
@@ -311,10 +378,10 @@ public class BaseState extends AbstractOpenApiSchema {
         if (validCount != 1) {
             throw new IOException(
                     String.format(
-                            "The JSON string is invalid for BaseState with oneOf schemas: ExitRule,"
-                                    + " ExitState, TransitionState. %d class(es) match the result,"
-                                    + " expected 1. Detailed failure message for oneOf schemas: %s."
-                                    + " JSON: %s",
+                            "The JSON string is invalid for BaseState with oneOf schemas:"
+                                + " ExitDestinationState, ExitRule, ExitState, TransitionState. %d"
+                                + " class(es) match the result, expected 1. Detailed failure"
+                                + " message for oneOf schemas: %s. JSON: %s",
                             validCount, errorMessages, jsonElement.toString()));
         }
     }
