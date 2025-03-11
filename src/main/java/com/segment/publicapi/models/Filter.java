@@ -22,9 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
@@ -70,16 +68,6 @@ public class Filter {
 
     @SerializedName(SERIALIZED_NAME_DROP)
     private Boolean drop;
-
-    public static final String SERIALIZED_NAME_DROP_PROPERTIES = "dropProperties";
-
-    @SerializedName(SERIALIZED_NAME_DROP_PROPERTIES)
-    private List<String> dropProperties;
-
-    public static final String SERIALIZED_NAME_ALLOW_PROPERTIES = "allowProperties";
-
-    @SerializedName(SERIALIZED_NAME_ALLOW_PROPERTIES)
-    private List<String> allowProperties;
 
     public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
 
@@ -253,62 +241,6 @@ public class Filter {
         this.drop = drop;
     }
 
-    public Filter dropProperties(List<String> dropProperties) {
-
-        this.dropProperties = dropProperties;
-        return this;
-    }
-
-    public Filter addDropPropertiesItem(String dropPropertiesItem) {
-        if (this.dropProperties == null) {
-            this.dropProperties = new ArrayList<>();
-        }
-        this.dropProperties.add(dropPropertiesItem);
-        return this;
-    }
-
-    /**
-     * Describes the properties to be dropped on events that match the \&quot;if\&quot; statement.
-     *
-     * @return dropProperties
-     */
-    @javax.annotation.Nullable
-    public List<String> getDropProperties() {
-        return dropProperties;
-    }
-
-    public void setDropProperties(List<String> dropProperties) {
-        this.dropProperties = dropProperties;
-    }
-
-    public Filter allowProperties(List<String> allowProperties) {
-
-        this.allowProperties = allowProperties;
-        return this;
-    }
-
-    public Filter addAllowPropertiesItem(String allowPropertiesItem) {
-        if (this.allowProperties == null) {
-            this.allowProperties = new ArrayList<>();
-        }
-        this.allowProperties.add(allowPropertiesItem);
-        return this;
-    }
-
-    /**
-     * Describes the properties allowed on events that match the \&quot;if\&quot; statement.
-     *
-     * @return allowProperties
-     */
-    @javax.annotation.Nullable
-    public List<String> getAllowProperties() {
-        return allowProperties;
-    }
-
-    public void setAllowProperties(List<String> allowProperties) {
-        this.allowProperties = allowProperties;
-    }
-
     public Filter createdAt(String createdAt) {
 
         this.createdAt = createdAt;
@@ -366,8 +298,6 @@ public class Filter {
                 && Objects.equals(this.description, filter.description)
                 && Objects.equals(this._if, filter._if)
                 && Objects.equals(this.drop, filter.drop)
-                && Objects.equals(this.dropProperties, filter.dropProperties)
-                && Objects.equals(this.allowProperties, filter.allowProperties)
                 && Objects.equals(this.createdAt, filter.createdAt)
                 && Objects.equals(this.updatedAt, filter.updatedAt);
     }
@@ -383,8 +313,6 @@ public class Filter {
                 description,
                 _if,
                 drop,
-                dropProperties,
-                allowProperties,
                 createdAt,
                 updatedAt);
     }
@@ -401,8 +329,6 @@ public class Filter {
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    _if: ").append(toIndentedString(_if)).append("\n");
         sb.append("    drop: ").append(toIndentedString(drop)).append("\n");
-        sb.append("    dropProperties: ").append(toIndentedString(dropProperties)).append("\n");
-        sb.append("    allowProperties: ").append(toIndentedString(allowProperties)).append("\n");
         sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
         sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
         sb.append("}");
@@ -434,8 +360,6 @@ public class Filter {
         openapiFields.add("description");
         openapiFields.add("if");
         openapiFields.add("drop");
-        openapiFields.add("dropProperties");
-        openapiFields.add("allowProperties");
         openapiFields.add("createdAt");
         openapiFields.add("updatedAt");
 
@@ -532,26 +456,6 @@ public class Filter {
                             "Expected the field `if` to be a primitive type in the JSON string but"
                                     + " got `%s`",
                             jsonObj.get("if").toString()));
-        }
-        // ensure the optional json data is an array if present
-        if (jsonObj.get("dropProperties") != null
-                && !jsonObj.get("dropProperties").isJsonNull()
-                && !jsonObj.get("dropProperties").isJsonArray()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `dropProperties` to be an array in the JSON string"
-                                    + " but got `%s`",
-                            jsonObj.get("dropProperties").toString()));
-        }
-        // ensure the optional json data is an array if present
-        if (jsonObj.get("allowProperties") != null
-                && !jsonObj.get("allowProperties").isJsonNull()
-                && !jsonObj.get("allowProperties").isJsonArray()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `allowProperties` to be an array in the JSON string"
-                                    + " but got `%s`",
-                            jsonObj.get("allowProperties").toString()));
         }
         if (!jsonObj.get("createdAt").isJsonPrimitive()) {
             throw new IllegalArgumentException(
