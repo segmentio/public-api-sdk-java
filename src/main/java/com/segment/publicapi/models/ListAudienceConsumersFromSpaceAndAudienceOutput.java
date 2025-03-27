@@ -30,7 +30,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** List the audience consumers endpoint output. */
+/** List Audience consumers output. */
 public class ListAudienceConsumersFromSpaceAndAudienceOutput {
     public static final String SERIALIZED_NAME_AUDIENCES = "audiences";
 
@@ -61,7 +61,7 @@ public class ListAudienceConsumersFromSpaceAndAudienceOutput {
     }
 
     /**
-     * A list of audience summary results.
+     * The list of audience consumers.
      *
      * @return audiences
      */

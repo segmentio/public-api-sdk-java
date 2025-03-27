@@ -510,7 +510,7 @@ public class AudiencesApi {
 
         // create path and map variables
         String localVarPath =
-                "/spaces/{spaceId}/audiences/{id}/consumers"
+                "/spaces/{spaceId}/audiences/{id}/audience-references"
                         .replace(
                                 "{" + "spaceId" + "}",
                                 localVarApiClient.escapeString(spaceId.toString()))
