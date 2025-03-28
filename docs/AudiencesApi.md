@@ -192,7 +192,7 @@ public class Example {
 
         AudiencesApi apiInstance = new AudiencesApi(defaultClient);
         String spaceId = "spaceId"; // String | 
-        String id = "id"; // String | 
+        String id = "ReferencedAudienceId"; // String | 
         PaginationInput pagination = new PaginationInput(); // PaginationInput | Information about the pagination of this response.  [See pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters) for more info.  This parameter exists in alpha.
         try {
             ListAudienceConsumersFromSpaceAndAudience200Response result = apiInstance.listAudienceConsumersFromSpaceAndAudience(spaceId, id, pagination);
