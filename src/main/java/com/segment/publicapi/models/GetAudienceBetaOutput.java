@@ -27,33 +27,33 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** GetAudience200Response */
-public class GetAudience200Response {
-    public static final String SERIALIZED_NAME_DATA = "data";
+/** Audience output for get. */
+public class GetAudienceBetaOutput {
+    public static final String SERIALIZED_NAME_AUDIENCE = "audience";
 
-    @SerializedName(SERIALIZED_NAME_DATA)
-    private GetAudienceBetaOutput data;
+    @SerializedName(SERIALIZED_NAME_AUDIENCE)
+    private AudienceSummaryBeta audience;
 
-    public GetAudience200Response() {}
+    public GetAudienceBetaOutput() {}
 
-    public GetAudience200Response data(GetAudienceBetaOutput data) {
+    public GetAudienceBetaOutput audience(AudienceSummaryBeta audience) {
 
-        this.data = data;
+        this.audience = audience;
         return this;
     }
 
     /**
-     * Get data
+     * Get audience
      *
-     * @return data
+     * @return audience
      */
-    @javax.annotation.Nullable
-    public GetAudienceBetaOutput getData() {
-        return data;
+    @javax.annotation.Nonnull
+    public AudienceSummaryBeta getAudience() {
+        return audience;
     }
 
-    public void setData(GetAudienceBetaOutput data) {
-        this.data = data;
+    public void setAudience(AudienceSummaryBeta audience) {
+        this.audience = audience;
     }
 
     @Override
@@ -64,20 +64,20 @@ public class GetAudience200Response {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        GetAudience200Response getAudience200Response = (GetAudience200Response) o;
-        return Objects.equals(this.data, getAudience200Response.data);
+        GetAudienceBetaOutput getAudienceBetaOutput = (GetAudienceBetaOutput) o;
+        return Objects.equals(this.audience, getAudienceBetaOutput.audience);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(data);
+        return Objects.hash(audience);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class GetAudience200Response {\n");
-        sb.append("    data: ").append(toIndentedString(data)).append("\n");
+        sb.append("class GetAudienceBetaOutput {\n");
+        sb.append("    audience: ").append(toIndentedString(audience)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -99,70 +99,79 @@ public class GetAudience200Response {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("data");
+        openapiFields.add("audience");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
+        openapiRequiredFields.add("audience");
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to GetAudience200Response
+     * @throws IOException if the JSON Element is invalid with respect to GetAudienceBetaOutput
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!GetAudience200Response.openapiRequiredFields
+            if (!GetAudienceBetaOutput.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in GetAudience200Response is not found in"
+                                "The required field(s) %s in GetAudienceBetaOutput is not found in"
                                         + " the empty JSON string",
-                                GetAudience200Response.openapiRequiredFields.toString()));
+                                GetAudienceBetaOutput.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!GetAudience200Response.openapiFields.contains(entry.getKey())) {
+            if (!GetAudienceBetaOutput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `GetAudience200Response` properties. JSON: %s",
+                                        + " `GetAudienceBetaOutput` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-        // validate the optional field `data`
-        if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-            GetAudienceBetaOutput.validateJsonElement(jsonObj.get("data"));
+
+        // check to make sure all required properties/fields are present in the JSON string
+        for (String requiredField : GetAudienceBetaOutput.openapiRequiredFields) {
+            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+                throw new IllegalArgumentException(
+                        String.format(
+                                "The required field `%s` is not found in the JSON string: %s",
+                                requiredField, jsonElement.toString()));
+            }
         }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+        // validate the required field `audience`
+        AudienceSummaryBeta.validateJsonElement(jsonObj.get("audience"));
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!GetAudience200Response.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'GetAudience200Response' and its subtypes
+            if (!GetAudienceBetaOutput.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'GetAudienceBetaOutput' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<GetAudience200Response> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(GetAudience200Response.class));
+            final TypeAdapter<GetAudienceBetaOutput> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(GetAudienceBetaOutput.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<GetAudience200Response>() {
+                    new TypeAdapter<GetAudienceBetaOutput>() {
                         @Override
-                        public void write(JsonWriter out, GetAudience200Response value)
+                        public void write(JsonWriter out, GetAudienceBetaOutput value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public GetAudience200Response read(JsonReader in) throws IOException {
+                        public GetAudienceBetaOutput read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -172,18 +181,18 @@ public class GetAudience200Response {
     }
 
     /**
-     * Create an instance of GetAudience200Response given an JSON string
+     * Create an instance of GetAudienceBetaOutput given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of GetAudience200Response
-     * @throws IOException if the JSON string is invalid with respect to GetAudience200Response
+     * @return An instance of GetAudienceBetaOutput
+     * @throws IOException if the JSON string is invalid with respect to GetAudienceBetaOutput
      */
-    public static GetAudience200Response fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, GetAudience200Response.class);
+    public static GetAudienceBetaOutput fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, GetAudienceBetaOutput.class);
     }
 
     /**
-     * Convert an instance of GetAudience200Response to an JSON string
+     * Convert an instance of GetAudienceBetaOutput to an JSON string
      *
      * @return JSON string
      */

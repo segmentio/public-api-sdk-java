@@ -27,33 +27,61 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** GetAudience200Response */
-public class GetAudience200Response {
-    public static final String SERIALIZED_NAME_DATA = "data";
+/** AudienceOptionsBeta */
+public class AudienceOptionsBeta {
+    public static final String SERIALIZED_NAME_INCLUDE_HISTORICAL_DATA = "includeHistoricalData";
 
-    @SerializedName(SERIALIZED_NAME_DATA)
-    private GetAudienceBetaOutput data;
+    @SerializedName(SERIALIZED_NAME_INCLUDE_HISTORICAL_DATA)
+    private Boolean includeHistoricalData;
 
-    public GetAudience200Response() {}
+    public static final String SERIALIZED_NAME_INCLUDE_ANONYMOUS_USERS = "includeAnonymousUsers";
 
-    public GetAudience200Response data(GetAudienceBetaOutput data) {
+    @SerializedName(SERIALIZED_NAME_INCLUDE_ANONYMOUS_USERS)
+    private Boolean includeAnonymousUsers;
 
-        this.data = data;
+    public AudienceOptionsBeta() {}
+
+    public AudienceOptionsBeta includeHistoricalData(Boolean includeHistoricalData) {
+
+        this.includeHistoricalData = includeHistoricalData;
         return this;
     }
 
     /**
-     * Get data
+     * Determines whether data prior to the audience being created is included when determining
+     * audience membership. Note that including historical data may be needed in order to properly
+     * handle the definition specified. In these cases, Segment will automatically handle including
+     * historical data and the response will return the includeHistoricalData parameter as true.
      *
-     * @return data
+     * @return includeHistoricalData
      */
     @javax.annotation.Nullable
-    public GetAudienceBetaOutput getData() {
-        return data;
+    public Boolean getIncludeHistoricalData() {
+        return includeHistoricalData;
     }
 
-    public void setData(GetAudienceBetaOutput data) {
-        this.data = data;
+    public void setIncludeHistoricalData(Boolean includeHistoricalData) {
+        this.includeHistoricalData = includeHistoricalData;
+    }
+
+    public AudienceOptionsBeta includeAnonymousUsers(Boolean includeAnonymousUsers) {
+
+        this.includeAnonymousUsers = includeAnonymousUsers;
+        return this;
+    }
+
+    /**
+     * Determines whether anonymous users should be included when determining audience membership.
+     *
+     * @return includeAnonymousUsers
+     */
+    @javax.annotation.Nullable
+    public Boolean getIncludeAnonymousUsers() {
+        return includeAnonymousUsers;
+    }
+
+    public void setIncludeAnonymousUsers(Boolean includeAnonymousUsers) {
+        this.includeAnonymousUsers = includeAnonymousUsers;
     }
 
     @Override
@@ -64,20 +92,27 @@ public class GetAudience200Response {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        GetAudience200Response getAudience200Response = (GetAudience200Response) o;
-        return Objects.equals(this.data, getAudience200Response.data);
+        AudienceOptionsBeta audienceOptionsBeta = (AudienceOptionsBeta) o;
+        return Objects.equals(this.includeHistoricalData, audienceOptionsBeta.includeHistoricalData)
+                && Objects.equals(
+                        this.includeAnonymousUsers, audienceOptionsBeta.includeAnonymousUsers);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(data);
+        return Objects.hash(includeHistoricalData, includeAnonymousUsers);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class GetAudience200Response {\n");
-        sb.append("    data: ").append(toIndentedString(data)).append("\n");
+        sb.append("class AudienceOptionsBeta {\n");
+        sb.append("    includeHistoricalData: ")
+                .append(toIndentedString(includeHistoricalData))
+                .append("\n");
+        sb.append("    includeAnonymousUsers: ")
+                .append(toIndentedString(includeAnonymousUsers))
+                .append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -99,7 +134,8 @@ public class GetAudience200Response {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("data");
+        openapiFields.add("includeHistoricalData");
+        openapiFields.add("includeAnonymousUsers");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
@@ -109,60 +145,56 @@ public class GetAudience200Response {
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to GetAudience200Response
+     * @throws IOException if the JSON Element is invalid with respect to AudienceOptionsBeta
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!GetAudience200Response.openapiRequiredFields
+            if (!AudienceOptionsBeta.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in GetAudience200Response is not found in"
+                                "The required field(s) %s in AudienceOptionsBeta is not found in"
                                         + " the empty JSON string",
-                                GetAudience200Response.openapiRequiredFields.toString()));
+                                AudienceOptionsBeta.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!GetAudience200Response.openapiFields.contains(entry.getKey())) {
+            if (!AudienceOptionsBeta.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `GetAudience200Response` properties. JSON: %s",
+                                        + " `AudienceOptionsBeta` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        // validate the optional field `data`
-        if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-            GetAudienceBetaOutput.validateJsonElement(jsonObj.get("data"));
-        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!GetAudience200Response.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'GetAudience200Response' and its subtypes
+            if (!AudienceOptionsBeta.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'AudienceOptionsBeta' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<GetAudience200Response> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(GetAudience200Response.class));
+            final TypeAdapter<AudienceOptionsBeta> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(AudienceOptionsBeta.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<GetAudience200Response>() {
+                    new TypeAdapter<AudienceOptionsBeta>() {
                         @Override
-                        public void write(JsonWriter out, GetAudience200Response value)
+                        public void write(JsonWriter out, AudienceOptionsBeta value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public GetAudience200Response read(JsonReader in) throws IOException {
+                        public AudienceOptionsBeta read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -172,18 +204,18 @@ public class GetAudience200Response {
     }
 
     /**
-     * Create an instance of GetAudience200Response given an JSON string
+     * Create an instance of AudienceOptionsBeta given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of GetAudience200Response
-     * @throws IOException if the JSON string is invalid with respect to GetAudience200Response
+     * @return An instance of AudienceOptionsBeta
+     * @throws IOException if the JSON string is invalid with respect to AudienceOptionsBeta
      */
-    public static GetAudience200Response fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, GetAudience200Response.class);
+    public static AudienceOptionsBeta fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, AudienceOptionsBeta.class);
     }
 
     /**
-     * Convert an instance of GetAudience200Response to an JSON string
+     * Convert an instance of AudienceOptionsBeta to an JSON string
      *
      * @return JSON string
      */
