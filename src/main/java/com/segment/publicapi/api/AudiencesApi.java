@@ -327,7 +327,9 @@ public class AudiencesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json", "application/json"
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json",
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -375,7 +377,7 @@ public class AudiencesApi {
     }
 
     /**
-     * Get Audience Returns the Audience by id and spaceId. • This endpoint is in **Alpha** testing.
+     * Get Audience Returns the Audience by id and spaceId. • This endpoint is in **Beta** testing.
      * Please submit any feedback by sending an email to friends@segment.com. • In order to
      * successfully call this endpoint, the specified Workspace needs to have the Audience feature
      * enabled. Please reach out to your customer success manager for more information. The rate
@@ -404,7 +406,7 @@ public class AudiencesApi {
     }
 
     /**
-     * Get Audience Returns the Audience by id and spaceId. • This endpoint is in **Alpha** testing.
+     * Get Audience Returns the Audience by id and spaceId. • This endpoint is in **Beta** testing.
      * Please submit any feedback by sending an email to friends@segment.com. • In order to
      * successfully call this endpoint, the specified Workspace needs to have the Audience feature
      * enabled. Please reach out to your customer success manager for more information. The rate
@@ -436,12 +438,12 @@ public class AudiencesApi {
 
     /**
      * Get Audience (asynchronously) Returns the Audience by id and spaceId. • This endpoint is in
-     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
-     * In order to successfully call this endpoint, the specified Workspace needs to have the
-     * Audience feature enabled. Please reach out to your customer success manager for more
-     * information. The rate limit for this endpoint is 100 requests per minute, which is lower than
-     * the default due to access pattern restrictions. Once reached, this endpoint will respond with
-     * the 429 HTTP status code with headers indicating the limit parameters. See [Rate
+     * **Beta** testing. Please submit any feedback by sending an email to friends@segment.com. • In
+     * order to successfully call this endpoint, the specified Workspace needs to have the Audience
+     * feature enabled. Please reach out to your customer success manager for more information. The
+     * rate limit for this endpoint is 100 requests per minute, which is lower than the default due
+     * to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
+     * status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
