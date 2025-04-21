@@ -165,7 +165,7 @@ public class Example {
 
 ## Operation: listAudienceConsumersFromSpaceAndAudience
 
-> ListAudienceConsumersFromSpaceAndAudience200Response listAudienceConsumersFromSpaceAndAudience(spaceId, id, pagination)
+> ListAudienceConsumersFromSpaceAndAudience200Response listAudienceConsumersFromSpaceAndAudience(spaceId, id, pagination, search, sort)
 
 List Audience Consumers from Space And Audience
 
@@ -194,8 +194,10 @@ public class Example {
         String spaceId = "spaceId"; // String | 
         String id = "ReferencedAudienceId"; // String | 
         PaginationInput pagination = new PaginationInput(); // PaginationInput | Information about the pagination of this response.  [See pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters) for more info.  This parameter exists in alpha.
+        ListAudienceConsumersSearchInput search = new ListAudienceConsumersSearchInput(); // ListAudienceConsumersSearchInput | Optional search criteria  This parameter exists in alpha.
+        ListAudienceConsumersSortInput sort = new ListAudienceConsumersSortInput(); // ListAudienceConsumersSortInput | Optional sort criteria  This parameter exists in alpha.
         try {
-            ListAudienceConsumersFromSpaceAndAudience200Response result = apiInstance.listAudienceConsumersFromSpaceAndAudience(spaceId, id, pagination);
+            ListAudienceConsumersFromSpaceAndAudience200Response result = apiInstance.listAudienceConsumersFromSpaceAndAudience(spaceId, id, pagination, search, sort);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AudiencesApi#listAudienceConsumersFromSpaceAndAudience");
@@ -216,6 +218,8 @@ public class Example {
 | **spaceId** | **String**|  | |
 | **id** | **String**|  | |
 | **pagination** | [**PaginationInput**](.md)| Information about the pagination of this response.  [See pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters) for more info.  This parameter exists in alpha. | [optional] |
+| **search** | [**ListAudienceConsumersSearchInput**](.md)| Optional search criteria  This parameter exists in alpha. | [optional] |
+| **sort** | [**ListAudienceConsumersSortInput**](.md)| Optional sort criteria  This parameter exists in alpha. | [optional] |
 
 ### Return type
 
