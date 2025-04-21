@@ -794,7 +794,9 @@ public class AudiencesApi {
         }
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json", "application/json"
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json",
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -837,7 +839,7 @@ public class AudiencesApi {
     }
 
     /**
-     * List Audiences Returns Audiences by spaceId. • This endpoint is in **Alpha** testing. Please
+     * List Audiences Returns Audiences by spaceId. • This endpoint is in **Beta** testing. Please
      * submit any feedback by sending an email to friends@segment.com. • In order to successfully
      * call this endpoint, the specified Workspace needs to have the Audience feature enabled.
      * Please reach out to your customer success manager for more information. The rate limit for
@@ -870,7 +872,7 @@ public class AudiencesApi {
     }
 
     /**
-     * List Audiences Returns Audiences by spaceId. • This endpoint is in **Alpha** testing. Please
+     * List Audiences Returns Audiences by spaceId. • This endpoint is in **Beta** testing. Please
      * submit any feedback by sending an email to friends@segment.com. • In order to successfully
      * call this endpoint, the specified Workspace needs to have the Audience feature enabled.
      * Please reach out to your customer success manager for more information. The rate limit for
@@ -903,7 +905,7 @@ public class AudiencesApi {
     }
 
     /**
-     * List Audiences (asynchronously) Returns Audiences by spaceId. • This endpoint is in **Alpha**
+     * List Audiences (asynchronously) Returns Audiences by spaceId. • This endpoint is in **Beta**
      * testing. Please submit any feedback by sending an email to friends@segment.com. • In order to
      * successfully call this endpoint, the specified Workspace needs to have the Audience feature
      * enabled. Please reach out to your customer success manager for more information. The rate
