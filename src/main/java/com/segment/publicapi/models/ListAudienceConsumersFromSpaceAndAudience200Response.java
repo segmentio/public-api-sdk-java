@@ -32,12 +32,12 @@ public class ListAudienceConsumersFromSpaceAndAudience200Response {
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    private ListAudienceConsumersFromSpaceAndAudienceOutput data;
+    private ListAudienceConsumersFromSpaceAndAudienceAlphaOutput data;
 
     public ListAudienceConsumersFromSpaceAndAudience200Response() {}
 
     public ListAudienceConsumersFromSpaceAndAudience200Response data(
-            ListAudienceConsumersFromSpaceAndAudienceOutput data) {
+            ListAudienceConsumersFromSpaceAndAudienceAlphaOutput data) {
 
         this.data = data;
         return this;
@@ -49,11 +49,11 @@ public class ListAudienceConsumersFromSpaceAndAudience200Response {
      * @return data
      */
     @javax.annotation.Nullable
-    public ListAudienceConsumersFromSpaceAndAudienceOutput getData() {
+    public ListAudienceConsumersFromSpaceAndAudienceAlphaOutput getData() {
         return data;
     }
 
-    public void setData(ListAudienceConsumersFromSpaceAndAudienceOutput data) {
+    public void setData(ListAudienceConsumersFromSpaceAndAudienceAlphaOutput data) {
         this.data = data;
     }
 
@@ -146,7 +146,7 @@ public class ListAudienceConsumersFromSpaceAndAudience200Response {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the optional field `data`
         if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-            ListAudienceConsumersFromSpaceAndAudienceOutput.validateJsonElement(
+            ListAudienceConsumersFromSpaceAndAudienceAlphaOutput.validateJsonElement(
                     jsonObj.get("data"));
         }
     }

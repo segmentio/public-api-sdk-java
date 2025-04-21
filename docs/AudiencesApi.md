@@ -396,7 +396,7 @@ public class Example {
 
 ## Operation: updateAudienceForSpace
 
-> UpdateAudienceForSpace200Response updateAudienceForSpace(spaceId, id, updateAudienceForSpaceInput)
+> UpdateAudienceForSpace200Response updateAudienceForSpace(spaceId, id, updateAudienceForSpaceAlphaInput)
 
 Update Audience for Space
 
@@ -424,9 +424,9 @@ public class Example {
         AudiencesApi apiInstance = new AudiencesApi(defaultClient);
         String spaceId = "spaceId"; // String | 
         String id = "id"; // String | 
-        UpdateAudienceForSpaceInput updateAudienceForSpaceInput = new UpdateAudienceForSpaceInput(); // UpdateAudienceForSpaceInput | 
+        UpdateAudienceForSpaceAlphaInput updateAudienceForSpaceAlphaInput = new UpdateAudienceForSpaceAlphaInput(); // UpdateAudienceForSpaceAlphaInput | 
         try {
-            UpdateAudienceForSpace200Response result = apiInstance.updateAudienceForSpace(spaceId, id, updateAudienceForSpaceInput);
+            UpdateAudienceForSpace200Response result = apiInstance.updateAudienceForSpace(spaceId, id, updateAudienceForSpaceAlphaInput);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AudiencesApi#updateAudienceForSpace");
@@ -446,7 +446,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **spaceId** | **String**|  | |
 | **id** | **String**|  | |
-| **updateAudienceForSpaceInput** | [**UpdateAudienceForSpaceInput**](UpdateAudienceForSpaceInput.md)|  | |
+| **updateAudienceForSpaceAlphaInput** | [**UpdateAudienceForSpaceAlphaInput**](UpdateAudienceForSpaceAlphaInput.md)|  | |
 
 ### Return type
 

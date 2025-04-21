@@ -28,13 +28,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Defines an audience definition. */
+/** AudienceDefinition */
 public class AudienceDefinition {
-    public static final String SERIALIZED_NAME_QUERY = "query";
-
-    @SerializedName(SERIALIZED_NAME_QUERY)
-    private String query;
-
     /**
      * The underlying data type being segmented for this audience. Possible values: users, accounts.
      */
@@ -88,27 +83,12 @@ public class AudienceDefinition {
     @SerializedName(SERIALIZED_NAME_TYPE)
     private TypeEnum type;
 
+    public static final String SERIALIZED_NAME_QUERY = "query";
+
+    @SerializedName(SERIALIZED_NAME_QUERY)
+    private String query;
+
     public AudienceDefinition() {}
-
-    public AudienceDefinition query(String query) {
-
-        this.query = query;
-        return this;
-    }
-
-    /**
-     * The query language string defining the audience segmentation criteria.
-     *
-     * @return query
-     */
-    @javax.annotation.Nonnull
-    public String getQuery() {
-        return query;
-    }
-
-    public void setQuery(String query) {
-        this.query = query;
-    }
 
     public AudienceDefinition type(TypeEnum type) {
 
@@ -130,6 +110,28 @@ public class AudienceDefinition {
         this.type = type;
     }
 
+    public AudienceDefinition query(String query) {
+
+        this.query = query;
+        return this;
+    }
+
+    /**
+     * The query language string defining the audience segmentation criteria. For guidance on using
+     * the query language, see the [Segment documentation
+     * site](https://segment.com/docs/api/public-api/query-language).
+     *
+     * @return query
+     */
+    @javax.annotation.Nonnull
+    public String getQuery() {
+        return query;
+    }
+
+    public void setQuery(String query) {
+        this.query = query;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -139,21 +141,21 @@ public class AudienceDefinition {
             return false;
         }
         AudienceDefinition audienceDefinition = (AudienceDefinition) o;
-        return Objects.equals(this.query, audienceDefinition.query)
-                && Objects.equals(this.type, audienceDefinition.type);
+        return Objects.equals(this.type, audienceDefinition.type)
+                && Objects.equals(this.query, audienceDefinition.query);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(query, type);
+        return Objects.hash(type, query);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class AudienceDefinition {\n");
-        sb.append("    query: ").append(toIndentedString(query)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("    query: ").append(toIndentedString(query)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -175,13 +177,13 @@ public class AudienceDefinition {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("query");
         openapiFields.add("type");
+        openapiFields.add("query");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("query");
         openapiRequiredFields.add("type");
+        openapiRequiredFields.add("query");
     }
 
     /**
@@ -224,19 +226,19 @@ public class AudienceDefinition {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if (!jsonObj.get("query").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `query` to be a primitive type in the JSON string"
-                                    + " but got `%s`",
-                            jsonObj.get("query").toString()));
-        }
         if (!jsonObj.get("type").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             "Expected the field `type` to be a primitive type in the JSON string"
                                     + " but got `%s`",
                             jsonObj.get("type").toString()));
+        }
+        if (!jsonObj.get("query").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `query` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
+                            jsonObj.get("query").toString()));
         }
     }
 
