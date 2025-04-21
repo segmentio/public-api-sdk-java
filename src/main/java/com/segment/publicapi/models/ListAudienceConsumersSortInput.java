@@ -28,20 +28,20 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** AudienceComputationDefinition */
-public class AudienceComputationDefinition {
-    /**
-     * The underlying data type being segmented for this audience. Possible values: users, accounts.
-     */
-    @JsonAdapter(TypeEnum.Adapter.class)
-    public enum TypeEnum {
-        ACCOUNTS("ACCOUNTS"),
+/** Sort criteria input for list audience consumers. */
+public class ListAudienceConsumersSortInput {
+    /** Field to sort by. */
+    @JsonAdapter(FieldEnum.Adapter.class)
+    public enum FieldEnum {
+        CREATED_AT("CREATED_AT"),
 
-        USERS("USERS");
+        NAME("NAME"),
+
+        UPDATED_AT("UPDATED_AT");
 
         private String value;
 
-        TypeEnum(String value) {
+        FieldEnum(String value) {
             this.value = value;
         }
 
@@ -54,8 +54,8 @@ public class AudienceComputationDefinition {
             return String.valueOf(value);
         }
 
-        public static TypeEnum fromValue(String value) {
-            for (TypeEnum b : TypeEnum.values()) {
+        public static FieldEnum fromValue(String value) {
+            for (FieldEnum b : FieldEnum.values()) {
                 if (b.value.equals(value)) {
                     return b;
                 }
@@ -63,73 +63,117 @@ public class AudienceComputationDefinition {
             throw new IllegalArgumentException("Unexpected value '" + value + "'");
         }
 
-        public static class Adapter extends TypeAdapter<TypeEnum> {
+        public static class Adapter extends TypeAdapter<FieldEnum> {
             @Override
-            public void write(final JsonWriter jsonWriter, final TypeEnum enumeration)
+            public void write(final JsonWriter jsonWriter, final FieldEnum enumeration)
                     throws IOException {
                 jsonWriter.value(enumeration.getValue());
             }
 
             @Override
-            public TypeEnum read(final JsonReader jsonReader) throws IOException {
+            public FieldEnum read(final JsonReader jsonReader) throws IOException {
                 String value = jsonReader.nextString();
-                return TypeEnum.fromValue(value);
+                return FieldEnum.fromValue(value);
             }
         }
     }
 
-    public static final String SERIALIZED_NAME_TYPE = "type";
+    public static final String SERIALIZED_NAME_FIELD = "field";
 
-    @SerializedName(SERIALIZED_NAME_TYPE)
-    private TypeEnum type;
+    @SerializedName(SERIALIZED_NAME_FIELD)
+    private FieldEnum field;
 
-    public static final String SERIALIZED_NAME_QUERY = "query";
+    /** Sort direction (ascending or descending). */
+    @JsonAdapter(DirectionEnum.Adapter.class)
+    public enum DirectionEnum {
+        ASC("ASC"),
 
-    @SerializedName(SERIALIZED_NAME_QUERY)
-    private String query;
+        DESC("DESC");
 
-    public AudienceComputationDefinition() {}
+        private String value;
 
-    public AudienceComputationDefinition type(TypeEnum type) {
+        DirectionEnum(String value) {
+            this.value = value;
+        }
 
-        this.type = type;
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static DirectionEnum fromValue(String value) {
+            for (DirectionEnum b : DirectionEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<DirectionEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final DirectionEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public DirectionEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return DirectionEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_DIRECTION = "direction";
+
+    @SerializedName(SERIALIZED_NAME_DIRECTION)
+    private DirectionEnum direction;
+
+    public ListAudienceConsumersSortInput() {}
+
+    public ListAudienceConsumersSortInput field(FieldEnum field) {
+
+        this.field = field;
         return this;
     }
 
     /**
-     * The underlying data type being segmented for this audience. Possible values: users, accounts.
+     * Field to sort by.
      *
-     * @return type
+     * @return field
      */
     @javax.annotation.Nonnull
-    public TypeEnum getType() {
-        return type;
+    public FieldEnum getField() {
+        return field;
     }
 
-    public void setType(TypeEnum type) {
-        this.type = type;
+    public void setField(FieldEnum field) {
+        this.field = field;
     }
 
-    public AudienceComputationDefinition query(String query) {
+    public ListAudienceConsumersSortInput direction(DirectionEnum direction) {
 
-        this.query = query;
+        this.direction = direction;
         return this;
     }
 
     /**
-     * The query language string defining the audience segmentation criteria. For guidance on using
-     * the query language, see the [Segment documentation
-     * site](https://segment.com/docs/api/public-api/query-language).
+     * Sort direction (ascending or descending).
      *
-     * @return query
+     * @return direction
      */
     @javax.annotation.Nonnull
-    public String getQuery() {
-        return query;
+    public DirectionEnum getDirection() {
+        return direction;
     }
 
-    public void setQuery(String query) {
-        this.query = query;
+    public void setDirection(DirectionEnum direction) {
+        this.direction = direction;
     }
 
     @Override
@@ -140,23 +184,23 @@ public class AudienceComputationDefinition {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        AudienceComputationDefinition audienceComputationDefinition =
-                (AudienceComputationDefinition) o;
-        return Objects.equals(this.type, audienceComputationDefinition.type)
-                && Objects.equals(this.query, audienceComputationDefinition.query);
+        ListAudienceConsumersSortInput listAudienceConsumersSortInput =
+                (ListAudienceConsumersSortInput) o;
+        return Objects.equals(this.field, listAudienceConsumersSortInput.field)
+                && Objects.equals(this.direction, listAudienceConsumersSortInput.direction);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(type, query);
+        return Objects.hash(field, direction);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AudienceComputationDefinition {\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("    query: ").append(toIndentedString(query)).append("\n");
+        sb.append("class ListAudienceConsumersSortInput {\n");
+        sb.append("    field: ").append(toIndentedString(field)).append("\n");
+        sb.append("    direction: ").append(toIndentedString(direction)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -178,13 +222,13 @@ public class AudienceComputationDefinition {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("type");
-        openapiFields.add("query");
+        openapiFields.add("field");
+        openapiFields.add("direction");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("type");
-        openapiRequiredFields.add("query");
+        openapiRequiredFields.add("field");
+        openapiRequiredFields.add("direction");
     }
 
     /**
@@ -192,34 +236,34 @@ public class AudienceComputationDefinition {
      *
      * @param jsonElement JSON Element
      * @throws IOException if the JSON Element is invalid with respect to
-     *     AudienceComputationDefinition
+     *     ListAudienceConsumersSortInput
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!AudienceComputationDefinition.openapiRequiredFields
+            if (!ListAudienceConsumersSortInput.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in AudienceComputationDefinition is not"
+                                "The required field(s) %s in ListAudienceConsumersSortInput is not"
                                         + " found in the empty JSON string",
-                                AudienceComputationDefinition.openapiRequiredFields.toString()));
+                                ListAudienceConsumersSortInput.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!AudienceComputationDefinition.openapiFields.contains(entry.getKey())) {
+            if (!ListAudienceConsumersSortInput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `AudienceComputationDefinition` properties. JSON: %s",
+                                        + " `ListAudienceConsumersSortInput` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : AudienceComputationDefinition.openapiRequiredFields) {
+        for (String requiredField : ListAudienceConsumersSortInput.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -228,19 +272,19 @@ public class AudienceComputationDefinition {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if (!jsonObj.get("type").isJsonPrimitive()) {
+        if (!jsonObj.get("field").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `type` to be a primitive type in the JSON string"
+                            "Expected the field `field` to be a primitive type in the JSON string"
                                     + " but got `%s`",
-                            jsonObj.get("type").toString()));
+                            jsonObj.get("field").toString()));
         }
-        if (!jsonObj.get("query").isJsonPrimitive()) {
+        if (!jsonObj.get("direction").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `query` to be a primitive type in the JSON string"
-                                    + " but got `%s`",
-                            jsonObj.get("query").toString()));
+                            "Expected the field `direction` to be a primitive type in the JSON"
+                                    + " string but got `%s`",
+                            jsonObj.get("direction").toString()));
         }
     }
 
@@ -248,26 +292,26 @@ public class AudienceComputationDefinition {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!AudienceComputationDefinition.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'AudienceComputationDefinition' and its
+            if (!ListAudienceConsumersSortInput.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'ListAudienceConsumersSortInput' and its
                 // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<AudienceComputationDefinition> thisAdapter =
+            final TypeAdapter<ListAudienceConsumersSortInput> thisAdapter =
                     gson.getDelegateAdapter(
-                            this, TypeToken.get(AudienceComputationDefinition.class));
+                            this, TypeToken.get(ListAudienceConsumersSortInput.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<AudienceComputationDefinition>() {
+                    new TypeAdapter<ListAudienceConsumersSortInput>() {
                         @Override
-                        public void write(JsonWriter out, AudienceComputationDefinition value)
+                        public void write(JsonWriter out, ListAudienceConsumersSortInput value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public AudienceComputationDefinition read(JsonReader in)
+                        public ListAudienceConsumersSortInput read(JsonReader in)
                                 throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
@@ -278,19 +322,19 @@ public class AudienceComputationDefinition {
     }
 
     /**
-     * Create an instance of AudienceComputationDefinition given an JSON string
+     * Create an instance of ListAudienceConsumersSortInput given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of AudienceComputationDefinition
+     * @return An instance of ListAudienceConsumersSortInput
      * @throws IOException if the JSON string is invalid with respect to
-     *     AudienceComputationDefinition
+     *     ListAudienceConsumersSortInput
      */
-    public static AudienceComputationDefinition fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, AudienceComputationDefinition.class);
+    public static ListAudienceConsumersSortInput fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, ListAudienceConsumersSortInput.class);
     }
 
     /**
-     * Convert an instance of AudienceComputationDefinition to an JSON string
+     * Convert an instance of ListAudienceConsumersSortInput to an JSON string
      *
      * @return JSON string
      */

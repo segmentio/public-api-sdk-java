@@ -47,7 +47,7 @@ public class CreateAudienceAlphaInput {
     public static final String SERIALIZED_NAME_DEFINITION = "definition";
 
     @SerializedName(SERIALIZED_NAME_DEFINITION)
-    private AudienceComputationDefinition definition;
+    private AudienceDefinition definition;
 
     public static final String SERIALIZED_NAME_OPTIONS = "options";
 
@@ -116,7 +116,7 @@ public class CreateAudienceAlphaInput {
         this.description = description;
     }
 
-    public CreateAudienceAlphaInput definition(AudienceComputationDefinition definition) {
+    public CreateAudienceAlphaInput definition(AudienceDefinition definition) {
 
         this.definition = definition;
         return this;
@@ -128,11 +128,11 @@ public class CreateAudienceAlphaInput {
      * @return definition
      */
     @javax.annotation.Nonnull
-    public AudienceComputationDefinition getDefinition() {
+    public AudienceDefinition getDefinition() {
         return definition;
     }
 
-    public void setDefinition(AudienceComputationDefinition definition) {
+    public void setDefinition(AudienceDefinition definition) {
         this.definition = definition;
     }
 
@@ -275,7 +275,7 @@ public class CreateAudienceAlphaInput {
                             jsonObj.get("description").toString()));
         }
         // validate the required field `definition`
-        AudienceComputationDefinition.validateJsonElement(jsonObj.get("definition"));
+        AudienceDefinition.validateJsonElement(jsonObj.get("definition"));
         // validate the optional field `options`
         if (jsonObj.get("options") != null && !jsonObj.get("options").isJsonNull()) {
             AudienceOptions.validateJsonElement(jsonObj.get("options"));

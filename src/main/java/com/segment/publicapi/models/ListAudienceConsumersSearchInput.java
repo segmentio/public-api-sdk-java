@@ -28,21 +28,14 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Defines an audience definition. */
-public class AudienceDefinitionBeta {
-    public static final String SERIALIZED_NAME_QUERY = "query";
-
-    @SerializedName(SERIALIZED_NAME_QUERY)
-    private String query;
-
-    /**
-     * The underlying data type being segmented for this audience. Possible values: users, accounts.
-     */
+/** Search criteria input for list audience consumers. */
+public class ListAudienceConsumersSearchInput {
+    /** Field to filter by. */
     @JsonAdapter(TypeEnum.Adapter.class)
     public enum TypeEnum {
-        ACCOUNTS("ACCOUNTS"),
+        DEFINITION("DEFINITION"),
 
-        USERS("USERS");
+        NAME("NAME");
 
         private String value;
 
@@ -88,36 +81,21 @@ public class AudienceDefinitionBeta {
     @SerializedName(SERIALIZED_NAME_TYPE)
     private TypeEnum type;
 
-    public AudienceDefinitionBeta() {}
+    public static final String SERIALIZED_NAME_QUERY = "query";
 
-    public AudienceDefinitionBeta query(String query) {
+    @SerializedName(SERIALIZED_NAME_QUERY)
+    private String query;
 
-        this.query = query;
-        return this;
-    }
+    public ListAudienceConsumersSearchInput() {}
 
-    /**
-     * The query language string defining the audience segmentation criteria.
-     *
-     * @return query
-     */
-    @javax.annotation.Nonnull
-    public String getQuery() {
-        return query;
-    }
-
-    public void setQuery(String query) {
-        this.query = query;
-    }
-
-    public AudienceDefinitionBeta type(TypeEnum type) {
+    public ListAudienceConsumersSearchInput type(TypeEnum type) {
 
         this.type = type;
         return this;
     }
 
     /**
-     * The underlying data type being segmented for this audience. Possible values: users, accounts.
+     * Field to filter by.
      *
      * @return type
      */
@@ -130,6 +108,26 @@ public class AudienceDefinitionBeta {
         this.type = type;
     }
 
+    public ListAudienceConsumersSearchInput query(String query) {
+
+        this.query = query;
+        return this;
+    }
+
+    /**
+     * Text to match the field value.
+     *
+     * @return query
+     */
+    @javax.annotation.Nonnull
+    public String getQuery() {
+        return query;
+    }
+
+    public void setQuery(String query) {
+        this.query = query;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -138,22 +136,23 @@ public class AudienceDefinitionBeta {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        AudienceDefinitionBeta audienceDefinitionBeta = (AudienceDefinitionBeta) o;
-        return Objects.equals(this.query, audienceDefinitionBeta.query)
-                && Objects.equals(this.type, audienceDefinitionBeta.type);
+        ListAudienceConsumersSearchInput listAudienceConsumersSearchInput =
+                (ListAudienceConsumersSearchInput) o;
+        return Objects.equals(this.type, listAudienceConsumersSearchInput.type)
+                && Objects.equals(this.query, listAudienceConsumersSearchInput.query);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(query, type);
+        return Objects.hash(type, query);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AudienceDefinitionBeta {\n");
-        sb.append("    query: ").append(toIndentedString(query)).append("\n");
+        sb.append("class ListAudienceConsumersSearchInput {\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("    query: ").append(toIndentedString(query)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -175,47 +174,48 @@ public class AudienceDefinitionBeta {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("query");
         openapiFields.add("type");
+        openapiFields.add("query");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("query");
         openapiRequiredFields.add("type");
+        openapiRequiredFields.add("query");
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to AudienceDefinitionBeta
+     * @throws IOException if the JSON Element is invalid with respect to
+     *     ListAudienceConsumersSearchInput
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!AudienceDefinitionBeta.openapiRequiredFields
+            if (!ListAudienceConsumersSearchInput.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in AudienceDefinitionBeta is not found in"
-                                        + " the empty JSON string",
-                                AudienceDefinitionBeta.openapiRequiredFields.toString()));
+                                "The required field(s) %s in ListAudienceConsumersSearchInput is"
+                                        + " not found in the empty JSON string",
+                                ListAudienceConsumersSearchInput.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!AudienceDefinitionBeta.openapiFields.contains(entry.getKey())) {
+            if (!ListAudienceConsumersSearchInput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `AudienceDefinitionBeta` properties. JSON: %s",
+                                    + " `ListAudienceConsumersSearchInput` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : AudienceDefinitionBeta.openapiRequiredFields) {
+        for (String requiredField : ListAudienceConsumersSearchInput.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -224,13 +224,6 @@ public class AudienceDefinitionBeta {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if (!jsonObj.get("query").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `query` to be a primitive type in the JSON string"
-                                    + " but got `%s`",
-                            jsonObj.get("query").toString()));
-        }
         if (!jsonObj.get("type").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -238,30 +231,40 @@ public class AudienceDefinitionBeta {
                                     + " but got `%s`",
                             jsonObj.get("type").toString()));
         }
+        if (!jsonObj.get("query").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `query` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
+                            jsonObj.get("query").toString()));
+        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!AudienceDefinitionBeta.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'AudienceDefinitionBeta' and its subtypes
+            if (!ListAudienceConsumersSearchInput.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'ListAudienceConsumersSearchInput' and
+                // its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<AudienceDefinitionBeta> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(AudienceDefinitionBeta.class));
+            final TypeAdapter<ListAudienceConsumersSearchInput> thisAdapter =
+                    gson.getDelegateAdapter(
+                            this, TypeToken.get(ListAudienceConsumersSearchInput.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<AudienceDefinitionBeta>() {
+                    new TypeAdapter<ListAudienceConsumersSearchInput>() {
                         @Override
-                        public void write(JsonWriter out, AudienceDefinitionBeta value)
+                        public void write(JsonWriter out, ListAudienceConsumersSearchInput value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public AudienceDefinitionBeta read(JsonReader in) throws IOException {
+                        public ListAudienceConsumersSearchInput read(JsonReader in)
+                                throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -271,18 +274,19 @@ public class AudienceDefinitionBeta {
     }
 
     /**
-     * Create an instance of AudienceDefinitionBeta given an JSON string
+     * Create an instance of ListAudienceConsumersSearchInput given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of AudienceDefinitionBeta
-     * @throws IOException if the JSON string is invalid with respect to AudienceDefinitionBeta
+     * @return An instance of ListAudienceConsumersSearchInput
+     * @throws IOException if the JSON string is invalid with respect to
+     *     ListAudienceConsumersSearchInput
      */
-    public static AudienceDefinitionBeta fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, AudienceDefinitionBeta.class);
+    public static ListAudienceConsumersSearchInput fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, ListAudienceConsumersSearchInput.class);
     }
 
     /**
-     * Convert an instance of AudienceDefinitionBeta to an JSON string
+     * Convert an instance of ListAudienceConsumersSearchInput to an JSON string
      *
      * @return JSON string
      */

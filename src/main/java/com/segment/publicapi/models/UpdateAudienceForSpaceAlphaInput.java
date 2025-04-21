@@ -28,7 +28,7 @@ import java.util.Objects;
 import java.util.Set;
 
 /** Input to update an audience. */
-public class UpdateAudienceForSpaceInput {
+public class UpdateAudienceForSpaceAlphaInput {
     public static final String SERIALIZED_NAME_ENABLED = "enabled";
 
     @SerializedName(SERIALIZED_NAME_ENABLED)
@@ -47,11 +47,11 @@ public class UpdateAudienceForSpaceInput {
     public static final String SERIALIZED_NAME_DEFINITION = "definition";
 
     @SerializedName(SERIALIZED_NAME_DEFINITION)
-    private AudienceComputationDefinition definition;
+    private AudienceDefinition definition;
 
-    public UpdateAudienceForSpaceInput() {}
+    public UpdateAudienceForSpaceAlphaInput() {}
 
-    public UpdateAudienceForSpaceInput enabled(Boolean enabled) {
+    public UpdateAudienceForSpaceAlphaInput enabled(Boolean enabled) {
 
         this.enabled = enabled;
         return this;
@@ -71,7 +71,7 @@ public class UpdateAudienceForSpaceInput {
         this.enabled = enabled;
     }
 
-    public UpdateAudienceForSpaceInput name(String name) {
+    public UpdateAudienceForSpaceAlphaInput name(String name) {
 
         this.name = name;
         return this;
@@ -91,7 +91,7 @@ public class UpdateAudienceForSpaceInput {
         this.name = name;
     }
 
-    public UpdateAudienceForSpaceInput description(String description) {
+    public UpdateAudienceForSpaceAlphaInput description(String description) {
 
         this.description = description;
         return this;
@@ -111,7 +111,7 @@ public class UpdateAudienceForSpaceInput {
         this.description = description;
     }
 
-    public UpdateAudienceForSpaceInput definition(AudienceComputationDefinition definition) {
+    public UpdateAudienceForSpaceAlphaInput definition(AudienceDefinition definition) {
 
         this.definition = definition;
         return this;
@@ -123,11 +123,11 @@ public class UpdateAudienceForSpaceInput {
      * @return definition
      */
     @javax.annotation.Nullable
-    public AudienceComputationDefinition getDefinition() {
+    public AudienceDefinition getDefinition() {
         return definition;
     }
 
-    public void setDefinition(AudienceComputationDefinition definition) {
+    public void setDefinition(AudienceDefinition definition) {
         this.definition = definition;
     }
 
@@ -139,11 +139,12 @@ public class UpdateAudienceForSpaceInput {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        UpdateAudienceForSpaceInput updateAudienceForSpaceInput = (UpdateAudienceForSpaceInput) o;
-        return Objects.equals(this.enabled, updateAudienceForSpaceInput.enabled)
-                && Objects.equals(this.name, updateAudienceForSpaceInput.name)
-                && Objects.equals(this.description, updateAudienceForSpaceInput.description)
-                && Objects.equals(this.definition, updateAudienceForSpaceInput.definition);
+        UpdateAudienceForSpaceAlphaInput updateAudienceForSpaceAlphaInput =
+                (UpdateAudienceForSpaceAlphaInput) o;
+        return Objects.equals(this.enabled, updateAudienceForSpaceAlphaInput.enabled)
+                && Objects.equals(this.name, updateAudienceForSpaceAlphaInput.name)
+                && Objects.equals(this.description, updateAudienceForSpaceAlphaInput.description)
+                && Objects.equals(this.definition, updateAudienceForSpaceAlphaInput.definition);
     }
 
     @Override
@@ -154,7 +155,7 @@ public class UpdateAudienceForSpaceInput {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class UpdateAudienceForSpaceInput {\n");
+        sb.append("class UpdateAudienceForSpaceAlphaInput {\n");
         sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -194,28 +195,28 @@ public class UpdateAudienceForSpaceInput {
      *
      * @param jsonElement JSON Element
      * @throws IOException if the JSON Element is invalid with respect to
-     *     UpdateAudienceForSpaceInput
+     *     UpdateAudienceForSpaceAlphaInput
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!UpdateAudienceForSpaceInput.openapiRequiredFields
+            if (!UpdateAudienceForSpaceAlphaInput.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in UpdateAudienceForSpaceInput is not"
-                                        + " found in the empty JSON string",
-                                UpdateAudienceForSpaceInput.openapiRequiredFields.toString()));
+                                "The required field(s) %s in UpdateAudienceForSpaceAlphaInput is"
+                                        + " not found in the empty JSON string",
+                                UpdateAudienceForSpaceAlphaInput.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!UpdateAudienceForSpaceInput.openapiFields.contains(entry.getKey())) {
+            if (!UpdateAudienceForSpaceAlphaInput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `UpdateAudienceForSpaceInput` properties. JSON: %s",
+                                    + " `UpdateAudienceForSpaceAlphaInput` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
@@ -238,7 +239,7 @@ public class UpdateAudienceForSpaceInput {
         }
         // validate the optional field `definition`
         if (jsonObj.get("definition") != null && !jsonObj.get("definition").isJsonNull()) {
-            AudienceComputationDefinition.validateJsonElement(jsonObj.get("definition"));
+            AudienceDefinition.validateJsonElement(jsonObj.get("definition"));
         }
     }
 
@@ -246,25 +247,27 @@ public class UpdateAudienceForSpaceInput {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!UpdateAudienceForSpaceInput.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'UpdateAudienceForSpaceInput' and its
-                // subtypes
+            if (!UpdateAudienceForSpaceAlphaInput.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'UpdateAudienceForSpaceAlphaInput' and
+                // its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<UpdateAudienceForSpaceInput> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(UpdateAudienceForSpaceInput.class));
+            final TypeAdapter<UpdateAudienceForSpaceAlphaInput> thisAdapter =
+                    gson.getDelegateAdapter(
+                            this, TypeToken.get(UpdateAudienceForSpaceAlphaInput.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<UpdateAudienceForSpaceInput>() {
+                    new TypeAdapter<UpdateAudienceForSpaceAlphaInput>() {
                         @Override
-                        public void write(JsonWriter out, UpdateAudienceForSpaceInput value)
+                        public void write(JsonWriter out, UpdateAudienceForSpaceAlphaInput value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public UpdateAudienceForSpaceInput read(JsonReader in) throws IOException {
+                        public UpdateAudienceForSpaceAlphaInput read(JsonReader in)
+                                throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -274,18 +277,19 @@ public class UpdateAudienceForSpaceInput {
     }
 
     /**
-     * Create an instance of UpdateAudienceForSpaceInput given an JSON string
+     * Create an instance of UpdateAudienceForSpaceAlphaInput given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of UpdateAudienceForSpaceInput
-     * @throws IOException if the JSON string is invalid with respect to UpdateAudienceForSpaceInput
+     * @return An instance of UpdateAudienceForSpaceAlphaInput
+     * @throws IOException if the JSON string is invalid with respect to
+     *     UpdateAudienceForSpaceAlphaInput
      */
-    public static UpdateAudienceForSpaceInput fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, UpdateAudienceForSpaceInput.class);
+    public static UpdateAudienceForSpaceAlphaInput fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, UpdateAudienceForSpaceAlphaInput.class);
     }
 
     /**
-     * Convert an instance of UpdateAudienceForSpaceInput to an JSON string
+     * Convert an instance of UpdateAudienceForSpaceAlphaInput to an JSON string
      *
      * @return JSON string
      */

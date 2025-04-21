@@ -22,11 +22,13 @@ import com.segment.publicapi.models.CreateAudience200Response;
 import com.segment.publicapi.models.CreateAudienceAlphaInput;
 import com.segment.publicapi.models.GetAudience200Response;
 import com.segment.publicapi.models.ListAudienceConsumersFromSpaceAndAudience200Response;
+import com.segment.publicapi.models.ListAudienceConsumersSearchInput;
+import com.segment.publicapi.models.ListAudienceConsumersSortInput;
 import com.segment.publicapi.models.ListAudiences200Response;
 import com.segment.publicapi.models.PaginationInput;
 import com.segment.publicapi.models.RemoveAudienceFromSpace200Response;
 import com.segment.publicapi.models.UpdateAudienceForSpace200Response;
-import com.segment.publicapi.models.UpdateAudienceForSpaceInput;
+import com.segment.publicapi.models.UpdateAudienceForSpaceAlphaInput;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -480,6 +482,8 @@ public class AudiencesApi {
      * @param pagination Information about the pagination of this response. [See
      *     pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters)
      *     for more info. This parameter exists in alpha. (optional)
+     * @param search Optional search criteria This parameter exists in alpha. (optional)
+     * @param sort Optional sort criteria This parameter exists in alpha. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -493,7 +497,12 @@ public class AudiencesApi {
      * </table>
      */
     public okhttp3.Call listAudienceConsumersFromSpaceAndAudienceCall(
-            String spaceId, String id, PaginationInput pagination, final ApiCallback _callback)
+            String spaceId,
+            String id,
+            PaginationInput pagination,
+            ListAudienceConsumersSearchInput search,
+            ListAudienceConsumersSortInput sort,
+            final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -528,6 +537,14 @@ public class AudiencesApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pagination", pagination));
         }
 
+        if (search != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("search", search));
+        }
+
+        if (sort != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sort", sort));
+        }
+
         final String[] localVarAccepts = {
             "application/vnd.segment.v1alpha+json", "application/json"
         };
@@ -560,7 +577,12 @@ public class AudiencesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listAudienceConsumersFromSpaceAndAudienceValidateBeforeCall(
-            String spaceId, String id, PaginationInput pagination, final ApiCallback _callback)
+            String spaceId,
+            String id,
+            PaginationInput pagination,
+            ListAudienceConsumersSearchInput search,
+            ListAudienceConsumersSortInput sort,
+            final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
@@ -576,7 +598,8 @@ public class AudiencesApi {
                             + " listAudienceConsumersFromSpaceAndAudience(Async)");
         }
 
-        return listAudienceConsumersFromSpaceAndAudienceCall(spaceId, id, pagination, _callback);
+        return listAudienceConsumersFromSpaceAndAudienceCall(
+                spaceId, id, pagination, search, sort, _callback);
     }
 
     /**
@@ -594,6 +617,8 @@ public class AudiencesApi {
      * @param pagination Information about the pagination of this response. [See
      *     pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters)
      *     for more info. This parameter exists in alpha. (optional)
+     * @param search Optional search criteria This parameter exists in alpha. (optional)
+     * @param sort Optional sort criteria This parameter exists in alpha. (optional)
      * @return ListAudienceConsumersFromSpaceAndAudience200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -608,9 +633,15 @@ public class AudiencesApi {
      */
     public ListAudienceConsumersFromSpaceAndAudience200Response
             listAudienceConsumersFromSpaceAndAudience(
-                    String spaceId, String id, PaginationInput pagination) throws ApiException {
+                    String spaceId,
+                    String id,
+                    PaginationInput pagination,
+                    ListAudienceConsumersSearchInput search,
+                    ListAudienceConsumersSortInput sort)
+                    throws ApiException {
         ApiResponse<ListAudienceConsumersFromSpaceAndAudience200Response> localVarResp =
-                listAudienceConsumersFromSpaceAndAudienceWithHttpInfo(spaceId, id, pagination);
+                listAudienceConsumersFromSpaceAndAudienceWithHttpInfo(
+                        spaceId, id, pagination, search, sort);
         return localVarResp.getData();
     }
 
@@ -629,6 +660,8 @@ public class AudiencesApi {
      * @param pagination Information about the pagination of this response. [See
      *     pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters)
      *     for more info. This parameter exists in alpha. (optional)
+     * @param search Optional search criteria This parameter exists in alpha. (optional)
+     * @param sort Optional sort criteria This parameter exists in alpha. (optional)
      * @return ApiResponse&lt;ListAudienceConsumersFromSpaceAndAudience200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -643,10 +676,15 @@ public class AudiencesApi {
      */
     public ApiResponse<ListAudienceConsumersFromSpaceAndAudience200Response>
             listAudienceConsumersFromSpaceAndAudienceWithHttpInfo(
-                    String spaceId, String id, PaginationInput pagination) throws ApiException {
+                    String spaceId,
+                    String id,
+                    PaginationInput pagination,
+                    ListAudienceConsumersSearchInput search,
+                    ListAudienceConsumersSortInput sort)
+                    throws ApiException {
         okhttp3.Call localVarCall =
                 listAudienceConsumersFromSpaceAndAudienceValidateBeforeCall(
-                        spaceId, id, pagination, null);
+                        spaceId, id, pagination, search, sort, null);
         Type localVarReturnType =
                 new TypeToken<ListAudienceConsumersFromSpaceAndAudience200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -668,6 +706,8 @@ public class AudiencesApi {
      * @param pagination Information about the pagination of this response. [See
      *     pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters)
      *     for more info. This parameter exists in alpha. (optional)
+     * @param search Optional search criteria This parameter exists in alpha. (optional)
+     * @param sort Optional sort criteria This parameter exists in alpha. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -685,12 +725,14 @@ public class AudiencesApi {
             String spaceId,
             String id,
             PaginationInput pagination,
+            ListAudienceConsumersSearchInput search,
+            ListAudienceConsumersSortInput sort,
             final ApiCallback<ListAudienceConsumersFromSpaceAndAudience200Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 listAudienceConsumersFromSpaceAndAudienceValidateBeforeCall(
-                        spaceId, id, pagination, _callback);
+                        spaceId, id, pagination, search, sort, _callback);
         Type localVarReturnType =
                 new TypeToken<ListAudienceConsumersFromSpaceAndAudience200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
@@ -1108,7 +1150,7 @@ public class AudiencesApi {
      *
      * @param spaceId (required)
      * @param id (required)
-     * @param updateAudienceForSpaceInput (required)
+     * @param updateAudienceForSpaceAlphaInput (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1124,7 +1166,7 @@ public class AudiencesApi {
     public okhttp3.Call updateAudienceForSpaceCall(
             String spaceId,
             String id,
-            UpdateAudienceForSpaceInput updateAudienceForSpaceInput,
+            UpdateAudienceForSpaceAlphaInput updateAudienceForSpaceAlphaInput,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1140,7 +1182,7 @@ public class AudiencesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = updateAudienceForSpaceInput;
+        Object localVarPostBody = updateAudienceForSpaceAlphaInput;
 
         // create path and map variables
         String localVarPath =
@@ -1190,7 +1232,7 @@ public class AudiencesApi {
     private okhttp3.Call updateAudienceForSpaceValidateBeforeCall(
             String spaceId,
             String id,
-            UpdateAudienceForSpaceInput updateAudienceForSpaceInput,
+            UpdateAudienceForSpaceAlphaInput updateAudienceForSpaceAlphaInput,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'spaceId' is set
@@ -1207,14 +1249,14 @@ public class AudiencesApi {
                             + " updateAudienceForSpace(Async)");
         }
 
-        // verify the required parameter 'updateAudienceForSpaceInput' is set
-        if (updateAudienceForSpaceInput == null) {
+        // verify the required parameter 'updateAudienceForSpaceAlphaInput' is set
+        if (updateAudienceForSpaceAlphaInput == null) {
             throw new ApiException(
-                    "Missing the required parameter 'updateAudienceForSpaceInput' when calling"
+                    "Missing the required parameter 'updateAudienceForSpaceAlphaInput' when calling"
                             + " updateAudienceForSpace(Async)");
         }
 
-        return updateAudienceForSpaceCall(spaceId, id, updateAudienceForSpaceInput, _callback);
+        return updateAudienceForSpaceCall(spaceId, id, updateAudienceForSpaceAlphaInput, _callback);
     }
 
     /**
@@ -1235,7 +1277,7 @@ public class AudiencesApi {
      *
      * @param spaceId (required)
      * @param id (required)
-     * @param updateAudienceForSpaceInput (required)
+     * @param updateAudienceForSpaceAlphaInput (required)
      * @return UpdateAudienceForSpace200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1249,10 +1291,12 @@ public class AudiencesApi {
      * </table>
      */
     public UpdateAudienceForSpace200Response updateAudienceForSpace(
-            String spaceId, String id, UpdateAudienceForSpaceInput updateAudienceForSpaceInput)
+            String spaceId,
+            String id,
+            UpdateAudienceForSpaceAlphaInput updateAudienceForSpaceAlphaInput)
             throws ApiException {
         ApiResponse<UpdateAudienceForSpace200Response> localVarResp =
-                updateAudienceForSpaceWithHttpInfo(spaceId, id, updateAudienceForSpaceInput);
+                updateAudienceForSpaceWithHttpInfo(spaceId, id, updateAudienceForSpaceAlphaInput);
         return localVarResp.getData();
     }
 
@@ -1274,7 +1318,7 @@ public class AudiencesApi {
      *
      * @param spaceId (required)
      * @param id (required)
-     * @param updateAudienceForSpaceInput (required)
+     * @param updateAudienceForSpaceAlphaInput (required)
      * @return ApiResponse&lt;UpdateAudienceForSpace200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1288,11 +1332,13 @@ public class AudiencesApi {
      * </table>
      */
     public ApiResponse<UpdateAudienceForSpace200Response> updateAudienceForSpaceWithHttpInfo(
-            String spaceId, String id, UpdateAudienceForSpaceInput updateAudienceForSpaceInput)
+            String spaceId,
+            String id,
+            UpdateAudienceForSpaceAlphaInput updateAudienceForSpaceAlphaInput)
             throws ApiException {
         okhttp3.Call localVarCall =
                 updateAudienceForSpaceValidateBeforeCall(
-                        spaceId, id, updateAudienceForSpaceInput, null);
+                        spaceId, id, updateAudienceForSpaceAlphaInput, null);
         Type localVarReturnType = new TypeToken<UpdateAudienceForSpace200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1315,7 +1361,7 @@ public class AudiencesApi {
      *
      * @param spaceId (required)
      * @param id (required)
-     * @param updateAudienceForSpaceInput (required)
+     * @param updateAudienceForSpaceAlphaInput (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -1332,13 +1378,13 @@ public class AudiencesApi {
     public okhttp3.Call updateAudienceForSpaceAsync(
             String spaceId,
             String id,
-            UpdateAudienceForSpaceInput updateAudienceForSpaceInput,
+            UpdateAudienceForSpaceAlphaInput updateAudienceForSpaceAlphaInput,
             final ApiCallback<UpdateAudienceForSpace200Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 updateAudienceForSpaceValidateBeforeCall(
-                        spaceId, id, updateAudienceForSpaceInput, _callback);
+                        spaceId, id, updateAudienceForSpaceAlphaInput, _callback);
         Type localVarReturnType = new TypeToken<UpdateAudienceForSpace200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
