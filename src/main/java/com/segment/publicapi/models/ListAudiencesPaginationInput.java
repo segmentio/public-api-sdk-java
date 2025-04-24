@@ -22,38 +22,71 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Audience output for get. */
-public class GetAudienceBetaOutput {
-    public static final String SERIALIZED_NAME_AUDIENCE = "audience";
+/**
+ * Fork of Autobahn&#39;s PaginationInput. Count is limited to 200 in this fork. Pagination
+ * parameters. Every resource that returns a list of items in its &#x60;Output&#x60; object may
+ * contain a &#x60;PaginationInput&#x60; in its &#x60;Input&#x60; object. Required, though some of
+ * its fields are optional.
+ */
+public class ListAudiencesPaginationInput {
+    public static final String SERIALIZED_NAME_CURSOR = "cursor";
 
-    @SerializedName(SERIALIZED_NAME_AUDIENCE)
-    private AudienceSummaryWithAudienceTypeAndLookback audience;
+    @SerializedName(SERIALIZED_NAME_CURSOR)
+    private String cursor;
 
-    public GetAudienceBetaOutput() {}
+    public static final String SERIALIZED_NAME_COUNT = "count";
 
-    public GetAudienceBetaOutput audience(AudienceSummaryWithAudienceTypeAndLookback audience) {
+    @SerializedName(SERIALIZED_NAME_COUNT)
+    private BigDecimal count;
 
-        this.audience = audience;
+    public ListAudiencesPaginationInput() {}
+
+    public ListAudiencesPaginationInput cursor(String cursor) {
+
+        this.cursor = cursor;
         return this;
     }
 
     /**
-     * Get audience
+     * The page to request. Acceptable values to use here are in PaginationOutput objects, in the
+     * &#x60;current&#x60;, &#x60;next&#x60;, and &#x60;previous&#x60; keys. Consumers of the API
+     * must treat this value as opaque.
      *
-     * @return audience
+     * @return cursor
      */
-    @javax.annotation.Nonnull
-    public AudienceSummaryWithAudienceTypeAndLookback getAudience() {
-        return audience;
+    @javax.annotation.Nullable
+    public String getCursor() {
+        return cursor;
     }
 
-    public void setAudience(AudienceSummaryWithAudienceTypeAndLookback audience) {
-        this.audience = audience;
+    public void setCursor(String cursor) {
+        this.cursor = cursor;
+    }
+
+    public ListAudiencesPaginationInput count(BigDecimal count) {
+
+        this.count = count;
+        return this;
+    }
+
+    /**
+     * The number of items to retrieve in a page, between 1 and 200.
+     *
+     * @return count
+     */
+    @javax.annotation.Nonnull
+    public BigDecimal getCount() {
+        return count;
+    }
+
+    public void setCount(BigDecimal count) {
+        this.count = count;
     }
 
     @Override
@@ -64,20 +97,23 @@ public class GetAudienceBetaOutput {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        GetAudienceBetaOutput getAudienceBetaOutput = (GetAudienceBetaOutput) o;
-        return Objects.equals(this.audience, getAudienceBetaOutput.audience);
+        ListAudiencesPaginationInput listAudiencesPaginationInput =
+                (ListAudiencesPaginationInput) o;
+        return Objects.equals(this.cursor, listAudiencesPaginationInput.cursor)
+                && Objects.equals(this.count, listAudiencesPaginationInput.count);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(audience);
+        return Objects.hash(cursor, count);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class GetAudienceBetaOutput {\n");
-        sb.append("    audience: ").append(toIndentedString(audience)).append("\n");
+        sb.append("class ListAudiencesPaginationInput {\n");
+        sb.append("    cursor: ").append(toIndentedString(cursor)).append("\n");
+        sb.append("    count: ").append(toIndentedString(count)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -99,45 +135,47 @@ public class GetAudienceBetaOutput {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("audience");
+        openapiFields.add("cursor");
+        openapiFields.add("count");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("audience");
+        openapiRequiredFields.add("count");
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to GetAudienceBetaOutput
+     * @throws IOException if the JSON Element is invalid with respect to
+     *     ListAudiencesPaginationInput
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!GetAudienceBetaOutput.openapiRequiredFields
+            if (!ListAudiencesPaginationInput.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in GetAudienceBetaOutput is not found in"
-                                        + " the empty JSON string",
-                                GetAudienceBetaOutput.openapiRequiredFields.toString()));
+                                "The required field(s) %s in ListAudiencesPaginationInput is not"
+                                        + " found in the empty JSON string",
+                                ListAudiencesPaginationInput.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!GetAudienceBetaOutput.openapiFields.contains(entry.getKey())) {
+            if (!ListAudiencesPaginationInput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `GetAudienceBetaOutput` properties. JSON: %s",
+                                        + " `ListAudiencesPaginationInput` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : GetAudienceBetaOutput.openapiRequiredFields) {
+        for (String requiredField : ListAudiencesPaginationInput.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -146,32 +184,40 @@ public class GetAudienceBetaOutput {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        // validate the required field `audience`
-        AudienceSummaryWithAudienceTypeAndLookback.validateJsonElement(jsonObj.get("audience"));
+        if ((jsonObj.get("cursor") != null && !jsonObj.get("cursor").isJsonNull())
+                && !jsonObj.get("cursor").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `cursor` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
+                            jsonObj.get("cursor").toString()));
+        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!GetAudienceBetaOutput.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'GetAudienceBetaOutput' and its subtypes
+            if (!ListAudiencesPaginationInput.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'ListAudiencesPaginationInput' and its
+                // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<GetAudienceBetaOutput> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(GetAudienceBetaOutput.class));
+            final TypeAdapter<ListAudiencesPaginationInput> thisAdapter =
+                    gson.getDelegateAdapter(
+                            this, TypeToken.get(ListAudiencesPaginationInput.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<GetAudienceBetaOutput>() {
+                    new TypeAdapter<ListAudiencesPaginationInput>() {
                         @Override
-                        public void write(JsonWriter out, GetAudienceBetaOutput value)
+                        public void write(JsonWriter out, ListAudiencesPaginationInput value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public GetAudienceBetaOutput read(JsonReader in) throws IOException {
+                        public ListAudiencesPaginationInput read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -181,18 +227,19 @@ public class GetAudienceBetaOutput {
     }
 
     /**
-     * Create an instance of GetAudienceBetaOutput given an JSON string
+     * Create an instance of ListAudiencesPaginationInput given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of GetAudienceBetaOutput
-     * @throws IOException if the JSON string is invalid with respect to GetAudienceBetaOutput
+     * @return An instance of ListAudiencesPaginationInput
+     * @throws IOException if the JSON string is invalid with respect to
+     *     ListAudiencesPaginationInput
      */
-    public static GetAudienceBetaOutput fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, GetAudienceBetaOutput.class);
+    public static ListAudiencesPaginationInput fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, ListAudiencesPaginationInput.class);
     }
 
     /**
-     * Convert an instance of GetAudienceBetaOutput to an JSON string
+     * Convert an instance of ListAudiencesPaginationInput to an JSON string
      *
      * @return JSON string
      */
