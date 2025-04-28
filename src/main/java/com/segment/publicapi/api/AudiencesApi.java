@@ -25,7 +25,6 @@ import com.segment.publicapi.models.ListAudienceConsumersFromSpaceAndAudience200
 import com.segment.publicapi.models.ListAudienceConsumersSearchInput;
 import com.segment.publicapi.models.ListAudienceConsumersSortInput;
 import com.segment.publicapi.models.ListAudiences200Response;
-import com.segment.publicapi.models.ListAudiencesPaginationInput;
 import com.segment.publicapi.models.PaginationInput;
 import com.segment.publicapi.models.RemoveAudienceFromSpace200Response;
 import com.segment.publicapi.models.UpdateAudienceForSpace200Response;
@@ -760,7 +759,7 @@ public class AudiencesApi {
      * </table>
      */
     public okhttp3.Call listAudiencesCall(
-            String spaceId, ListAudiencesPaginationInput pagination, final ApiCallback _callback)
+            String spaceId, PaginationInput pagination, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -828,7 +827,7 @@ public class AudiencesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listAudiencesValidateBeforeCall(
-            String spaceId, ListAudiencesPaginationInput pagination, final ApiCallback _callback)
+            String spaceId, PaginationInput pagination, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
@@ -865,8 +864,8 @@ public class AudiencesApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public ListAudiences200Response listAudiences(
-            String spaceId, ListAudiencesPaginationInput pagination) throws ApiException {
+    public ListAudiences200Response listAudiences(String spaceId, PaginationInput pagination)
+            throws ApiException {
         ApiResponse<ListAudiences200Response> localVarResp =
                 listAudiencesWithHttpInfo(spaceId, pagination);
         return localVarResp.getData();
@@ -899,7 +898,7 @@ public class AudiencesApi {
      * </table>
      */
     public ApiResponse<ListAudiences200Response> listAudiencesWithHttpInfo(
-            String spaceId, ListAudiencesPaginationInput pagination) throws ApiException {
+            String spaceId, PaginationInput pagination) throws ApiException {
         okhttp3.Call localVarCall = listAudiencesValidateBeforeCall(spaceId, pagination, null);
         Type localVarReturnType = new TypeToken<ListAudiences200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -934,7 +933,7 @@ public class AudiencesApi {
      */
     public okhttp3.Call listAudiencesAsync(
             String spaceId,
-            ListAudiencesPaginationInput pagination,
+            PaginationInput pagination,
             final ApiCallback<ListAudiences200Response> _callback)
             throws ApiException {
 
