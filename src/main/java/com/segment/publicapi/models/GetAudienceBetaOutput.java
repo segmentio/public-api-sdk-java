@@ -32,11 +32,11 @@ public class GetAudienceBetaOutput {
     public static final String SERIALIZED_NAME_AUDIENCE = "audience";
 
     @SerializedName(SERIALIZED_NAME_AUDIENCE)
-    private AudienceSummaryWithAudienceTypeAndLookback audience;
+    private AudienceSummary audience;
 
     public GetAudienceBetaOutput() {}
 
-    public GetAudienceBetaOutput audience(AudienceSummaryWithAudienceTypeAndLookback audience) {
+    public GetAudienceBetaOutput audience(AudienceSummary audience) {
 
         this.audience = audience;
         return this;
@@ -48,11 +48,11 @@ public class GetAudienceBetaOutput {
      * @return audience
      */
     @javax.annotation.Nonnull
-    public AudienceSummaryWithAudienceTypeAndLookback getAudience() {
+    public AudienceSummary getAudience() {
         return audience;
     }
 
-    public void setAudience(AudienceSummaryWithAudienceTypeAndLookback audience) {
+    public void setAudience(AudienceSummary audience) {
         this.audience = audience;
     }
 
@@ -147,7 +147,7 @@ public class GetAudienceBetaOutput {
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the required field `audience`
-        AudienceSummaryWithAudienceTypeAndLookback.validateJsonElement(jsonObj.get("audience"));
+        AudienceSummary.validateJsonElement(jsonObj.get("audience"));
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

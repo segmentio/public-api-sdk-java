@@ -35,7 +35,7 @@ public class ListAudiencesAlphaOutput {
     public static final String SERIALIZED_NAME_AUDIENCES = "audiences";
 
     @SerializedName(SERIALIZED_NAME_AUDIENCES)
-    private List<AudienceSummaryWithAudienceTypeAndLookback> audiences = new ArrayList<>();
+    private List<AudienceSummary> audiences = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_PAGINATION = "pagination";
 
@@ -44,15 +44,13 @@ public class ListAudiencesAlphaOutput {
 
     public ListAudiencesAlphaOutput() {}
 
-    public ListAudiencesAlphaOutput audiences(
-            List<AudienceSummaryWithAudienceTypeAndLookback> audiences) {
+    public ListAudiencesAlphaOutput audiences(List<AudienceSummary> audiences) {
 
         this.audiences = audiences;
         return this;
     }
 
-    public ListAudiencesAlphaOutput addAudiencesItem(
-            AudienceSummaryWithAudienceTypeAndLookback audiencesItem) {
+    public ListAudiencesAlphaOutput addAudiencesItem(AudienceSummary audiencesItem) {
         if (this.audiences == null) {
             this.audiences = new ArrayList<>();
         }
@@ -66,11 +64,11 @@ public class ListAudiencesAlphaOutput {
      * @return audiences
      */
     @javax.annotation.Nonnull
-    public List<AudienceSummaryWithAudienceTypeAndLookback> getAudiences() {
+    public List<AudienceSummary> getAudiences() {
         return audiences;
     }
 
-    public void setAudiences(List<AudienceSummaryWithAudienceTypeAndLookback> audiences) {
+    public void setAudiences(List<AudienceSummary> audiences) {
         this.audiences = audiences;
     }
 
@@ -200,8 +198,7 @@ public class ListAudiencesAlphaOutput {
         JsonArray jsonArrayaudiences = jsonObj.getAsJsonArray("audiences");
         // validate the required field `audiences` (array)
         for (int i = 0; i < jsonArrayaudiences.size(); i++) {
-            AudienceSummaryWithAudienceTypeAndLookback.validateJsonElement(
-                    jsonArrayaudiences.get(i));
+            AudienceSummary.validateJsonElement(jsonArrayaudiences.get(i));
         }
         ;
         // validate the required field `pagination`
