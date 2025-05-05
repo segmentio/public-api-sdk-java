@@ -16,6 +16,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
@@ -27,33 +28,85 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Audience output for get. */
-public class GetAudienceBetaOutput {
-    public static final String SERIALIZED_NAME_AUDIENCE = "audience";
+/** AudienceComputeCadence */
+public class AudienceComputeCadence {
+    /**
+     * The cadence type on which the audience&#39;s membership is computed. If &#39;BATCH&#39;, the
+     * audience is computed on a periodic basis. If &#39;REALTIME&#39;, the audience is continously
+     * computed.
+     */
+    @JsonAdapter(TypeEnum.Adapter.class)
+    public enum TypeEnum {
+        BATCH("BATCH"),
 
-    @SerializedName(SERIALIZED_NAME_AUDIENCE)
-    private AudienceSummaryWithAudienceTypeAndLookback audience;
+        REALTIME("REALTIME");
 
-    public GetAudienceBetaOutput() {}
+        private String value;
 
-    public GetAudienceBetaOutput audience(AudienceSummaryWithAudienceTypeAndLookback audience) {
+        TypeEnum(String value) {
+            this.value = value;
+        }
 
-        this.audience = audience;
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static TypeEnum fromValue(String value) {
+            for (TypeEnum b : TypeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<TypeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final TypeEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public TypeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return TypeEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_TYPE = "type";
+
+    @SerializedName(SERIALIZED_NAME_TYPE)
+    private TypeEnum type;
+
+    public AudienceComputeCadence() {}
+
+    public AudienceComputeCadence type(TypeEnum type) {
+
+        this.type = type;
         return this;
     }
 
     /**
-     * Get audience
+     * The cadence type on which the audience&#39;s membership is computed. If &#39;BATCH&#39;, the
+     * audience is computed on a periodic basis. If &#39;REALTIME&#39;, the audience is continously
+     * computed.
      *
-     * @return audience
+     * @return type
      */
     @javax.annotation.Nonnull
-    public AudienceSummaryWithAudienceTypeAndLookback getAudience() {
-        return audience;
+    public TypeEnum getType() {
+        return type;
     }
 
-    public void setAudience(AudienceSummaryWithAudienceTypeAndLookback audience) {
-        this.audience = audience;
+    public void setType(TypeEnum type) {
+        this.type = type;
     }
 
     @Override
@@ -64,20 +117,20 @@ public class GetAudienceBetaOutput {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        GetAudienceBetaOutput getAudienceBetaOutput = (GetAudienceBetaOutput) o;
-        return Objects.equals(this.audience, getAudienceBetaOutput.audience);
+        AudienceComputeCadence audienceComputeCadence = (AudienceComputeCadence) o;
+        return Objects.equals(this.type, audienceComputeCadence.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(audience);
+        return Objects.hash(type);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class GetAudienceBetaOutput {\n");
-        sb.append("    audience: ").append(toIndentedString(audience)).append("\n");
+        sb.append("class AudienceComputeCadence {\n");
+        sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -99,45 +152,45 @@ public class GetAudienceBetaOutput {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("audience");
+        openapiFields.add("type");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("audience");
+        openapiRequiredFields.add("type");
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to GetAudienceBetaOutput
+     * @throws IOException if the JSON Element is invalid with respect to AudienceComputeCadence
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!GetAudienceBetaOutput.openapiRequiredFields
+            if (!AudienceComputeCadence.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in GetAudienceBetaOutput is not found in"
+                                "The required field(s) %s in AudienceComputeCadence is not found in"
                                         + " the empty JSON string",
-                                GetAudienceBetaOutput.openapiRequiredFields.toString()));
+                                AudienceComputeCadence.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!GetAudienceBetaOutput.openapiFields.contains(entry.getKey())) {
+            if (!AudienceComputeCadence.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `GetAudienceBetaOutput` properties. JSON: %s",
+                                        + " `AudienceComputeCadence` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : GetAudienceBetaOutput.openapiRequiredFields) {
+        for (String requiredField : AudienceComputeCadence.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -146,32 +199,37 @@ public class GetAudienceBetaOutput {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        // validate the required field `audience`
-        AudienceSummaryWithAudienceTypeAndLookback.validateJsonElement(jsonObj.get("audience"));
+        if (!jsonObj.get("type").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `type` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
+                            jsonObj.get("type").toString()));
+        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!GetAudienceBetaOutput.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'GetAudienceBetaOutput' and its subtypes
+            if (!AudienceComputeCadence.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'AudienceComputeCadence' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<GetAudienceBetaOutput> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(GetAudienceBetaOutput.class));
+            final TypeAdapter<AudienceComputeCadence> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(AudienceComputeCadence.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<GetAudienceBetaOutput>() {
+                    new TypeAdapter<AudienceComputeCadence>() {
                         @Override
-                        public void write(JsonWriter out, GetAudienceBetaOutput value)
+                        public void write(JsonWriter out, AudienceComputeCadence value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public GetAudienceBetaOutput read(JsonReader in) throws IOException {
+                        public AudienceComputeCadence read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -181,18 +239,18 @@ public class GetAudienceBetaOutput {
     }
 
     /**
-     * Create an instance of GetAudienceBetaOutput given an JSON string
+     * Create an instance of AudienceComputeCadence given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of GetAudienceBetaOutput
-     * @throws IOException if the JSON string is invalid with respect to GetAudienceBetaOutput
+     * @return An instance of AudienceComputeCadence
+     * @throws IOException if the JSON string is invalid with respect to AudienceComputeCadence
      */
-    public static GetAudienceBetaOutput fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, GetAudienceBetaOutput.class);
+    public static AudienceComputeCadence fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, AudienceComputeCadence.class);
     }
 
     /**
-     * Convert an instance of GetAudienceBetaOutput to an JSON string
+     * Convert an instance of AudienceComputeCadence to an JSON string
      *
      * @return JSON string
      */
