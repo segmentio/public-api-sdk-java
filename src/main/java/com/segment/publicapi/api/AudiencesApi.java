@@ -27,6 +27,8 @@ import com.segment.publicapi.models.ListAudienceConsumersSortInput;
 import com.segment.publicapi.models.ListAudiences200Response;
 import com.segment.publicapi.models.ListAudiencesPaginationInput;
 import com.segment.publicapi.models.PaginationInput;
+import com.segment.publicapi.models.PreviewAudience200Response;
+import com.segment.publicapi.models.PreviewAudienceInput;
 import com.segment.publicapi.models.RemoveAudienceFromSpace200Response;
 import com.segment.publicapi.models.UpdateAudienceForSpace200Response;
 import com.segment.publicapi.models.UpdateAudienceForSpaceAlphaInput;
@@ -940,6 +942,199 @@ public class AudiencesApi {
 
         okhttp3.Call localVarCall = listAudiencesValidateBeforeCall(spaceId, pagination, _callback);
         Type localVarReturnType = new TypeToken<ListAudiences200Response>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for previewAudience
+     *
+     * @param spaceId (required)
+     * @param previewAudienceInput (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call previewAudienceCall(
+            String spaceId, PreviewAudienceInput previewAudienceInput, final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = previewAudienceInput;
+
+        // create path and map variables
+        String localVarPath =
+                "/spaces/{spaceId}/audiences/previews"
+                        .replace(
+                                "{" + "spaceId" + "}",
+                                localVarApiClient.escapeString(spaceId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.segment.v1alpha+json", "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/vnd.segment.v1alpha+json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"token"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call previewAudienceValidateBeforeCall(
+            String spaceId, PreviewAudienceInput previewAudienceInput, final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'spaceId' when calling previewAudience(Async)");
+        }
+
+        // verify the required parameter 'previewAudienceInput' is set
+        if (previewAudienceInput == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'previewAudienceInput' when calling"
+                            + " previewAudience(Async)");
+        }
+
+        return previewAudienceCall(spaceId, previewAudienceInput, _callback);
+    }
+
+    /**
+     * Preview Audience Previews Audience. • This endpoint is in **Alpha** testing. Please submit
+     * any feedback by sending an email to friends@segment.com. • In order to successfully call this
+     * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
+     * out to your customer success manager for more information. • When called, this endpoint may
+     * generate the &#x60;Audience Preview Created&#x60; event in the [audit
+     * trail](/tag/Audit-Trail).
+     *
+     * @param spaceId (required)
+     * @param previewAudienceInput (required)
+     * @return PreviewAudience200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public PreviewAudience200Response previewAudience(
+            String spaceId, PreviewAudienceInput previewAudienceInput) throws ApiException {
+        ApiResponse<PreviewAudience200Response> localVarResp =
+                previewAudienceWithHttpInfo(spaceId, previewAudienceInput);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Preview Audience Previews Audience. • This endpoint is in **Alpha** testing. Please submit
+     * any feedback by sending an email to friends@segment.com. • In order to successfully call this
+     * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
+     * out to your customer success manager for more information. • When called, this endpoint may
+     * generate the &#x60;Audience Preview Created&#x60; event in the [audit
+     * trail](/tag/Audit-Trail).
+     *
+     * @param spaceId (required)
+     * @param previewAudienceInput (required)
+     * @return ApiResponse&lt;PreviewAudience200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<PreviewAudience200Response> previewAudienceWithHttpInfo(
+            String spaceId, PreviewAudienceInput previewAudienceInput) throws ApiException {
+        okhttp3.Call localVarCall =
+                previewAudienceValidateBeforeCall(spaceId, previewAudienceInput, null);
+        Type localVarReturnType = new TypeToken<PreviewAudience200Response>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Preview Audience (asynchronously) Previews Audience. • This endpoint is in **Alpha** testing.
+     * Please submit any feedback by sending an email to friends@segment.com. • In order to
+     * successfully call this endpoint, the specified Workspace needs to have the Audience feature
+     * enabled. Please reach out to your customer success manager for more information. • When
+     * called, this endpoint may generate the &#x60;Audience Preview Created&#x60; event in the
+     * [audit trail](/tag/Audit-Trail).
+     *
+     * @param spaceId (required)
+     * @param previewAudienceInput (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body
+     *     object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call previewAudienceAsync(
+            String spaceId,
+            PreviewAudienceInput previewAudienceInput,
+            final ApiCallback<PreviewAudience200Response> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                previewAudienceValidateBeforeCall(spaceId, previewAudienceInput, _callback);
+        Type localVarReturnType = new TypeToken<PreviewAudience200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
