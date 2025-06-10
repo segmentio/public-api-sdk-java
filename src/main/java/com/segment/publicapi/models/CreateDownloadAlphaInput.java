@@ -39,10 +39,10 @@ public class CreateDownloadAlphaInput {
     @SerializedName(SERIALIZED_NAME_WORKSPACE_ID)
     private String workspaceId;
 
-    public static final String SERIALIZED_NAME_START_TIME = "startTime";
+    public static final String SERIALIZED_NAME_HOUR = "hour";
 
-    @SerializedName(SERIALIZED_NAME_START_TIME)
-    private String startTime;
+    @SerializedName(SERIALIZED_NAME_HOUR)
+    private String hour;
 
     public CreateDownloadAlphaInput() {}
 
@@ -86,25 +86,25 @@ public class CreateDownloadAlphaInput {
         this.workspaceId = workspaceId;
     }
 
-    public CreateDownloadAlphaInput startTime(String startTime) {
+    public CreateDownloadAlphaInput hour(String hour) {
 
-        this.startTime = startTime;
+        this.hour = hour;
         return this;
     }
 
     /**
-     * The ISO8601 formatted timestamp corresponding to the beginning of the time range. Currently,
-     * there is a month of data retained.
+     * The ISO8601 formatted timestamp corresponding to a specific hour and day to retrieve data
+     * for. E.g.: 2025-05-07T23:00:00Z Objects are bucketed by hour and a month of data is retained.
      *
-     * @return startTime
+     * @return hour
      */
     @javax.annotation.Nonnull
-    public String getStartTime() {
-        return startTime;
+    public String getHour() {
+        return hour;
     }
 
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
+    public void setHour(String hour) {
+        this.hour = hour;
     }
 
     @Override
@@ -118,12 +118,12 @@ public class CreateDownloadAlphaInput {
         CreateDownloadAlphaInput createDownloadAlphaInput = (CreateDownloadAlphaInput) o;
         return Objects.equals(this.collectionId, createDownloadAlphaInput.collectionId)
                 && Objects.equals(this.workspaceId, createDownloadAlphaInput.workspaceId)
-                && Objects.equals(this.startTime, createDownloadAlphaInput.startTime);
+                && Objects.equals(this.hour, createDownloadAlphaInput.hour);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(collectionId, workspaceId, startTime);
+        return Objects.hash(collectionId, workspaceId, hour);
     }
 
     @Override
@@ -132,7 +132,7 @@ public class CreateDownloadAlphaInput {
         sb.append("class CreateDownloadAlphaInput {\n");
         sb.append("    collectionId: ").append(toIndentedString(collectionId)).append("\n");
         sb.append("    workspaceId: ").append(toIndentedString(workspaceId)).append("\n");
-        sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
+        sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -156,13 +156,13 @@ public class CreateDownloadAlphaInput {
         openapiFields = new HashSet<String>();
         openapiFields.add("collectionId");
         openapiFields.add("workspaceId");
-        openapiFields.add("startTime");
+        openapiFields.add("hour");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
         openapiRequiredFields.add("collectionId");
         openapiRequiredFields.add("workspaceId");
-        openapiRequiredFields.add("startTime");
+        openapiRequiredFields.add("hour");
     }
 
     /**
@@ -219,12 +219,12 @@ public class CreateDownloadAlphaInput {
                                     + " string but got `%s`",
                             jsonObj.get("workspaceId").toString()));
         }
-        if (!jsonObj.get("startTime").isJsonPrimitive()) {
+        if (!jsonObj.get("hour").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `startTime` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
-                            jsonObj.get("startTime").toString()));
+                            "Expected the field `hour` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
+                            jsonObj.get("hour").toString()));
         }
     }
 
