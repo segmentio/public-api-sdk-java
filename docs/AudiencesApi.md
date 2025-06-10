@@ -42,7 +42,7 @@ public class Example {
         token.setBearerToken("BEARER TOKEN");
 
         AudiencesApi apiInstance = new AudiencesApi(defaultClient);
-        String spaceId = "spaceId"; // String | 
+        String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
         CreateAudienceAlphaInput createAudienceAlphaInput = new CreateAudienceAlphaInput(); // CreateAudienceAlphaInput | 
         try {
             CreateAudience200Response result = apiInstance.createAudience(spaceId, createAudienceAlphaInput);
@@ -117,7 +117,7 @@ public class Example {
         token.setBearerToken("BEARER TOKEN");
 
         AudiencesApi apiInstance = new AudiencesApi(defaultClient);
-        String spaceId = "spaceId"; // String | 
+        String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
         String id = "id"; // String | 
         try {
             GetAudience200Response result = apiInstance.getAudience(spaceId, id);
@@ -192,8 +192,8 @@ public class Example {
         token.setBearerToken("BEARER TOKEN");
 
         AudiencesApi apiInstance = new AudiencesApi(defaultClient);
-        String spaceId = "spaceId"; // String | 
-        String id = "ReferencedAudienceId"; // String | 
+        String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
+        String id = "aud_0ujsswThIGTUYm2K8FjOOfXtY1K"; // String | 
         PaginationInput pagination = new PaginationInput(); // PaginationInput | Information about the pagination of this response.  [See pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters) for more info.  This parameter exists in alpha.
         ListAudienceConsumersSearchInput search = new ListAudienceConsumersSearchInput(); // ListAudienceConsumersSearchInput | Optional search criteria  This parameter exists in alpha.
         ListAudienceConsumersSortInput sort = new ListAudienceConsumersSortInput(); // ListAudienceConsumersSortInput | Optional sort criteria  This parameter exists in alpha.
@@ -273,7 +273,7 @@ public class Example {
         token.setBearerToken("BEARER TOKEN");
 
         AudiencesApi apiInstance = new AudiencesApi(defaultClient);
-        String spaceId = "spaceId"; // String | 
+        String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
         ListAudiencesPaginationInput pagination = new ListAudiencesPaginationInput(); // ListAudiencesPaginationInput | Information about the pagination of this response.  [See pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters) for more info.  This parameter exists in alpha.
         try {
             ListAudiences200Response result = apiInstance.listAudiences(spaceId, pagination);
@@ -348,7 +348,7 @@ public class Example {
         token.setBearerToken("BEARER TOKEN");
 
         AudiencesApi apiInstance = new AudiencesApi(defaultClient);
-        String spaceId = "spaceId"; // String | 
+        String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
         PreviewAudienceInput previewAudienceInput = new PreviewAudienceInput(); // PreviewAudienceInput | 
         try {
             PreviewAudience200Response result = apiInstance.previewAudience(spaceId, previewAudienceInput);
@@ -423,8 +423,8 @@ public class Example {
         token.setBearerToken("BEARER TOKEN");
 
         AudiencesApi apiInstance = new AudiencesApi(defaultClient);
-        String spaceId = "spaceId"; // String | 
-        String id = "id"; // String | 
+        String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
+        String id = "aud_0ujsswThIGTUYm2K8FjOOfXtY1K"; // String | 
         try {
             RemoveAudienceFromSpace200Response result = apiInstance.removeAudienceFromSpace(spaceId, id);
             System.out.println(result);
@@ -498,8 +498,8 @@ public class Example {
         token.setBearerToken("BEARER TOKEN");
 
         AudiencesApi apiInstance = new AudiencesApi(defaultClient);
-        String spaceId = "spaceId"; // String | 
-        String id = "id"; // String | 
+        String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
+        String id = "aud_0ujsswThIGTUYm2K8FjOOfXtY1K"; // String | 
         UpdateAudienceForSpaceAlphaInput updateAudienceForSpaceAlphaInput = new UpdateAudienceForSpaceAlphaInput(); // UpdateAudienceForSpaceAlphaInput | 
         try {
             UpdateAudienceForSpace200Response result = apiInstance.updateAudienceForSpace(spaceId, id, updateAudienceForSpaceAlphaInput);
