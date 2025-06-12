@@ -1050,7 +1050,14 @@ public class AudiencesApi {
      * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
      * out to your customer success manager for more information. • When called, this endpoint may
      * generate the &#x60;Audience Preview Created&#x60; event in the [audit
-     * trail](/tag/Audit-Trail).
+     * trail](/tag/Audit-Trail). The rate limit for this endpoint is 5 requests per minute, which is
+     * lower than the default due to access pattern restrictions. Once reached, this endpoint will
+     * respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate
+     * Limiting](/#tag/Rate-Limits) for more information. The rate limit for this endpoint is 700
+     * requests per month per spaceId, which is lower than the default due to access pattern
+     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
+     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
+     * information.
      *
      * @param spaceId (required)
      * @param previewAudienceInput (required)
@@ -1079,7 +1086,14 @@ public class AudiencesApi {
      * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
      * out to your customer success manager for more information. • When called, this endpoint may
      * generate the &#x60;Audience Preview Created&#x60; event in the [audit
-     * trail](/tag/Audit-Trail).
+     * trail](/tag/Audit-Trail). The rate limit for this endpoint is 5 requests per minute, which is
+     * lower than the default due to access pattern restrictions. Once reached, this endpoint will
+     * respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate
+     * Limiting](/#tag/Rate-Limits) for more information. The rate limit for this endpoint is 700
+     * requests per month per spaceId, which is lower than the default due to access pattern
+     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
+     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
+     * information.
      *
      * @param spaceId (required)
      * @param previewAudienceInput (required)
@@ -1109,7 +1123,14 @@ public class AudiencesApi {
      * successfully call this endpoint, the specified Workspace needs to have the Audience feature
      * enabled. Please reach out to your customer success manager for more information. • When
      * called, this endpoint may generate the &#x60;Audience Preview Created&#x60; event in the
-     * [audit trail](/tag/Audit-Trail).
+     * [audit trail](/tag/Audit-Trail). The rate limit for this endpoint is 5 requests per minute,
+     * which is lower than the default due to access pattern restrictions. Once reached, this
+     * endpoint will respond with the 429 HTTP status code with headers indicating the limit
+     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information. The rate limit for
+     * this endpoint is 700 requests per month per spaceId, which is lower than the default due to
+     * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
+     * status code with headers indicating the limit parameters. See [Rate
+     * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
      * @param previewAudienceInput (required)
