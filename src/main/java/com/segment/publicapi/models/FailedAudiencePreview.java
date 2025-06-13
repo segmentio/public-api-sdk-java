@@ -28,7 +28,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** FailedAudiencePreview */
+/** Audience preview that has failed to calculate. */
 public class FailedAudiencePreview {
     /** Status for the audience preview. */
     @JsonAdapter(StatusEnum.Adapter.class)
@@ -148,7 +148,7 @@ public class FailedAudiencePreview {
     public static final String SERIALIZED_NAME_OPTIONS = "options";
 
     @SerializedName(SERIALIZED_NAME_OPTIONS)
-    private AudienceOptionsWithLookback options;
+    private AudiencePreviewOptions options;
 
     public FailedAudiencePreview() {}
 
@@ -252,7 +252,7 @@ public class FailedAudiencePreview {
         this.definition = definition;
     }
 
-    public FailedAudiencePreview options(AudienceOptionsWithLookback options) {
+    public FailedAudiencePreview options(AudiencePreviewOptions options) {
 
         this.options = options;
         return this;
@@ -264,11 +264,11 @@ public class FailedAudiencePreview {
      * @return options
      */
     @javax.annotation.Nonnull
-    public AudienceOptionsWithLookback getOptions() {
+    public AudiencePreviewOptions getOptions() {
         return options;
     }
 
-    public void setOptions(AudienceOptionsWithLookback options) {
+    public void setOptions(AudiencePreviewOptions options) {
         this.options = options;
     }
 
@@ -413,7 +413,7 @@ public class FailedAudiencePreview {
         // validate the required field `definition`
         AudienceDefinitionWithoutType.validateJsonElement(jsonObj.get("definition"));
         // validate the required field `options`
-        AudienceOptionsWithLookback.validateJsonElement(jsonObj.get("options"));
+        AudiencePreviewOptions.validateJsonElement(jsonObj.get("options"));
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

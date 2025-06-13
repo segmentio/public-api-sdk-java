@@ -89,7 +89,7 @@ public class CreateAudiencePreviewAlphaInput {
     public static final String SERIALIZED_NAME_OPTIONS = "options";
 
     @SerializedName(SERIALIZED_NAME_OPTIONS)
-    private AudienceOptionsWithLookback options;
+    private AudiencePreviewOptions options;
 
     public CreateAudiencePreviewAlphaInput() {}
 
@@ -133,7 +133,7 @@ public class CreateAudiencePreviewAlphaInput {
         this.audienceType = audienceType;
     }
 
-    public CreateAudiencePreviewAlphaInput options(AudienceOptionsWithLookback options) {
+    public CreateAudiencePreviewAlphaInput options(AudiencePreviewOptions options) {
 
         this.options = options;
         return this;
@@ -145,11 +145,11 @@ public class CreateAudiencePreviewAlphaInput {
      * @return options
      */
     @javax.annotation.Nullable
-    public AudienceOptionsWithLookback getOptions() {
+    public AudiencePreviewOptions getOptions() {
         return options;
     }
 
-    public void setOptions(AudienceOptionsWithLookback options) {
+    public void setOptions(AudiencePreviewOptions options) {
         this.options = options;
     }
 
@@ -263,7 +263,7 @@ public class CreateAudiencePreviewAlphaInput {
         }
         // validate the optional field `options`
         if (jsonObj.get("options") != null && !jsonObj.get("options").isJsonNull()) {
-            AudienceOptionsWithLookback.validateJsonElement(jsonObj.get("options"));
+            AudiencePreviewOptions.validateJsonElement(jsonObj.get("options"));
         }
     }
 

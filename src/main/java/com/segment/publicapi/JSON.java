@@ -181,6 +181,8 @@ public class JSON {
                 new com.segment.publicapi.models.AudiencePreviewIdentifier
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.AudiencePreviewOptions.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.AudiencePreviewResult.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.AudienceSize.CustomTypeAdapterFactory());

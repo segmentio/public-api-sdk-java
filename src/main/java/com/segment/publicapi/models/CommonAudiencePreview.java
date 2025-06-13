@@ -94,7 +94,7 @@ public class CommonAudiencePreview {
     public static final String SERIALIZED_NAME_OPTIONS = "options";
 
     @SerializedName(SERIALIZED_NAME_OPTIONS)
-    private AudienceOptionsWithLookback options;
+    private AudiencePreviewOptions options;
 
     public CommonAudiencePreview() {}
 
@@ -158,7 +158,7 @@ public class CommonAudiencePreview {
         this.definition = definition;
     }
 
-    public CommonAudiencePreview options(AudienceOptionsWithLookback options) {
+    public CommonAudiencePreview options(AudiencePreviewOptions options) {
 
         this.options = options;
         return this;
@@ -170,11 +170,11 @@ public class CommonAudiencePreview {
      * @return options
      */
     @javax.annotation.Nonnull
-    public AudienceOptionsWithLookback getOptions() {
+    public AudiencePreviewOptions getOptions() {
         return options;
     }
 
-    public void setOptions(AudienceOptionsWithLookback options) {
+    public void setOptions(AudiencePreviewOptions options) {
         this.options = options;
     }
 
@@ -297,7 +297,7 @@ public class CommonAudiencePreview {
         // validate the required field `definition`
         AudienceDefinitionWithoutType.validateJsonElement(jsonObj.get("definition"));
         // validate the required field `options`
-        AudienceOptionsWithLookback.validateJsonElement(jsonObj.get("options"));
+        AudiencePreviewOptions.validateJsonElement(jsonObj.get("options"));
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
