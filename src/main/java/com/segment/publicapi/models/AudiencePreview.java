@@ -12,267 +12,407 @@
 package com.segment.publicapi.models;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.Objects;
+import java.util.Set;
 
-public class AudiencePreview extends AbstractOpenApiSchema {
-    private static final Logger log = Logger.getLogger(AudiencePreview.class.getName());
+/** An audience preview. */
+public class AudiencePreview {
+    public static final String SERIALIZED_NAME_ID = "id";
 
-    public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
-        @SuppressWarnings("unchecked")
+    @SerializedName(SERIALIZED_NAME_ID)
+    private String id;
+
+    /** The audience type of the preview. */
+    @JsonAdapter(AudienceTypeEnum.Adapter.class)
+    public enum AudienceTypeEnum {
+        ACCOUNTS("ACCOUNTS"),
+
+        USERS("USERS");
+
+        private String value;
+
+        AudienceTypeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
         @Override
-        public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!AudiencePreview.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'AudiencePreview' and its subtypes
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static AudienceTypeEnum fromValue(String value) {
+            for (AudienceTypeEnum b : AudienceTypeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
             }
-            final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<CompletedAudiencePreview> adapterCompletedAudiencePreview =
-                    gson.getDelegateAdapter(this, TypeToken.get(CompletedAudiencePreview.class));
-            final TypeAdapter<RunningAudiencePreview> adapterRunningAudiencePreview =
-                    gson.getDelegateAdapter(this, TypeToken.get(RunningAudiencePreview.class));
-            final TypeAdapter<FailedAudiencePreview> adapterFailedAudiencePreview =
-                    gson.getDelegateAdapter(this, TypeToken.get(FailedAudiencePreview.class));
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
 
-            return (TypeAdapter<T>)
-                    new TypeAdapter<AudiencePreview>() {
-                        @Override
-                        public void write(JsonWriter out, AudiencePreview value)
-                                throws IOException {
-                            if (value == null || value.getActualInstance() == null) {
-                                elementAdapter.write(out, null);
-                                return;
-                            }
+        public static class Adapter extends TypeAdapter<AudienceTypeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final AudienceTypeEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
 
-                            // check if the actual instance is of the type
-                            // `CompletedAudiencePreview`
-                            if (value.getActualInstance() instanceof CompletedAudiencePreview) {
-                                JsonElement element =
-                                        adapterCompletedAudiencePreview.toJsonTree(
-                                                (CompletedAudiencePreview)
-                                                        value.getActualInstance());
-                                elementAdapter.write(out, element);
-                                return;
-                            }
-                            // check if the actual instance is of the type `RunningAudiencePreview`
-                            if (value.getActualInstance() instanceof RunningAudiencePreview) {
-                                JsonElement element =
-                                        adapterRunningAudiencePreview.toJsonTree(
-                                                (RunningAudiencePreview) value.getActualInstance());
-                                elementAdapter.write(out, element);
-                                return;
-                            }
-                            // check if the actual instance is of the type `FailedAudiencePreview`
-                            if (value.getActualInstance() instanceof FailedAudiencePreview) {
-                                JsonElement element =
-                                        adapterFailedAudiencePreview.toJsonTree(
-                                                (FailedAudiencePreview) value.getActualInstance());
-                                elementAdapter.write(out, element);
-                                return;
-                            }
-                            throw new IOException(
-                                    "Failed to serialize as the type doesn't match anyOf schemae:"
-                                            + " CompletedAudiencePreview, FailedAudiencePreview,"
-                                            + " RunningAudiencePreview");
-                        }
-
-                        @Override
-                        public AudiencePreview read(JsonReader in) throws IOException {
-                            Object deserialized = null;
-                            JsonElement jsonElement = elementAdapter.read(in);
-
-                            ArrayList<String> errorMessages = new ArrayList<>();
-                            TypeAdapter actualAdapter = elementAdapter;
-
-                            // deserialize CompletedAudiencePreview
-                            try {
-                                // validate the JSON object to see if any exception is thrown
-                                CompletedAudiencePreview.validateJsonElement(jsonElement);
-                                actualAdapter = adapterCompletedAudiencePreview;
-                                AudiencePreview ret = new AudiencePreview();
-                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                                return ret;
-                            } catch (Exception e) {
-                                // deserialization failed, continue
-                                errorMessages.add(
-                                        String.format(
-                                                "Deserialization for CompletedAudiencePreview"
-                                                        + " failed with `%s`.",
-                                                e.getMessage()));
-                                log.log(
-                                        Level.FINER,
-                                        "Input data does not match schema"
-                                                + " 'CompletedAudiencePreview'",
-                                        e);
-                            }
-                            // deserialize RunningAudiencePreview
-                            try {
-                                // validate the JSON object to see if any exception is thrown
-                                RunningAudiencePreview.validateJsonElement(jsonElement);
-                                actualAdapter = adapterRunningAudiencePreview;
-                                AudiencePreview ret = new AudiencePreview();
-                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                                return ret;
-                            } catch (Exception e) {
-                                // deserialization failed, continue
-                                errorMessages.add(
-                                        String.format(
-                                                "Deserialization for RunningAudiencePreview failed"
-                                                        + " with `%s`.",
-                                                e.getMessage()));
-                                log.log(
-                                        Level.FINER,
-                                        "Input data does not match schema 'RunningAudiencePreview'",
-                                        e);
-                            }
-                            // deserialize FailedAudiencePreview
-                            try {
-                                // validate the JSON object to see if any exception is thrown
-                                FailedAudiencePreview.validateJsonElement(jsonElement);
-                                actualAdapter = adapterFailedAudiencePreview;
-                                AudiencePreview ret = new AudiencePreview();
-                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                                return ret;
-                            } catch (Exception e) {
-                                // deserialization failed, continue
-                                errorMessages.add(
-                                        String.format(
-                                                "Deserialization for FailedAudiencePreview failed"
-                                                        + " with `%s`.",
-                                                e.getMessage()));
-                                log.log(
-                                        Level.FINER,
-                                        "Input data does not match schema 'FailedAudiencePreview'",
-                                        e);
-                            }
-
-                            throw new IOException(
-                                    String.format(
-                                            "Failed deserialization for AudiencePreview: no class"
-                                                + " matches result, expected at least 1. Detailed"
-                                                + " failure message for anyOf schemas: %s. JSON:"
-                                                + " %s",
-                                            errorMessages, jsonElement.toString()));
-                        }
-                    }.nullSafe();
+            @Override
+            public AudienceTypeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return AudienceTypeEnum.fromValue(value);
+            }
         }
     }
 
-    // store a list of schema names defined in anyOf
-    public static final Map<String, Class<?>> schemas = new HashMap<String, Class<?>>();
+    public static final String SERIALIZED_NAME_AUDIENCE_TYPE = "audienceType";
 
-    public AudiencePreview() {
-        super("anyOf", Boolean.FALSE);
+    @SerializedName(SERIALIZED_NAME_AUDIENCE_TYPE)
+    private AudienceTypeEnum audienceType;
+
+    public static final String SERIALIZED_NAME_DEFINITION = "definition";
+
+    @SerializedName(SERIALIZED_NAME_DEFINITION)
+    private AudienceDefinitionWithoutType definition;
+
+    public static final String SERIALIZED_NAME_OPTIONS = "options";
+
+    @SerializedName(SERIALIZED_NAME_OPTIONS)
+    private AudiencePreviewOptions options;
+
+    /** Status for the audience preview. */
+    @JsonAdapter(StatusEnum.Adapter.class)
+    public enum StatusEnum {
+        COMPLETED("COMPLETED"),
+
+        FAILED("FAILED"),
+
+        RUNNING("RUNNING");
+
+        private String value;
+
+        StatusEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static StatusEnum fromValue(String value) {
+            for (StatusEnum b : StatusEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<StatusEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final StatusEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public StatusEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return StatusEnum.fromValue(value);
+            }
+        }
     }
 
-    public AudiencePreview(CompletedAudiencePreview o) {
-        super("anyOf", Boolean.FALSE);
-        setActualInstance(o);
+    public static final String SERIALIZED_NAME_STATUS = "status";
+
+    @SerializedName(SERIALIZED_NAME_STATUS)
+    private StatusEnum status;
+
+    public static final String SERIALIZED_NAME_RESULTS = "results";
+
+    @SerializedName(SERIALIZED_NAME_RESULTS)
+    private List<AudiencePreviewResult> results;
+
+    public static final String SERIALIZED_NAME_SIZE = "size";
+
+    @SerializedName(SERIALIZED_NAME_SIZE)
+    private AudienceSize size;
+
+    public static final String SERIALIZED_NAME_FAILURE_REASON = "failureReason";
+
+    @SerializedName(SERIALIZED_NAME_FAILURE_REASON)
+    private String failureReason;
+
+    public AudiencePreview() {}
+
+    public AudiencePreview id(String id) {
+
+        this.id = id;
+        return this;
     }
 
-    public AudiencePreview(FailedAudiencePreview o) {
-        super("anyOf", Boolean.FALSE);
-        setActualInstance(o);
+    /**
+     * Unique identifier for tracking and retrieving results of an audience preview.
+     *
+     * @return id
+     */
+    @javax.annotation.Nonnull
+    public String getId() {
+        return id;
     }
 
-    public AudiencePreview(RunningAudiencePreview o) {
-        super("anyOf", Boolean.FALSE);
-        setActualInstance(o);
+    public void setId(String id) {
+        this.id = id;
     }
+
+    public AudiencePreview audienceType(AudienceTypeEnum audienceType) {
+
+        this.audienceType = audienceType;
+        return this;
+    }
+
+    /**
+     * The audience type of the preview.
+     *
+     * @return audienceType
+     */
+    @javax.annotation.Nonnull
+    public AudienceTypeEnum getAudienceType() {
+        return audienceType;
+    }
+
+    public void setAudienceType(AudienceTypeEnum audienceType) {
+        this.audienceType = audienceType;
+    }
+
+    public AudiencePreview definition(AudienceDefinitionWithoutType definition) {
+
+        this.definition = definition;
+        return this;
+    }
+
+    /**
+     * Get definition
+     *
+     * @return definition
+     */
+    @javax.annotation.Nonnull
+    public AudienceDefinitionWithoutType getDefinition() {
+        return definition;
+    }
+
+    public void setDefinition(AudienceDefinitionWithoutType definition) {
+        this.definition = definition;
+    }
+
+    public AudiencePreview options(AudiencePreviewOptions options) {
+
+        this.options = options;
+        return this;
+    }
+
+    /**
+     * Get options
+     *
+     * @return options
+     */
+    @javax.annotation.Nonnull
+    public AudiencePreviewOptions getOptions() {
+        return options;
+    }
+
+    public void setOptions(AudiencePreviewOptions options) {
+        this.options = options;
+    }
+
+    public AudiencePreview status(StatusEnum status) {
+
+        this.status = status;
+        return this;
+    }
+
+    /**
+     * Status for the audience preview.
+     *
+     * @return status
+     */
+    @javax.annotation.Nonnull
+    public StatusEnum getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusEnum status) {
+        this.status = status;
+    }
+
+    public AudiencePreview results(List<AudiencePreviewResult> results) {
+
+        this.results = results;
+        return this;
+    }
+
+    public AudiencePreview addResultsItem(AudiencePreviewResult resultsItem) {
+        if (this.results == null) {
+            this.results = new ArrayList<>();
+        }
+        this.results.add(resultsItem);
+        return this;
+    }
+
+    /**
+     * Sampled result membership for the audience preview. Only has a value if the status is
+     * &#39;COMPLETED&#39;.
+     *
+     * @return results
+     */
+    @javax.annotation.Nullable
+    public List<AudiencePreviewResult> getResults() {
+        return results;
+    }
+
+    public void setResults(List<AudiencePreviewResult> results) {
+        this.results = results;
+    }
+
+    public AudiencePreview size(AudienceSize size) {
+
+        this.size = size;
+        return this;
+    }
+
+    /**
+     * Get size
+     *
+     * @return size
+     */
+    @javax.annotation.Nullable
+    public AudienceSize getSize() {
+        return size;
+    }
+
+    public void setSize(AudienceSize size) {
+        this.size = size;
+    }
+
+    public AudiencePreview failureReason(String failureReason) {
+
+        this.failureReason = failureReason;
+        return this;
+    }
+
+    /**
+     * Explanation of why the audience preview failed. Only has a value if status is
+     * &#39;FAILED&#39;.
+     *
+     * @return failureReason
+     */
+    @javax.annotation.Nullable
+    public String getFailureReason() {
+        return failureReason;
+    }
+
+    public void setFailureReason(String failureReason) {
+        this.failureReason = failureReason;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        AudiencePreview audiencePreview = (AudiencePreview) o;
+        return Objects.equals(this.id, audiencePreview.id)
+                && Objects.equals(this.audienceType, audiencePreview.audienceType)
+                && Objects.equals(this.definition, audiencePreview.definition)
+                && Objects.equals(this.options, audiencePreview.options)
+                && Objects.equals(this.status, audiencePreview.status)
+                && Objects.equals(this.results, audiencePreview.results)
+                && Objects.equals(this.size, audiencePreview.size)
+                && Objects.equals(this.failureReason, audiencePreview.failureReason);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(
+                id, audienceType, definition, options, status, results, size, failureReason);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class AudiencePreview {\n");
+        sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    audienceType: ").append(toIndentedString(audienceType)).append("\n");
+        sb.append("    definition: ").append(toIndentedString(definition)).append("\n");
+        sb.append("    options: ").append(toIndentedString(options)).append("\n");
+        sb.append("    status: ").append(toIndentedString(status)).append("\n");
+        sb.append("    results: ").append(toIndentedString(results)).append("\n");
+        sb.append("    size: ").append(toIndentedString(size)).append("\n");
+        sb.append("    failureReason: ").append(toIndentedString(failureReason)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces (except the first
+     * line).
+     */
+    private String toIndentedString(Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
+
+    public static HashSet<String> openapiFields;
+    public static HashSet<String> openapiRequiredFields;
 
     static {
-        schemas.put("CompletedAudiencePreview", CompletedAudiencePreview.class);
-        schemas.put("RunningAudiencePreview", RunningAudiencePreview.class);
-        schemas.put("FailedAudiencePreview", FailedAudiencePreview.class);
-    }
+        // a set of all properties/fields (JSON key names)
+        openapiFields = new HashSet<String>();
+        openapiFields.add("id");
+        openapiFields.add("audienceType");
+        openapiFields.add("definition");
+        openapiFields.add("options");
+        openapiFields.add("status");
+        openapiFields.add("results");
+        openapiFields.add("size");
+        openapiFields.add("failureReason");
 
-    @Override
-    public Map<String, Class<?>> getSchemas() {
-        return AudiencePreview.schemas;
-    }
-
-    /**
-     * Set the instance that matches the anyOf child schema, check the instance parameter is valid
-     * against the anyOf child schemas: CompletedAudiencePreview, FailedAudiencePreview,
-     * RunningAudiencePreview
-     *
-     * <p>It could be an instance of the 'anyOf' schemas.
-     */
-    @Override
-    public void setActualInstance(Object instance) {
-        if (instance instanceof CompletedAudiencePreview) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        if (instance instanceof RunningAudiencePreview) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        if (instance instanceof FailedAudiencePreview) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        throw new RuntimeException(
-                "Invalid instance type. Must be CompletedAudiencePreview, FailedAudiencePreview,"
-                        + " RunningAudiencePreview");
-    }
-
-    /**
-     * Get the actual instance, which can be the following: CompletedAudiencePreview,
-     * FailedAudiencePreview, RunningAudiencePreview
-     *
-     * @return The actual instance (CompletedAudiencePreview, FailedAudiencePreview,
-     *     RunningAudiencePreview)
-     */
-    @Override
-    public Object getActualInstance() {
-        return super.getActualInstance();
-    }
-
-    /**
-     * Get the actual instance of `CompletedAudiencePreview`. If the actual instance is not
-     * `CompletedAudiencePreview`, the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `CompletedAudiencePreview`
-     * @throws ClassCastException if the instance is not `CompletedAudiencePreview`
-     */
-    public CompletedAudiencePreview getCompletedAudiencePreview() throws ClassCastException {
-        return (CompletedAudiencePreview) super.getActualInstance();
-    }
-
-    /**
-     * Get the actual instance of `RunningAudiencePreview`. If the actual instance is not
-     * `RunningAudiencePreview`, the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `RunningAudiencePreview`
-     * @throws ClassCastException if the instance is not `RunningAudiencePreview`
-     */
-    public RunningAudiencePreview getRunningAudiencePreview() throws ClassCastException {
-        return (RunningAudiencePreview) super.getActualInstance();
-    }
-
-    /**
-     * Get the actual instance of `FailedAudiencePreview`. If the actual instance is not
-     * `FailedAudiencePreview`, the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `FailedAudiencePreview`
-     * @throws ClassCastException if the instance is not `FailedAudiencePreview`
-     */
-    public FailedAudiencePreview getFailedAudiencePreview() throws ClassCastException {
-        return (FailedAudiencePreview) super.getActualInstance();
+        // a set of required properties/fields (JSON key names)
+        openapiRequiredFields = new HashSet<String>();
+        openapiRequiredFields.add("id");
+        openapiRequiredFields.add("audienceType");
+        openapiRequiredFields.add("definition");
+        openapiRequiredFields.add("options");
+        openapiRequiredFields.add("status");
     }
 
     /**
@@ -282,48 +422,125 @@ public class AudiencePreview extends AbstractOpenApiSchema {
      * @throws IOException if the JSON Element is invalid with respect to AudiencePreview
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        // validate anyOf schemas one by one
-        ArrayList<String> errorMessages = new ArrayList<>();
-        // validate the json string with CompletedAudiencePreview
-        try {
-            CompletedAudiencePreview.validateJsonElement(jsonElement);
-            return;
-        } catch (Exception e) {
-            errorMessages.add(
-                    String.format(
-                            "Deserialization for CompletedAudiencePreview failed with `%s`.",
-                            e.getMessage()));
-            // continue to the next one
+        if (jsonElement == null) {
+            if (!AudiencePreview.openapiRequiredFields
+                    .isEmpty()) { // has required fields but JSON element is null
+                throw new IllegalArgumentException(
+                        String.format(
+                                "The required field(s) %s in AudiencePreview is not found in the"
+                                        + " empty JSON string",
+                                AudiencePreview.openapiRequiredFields.toString()));
+            }
         }
-        // validate the json string with RunningAudiencePreview
-        try {
-            RunningAudiencePreview.validateJsonElement(jsonElement);
-            return;
-        } catch (Exception e) {
-            errorMessages.add(
-                    String.format(
-                            "Deserialization for RunningAudiencePreview failed with `%s`.",
-                            e.getMessage()));
-            // continue to the next one
+
+        Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+        // check to see if the JSON string contains additional fields
+        for (Map.Entry<String, JsonElement> entry : entries) {
+            if (!AudiencePreview.openapiFields.contains(entry.getKey())) {
+                throw new IllegalArgumentException(
+                        String.format(
+                                "The field `%s` in the JSON string is not defined in the"
+                                        + " `AudiencePreview` properties. JSON: %s",
+                                entry.getKey(), jsonElement.toString()));
+            }
         }
-        // validate the json string with FailedAudiencePreview
-        try {
-            FailedAudiencePreview.validateJsonElement(jsonElement);
-            return;
-        } catch (Exception e) {
-            errorMessages.add(
-                    String.format(
-                            "Deserialization for FailedAudiencePreview failed with `%s`.",
-                            e.getMessage()));
-            // continue to the next one
+
+        // check to make sure all required properties/fields are present in the JSON string
+        for (String requiredField : AudiencePreview.openapiRequiredFields) {
+            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+                throw new IllegalArgumentException(
+                        String.format(
+                                "The required field `%s` is not found in the JSON string: %s",
+                                requiredField, jsonElement.toString()));
+            }
         }
-        throw new IOException(
-                String.format(
-                        "The JSON string is invalid for AudiencePreview with anyOf schemas:"
-                            + " CompletedAudiencePreview, FailedAudiencePreview,"
-                            + " RunningAudiencePreview. no class match the result, expected at"
-                            + " least 1. Detailed failure message for anyOf schemas: %s. JSON: %s",
-                        errorMessages, jsonElement.toString()));
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+        if (!jsonObj.get("id").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `id` to be a primitive type in the JSON string but"
+                                    + " got `%s`",
+                            jsonObj.get("id").toString()));
+        }
+        if (!jsonObj.get("audienceType").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `audienceType` to be a primitive type in the JSON"
+                                    + " string but got `%s`",
+                            jsonObj.get("audienceType").toString()));
+        }
+        // validate the required field `definition`
+        AudienceDefinitionWithoutType.validateJsonElement(jsonObj.get("definition"));
+        // validate the required field `options`
+        AudiencePreviewOptions.validateJsonElement(jsonObj.get("options"));
+        if (!jsonObj.get("status").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `status` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
+                            jsonObj.get("status").toString()));
+        }
+        if (jsonObj.get("results") != null && !jsonObj.get("results").isJsonNull()) {
+            JsonArray jsonArrayresults = jsonObj.getAsJsonArray("results");
+            if (jsonArrayresults != null) {
+                // ensure the json data is an array
+                if (!jsonObj.get("results").isJsonArray()) {
+                    throw new IllegalArgumentException(
+                            String.format(
+                                    "Expected the field `results` to be an array in the JSON string"
+                                            + " but got `%s`",
+                                    jsonObj.get("results").toString()));
+                }
+
+                // validate the optional field `results` (array)
+                for (int i = 0; i < jsonArrayresults.size(); i++) {
+                    AudiencePreviewResult.validateJsonElement(jsonArrayresults.get(i));
+                }
+                ;
+            }
+        }
+        // validate the optional field `size`
+        if (jsonObj.get("size") != null && !jsonObj.get("size").isJsonNull()) {
+            AudienceSize.validateJsonElement(jsonObj.get("size"));
+        }
+        if ((jsonObj.get("failureReason") != null && !jsonObj.get("failureReason").isJsonNull())
+                && !jsonObj.get("failureReason").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `failureReason` to be a primitive type in the JSON"
+                                    + " string but got `%s`",
+                            jsonObj.get("failureReason").toString()));
+        }
+    }
+
+    public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+        @SuppressWarnings("unchecked")
+        @Override
+        public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+            if (!AudiencePreview.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'AudiencePreview' and its subtypes
+            }
+            final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+            final TypeAdapter<AudiencePreview> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(AudiencePreview.class));
+
+            return (TypeAdapter<T>)
+                    new TypeAdapter<AudiencePreview>() {
+                        @Override
+                        public void write(JsonWriter out, AudiencePreview value)
+                                throws IOException {
+                            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+                            elementAdapter.write(out, obj);
+                        }
+
+                        @Override
+                        public AudiencePreview read(JsonReader in) throws IOException {
+                            JsonElement jsonElement = elementAdapter.read(in);
+                            validateJsonElement(jsonElement);
+                            return thisAdapter.fromJsonTree(jsonElement);
+                        }
+                    }.nullSafe();
+        }
     }
 
     /**

@@ -214,12 +214,7 @@ public class JSON {
                 new com.segment.publicapi.models.CancelReverseETLSyncForModelOutput
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.CommonAudiencePreview.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.CommonSourceSettingsV1.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.CompletedAudiencePreview
-                        .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.ComputedTraitSummary.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
@@ -651,8 +646,6 @@ public class JSON {
                 new com.segment.publicapi.models.EventSourceV1.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.FQLDefinedPropertyV1.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.FailedAudiencePreview.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.Filter.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
@@ -1448,8 +1441,6 @@ public class JSON {
                 new com.segment.publicapi.models.RuleInputV1.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.RuleV1.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.RunningAudiencePreview.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.SourceAPICallSnapshotV1
                         .CustomTypeAdapterFactory());
