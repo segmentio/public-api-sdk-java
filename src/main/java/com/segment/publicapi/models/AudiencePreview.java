@@ -37,12 +37,12 @@ public class AudiencePreview extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'AudiencePreview' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<CompletedAudiencePreview> adapterCompletedAudiencePreview =
-                    gson.getDelegateAdapter(this, TypeToken.get(CompletedAudiencePreview.class));
-            final TypeAdapter<RunningAudiencePreview> adapterRunningAudiencePreview =
-                    gson.getDelegateAdapter(this, TypeToken.get(RunningAudiencePreview.class));
-            final TypeAdapter<FailedAudiencePreview> adapterFailedAudiencePreview =
-                    gson.getDelegateAdapter(this, TypeToken.get(FailedAudiencePreview.class));
+            final TypeAdapter<AudiencePreviewAnyOf> adapterAudiencePreviewAnyOf =
+                    gson.getDelegateAdapter(this, TypeToken.get(AudiencePreviewAnyOf.class));
+            final TypeAdapter<AudiencePreviewAnyOf1> adapterAudiencePreviewAnyOf1 =
+                    gson.getDelegateAdapter(this, TypeToken.get(AudiencePreviewAnyOf1.class));
+            final TypeAdapter<AudiencePreviewAnyOf2> adapterAudiencePreviewAnyOf2 =
+                    gson.getDelegateAdapter(this, TypeToken.get(AudiencePreviewAnyOf2.class));
 
             return (TypeAdapter<T>)
                     new TypeAdapter<AudiencePreview>() {
@@ -54,36 +54,34 @@ public class AudiencePreview extends AbstractOpenApiSchema {
                                 return;
                             }
 
-                            // check if the actual instance is of the type
-                            // `CompletedAudiencePreview`
-                            if (value.getActualInstance() instanceof CompletedAudiencePreview) {
+                            // check if the actual instance is of the type `AudiencePreviewAnyOf`
+                            if (value.getActualInstance() instanceof AudiencePreviewAnyOf) {
                                 JsonElement element =
-                                        adapterCompletedAudiencePreview.toJsonTree(
-                                                (CompletedAudiencePreview)
-                                                        value.getActualInstance());
+                                        adapterAudiencePreviewAnyOf.toJsonTree(
+                                                (AudiencePreviewAnyOf) value.getActualInstance());
                                 elementAdapter.write(out, element);
                                 return;
                             }
-                            // check if the actual instance is of the type `RunningAudiencePreview`
-                            if (value.getActualInstance() instanceof RunningAudiencePreview) {
+                            // check if the actual instance is of the type `AudiencePreviewAnyOf1`
+                            if (value.getActualInstance() instanceof AudiencePreviewAnyOf1) {
                                 JsonElement element =
-                                        adapterRunningAudiencePreview.toJsonTree(
-                                                (RunningAudiencePreview) value.getActualInstance());
+                                        adapterAudiencePreviewAnyOf1.toJsonTree(
+                                                (AudiencePreviewAnyOf1) value.getActualInstance());
                                 elementAdapter.write(out, element);
                                 return;
                             }
-                            // check if the actual instance is of the type `FailedAudiencePreview`
-                            if (value.getActualInstance() instanceof FailedAudiencePreview) {
+                            // check if the actual instance is of the type `AudiencePreviewAnyOf2`
+                            if (value.getActualInstance() instanceof AudiencePreviewAnyOf2) {
                                 JsonElement element =
-                                        adapterFailedAudiencePreview.toJsonTree(
-                                                (FailedAudiencePreview) value.getActualInstance());
+                                        adapterAudiencePreviewAnyOf2.toJsonTree(
+                                                (AudiencePreviewAnyOf2) value.getActualInstance());
                                 elementAdapter.write(out, element);
                                 return;
                             }
                             throw new IOException(
                                     "Failed to serialize as the type doesn't match anyOf schemae:"
-                                            + " CompletedAudiencePreview, FailedAudiencePreview,"
-                                            + " RunningAudiencePreview");
+                                            + " AudiencePreviewAnyOf, AudiencePreviewAnyOf1,"
+                                            + " AudiencePreviewAnyOf2");
                         }
 
                         @Override
@@ -94,11 +92,11 @@ public class AudiencePreview extends AbstractOpenApiSchema {
                             ArrayList<String> errorMessages = new ArrayList<>();
                             TypeAdapter actualAdapter = elementAdapter;
 
-                            // deserialize CompletedAudiencePreview
+                            // deserialize AudiencePreviewAnyOf
                             try {
                                 // validate the JSON object to see if any exception is thrown
-                                CompletedAudiencePreview.validateJsonElement(jsonElement);
-                                actualAdapter = adapterCompletedAudiencePreview;
+                                AudiencePreviewAnyOf.validateJsonElement(jsonElement);
+                                actualAdapter = adapterAudiencePreviewAnyOf;
                                 AudiencePreview ret = new AudiencePreview();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
                                 return ret;
@@ -106,40 +104,19 @@ public class AudiencePreview extends AbstractOpenApiSchema {
                                 // deserialization failed, continue
                                 errorMessages.add(
                                         String.format(
-                                                "Deserialization for CompletedAudiencePreview"
-                                                        + " failed with `%s`.",
-                                                e.getMessage()));
-                                log.log(
-                                        Level.FINER,
-                                        "Input data does not match schema"
-                                                + " 'CompletedAudiencePreview'",
-                                        e);
-                            }
-                            // deserialize RunningAudiencePreview
-                            try {
-                                // validate the JSON object to see if any exception is thrown
-                                RunningAudiencePreview.validateJsonElement(jsonElement);
-                                actualAdapter = adapterRunningAudiencePreview;
-                                AudiencePreview ret = new AudiencePreview();
-                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                                return ret;
-                            } catch (Exception e) {
-                                // deserialization failed, continue
-                                errorMessages.add(
-                                        String.format(
-                                                "Deserialization for RunningAudiencePreview failed"
+                                                "Deserialization for AudiencePreviewAnyOf failed"
                                                         + " with `%s`.",
                                                 e.getMessage()));
                                 log.log(
                                         Level.FINER,
-                                        "Input data does not match schema 'RunningAudiencePreview'",
+                                        "Input data does not match schema 'AudiencePreviewAnyOf'",
                                         e);
                             }
-                            // deserialize FailedAudiencePreview
+                            // deserialize AudiencePreviewAnyOf1
                             try {
                                 // validate the JSON object to see if any exception is thrown
-                                FailedAudiencePreview.validateJsonElement(jsonElement);
-                                actualAdapter = adapterFailedAudiencePreview;
+                                AudiencePreviewAnyOf1.validateJsonElement(jsonElement);
+                                actualAdapter = adapterAudiencePreviewAnyOf1;
                                 AudiencePreview ret = new AudiencePreview();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
                                 return ret;
@@ -147,12 +124,32 @@ public class AudiencePreview extends AbstractOpenApiSchema {
                                 // deserialization failed, continue
                                 errorMessages.add(
                                         String.format(
-                                                "Deserialization for FailedAudiencePreview failed"
+                                                "Deserialization for AudiencePreviewAnyOf1 failed"
                                                         + " with `%s`.",
                                                 e.getMessage()));
                                 log.log(
                                         Level.FINER,
-                                        "Input data does not match schema 'FailedAudiencePreview'",
+                                        "Input data does not match schema 'AudiencePreviewAnyOf1'",
+                                        e);
+                            }
+                            // deserialize AudiencePreviewAnyOf2
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                AudiencePreviewAnyOf2.validateJsonElement(jsonElement);
+                                actualAdapter = adapterAudiencePreviewAnyOf2;
+                                AudiencePreview ret = new AudiencePreview();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                return ret;
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                "Deserialization for AudiencePreviewAnyOf2 failed"
+                                                        + " with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema 'AudiencePreviewAnyOf2'",
                                         e);
                             }
 
@@ -175,25 +172,25 @@ public class AudiencePreview extends AbstractOpenApiSchema {
         super("anyOf", Boolean.FALSE);
     }
 
-    public AudiencePreview(CompletedAudiencePreview o) {
+    public AudiencePreview(AudiencePreviewAnyOf o) {
         super("anyOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public AudiencePreview(FailedAudiencePreview o) {
+    public AudiencePreview(AudiencePreviewAnyOf1 o) {
         super("anyOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
-    public AudiencePreview(RunningAudiencePreview o) {
+    public AudiencePreview(AudiencePreviewAnyOf2 o) {
         super("anyOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
     static {
-        schemas.put("CompletedAudiencePreview", CompletedAudiencePreview.class);
-        schemas.put("RunningAudiencePreview", RunningAudiencePreview.class);
-        schemas.put("FailedAudiencePreview", FailedAudiencePreview.class);
+        schemas.put("AudiencePreviewAnyOf", AudiencePreviewAnyOf.class);
+        schemas.put("AudiencePreviewAnyOf1", AudiencePreviewAnyOf1.class);
+        schemas.put("AudiencePreviewAnyOf2", AudiencePreviewAnyOf2.class);
     }
 
     @Override
@@ -203,39 +200,39 @@ public class AudiencePreview extends AbstractOpenApiSchema {
 
     /**
      * Set the instance that matches the anyOf child schema, check the instance parameter is valid
-     * against the anyOf child schemas: CompletedAudiencePreview, FailedAudiencePreview,
-     * RunningAudiencePreview
+     * against the anyOf child schemas: AudiencePreviewAnyOf, AudiencePreviewAnyOf1,
+     * AudiencePreviewAnyOf2
      *
      * <p>It could be an instance of the 'anyOf' schemas.
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (instance instanceof CompletedAudiencePreview) {
+        if (instance instanceof AudiencePreviewAnyOf) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof RunningAudiencePreview) {
+        if (instance instanceof AudiencePreviewAnyOf1) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof FailedAudiencePreview) {
+        if (instance instanceof AudiencePreviewAnyOf2) {
             super.setActualInstance(instance);
             return;
         }
 
         throw new RuntimeException(
-                "Invalid instance type. Must be CompletedAudiencePreview, FailedAudiencePreview,"
-                        + " RunningAudiencePreview");
+                "Invalid instance type. Must be AudiencePreviewAnyOf, AudiencePreviewAnyOf1,"
+                        + " AudiencePreviewAnyOf2");
     }
 
     /**
-     * Get the actual instance, which can be the following: CompletedAudiencePreview,
-     * FailedAudiencePreview, RunningAudiencePreview
+     * Get the actual instance, which can be the following: AudiencePreviewAnyOf,
+     * AudiencePreviewAnyOf1, AudiencePreviewAnyOf2
      *
-     * @return The actual instance (CompletedAudiencePreview, FailedAudiencePreview,
-     *     RunningAudiencePreview)
+     * @return The actual instance (AudiencePreviewAnyOf, AudiencePreviewAnyOf1,
+     *     AudiencePreviewAnyOf2)
      */
     @Override
     public Object getActualInstance() {
@@ -243,36 +240,36 @@ public class AudiencePreview extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `CompletedAudiencePreview`. If the actual instance is not
-     * `CompletedAudiencePreview`, the ClassCastException will be thrown.
+     * Get the actual instance of `AudiencePreviewAnyOf`. If the actual instance is not
+     * `AudiencePreviewAnyOf`, the ClassCastException will be thrown.
      *
-     * @return The actual instance of `CompletedAudiencePreview`
-     * @throws ClassCastException if the instance is not `CompletedAudiencePreview`
+     * @return The actual instance of `AudiencePreviewAnyOf`
+     * @throws ClassCastException if the instance is not `AudiencePreviewAnyOf`
      */
-    public CompletedAudiencePreview getCompletedAudiencePreview() throws ClassCastException {
-        return (CompletedAudiencePreview) super.getActualInstance();
+    public AudiencePreviewAnyOf getAudiencePreviewAnyOf() throws ClassCastException {
+        return (AudiencePreviewAnyOf) super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `RunningAudiencePreview`. If the actual instance is not
-     * `RunningAudiencePreview`, the ClassCastException will be thrown.
+     * Get the actual instance of `AudiencePreviewAnyOf1`. If the actual instance is not
+     * `AudiencePreviewAnyOf1`, the ClassCastException will be thrown.
      *
-     * @return The actual instance of `RunningAudiencePreview`
-     * @throws ClassCastException if the instance is not `RunningAudiencePreview`
+     * @return The actual instance of `AudiencePreviewAnyOf1`
+     * @throws ClassCastException if the instance is not `AudiencePreviewAnyOf1`
      */
-    public RunningAudiencePreview getRunningAudiencePreview() throws ClassCastException {
-        return (RunningAudiencePreview) super.getActualInstance();
+    public AudiencePreviewAnyOf1 getAudiencePreviewAnyOf1() throws ClassCastException {
+        return (AudiencePreviewAnyOf1) super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `FailedAudiencePreview`. If the actual instance is not
-     * `FailedAudiencePreview`, the ClassCastException will be thrown.
+     * Get the actual instance of `AudiencePreviewAnyOf2`. If the actual instance is not
+     * `AudiencePreviewAnyOf2`, the ClassCastException will be thrown.
      *
-     * @return The actual instance of `FailedAudiencePreview`
-     * @throws ClassCastException if the instance is not `FailedAudiencePreview`
+     * @return The actual instance of `AudiencePreviewAnyOf2`
+     * @throws ClassCastException if the instance is not `AudiencePreviewAnyOf2`
      */
-    public FailedAudiencePreview getFailedAudiencePreview() throws ClassCastException {
-        return (FailedAudiencePreview) super.getActualInstance();
+    public AudiencePreviewAnyOf2 getAudiencePreviewAnyOf2() throws ClassCastException {
+        return (AudiencePreviewAnyOf2) super.getActualInstance();
     }
 
     /**
@@ -284,45 +281,45 @@ public class AudiencePreview extends AbstractOpenApiSchema {
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         // validate anyOf schemas one by one
         ArrayList<String> errorMessages = new ArrayList<>();
-        // validate the json string with CompletedAudiencePreview
+        // validate the json string with AudiencePreviewAnyOf
         try {
-            CompletedAudiencePreview.validateJsonElement(jsonElement);
+            AudiencePreviewAnyOf.validateJsonElement(jsonElement);
             return;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
-                            "Deserialization for CompletedAudiencePreview failed with `%s`.",
+                            "Deserialization for AudiencePreviewAnyOf failed with `%s`.",
                             e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with RunningAudiencePreview
+        // validate the json string with AudiencePreviewAnyOf1
         try {
-            RunningAudiencePreview.validateJsonElement(jsonElement);
+            AudiencePreviewAnyOf1.validateJsonElement(jsonElement);
             return;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
-                            "Deserialization for RunningAudiencePreview failed with `%s`.",
+                            "Deserialization for AudiencePreviewAnyOf1 failed with `%s`.",
                             e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with FailedAudiencePreview
+        // validate the json string with AudiencePreviewAnyOf2
         try {
-            FailedAudiencePreview.validateJsonElement(jsonElement);
+            AudiencePreviewAnyOf2.validateJsonElement(jsonElement);
             return;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
-                            "Deserialization for FailedAudiencePreview failed with `%s`.",
+                            "Deserialization for AudiencePreviewAnyOf2 failed with `%s`.",
                             e.getMessage()));
             // continue to the next one
         }
         throw new IOException(
                 String.format(
                         "The JSON string is invalid for AudiencePreview with anyOf schemas:"
-                            + " CompletedAudiencePreview, FailedAudiencePreview,"
-                            + " RunningAudiencePreview. no class match the result, expected at"
-                            + " least 1. Detailed failure message for anyOf schemas: %s. JSON: %s",
+                            + " AudiencePreviewAnyOf, AudiencePreviewAnyOf1, AudiencePreviewAnyOf2."
+                            + " no class match the result, expected at least 1. Detailed failure"
+                            + " message for anyOf schemas: %s. JSON: %s",
                         errorMessages, jsonElement.toString()));
     }
 
