@@ -34,11 +34,6 @@ public class CreateDownloadAlphaInput {
     @SerializedName(SERIALIZED_NAME_COLLECTION_ID)
     private String collectionId;
 
-    public static final String SERIALIZED_NAME_WORKSPACE_ID = "workspaceId";
-
-    @SerializedName(SERIALIZED_NAME_WORKSPACE_ID)
-    private String workspaceId;
-
     public static final String SERIALIZED_NAME_HOUR = "hour";
 
     @SerializedName(SERIALIZED_NAME_HOUR)
@@ -64,26 +59,6 @@ public class CreateDownloadAlphaInput {
 
     public void setCollectionId(String collectionId) {
         this.collectionId = collectionId;
-    }
-
-    public CreateDownloadAlphaInput workspaceId(String workspaceId) {
-
-        this.workspaceId = workspaceId;
-        return this;
-    }
-
-    /**
-     * The Workspace id for the collection.
-     *
-     * @return workspaceId
-     */
-    @javax.annotation.Nonnull
-    public String getWorkspaceId() {
-        return workspaceId;
-    }
-
-    public void setWorkspaceId(String workspaceId) {
-        this.workspaceId = workspaceId;
     }
 
     public CreateDownloadAlphaInput hour(String hour) {
@@ -117,13 +92,12 @@ public class CreateDownloadAlphaInput {
         }
         CreateDownloadAlphaInput createDownloadAlphaInput = (CreateDownloadAlphaInput) o;
         return Objects.equals(this.collectionId, createDownloadAlphaInput.collectionId)
-                && Objects.equals(this.workspaceId, createDownloadAlphaInput.workspaceId)
                 && Objects.equals(this.hour, createDownloadAlphaInput.hour);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(collectionId, workspaceId, hour);
+        return Objects.hash(collectionId, hour);
     }
 
     @Override
@@ -131,7 +105,6 @@ public class CreateDownloadAlphaInput {
         StringBuilder sb = new StringBuilder();
         sb.append("class CreateDownloadAlphaInput {\n");
         sb.append("    collectionId: ").append(toIndentedString(collectionId)).append("\n");
-        sb.append("    workspaceId: ").append(toIndentedString(workspaceId)).append("\n");
         sb.append("    hour: ").append(toIndentedString(hour)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -155,13 +128,11 @@ public class CreateDownloadAlphaInput {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
         openapiFields.add("collectionId");
-        openapiFields.add("workspaceId");
         openapiFields.add("hour");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
         openapiRequiredFields.add("collectionId");
-        openapiRequiredFields.add("workspaceId");
         openapiRequiredFields.add("hour");
     }
 
@@ -211,13 +182,6 @@ public class CreateDownloadAlphaInput {
                             "Expected the field `collectionId` to be a primitive type in the JSON"
                                     + " string but got `%s`",
                             jsonObj.get("collectionId").toString()));
-        }
-        if (!jsonObj.get("workspaceId").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `workspaceId` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
-                            jsonObj.get("workspaceId").toString()));
         }
         if (!jsonObj.get("hour").isJsonPrimitive()) {
             throw new IllegalArgumentException(

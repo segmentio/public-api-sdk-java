@@ -151,10 +151,11 @@ public class CustomerInsightsApi {
     }
 
     /**
-     * Create Download Create Customer Insights Presigned URLs The rate limit for this endpoint is 1
-     * requests per minute, which is lower than the default due to access pattern restrictions. Once
-     * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
-     * limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * Create Download Create Customer Insights Presigned URLsThe rate limit for this endpoint is 30
+     * requests per day per workspaceId, which is lower than the default due to access pattern
+     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
+     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
+     * information.
      *
      * @param createDownloadAlphaInput (required)
      * @return CreateDownload200Response
@@ -177,10 +178,11 @@ public class CustomerInsightsApi {
     }
 
     /**
-     * Create Download Create Customer Insights Presigned URLs The rate limit for this endpoint is 1
-     * requests per minute, which is lower than the default due to access pattern restrictions. Once
-     * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
-     * limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * Create Download Create Customer Insights Presigned URLsThe rate limit for this endpoint is 30
+     * requests per day per workspaceId, which is lower than the default due to access pattern
+     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
+     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
+     * information.
      *
      * @param createDownloadAlphaInput (required)
      * @return ApiResponse&lt;CreateDownload200Response&gt;
@@ -204,11 +206,11 @@ public class CustomerInsightsApi {
     }
 
     /**
-     * Create Download (asynchronously) Create Customer Insights Presigned URLs The rate limit for
-     * this endpoint is 1 requests per minute, which is lower than the default due to access pattern
-     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
-     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
-     * information.
+     * Create Download (asynchronously) Create Customer Insights Presigned URLsThe rate limit for
+     * this endpoint is 30 requests per day per workspaceId, which is lower than the default due to
+     * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
+     * status code with headers indicating the limit parameters. See [Rate
+     * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param createDownloadAlphaInput (required)
      * @param _callback The callback to be executed when the API call finishes
