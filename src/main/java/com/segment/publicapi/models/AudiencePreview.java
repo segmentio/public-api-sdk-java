@@ -97,7 +97,7 @@ public class AudiencePreview {
     public static final String SERIALIZED_NAME_OPTIONS = "options";
 
     @SerializedName(SERIALIZED_NAME_OPTIONS)
-    private AudiencePreviewOptions options;
+    private ReadAudiencePreviewOptions options;
 
     /** Status for the audience preview. */
     @JsonAdapter(StatusEnum.Adapter.class)
@@ -229,7 +229,7 @@ public class AudiencePreview {
         this.definition = definition;
     }
 
-    public AudiencePreview options(AudiencePreviewOptions options) {
+    public AudiencePreview options(ReadAudiencePreviewOptions options) {
 
         this.options = options;
         return this;
@@ -241,11 +241,11 @@ public class AudiencePreview {
      * @return options
      */
     @javax.annotation.Nonnull
-    public AudiencePreviewOptions getOptions() {
+    public ReadAudiencePreviewOptions getOptions() {
         return options;
     }
 
-    public void setOptions(AudiencePreviewOptions options) {
+    public void setOptions(ReadAudiencePreviewOptions options) {
         this.options = options;
     }
 
@@ -472,7 +472,7 @@ public class AudiencePreview {
         // validate the required field `definition`
         AudienceDefinitionWithoutType.validateJsonElement(jsonObj.get("definition"));
         // validate the required field `options`
-        AudiencePreviewOptions.validateJsonElement(jsonObj.get("options"));
+        ReadAudiencePreviewOptions.validateJsonElement(jsonObj.get("options"));
         if (!jsonObj.get("status").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(

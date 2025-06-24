@@ -31,26 +31,31 @@ import java.util.Objects;
 import java.util.Set;
 
 /** Options which should be applied when segmenting audience previews. */
-public class AudiencePreviewOptions {
+public class ReadAudiencePreviewOptions {
     public static final String SERIALIZED_NAME_FILTER_BY_EXTERNAL_IDS = "filterByExternalIds";
 
     @SerializedName(SERIALIZED_NAME_FILTER_BY_EXTERNAL_IDS)
-    private List<String> filterByExternalIds;
+    private List<String> filterByExternalIds = new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_INCLUDE_HISTORICAL_DATA = "includeHistoricalData";
+
+    @SerializedName(SERIALIZED_NAME_INCLUDE_HISTORICAL_DATA)
+    private Boolean includeHistoricalData;
 
     public static final String SERIALIZED_NAME_BACKFILL_EVENT_DATA_DAYS = "backfillEventDataDays";
 
     @SerializedName(SERIALIZED_NAME_BACKFILL_EVENT_DATA_DAYS)
     private BigDecimal backfillEventDataDays;
 
-    public AudiencePreviewOptions() {}
+    public ReadAudiencePreviewOptions() {}
 
-    public AudiencePreviewOptions filterByExternalIds(List<String> filterByExternalIds) {
+    public ReadAudiencePreviewOptions filterByExternalIds(List<String> filterByExternalIds) {
 
         this.filterByExternalIds = filterByExternalIds;
         return this;
     }
 
-    public AudiencePreviewOptions addFilterByExternalIdsItem(String filterByExternalIdsItem) {
+    public ReadAudiencePreviewOptions addFilterByExternalIdsItem(String filterByExternalIdsItem) {
         if (this.filterByExternalIds == null) {
             this.filterByExternalIds = new ArrayList<>();
         }
@@ -61,13 +66,11 @@ public class AudiencePreviewOptions {
     /**
      * The set of profile external identifiers being used to determine audience preview membership.
      * Profiles will only be considered for audience preview membership if the profile has at least
-     * one external id whose key matches a value in this set. If unspecified, a default set of
-     * external identifiers will be used: &#x60;[&#39;user_id&#39;, &#39;email&#39;,
-     * &#39;android.idfa&#39;, &#39;ios.idfa&#39;]&#x60;.
+     * one external id whose key matches a value in this set.
      *
      * @return filterByExternalIds
      */
-    @javax.annotation.Nullable
+    @javax.annotation.Nonnull
     public List<String> getFilterByExternalIds() {
         return filterByExternalIds;
     }
@@ -76,7 +79,31 @@ public class AudiencePreviewOptions {
         this.filterByExternalIds = filterByExternalIds;
     }
 
-    public AudiencePreviewOptions backfillEventDataDays(BigDecimal backfillEventDataDays) {
+    public ReadAudiencePreviewOptions includeHistoricalData(Boolean includeHistoricalData) {
+
+        this.includeHistoricalData = includeHistoricalData;
+        return this;
+    }
+
+    /**
+     * Determines whether data prior to the audience preview being created is included when
+     * determining audience preview membership. Note that including historical data may be needed in
+     * order to properly handle the definition specified. In these cases, Segment will automatically
+     * handle including historical data and the response will return the includeHistoricalData
+     * parameter as true.
+     *
+     * @return includeHistoricalData
+     */
+    @javax.annotation.Nonnull
+    public Boolean getIncludeHistoricalData() {
+        return includeHistoricalData;
+    }
+
+    public void setIncludeHistoricalData(Boolean includeHistoricalData) {
+        this.includeHistoricalData = includeHistoricalData;
+    }
+
+    public ReadAudiencePreviewOptions backfillEventDataDays(BigDecimal backfillEventDataDays) {
 
         this.backfillEventDataDays = backfillEventDataDays;
         return this;
@@ -85,8 +112,9 @@ public class AudiencePreviewOptions {
     /**
      * If specified, the value of this field indicates the number of days (specified from the date
      * the audience preview was created) that event data will be included from when determining
-     * audience preview membership. If unspecified, event data will not be included when determining
-     * audience preview membership.
+     * audience preview membership. If unspecified, defer to the value of
+     * &#x60;includeHistoricalData&#x60; to determine whether historical data is either entirely
+     * included or entirely excluded when determining audience preview membership.
      *
      * @return backfillEventDataDays
      */
@@ -107,23 +135,31 @@ public class AudiencePreviewOptions {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        AudiencePreviewOptions audiencePreviewOptions = (AudiencePreviewOptions) o;
-        return Objects.equals(this.filterByExternalIds, audiencePreviewOptions.filterByExternalIds)
+        ReadAudiencePreviewOptions readAudiencePreviewOptions = (ReadAudiencePreviewOptions) o;
+        return Objects.equals(
+                        this.filterByExternalIds, readAudiencePreviewOptions.filterByExternalIds)
                 && Objects.equals(
-                        this.backfillEventDataDays, audiencePreviewOptions.backfillEventDataDays);
+                        this.includeHistoricalData,
+                        readAudiencePreviewOptions.includeHistoricalData)
+                && Objects.equals(
+                        this.backfillEventDataDays,
+                        readAudiencePreviewOptions.backfillEventDataDays);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(filterByExternalIds, backfillEventDataDays);
+        return Objects.hash(filterByExternalIds, includeHistoricalData, backfillEventDataDays);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AudiencePreviewOptions {\n");
+        sb.append("class ReadAudiencePreviewOptions {\n");
         sb.append("    filterByExternalIds: ")
                 .append(toIndentedString(filterByExternalIds))
+                .append("\n");
+        sb.append("    includeHistoricalData: ")
+                .append(toIndentedString(includeHistoricalData))
                 .append("\n");
         sb.append("    backfillEventDataDays: ")
                 .append(toIndentedString(backfillEventDataDays))
@@ -150,46 +186,61 @@ public class AudiencePreviewOptions {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
         openapiFields.add("filterByExternalIds");
+        openapiFields.add("includeHistoricalData");
         openapiFields.add("backfillEventDataDays");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
+        openapiRequiredFields.add("filterByExternalIds");
+        openapiRequiredFields.add("includeHistoricalData");
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to AudiencePreviewOptions
+     * @throws IOException if the JSON Element is invalid with respect to ReadAudiencePreviewOptions
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!AudiencePreviewOptions.openapiRequiredFields
+            if (!ReadAudiencePreviewOptions.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in AudiencePreviewOptions is not found in"
-                                        + " the empty JSON string",
-                                AudiencePreviewOptions.openapiRequiredFields.toString()));
+                                "The required field(s) %s in ReadAudiencePreviewOptions is not"
+                                        + " found in the empty JSON string",
+                                ReadAudiencePreviewOptions.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!AudiencePreviewOptions.openapiFields.contains(entry.getKey())) {
+            if (!ReadAudiencePreviewOptions.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `AudiencePreviewOptions` properties. JSON: %s",
+                                        + " `ReadAudiencePreviewOptions` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
+
+        // check to make sure all required properties/fields are present in the JSON string
+        for (String requiredField : ReadAudiencePreviewOptions.openapiRequiredFields) {
+            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+                throw new IllegalArgumentException(
+                        String.format(
+                                "The required field `%s` is not found in the JSON string: %s",
+                                requiredField, jsonElement.toString()));
+            }
+        }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        // ensure the optional json data is an array if present
-        if (jsonObj.get("filterByExternalIds") != null
-                && !jsonObj.get("filterByExternalIds").isJsonNull()
-                && !jsonObj.get("filterByExternalIds").isJsonArray()) {
+        // ensure the required json array is present
+        if (jsonObj.get("filterByExternalIds") == null) {
+            throw new IllegalArgumentException(
+                    "Expected the field `linkedContent` to be an array in the JSON string but got"
+                            + " `null`");
+        } else if (!jsonObj.get("filterByExternalIds").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
                             "Expected the field `filterByExternalIds` to be an array in the JSON"
@@ -202,24 +253,25 @@ public class AudiencePreviewOptions {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!AudiencePreviewOptions.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'AudiencePreviewOptions' and its subtypes
+            if (!ReadAudiencePreviewOptions.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'ReadAudiencePreviewOptions' and its
+                // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<AudiencePreviewOptions> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(AudiencePreviewOptions.class));
+            final TypeAdapter<ReadAudiencePreviewOptions> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(ReadAudiencePreviewOptions.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<AudiencePreviewOptions>() {
+                    new TypeAdapter<ReadAudiencePreviewOptions>() {
                         @Override
-                        public void write(JsonWriter out, AudiencePreviewOptions value)
+                        public void write(JsonWriter out, ReadAudiencePreviewOptions value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public AudiencePreviewOptions read(JsonReader in) throws IOException {
+                        public ReadAudiencePreviewOptions read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -229,18 +281,18 @@ public class AudiencePreviewOptions {
     }
 
     /**
-     * Create an instance of AudiencePreviewOptions given an JSON string
+     * Create an instance of ReadAudiencePreviewOptions given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of AudiencePreviewOptions
-     * @throws IOException if the JSON string is invalid with respect to AudiencePreviewOptions
+     * @return An instance of ReadAudiencePreviewOptions
+     * @throws IOException if the JSON string is invalid with respect to ReadAudiencePreviewOptions
      */
-    public static AudiencePreviewOptions fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, AudiencePreviewOptions.class);
+    public static ReadAudiencePreviewOptions fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, ReadAudiencePreviewOptions.class);
     }
 
     /**
-     * Convert an instance of AudiencePreviewOptions to an JSON string
+     * Convert an instance of ReadAudiencePreviewOptions to an JSON string
      *
      * @return JSON string
      */

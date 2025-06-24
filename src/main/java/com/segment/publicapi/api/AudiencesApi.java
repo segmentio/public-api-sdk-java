@@ -397,11 +397,9 @@ public class AudiencesApi {
      * trail](/tag/Audit-Trail). The rate limit for this endpoint is 5 requests per minute, which is
      * lower than the default due to access pattern restrictions. Once reached, this endpoint will
      * respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate
-     * Limiting](/#tag/Rate-Limits) for more information. The rate limit for this endpoint is 700
+     * Limiting](/#tag/Rate-Limits) for more information. This endpoint also has a rate limit of 700
      * requests per month per spaceId, which is lower than the default due to access pattern
-     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
-     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
-     * information.
+     * restrictions.
      *
      * @param spaceId (required)
      * @param createAudiencePreviewAlphaInput (required)
@@ -434,11 +432,9 @@ public class AudiencesApi {
      * trail](/tag/Audit-Trail). The rate limit for this endpoint is 5 requests per minute, which is
      * lower than the default due to access pattern restrictions. Once reached, this endpoint will
      * respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate
-     * Limiting](/#tag/Rate-Limits) for more information. The rate limit for this endpoint is 700
+     * Limiting](/#tag/Rate-Limits) for more information. This endpoint also has a rate limit of 700
      * requests per month per spaceId, which is lower than the default due to access pattern
-     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
-     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
-     * information.
+     * restrictions.
      *
      * @param spaceId (required)
      * @param createAudiencePreviewAlphaInput (required)
@@ -473,11 +469,9 @@ public class AudiencesApi {
      * [audit trail](/tag/Audit-Trail). The rate limit for this endpoint is 5 requests per minute,
      * which is lower than the default due to access pattern restrictions. Once reached, this
      * endpoint will respond with the 429 HTTP status code with headers indicating the limit
-     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information. The rate limit for
-     * this endpoint is 700 requests per month per spaceId, which is lower than the default due to
-     * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
-     * status code with headers indicating the limit parameters. See [Rate
-     * Limiting](/#tag/Rate-Limits) for more information.
+     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information. This endpoint also
+     * has a rate limit of 700 requests per month per spaceId, which is lower than the default due
+     * to access pattern restrictions.
      *
      * @param spaceId (required)
      * @param createAudiencePreviewAlphaInput (required)
