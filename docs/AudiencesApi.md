@@ -194,7 +194,7 @@ public class Example {
 
         AudiencesApi apiInstance = new AudiencesApi(defaultClient);
         String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
-        String id = "id"; // String | 
+        String id = "aud_171sV3fzJkiY2PnlbpMZJRbrgSW"; // String | 
         try {
             GetAudience200Response result = apiInstance.getAudience(spaceId, id);
             System.out.println(result);
@@ -500,7 +500,7 @@ public class Example {
 
         AudiencesApi apiInstance = new AudiencesApi(defaultClient);
         String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
-        String id = "aud_0ujsswThIGTUYm2K8FjOOfXtY1K"; // String | 
+        String id = "aud_0ujsszwN8NRY24YaXiTIE2VWDTS"; // String | 
         try {
             RemoveAudienceFromSpace200Response result = apiInstance.removeAudienceFromSpace(spaceId, id);
             System.out.println(result);
@@ -575,7 +575,7 @@ public class Example {
 
         AudiencesApi apiInstance = new AudiencesApi(defaultClient);
         String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
-        String id = "aud_0ujsswThIGTUYm2K8FjOOfXtY1K"; // String | 
+        String id = "aud_0ujsszwN8NRY24YaXiTIE2VWDTS"; // String | 
         UpdateAudienceForSpaceAlphaInput updateAudienceForSpaceAlphaInput = new UpdateAudienceForSpaceAlphaInput(); // UpdateAudienceForSpaceAlphaInput | 
         try {
             UpdateAudienceForSpace200Response result = apiInstance.updateAudienceForSpace(spaceId, id, updateAudienceForSpaceAlphaInput);
