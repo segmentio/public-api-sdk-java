@@ -196,7 +196,7 @@ public class Example {
 
         AudiencesApi apiInstance = new AudiencesApi(defaultClient);
         String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
-        String id = "aud_0ujsszwN8NRY24YaXiTIE2VWDTS"; // String | 
+        String id = "aud_171sV3fzJkiY2PnlbpMZJRbrgSW"; // String | 
         String include = "include_example"; // String | Additional resource to include, support schedules only.  This parameter exists in alpha.
         try {
             GetAudience200Response result = apiInstance.getAudience(spaceId, id, include);
@@ -348,8 +348,8 @@ public class Example {
 
         AudiencesApi apiInstance = new AudiencesApi(defaultClient);
         String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
-        String id = "aud_0ujsszwN8NRY24YaXiTIE2VWDTS"; // String | 
-        String scheduleId = "sch_0ujsszwN8NRY24YaXiTIE2VWDTS"; // String | 
+        String id = "aud_171sV3fzJkiY2PnlbpMZJRbrgSW"; // String | 
+        String scheduleId = "sch_171sV3fzJkiY2PnlbpMZJRbrgSW"; // String | 
         try {
             GetAudienceScheduleFromSpaceAndAudience200Response result = apiInstance.getAudienceScheduleFromSpaceAndAudience(spaceId, id, scheduleId);
             System.out.println(result);
@@ -506,7 +506,7 @@ public class Example {
 
         AudiencesApi apiInstance = new AudiencesApi(defaultClient);
         String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
-        String id = "aud_0ujsszwN8NRY24YaXiTIE2VWDTS"; // String | 
+        String id = "aud_171sV3fzJkiY2PnlbpMZJRbrgSW"; // String | 
         try {
             ListAudienceSchedulesFromSpaceAndAudience200Response result = apiInstance.listAudienceSchedulesFromSpaceAndAudience(spaceId, id);
             System.out.println(result);
