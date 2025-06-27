@@ -16,118 +16,44 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** AudienceSize */
-public class AudienceSize {
-    public static final String SERIALIZED_NAME_COUNT = "count";
+/** Preview */
+public class Preview {
+    public static final String SERIALIZED_NAME_ID = "id";
 
-    @SerializedName(SERIALIZED_NAME_COUNT)
-    private BigDecimal count;
+    @SerializedName(SERIALIZED_NAME_ID)
+    private String id;
 
-    /** The unit type for the count(s) being returned. */
-    @JsonAdapter(TypeEnum.Adapter.class)
-    public enum TypeEnum {
-        ACCOUNTS("ACCOUNTS"),
+    public Preview() {}
 
-        USERS("USERS");
+    public Preview id(String id) {
 
-        private String value;
-
-        TypeEnum(String value) {
-            this.value = value;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        public static TypeEnum fromValue(String value) {
-            for (TypeEnum b : TypeEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
-        }
-
-        public static class Adapter extends TypeAdapter<TypeEnum> {
-            @Override
-            public void write(final JsonWriter jsonWriter, final TypeEnum enumeration)
-                    throws IOException {
-                jsonWriter.value(enumeration.getValue());
-            }
-
-            @Override
-            public TypeEnum read(final JsonReader jsonReader) throws IOException {
-                String value = jsonReader.nextString();
-                return TypeEnum.fromValue(value);
-            }
-        }
-    }
-
-    public static final String SERIALIZED_NAME_TYPE = "type";
-
-    @SerializedName(SERIALIZED_NAME_TYPE)
-    private TypeEnum type;
-
-    public AudienceSize() {}
-
-    public AudienceSize count(BigDecimal count) {
-
-        this.count = count;
+        this.id = id;
         return this;
     }
 
     /**
-     * The total audience membership count. Refer to the type field to determine the unit for this
-     * field (profiles, accounts, etc).
+     * Unique identifier for tracking and retrieving results of the preview.
      *
-     * @return count
+     * @return id
      */
     @javax.annotation.Nonnull
-    public BigDecimal getCount() {
-        return count;
+    public String getId() {
+        return id;
     }
 
-    public void setCount(BigDecimal count) {
-        this.count = count;
-    }
-
-    public AudienceSize type(TypeEnum type) {
-
-        this.type = type;
-        return this;
-    }
-
-    /**
-     * The unit type for the count(s) being returned.
-     *
-     * @return type
-     */
-    @javax.annotation.Nonnull
-    public TypeEnum getType() {
-        return type;
-    }
-
-    public void setType(TypeEnum type) {
-        this.type = type;
+    public void setId(String id) {
+        this.id = id;
     }
 
     @Override
@@ -138,22 +64,20 @@ public class AudienceSize {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        AudienceSize audienceSize = (AudienceSize) o;
-        return Objects.equals(this.count, audienceSize.count)
-                && Objects.equals(this.type, audienceSize.type);
+        Preview preview = (Preview) o;
+        return Objects.equals(this.id, preview.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(count, type);
+        return Objects.hash(id);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AudienceSize {\n");
-        sb.append("    count: ").append(toIndentedString(count)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("class Preview {\n");
+        sb.append("    id: ").append(toIndentedString(id)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -175,47 +99,45 @@ public class AudienceSize {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("count");
-        openapiFields.add("type");
+        openapiFields.add("id");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("count");
-        openapiRequiredFields.add("type");
+        openapiRequiredFields.add("id");
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to AudienceSize
+     * @throws IOException if the JSON Element is invalid with respect to Preview
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!AudienceSize.openapiRequiredFields
+            if (!Preview.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in AudienceSize is not found in the empty"
-                                        + " JSON string",
-                                AudienceSize.openapiRequiredFields.toString()));
+                                "The required field(s) %s in Preview is not found in the empty JSON"
+                                        + " string",
+                                Preview.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!AudienceSize.openapiFields.contains(entry.getKey())) {
+            if (!Preview.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
-                                "The field `%s` in the JSON string is not defined in the"
-                                        + " `AudienceSize` properties. JSON: %s",
+                                "The field `%s` in the JSON string is not defined in the `Preview`"
+                                        + " properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : AudienceSize.openapiRequiredFields) {
+        for (String requiredField : Preview.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -224,12 +146,12 @@ public class AudienceSize {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if (!jsonObj.get("type").isJsonPrimitive()) {
+        if (!jsonObj.get("id").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `type` to be a primitive type in the JSON string"
-                                    + " but got `%s`",
-                            jsonObj.get("type").toString()));
+                            "Expected the field `id` to be a primitive type in the JSON string but"
+                                    + " got `%s`",
+                            jsonObj.get("id").toString()));
         }
     }
 
@@ -237,23 +159,23 @@ public class AudienceSize {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!AudienceSize.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'AudienceSize' and its subtypes
+            if (!Preview.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'Preview' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<AudienceSize> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(AudienceSize.class));
+            final TypeAdapter<Preview> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(Preview.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<AudienceSize>() {
+                    new TypeAdapter<Preview>() {
                         @Override
-                        public void write(JsonWriter out, AudienceSize value) throws IOException {
+                        public void write(JsonWriter out, Preview value) throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public AudienceSize read(JsonReader in) throws IOException {
+                        public Preview read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -263,18 +185,18 @@ public class AudienceSize {
     }
 
     /**
-     * Create an instance of AudienceSize given an JSON string
+     * Create an instance of Preview given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of AudienceSize
-     * @throws IOException if the JSON string is invalid with respect to AudienceSize
+     * @return An instance of Preview
+     * @throws IOException if the JSON string is invalid with respect to Preview
      */
-    public static AudienceSize fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, AudienceSize.class);
+    public static Preview fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, Preview.class);
     }
 
     /**
-     * Convert an instance of AudienceSize to an JSON string
+     * Convert an instance of Preview to an JSON string
      *
      * @return JSON string
      */
