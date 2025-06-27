@@ -5,7 +5,7 @@
     <artifactId>segment-publicapi</artifactId>
     <packaging>jar</packaging>
     <name>segment-publicapi</name>
-    <version>58.7.0</version>
+    <version>58.8.0</version>
     <url>https://segment.com/docs/api/public-api/</url>
     <description>Segment Public API</description>
     <scm>

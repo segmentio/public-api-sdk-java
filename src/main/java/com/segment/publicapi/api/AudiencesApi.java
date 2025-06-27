@@ -20,7 +20,10 @@ import com.segment.publicapi.Configuration;
 import com.segment.publicapi.Pair;
 import com.segment.publicapi.models.CreateAudience200Response;
 import com.segment.publicapi.models.CreateAudienceAlphaInput;
+import com.segment.publicapi.models.CreateAudiencePreview200Response;
+import com.segment.publicapi.models.CreateAudiencePreviewAlphaInput;
 import com.segment.publicapi.models.GetAudience200Response;
+import com.segment.publicapi.models.GetAudiencePreview200Response;
 import com.segment.publicapi.models.GetAudienceScheduleFromSpaceAndAudience200Response;
 import com.segment.publicapi.models.ListAudienceConsumersFromSpaceAndAudience200Response;
 import com.segment.publicapi.models.ListAudienceConsumersSearchInput;
@@ -29,8 +32,6 @@ import com.segment.publicapi.models.ListAudienceSchedulesFromSpaceAndAudience200
 import com.segment.publicapi.models.ListAudiences200Response;
 import com.segment.publicapi.models.ListAudiencesPaginationInput;
 import com.segment.publicapi.models.PaginationInput;
-import com.segment.publicapi.models.PreviewAudience200Response;
-import com.segment.publicapi.models.PreviewAudienceInput;
 import com.segment.publicapi.models.RemoveAudienceFromSpace200Response;
 import com.segment.publicapi.models.UpdateAudienceForSpace200Response;
 import com.segment.publicapi.models.UpdateAudienceForSpaceAlphaInput;
@@ -287,6 +288,223 @@ public class AudiencesApi {
     }
 
     /**
+     * Build call for createAudiencePreview
+     *
+     * @param spaceId (required)
+     * @param createAudiencePreviewAlphaInput (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call createAudiencePreviewCall(
+            String spaceId,
+            CreateAudiencePreviewAlphaInput createAudiencePreviewAlphaInput,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = createAudiencePreviewAlphaInput;
+
+        // create path and map variables
+        String localVarPath =
+                "/spaces/{spaceId}/audiences/previews"
+                        .replace(
+                                "{" + "spaceId" + "}",
+                                localVarApiClient.escapeString(spaceId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.segment.v1alpha+json", "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/vnd.segment.v1alpha+json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"token"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createAudiencePreviewValidateBeforeCall(
+            String spaceId,
+            CreateAudiencePreviewAlphaInput createAudiencePreviewAlphaInput,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'spaceId' when calling"
+                            + " createAudiencePreview(Async)");
+        }
+
+        // verify the required parameter 'createAudiencePreviewAlphaInput' is set
+        if (createAudiencePreviewAlphaInput == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'createAudiencePreviewAlphaInput' when calling"
+                            + " createAudiencePreview(Async)");
+        }
+
+        return createAudiencePreviewCall(spaceId, createAudiencePreviewAlphaInput, _callback);
+    }
+
+    /**
+     * Create Audience Preview Previews Audience. • This endpoint is in **Alpha** testing. Please
+     * submit any feedback by sending an email to friends@segment.com. • In order to successfully
+     * call this endpoint, the specified Workspace needs to have the Audience feature enabled.
+     * Please reach out to your customer success manager for more information. • When called, this
+     * endpoint may generate the &#x60;Audience Preview Created&#x60; event in the [audit
+     * trail](/tag/Audit-Trail). The rate limit for this endpoint is 5 requests per minute, which is
+     * lower than the default due to access pattern restrictions. Once reached, this endpoint will
+     * respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate
+     * Limiting](/#tag/Rate-Limits) for more information. This endpoint also has a rate limit of 700
+     * requests per month per spaceId, which is lower than the default due to access pattern
+     * restrictions.
+     *
+     * @param spaceId (required)
+     * @param createAudiencePreviewAlphaInput (required)
+     * @return CreateAudiencePreview200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public CreateAudiencePreview200Response createAudiencePreview(
+            String spaceId, CreateAudiencePreviewAlphaInput createAudiencePreviewAlphaInput)
+            throws ApiException {
+        ApiResponse<CreateAudiencePreview200Response> localVarResp =
+                createAudiencePreviewWithHttpInfo(spaceId, createAudiencePreviewAlphaInput);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create Audience Preview Previews Audience. • This endpoint is in **Alpha** testing. Please
+     * submit any feedback by sending an email to friends@segment.com. • In order to successfully
+     * call this endpoint, the specified Workspace needs to have the Audience feature enabled.
+     * Please reach out to your customer success manager for more information. • When called, this
+     * endpoint may generate the &#x60;Audience Preview Created&#x60; event in the [audit
+     * trail](/tag/Audit-Trail). The rate limit for this endpoint is 5 requests per minute, which is
+     * lower than the default due to access pattern restrictions. Once reached, this endpoint will
+     * respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate
+     * Limiting](/#tag/Rate-Limits) for more information. This endpoint also has a rate limit of 700
+     * requests per month per spaceId, which is lower than the default due to access pattern
+     * restrictions.
+     *
+     * @param spaceId (required)
+     * @param createAudiencePreviewAlphaInput (required)
+     * @return ApiResponse&lt;CreateAudiencePreview200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<CreateAudiencePreview200Response> createAudiencePreviewWithHttpInfo(
+            String spaceId, CreateAudiencePreviewAlphaInput createAudiencePreviewAlphaInput)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                createAudiencePreviewValidateBeforeCall(
+                        spaceId, createAudiencePreviewAlphaInput, null);
+        Type localVarReturnType = new TypeToken<CreateAudiencePreview200Response>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create Audience Preview (asynchronously) Previews Audience. • This endpoint is in **Alpha**
+     * testing. Please submit any feedback by sending an email to friends@segment.com. • In order to
+     * successfully call this endpoint, the specified Workspace needs to have the Audience feature
+     * enabled. Please reach out to your customer success manager for more information. • When
+     * called, this endpoint may generate the &#x60;Audience Preview Created&#x60; event in the
+     * [audit trail](/tag/Audit-Trail). The rate limit for this endpoint is 5 requests per minute,
+     * which is lower than the default due to access pattern restrictions. Once reached, this
+     * endpoint will respond with the 429 HTTP status code with headers indicating the limit
+     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information. This endpoint also
+     * has a rate limit of 700 requests per month per spaceId, which is lower than the default due
+     * to access pattern restrictions.
+     *
+     * @param spaceId (required)
+     * @param createAudiencePreviewAlphaInput (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body
+     *     object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call createAudiencePreviewAsync(
+            String spaceId,
+            CreateAudiencePreviewAlphaInput createAudiencePreviewAlphaInput,
+            final ApiCallback<CreateAudiencePreview200Response> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                createAudiencePreviewValidateBeforeCall(
+                        spaceId, createAudiencePreviewAlphaInput, _callback);
+        Type localVarReturnType = new TypeToken<CreateAudiencePreview200Response>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
      * Build call for getAudience
      *
      * @param spaceId (required)
@@ -497,6 +715,200 @@ public class AudiencesApi {
 
         okhttp3.Call localVarCall = getAudienceValidateBeforeCall(spaceId, id, include, _callback);
         Type localVarReturnType = new TypeToken<GetAudience200Response>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getAudiencePreview
+     *
+     * @param spaceId (required)
+     * @param id (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getAudiencePreviewCall(
+            String spaceId, String id, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/spaces/{spaceId}/audiences/previews/{id}"
+                        .replace(
+                                "{" + "spaceId" + "}",
+                                localVarApiClient.escapeString(spaceId.toString()))
+                        .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.segment.v1alpha+json", "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"token"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getAudiencePreviewValidateBeforeCall(
+            String spaceId, String id, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'spaceId' when calling"
+                            + " getAudiencePreview(Async)");
+        }
+
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'id' when calling getAudiencePreview(Async)");
+        }
+
+        return getAudiencePreviewCall(spaceId, id, _callback);
+    }
+
+    /**
+     * Get Audience Preview Reads the results of an audience preview. • This endpoint is in
+     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
+     * In order to successfully call this endpoint, the specified Workspace needs to have the
+     * Audience feature enabled. Please reach out to your customer success manager for more
+     * information. The rate limit for this endpoint is 100 requests per minute, which is lower than
+     * the default due to access pattern restrictions. Once reached, this endpoint will respond with
+     * the 429 HTTP status code with headers indicating the limit parameters. See [Rate
+     * Limiting](/#tag/Rate-Limits) for more information.
+     *
+     * @param spaceId (required)
+     * @param id (required)
+     * @return GetAudiencePreview200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public GetAudiencePreview200Response getAudiencePreview(String spaceId, String id)
+            throws ApiException {
+        ApiResponse<GetAudiencePreview200Response> localVarResp =
+                getAudiencePreviewWithHttpInfo(spaceId, id);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get Audience Preview Reads the results of an audience preview. • This endpoint is in
+     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
+     * In order to successfully call this endpoint, the specified Workspace needs to have the
+     * Audience feature enabled. Please reach out to your customer success manager for more
+     * information. The rate limit for this endpoint is 100 requests per minute, which is lower than
+     * the default due to access pattern restrictions. Once reached, this endpoint will respond with
+     * the 429 HTTP status code with headers indicating the limit parameters. See [Rate
+     * Limiting](/#tag/Rate-Limits) for more information.
+     *
+     * @param spaceId (required)
+     * @param id (required)
+     * @return ApiResponse&lt;GetAudiencePreview200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<GetAudiencePreview200Response> getAudiencePreviewWithHttpInfo(
+            String spaceId, String id) throws ApiException {
+        okhttp3.Call localVarCall = getAudiencePreviewValidateBeforeCall(spaceId, id, null);
+        Type localVarReturnType = new TypeToken<GetAudiencePreview200Response>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get Audience Preview (asynchronously) Reads the results of an audience preview. • This
+     * endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
+     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
+     * needs to have the Audience feature enabled. Please reach out to your customer success manager
+     * for more information. The rate limit for this endpoint is 100 requests per minute, which is
+     * lower than the default due to access pattern restrictions. Once reached, this endpoint will
+     * respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate
+     * Limiting](/#tag/Rate-Limits) for more information.
+     *
+     * @param spaceId (required)
+     * @param id (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body
+     *     object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getAudiencePreviewAsync(
+            String spaceId, String id, final ApiCallback<GetAudiencePreview200Response> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall = getAudiencePreviewValidateBeforeCall(spaceId, id, _callback);
+        Type localVarReturnType = new TypeToken<GetAudiencePreview200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1399,220 +1811,6 @@ public class AudiencesApi {
         okhttp3.Call localVarCall =
                 listAudiencesValidateBeforeCall(spaceId, pagination, include, _callback);
         Type localVarReturnType = new TypeToken<ListAudiences200Response>() {}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-
-    /**
-     * Build call for previewAudience
-     *
-     * @param spaceId (required)
-     * @param previewAudienceInput (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call previewAudienceCall(
-            String spaceId, PreviewAudienceInput previewAudienceInput, final ApiCallback _callback)
-            throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {};
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null) {
-            basePath = localCustomBaseUrl;
-        } else if (localBasePaths.length > 0) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = previewAudienceInput;
-
-        // create path and map variables
-        String localVarPath =
-                "/spaces/{spaceId}/audiences/previews"
-                        .replace(
-                                "{" + "spaceId" + "}",
-                                localVarApiClient.escapeString(spaceId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json", "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {"application/vnd.segment.v1alpha+json"};
-        final String localVarContentType =
-                localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {"token"};
-        return localVarApiClient.buildCall(
-                basePath,
-                localVarPath,
-                "POST",
-                localVarQueryParams,
-                localVarCollectionQueryParams,
-                localVarPostBody,
-                localVarHeaderParams,
-                localVarCookieParams,
-                localVarFormParams,
-                localVarAuthNames,
-                _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call previewAudienceValidateBeforeCall(
-            String spaceId, PreviewAudienceInput previewAudienceInput, final ApiCallback _callback)
-            throws ApiException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'spaceId' when calling previewAudience(Async)");
-        }
-
-        // verify the required parameter 'previewAudienceInput' is set
-        if (previewAudienceInput == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'previewAudienceInput' when calling"
-                            + " previewAudience(Async)");
-        }
-
-        return previewAudienceCall(spaceId, previewAudienceInput, _callback);
-    }
-
-    /**
-     * Preview Audience Previews Audience. • This endpoint is in **Alpha** testing. Please submit
-     * any feedback by sending an email to friends@segment.com. • In order to successfully call this
-     * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
-     * out to your customer success manager for more information. • When called, this endpoint may
-     * generate the &#x60;Audience Preview Created&#x60; event in the [audit
-     * trail](/tag/Audit-Trail). The rate limit for this endpoint is 5 requests per minute, which is
-     * lower than the default due to access pattern restrictions. Once reached, this endpoint will
-     * respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate
-     * Limiting](/#tag/Rate-Limits) for more information. The rate limit for this endpoint is 700
-     * requests per month per spaceId, which is lower than the default due to access pattern
-     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
-     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
-     * information.
-     *
-     * @param spaceId (required)
-     * @param previewAudienceInput (required)
-     * @return PreviewAudience200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
-     *     response body
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-     * </table>
-     */
-    public PreviewAudience200Response previewAudience(
-            String spaceId, PreviewAudienceInput previewAudienceInput) throws ApiException {
-        ApiResponse<PreviewAudience200Response> localVarResp =
-                previewAudienceWithHttpInfo(spaceId, previewAudienceInput);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Preview Audience Previews Audience. • This endpoint is in **Alpha** testing. Please submit
-     * any feedback by sending an email to friends@segment.com. • In order to successfully call this
-     * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
-     * out to your customer success manager for more information. • When called, this endpoint may
-     * generate the &#x60;Audience Preview Created&#x60; event in the [audit
-     * trail](/tag/Audit-Trail). The rate limit for this endpoint is 5 requests per minute, which is
-     * lower than the default due to access pattern restrictions. Once reached, this endpoint will
-     * respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate
-     * Limiting](/#tag/Rate-Limits) for more information. The rate limit for this endpoint is 700
-     * requests per month per spaceId, which is lower than the default due to access pattern
-     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
-     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
-     * information.
-     *
-     * @param spaceId (required)
-     * @param previewAudienceInput (required)
-     * @return ApiResponse&lt;PreviewAudience200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
-     *     response body
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<PreviewAudience200Response> previewAudienceWithHttpInfo(
-            String spaceId, PreviewAudienceInput previewAudienceInput) throws ApiException {
-        okhttp3.Call localVarCall =
-                previewAudienceValidateBeforeCall(spaceId, previewAudienceInput, null);
-        Type localVarReturnType = new TypeToken<PreviewAudience200Response>() {}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Preview Audience (asynchronously) Previews Audience. • This endpoint is in **Alpha** testing.
-     * Please submit any feedback by sending an email to friends@segment.com. • In order to
-     * successfully call this endpoint, the specified Workspace needs to have the Audience feature
-     * enabled. Please reach out to your customer success manager for more information. • When
-     * called, this endpoint may generate the &#x60;Audience Preview Created&#x60; event in the
-     * [audit trail](/tag/Audit-Trail). The rate limit for this endpoint is 5 requests per minute,
-     * which is lower than the default due to access pattern restrictions. Once reached, this
-     * endpoint will respond with the 429 HTTP status code with headers indicating the limit
-     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information. The rate limit for
-     * this endpoint is 700 requests per month per spaceId, which is lower than the default due to
-     * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
-     * status code with headers indicating the limit parameters. See [Rate
-     * Limiting](/#tag/Rate-Limits) for more information.
-     *
-     * @param spaceId (required)
-     * @param previewAudienceInput (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body
-     *     object
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call previewAudienceAsync(
-            String spaceId,
-            PreviewAudienceInput previewAudienceInput,
-            final ApiCallback<PreviewAudience200Response> _callback)
-            throws ApiException {
-
-        okhttp3.Call localVarCall =
-                previewAudienceValidateBeforeCall(spaceId, previewAudienceInput, _callback);
-        Type localVarReturnType = new TypeToken<PreviewAudience200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
