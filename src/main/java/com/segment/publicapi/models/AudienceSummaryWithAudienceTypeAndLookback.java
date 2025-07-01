@@ -12,6 +12,7 @@
 package com.segment.publicapi.models;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
@@ -23,7 +24,9 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
@@ -97,6 +100,11 @@ public class AudienceSummaryWithAudienceTypeAndLookback {
 
     @SerializedName(SERIALIZED_NAME_OPTIONS)
     private AudienceOptionsWithLookback options;
+
+    public static final String SERIALIZED_NAME_SCHEDULES = "schedules";
+
+    @SerializedName(SERIALIZED_NAME_SCHEDULES)
+    private List<AudienceSchedule> schedules;
 
     public static final String SERIALIZED_NAME_ID = "id";
 
@@ -239,6 +247,35 @@ public class AudienceSummaryWithAudienceTypeAndLookback {
 
     public void setOptions(AudienceOptionsWithLookback options) {
         this.options = options;
+    }
+
+    public AudienceSummaryWithAudienceTypeAndLookback schedules(List<AudienceSchedule> schedules) {
+
+        this.schedules = schedules;
+        return this;
+    }
+
+    public AudienceSummaryWithAudienceTypeAndLookback addSchedulesItem(
+            AudienceSchedule schedulesItem) {
+        if (this.schedules == null) {
+            this.schedules = new ArrayList<>();
+        }
+        this.schedules.add(schedulesItem);
+        return this;
+    }
+
+    /**
+     * List of schedules for the audience.
+     *
+     * @return schedules
+     */
+    @javax.annotation.Nullable
+    public List<AudienceSchedule> getSchedules() {
+        return schedules;
+    }
+
+    public void setSchedules(List<AudienceSchedule> schedules) {
+        this.schedules = schedules;
     }
 
     public AudienceSummaryWithAudienceTypeAndLookback id(String id) {
@@ -499,6 +536,8 @@ public class AudienceSummaryWithAudienceTypeAndLookback {
                         audienceSummaryWithAudienceTypeAndLookback.computeCadence)
                 && Objects.equals(this.size, audienceSummaryWithAudienceTypeAndLookback.size)
                 && Objects.equals(this.options, audienceSummaryWithAudienceTypeAndLookback.options)
+                && Objects.equals(
+                        this.schedules, audienceSummaryWithAudienceTypeAndLookback.schedules)
                 && Objects.equals(this.id, audienceSummaryWithAudienceTypeAndLookback.id)
                 && Objects.equals(this.spaceId, audienceSummaryWithAudienceTypeAndLookback.spaceId)
                 && Objects.equals(this.name, audienceSummaryWithAudienceTypeAndLookback.name)
@@ -526,6 +565,7 @@ public class AudienceSummaryWithAudienceTypeAndLookback {
                 computeCadence,
                 size,
                 options,
+                schedules,
                 id,
                 spaceId,
                 name,
@@ -548,6 +588,7 @@ public class AudienceSummaryWithAudienceTypeAndLookback {
         sb.append("    computeCadence: ").append(toIndentedString(computeCadence)).append("\n");
         sb.append("    size: ").append(toIndentedString(size)).append("\n");
         sb.append("    options: ").append(toIndentedString(options)).append("\n");
+        sb.append("    schedules: ").append(toIndentedString(schedules)).append("\n");
         sb.append("    id: ").append(toIndentedString(id)).append("\n");
         sb.append("    spaceId: ").append(toIndentedString(spaceId)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -585,6 +626,7 @@ public class AudienceSummaryWithAudienceTypeAndLookback {
         openapiFields.add("computeCadence");
         openapiFields.add("size");
         openapiFields.add("options");
+        openapiFields.add("schedules");
         openapiFields.add("id");
         openapiFields.add("spaceId");
         openapiFields.add("name");
@@ -676,6 +718,25 @@ public class AudienceSummaryWithAudienceTypeAndLookback {
         // validate the optional field `options`
         if (jsonObj.get("options") != null && !jsonObj.get("options").isJsonNull()) {
             AudienceOptionsWithLookback.validateJsonElement(jsonObj.get("options"));
+        }
+        if (jsonObj.get("schedules") != null && !jsonObj.get("schedules").isJsonNull()) {
+            JsonArray jsonArrayschedules = jsonObj.getAsJsonArray("schedules");
+            if (jsonArrayschedules != null) {
+                // ensure the json data is an array
+                if (!jsonObj.get("schedules").isJsonArray()) {
+                    throw new IllegalArgumentException(
+                            String.format(
+                                    "Expected the field `schedules` to be an array in the JSON"
+                                            + " string but got `%s`",
+                                    jsonObj.get("schedules").toString()));
+                }
+
+                // validate the optional field `schedules` (array)
+                for (int i = 0; i < jsonArrayschedules.size(); i++) {
+                    AudienceSchedule.validateJsonElement(jsonArrayschedules.get(i));
+                }
+                ;
+            }
         }
         if (!jsonObj.get("id").isJsonPrimitive()) {
             throw new IllegalArgumentException(

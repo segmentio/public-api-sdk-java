@@ -37,22 +37,10 @@ public class Config extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'Config' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<ReverseEtlPeriodicScheduleConfig>
-                    adapterReverseEtlPeriodicScheduleConfig =
-                            gson.getDelegateAdapter(
-                                    this, TypeToken.get(ReverseEtlPeriodicScheduleConfig.class));
-            final TypeAdapter<ReverseEtlSpecificTimeScheduleConfig>
-                    adapterReverseEtlSpecificTimeScheduleConfig =
-                            gson.getDelegateAdapter(
-                                    this,
-                                    TypeToken.get(ReverseEtlSpecificTimeScheduleConfig.class));
-            final TypeAdapter<ReverseEtlCronScheduleConfig> adapterReverseEtlCronScheduleConfig =
-                    gson.getDelegateAdapter(
-                            this, TypeToken.get(ReverseEtlCronScheduleConfig.class));
-            final TypeAdapter<ReverseEtlDbtCloudScheduleConfig>
-                    adapterReverseEtlDbtCloudScheduleConfig =
-                            gson.getDelegateAdapter(
-                                    this, TypeToken.get(ReverseEtlDbtCloudScheduleConfig.class));
+            final TypeAdapter<PeriodicConfig> adapterPeriodicConfig =
+                    gson.getDelegateAdapter(this, TypeToken.get(PeriodicConfig.class));
+            final TypeAdapter<SpecificDaysConfig> adapterSpecificDaysConfig =
+                    gson.getDelegateAdapter(this, TypeToken.get(SpecificDaysConfig.class));
 
             return (TypeAdapter<T>)
                     new TypeAdapter<Config>() {
@@ -63,55 +51,25 @@ public class Config extends AbstractOpenApiSchema {
                                 return;
                             }
 
-                            // check if the actual instance is of the type
-                            // `ReverseEtlPeriodicScheduleConfig`
-                            if (value.getActualInstance()
-                                    instanceof ReverseEtlPeriodicScheduleConfig) {
+                            // check if the actual instance is of the type `PeriodicConfig`
+                            if (value.getActualInstance() instanceof PeriodicConfig) {
                                 JsonElement element =
-                                        adapterReverseEtlPeriodicScheduleConfig.toJsonTree(
-                                                (ReverseEtlPeriodicScheduleConfig)
-                                                        value.getActualInstance());
+                                        adapterPeriodicConfig.toJsonTree(
+                                                (PeriodicConfig) value.getActualInstance());
                                 elementAdapter.write(out, element);
                                 return;
                             }
-                            // check if the actual instance is of the type
-                            // `ReverseEtlSpecificTimeScheduleConfig`
-                            if (value.getActualInstance()
-                                    instanceof ReverseEtlSpecificTimeScheduleConfig) {
+                            // check if the actual instance is of the type `SpecificDaysConfig`
+                            if (value.getActualInstance() instanceof SpecificDaysConfig) {
                                 JsonElement element =
-                                        adapterReverseEtlSpecificTimeScheduleConfig.toJsonTree(
-                                                (ReverseEtlSpecificTimeScheduleConfig)
-                                                        value.getActualInstance());
-                                elementAdapter.write(out, element);
-                                return;
-                            }
-                            // check if the actual instance is of the type
-                            // `ReverseEtlCronScheduleConfig`
-                            if (value.getActualInstance() instanceof ReverseEtlCronScheduleConfig) {
-                                JsonElement element =
-                                        adapterReverseEtlCronScheduleConfig.toJsonTree(
-                                                (ReverseEtlCronScheduleConfig)
-                                                        value.getActualInstance());
-                                elementAdapter.write(out, element);
-                                return;
-                            }
-                            // check if the actual instance is of the type
-                            // `ReverseEtlDbtCloudScheduleConfig`
-                            if (value.getActualInstance()
-                                    instanceof ReverseEtlDbtCloudScheduleConfig) {
-                                JsonElement element =
-                                        adapterReverseEtlDbtCloudScheduleConfig.toJsonTree(
-                                                (ReverseEtlDbtCloudScheduleConfig)
-                                                        value.getActualInstance());
+                                        adapterSpecificDaysConfig.toJsonTree(
+                                                (SpecificDaysConfig) value.getActualInstance());
                                 elementAdapter.write(out, element);
                                 return;
                             }
                             throw new IOException(
                                     "Failed to serialize as the type doesn't match anyOf schemae:"
-                                            + " ReverseEtlCronScheduleConfig,"
-                                            + " ReverseEtlDbtCloudScheduleConfig,"
-                                            + " ReverseEtlPeriodicScheduleConfig,"
-                                            + " ReverseEtlSpecificTimeScheduleConfig");
+                                            + " PeriodicConfig, SpecificDaysConfig");
                         }
 
                         @Override
@@ -122,11 +80,11 @@ public class Config extends AbstractOpenApiSchema {
                             ArrayList<String> errorMessages = new ArrayList<>();
                             TypeAdapter actualAdapter = elementAdapter;
 
-                            // deserialize ReverseEtlPeriodicScheduleConfig
+                            // deserialize PeriodicConfig
                             try {
                                 // validate the JSON object to see if any exception is thrown
-                                ReverseEtlPeriodicScheduleConfig.validateJsonElement(jsonElement);
-                                actualAdapter = adapterReverseEtlPeriodicScheduleConfig;
+                                PeriodicConfig.validateJsonElement(jsonElement);
+                                actualAdapter = adapterPeriodicConfig;
                                 Config ret = new Config();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
                                 return ret;
@@ -134,22 +92,19 @@ public class Config extends AbstractOpenApiSchema {
                                 // deserialization failed, continue
                                 errorMessages.add(
                                         String.format(
-                                                "Deserialization for"
-                                                        + " ReverseEtlPeriodicScheduleConfig failed"
-                                                        + " with `%s`.",
+                                                "Deserialization for PeriodicConfig failed with"
+                                                        + " `%s`.",
                                                 e.getMessage()));
                                 log.log(
                                         Level.FINER,
-                                        "Input data does not match schema"
-                                                + " 'ReverseEtlPeriodicScheduleConfig'",
+                                        "Input data does not match schema 'PeriodicConfig'",
                                         e);
                             }
-                            // deserialize ReverseEtlSpecificTimeScheduleConfig
+                            // deserialize SpecificDaysConfig
                             try {
                                 // validate the JSON object to see if any exception is thrown
-                                ReverseEtlSpecificTimeScheduleConfig.validateJsonElement(
-                                        jsonElement);
-                                actualAdapter = adapterReverseEtlSpecificTimeScheduleConfig;
+                                SpecificDaysConfig.validateJsonElement(jsonElement);
+                                actualAdapter = adapterSpecificDaysConfig;
                                 Config ret = new Config();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
                                 return ret;
@@ -157,57 +112,12 @@ public class Config extends AbstractOpenApiSchema {
                                 // deserialization failed, continue
                                 errorMessages.add(
                                         String.format(
-                                                "Deserialization for"
-                                                    + " ReverseEtlSpecificTimeScheduleConfig failed"
-                                                    + " with `%s`.",
+                                                "Deserialization for SpecificDaysConfig failed with"
+                                                        + " `%s`.",
                                                 e.getMessage()));
                                 log.log(
                                         Level.FINER,
-                                        "Input data does not match schema"
-                                                + " 'ReverseEtlSpecificTimeScheduleConfig'",
-                                        e);
-                            }
-                            // deserialize ReverseEtlCronScheduleConfig
-                            try {
-                                // validate the JSON object to see if any exception is thrown
-                                ReverseEtlCronScheduleConfig.validateJsonElement(jsonElement);
-                                actualAdapter = adapterReverseEtlCronScheduleConfig;
-                                Config ret = new Config();
-                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                                return ret;
-                            } catch (Exception e) {
-                                // deserialization failed, continue
-                                errorMessages.add(
-                                        String.format(
-                                                "Deserialization for ReverseEtlCronScheduleConfig"
-                                                        + " failed with `%s`.",
-                                                e.getMessage()));
-                                log.log(
-                                        Level.FINER,
-                                        "Input data does not match schema"
-                                                + " 'ReverseEtlCronScheduleConfig'",
-                                        e);
-                            }
-                            // deserialize ReverseEtlDbtCloudScheduleConfig
-                            try {
-                                // validate the JSON object to see if any exception is thrown
-                                ReverseEtlDbtCloudScheduleConfig.validateJsonElement(jsonElement);
-                                actualAdapter = adapterReverseEtlDbtCloudScheduleConfig;
-                                Config ret = new Config();
-                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                                return ret;
-                            } catch (Exception e) {
-                                // deserialization failed, continue
-                                errorMessages.add(
-                                        String.format(
-                                                "Deserialization for"
-                                                        + " ReverseEtlDbtCloudScheduleConfig failed"
-                                                        + " with `%s`.",
-                                                e.getMessage()));
-                                log.log(
-                                        Level.FINER,
-                                        "Input data does not match schema"
-                                                + " 'ReverseEtlDbtCloudScheduleConfig'",
+                                        "Input data does not match schema 'SpecificDaysConfig'",
                                         e);
                             }
 
@@ -229,32 +139,19 @@ public class Config extends AbstractOpenApiSchema {
         super("anyOf", Boolean.TRUE);
     }
 
-    public Config(ReverseEtlCronScheduleConfig o) {
+    public Config(PeriodicConfig o) {
         super("anyOf", Boolean.TRUE);
         setActualInstance(o);
     }
 
-    public Config(ReverseEtlDbtCloudScheduleConfig o) {
-        super("anyOf", Boolean.TRUE);
-        setActualInstance(o);
-    }
-
-    public Config(ReverseEtlPeriodicScheduleConfig o) {
-        super("anyOf", Boolean.TRUE);
-        setActualInstance(o);
-    }
-
-    public Config(ReverseEtlSpecificTimeScheduleConfig o) {
+    public Config(SpecificDaysConfig o) {
         super("anyOf", Boolean.TRUE);
         setActualInstance(o);
     }
 
     static {
-        schemas.put("ReverseEtlPeriodicScheduleConfig", ReverseEtlPeriodicScheduleConfig.class);
-        schemas.put(
-                "ReverseEtlSpecificTimeScheduleConfig", ReverseEtlSpecificTimeScheduleConfig.class);
-        schemas.put("ReverseEtlCronScheduleConfig", ReverseEtlCronScheduleConfig.class);
-        schemas.put("ReverseEtlDbtCloudScheduleConfig", ReverseEtlDbtCloudScheduleConfig.class);
+        schemas.put("PeriodicConfig", PeriodicConfig.class);
+        schemas.put("SpecificDaysConfig", SpecificDaysConfig.class);
     }
 
     @Override
@@ -264,9 +161,7 @@ public class Config extends AbstractOpenApiSchema {
 
     /**
      * Set the instance that matches the anyOf child schema, check the instance parameter is valid
-     * against the anyOf child schemas: ReverseEtlCronScheduleConfig,
-     * ReverseEtlDbtCloudScheduleConfig, ReverseEtlPeriodicScheduleConfig,
-     * ReverseEtlSpecificTimeScheduleConfig
+     * against the anyOf child schemas: PeriodicConfig, SpecificDaysConfig
      *
      * <p>It could be an instance of the 'anyOf' schemas.
      */
@@ -277,39 +172,24 @@ public class Config extends AbstractOpenApiSchema {
             return;
         }
 
-        if (instance instanceof ReverseEtlPeriodicScheduleConfig) {
+        if (instance instanceof PeriodicConfig) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof ReverseEtlSpecificTimeScheduleConfig) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        if (instance instanceof ReverseEtlCronScheduleConfig) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        if (instance instanceof ReverseEtlDbtCloudScheduleConfig) {
+        if (instance instanceof SpecificDaysConfig) {
             super.setActualInstance(instance);
             return;
         }
 
         throw new RuntimeException(
-                "Invalid instance type. Must be ReverseEtlCronScheduleConfig,"
-                        + " ReverseEtlDbtCloudScheduleConfig, ReverseEtlPeriodicScheduleConfig,"
-                        + " ReverseEtlSpecificTimeScheduleConfig");
+                "Invalid instance type. Must be PeriodicConfig, SpecificDaysConfig");
     }
 
     /**
-     * Get the actual instance, which can be the following: ReverseEtlCronScheduleConfig,
-     * ReverseEtlDbtCloudScheduleConfig, ReverseEtlPeriodicScheduleConfig,
-     * ReverseEtlSpecificTimeScheduleConfig
+     * Get the actual instance, which can be the following: PeriodicConfig, SpecificDaysConfig
      *
-     * @return The actual instance (ReverseEtlCronScheduleConfig, ReverseEtlDbtCloudScheduleConfig,
-     *     ReverseEtlPeriodicScheduleConfig, ReverseEtlSpecificTimeScheduleConfig)
+     * @return The actual instance (PeriodicConfig, SpecificDaysConfig)
      */
     @Override
     public Object getActualInstance() {
@@ -317,51 +197,25 @@ public class Config extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `ReverseEtlPeriodicScheduleConfig`. If the actual instance is not
-     * `ReverseEtlPeriodicScheduleConfig`, the ClassCastException will be thrown.
+     * Get the actual instance of `PeriodicConfig`. If the actual instance is not `PeriodicConfig`,
+     * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `ReverseEtlPeriodicScheduleConfig`
-     * @throws ClassCastException if the instance is not `ReverseEtlPeriodicScheduleConfig`
+     * @return The actual instance of `PeriodicConfig`
+     * @throws ClassCastException if the instance is not `PeriodicConfig`
      */
-    public ReverseEtlPeriodicScheduleConfig getReverseEtlPeriodicScheduleConfig()
-            throws ClassCastException {
-        return (ReverseEtlPeriodicScheduleConfig) super.getActualInstance();
+    public PeriodicConfig getPeriodicConfig() throws ClassCastException {
+        return (PeriodicConfig) super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `ReverseEtlSpecificTimeScheduleConfig`. If the actual instance is
-     * not `ReverseEtlSpecificTimeScheduleConfig`, the ClassCastException will be thrown.
+     * Get the actual instance of `SpecificDaysConfig`. If the actual instance is not
+     * `SpecificDaysConfig`, the ClassCastException will be thrown.
      *
-     * @return The actual instance of `ReverseEtlSpecificTimeScheduleConfig`
-     * @throws ClassCastException if the instance is not `ReverseEtlSpecificTimeScheduleConfig`
+     * @return The actual instance of `SpecificDaysConfig`
+     * @throws ClassCastException if the instance is not `SpecificDaysConfig`
      */
-    public ReverseEtlSpecificTimeScheduleConfig getReverseEtlSpecificTimeScheduleConfig()
-            throws ClassCastException {
-        return (ReverseEtlSpecificTimeScheduleConfig) super.getActualInstance();
-    }
-
-    /**
-     * Get the actual instance of `ReverseEtlCronScheduleConfig`. If the actual instance is not
-     * `ReverseEtlCronScheduleConfig`, the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `ReverseEtlCronScheduleConfig`
-     * @throws ClassCastException if the instance is not `ReverseEtlCronScheduleConfig`
-     */
-    public ReverseEtlCronScheduleConfig getReverseEtlCronScheduleConfig()
-            throws ClassCastException {
-        return (ReverseEtlCronScheduleConfig) super.getActualInstance();
-    }
-
-    /**
-     * Get the actual instance of `ReverseEtlDbtCloudScheduleConfig`. If the actual instance is not
-     * `ReverseEtlDbtCloudScheduleConfig`, the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `ReverseEtlDbtCloudScheduleConfig`
-     * @throws ClassCastException if the instance is not `ReverseEtlDbtCloudScheduleConfig`
-     */
-    public ReverseEtlDbtCloudScheduleConfig getReverseEtlDbtCloudScheduleConfig()
-            throws ClassCastException {
-        return (ReverseEtlDbtCloudScheduleConfig) super.getActualInstance();
+    public SpecificDaysConfig getSpecificDaysConfig() throws ClassCastException {
+        return (SpecificDaysConfig) super.getActualInstance();
     }
 
     /**
@@ -373,61 +227,33 @@ public class Config extends AbstractOpenApiSchema {
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         // validate anyOf schemas one by one
         ArrayList<String> errorMessages = new ArrayList<>();
-        // validate the json string with ReverseEtlPeriodicScheduleConfig
+        // validate the json string with PeriodicConfig
         try {
-            ReverseEtlPeriodicScheduleConfig.validateJsonElement(jsonElement);
+            PeriodicConfig.validateJsonElement(jsonElement);
             return;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
-                            "Deserialization for ReverseEtlPeriodicScheduleConfig failed with"
-                                    + " `%s`.",
+                            "Deserialization for PeriodicConfig failed with `%s`.",
                             e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with ReverseEtlSpecificTimeScheduleConfig
+        // validate the json string with SpecificDaysConfig
         try {
-            ReverseEtlSpecificTimeScheduleConfig.validateJsonElement(jsonElement);
+            SpecificDaysConfig.validateJsonElement(jsonElement);
             return;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
-                            "Deserialization for ReverseEtlSpecificTimeScheduleConfig failed with"
-                                    + " `%s`.",
-                            e.getMessage()));
-            // continue to the next one
-        }
-        // validate the json string with ReverseEtlCronScheduleConfig
-        try {
-            ReverseEtlCronScheduleConfig.validateJsonElement(jsonElement);
-            return;
-        } catch (Exception e) {
-            errorMessages.add(
-                    String.format(
-                            "Deserialization for ReverseEtlCronScheduleConfig failed with `%s`.",
-                            e.getMessage()));
-            // continue to the next one
-        }
-        // validate the json string with ReverseEtlDbtCloudScheduleConfig
-        try {
-            ReverseEtlDbtCloudScheduleConfig.validateJsonElement(jsonElement);
-            return;
-        } catch (Exception e) {
-            errorMessages.add(
-                    String.format(
-                            "Deserialization for ReverseEtlDbtCloudScheduleConfig failed with"
-                                    + " `%s`.",
+                            "Deserialization for SpecificDaysConfig failed with `%s`.",
                             e.getMessage()));
             // continue to the next one
         }
         throw new IOException(
                 String.format(
-                        "The JSON string is invalid for Config with anyOf schemas:"
-                            + " ReverseEtlCronScheduleConfig, ReverseEtlDbtCloudScheduleConfig,"
-                            + " ReverseEtlPeriodicScheduleConfig,"
-                            + " ReverseEtlSpecificTimeScheduleConfig. no class match the result,"
-                            + " expected at least 1. Detailed failure message for anyOf schemas:"
-                            + " %s. JSON: %s",
+                        "The JSON string is invalid for Config with anyOf schemas: PeriodicConfig,"
+                            + " SpecificDaysConfig. no class match the result, expected at least 1."
+                            + " Detailed failure message for anyOf schemas: %s. JSON: %s",
                         errorMessages, jsonElement.toString()));
     }
 
