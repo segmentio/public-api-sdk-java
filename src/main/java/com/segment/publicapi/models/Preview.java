@@ -27,34 +27,33 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** GetAudienceScheduleFromSpaceAndAudience200Response */
-public class GetAudienceScheduleFromSpaceAndAudience200Response {
-    public static final String SERIALIZED_NAME_DATA = "data";
+/** Preview */
+public class Preview {
+    public static final String SERIALIZED_NAME_ID = "id";
 
-    @SerializedName(SERIALIZED_NAME_DATA)
-    private GetAudienceScheduleFromSpaceAndAudienceAlphaOutput data;
+    @SerializedName(SERIALIZED_NAME_ID)
+    private String id;
 
-    public GetAudienceScheduleFromSpaceAndAudience200Response() {}
+    public Preview() {}
 
-    public GetAudienceScheduleFromSpaceAndAudience200Response data(
-            GetAudienceScheduleFromSpaceAndAudienceAlphaOutput data) {
+    public Preview id(String id) {
 
-        this.data = data;
+        this.id = id;
         return this;
     }
 
     /**
-     * Get data
+     * Unique identifier for tracking and retrieving results of the preview.
      *
-     * @return data
+     * @return id
      */
-    @javax.annotation.Nullable
-    public GetAudienceScheduleFromSpaceAndAudienceAlphaOutput getData() {
-        return data;
+    @javax.annotation.Nonnull
+    public String getId() {
+        return id;
     }
 
-    public void setData(GetAudienceScheduleFromSpaceAndAudienceAlphaOutput data) {
-        this.data = data;
+    public void setId(String id) {
+        this.id = id;
     }
 
     @Override
@@ -65,22 +64,20 @@ public class GetAudienceScheduleFromSpaceAndAudience200Response {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        GetAudienceScheduleFromSpaceAndAudience200Response
-                getAudienceScheduleFromSpaceAndAudience200Response =
-                        (GetAudienceScheduleFromSpaceAndAudience200Response) o;
-        return Objects.equals(this.data, getAudienceScheduleFromSpaceAndAudience200Response.data);
+        Preview preview = (Preview) o;
+        return Objects.equals(this.id, preview.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(data);
+        return Objects.hash(id);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class GetAudienceScheduleFromSpaceAndAudience200Response {\n");
-        sb.append("    data: ").append(toIndentedString(data)).append("\n");
+        sb.append("class Preview {\n");
+        sb.append("    id: ").append(toIndentedString(id)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -102,52 +99,59 @@ public class GetAudienceScheduleFromSpaceAndAudience200Response {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("data");
+        openapiFields.add("id");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
+        openapiRequiredFields.add("id");
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to
-     *     GetAudienceScheduleFromSpaceAndAudience200Response
+     * @throws IOException if the JSON Element is invalid with respect to Preview
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!GetAudienceScheduleFromSpaceAndAudience200Response.openapiRequiredFields
+            if (!Preview.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in"
-                                    + " GetAudienceScheduleFromSpaceAndAudience200Response is not"
-                                    + " found in the empty JSON string",
-                                GetAudienceScheduleFromSpaceAndAudience200Response
-                                        .openapiRequiredFields
-                                        .toString()));
+                                "The required field(s) %s in Preview is not found in the empty JSON"
+                                        + " string",
+                                Preview.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!GetAudienceScheduleFromSpaceAndAudience200Response.openapiFields.contains(
-                    entry.getKey())) {
+            if (!Preview.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
-                                "The field `%s` in the JSON string is not defined in the"
-                                        + " `GetAudienceScheduleFromSpaceAndAudience200Response`"
+                                "The field `%s` in the JSON string is not defined in the `Preview`"
                                         + " properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
+
+        // check to make sure all required properties/fields are present in the JSON string
+        for (String requiredField : Preview.openapiRequiredFields) {
+            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+                throw new IllegalArgumentException(
+                        String.format(
+                                "The required field `%s` is not found in the JSON string: %s",
+                                requiredField, jsonElement.toString()));
+            }
+        }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        // validate the optional field `data`
-        if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-            GetAudienceScheduleFromSpaceAndAudienceAlphaOutput.validateJsonElement(
-                    jsonObj.get("data"));
+        if (!jsonObj.get("id").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `id` to be a primitive type in the JSON string but"
+                                    + " got `%s`",
+                            jsonObj.get("id").toString()));
         }
     }
 
@@ -155,33 +159,23 @@ public class GetAudienceScheduleFromSpaceAndAudience200Response {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!GetAudienceScheduleFromSpaceAndAudience200Response.class.isAssignableFrom(
-                    type.getRawType())) {
-                return null; // this class only serializes
-                // 'GetAudienceScheduleFromSpaceAndAudience200Response' and its
-                // subtypes
+            if (!Preview.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'Preview' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<GetAudienceScheduleFromSpaceAndAudience200Response> thisAdapter =
-                    gson.getDelegateAdapter(
-                            this,
-                            TypeToken.get(
-                                    GetAudienceScheduleFromSpaceAndAudience200Response.class));
+            final TypeAdapter<Preview> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(Preview.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<GetAudienceScheduleFromSpaceAndAudience200Response>() {
+                    new TypeAdapter<Preview>() {
                         @Override
-                        public void write(
-                                JsonWriter out,
-                                GetAudienceScheduleFromSpaceAndAudience200Response value)
-                                throws IOException {
+                        public void write(JsonWriter out, Preview value) throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public GetAudienceScheduleFromSpaceAndAudience200Response read(
-                                JsonReader in) throws IOException {
+                        public Preview read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -191,21 +185,18 @@ public class GetAudienceScheduleFromSpaceAndAudience200Response {
     }
 
     /**
-     * Create an instance of GetAudienceScheduleFromSpaceAndAudience200Response given an JSON string
+     * Create an instance of Preview given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of GetAudienceScheduleFromSpaceAndAudience200Response
-     * @throws IOException if the JSON string is invalid with respect to
-     *     GetAudienceScheduleFromSpaceAndAudience200Response
+     * @return An instance of Preview
+     * @throws IOException if the JSON string is invalid with respect to Preview
      */
-    public static GetAudienceScheduleFromSpaceAndAudience200Response fromJson(String jsonString)
-            throws IOException {
-        return JSON.getGson()
-                .fromJson(jsonString, GetAudienceScheduleFromSpaceAndAudience200Response.class);
+    public static Preview fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, Preview.class);
     }
 
     /**
-     * Convert an instance of GetAudienceScheduleFromSpaceAndAudience200Response to an JSON string
+     * Convert an instance of Preview to an JSON string
      *
      * @return JSON string
      */

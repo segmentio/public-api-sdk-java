@@ -27,34 +27,33 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Output for get audience schedule. */
-public class GetAudienceScheduleFromSpaceAndAudienceAlphaOutput {
-    public static final String SERIALIZED_NAME_AUDIENCE_SCHEDULE = "audienceSchedule";
+/** PreviewAudienceOutput */
+public class PreviewAudienceOutput {
+    public static final String SERIALIZED_NAME_PREVIEW = "preview";
 
-    @SerializedName(SERIALIZED_NAME_AUDIENCE_SCHEDULE)
-    private AudienceSchedule audienceSchedule;
+    @SerializedName(SERIALIZED_NAME_PREVIEW)
+    private Preview preview;
 
-    public GetAudienceScheduleFromSpaceAndAudienceAlphaOutput() {}
+    public PreviewAudienceOutput() {}
 
-    public GetAudienceScheduleFromSpaceAndAudienceAlphaOutput audienceSchedule(
-            AudienceSchedule audienceSchedule) {
+    public PreviewAudienceOutput preview(Preview preview) {
 
-        this.audienceSchedule = audienceSchedule;
+        this.preview = preview;
         return this;
     }
 
     /**
-     * Get audienceSchedule
+     * Get preview
      *
-     * @return audienceSchedule
+     * @return preview
      */
     @javax.annotation.Nonnull
-    public AudienceSchedule getAudienceSchedule() {
-        return audienceSchedule;
+    public Preview getPreview() {
+        return preview;
     }
 
-    public void setAudienceSchedule(AudienceSchedule audienceSchedule) {
-        this.audienceSchedule = audienceSchedule;
+    public void setPreview(Preview preview) {
+        this.preview = preview;
     }
 
     @Override
@@ -65,24 +64,20 @@ public class GetAudienceScheduleFromSpaceAndAudienceAlphaOutput {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        GetAudienceScheduleFromSpaceAndAudienceAlphaOutput
-                getAudienceScheduleFromSpaceAndAudienceAlphaOutput =
-                        (GetAudienceScheduleFromSpaceAndAudienceAlphaOutput) o;
-        return Objects.equals(
-                this.audienceSchedule,
-                getAudienceScheduleFromSpaceAndAudienceAlphaOutput.audienceSchedule);
+        PreviewAudienceOutput previewAudienceOutput = (PreviewAudienceOutput) o;
+        return Objects.equals(this.preview, previewAudienceOutput.preview);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(audienceSchedule);
+        return Objects.hash(preview);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class GetAudienceScheduleFromSpaceAndAudienceAlphaOutput {\n");
-        sb.append("    audienceSchedule: ").append(toIndentedString(audienceSchedule)).append("\n");
+        sb.append("class PreviewAudienceOutput {\n");
+        sb.append("    preview: ").append(toIndentedString(preview)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -104,52 +99,45 @@ public class GetAudienceScheduleFromSpaceAndAudienceAlphaOutput {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("audienceSchedule");
+        openapiFields.add("preview");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("audienceSchedule");
+        openapiRequiredFields.add("preview");
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to
-     *     GetAudienceScheduleFromSpaceAndAudienceAlphaOutput
+     * @throws IOException if the JSON Element is invalid with respect to PreviewAudienceOutput
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!GetAudienceScheduleFromSpaceAndAudienceAlphaOutput.openapiRequiredFields
+            if (!PreviewAudienceOutput.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in"
-                                    + " GetAudienceScheduleFromSpaceAndAudienceAlphaOutput is not"
-                                    + " found in the empty JSON string",
-                                GetAudienceScheduleFromSpaceAndAudienceAlphaOutput
-                                        .openapiRequiredFields
-                                        .toString()));
+                                "The required field(s) %s in PreviewAudienceOutput is not found in"
+                                        + " the empty JSON string",
+                                PreviewAudienceOutput.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!GetAudienceScheduleFromSpaceAndAudienceAlphaOutput.openapiFields.contains(
-                    entry.getKey())) {
+            if (!PreviewAudienceOutput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `GetAudienceScheduleFromSpaceAndAudienceAlphaOutput`"
-                                        + " properties. JSON: %s",
+                                        + " `PreviewAudienceOutput` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField :
-                GetAudienceScheduleFromSpaceAndAudienceAlphaOutput.openapiRequiredFields) {
+        for (String requiredField : PreviewAudienceOutput.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -158,41 +146,32 @@ public class GetAudienceScheduleFromSpaceAndAudienceAlphaOutput {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        // validate the required field `audienceSchedule`
-        AudienceSchedule.validateJsonElement(jsonObj.get("audienceSchedule"));
+        // validate the required field `preview`
+        Preview.validateJsonElement(jsonObj.get("preview"));
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!GetAudienceScheduleFromSpaceAndAudienceAlphaOutput.class.isAssignableFrom(
-                    type.getRawType())) {
-                return null; // this class only serializes
-                // 'GetAudienceScheduleFromSpaceAndAudienceAlphaOutput' and its
-                // subtypes
+            if (!PreviewAudienceOutput.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'PreviewAudienceOutput' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<GetAudienceScheduleFromSpaceAndAudienceAlphaOutput> thisAdapter =
-                    gson.getDelegateAdapter(
-                            this,
-                            TypeToken.get(
-                                    GetAudienceScheduleFromSpaceAndAudienceAlphaOutput.class));
+            final TypeAdapter<PreviewAudienceOutput> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(PreviewAudienceOutput.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<GetAudienceScheduleFromSpaceAndAudienceAlphaOutput>() {
+                    new TypeAdapter<PreviewAudienceOutput>() {
                         @Override
-                        public void write(
-                                JsonWriter out,
-                                GetAudienceScheduleFromSpaceAndAudienceAlphaOutput value)
+                        public void write(JsonWriter out, PreviewAudienceOutput value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public GetAudienceScheduleFromSpaceAndAudienceAlphaOutput read(
-                                JsonReader in) throws IOException {
+                        public PreviewAudienceOutput read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -202,21 +181,18 @@ public class GetAudienceScheduleFromSpaceAndAudienceAlphaOutput {
     }
 
     /**
-     * Create an instance of GetAudienceScheduleFromSpaceAndAudienceAlphaOutput given an JSON string
+     * Create an instance of PreviewAudienceOutput given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of GetAudienceScheduleFromSpaceAndAudienceAlphaOutput
-     * @throws IOException if the JSON string is invalid with respect to
-     *     GetAudienceScheduleFromSpaceAndAudienceAlphaOutput
+     * @return An instance of PreviewAudienceOutput
+     * @throws IOException if the JSON string is invalid with respect to PreviewAudienceOutput
      */
-    public static GetAudienceScheduleFromSpaceAndAudienceAlphaOutput fromJson(String jsonString)
-            throws IOException {
-        return JSON.getGson()
-                .fromJson(jsonString, GetAudienceScheduleFromSpaceAndAudienceAlphaOutput.class);
+    public static PreviewAudienceOutput fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, PreviewAudienceOutput.class);
     }
 
     /**
-     * Convert an instance of GetAudienceScheduleFromSpaceAndAudienceAlphaOutput to an JSON string
+     * Convert an instance of PreviewAudienceOutput to an JSON string
      *
      * @return JSON string
      */

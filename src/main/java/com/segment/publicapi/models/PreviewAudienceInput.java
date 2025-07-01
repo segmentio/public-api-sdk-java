@@ -28,8 +28,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Input to create an audience preview. */
-public class CreateAudiencePreviewAlphaInput {
+/** Input to preview an audience. */
+public class PreviewAudienceInput {
     public static final String SERIALIZED_NAME_DEFINITION = "definition";
 
     @SerializedName(SERIALIZED_NAME_DEFINITION)
@@ -89,11 +89,11 @@ public class CreateAudiencePreviewAlphaInput {
     public static final String SERIALIZED_NAME_OPTIONS = "options";
 
     @SerializedName(SERIALIZED_NAME_OPTIONS)
-    private CreateAudiencePreviewOptions options;
+    private AudienceOptionsWithLookback options;
 
-    public CreateAudiencePreviewAlphaInput() {}
+    public PreviewAudienceInput() {}
 
-    public CreateAudiencePreviewAlphaInput definition(AudienceDefinitionWithoutType definition) {
+    public PreviewAudienceInput definition(AudienceDefinitionWithoutType definition) {
 
         this.definition = definition;
         return this;
@@ -113,7 +113,7 @@ public class CreateAudiencePreviewAlphaInput {
         this.definition = definition;
     }
 
-    public CreateAudiencePreviewAlphaInput audienceType(AudienceTypeEnum audienceType) {
+    public PreviewAudienceInput audienceType(AudienceTypeEnum audienceType) {
 
         this.audienceType = audienceType;
         return this;
@@ -133,7 +133,7 @@ public class CreateAudiencePreviewAlphaInput {
         this.audienceType = audienceType;
     }
 
-    public CreateAudiencePreviewAlphaInput options(CreateAudiencePreviewOptions options) {
+    public PreviewAudienceInput options(AudienceOptionsWithLookback options) {
 
         this.options = options;
         return this;
@@ -145,11 +145,11 @@ public class CreateAudiencePreviewAlphaInput {
      * @return options
      */
     @javax.annotation.Nullable
-    public CreateAudiencePreviewOptions getOptions() {
+    public AudienceOptionsWithLookback getOptions() {
         return options;
     }
 
-    public void setOptions(CreateAudiencePreviewOptions options) {
+    public void setOptions(AudienceOptionsWithLookback options) {
         this.options = options;
     }
 
@@ -161,11 +161,10 @@ public class CreateAudiencePreviewAlphaInput {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        CreateAudiencePreviewAlphaInput createAudiencePreviewAlphaInput =
-                (CreateAudiencePreviewAlphaInput) o;
-        return Objects.equals(this.definition, createAudiencePreviewAlphaInput.definition)
-                && Objects.equals(this.audienceType, createAudiencePreviewAlphaInput.audienceType)
-                && Objects.equals(this.options, createAudiencePreviewAlphaInput.options);
+        PreviewAudienceInput previewAudienceInput = (PreviewAudienceInput) o;
+        return Objects.equals(this.definition, previewAudienceInput.definition)
+                && Objects.equals(this.audienceType, previewAudienceInput.audienceType)
+                && Objects.equals(this.options, previewAudienceInput.options);
     }
 
     @Override
@@ -176,7 +175,7 @@ public class CreateAudiencePreviewAlphaInput {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CreateAudiencePreviewAlphaInput {\n");
+        sb.append("class PreviewAudienceInput {\n");
         sb.append("    definition: ").append(toIndentedString(definition)).append("\n");
         sb.append("    audienceType: ").append(toIndentedString(audienceType)).append("\n");
         sb.append("    options: ").append(toIndentedString(options)).append("\n");
@@ -215,35 +214,34 @@ public class CreateAudiencePreviewAlphaInput {
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to
-     *     CreateAudiencePreviewAlphaInput
+     * @throws IOException if the JSON Element is invalid with respect to PreviewAudienceInput
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!CreateAudiencePreviewAlphaInput.openapiRequiredFields
+            if (!PreviewAudienceInput.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in CreateAudiencePreviewAlphaInput is not"
-                                        + " found in the empty JSON string",
-                                CreateAudiencePreviewAlphaInput.openapiRequiredFields.toString()));
+                                "The required field(s) %s in PreviewAudienceInput is not found in"
+                                        + " the empty JSON string",
+                                PreviewAudienceInput.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!CreateAudiencePreviewAlphaInput.openapiFields.contains(entry.getKey())) {
+            if (!PreviewAudienceInput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `CreateAudiencePreviewAlphaInput` properties. JSON: %s",
+                                        + " `PreviewAudienceInput` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : CreateAudiencePreviewAlphaInput.openapiRequiredFields) {
+        for (String requiredField : PreviewAudienceInput.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -263,7 +261,7 @@ public class CreateAudiencePreviewAlphaInput {
         }
         // validate the optional field `options`
         if (jsonObj.get("options") != null && !jsonObj.get("options").isJsonNull()) {
-            CreateAudiencePreviewOptions.validateJsonElement(jsonObj.get("options"));
+            AudienceOptionsWithLookback.validateJsonElement(jsonObj.get("options"));
         }
     }
 
@@ -271,27 +269,24 @@ public class CreateAudiencePreviewAlphaInput {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!CreateAudiencePreviewAlphaInput.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'CreateAudiencePreviewAlphaInput' and its
-                // subtypes
+            if (!PreviewAudienceInput.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'PreviewAudienceInput' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<CreateAudiencePreviewAlphaInput> thisAdapter =
-                    gson.getDelegateAdapter(
-                            this, TypeToken.get(CreateAudiencePreviewAlphaInput.class));
+            final TypeAdapter<PreviewAudienceInput> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(PreviewAudienceInput.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<CreateAudiencePreviewAlphaInput>() {
+                    new TypeAdapter<PreviewAudienceInput>() {
                         @Override
-                        public void write(JsonWriter out, CreateAudiencePreviewAlphaInput value)
+                        public void write(JsonWriter out, PreviewAudienceInput value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public CreateAudiencePreviewAlphaInput read(JsonReader in)
-                                throws IOException {
+                        public PreviewAudienceInput read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -301,19 +296,18 @@ public class CreateAudiencePreviewAlphaInput {
     }
 
     /**
-     * Create an instance of CreateAudiencePreviewAlphaInput given an JSON string
+     * Create an instance of PreviewAudienceInput given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of CreateAudiencePreviewAlphaInput
-     * @throws IOException if the JSON string is invalid with respect to
-     *     CreateAudiencePreviewAlphaInput
+     * @return An instance of PreviewAudienceInput
+     * @throws IOException if the JSON string is invalid with respect to PreviewAudienceInput
      */
-    public static CreateAudiencePreviewAlphaInput fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, CreateAudiencePreviewAlphaInput.class);
+    public static PreviewAudienceInput fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, PreviewAudienceInput.class);
     }
 
     /**
-     * Convert an instance of CreateAudiencePreviewAlphaInput to an JSON string
+     * Convert an instance of PreviewAudienceInput to an JSON string
      *
      * @return JSON string
      */

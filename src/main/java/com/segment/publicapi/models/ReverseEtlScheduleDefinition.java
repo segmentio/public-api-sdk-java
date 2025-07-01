@@ -95,7 +95,7 @@ public class ReverseEtlScheduleDefinition {
     public static final String SERIALIZED_NAME_CONFIG = "config";
 
     @SerializedName(SERIALIZED_NAME_CONFIG)
-    private Config1 config;
+    private Config config;
 
     public ReverseEtlScheduleDefinition() {}
 
@@ -119,7 +119,7 @@ public class ReverseEtlScheduleDefinition {
         this.strategy = strategy;
     }
 
-    public ReverseEtlScheduleDefinition config(Config1 config) {
+    public ReverseEtlScheduleDefinition config(Config config) {
 
         this.config = config;
         return this;
@@ -131,11 +131,11 @@ public class ReverseEtlScheduleDefinition {
      * @return config
      */
     @javax.annotation.Nullable
-    public Config1 getConfig() {
+    public Config getConfig() {
         return config;
     }
 
-    public void setConfig(Config1 config) {
+    public void setConfig(Config config) {
         this.config = config;
     }
 
@@ -259,7 +259,7 @@ public class ReverseEtlScheduleDefinition {
         }
         // validate the optional field `config`
         if (jsonObj.get("config") != null && !jsonObj.get("config").isJsonNull()) {
-            Config1.validateJsonElement(jsonObj.get("config"));
+            Config.validateJsonElement(jsonObj.get("config"));
         }
     }
 

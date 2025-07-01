@@ -176,17 +176,6 @@ public class JSON {
                 new com.segment.publicapi.models.AudienceOptionsWithLookback
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.AudiencePreview.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.AudiencePreviewIdentifier
-                        .CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.AudiencePreviewResult.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.AudienceSchedule.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.AudienceSize.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.AudienceSummary.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.AudienceSummaryWithAudienceTypeAndLookback
@@ -223,8 +212,6 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.Config.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.Config1.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.Contact.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.CreateAudience200Response
@@ -234,18 +221,6 @@ public class JSON {
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.CreateAudienceAlphaOutput
-                        .CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.CreateAudiencePreview200Response
-                        .CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.CreateAudiencePreviewAlphaInput
-                        .CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.CreateAudiencePreviewAlphaOutput
-                        .CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.CreateAudiencePreviewOptions
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.CreateCloudSourceRegulation200Response
@@ -681,18 +656,6 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.GetAudienceBetaOutput.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.GetAudiencePreview200Response
-                        .CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.GetAudiencePreviewAlphaOutput
-                        .CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.GetAudienceScheduleFromSpaceAndAudience200Response
-                        .CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.GetAudienceScheduleFromSpaceAndAudienceAlphaOutput
-                        .CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.GetComputedTrait200Response
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
@@ -942,14 +905,6 @@ public class JSON {
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.ListAudienceConsumersSortInput
-                        .CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models
-                        .ListAudienceSchedulesFromSpaceAndAudience200Response
-                        .CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models
-                        .ListAudienceSchedulesFromSpaceAndAudienceAlphaOutput
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.ListAudiences200Response
@@ -1247,13 +1202,20 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.PaginationOutput.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.PeriodicConfig.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.PermissionInputV1.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.PermissionResourceV1.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.PermissionV1.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.Preview.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.PreviewAudience200Response
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.PreviewAudienceInput.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.PreviewAudienceOutput.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.PreviewDestinationFilter200Response
                         .CustomTypeAdapterFactory());
@@ -1277,9 +1239,6 @@ public class JSON {
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.PropertyValueTransformationV1
-                        .CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.ReadAudiencePreviewOptions
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.Regulation.CustomTypeAdapterFactory());
@@ -1489,8 +1448,6 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.SpaceWarehouseSelectiveSyncItemAlpha
                         .CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.SpecificDaysConfig.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.StreamStatusV1.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
