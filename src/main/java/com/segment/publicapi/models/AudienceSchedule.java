@@ -30,18 +30,16 @@ import java.util.Objects;
 import java.util.Set;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/**
- * Defines a configuration object used for scheduling, which can vary depending on the configured
- * strategy.
- */
-public class ReverseEtlScheduleDefinition {
-    /** Strategy supports: Periodic, Specific Days, Manual, CRON and DBT_CLOUD. */
+/** Defines an Audience Schedule. */
+public class AudienceSchedule {
+    public static final String SERIALIZED_NAME_ID = "id";
+
+    @SerializedName(SERIALIZED_NAME_ID)
+    private String id;
+
+    /** Strategy of the audience schedule (manual, periodic, or specific days). */
     @JsonAdapter(StrategyEnum.Adapter.class)
     public enum StrategyEnum {
-        CRON("CRON"),
-
-        DBT_CLOUD("DBT_CLOUD"),
-
         MANUAL("MANUAL"),
 
         PERIODIC("PERIODIC"),
@@ -95,18 +93,43 @@ public class ReverseEtlScheduleDefinition {
     public static final String SERIALIZED_NAME_CONFIG = "config";
 
     @SerializedName(SERIALIZED_NAME_CONFIG)
-    private Config1 config;
+    private Config config;
 
-    public ReverseEtlScheduleDefinition() {}
+    public static final String SERIALIZED_NAME_NEXT_EXECUTION = "nextExecution";
 
-    public ReverseEtlScheduleDefinition strategy(StrategyEnum strategy) {
+    @SerializedName(SERIALIZED_NAME_NEXT_EXECUTION)
+    private String nextExecution;
+
+    public AudienceSchedule() {}
+
+    public AudienceSchedule id(String id) {
+
+        this.id = id;
+        return this;
+    }
+
+    /**
+     * Distinct identifier for the schedule.
+     *
+     * @return id
+     */
+    @javax.annotation.Nonnull
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public AudienceSchedule strategy(StrategyEnum strategy) {
 
         this.strategy = strategy;
         return this;
     }
 
     /**
-     * Strategy supports: Periodic, Specific Days, Manual, CRON and DBT_CLOUD.
+     * Strategy of the audience schedule (manual, periodic, or specific days).
      *
      * @return strategy
      */
@@ -119,7 +142,7 @@ public class ReverseEtlScheduleDefinition {
         this.strategy = strategy;
     }
 
-    public ReverseEtlScheduleDefinition config(Config1 config) {
+    public AudienceSchedule config(Config config) {
 
         this.config = config;
         return this;
@@ -131,12 +154,32 @@ public class ReverseEtlScheduleDefinition {
      * @return config
      */
     @javax.annotation.Nullable
-    public Config1 getConfig() {
+    public Config getConfig() {
         return config;
     }
 
-    public void setConfig(Config1 config) {
+    public void setConfig(Config config) {
         this.config = config;
+    }
+
+    public AudienceSchedule nextExecution(String nextExecution) {
+
+        this.nextExecution = nextExecution;
+        return this;
+    }
+
+    /**
+     * The next scheduled execution time (RFC3339).
+     *
+     * @return nextExecution
+     */
+    @javax.annotation.Nullable
+    public String getNextExecution() {
+        return nextExecution;
+    }
+
+    public void setNextExecution(String nextExecution) {
+        this.nextExecution = nextExecution;
     }
 
     @Override
@@ -147,10 +190,11 @@ public class ReverseEtlScheduleDefinition {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        ReverseEtlScheduleDefinition reverseEtlScheduleDefinition =
-                (ReverseEtlScheduleDefinition) o;
-        return Objects.equals(this.strategy, reverseEtlScheduleDefinition.strategy)
-                && Objects.equals(this.config, reverseEtlScheduleDefinition.config);
+        AudienceSchedule audienceSchedule = (AudienceSchedule) o;
+        return Objects.equals(this.id, audienceSchedule.id)
+                && Objects.equals(this.strategy, audienceSchedule.strategy)
+                && Objects.equals(this.config, audienceSchedule.config)
+                && Objects.equals(this.nextExecution, audienceSchedule.nextExecution);
     }
 
     private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -164,7 +208,7 @@ public class ReverseEtlScheduleDefinition {
 
     @Override
     public int hashCode() {
-        return Objects.hash(strategy, config);
+        return Objects.hash(id, strategy, config, nextExecution);
     }
 
     private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -177,9 +221,11 @@ public class ReverseEtlScheduleDefinition {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ReverseEtlScheduleDefinition {\n");
+        sb.append("class AudienceSchedule {\n");
+        sb.append("    id: ").append(toIndentedString(id)).append("\n");
         sb.append("    strategy: ").append(toIndentedString(strategy)).append("\n");
         sb.append("    config: ").append(toIndentedString(config)).append("\n");
+        sb.append("    nextExecution: ").append(toIndentedString(nextExecution)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -201,11 +247,14 @@ public class ReverseEtlScheduleDefinition {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
+        openapiFields.add("id");
         openapiFields.add("strategy");
         openapiFields.add("config");
+        openapiFields.add("nextExecution");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
+        openapiRequiredFields.add("id");
         openapiRequiredFields.add("strategy");
     }
 
@@ -213,35 +262,34 @@ public class ReverseEtlScheduleDefinition {
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to
-     *     ReverseEtlScheduleDefinition
+     * @throws IOException if the JSON Element is invalid with respect to AudienceSchedule
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!ReverseEtlScheduleDefinition.openapiRequiredFields
+            if (!AudienceSchedule.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in ReverseEtlScheduleDefinition is not"
-                                        + " found in the empty JSON string",
-                                ReverseEtlScheduleDefinition.openapiRequiredFields.toString()));
+                                "The required field(s) %s in AudienceSchedule is not found in the"
+                                        + " empty JSON string",
+                                AudienceSchedule.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!ReverseEtlScheduleDefinition.openapiFields.contains(entry.getKey())) {
+            if (!AudienceSchedule.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `ReverseEtlScheduleDefinition` properties. JSON: %s",
+                                        + " `AudienceSchedule` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : ReverseEtlScheduleDefinition.openapiRequiredFields) {
+        for (String requiredField : AudienceSchedule.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -250,6 +298,13 @@ public class ReverseEtlScheduleDefinition {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+        if (!jsonObj.get("id").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `id` to be a primitive type in the JSON string but"
+                                    + " got `%s`",
+                            jsonObj.get("id").toString()));
+        }
         if (!jsonObj.get("strategy").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -259,7 +314,15 @@ public class ReverseEtlScheduleDefinition {
         }
         // validate the optional field `config`
         if (jsonObj.get("config") != null && !jsonObj.get("config").isJsonNull()) {
-            Config1.validateJsonElement(jsonObj.get("config"));
+            Config.validateJsonElement(jsonObj.get("config"));
+        }
+        if ((jsonObj.get("nextExecution") != null && !jsonObj.get("nextExecution").isJsonNull())
+                && !jsonObj.get("nextExecution").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `nextExecution` to be a primitive type in the JSON"
+                                    + " string but got `%s`",
+                            jsonObj.get("nextExecution").toString()));
         }
     }
 
@@ -267,26 +330,24 @@ public class ReverseEtlScheduleDefinition {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!ReverseEtlScheduleDefinition.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'ReverseEtlScheduleDefinition' and its
-                // subtypes
+            if (!AudienceSchedule.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'AudienceSchedule' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<ReverseEtlScheduleDefinition> thisAdapter =
-                    gson.getDelegateAdapter(
-                            this, TypeToken.get(ReverseEtlScheduleDefinition.class));
+            final TypeAdapter<AudienceSchedule> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(AudienceSchedule.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<ReverseEtlScheduleDefinition>() {
+                    new TypeAdapter<AudienceSchedule>() {
                         @Override
-                        public void write(JsonWriter out, ReverseEtlScheduleDefinition value)
+                        public void write(JsonWriter out, AudienceSchedule value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public ReverseEtlScheduleDefinition read(JsonReader in) throws IOException {
+                        public AudienceSchedule read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -296,19 +357,18 @@ public class ReverseEtlScheduleDefinition {
     }
 
     /**
-     * Create an instance of ReverseEtlScheduleDefinition given an JSON string
+     * Create an instance of AudienceSchedule given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of ReverseEtlScheduleDefinition
-     * @throws IOException if the JSON string is invalid with respect to
-     *     ReverseEtlScheduleDefinition
+     * @return An instance of AudienceSchedule
+     * @throws IOException if the JSON string is invalid with respect to AudienceSchedule
      */
-    public static ReverseEtlScheduleDefinition fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, ReverseEtlScheduleDefinition.class);
+    public static AudienceSchedule fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, AudienceSchedule.class);
     }
 
     /**
-     * Convert an instance of ReverseEtlScheduleDefinition to an JSON string
+     * Convert an instance of AudienceSchedule to an JSON string
      *
      * @return JSON string
      */

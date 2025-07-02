@@ -8,7 +8,9 @@ All URIs are relative to *https://api.segmentapis.com*
 | [**createAudiencePreview**](AudiencesApi.md#createAudiencePreview) | **POST** /spaces/{spaceId}/audiences/previews | Create Audience Preview |
 | [**getAudience**](AudiencesApi.md#getAudience) | **GET** /spaces/{spaceId}/audiences/{id} | Get Audience |
 | [**getAudiencePreview**](AudiencesApi.md#getAudiencePreview) | **GET** /spaces/{spaceId}/audiences/previews/{id} | Get Audience Preview |
+| [**getAudienceScheduleFromSpaceAndAudience**](AudiencesApi.md#getAudienceScheduleFromSpaceAndAudience) | **GET** /spaces/{spaceId}/audiences/{id}/schedules/{scheduleId} | Get Audience Schedule from Space And Audience |
 | [**listAudienceConsumersFromSpaceAndAudience**](AudiencesApi.md#listAudienceConsumersFromSpaceAndAudience) | **GET** /spaces/{spaceId}/audiences/{id}/audience-references | List Audience Consumers from Space And Audience |
+| [**listAudienceSchedulesFromSpaceAndAudience**](AudiencesApi.md#listAudienceSchedulesFromSpaceAndAudience) | **GET** /spaces/{spaceId}/audiences/{id}/schedules | List Audience Schedules from Space And Audience |
 | [**listAudiences**](AudiencesApi.md#listAudiences) | **GET** /spaces/{spaceId}/audiences | List Audiences |
 | [**removeAudienceFromSpace**](AudiencesApi.md#removeAudienceFromSpace) | **DELETE** /spaces/{spaceId}/audiences/{id} | Remove Audience from Space |
 | [**updateAudienceForSpace**](AudiencesApi.md#updateAudienceForSpace) | **PATCH** /spaces/{spaceId}/audiences/{id} | Update Audience for Space |
@@ -167,11 +169,11 @@ public class Example {
 
 ## Operation: getAudience
 
-> GetAudience200Response getAudience(spaceId, id)
+> GetAudience200Response getAudience(spaceId, id, include)
 
 Get Audience
 
-Returns the Audience by id and spaceId.  • This endpoint is in **Beta** testing.  Please submit any feedback by sending an email to friends@segment.com.   • In order to successfully call this endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach out to your customer success manager for more information.   The rate limit for this endpoint is 100 requests per minute, which is lower than the default due to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+Returns the Audience by id and spaceId. Supports including audience schedules via &#x60;?include&#x3D;schedules&#x60;.  • This endpoint is in **Beta** testing.  Please submit any feedback by sending an email to friends@segment.com.   • In order to successfully call this endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach out to your customer success manager for more information.   The rate limit for this endpoint is 100 requests per minute, which is lower than the default due to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
 
 ### Example
 
@@ -194,9 +196,10 @@ public class Example {
 
         AudiencesApi apiInstance = new AudiencesApi(defaultClient);
         String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
-        String id = "id"; // String | 
+        String id = "aud_0ujsszwN8NRY24YaXiTIE2VWDTS"; // String | 
+        String include = "schedules"; // String | Additional resource to include, support schedules only.  This parameter exists in alpha.
         try {
-            GetAudience200Response result = apiInstance.getAudience(spaceId, id);
+            GetAudience200Response result = apiInstance.getAudience(spaceId, id, include);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AudiencesApi#getAudience");
@@ -216,6 +219,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **spaceId** | **String**|  | |
 | **id** | **String**|  | |
+| **include** | **String**| Additional resource to include, support schedules only.  This parameter exists in alpha. | [optional] [enum: schedules] |
 
 ### Return type
 
@@ -295,6 +299,83 @@ public class Example {
 ### Return type
 
 [**GetAudiencePreview200Response**](GetAudiencePreview200Response.md)
+
+### Authorization
+
+[token](../README.md#token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/vnd.segment.v1alpha+json, application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **404** | Resource not found |  -  |
+| **422** | Validation failure |  -  |
+| **429** | Too many requests |  -  |
+
+
+## Operation: getAudienceScheduleFromSpaceAndAudience
+
+> GetAudienceScheduleFromSpaceAndAudience200Response getAudienceScheduleFromSpaceAndAudience(spaceId, id, scheduleId)
+
+Get Audience Schedule from Space And Audience
+
+Returns the schedule for the given audience and scheduleId.  • This endpoint is in **Alpha** testing.  Please submit any feedback by sending an email to friends@segment.com.   • In order to successfully call this endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach out to your customer success manager for more information.
+
+### Example
+
+```java
+// Import classes:
+import com.segment.publicapi.ApiClient;
+import com.segment.publicapi.ApiException;
+import com.segment.publicapi.Configuration;
+import com.segment.publicapi.auth.*;
+import com.segment.publicapi.models.*;
+import com.segment.publicapi.api.AudiencesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        
+        // Configure HTTP bearer authorization: token
+        HttpBearerAuth token = (HttpBearerAuth) defaultClient.getAuthentication("token");
+        token.setBearerToken("BEARER TOKEN");
+
+        AudiencesApi apiInstance = new AudiencesApi(defaultClient);
+        String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
+        String id = "aud_0ujsszwN8NRY24YaXiTIE2VWDTS"; // String | 
+        String scheduleId = "sch_0ujsszwN8NRY24YaXiTIE2VWDTS"; // String | 
+        try {
+            GetAudienceScheduleFromSpaceAndAudience200Response result = apiInstance.getAudienceScheduleFromSpaceAndAudience(spaceId, id, scheduleId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AudiencesApi#getAudienceScheduleFromSpaceAndAudience");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **spaceId** | **String**|  | |
+| **id** | **String**|  | |
+| **scheduleId** | **String**|  | |
+
+### Return type
+
+[**GetAudienceScheduleFromSpaceAndAudience200Response**](GetAudienceScheduleFromSpaceAndAudience200Response.md)
 
 ### Authorization
 
@@ -396,13 +477,88 @@ public class Example {
 | **429** | Too many requests |  -  |
 
 
+## Operation: listAudienceSchedulesFromSpaceAndAudience
+
+> ListAudienceSchedulesFromSpaceAndAudience200Response listAudienceSchedulesFromSpaceAndAudience(spaceId, id)
+
+List Audience Schedules from Space And Audience
+
+Returns the list of schedules for the given audience.  • This endpoint is in **Alpha** testing.  Please submit any feedback by sending an email to friends@segment.com.   • In order to successfully call this endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach out to your customer success manager for more information.
+
+### Example
+
+```java
+// Import classes:
+import com.segment.publicapi.ApiClient;
+import com.segment.publicapi.ApiException;
+import com.segment.publicapi.Configuration;
+import com.segment.publicapi.auth.*;
+import com.segment.publicapi.models.*;
+import com.segment.publicapi.api.AudiencesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        
+        // Configure HTTP bearer authorization: token
+        HttpBearerAuth token = (HttpBearerAuth) defaultClient.getAuthentication("token");
+        token.setBearerToken("BEARER TOKEN");
+
+        AudiencesApi apiInstance = new AudiencesApi(defaultClient);
+        String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
+        String id = "aud_0ujsszwN8NRY24YaXiTIE2VWDTS"; // String | 
+        try {
+            ListAudienceSchedulesFromSpaceAndAudience200Response result = apiInstance.listAudienceSchedulesFromSpaceAndAudience(spaceId, id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AudiencesApi#listAudienceSchedulesFromSpaceAndAudience");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **spaceId** | **String**|  | |
+| **id** | **String**|  | |
+
+### Return type
+
+[**ListAudienceSchedulesFromSpaceAndAudience200Response**](ListAudienceSchedulesFromSpaceAndAudience200Response.md)
+
+### Authorization
+
+[token](../README.md#token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/vnd.segment.v1alpha+json, application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **404** | Resource not found |  -  |
+| **422** | Validation failure |  -  |
+| **429** | Too many requests |  -  |
+
+
 ## Operation: listAudiences
 
-> ListAudiences200Response listAudiences(spaceId, pagination)
+> ListAudiences200Response listAudiences(spaceId, pagination, include)
 
 List Audiences
 
-Returns Audiences by spaceId.  • This endpoint is in **Beta** testing.  Please submit any feedback by sending an email to friends@segment.com.   • In order to successfully call this endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach out to your customer success manager for more information.   The rate limit for this endpoint is 25 requests per minute, which is lower than the default due to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+Returns Audiences by spaceId. Supports including audience schedules via &#x60;?include&#x3D;schedules&#x60;.  • This endpoint is in **Beta** testing.  Please submit any feedback by sending an email to friends@segment.com.   • In order to successfully call this endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach out to your customer success manager for more information.   The rate limit for this endpoint is 25 requests per minute, which is lower than the default due to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
 
 ### Example
 
@@ -426,8 +582,9 @@ public class Example {
         AudiencesApi apiInstance = new AudiencesApi(defaultClient);
         String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
         ListAudiencesPaginationInput pagination = new ListAudiencesPaginationInput(); // ListAudiencesPaginationInput | Information about the pagination of this response.  [See pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters) for more info.  This parameter exists in alpha.
+        String include = "schedules"; // String | Additional resource to include, support schedules only.  This parameter exists in alpha.
         try {
-            ListAudiences200Response result = apiInstance.listAudiences(spaceId, pagination);
+            ListAudiences200Response result = apiInstance.listAudiences(spaceId, pagination, include);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AudiencesApi#listAudiences");
@@ -447,6 +604,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **spaceId** | **String**|  | |
 | **pagination** | [**ListAudiencesPaginationInput**](.md)| Information about the pagination of this response.  [See pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters) for more info.  This parameter exists in alpha. | [optional] |
+| **include** | **String**| Additional resource to include, support schedules only.  This parameter exists in alpha. | [optional] [enum: schedules] |
 
 ### Return type
 
@@ -500,7 +658,7 @@ public class Example {
 
         AudiencesApi apiInstance = new AudiencesApi(defaultClient);
         String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
-        String id = "aud_0ujsswThIGTUYm2K8FjOOfXtY1K"; // String | 
+        String id = "aud_0ujsszwN8NRY24YaXiTIE2VWDTS"; // String | 
         try {
             RemoveAudienceFromSpace200Response result = apiInstance.removeAudienceFromSpace(spaceId, id);
             System.out.println(result);
@@ -575,7 +733,7 @@ public class Example {
 
         AudiencesApi apiInstance = new AudiencesApi(defaultClient);
         String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
-        String id = "aud_0ujsswThIGTUYm2K8FjOOfXtY1K"; // String | 
+        String id = "aud_0ujsszwN8NRY24YaXiTIE2VWDTS"; // String | 
         UpdateAudienceForSpaceAlphaInput updateAudienceForSpaceAlphaInput = new UpdateAudienceForSpaceAlphaInput(); // UpdateAudienceForSpaceAlphaInput | 
         try {
             UpdateAudienceForSpace200Response result = apiInstance.updateAudienceForSpace(spaceId, id, updateAudienceForSpaceAlphaInput);
