@@ -22,39 +22,77 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Configures a periodic schedule interval. */
-public class PeriodicConfig {
-    public static final String SERIALIZED_NAME_INTERVAL = "interval";
+/**
+ * Result membership object for an audience preview with &#x60;audienceType: USERS&#x60; or
+ * &#x60;audienceType: LINKED&#x60;.
+ */
+public class AudiencePreviewProfileResult {
+    public static final String SERIALIZED_NAME_ID = "id";
 
-    @SerializedName(SERIALIZED_NAME_INTERVAL)
-    private String interval;
+    @SerializedName(SERIALIZED_NAME_ID)
+    private String id;
 
-    public PeriodicConfig() {}
+    public static final String SERIALIZED_NAME_ENTITIES = "entities";
 
-    public PeriodicConfig interval(String interval) {
+    @SerializedName(SERIALIZED_NAME_ENTITIES)
+    private Map<String, List<EntityDetails>> entities;
 
-        this.interval = interval;
+    public AudiencePreviewProfileResult() {}
+
+    public AudiencePreviewProfileResult id(String id) {
+
+        this.id = id;
         return this;
     }
 
     /**
-     * Go duration format string, only supporting units \&quot;day\&quot; (days), \&quot;h\&quot;
-     * (hours) and \&quot;m\&quot; (minutes).
+     * Segment id.
      *
-     * @return interval
+     * @return id
      */
     @javax.annotation.Nonnull
-    public String getInterval() {
-        return interval;
+    public String getId() {
+        return id;
     }
 
-    public void setInterval(String interval) {
-        this.interval = interval;
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public AudiencePreviewProfileResult entities(Map<String, List<EntityDetails>> entities) {
+
+        this.entities = entities;
+        return this;
+    }
+
+    public AudiencePreviewProfileResult putEntitiesItem(
+            String key, List<EntityDetails> entitiesItem) {
+        if (this.entities == null) {
+            this.entities = new HashMap<>();
+        }
+        this.entities.put(key, entitiesItem);
+        return this;
+    }
+
+    /**
+     * Associated entities.
+     *
+     * @return entities
+     */
+    @javax.annotation.Nullable
+    public Map<String, List<EntityDetails>> getEntities() {
+        return entities;
+    }
+
+    public void setEntities(Map<String, List<EntityDetails>> entities) {
+        this.entities = entities;
     }
 
     @Override
@@ -65,20 +103,23 @@ public class PeriodicConfig {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        PeriodicConfig periodicConfig = (PeriodicConfig) o;
-        return Objects.equals(this.interval, periodicConfig.interval);
+        AudiencePreviewProfileResult audiencePreviewProfileResult =
+                (AudiencePreviewProfileResult) o;
+        return Objects.equals(this.id, audiencePreviewProfileResult.id)
+                && Objects.equals(this.entities, audiencePreviewProfileResult.entities);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(interval);
+        return Objects.hash(id, entities);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class PeriodicConfig {\n");
-        sb.append("    interval: ").append(toIndentedString(interval)).append("\n");
+        sb.append("class AudiencePreviewProfileResult {\n");
+        sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    entities: ").append(toIndentedString(entities)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -100,45 +141,47 @@ public class PeriodicConfig {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("interval");
+        openapiFields.add("id");
+        openapiFields.add("entities");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("interval");
+        openapiRequiredFields.add("id");
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to PeriodicConfig
+     * @throws IOException if the JSON Element is invalid with respect to
+     *     AudiencePreviewProfileResult
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!PeriodicConfig.openapiRequiredFields
+            if (!AudiencePreviewProfileResult.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in PeriodicConfig is not found in the"
-                                        + " empty JSON string",
-                                PeriodicConfig.openapiRequiredFields.toString()));
+                                "The required field(s) %s in AudiencePreviewProfileResult is not"
+                                        + " found in the empty JSON string",
+                                AudiencePreviewProfileResult.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!PeriodicConfig.openapiFields.contains(entry.getKey())) {
+            if (!AudiencePreviewProfileResult.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `PeriodicConfig` properties. JSON: %s",
+                                        + " `AudiencePreviewProfileResult` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : PeriodicConfig.openapiRequiredFields) {
+        for (String requiredField : AudiencePreviewProfileResult.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -147,12 +190,12 @@ public class PeriodicConfig {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if (!jsonObj.get("interval").isJsonPrimitive()) {
+        if (!jsonObj.get("id").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `interval` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
-                            jsonObj.get("interval").toString()));
+                            "Expected the field `id` to be a primitive type in the JSON string but"
+                                    + " got `%s`",
+                            jsonObj.get("id").toString()));
         }
     }
 
@@ -160,23 +203,26 @@ public class PeriodicConfig {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!PeriodicConfig.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'PeriodicConfig' and its subtypes
+            if (!AudiencePreviewProfileResult.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'AudiencePreviewProfileResult' and its
+                // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<PeriodicConfig> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(PeriodicConfig.class));
+            final TypeAdapter<AudiencePreviewProfileResult> thisAdapter =
+                    gson.getDelegateAdapter(
+                            this, TypeToken.get(AudiencePreviewProfileResult.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<PeriodicConfig>() {
+                    new TypeAdapter<AudiencePreviewProfileResult>() {
                         @Override
-                        public void write(JsonWriter out, PeriodicConfig value) throws IOException {
+                        public void write(JsonWriter out, AudiencePreviewProfileResult value)
+                                throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public PeriodicConfig read(JsonReader in) throws IOException {
+                        public AudiencePreviewProfileResult read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -186,18 +232,19 @@ public class PeriodicConfig {
     }
 
     /**
-     * Create an instance of PeriodicConfig given an JSON string
+     * Create an instance of AudiencePreviewProfileResult given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of PeriodicConfig
-     * @throws IOException if the JSON string is invalid with respect to PeriodicConfig
+     * @return An instance of AudiencePreviewProfileResult
+     * @throws IOException if the JSON string is invalid with respect to
+     *     AudiencePreviewProfileResult
      */
-    public static PeriodicConfig fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, PeriodicConfig.class);
+    public static AudiencePreviewProfileResult fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, AudiencePreviewProfileResult.class);
     }
 
     /**
-     * Convert an instance of PeriodicConfig to an JSON string
+     * Convert an instance of AudiencePreviewProfileResult to an JSON string
      *
      * @return JSON string
      */

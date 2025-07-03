@@ -196,8 +196,8 @@ public class Example {
 
         AudiencesApi apiInstance = new AudiencesApi(defaultClient);
         String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
-        String id = "aud_171sV3fzJkiY2PnlbpMZJRbrgSW"; // String | 
-        String include = "include_example"; // String | Additional resource to include, support schedules only.  This parameter exists in alpha.
+        String id = "aud_0ujsszwN8NRY24YaXiTIE2VWDTS"; // String | 
+        String include = "schedules"; // String | Additional resource to include, support schedules only.  This parameter exists in alpha.
         try {
             GetAudience200Response result = apiInstance.getAudience(spaceId, id, include);
             System.out.println(result);
@@ -219,7 +219,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **spaceId** | **String**|  | |
 | **id** | **String**|  | |
-| **include** | **String**| Additional resource to include, support schedules only.  This parameter exists in alpha. | [optional] |
+| **include** | **String**| Additional resource to include, support schedules only.  This parameter exists in alpha. | [optional] [enum: schedules] |
 
 ### Return type
 
@@ -348,8 +348,8 @@ public class Example {
 
         AudiencesApi apiInstance = new AudiencesApi(defaultClient);
         String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
-        String id = "aud_171sV3fzJkiY2PnlbpMZJRbrgSW"; // String | 
-        String scheduleId = "sch_171sV3fzJkiY2PnlbpMZJRbrgSW"; // String | 
+        String id = "aud_0ujsszwN8NRY24YaXiTIE2VWDTS"; // String | 
+        String scheduleId = "sch_0ujsszwN8NRY24YaXiTIE2VWDTS"; // String | 
         try {
             GetAudienceScheduleFromSpaceAndAudience200Response result = apiInstance.getAudienceScheduleFromSpaceAndAudience(spaceId, id, scheduleId);
             System.out.println(result);
@@ -506,7 +506,7 @@ public class Example {
 
         AudiencesApi apiInstance = new AudiencesApi(defaultClient);
         String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
-        String id = "aud_171sV3fzJkiY2PnlbpMZJRbrgSW"; // String | 
+        String id = "aud_0ujsszwN8NRY24YaXiTIE2VWDTS"; // String | 
         try {
             ListAudienceSchedulesFromSpaceAndAudience200Response result = apiInstance.listAudienceSchedulesFromSpaceAndAudience(spaceId, id);
             System.out.println(result);
@@ -582,7 +582,7 @@ public class Example {
         AudiencesApi apiInstance = new AudiencesApi(defaultClient);
         String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
         ListAudiencesPaginationInput pagination = new ListAudiencesPaginationInput(); // ListAudiencesPaginationInput | Information about the pagination of this response.  [See pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters) for more info.  This parameter exists in alpha.
-        String include = "include_example"; // String | Additional resource to include, support schedules only.  This parameter exists in alpha.
+        String include = "schedules"; // String | Additional resource to include, support schedules only.  This parameter exists in alpha.
         try {
             ListAudiences200Response result = apiInstance.listAudiences(spaceId, pagination, include);
             System.out.println(result);
@@ -604,7 +604,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **spaceId** | **String**|  | |
 | **pagination** | [**ListAudiencesPaginationInput**](.md)| Information about the pagination of this response.  [See pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters) for more info.  This parameter exists in alpha. | [optional] |
-| **include** | **String**| Additional resource to include, support schedules only.  This parameter exists in alpha. | [optional] |
+| **include** | **String**| Additional resource to include, support schedules only.  This parameter exists in alpha. | [optional] [enum: schedules] |
 
 ### Return type
 

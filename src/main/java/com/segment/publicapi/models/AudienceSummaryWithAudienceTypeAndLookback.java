@@ -91,11 +91,6 @@ public class AudienceSummaryWithAudienceTypeAndLookback {
     @SerializedName(SERIALIZED_NAME_COMPUTE_CADENCE)
     private AudienceComputeCadence computeCadence;
 
-    public static final String SERIALIZED_NAME_SIZE = "size";
-
-    @SerializedName(SERIALIZED_NAME_SIZE)
-    private AudienceSize size;
-
     public static final String SERIALIZED_NAME_OPTIONS = "options";
 
     @SerializedName(SERIALIZED_NAME_OPTIONS)
@@ -207,26 +202,6 @@ public class AudienceSummaryWithAudienceTypeAndLookback {
 
     public void setComputeCadence(AudienceComputeCadence computeCadence) {
         this.computeCadence = computeCadence;
-    }
-
-    public AudienceSummaryWithAudienceTypeAndLookback size(AudienceSize size) {
-
-        this.size = size;
-        return this;
-    }
-
-    /**
-     * Get size
-     *
-     * @return size
-     */
-    @javax.annotation.Nullable
-    public AudienceSize getSize() {
-        return size;
-    }
-
-    public void setSize(AudienceSize size) {
-        this.size = size;
     }
 
     public AudienceSummaryWithAudienceTypeAndLookback options(AudienceOptionsWithLookback options) {
@@ -534,7 +509,6 @@ public class AudienceSummaryWithAudienceTypeAndLookback {
                 && Objects.equals(
                         this.computeCadence,
                         audienceSummaryWithAudienceTypeAndLookback.computeCadence)
-                && Objects.equals(this.size, audienceSummaryWithAudienceTypeAndLookback.size)
                 && Objects.equals(this.options, audienceSummaryWithAudienceTypeAndLookback.options)
                 && Objects.equals(
                         this.schedules, audienceSummaryWithAudienceTypeAndLookback.schedules)
@@ -563,7 +537,6 @@ public class AudienceSummaryWithAudienceTypeAndLookback {
         return Objects.hash(
                 audienceType,
                 computeCadence,
-                size,
                 options,
                 schedules,
                 id,
@@ -586,7 +559,6 @@ public class AudienceSummaryWithAudienceTypeAndLookback {
         sb.append("class AudienceSummaryWithAudienceTypeAndLookback {\n");
         sb.append("    audienceType: ").append(toIndentedString(audienceType)).append("\n");
         sb.append("    computeCadence: ").append(toIndentedString(computeCadence)).append("\n");
-        sb.append("    size: ").append(toIndentedString(size)).append("\n");
         sb.append("    options: ").append(toIndentedString(options)).append("\n");
         sb.append("    schedules: ").append(toIndentedString(schedules)).append("\n");
         sb.append("    id: ").append(toIndentedString(id)).append("\n");
@@ -624,7 +596,6 @@ public class AudienceSummaryWithAudienceTypeAndLookback {
         openapiFields = new HashSet<String>();
         openapiFields.add("audienceType");
         openapiFields.add("computeCadence");
-        openapiFields.add("size");
         openapiFields.add("options");
         openapiFields.add("schedules");
         openapiFields.add("id");
@@ -711,10 +682,6 @@ public class AudienceSummaryWithAudienceTypeAndLookback {
         }
         // validate the required field `computeCadence`
         AudienceComputeCadence.validateJsonElement(jsonObj.get("computeCadence"));
-        // validate the optional field `size`
-        if (jsonObj.get("size") != null && !jsonObj.get("size").isJsonNull()) {
-            AudienceSize.validateJsonElement(jsonObj.get("size"));
-        }
         // validate the optional field `options`
         if (jsonObj.get("options") != null && !jsonObj.get("options").isJsonNull()) {
             AudienceOptionsWithLookback.validateJsonElement(jsonObj.get("options"));

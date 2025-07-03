@@ -699,7 +699,10 @@ public class DeletionAndSuppressionApi {
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
+     *
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call deleteRegulationCall(String regulateId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -763,6 +766,7 @@ public class DeletionAndSuppressionApi {
                 _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteRegulationValidateBeforeCall(
             String regulateId, final ApiCallback _callback) throws ApiException {
@@ -779,7 +783,9 @@ public class DeletionAndSuppressionApi {
     /**
      * Delete Regulation Deletes a regulation from the Workspace. The regulation must be in the
      * initialized state to be deleted. • When called, this endpoint may generate the
-     * &#x60;Regulation Deleted&#x60; event in the [audit trail](/tag/Audit-Trail).
+     * &#x60;Regulation Deleted&#x60; event in the [audit trail](/tag/Audit-Trail). **DEPRECATED**:
+     * this endpoint has been deprecated according to the guidelines, and may experience reduced SLA
+     * guarantees.
      *
      * @param regulateId (required)
      * @return DeleteRegulation200Response
@@ -793,7 +799,10 @@ public class DeletionAndSuppressionApi {
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
+     *
+     * @deprecated
      */
+    @Deprecated
     public DeleteRegulation200Response deleteRegulation(String regulateId) throws ApiException {
         ApiResponse<DeleteRegulation200Response> localVarResp =
                 deleteRegulationWithHttpInfo(regulateId);
@@ -803,7 +812,9 @@ public class DeletionAndSuppressionApi {
     /**
      * Delete Regulation Deletes a regulation from the Workspace. The regulation must be in the
      * initialized state to be deleted. • When called, this endpoint may generate the
-     * &#x60;Regulation Deleted&#x60; event in the [audit trail](/tag/Audit-Trail).
+     * &#x60;Regulation Deleted&#x60; event in the [audit trail](/tag/Audit-Trail). **DEPRECATED**:
+     * this endpoint has been deprecated according to the guidelines, and may experience reduced SLA
+     * guarantees.
      *
      * @param regulateId (required)
      * @return ApiResponse&lt;DeleteRegulation200Response&gt;
@@ -817,7 +828,10 @@ public class DeletionAndSuppressionApi {
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
+     *
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<DeleteRegulation200Response> deleteRegulationWithHttpInfo(String regulateId)
             throws ApiException {
         okhttp3.Call localVarCall = deleteRegulationValidateBeforeCall(regulateId, null);
@@ -828,7 +842,9 @@ public class DeletionAndSuppressionApi {
     /**
      * Delete Regulation (asynchronously) Deletes a regulation from the Workspace. The regulation
      * must be in the initialized state to be deleted. • When called, this endpoint may generate the
-     * &#x60;Regulation Deleted&#x60; event in the [audit trail](/tag/Audit-Trail).
+     * &#x60;Regulation Deleted&#x60; event in the [audit trail](/tag/Audit-Trail). **DEPRECATED**:
+     * this endpoint has been deprecated according to the guidelines, and may experience reduced SLA
+     * guarantees.
      *
      * @param regulateId (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -843,7 +859,10 @@ public class DeletionAndSuppressionApi {
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
+     *
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call deleteRegulationAsync(
             String regulateId, final ApiCallback<DeleteRegulation200Response> _callback)
             throws ApiException {
