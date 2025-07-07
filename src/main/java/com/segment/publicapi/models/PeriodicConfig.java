@@ -43,8 +43,8 @@ public class PeriodicConfig {
     }
 
     /**
-     * Go duration format string, only supporting units \&quot;day\&quot; (days), \&quot;h\&quot;
-     * (hours) and \&quot;m\&quot; (minutes).
+     * Go duration format string, only supporting units \&quot;h\&quot; (hours) and \&quot;m\&quot;
+     * (minutes).
      *
      * @return interval
      */

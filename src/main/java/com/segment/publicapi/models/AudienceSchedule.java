@@ -95,6 +95,11 @@ public class AudienceSchedule {
     @SerializedName(SERIALIZED_NAME_CONFIG)
     private Config config;
 
+    public static final String SERIALIZED_NAME_ENABLED = "enabled";
+
+    @SerializedName(SERIALIZED_NAME_ENABLED)
+    private Boolean enabled;
+
     public static final String SERIALIZED_NAME_NEXT_EXECUTION = "nextExecution";
 
     @SerializedName(SERIALIZED_NAME_NEXT_EXECUTION)
@@ -162,6 +167,26 @@ public class AudienceSchedule {
         this.config = config;
     }
 
+    public AudienceSchedule enabled(Boolean enabled) {
+
+        this.enabled = enabled;
+        return this;
+    }
+
+    /**
+     * Whether the schedule is enabled.
+     *
+     * @return enabled
+     */
+    @javax.annotation.Nonnull
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
     public AudienceSchedule nextExecution(String nextExecution) {
 
         this.nextExecution = nextExecution;
@@ -173,7 +198,7 @@ public class AudienceSchedule {
      *
      * @return nextExecution
      */
-    @javax.annotation.Nullable
+    @javax.annotation.Nonnull
     public String getNextExecution() {
         return nextExecution;
     }
@@ -194,6 +219,7 @@ public class AudienceSchedule {
         return Objects.equals(this.id, audienceSchedule.id)
                 && Objects.equals(this.strategy, audienceSchedule.strategy)
                 && Objects.equals(this.config, audienceSchedule.config)
+                && Objects.equals(this.enabled, audienceSchedule.enabled)
                 && Objects.equals(this.nextExecution, audienceSchedule.nextExecution);
     }
 
@@ -208,7 +234,7 @@ public class AudienceSchedule {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, strategy, config, nextExecution);
+        return Objects.hash(id, strategy, config, enabled, nextExecution);
     }
 
     private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -225,6 +251,7 @@ public class AudienceSchedule {
         sb.append("    id: ").append(toIndentedString(id)).append("\n");
         sb.append("    strategy: ").append(toIndentedString(strategy)).append("\n");
         sb.append("    config: ").append(toIndentedString(config)).append("\n");
+        sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
         sb.append("    nextExecution: ").append(toIndentedString(nextExecution)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -250,12 +277,15 @@ public class AudienceSchedule {
         openapiFields.add("id");
         openapiFields.add("strategy");
         openapiFields.add("config");
+        openapiFields.add("enabled");
         openapiFields.add("nextExecution");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
         openapiRequiredFields.add("id");
         openapiRequiredFields.add("strategy");
+        openapiRequiredFields.add("enabled");
+        openapiRequiredFields.add("nextExecution");
     }
 
     /**
@@ -316,8 +346,7 @@ public class AudienceSchedule {
         if (jsonObj.get("config") != null && !jsonObj.get("config").isJsonNull()) {
             Config.validateJsonElement(jsonObj.get("config"));
         }
-        if ((jsonObj.get("nextExecution") != null && !jsonObj.get("nextExecution").isJsonNull())
-                && !jsonObj.get("nextExecution").isJsonPrimitive()) {
+        if (!jsonObj.get("nextExecution").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             "Expected the field `nextExecution` to be a primitive type in the JSON"

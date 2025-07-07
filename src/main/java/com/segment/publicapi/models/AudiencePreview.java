@@ -43,8 +43,6 @@ public class AudiencePreview {
     public enum AudienceTypeEnum {
         ACCOUNTS("ACCOUNTS"),
 
-        LINKED("LINKED"),
-
         USERS("USERS");
 
         private String value;

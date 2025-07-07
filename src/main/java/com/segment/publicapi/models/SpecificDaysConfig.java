@@ -64,7 +64,7 @@ public class SpecificDaysConfig {
     }
 
     /**
-     * Days of week for schedule (0&#x3D;Sunday, 6&#x3D;Saturday).
+     * Days of week for schedule (0&#x3D;Saturday, 6&#x3D;Sunday).
      *
      * @return days
      */
