@@ -35,10 +35,15 @@ public class CreateAudiencePreviewAlphaInput {
     @SerializedName(SERIALIZED_NAME_DEFINITION)
     private AudienceDefinitionWithoutType definition;
 
-    /** Discriminator denoting the audience&#39;s product type. Possible values: USERS, ACCOUNTS. */
+    /**
+     * Discriminator denoting the audience&#39;s product type. Possible values: USERS, ACCOUNTS,
+     * LINKED.
+     */
     @JsonAdapter(AudienceTypeEnum.Adapter.class)
     public enum AudienceTypeEnum {
         ACCOUNTS("ACCOUNTS"),
+
+        LINKED("LINKED"),
 
         USERS("USERS");
 
@@ -120,7 +125,8 @@ public class CreateAudiencePreviewAlphaInput {
     }
 
     /**
-     * Discriminator denoting the audience&#39;s product type. Possible values: USERS, ACCOUNTS.
+     * Discriminator denoting the audience&#39;s product type. Possible values: USERS, ACCOUNTS,
+     * LINKED.
      *
      * @return audienceType
      */
