@@ -151,8 +151,8 @@ public class CustomerInsightsApi {
     }
 
     /**
-     * Create Download Create Customer Insights Presigned URLsThe rate limit for this endpoint is 30
-     * requests per day per workspaceId, which is lower than the default due to access pattern
+     * Create Download Create Customer Insights Presigned URLsThe rate limit for this endpoint is
+     * 120 requests per day per workspaceId, which is lower than the default due to access pattern
      * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
      * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
      * information.
@@ -178,8 +178,8 @@ public class CustomerInsightsApi {
     }
 
     /**
-     * Create Download Create Customer Insights Presigned URLsThe rate limit for this endpoint is 30
-     * requests per day per workspaceId, which is lower than the default due to access pattern
+     * Create Download Create Customer Insights Presigned URLsThe rate limit for this endpoint is
+     * 120 requests per day per workspaceId, which is lower than the default due to access pattern
      * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
      * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
      * information.
@@ -207,7 +207,7 @@ public class CustomerInsightsApi {
 
     /**
      * Create Download (asynchronously) Create Customer Insights Presigned URLsThe rate limit for
-     * this endpoint is 30 requests per day per workspaceId, which is lower than the default due to
+     * this endpoint is 120 requests per day per workspaceId, which is lower than the default due to
      * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
      * status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.
