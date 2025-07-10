@@ -64,7 +64,8 @@ public class CreateInsertFunctionInstanceAlphaInput {
     }
 
     /**
-     * Insert Function id to which this instance is associated.
+     * Insert Function id to which this instance is associated. Note: Remove the ifnd_/ifns_ prefix
+     * from the id.
      *
      * @return functionId
      */
