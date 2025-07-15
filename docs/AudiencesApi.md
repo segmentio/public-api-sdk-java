@@ -427,7 +427,7 @@ public class Example {
         String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
         String id = "aud_0ujsswThIGTUYm2K8FjOOfXtY1K"; // String | 
         PaginationInput pagination = new PaginationInput(); // PaginationInput | Information about the pagination of this response.  [See pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters) for more info.  This parameter exists in alpha.
-        ListAudienceConsumersSearchInput search = new ListAudienceConsumersSearchInput(); // ListAudienceConsumersSearchInput | Optional search criteria  This parameter exists in alpha.
+        ListAudienceSearchInput search = new ListAudienceSearchInput(); // ListAudienceSearchInput | Optional search criteria  This parameter exists in alpha.
         ListAudienceConsumersSortInput sort = new ListAudienceConsumersSortInput(); // ListAudienceConsumersSortInput | Optional sort criteria  This parameter exists in alpha.
         try {
             ListAudienceConsumersFromSpaceAndAudience200Response result = apiInstance.listAudienceConsumersFromSpaceAndAudience(spaceId, id, pagination, search, sort);
@@ -451,7 +451,7 @@ public class Example {
 | **spaceId** | **String**|  | |
 | **id** | **String**|  | |
 | **pagination** | [**PaginationInput**](.md)| Information about the pagination of this response.  [See pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters) for more info.  This parameter exists in alpha. | [optional] |
-| **search** | [**ListAudienceConsumersSearchInput**](.md)| Optional search criteria  This parameter exists in alpha. | [optional] |
+| **search** | [**ListAudienceSearchInput**](.md)| Optional search criteria  This parameter exists in alpha. | [optional] |
 | **sort** | [**ListAudienceConsumersSortInput**](.md)| Optional sort criteria  This parameter exists in alpha. | [optional] |
 
 ### Return type
@@ -554,7 +554,7 @@ public class Example {
 
 ## Operation: listAudiences
 
-> ListAudiences200Response listAudiences(spaceId, pagination, include)
+> ListAudiences200Response listAudiences(spaceId, search, pagination, include)
 
 List Audiences
 
@@ -581,10 +581,11 @@ public class Example {
 
         AudiencesApi apiInstance = new AudiencesApi(defaultClient);
         String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
+        ListAudienceSearchInput search = new ListAudienceSearchInput(); // ListAudienceSearchInput | Optional search criteria  This parameter exists in alpha.
         ListAudiencesPaginationInput pagination = new ListAudiencesPaginationInput(); // ListAudiencesPaginationInput | Information about the pagination of this response.  [See pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters) for more info.  This parameter exists in alpha.
         String include = "schedules"; // String | Additional resource to include, support schedules only.  This parameter exists in alpha.
         try {
-            ListAudiences200Response result = apiInstance.listAudiences(spaceId, pagination, include);
+            ListAudiences200Response result = apiInstance.listAudiences(spaceId, search, pagination, include);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AudiencesApi#listAudiences");
@@ -603,6 +604,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **spaceId** | **String**|  | |
+| **search** | [**ListAudienceSearchInput**](.md)| Optional search criteria  This parameter exists in alpha. | [optional] |
 | **pagination** | [**ListAudiencesPaginationInput**](.md)| Information about the pagination of this response.  [See pagination](https://docs.segmentapis.com/tag/Pagination/#section/Pagination-parameters) for more info.  This parameter exists in alpha. | [optional] |
 | **include** | **String**| Additional resource to include, support schedules only.  This parameter exists in alpha. | [optional] [enum: schedules] |
 
