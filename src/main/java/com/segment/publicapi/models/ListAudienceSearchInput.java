@@ -117,7 +117,7 @@ public class ListAudienceSearchInput {
     }
 
     /**
-     * Text to match the field value.
+     * Text to match against the selected field (max 255 characters).
      *
      * @return query
      */
