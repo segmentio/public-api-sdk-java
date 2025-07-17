@@ -176,11 +176,18 @@ public class SpacesApi {
     }
 
     /**
-     * Batch Query Messaging Subscriptions for Space Get Messaging Subscriptions for space. • This
-     * endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
-     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
-     * needs to have the Spaces feature enabled. Please reach out to your customer success manager
-     * for more information.
+     * Batch Query Messaging Subscriptions for Space &lt;div style&#x3D;\&quot;background-color:
+     * #fff3cd; border: 1px solid #ffc107; border-radius: 6px; padding: 16px; margin: 16px 0; color:
+     * #856404; display: flex; align-items: center; gap: 12px; line-height: 1.5;\&quot;&gt; &lt;span
+     * style&#x3D;\&quot;color: #ff9800; font-size: 16px; flex-shrink: 0;\&quot;&gt;⚠️&lt;/span&gt;
+     * &lt;div style&#x3D;\&quot;line-height: 1.5;\&quot;&gt; &lt;div style&#x3D;\&quot;font-weight:
+     * 600; font-size: 14px; margin-bottom: 6px;\&quot;&gt; Engage Premier features will no longer
+     * be available after December 15, 2025. &lt;/div&gt; &lt;div style&#x3D;\&quot;font-size:
+     * 13px;\&quot;&gt; This API will be deactivated after this date. &lt;/div&gt; &lt;/div&gt;
+     * &lt;/div&gt; Get Messaging Subscriptions for space. • This endpoint is in **Alpha** testing.
+     * Please submit any feedback by sending an email to friends@segment.com. • In order to
+     * successfully call this endpoint, the specified Workspace needs to have the Spaces feature
+     * enabled. Please reach out to your customer success manager for more information.
      *
      * @param spaceId (required)
      * @param batchQueryMessagingSubscriptionsForSpaceAlphaInput (required)
@@ -209,11 +216,18 @@ public class SpacesApi {
     }
 
     /**
-     * Batch Query Messaging Subscriptions for Space Get Messaging Subscriptions for space. • This
-     * endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
-     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
-     * needs to have the Spaces feature enabled. Please reach out to your customer success manager
-     * for more information.
+     * Batch Query Messaging Subscriptions for Space &lt;div style&#x3D;\&quot;background-color:
+     * #fff3cd; border: 1px solid #ffc107; border-radius: 6px; padding: 16px; margin: 16px 0; color:
+     * #856404; display: flex; align-items: center; gap: 12px; line-height: 1.5;\&quot;&gt; &lt;span
+     * style&#x3D;\&quot;color: #ff9800; font-size: 16px; flex-shrink: 0;\&quot;&gt;⚠️&lt;/span&gt;
+     * &lt;div style&#x3D;\&quot;line-height: 1.5;\&quot;&gt; &lt;div style&#x3D;\&quot;font-weight:
+     * 600; font-size: 14px; margin-bottom: 6px;\&quot;&gt; Engage Premier features will no longer
+     * be available after December 15, 2025. &lt;/div&gt; &lt;div style&#x3D;\&quot;font-size:
+     * 13px;\&quot;&gt; This API will be deactivated after this date. &lt;/div&gt; &lt;/div&gt;
+     * &lt;/div&gt; Get Messaging Subscriptions for space. • This endpoint is in **Alpha** testing.
+     * Please submit any feedback by sending an email to friends@segment.com. • In order to
+     * successfully call this endpoint, the specified Workspace needs to have the Spaces feature
+     * enabled. Please reach out to your customer success manager for more information.
      *
      * @param spaceId (required)
      * @param batchQueryMessagingSubscriptionsForSpaceAlphaInput (required)
@@ -244,11 +258,19 @@ public class SpacesApi {
     }
 
     /**
-     * Batch Query Messaging Subscriptions for Space (asynchronously) Get Messaging Subscriptions
-     * for space. • This endpoint is in **Alpha** testing. Please submit any feedback by sending an
-     * email to friends@segment.com. • In order to successfully call this endpoint, the specified
-     * Workspace needs to have the Spaces feature enabled. Please reach out to your customer success
-     * manager for more information.
+     * Batch Query Messaging Subscriptions for Space (asynchronously) &lt;div
+     * style&#x3D;\&quot;background-color: #fff3cd; border: 1px solid #ffc107; border-radius: 6px;
+     * padding: 16px; margin: 16px 0; color: #856404; display: flex; align-items: center; gap: 12px;
+     * line-height: 1.5;\&quot;&gt; &lt;span style&#x3D;\&quot;color: #ff9800; font-size: 16px;
+     * flex-shrink: 0;\&quot;&gt;⚠️&lt;/span&gt; &lt;div style&#x3D;\&quot;line-height:
+     * 1.5;\&quot;&gt; &lt;div style&#x3D;\&quot;font-weight: 600; font-size: 14px; margin-bottom:
+     * 6px;\&quot;&gt; Engage Premier features will no longer be available after December 15, 2025.
+     * &lt;/div&gt; &lt;div style&#x3D;\&quot;font-size: 13px;\&quot;&gt; This API will be
+     * deactivated after this date. &lt;/div&gt; &lt;/div&gt; &lt;/div&gt; Get Messaging
+     * Subscriptions for space. • This endpoint is in **Alpha** testing. Please submit any feedback
+     * by sending an email to friends@segment.com. • In order to successfully call this endpoint,
+     * the specified Workspace needs to have the Spaces feature enabled. Please reach out to your
+     * customer success manager for more information.
      *
      * @param spaceId (required)
      * @param batchQueryMessagingSubscriptionsForSpaceAlphaInput (required)
@@ -718,13 +740,21 @@ public class SpacesApi {
     }
 
     /**
-     * Replace Messaging Subscriptions in Spaces Replace Messaging Subscriptions in Spaces. • This
-     * endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
-     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
-     * needs to have the Spaces feature enabled. Please reach out to your customer success manager
-     * for more information. The rate limit for this endpoint is 60 requests per minute, which is
-     * lower than the default due to access pattern restrictions. Once reached, this endpoint will
-     * respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate
+     * Replace Messaging Subscriptions in Spaces &lt;div style&#x3D;\&quot;background-color:
+     * #fff3cd; border: 1px solid #ffc107; border-radius: 6px; padding: 16px; margin: 16px 0; color:
+     * #856404; display: flex; align-items: center; gap: 12px; line-height: 1.5;\&quot;&gt; &lt;span
+     * style&#x3D;\&quot;color: #ff9800; font-size: 16px; flex-shrink: 0;\&quot;&gt;⚠️&lt;/span&gt;
+     * &lt;div style&#x3D;\&quot;line-height: 1.5;\&quot;&gt; &lt;div style&#x3D;\&quot;font-weight:
+     * 600; font-size: 14px; margin-bottom: 6px;\&quot;&gt; Engage Premier features will no longer
+     * be available after December 15, 2025. &lt;/div&gt; &lt;div style&#x3D;\&quot;font-size:
+     * 13px;\&quot;&gt; This API will be deactivated after this date. &lt;/div&gt; &lt;/div&gt;
+     * &lt;/div&gt; Replace Messaging Subscriptions in Spaces. • This endpoint is in **Alpha**
+     * testing. Please submit any feedback by sending an email to friends@segment.com. • In order to
+     * successfully call this endpoint, the specified Workspace needs to have the Spaces feature
+     * enabled. Please reach out to your customer success manager for more information. The rate
+     * limit for this endpoint is 60 requests per minute, which is lower than the default due to
+     * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
+     * status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
@@ -753,13 +783,21 @@ public class SpacesApi {
     }
 
     /**
-     * Replace Messaging Subscriptions in Spaces Replace Messaging Subscriptions in Spaces. • This
-     * endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
-     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
-     * needs to have the Spaces feature enabled. Please reach out to your customer success manager
-     * for more information. The rate limit for this endpoint is 60 requests per minute, which is
-     * lower than the default due to access pattern restrictions. Once reached, this endpoint will
-     * respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate
+     * Replace Messaging Subscriptions in Spaces &lt;div style&#x3D;\&quot;background-color:
+     * #fff3cd; border: 1px solid #ffc107; border-radius: 6px; padding: 16px; margin: 16px 0; color:
+     * #856404; display: flex; align-items: center; gap: 12px; line-height: 1.5;\&quot;&gt; &lt;span
+     * style&#x3D;\&quot;color: #ff9800; font-size: 16px; flex-shrink: 0;\&quot;&gt;⚠️&lt;/span&gt;
+     * &lt;div style&#x3D;\&quot;line-height: 1.5;\&quot;&gt; &lt;div style&#x3D;\&quot;font-weight:
+     * 600; font-size: 14px; margin-bottom: 6px;\&quot;&gt; Engage Premier features will no longer
+     * be available after December 15, 2025. &lt;/div&gt; &lt;div style&#x3D;\&quot;font-size:
+     * 13px;\&quot;&gt; This API will be deactivated after this date. &lt;/div&gt; &lt;/div&gt;
+     * &lt;/div&gt; Replace Messaging Subscriptions in Spaces. • This endpoint is in **Alpha**
+     * testing. Please submit any feedback by sending an email to friends@segment.com. • In order to
+     * successfully call this endpoint, the specified Workspace needs to have the Spaces feature
+     * enabled. Please reach out to your customer success manager for more information. The rate
+     * limit for this endpoint is 60 requests per minute, which is lower than the default due to
+     * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
+     * status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
@@ -791,14 +829,22 @@ public class SpacesApi {
     }
 
     /**
-     * Replace Messaging Subscriptions in Spaces (asynchronously) Replace Messaging Subscriptions in
-     * Spaces. • This endpoint is in **Alpha** testing. Please submit any feedback by sending an
-     * email to friends@segment.com. • In order to successfully call this endpoint, the specified
-     * Workspace needs to have the Spaces feature enabled. Please reach out to your customer success
-     * manager for more information. The rate limit for this endpoint is 60 requests per minute,
-     * which is lower than the default due to access pattern restrictions. Once reached, this
-     * endpoint will respond with the 429 HTTP status code with headers indicating the limit
-     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * Replace Messaging Subscriptions in Spaces (asynchronously) &lt;div
+     * style&#x3D;\&quot;background-color: #fff3cd; border: 1px solid #ffc107; border-radius: 6px;
+     * padding: 16px; margin: 16px 0; color: #856404; display: flex; align-items: center; gap: 12px;
+     * line-height: 1.5;\&quot;&gt; &lt;span style&#x3D;\&quot;color: #ff9800; font-size: 16px;
+     * flex-shrink: 0;\&quot;&gt;⚠️&lt;/span&gt; &lt;div style&#x3D;\&quot;line-height:
+     * 1.5;\&quot;&gt; &lt;div style&#x3D;\&quot;font-weight: 600; font-size: 14px; margin-bottom:
+     * 6px;\&quot;&gt; Engage Premier features will no longer be available after December 15, 2025.
+     * &lt;/div&gt; &lt;div style&#x3D;\&quot;font-size: 13px;\&quot;&gt; This API will be
+     * deactivated after this date. &lt;/div&gt; &lt;/div&gt; &lt;/div&gt; Replace Messaging
+     * Subscriptions in Spaces. • This endpoint is in **Alpha** testing. Please submit any feedback
+     * by sending an email to friends@segment.com. • In order to successfully call this endpoint,
+     * the specified Workspace needs to have the Spaces feature enabled. Please reach out to your
+     * customer success manager for more information. The rate limit for this endpoint is 60
+     * requests per minute, which is lower than the default due to access pattern restrictions. Once
+     * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
+     * limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
      * @param replaceMessagingSubscriptionsInSpacesAlphaInput (required)
