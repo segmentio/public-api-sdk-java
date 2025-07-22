@@ -817,7 +817,7 @@ public class AudiencesApi {
      * Get Audience Echo Get Audience Echo test endpoint for rate limiting per spaceId. Returns an
      * echo response from the control plane service. • This endpoint is in **Alpha** testing. Please
      * submit any feedback by sending an email to friends@segment.com. This endpoint has a rate
-     * limit of 5 requests per day per spaceId for testing purposes.
+     * limit of 5 requests per day per spaceId for testing rate limiting functionality.
      *
      * @param spaceId (required)
      * @param message Optional message to echo back. This parameter exists in alpha. (optional)
@@ -844,7 +844,7 @@ public class AudiencesApi {
      * Get Audience Echo Get Audience Echo test endpoint for rate limiting per spaceId. Returns an
      * echo response from the control plane service. • This endpoint is in **Alpha** testing. Please
      * submit any feedback by sending an email to friends@segment.com. This endpoint has a rate
-     * limit of 5 requests per day per spaceId for testing purposes.
+     * limit of 5 requests per day per spaceId for testing rate limiting functionality.
      *
      * @param spaceId (required)
      * @param message Optional message to echo back. This parameter exists in alpha. (optional)
@@ -871,7 +871,8 @@ public class AudiencesApi {
      * Get Audience Echo (asynchronously) Get Audience Echo test endpoint for rate limiting per
      * spaceId. Returns an echo response from the control plane service. • This endpoint is in
      * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com.
-     * This endpoint has a rate limit of 5 requests per day per spaceId for testing purposes.
+     * This endpoint has a rate limit of 5 requests per day per spaceId for testing rate limiting
+     * functionality.
      *
      * @param spaceId (required)
      * @param message Optional message to echo back. This parameter exists in alpha. (optional)
