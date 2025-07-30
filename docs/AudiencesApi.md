@@ -7,7 +7,6 @@ All URIs are relative to *https://api.segmentapis.com*
 | [**createAudience**](AudiencesApi.md#createAudience) | **POST** /spaces/{spaceId}/audiences | Create Audience |
 | [**createAudiencePreview**](AudiencesApi.md#createAudiencePreview) | **POST** /spaces/{spaceId}/audiences/previews | Create Audience Preview |
 | [**getAudience**](AudiencesApi.md#getAudience) | **GET** /spaces/{spaceId}/audiences/{id} | Get Audience |
-| [**getAudienceEcho**](AudiencesApi.md#getAudienceEcho) | **GET** /spaces/{spaceId}/audiences/echo | Get Audience Echo |
 | [**getAudiencePreview**](AudiencesApi.md#getAudiencePreview) | **GET** /spaces/{spaceId}/audiences/previews/{id} | Get Audience Preview |
 | [**getAudienceScheduleFromSpaceAndAudience**](AudiencesApi.md#getAudienceScheduleFromSpaceAndAudience) | **GET** /spaces/{spaceId}/audiences/{id}/schedules/{scheduleId} | Get Audience Schedule from Space And Audience |
 | [**listAudienceConsumersFromSpaceAndAudience**](AudiencesApi.md#listAudienceConsumersFromSpaceAndAudience) | **GET** /spaces/{spaceId}/audiences/{id}/audience-references | List Audience Consumers from Space And Audience |
@@ -234,81 +233,6 @@ public class Example {
 
 - **Content-Type**: Not defined
 - **Accept**: application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json, application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **404** | Resource not found |  -  |
-| **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
-
-
-## Operation: getAudienceEcho
-
-> GetAudienceEcho200Response getAudienceEcho(spaceId, message)
-
-Get Audience Echo
-
-Get Audience Echo test endpoint for rate limiting per spaceId. Returns an echo response from the control plane service.  • This endpoint is in **Alpha** testing.  Please submit any feedback by sending an email to friends@segment.com.  This endpoint has a rate limit of 1 requests per day per spaceId for testing rate limiting functionality.
-
-### Example
-
-```java
-// Import classes:
-import com.segment.publicapi.ApiClient;
-import com.segment.publicapi.ApiException;
-import com.segment.publicapi.Configuration;
-import com.segment.publicapi.auth.*;
-import com.segment.publicapi.models.*;
-import com.segment.publicapi.api.AudiencesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        
-        // Configure HTTP bearer authorization: token
-        HttpBearerAuth token = (HttpBearerAuth) defaultClient.getAuthentication("token");
-        token.setBearerToken("BEARER TOKEN");
-
-        AudiencesApi apiInstance = new AudiencesApi(defaultClient);
-        String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
-        String message = "Hello from test!"; // String | Optional message to echo back.  This parameter exists in alpha.
-        try {
-            GetAudienceEcho200Response result = apiInstance.getAudienceEcho(spaceId, message);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling AudiencesApi#getAudienceEcho");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **spaceId** | **String**|  | |
-| **message** | **String**| Optional message to echo back.  This parameter exists in alpha. | [optional] |
-
-### Return type
-
-[**GetAudienceEcho200Response**](GetAudienceEcho200Response.md)
-
-### Authorization
-
-[token](../README.md#token)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/vnd.segment.v1alpha+json, application/json
 
 
 ### HTTP response details
