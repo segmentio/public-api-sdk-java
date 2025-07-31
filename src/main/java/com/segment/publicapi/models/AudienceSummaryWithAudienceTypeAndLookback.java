@@ -33,59 +33,6 @@ import java.util.Set;
 
 /** AudienceSummaryWithAudienceTypeAndLookback */
 public class AudienceSummaryWithAudienceTypeAndLookback {
-    /** Discriminator denoting the audience&#39;s product type. */
-    @JsonAdapter(AudienceTypeEnum.Adapter.class)
-    public enum AudienceTypeEnum {
-        ACCOUNTS("ACCOUNTS"),
-
-        LINKED("LINKED"),
-
-        USERS("USERS");
-
-        private String value;
-
-        AudienceTypeEnum(String value) {
-            this.value = value;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        public static AudienceTypeEnum fromValue(String value) {
-            for (AudienceTypeEnum b : AudienceTypeEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
-        }
-
-        public static class Adapter extends TypeAdapter<AudienceTypeEnum> {
-            @Override
-            public void write(final JsonWriter jsonWriter, final AudienceTypeEnum enumeration)
-                    throws IOException {
-                jsonWriter.value(enumeration.getValue());
-            }
-
-            @Override
-            public AudienceTypeEnum read(final JsonReader jsonReader) throws IOException {
-                String value = jsonReader.nextString();
-                return AudienceTypeEnum.fromValue(value);
-            }
-        }
-    }
-
-    public static final String SERIALIZED_NAME_AUDIENCE_TYPE = "audienceType";
-
-    @SerializedName(SERIALIZED_NAME_AUDIENCE_TYPE)
-    private AudienceTypeEnum audienceType;
-
     public static final String SERIALIZED_NAME_COMPUTE_CADENCE = "computeCadence";
 
     @SerializedName(SERIALIZED_NAME_COMPUTE_CADENCE)
@@ -166,27 +113,60 @@ public class AudienceSummaryWithAudienceTypeAndLookback {
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
     private String updatedAt;
 
+    /** Discriminator denoting the audience&#39;s product type. */
+    @JsonAdapter(AudienceTypeEnum.Adapter.class)
+    public enum AudienceTypeEnum {
+        ACCOUNTS("ACCOUNTS"),
+
+        LINKED("LINKED"),
+
+        USERS("USERS");
+
+        private String value;
+
+        AudienceTypeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static AudienceTypeEnum fromValue(String value) {
+            for (AudienceTypeEnum b : AudienceTypeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<AudienceTypeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final AudienceTypeEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public AudienceTypeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return AudienceTypeEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_AUDIENCE_TYPE = "audienceType";
+
+    @SerializedName(SERIALIZED_NAME_AUDIENCE_TYPE)
+    private AudienceTypeEnum audienceType;
+
     public AudienceSummaryWithAudienceTypeAndLookback() {}
-
-    public AudienceSummaryWithAudienceTypeAndLookback audienceType(AudienceTypeEnum audienceType) {
-
-        this.audienceType = audienceType;
-        return this;
-    }
-
-    /**
-     * Discriminator denoting the audience&#39;s product type.
-     *
-     * @return audienceType
-     */
-    @javax.annotation.Nonnull
-    public AudienceTypeEnum getAudienceType() {
-        return audienceType;
-    }
-
-    public void setAudienceType(AudienceTypeEnum audienceType) {
-        this.audienceType = audienceType;
-    }
 
     public AudienceSummaryWithAudienceTypeAndLookback computeCadence(
             AudienceComputeCadence computeCadence) {
@@ -519,6 +499,26 @@ public class AudienceSummaryWithAudienceTypeAndLookback {
         this.updatedAt = updatedAt;
     }
 
+    public AudienceSummaryWithAudienceTypeAndLookback audienceType(AudienceTypeEnum audienceType) {
+
+        this.audienceType = audienceType;
+        return this;
+    }
+
+    /**
+     * Discriminator denoting the audience&#39;s product type.
+     *
+     * @return audienceType
+     */
+    @javax.annotation.Nonnull
+    public AudienceTypeEnum getAudienceType() {
+        return audienceType;
+    }
+
+    public void setAudienceType(AudienceTypeEnum audienceType) {
+        this.audienceType = audienceType;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -530,8 +530,6 @@ public class AudienceSummaryWithAudienceTypeAndLookback {
         AudienceSummaryWithAudienceTypeAndLookback audienceSummaryWithAudienceTypeAndLookback =
                 (AudienceSummaryWithAudienceTypeAndLookback) o;
         return Objects.equals(
-                        this.audienceType, audienceSummaryWithAudienceTypeAndLookback.audienceType)
-                && Objects.equals(
                         this.computeCadence,
                         audienceSummaryWithAudienceTypeAndLookback.computeCadence)
                 && Objects.equals(this.size, audienceSummaryWithAudienceTypeAndLookback.size)
@@ -555,13 +553,14 @@ public class AudienceSummaryWithAudienceTypeAndLookback {
                 && Objects.equals(
                         this.createdAt, audienceSummaryWithAudienceTypeAndLookback.createdAt)
                 && Objects.equals(
-                        this.updatedAt, audienceSummaryWithAudienceTypeAndLookback.updatedAt);
+                        this.updatedAt, audienceSummaryWithAudienceTypeAndLookback.updatedAt)
+                && Objects.equals(
+                        this.audienceType, audienceSummaryWithAudienceTypeAndLookback.audienceType);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(
-                audienceType,
                 computeCadence,
                 size,
                 options,
@@ -577,14 +576,14 @@ public class AudienceSummaryWithAudienceTypeAndLookback {
                 createdBy,
                 updatedBy,
                 createdAt,
-                updatedAt);
+                updatedAt,
+                audienceType);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class AudienceSummaryWithAudienceTypeAndLookback {\n");
-        sb.append("    audienceType: ").append(toIndentedString(audienceType)).append("\n");
         sb.append("    computeCadence: ").append(toIndentedString(computeCadence)).append("\n");
         sb.append("    size: ").append(toIndentedString(size)).append("\n");
         sb.append("    options: ").append(toIndentedString(options)).append("\n");
@@ -601,6 +600,7 @@ public class AudienceSummaryWithAudienceTypeAndLookback {
         sb.append("    updatedBy: ").append(toIndentedString(updatedBy)).append("\n");
         sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
         sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+        sb.append("    audienceType: ").append(toIndentedString(audienceType)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -622,7 +622,6 @@ public class AudienceSummaryWithAudienceTypeAndLookback {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("audienceType");
         openapiFields.add("computeCadence");
         openapiFields.add("size");
         openapiFields.add("options");
@@ -639,10 +638,10 @@ public class AudienceSummaryWithAudienceTypeAndLookback {
         openapiFields.add("updatedBy");
         openapiFields.add("createdAt");
         openapiFields.add("updatedAt");
+        openapiFields.add("audienceType");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("audienceType");
         openapiRequiredFields.add("computeCadence");
         openapiRequiredFields.add("id");
         openapiRequiredFields.add("spaceId");
@@ -654,6 +653,7 @@ public class AudienceSummaryWithAudienceTypeAndLookback {
         openapiRequiredFields.add("updatedBy");
         openapiRequiredFields.add("createdAt");
         openapiRequiredFields.add("updatedAt");
+        openapiRequiredFields.add("audienceType");
     }
 
     /**
@@ -702,13 +702,6 @@ public class AudienceSummaryWithAudienceTypeAndLookback {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if (!jsonObj.get("audienceType").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `audienceType` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
-                            jsonObj.get("audienceType").toString()));
-        }
         // validate the required field `computeCadence`
         AudienceComputeCadence.validateJsonElement(jsonObj.get("computeCadence"));
         // validate the optional field `size`
@@ -811,6 +804,13 @@ public class AudienceSummaryWithAudienceTypeAndLookback {
                             "Expected the field `updatedAt` to be a primitive type in the JSON"
                                     + " string but got `%s`",
                             jsonObj.get("updatedAt").toString()));
+        }
+        if (!jsonObj.get("audienceType").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `audienceType` to be a primitive type in the JSON"
+                                    + " string but got `%s`",
+                            jsonObj.get("audienceType").toString()));
         }
     }
 
