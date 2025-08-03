@@ -27,60 +27,58 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** AudienceDefinitionWithoutType */
-public class AudienceDefinitionWithoutType {
-    public static final String SERIALIZED_NAME_QUERY = "query";
+/** The audience echo response data. */
+public class AudienceEcho {
+    public static final String SERIALIZED_NAME_MESSAGE = "message";
 
-    @SerializedName(SERIALIZED_NAME_QUERY)
-    private String query;
+    @SerializedName(SERIALIZED_NAME_MESSAGE)
+    private String message;
 
-    public static final String SERIALIZED_NAME_TARGET_ENTITY = "targetEntity";
+    public static final String SERIALIZED_NAME_SPACE_ID = "spaceId";
 
-    @SerializedName(SERIALIZED_NAME_TARGET_ENTITY)
-    private String targetEntity;
+    @SerializedName(SERIALIZED_NAME_SPACE_ID)
+    private String spaceId;
 
-    public AudienceDefinitionWithoutType() {}
+    public AudienceEcho() {}
 
-    public AudienceDefinitionWithoutType query(String query) {
+    public AudienceEcho message(String message) {
 
-        this.query = query;
+        this.message = message;
         return this;
     }
 
     /**
-     * The query language string defining the audience segmentation criteria. For guidance on using
-     * the query language, see the [Segment documentation
-     * site](https://segment.com/docs/api/public-api/query-language).
+     * The echoed message.
      *
-     * @return query
+     * @return message
      */
     @javax.annotation.Nonnull
-    public String getQuery() {
-        return query;
+    public String getMessage() {
+        return message;
     }
 
-    public void setQuery(String query) {
-        this.query = query;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
-    public AudienceDefinitionWithoutType targetEntity(String targetEntity) {
+    public AudienceEcho spaceId(String spaceId) {
 
-        this.targetEntity = targetEntity;
+        this.spaceId = spaceId;
         return this;
     }
 
     /**
-     * The target entity slug.
+     * The space id used for rate limiting.
      *
-     * @return targetEntity
+     * @return spaceId
      */
-    @javax.annotation.Nullable
-    public String getTargetEntity() {
-        return targetEntity;
+    @javax.annotation.Nonnull
+    public String getSpaceId() {
+        return spaceId;
     }
 
-    public void setTargetEntity(String targetEntity) {
-        this.targetEntity = targetEntity;
+    public void setSpaceId(String spaceId) {
+        this.spaceId = spaceId;
     }
 
     @Override
@@ -91,23 +89,22 @@ public class AudienceDefinitionWithoutType {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        AudienceDefinitionWithoutType audienceDefinitionWithoutType =
-                (AudienceDefinitionWithoutType) o;
-        return Objects.equals(this.query, audienceDefinitionWithoutType.query)
-                && Objects.equals(this.targetEntity, audienceDefinitionWithoutType.targetEntity);
+        AudienceEcho audienceEcho = (AudienceEcho) o;
+        return Objects.equals(this.message, audienceEcho.message)
+                && Objects.equals(this.spaceId, audienceEcho.spaceId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(query, targetEntity);
+        return Objects.hash(message, spaceId);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AudienceDefinitionWithoutType {\n");
-        sb.append("    query: ").append(toIndentedString(query)).append("\n");
-        sb.append("    targetEntity: ").append(toIndentedString(targetEntity)).append("\n");
+        sb.append("class AudienceEcho {\n");
+        sb.append("    message: ").append(toIndentedString(message)).append("\n");
+        sb.append("    spaceId: ").append(toIndentedString(spaceId)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -129,47 +126,47 @@ public class AudienceDefinitionWithoutType {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("query");
-        openapiFields.add("targetEntity");
+        openapiFields.add("message");
+        openapiFields.add("spaceId");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("query");
+        openapiRequiredFields.add("message");
+        openapiRequiredFields.add("spaceId");
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to
-     *     AudienceDefinitionWithoutType
+     * @throws IOException if the JSON Element is invalid with respect to AudienceEcho
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!AudienceDefinitionWithoutType.openapiRequiredFields
+            if (!AudienceEcho.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in AudienceDefinitionWithoutType is not"
-                                        + " found in the empty JSON string",
-                                AudienceDefinitionWithoutType.openapiRequiredFields.toString()));
+                                "The required field(s) %s in AudienceEcho is not found in the empty"
+                                        + " JSON string",
+                                AudienceEcho.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!AudienceDefinitionWithoutType.openapiFields.contains(entry.getKey())) {
+            if (!AudienceEcho.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `AudienceDefinitionWithoutType` properties. JSON: %s",
+                                        + " `AudienceEcho` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : AudienceDefinitionWithoutType.openapiRequiredFields) {
+        for (String requiredField : AudienceEcho.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -178,20 +175,19 @@ public class AudienceDefinitionWithoutType {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if (!jsonObj.get("query").isJsonPrimitive()) {
+        if (!jsonObj.get("message").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `query` to be a primitive type in the JSON string"
+                            "Expected the field `message` to be a primitive type in the JSON string"
                                     + " but got `%s`",
-                            jsonObj.get("query").toString()));
+                            jsonObj.get("message").toString()));
         }
-        if ((jsonObj.get("targetEntity") != null && !jsonObj.get("targetEntity").isJsonNull())
-                && !jsonObj.get("targetEntity").isJsonPrimitive()) {
+        if (!jsonObj.get("spaceId").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `targetEntity` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
-                            jsonObj.get("targetEntity").toString()));
+                            "Expected the field `spaceId` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
+                            jsonObj.get("spaceId").toString()));
         }
     }
 
@@ -199,27 +195,23 @@ public class AudienceDefinitionWithoutType {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!AudienceDefinitionWithoutType.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'AudienceDefinitionWithoutType' and its
-                // subtypes
+            if (!AudienceEcho.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'AudienceEcho' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<AudienceDefinitionWithoutType> thisAdapter =
-                    gson.getDelegateAdapter(
-                            this, TypeToken.get(AudienceDefinitionWithoutType.class));
+            final TypeAdapter<AudienceEcho> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(AudienceEcho.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<AudienceDefinitionWithoutType>() {
+                    new TypeAdapter<AudienceEcho>() {
                         @Override
-                        public void write(JsonWriter out, AudienceDefinitionWithoutType value)
-                                throws IOException {
+                        public void write(JsonWriter out, AudienceEcho value) throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public AudienceDefinitionWithoutType read(JsonReader in)
-                                throws IOException {
+                        public AudienceEcho read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -229,19 +221,18 @@ public class AudienceDefinitionWithoutType {
     }
 
     /**
-     * Create an instance of AudienceDefinitionWithoutType given an JSON string
+     * Create an instance of AudienceEcho given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of AudienceDefinitionWithoutType
-     * @throws IOException if the JSON string is invalid with respect to
-     *     AudienceDefinitionWithoutType
+     * @return An instance of AudienceEcho
+     * @throws IOException if the JSON string is invalid with respect to AudienceEcho
      */
-    public static AudienceDefinitionWithoutType fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, AudienceDefinitionWithoutType.class);
+    public static AudienceEcho fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, AudienceEcho.class);
     }
 
     /**
-     * Convert an instance of AudienceDefinitionWithoutType to an JSON string
+     * Convert an instance of AudienceEcho to an JSON string
      *
      * @return JSON string
      */

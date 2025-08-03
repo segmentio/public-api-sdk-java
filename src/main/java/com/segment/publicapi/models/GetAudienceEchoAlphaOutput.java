@@ -27,60 +27,33 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** AudienceDefinitionWithoutType */
-public class AudienceDefinitionWithoutType {
-    public static final String SERIALIZED_NAME_QUERY = "query";
+/** Output from the echo endpoint. */
+public class GetAudienceEchoAlphaOutput {
+    public static final String SERIALIZED_NAME_AUDIENCE_ECHO = "audienceEcho";
 
-    @SerializedName(SERIALIZED_NAME_QUERY)
-    private String query;
+    @SerializedName(SERIALIZED_NAME_AUDIENCE_ECHO)
+    private AudienceEcho audienceEcho;
 
-    public static final String SERIALIZED_NAME_TARGET_ENTITY = "targetEntity";
+    public GetAudienceEchoAlphaOutput() {}
 
-    @SerializedName(SERIALIZED_NAME_TARGET_ENTITY)
-    private String targetEntity;
+    public GetAudienceEchoAlphaOutput audienceEcho(AudienceEcho audienceEcho) {
 
-    public AudienceDefinitionWithoutType() {}
-
-    public AudienceDefinitionWithoutType query(String query) {
-
-        this.query = query;
+        this.audienceEcho = audienceEcho;
         return this;
     }
 
     /**
-     * The query language string defining the audience segmentation criteria. For guidance on using
-     * the query language, see the [Segment documentation
-     * site](https://segment.com/docs/api/public-api/query-language).
+     * Get audienceEcho
      *
-     * @return query
+     * @return audienceEcho
      */
     @javax.annotation.Nonnull
-    public String getQuery() {
-        return query;
+    public AudienceEcho getAudienceEcho() {
+        return audienceEcho;
     }
 
-    public void setQuery(String query) {
-        this.query = query;
-    }
-
-    public AudienceDefinitionWithoutType targetEntity(String targetEntity) {
-
-        this.targetEntity = targetEntity;
-        return this;
-    }
-
-    /**
-     * The target entity slug.
-     *
-     * @return targetEntity
-     */
-    @javax.annotation.Nullable
-    public String getTargetEntity() {
-        return targetEntity;
-    }
-
-    public void setTargetEntity(String targetEntity) {
-        this.targetEntity = targetEntity;
+    public void setAudienceEcho(AudienceEcho audienceEcho) {
+        this.audienceEcho = audienceEcho;
     }
 
     @Override
@@ -91,23 +64,20 @@ public class AudienceDefinitionWithoutType {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        AudienceDefinitionWithoutType audienceDefinitionWithoutType =
-                (AudienceDefinitionWithoutType) o;
-        return Objects.equals(this.query, audienceDefinitionWithoutType.query)
-                && Objects.equals(this.targetEntity, audienceDefinitionWithoutType.targetEntity);
+        GetAudienceEchoAlphaOutput getAudienceEchoAlphaOutput = (GetAudienceEchoAlphaOutput) o;
+        return Objects.equals(this.audienceEcho, getAudienceEchoAlphaOutput.audienceEcho);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(query, targetEntity);
+        return Objects.hash(audienceEcho);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AudienceDefinitionWithoutType {\n");
-        sb.append("    query: ").append(toIndentedString(query)).append("\n");
-        sb.append("    targetEntity: ").append(toIndentedString(targetEntity)).append("\n");
+        sb.append("class GetAudienceEchoAlphaOutput {\n");
+        sb.append("    audienceEcho: ").append(toIndentedString(audienceEcho)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -129,47 +99,45 @@ public class AudienceDefinitionWithoutType {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("query");
-        openapiFields.add("targetEntity");
+        openapiFields.add("audienceEcho");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("query");
+        openapiRequiredFields.add("audienceEcho");
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to
-     *     AudienceDefinitionWithoutType
+     * @throws IOException if the JSON Element is invalid with respect to GetAudienceEchoAlphaOutput
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!AudienceDefinitionWithoutType.openapiRequiredFields
+            if (!GetAudienceEchoAlphaOutput.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in AudienceDefinitionWithoutType is not"
+                                "The required field(s) %s in GetAudienceEchoAlphaOutput is not"
                                         + " found in the empty JSON string",
-                                AudienceDefinitionWithoutType.openapiRequiredFields.toString()));
+                                GetAudienceEchoAlphaOutput.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!AudienceDefinitionWithoutType.openapiFields.contains(entry.getKey())) {
+            if (!GetAudienceEchoAlphaOutput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `AudienceDefinitionWithoutType` properties. JSON: %s",
+                                        + " `GetAudienceEchoAlphaOutput` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : AudienceDefinitionWithoutType.openapiRequiredFields) {
+        for (String requiredField : GetAudienceEchoAlphaOutput.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -178,48 +146,33 @@ public class AudienceDefinitionWithoutType {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if (!jsonObj.get("query").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `query` to be a primitive type in the JSON string"
-                                    + " but got `%s`",
-                            jsonObj.get("query").toString()));
-        }
-        if ((jsonObj.get("targetEntity") != null && !jsonObj.get("targetEntity").isJsonNull())
-                && !jsonObj.get("targetEntity").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `targetEntity` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
-                            jsonObj.get("targetEntity").toString()));
-        }
+        // validate the required field `audienceEcho`
+        AudienceEcho.validateJsonElement(jsonObj.get("audienceEcho"));
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!AudienceDefinitionWithoutType.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'AudienceDefinitionWithoutType' and its
+            if (!GetAudienceEchoAlphaOutput.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'GetAudienceEchoAlphaOutput' and its
                 // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<AudienceDefinitionWithoutType> thisAdapter =
-                    gson.getDelegateAdapter(
-                            this, TypeToken.get(AudienceDefinitionWithoutType.class));
+            final TypeAdapter<GetAudienceEchoAlphaOutput> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(GetAudienceEchoAlphaOutput.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<AudienceDefinitionWithoutType>() {
+                    new TypeAdapter<GetAudienceEchoAlphaOutput>() {
                         @Override
-                        public void write(JsonWriter out, AudienceDefinitionWithoutType value)
+                        public void write(JsonWriter out, GetAudienceEchoAlphaOutput value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public AudienceDefinitionWithoutType read(JsonReader in)
-                                throws IOException {
+                        public GetAudienceEchoAlphaOutput read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -229,19 +182,18 @@ public class AudienceDefinitionWithoutType {
     }
 
     /**
-     * Create an instance of AudienceDefinitionWithoutType given an JSON string
+     * Create an instance of GetAudienceEchoAlphaOutput given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of AudienceDefinitionWithoutType
-     * @throws IOException if the JSON string is invalid with respect to
-     *     AudienceDefinitionWithoutType
+     * @return An instance of GetAudienceEchoAlphaOutput
+     * @throws IOException if the JSON string is invalid with respect to GetAudienceEchoAlphaOutput
      */
-    public static AudienceDefinitionWithoutType fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, AudienceDefinitionWithoutType.class);
+    public static GetAudienceEchoAlphaOutput fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, GetAudienceEchoAlphaOutput.class);
     }
 
     /**
-     * Convert an instance of AudienceDefinitionWithoutType to an JSON string
+     * Convert an instance of GetAudienceEchoAlphaOutput to an JSON string
      *
      * @return JSON string
      */
