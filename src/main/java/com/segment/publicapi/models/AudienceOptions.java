@@ -22,7 +22,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
@@ -38,6 +41,16 @@ public class AudienceOptions {
 
     @SerializedName(SERIALIZED_NAME_INCLUDE_ANONYMOUS_USERS)
     private Boolean includeAnonymousUsers;
+
+    public static final String SERIALIZED_NAME_FILTER_BY_EXTERNAL_IDS = "filterByExternalIds";
+
+    @SerializedName(SERIALIZED_NAME_FILTER_BY_EXTERNAL_IDS)
+    private List<String> filterByExternalIds;
+
+    public static final String SERIALIZED_NAME_BACKFILL_EVENT_DATA_DAYS = "backfillEventDataDays";
+
+    @SerializedName(SERIALIZED_NAME_BACKFILL_EVENT_DATA_DAYS)
+    private BigDecimal backfillEventDataDays;
 
     public AudienceOptions() {}
 
@@ -84,6 +97,60 @@ public class AudienceOptions {
         this.includeAnonymousUsers = includeAnonymousUsers;
     }
 
+    public AudienceOptions filterByExternalIds(List<String> filterByExternalIds) {
+
+        this.filterByExternalIds = filterByExternalIds;
+        return this;
+    }
+
+    public AudienceOptions addFilterByExternalIdsItem(String filterByExternalIdsItem) {
+        if (this.filterByExternalIds == null) {
+            this.filterByExternalIds = new ArrayList<>();
+        }
+        this.filterByExternalIds.add(filterByExternalIdsItem);
+        return this;
+    }
+
+    /**
+     * The set of profile external identifiers being used to determine audience membership. Profiles
+     * will only be considered for audience membership if the profile has at least one external id
+     * whose key matches a value in this set.
+     *
+     * @return filterByExternalIds
+     */
+    @javax.annotation.Nullable
+    public List<String> getFilterByExternalIds() {
+        return filterByExternalIds;
+    }
+
+    public void setFilterByExternalIds(List<String> filterByExternalIds) {
+        this.filterByExternalIds = filterByExternalIds;
+    }
+
+    public AudienceOptions backfillEventDataDays(BigDecimal backfillEventDataDays) {
+
+        this.backfillEventDataDays = backfillEventDataDays;
+        return this;
+    }
+
+    /**
+     * If specified, the value of this field indicates the number of days, specified from the date
+     * the audience was created, that event data will be included from when determining audience
+     * membership. If unspecified, defer to the value of &#x60;includeHistoricalData&#x60; to
+     * determine whether historical data is either entirely included or entirely excluded when
+     * determining audience membership.
+     *
+     * @return backfillEventDataDays
+     */
+    @javax.annotation.Nullable
+    public BigDecimal getBackfillEventDataDays() {
+        return backfillEventDataDays;
+    }
+
+    public void setBackfillEventDataDays(BigDecimal backfillEventDataDays) {
+        this.backfillEventDataDays = backfillEventDataDays;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -94,13 +161,19 @@ public class AudienceOptions {
         }
         AudienceOptions audienceOptions = (AudienceOptions) o;
         return Objects.equals(this.includeHistoricalData, audienceOptions.includeHistoricalData)
+                && Objects.equals(this.includeAnonymousUsers, audienceOptions.includeAnonymousUsers)
+                && Objects.equals(this.filterByExternalIds, audienceOptions.filterByExternalIds)
                 && Objects.equals(
-                        this.includeAnonymousUsers, audienceOptions.includeAnonymousUsers);
+                        this.backfillEventDataDays, audienceOptions.backfillEventDataDays);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(includeHistoricalData, includeAnonymousUsers);
+        return Objects.hash(
+                includeHistoricalData,
+                includeAnonymousUsers,
+                filterByExternalIds,
+                backfillEventDataDays);
     }
 
     @Override
@@ -112,6 +185,12 @@ public class AudienceOptions {
                 .append("\n");
         sb.append("    includeAnonymousUsers: ")
                 .append(toIndentedString(includeAnonymousUsers))
+                .append("\n");
+        sb.append("    filterByExternalIds: ")
+                .append(toIndentedString(filterByExternalIds))
+                .append("\n");
+        sb.append("    backfillEventDataDays: ")
+                .append(toIndentedString(backfillEventDataDays))
                 .append("\n");
         sb.append("}");
         return sb.toString();
@@ -136,6 +215,8 @@ public class AudienceOptions {
         openapiFields = new HashSet<String>();
         openapiFields.add("includeHistoricalData");
         openapiFields.add("includeAnonymousUsers");
+        openapiFields.add("filterByExternalIds");
+        openapiFields.add("backfillEventDataDays");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
@@ -171,6 +252,16 @@ public class AudienceOptions {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("filterByExternalIds") != null
+                && !jsonObj.get("filterByExternalIds").isJsonNull()
+                && !jsonObj.get("filterByExternalIds").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `filterByExternalIds` to be an array in the JSON"
+                                    + " string but got `%s`",
+                            jsonObj.get("filterByExternalIds").toString()));
+        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

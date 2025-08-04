@@ -37,11 +37,6 @@ public class AudienceOptionsWithLookback {
     @SerializedName(SERIALIZED_NAME_FILTER_BY_EXTERNAL_IDS)
     private List<String> filterByExternalIds = new ArrayList<>();
 
-    public static final String SERIALIZED_NAME_BACKFILL_EVENT_DATA_DAYS = "backfillEventDataDays";
-
-    @SerializedName(SERIALIZED_NAME_BACKFILL_EVENT_DATA_DAYS)
-    private BigDecimal backfillEventDataDays;
-
     public static final String SERIALIZED_NAME_INCLUDE_HISTORICAL_DATA = "includeHistoricalData";
 
     @SerializedName(SERIALIZED_NAME_INCLUDE_HISTORICAL_DATA)
@@ -51,6 +46,11 @@ public class AudienceOptionsWithLookback {
 
     @SerializedName(SERIALIZED_NAME_INCLUDE_ANONYMOUS_USERS)
     private Boolean includeAnonymousUsers;
+
+    public static final String SERIALIZED_NAME_BACKFILL_EVENT_DATA_DAYS = "backfillEventDataDays";
+
+    @SerializedName(SERIALIZED_NAME_BACKFILL_EVENT_DATA_DAYS)
+    private BigDecimal backfillEventDataDays;
 
     public AudienceOptionsWithLookback() {}
 
@@ -82,30 +82,6 @@ public class AudienceOptionsWithLookback {
 
     public void setFilterByExternalIds(List<String> filterByExternalIds) {
         this.filterByExternalIds = filterByExternalIds;
-    }
-
-    public AudienceOptionsWithLookback backfillEventDataDays(BigDecimal backfillEventDataDays) {
-
-        this.backfillEventDataDays = backfillEventDataDays;
-        return this;
-    }
-
-    /**
-     * If specified, the value of this field indicates the number of days, specified from the date
-     * the audience was created, that event data will be included from when determining audience
-     * membership. If unspecified, defer to the value of &#x60;includeHistoricalData&#x60; to
-     * determine whether historical data is either entirely included or entirely excluded when
-     * determining audience membership.
-     *
-     * @return backfillEventDataDays
-     */
-    @javax.annotation.Nullable
-    public BigDecimal getBackfillEventDataDays() {
-        return backfillEventDataDays;
-    }
-
-    public void setBackfillEventDataDays(BigDecimal backfillEventDataDays) {
-        this.backfillEventDataDays = backfillEventDataDays;
     }
 
     public AudienceOptionsWithLookback includeHistoricalData(Boolean includeHistoricalData) {
@@ -151,6 +127,30 @@ public class AudienceOptionsWithLookback {
         this.includeAnonymousUsers = includeAnonymousUsers;
     }
 
+    public AudienceOptionsWithLookback backfillEventDataDays(BigDecimal backfillEventDataDays) {
+
+        this.backfillEventDataDays = backfillEventDataDays;
+        return this;
+    }
+
+    /**
+     * If specified, the value of this field indicates the number of days, specified from the date
+     * the audience was created, that event data will be included from when determining audience
+     * membership. If unspecified, defer to the value of &#x60;includeHistoricalData&#x60; to
+     * determine whether historical data is either entirely included or entirely excluded when
+     * determining audience membership.
+     *
+     * @return backfillEventDataDays
+     */
+    @javax.annotation.Nullable
+    public BigDecimal getBackfillEventDataDays() {
+        return backfillEventDataDays;
+    }
+
+    public void setBackfillEventDataDays(BigDecimal backfillEventDataDays) {
+        this.backfillEventDataDays = backfillEventDataDays;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -163,23 +163,23 @@ public class AudienceOptionsWithLookback {
         return Objects.equals(
                         this.filterByExternalIds, audienceOptionsWithLookback.filterByExternalIds)
                 && Objects.equals(
-                        this.backfillEventDataDays,
-                        audienceOptionsWithLookback.backfillEventDataDays)
-                && Objects.equals(
                         this.includeHistoricalData,
                         audienceOptionsWithLookback.includeHistoricalData)
                 && Objects.equals(
                         this.includeAnonymousUsers,
-                        audienceOptionsWithLookback.includeAnonymousUsers);
+                        audienceOptionsWithLookback.includeAnonymousUsers)
+                && Objects.equals(
+                        this.backfillEventDataDays,
+                        audienceOptionsWithLookback.backfillEventDataDays);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(
                 filterByExternalIds,
-                backfillEventDataDays,
                 includeHistoricalData,
-                includeAnonymousUsers);
+                includeAnonymousUsers,
+                backfillEventDataDays);
     }
 
     @Override
@@ -189,14 +189,14 @@ public class AudienceOptionsWithLookback {
         sb.append("    filterByExternalIds: ")
                 .append(toIndentedString(filterByExternalIds))
                 .append("\n");
-        sb.append("    backfillEventDataDays: ")
-                .append(toIndentedString(backfillEventDataDays))
-                .append("\n");
         sb.append("    includeHistoricalData: ")
                 .append(toIndentedString(includeHistoricalData))
                 .append("\n");
         sb.append("    includeAnonymousUsers: ")
                 .append(toIndentedString(includeAnonymousUsers))
+                .append("\n");
+        sb.append("    backfillEventDataDays: ")
+                .append(toIndentedString(backfillEventDataDays))
                 .append("\n");
         sb.append("}");
         return sb.toString();
@@ -220,9 +220,9 @@ public class AudienceOptionsWithLookback {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
         openapiFields.add("filterByExternalIds");
-        openapiFields.add("backfillEventDataDays");
         openapiFields.add("includeHistoricalData");
         openapiFields.add("includeAnonymousUsers");
+        openapiFields.add("backfillEventDataDays");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();

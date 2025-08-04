@@ -34,11 +34,6 @@ public class AudienceDefinitionWithoutType {
     @SerializedName(SERIALIZED_NAME_QUERY)
     private String query;
 
-    public static final String SERIALIZED_NAME_TARGET_ENTITY = "targetEntity";
-
-    @SerializedName(SERIALIZED_NAME_TARGET_ENTITY)
-    private String targetEntity;
-
     public AudienceDefinitionWithoutType() {}
 
     public AudienceDefinitionWithoutType query(String query) {
@@ -63,26 +58,6 @@ public class AudienceDefinitionWithoutType {
         this.query = query;
     }
 
-    public AudienceDefinitionWithoutType targetEntity(String targetEntity) {
-
-        this.targetEntity = targetEntity;
-        return this;
-    }
-
-    /**
-     * The target entity slug.
-     *
-     * @return targetEntity
-     */
-    @javax.annotation.Nullable
-    public String getTargetEntity() {
-        return targetEntity;
-    }
-
-    public void setTargetEntity(String targetEntity) {
-        this.targetEntity = targetEntity;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -93,13 +68,12 @@ public class AudienceDefinitionWithoutType {
         }
         AudienceDefinitionWithoutType audienceDefinitionWithoutType =
                 (AudienceDefinitionWithoutType) o;
-        return Objects.equals(this.query, audienceDefinitionWithoutType.query)
-                && Objects.equals(this.targetEntity, audienceDefinitionWithoutType.targetEntity);
+        return Objects.equals(this.query, audienceDefinitionWithoutType.query);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(query, targetEntity);
+        return Objects.hash(query);
     }
 
     @Override
@@ -107,7 +81,6 @@ public class AudienceDefinitionWithoutType {
         StringBuilder sb = new StringBuilder();
         sb.append("class AudienceDefinitionWithoutType {\n");
         sb.append("    query: ").append(toIndentedString(query)).append("\n");
-        sb.append("    targetEntity: ").append(toIndentedString(targetEntity)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -130,7 +103,6 @@ public class AudienceDefinitionWithoutType {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
         openapiFields.add("query");
-        openapiFields.add("targetEntity");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
@@ -184,14 +156,6 @@ public class AudienceDefinitionWithoutType {
                             "Expected the field `query` to be a primitive type in the JSON string"
                                     + " but got `%s`",
                             jsonObj.get("query").toString()));
-        }
-        if ((jsonObj.get("targetEntity") != null && !jsonObj.get("targetEntity").isJsonNull())
-                && !jsonObj.get("targetEntity").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `targetEntity` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
-                            jsonObj.get("targetEntity").toString()));
         }
     }
 
