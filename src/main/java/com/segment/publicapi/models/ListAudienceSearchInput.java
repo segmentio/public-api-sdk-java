@@ -117,7 +117,8 @@ public class ListAudienceSearchInput {
     }
 
     /**
-     * Text to match against the selected field (max 255 characters).
+     * Text to match against the selected field (max 255 characters). When searching by KEY, a
+     * prefix match is used. For all other options, a full wildcard search will be used.
      *
      * @return query
      */
