@@ -12,6 +12,7 @@
 package com.segment.publicapi.models;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
@@ -22,6 +23,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -34,22 +36,140 @@ import java.util.Set;
  * &#x60;audienceType: LINKED&#x60;.
  */
 public class AudiencePreviewEntitiesResult {
+    public static final String SERIALIZED_NAME_ID = "id";
+
+    @SerializedName(SERIALIZED_NAME_ID)
+    private String id;
+
+    public static final String SERIALIZED_NAME_ID_PROPERTY = "idProperty";
+
+    @SerializedName(SERIALIZED_NAME_ID_PROPERTY)
+    private String idProperty;
+
+    public static final String SERIALIZED_NAME_RELATIONSHIP_SLUG = "relationshipSlug";
+
+    @SerializedName(SERIALIZED_NAME_RELATIONSHIP_SLUG)
+    private String relationshipSlug;
+
+    public static final String SERIALIZED_NAME_PROPERTIES = "properties";
+
+    @SerializedName(SERIALIZED_NAME_PROPERTIES)
+    private Map<String, Object> properties;
+
     public static final String SERIALIZED_NAME_ENTITIES = "entities";
 
     @SerializedName(SERIALIZED_NAME_ENTITIES)
-    private Map<String, List<EntityProfileDetails>> entities;
+    private Map<String, Object> entities = new HashMap<>();
+
+    public static final String SERIALIZED_NAME_PROFILES = "profiles";
+
+    @SerializedName(SERIALIZED_NAME_PROFILES)
+    private List<Profile> profiles;
+
+    public static final String SERIALIZED_NAME_PROFILES_TRUNCATED = "profilesTruncated";
+
+    @SerializedName(SERIALIZED_NAME_PROFILES_TRUNCATED)
+    private Boolean profilesTruncated;
 
     public AudiencePreviewEntitiesResult() {}
 
-    public AudiencePreviewEntitiesResult entities(
-            Map<String, List<EntityProfileDetails>> entities) {
+    public AudiencePreviewEntitiesResult id(String id) {
+
+        this.id = id;
+        return this;
+    }
+
+    /**
+     * The entities associated with the profile. Will only have a value if the audience preview has
+     * &#x60;audienceType: LINKED&#x60; and entities are referenced in the audience preview&#39;s
+     * definition.
+     *
+     * @return id
+     */
+    @javax.annotation.Nonnull
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public AudiencePreviewEntitiesResult idProperty(String idProperty) {
+
+        this.idProperty = idProperty;
+        return this;
+    }
+
+    /**
+     * The entity primary key column name.
+     *
+     * @return idProperty
+     */
+    @javax.annotation.Nonnull
+    public String getIdProperty() {
+        return idProperty;
+    }
+
+    public void setIdProperty(String idProperty) {
+        this.idProperty = idProperty;
+    }
+
+    public AudiencePreviewEntitiesResult relationshipSlug(String relationshipSlug) {
+
+        this.relationshipSlug = relationshipSlug;
+        return this;
+    }
+
+    /**
+     * The entity relationship slug.
+     *
+     * @return relationshipSlug
+     */
+    @javax.annotation.Nonnull
+    public String getRelationshipSlug() {
+        return relationshipSlug;
+    }
+
+    public void setRelationshipSlug(String relationshipSlug) {
+        this.relationshipSlug = relationshipSlug;
+    }
+
+    public AudiencePreviewEntitiesResult properties(Map<String, Object> properties) {
+
+        this.properties = properties;
+        return this;
+    }
+
+    public AudiencePreviewEntitiesResult putPropertiesItem(String key, Object propertiesItem) {
+        if (this.properties == null) {
+            this.properties = new HashMap<>();
+        }
+        this.properties.put(key, propertiesItem);
+        return this;
+    }
+
+    /**
+     * Entity properties.
+     *
+     * @return properties
+     */
+    @javax.annotation.Nullable
+    public Map<String, Object> getProperties() {
+        return properties;
+    }
+
+    public void setProperties(Map<String, Object> properties) {
+        this.properties = properties;
+    }
+
+    public AudiencePreviewEntitiesResult entities(Map<String, Object> entities) {
 
         this.entities = entities;
         return this;
     }
 
-    public AudiencePreviewEntitiesResult putEntitiesItem(
-            String key, List<EntityProfileDetails> entitiesItem) {
+    public AudiencePreviewEntitiesResult putEntitiesItem(String key, Object entitiesItem) {
         if (this.entities == null) {
             this.entities = new HashMap<>();
         }
@@ -58,17 +178,66 @@ public class AudiencePreviewEntitiesResult {
     }
 
     /**
-     * Get entities
+     * Related entities that are one level deeper will only be returned if those entities are
+     * referenced in the audience definition.
      *
      * @return entities
      */
     @javax.annotation.Nullable
-    public Map<String, List<EntityProfileDetails>> getEntities() {
+    public Map<String, Object> getEntities() {
         return entities;
     }
 
-    public void setEntities(Map<String, List<EntityProfileDetails>> entities) {
+    public void setEntities(Map<String, Object> entities) {
         this.entities = entities;
+    }
+
+    public AudiencePreviewEntitiesResult profiles(List<Profile> profiles) {
+
+        this.profiles = profiles;
+        return this;
+    }
+
+    public AudiencePreviewEntitiesResult addProfilesItem(Profile profilesItem) {
+        if (this.profiles == null) {
+            this.profiles = new ArrayList<>();
+        }
+        this.profiles.add(profilesItem);
+        return this;
+    }
+
+    /**
+     * List of profiles.
+     *
+     * @return profiles
+     */
+    @javax.annotation.Nullable
+    public List<Profile> getProfiles() {
+        return profiles;
+    }
+
+    public void setProfiles(List<Profile> profiles) {
+        this.profiles = profiles;
+    }
+
+    public AudiencePreviewEntitiesResult profilesTruncated(Boolean profilesTruncated) {
+
+        this.profilesTruncated = profilesTruncated;
+        return this;
+    }
+
+    /**
+     * Indicates if only a subset of the profiles associated with the entity were returned.
+     *
+     * @return profilesTruncated
+     */
+    @javax.annotation.Nonnull
+    public Boolean getProfilesTruncated() {
+        return profilesTruncated;
+    }
+
+    public void setProfilesTruncated(Boolean profilesTruncated) {
+        this.profilesTruncated = profilesTruncated;
     }
 
     @Override
@@ -81,19 +250,42 @@ public class AudiencePreviewEntitiesResult {
         }
         AudiencePreviewEntitiesResult audiencePreviewEntitiesResult =
                 (AudiencePreviewEntitiesResult) o;
-        return Objects.equals(this.entities, audiencePreviewEntitiesResult.entities);
+        return Objects.equals(this.id, audiencePreviewEntitiesResult.id)
+                && Objects.equals(this.idProperty, audiencePreviewEntitiesResult.idProperty)
+                && Objects.equals(
+                        this.relationshipSlug, audiencePreviewEntitiesResult.relationshipSlug)
+                && Objects.equals(this.properties, audiencePreviewEntitiesResult.properties)
+                && Objects.equals(this.entities, audiencePreviewEntitiesResult.entities)
+                && Objects.equals(this.profiles, audiencePreviewEntitiesResult.profiles)
+                && Objects.equals(
+                        this.profilesTruncated, audiencePreviewEntitiesResult.profilesTruncated);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(entities);
+        return Objects.hash(
+                id,
+                idProperty,
+                relationshipSlug,
+                properties,
+                entities,
+                profiles,
+                profilesTruncated);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class AudiencePreviewEntitiesResult {\n");
+        sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    idProperty: ").append(toIndentedString(idProperty)).append("\n");
+        sb.append("    relationshipSlug: ").append(toIndentedString(relationshipSlug)).append("\n");
+        sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
         sb.append("    entities: ").append(toIndentedString(entities)).append("\n");
+        sb.append("    profiles: ").append(toIndentedString(profiles)).append("\n");
+        sb.append("    profilesTruncated: ")
+                .append(toIndentedString(profilesTruncated))
+                .append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -115,10 +307,20 @@ public class AudiencePreviewEntitiesResult {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
+        openapiFields.add("id");
+        openapiFields.add("idProperty");
+        openapiFields.add("relationshipSlug");
+        openapiFields.add("properties");
         openapiFields.add("entities");
+        openapiFields.add("profiles");
+        openapiFields.add("profilesTruncated");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
+        openapiRequiredFields.add("id");
+        openapiRequiredFields.add("idProperty");
+        openapiRequiredFields.add("relationshipSlug");
+        openapiRequiredFields.add("profilesTruncated");
     }
 
     /**
@@ -151,7 +353,57 @@ public class AudiencePreviewEntitiesResult {
                                 entry.getKey(), jsonElement.toString()));
             }
         }
+
+        // check to make sure all required properties/fields are present in the JSON string
+        for (String requiredField : AudiencePreviewEntitiesResult.openapiRequiredFields) {
+            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+                throw new IllegalArgumentException(
+                        String.format(
+                                "The required field `%s` is not found in the JSON string: %s",
+                                requiredField, jsonElement.toString()));
+            }
+        }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+        if (!jsonObj.get("id").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `id` to be a primitive type in the JSON string but"
+                                    + " got `%s`",
+                            jsonObj.get("id").toString()));
+        }
+        if (!jsonObj.get("idProperty").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `idProperty` to be a primitive type in the JSON"
+                                    + " string but got `%s`",
+                            jsonObj.get("idProperty").toString()));
+        }
+        if (!jsonObj.get("relationshipSlug").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `relationshipSlug` to be a primitive type in the"
+                                    + " JSON string but got `%s`",
+                            jsonObj.get("relationshipSlug").toString()));
+        }
+        if (jsonObj.get("profiles") != null && !jsonObj.get("profiles").isJsonNull()) {
+            JsonArray jsonArrayprofiles = jsonObj.getAsJsonArray("profiles");
+            if (jsonArrayprofiles != null) {
+                // ensure the json data is an array
+                if (!jsonObj.get("profiles").isJsonArray()) {
+                    throw new IllegalArgumentException(
+                            String.format(
+                                    "Expected the field `profiles` to be an array in the JSON"
+                                            + " string but got `%s`",
+                                    jsonObj.get("profiles").toString()));
+                }
+
+                // validate the optional field `profiles` (array)
+                for (int i = 0; i < jsonArrayprofiles.size(); i++) {
+                    Profile.validateJsonElement(jsonArrayprofiles.get(i));
+                }
+                ;
+            }
+        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
