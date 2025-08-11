@@ -207,7 +207,7 @@ public class AudiencePreviewEntitiesResult {
     }
 
     /**
-     * List of profiles.
+     * Related list of profiles.
      *
      * @return profiles
      */
