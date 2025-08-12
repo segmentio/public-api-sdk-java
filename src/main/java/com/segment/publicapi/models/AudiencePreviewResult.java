@@ -43,6 +43,9 @@ public class AudiencePreviewResult extends AbstractOpenApiSchema {
             final TypeAdapter<AudiencePreviewProfileResult> adapterAudiencePreviewProfileResult =
                     gson.getDelegateAdapter(
                             this, TypeToken.get(AudiencePreviewProfileResult.class));
+            final TypeAdapter<AudiencePreviewEntitiesResult> adapterAudiencePreviewEntitiesResult =
+                    gson.getDelegateAdapter(
+                            this, TypeToken.get(AudiencePreviewEntitiesResult.class));
 
             return (TypeAdapter<T>)
                     new TypeAdapter<AudiencePreviewResult>() {
@@ -74,9 +77,21 @@ public class AudiencePreviewResult extends AbstractOpenApiSchema {
                                 elementAdapter.write(out, element);
                                 return;
                             }
+                            // check if the actual instance is of the type
+                            // `AudiencePreviewEntitiesResult`
+                            if (value.getActualInstance()
+                                    instanceof AudiencePreviewEntitiesResult) {
+                                JsonElement element =
+                                        adapterAudiencePreviewEntitiesResult.toJsonTree(
+                                                (AudiencePreviewEntitiesResult)
+                                                        value.getActualInstance());
+                                elementAdapter.write(out, element);
+                                return;
+                            }
                             throw new IOException(
                                     "Failed to serialize as the type doesn't match anyOf schemae:"
                                             + " AudiencePreviewAccountResult,"
+                                            + " AudiencePreviewEntitiesResult,"
                                             + " AudiencePreviewProfileResult");
                         }
 
@@ -130,6 +145,27 @@ public class AudiencePreviewResult extends AbstractOpenApiSchema {
                                                 + " 'AudiencePreviewProfileResult'",
                                         e);
                             }
+                            // deserialize AudiencePreviewEntitiesResult
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                AudiencePreviewEntitiesResult.validateJsonElement(jsonElement);
+                                actualAdapter = adapterAudiencePreviewEntitiesResult;
+                                AudiencePreviewResult ret = new AudiencePreviewResult();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                return ret;
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                "Deserialization for AudiencePreviewEntitiesResult"
+                                                        + " failed with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema"
+                                                + " 'AudiencePreviewEntitiesResult'",
+                                        e);
+                            }
 
                             throw new IOException(
                                     String.format(
@@ -155,6 +191,11 @@ public class AudiencePreviewResult extends AbstractOpenApiSchema {
         setActualInstance(o);
     }
 
+    public AudiencePreviewResult(AudiencePreviewEntitiesResult o) {
+        super("anyOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
     public AudiencePreviewResult(AudiencePreviewProfileResult o) {
         super("anyOf", Boolean.FALSE);
         setActualInstance(o);
@@ -163,6 +204,7 @@ public class AudiencePreviewResult extends AbstractOpenApiSchema {
     static {
         schemas.put("AudiencePreviewAccountResult", AudiencePreviewAccountResult.class);
         schemas.put("AudiencePreviewProfileResult", AudiencePreviewProfileResult.class);
+        schemas.put("AudiencePreviewEntitiesResult", AudiencePreviewEntitiesResult.class);
     }
 
     @Override
@@ -172,7 +214,8 @@ public class AudiencePreviewResult extends AbstractOpenApiSchema {
 
     /**
      * Set the instance that matches the anyOf child schema, check the instance parameter is valid
-     * against the anyOf child schemas: AudiencePreviewAccountResult, AudiencePreviewProfileResult
+     * against the anyOf child schemas: AudiencePreviewAccountResult, AudiencePreviewEntitiesResult,
+     * AudiencePreviewProfileResult
      *
      * <p>It could be an instance of the 'anyOf' schemas.
      */
@@ -188,16 +231,22 @@ public class AudiencePreviewResult extends AbstractOpenApiSchema {
             return;
         }
 
+        if (instance instanceof AudiencePreviewEntitiesResult) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         throw new RuntimeException(
                 "Invalid instance type. Must be AudiencePreviewAccountResult,"
-                        + " AudiencePreviewProfileResult");
+                        + " AudiencePreviewEntitiesResult, AudiencePreviewProfileResult");
     }
 
     /**
      * Get the actual instance, which can be the following: AudiencePreviewAccountResult,
-     * AudiencePreviewProfileResult
+     * AudiencePreviewEntitiesResult, AudiencePreviewProfileResult
      *
-     * @return The actual instance (AudiencePreviewAccountResult, AudiencePreviewProfileResult)
+     * @return The actual instance (AudiencePreviewAccountResult, AudiencePreviewEntitiesResult,
+     *     AudiencePreviewProfileResult)
      */
     @Override
     public Object getActualInstance() {
@@ -226,6 +275,18 @@ public class AudiencePreviewResult extends AbstractOpenApiSchema {
     public AudiencePreviewProfileResult getAudiencePreviewProfileResult()
             throws ClassCastException {
         return (AudiencePreviewProfileResult) super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `AudiencePreviewEntitiesResult`. If the actual instance is not
+     * `AudiencePreviewEntitiesResult`, the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `AudiencePreviewEntitiesResult`
+     * @throws ClassCastException if the instance is not `AudiencePreviewEntitiesResult`
+     */
+    public AudiencePreviewEntitiesResult getAudiencePreviewEntitiesResult()
+            throws ClassCastException {
+        return (AudiencePreviewEntitiesResult) super.getActualInstance();
     }
 
     /**
@@ -259,12 +320,24 @@ public class AudiencePreviewResult extends AbstractOpenApiSchema {
                             e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with AudiencePreviewEntitiesResult
+        try {
+            AudiencePreviewEntitiesResult.validateJsonElement(jsonElement);
+            return;
+        } catch (Exception e) {
+            errorMessages.add(
+                    String.format(
+                            "Deserialization for AudiencePreviewEntitiesResult failed with `%s`.",
+                            e.getMessage()));
+            // continue to the next one
+        }
         throw new IOException(
                 String.format(
                         "The JSON string is invalid for AudiencePreviewResult with anyOf schemas:"
-                                + " AudiencePreviewAccountResult, AudiencePreviewProfileResult. no"
-                                + " class match the result, expected at least 1. Detailed failure"
-                                + " message for anyOf schemas: %s. JSON: %s",
+                            + " AudiencePreviewAccountResult, AudiencePreviewEntitiesResult,"
+                            + " AudiencePreviewProfileResult. no class match the result, expected"
+                            + " at least 1. Detailed failure message for anyOf schemas: %s. JSON:"
+                            + " %s",
                         errorMessages, jsonElement.toString()));
     }
 

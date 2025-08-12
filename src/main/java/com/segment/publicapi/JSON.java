@@ -202,6 +202,9 @@ public class JSON {
                 new com.segment.publicapi.models.AudiencePreviewAccountResult
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.AudiencePreviewEntitiesResult
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.AudiencePreviewIdentifier
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
@@ -1317,6 +1320,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.PreviewDestinationFilterV1Output
                         .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.Profile.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.ProfilesWarehouseAlpha.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(

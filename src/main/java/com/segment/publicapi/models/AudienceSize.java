@@ -41,6 +41,8 @@ public class AudienceSize {
     public enum TypeEnum {
         ACCOUNTS("ACCOUNTS"),
 
+        ENTITIES("ENTITIES"),
+
         USERS("USERS");
 
         private String value;
@@ -87,6 +89,11 @@ public class AudienceSize {
     @SerializedName(SERIALIZED_NAME_TYPE)
     private TypeEnum type;
 
+    public static final String SERIALIZED_NAME_UNIQUE_COUNT = "uniqueCount";
+
+    @SerializedName(SERIALIZED_NAME_UNIQUE_COUNT)
+    private BigDecimal uniqueCount;
+
     public AudienceSize() {}
 
     public AudienceSize count(BigDecimal count) {
@@ -101,7 +108,7 @@ public class AudienceSize {
      *
      * @return count
      */
-    @javax.annotation.Nonnull
+    @javax.annotation.Nullable
     public BigDecimal getCount() {
         return count;
     }
@@ -130,6 +137,26 @@ public class AudienceSize {
         this.type = type;
     }
 
+    public AudienceSize uniqueCount(BigDecimal uniqueCount) {
+
+        this.uniqueCount = uniqueCount;
+        return this;
+    }
+
+    /**
+     * The unique audience membership count.
+     *
+     * @return uniqueCount
+     */
+    @javax.annotation.Nullable
+    public BigDecimal getUniqueCount() {
+        return uniqueCount;
+    }
+
+    public void setUniqueCount(BigDecimal uniqueCount) {
+        this.uniqueCount = uniqueCount;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -140,12 +167,13 @@ public class AudienceSize {
         }
         AudienceSize audienceSize = (AudienceSize) o;
         return Objects.equals(this.count, audienceSize.count)
-                && Objects.equals(this.type, audienceSize.type);
+                && Objects.equals(this.type, audienceSize.type)
+                && Objects.equals(this.uniqueCount, audienceSize.uniqueCount);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(count, type);
+        return Objects.hash(count, type, uniqueCount);
     }
 
     @Override
@@ -154,6 +182,7 @@ public class AudienceSize {
         sb.append("class AudienceSize {\n");
         sb.append("    count: ").append(toIndentedString(count)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("    uniqueCount: ").append(toIndentedString(uniqueCount)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -177,10 +206,10 @@ public class AudienceSize {
         openapiFields = new HashSet<String>();
         openapiFields.add("count");
         openapiFields.add("type");
+        openapiFields.add("uniqueCount");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("count");
         openapiRequiredFields.add("type");
     }
 
