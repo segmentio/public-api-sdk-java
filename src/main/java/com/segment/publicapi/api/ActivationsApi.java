@@ -114,7 +114,7 @@ public class ActivationsApi {
 
         // create path and map variables
         String localVarPath =
-                "/spaces/{spaceId}/audiences/{audienceId}/{connectionId}/activations"
+                "/spaces/{spaceId}/audiences/{audienceId}/destination-connections/{connectionId}/activations"
                         .replace(
                                 "{" + "spaceId" + "}",
                                 localVarApiClient.escapeString(spaceId.toString()))
@@ -369,7 +369,7 @@ public class ActivationsApi {
 
         // create path and map variables
         String localVarPath =
-                "/spaces/{spaceId}/audiences/{audienceId}/destinations"
+                "/spaces/{spaceId}/audiences/{audienceId}/destination-connections"
                         .replace(
                                 "{" + "spaceId" + "}",
                                 localVarApiClient.escapeString(spaceId.toString()))
@@ -559,7 +559,6 @@ public class ActivationsApi {
      * @param spaceId (required)
      * @param audienceId (required)
      * @param id (required)
-     * @param workspaceId The workspace id This parameter exists in alpha. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -573,11 +572,7 @@ public class ActivationsApi {
      * </table>
      */
     public okhttp3.Call getActivationFromAudienceCall(
-            String spaceId,
-            String audienceId,
-            String id,
-            String workspaceId,
-            final ApiCallback _callback)
+            String spaceId, String audienceId, String id, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -611,11 +606,6 @@ public class ActivationsApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if (workspaceId != null) {
-            localVarQueryParams.addAll(
-                    localVarApiClient.parameterToPair("workspaceId", workspaceId));
-        }
-
         final String[] localVarAccepts = {
             "application/vnd.segment.v1alpha+json", "application/json"
         };
@@ -648,11 +638,7 @@ public class ActivationsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getActivationFromAudienceValidateBeforeCall(
-            String spaceId,
-            String audienceId,
-            String id,
-            String workspaceId,
-            final ApiCallback _callback)
+            String spaceId, String audienceId, String id, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
@@ -675,14 +661,7 @@ public class ActivationsApi {
                             + " getActivationFromAudience(Async)");
         }
 
-        // verify the required parameter 'workspaceId' is set
-        if (workspaceId == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'workspaceId' when calling"
-                            + " getActivationFromAudience(Async)");
-        }
-
-        return getActivationFromAudienceCall(spaceId, audienceId, id, workspaceId, _callback);
+        return getActivationFromAudienceCall(spaceId, audienceId, id, _callback);
     }
 
     /**
@@ -695,7 +674,6 @@ public class ActivationsApi {
      * @param spaceId (required)
      * @param audienceId (required)
      * @param id (required)
-     * @param workspaceId The workspace id This parameter exists in alpha. (required)
      * @return GetActivationFromAudience200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -709,9 +687,9 @@ public class ActivationsApi {
      * </table>
      */
     public GetActivationFromAudience200Response getActivationFromAudience(
-            String spaceId, String audienceId, String id, String workspaceId) throws ApiException {
+            String spaceId, String audienceId, String id) throws ApiException {
         ApiResponse<GetActivationFromAudience200Response> localVarResp =
-                getActivationFromAudienceWithHttpInfo(spaceId, audienceId, id, workspaceId);
+                getActivationFromAudienceWithHttpInfo(spaceId, audienceId, id);
         return localVarResp.getData();
     }
 
@@ -725,7 +703,6 @@ public class ActivationsApi {
      * @param spaceId (required)
      * @param audienceId (required)
      * @param id (required)
-     * @param workspaceId The workspace id This parameter exists in alpha. (required)
      * @return ApiResponse&lt;GetActivationFromAudience200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -739,10 +716,9 @@ public class ActivationsApi {
      * </table>
      */
     public ApiResponse<GetActivationFromAudience200Response> getActivationFromAudienceWithHttpInfo(
-            String spaceId, String audienceId, String id, String workspaceId) throws ApiException {
+            String spaceId, String audienceId, String id) throws ApiException {
         okhttp3.Call localVarCall =
-                getActivationFromAudienceValidateBeforeCall(
-                        spaceId, audienceId, id, workspaceId, null);
+                getActivationFromAudienceValidateBeforeCall(spaceId, audienceId, id, null);
         Type localVarReturnType =
                 new TypeToken<GetActivationFromAudience200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -758,7 +734,6 @@ public class ActivationsApi {
      * @param spaceId (required)
      * @param audienceId (required)
      * @param id (required)
-     * @param workspaceId The workspace id This parameter exists in alpha. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -776,13 +751,11 @@ public class ActivationsApi {
             String spaceId,
             String audienceId,
             String id,
-            String workspaceId,
             final ApiCallback<GetActivationFromAudience200Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
-                getActivationFromAudienceValidateBeforeCall(
-                        spaceId, audienceId, id, workspaceId, _callback);
+                getActivationFromAudienceValidateBeforeCall(spaceId, audienceId, id, _callback);
         Type localVarReturnType =
                 new TypeToken<GetActivationFromAudience200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
@@ -794,7 +767,6 @@ public class ActivationsApi {
      *
      * @param spaceId (required)
      * @param audienceId (required)
-     * @param workspaceId The workspace id This parameter exists in alpha. (required)
      * @param pagination Optional pagination. This parameter exists in alpha. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -811,7 +783,6 @@ public class ActivationsApi {
     public okhttp3.Call listActivationsFromAudienceCall(
             String spaceId,
             String audienceId,
-            String workspaceId,
             PaginationInput pagination,
             final ApiCallback _callback)
             throws ApiException {
@@ -845,11 +816,6 @@ public class ActivationsApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (workspaceId != null) {
-            localVarQueryParams.addAll(
-                    localVarApiClient.parameterToPair("workspaceId", workspaceId));
-        }
 
         if (pagination != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pagination", pagination));
@@ -889,7 +855,6 @@ public class ActivationsApi {
     private okhttp3.Call listActivationsFromAudienceValidateBeforeCall(
             String spaceId,
             String audienceId,
-            String workspaceId,
             PaginationInput pagination,
             final ApiCallback _callback)
             throws ApiException {
@@ -907,15 +872,7 @@ public class ActivationsApi {
                             + " listActivationsFromAudience(Async)");
         }
 
-        // verify the required parameter 'workspaceId' is set
-        if (workspaceId == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'workspaceId' when calling"
-                            + " listActivationsFromAudience(Async)");
-        }
-
-        return listActivationsFromAudienceCall(
-                spaceId, audienceId, workspaceId, pagination, _callback);
+        return listActivationsFromAudienceCall(spaceId, audienceId, pagination, _callback);
     }
 
     /**
@@ -926,7 +883,6 @@ public class ActivationsApi {
      *
      * @param spaceId (required)
      * @param audienceId (required)
-     * @param workspaceId The workspace id This parameter exists in alpha. (required)
      * @param pagination Optional pagination. This parameter exists in alpha. (optional)
      * @return ListActivationsFromAudience200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -941,11 +897,9 @@ public class ActivationsApi {
      * </table>
      */
     public ListActivationsFromAudience200Response listActivationsFromAudience(
-            String spaceId, String audienceId, String workspaceId, PaginationInput pagination)
-            throws ApiException {
+            String spaceId, String audienceId, PaginationInput pagination) throws ApiException {
         ApiResponse<ListActivationsFromAudience200Response> localVarResp =
-                listActivationsFromAudienceWithHttpInfo(
-                        spaceId, audienceId, workspaceId, pagination);
+                listActivationsFromAudienceWithHttpInfo(spaceId, audienceId, pagination);
         return localVarResp.getData();
     }
 
@@ -957,7 +911,6 @@ public class ActivationsApi {
      *
      * @param spaceId (required)
      * @param audienceId (required)
-     * @param workspaceId The workspace id This parameter exists in alpha. (required)
      * @param pagination Optional pagination. This parameter exists in alpha. (optional)
      * @return ApiResponse&lt;ListActivationsFromAudience200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
@@ -973,14 +926,11 @@ public class ActivationsApi {
      */
     public ApiResponse<ListActivationsFromAudience200Response>
             listActivationsFromAudienceWithHttpInfo(
-                    String spaceId,
-                    String audienceId,
-                    String workspaceId,
-                    PaginationInput pagination)
+                    String spaceId, String audienceId, PaginationInput pagination)
                     throws ApiException {
         okhttp3.Call localVarCall =
                 listActivationsFromAudienceValidateBeforeCall(
-                        spaceId, audienceId, workspaceId, pagination, null);
+                        spaceId, audienceId, pagination, null);
         Type localVarReturnType =
                 new TypeToken<ListActivationsFromAudience200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -995,7 +945,6 @@ public class ActivationsApi {
      *
      * @param spaceId (required)
      * @param audienceId (required)
-     * @param workspaceId The workspace id This parameter exists in alpha. (required)
      * @param pagination Optional pagination. This parameter exists in alpha. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1013,14 +962,13 @@ public class ActivationsApi {
     public okhttp3.Call listActivationsFromAudienceAsync(
             String spaceId,
             String audienceId,
-            String workspaceId,
             PaginationInput pagination,
             final ApiCallback<ListActivationsFromAudience200Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 listActivationsFromAudienceValidateBeforeCall(
-                        spaceId, audienceId, workspaceId, pagination, _callback);
+                        spaceId, audienceId, pagination, _callback);
         Type localVarReturnType =
                 new TypeToken<ListActivationsFromAudience200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
@@ -1033,7 +981,6 @@ public class ActivationsApi {
      * @param spaceId (required)
      * @param audienceId (required)
      * @param id (required)
-     * @param workspaceId The workspace id This parameter exists in alpha. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1047,11 +994,7 @@ public class ActivationsApi {
      * </table>
      */
     public okhttp3.Call removeActivationFromAudienceCall(
-            String spaceId,
-            String audienceId,
-            String id,
-            String workspaceId,
-            final ApiCallback _callback)
+            String spaceId, String audienceId, String id, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1085,11 +1028,6 @@ public class ActivationsApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if (workspaceId != null) {
-            localVarQueryParams.addAll(
-                    localVarApiClient.parameterToPair("workspaceId", workspaceId));
-        }
-
         final String[] localVarAccepts = {
             "application/vnd.segment.v1alpha+json", "application/json"
         };
@@ -1122,11 +1060,7 @@ public class ActivationsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call removeActivationFromAudienceValidateBeforeCall(
-            String spaceId,
-            String audienceId,
-            String id,
-            String workspaceId,
-            final ApiCallback _callback)
+            String spaceId, String audienceId, String id, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
@@ -1149,14 +1083,7 @@ public class ActivationsApi {
                             + " removeActivationFromAudience(Async)");
         }
 
-        // verify the required parameter 'workspaceId' is set
-        if (workspaceId == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'workspaceId' when calling"
-                            + " removeActivationFromAudience(Async)");
-        }
-
-        return removeActivationFromAudienceCall(spaceId, audienceId, id, workspaceId, _callback);
+        return removeActivationFromAudienceCall(spaceId, audienceId, id, _callback);
     }
 
     /**
@@ -1168,7 +1095,6 @@ public class ActivationsApi {
      * @param spaceId (required)
      * @param audienceId (required)
      * @param id (required)
-     * @param workspaceId The workspace id This parameter exists in alpha. (required)
      * @return RemoveActivationFromAudience200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1182,9 +1108,9 @@ public class ActivationsApi {
      * </table>
      */
     public RemoveActivationFromAudience200Response removeActivationFromAudience(
-            String spaceId, String audienceId, String id, String workspaceId) throws ApiException {
+            String spaceId, String audienceId, String id) throws ApiException {
         ApiResponse<RemoveActivationFromAudience200Response> localVarResp =
-                removeActivationFromAudienceWithHttpInfo(spaceId, audienceId, id, workspaceId);
+                removeActivationFromAudienceWithHttpInfo(spaceId, audienceId, id);
         return localVarResp.getData();
     }
 
@@ -1197,7 +1123,6 @@ public class ActivationsApi {
      * @param spaceId (required)
      * @param audienceId (required)
      * @param id (required)
-     * @param workspaceId The workspace id This parameter exists in alpha. (required)
      * @return ApiResponse&lt;RemoveActivationFromAudience200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1211,12 +1136,10 @@ public class ActivationsApi {
      * </table>
      */
     public ApiResponse<RemoveActivationFromAudience200Response>
-            removeActivationFromAudienceWithHttpInfo(
-                    String spaceId, String audienceId, String id, String workspaceId)
+            removeActivationFromAudienceWithHttpInfo(String spaceId, String audienceId, String id)
                     throws ApiException {
         okhttp3.Call localVarCall =
-                removeActivationFromAudienceValidateBeforeCall(
-                        spaceId, audienceId, id, workspaceId, null);
+                removeActivationFromAudienceValidateBeforeCall(spaceId, audienceId, id, null);
         Type localVarReturnType =
                 new TypeToken<RemoveActivationFromAudience200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1232,7 +1155,6 @@ public class ActivationsApi {
      * @param spaceId (required)
      * @param audienceId (required)
      * @param id (required)
-     * @param workspaceId The workspace id This parameter exists in alpha. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -1250,13 +1172,11 @@ public class ActivationsApi {
             String spaceId,
             String audienceId,
             String id,
-            String workspaceId,
             final ApiCallback<RemoveActivationFromAudience200Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
-                removeActivationFromAudienceValidateBeforeCall(
-                        spaceId, audienceId, id, workspaceId, _callback);
+                removeActivationFromAudienceValidateBeforeCall(spaceId, audienceId, id, _callback);
         Type localVarReturnType =
                 new TypeToken<RemoveActivationFromAudience200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);

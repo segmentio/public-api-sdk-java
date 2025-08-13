@@ -4,8 +4,8 @@ All URIs are relative to *https://api.segmentapis.com*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**addActivationToAudience**](ActivationsApi.md#addActivationToAudience) | **POST** /spaces/{spaceId}/audiences/{audienceId}/{connectionId}/activations | Add Activation to Audience |
-| [**addDestinationToAudience**](ActivationsApi.md#addDestinationToAudience) | **POST** /spaces/{spaceId}/audiences/{audienceId}/destinations | Add Destination to Audience |
+| [**addActivationToAudience**](ActivationsApi.md#addActivationToAudience) | **POST** /spaces/{spaceId}/audiences/{audienceId}/destination-connections/{connectionId}/activations | Add Activation to Audience |
+| [**addDestinationToAudience**](ActivationsApi.md#addDestinationToAudience) | **POST** /spaces/{spaceId}/audiences/{audienceId}/destination-connections | Add Destination to Audience |
 | [**getActivationFromAudience**](ActivationsApi.md#getActivationFromAudience) | **GET** /spaces/{spaceId}/audiences/{audienceId}/activations/{id} | Get Activation from Audience |
 | [**listActivationsFromAudience**](ActivationsApi.md#listActivationsFromAudience) | **GET** /spaces/{spaceId}/audiences/{audienceId}/activations | List Activations from Audience |
 | [**removeActivationFromAudience**](ActivationsApi.md#removeActivationFromAudience) | **DELETE** /spaces/{spaceId}/audiences/{audienceId}/activations/{id} | Remove Activation from Audience |
@@ -171,7 +171,7 @@ public class Example {
 
 ## Operation: getActivationFromAudience
 
-> GetActivationFromAudience200Response getActivationFromAudience(spaceId, audienceId, id, workspaceId)
+> GetActivationFromAudience200Response getActivationFromAudience(spaceId, audienceId, id)
 
 Get Activation from Audience
 
@@ -200,9 +200,8 @@ public class Example {
         String spaceId = "spa_9aQ1Lj62S4bomZKLF4DPqW"; // String | 
         String audienceId = "aud_0ujsszwN8NRY24YaXiTIE2VWDTS"; // String | 
         String id = "act_987654321"; // String | 
-        String workspaceId = "LF4DPqW"; // String | The workspace id  This parameter exists in alpha.
         try {
-            GetActivationFromAudience200Response result = apiInstance.getActivationFromAudience(spaceId, audienceId, id, workspaceId);
+            GetActivationFromAudience200Response result = apiInstance.getActivationFromAudience(spaceId, audienceId, id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ActivationsApi#getActivationFromAudience");
@@ -223,7 +222,6 @@ public class Example {
 | **spaceId** | **String**|  | |
 | **audienceId** | **String**|  | |
 | **id** | **String**|  | |
-| **workspaceId** | **String**| The workspace id  This parameter exists in alpha. | |
 
 ### Return type
 
@@ -250,7 +248,7 @@ public class Example {
 
 ## Operation: listActivationsFromAudience
 
-> ListActivationsFromAudience200Response listActivationsFromAudience(spaceId, audienceId, workspaceId, pagination)
+> ListActivationsFromAudience200Response listActivationsFromAudience(spaceId, audienceId, pagination)
 
 List Activations from Audience
 
@@ -278,10 +276,9 @@ public class Example {
         ActivationsApi apiInstance = new ActivationsApi(defaultClient);
         String spaceId = "spa_9aQ1Lj62S4bomZKLF4DPqW"; // String | 
         String audienceId = "aud_0ujsszwN8NRY24YaXiTIE2VWDTS"; // String | 
-        String workspaceId = "LF4DPqW"; // String | The workspace id  This parameter exists in alpha.
         PaginationInput pagination = new PaginationInput(); // PaginationInput | Optional pagination.  This parameter exists in alpha.
         try {
-            ListActivationsFromAudience200Response result = apiInstance.listActivationsFromAudience(spaceId, audienceId, workspaceId, pagination);
+            ListActivationsFromAudience200Response result = apiInstance.listActivationsFromAudience(spaceId, audienceId, pagination);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ActivationsApi#listActivationsFromAudience");
@@ -301,7 +298,6 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **spaceId** | **String**|  | |
 | **audienceId** | **String**|  | |
-| **workspaceId** | **String**| The workspace id  This parameter exists in alpha. | |
 | **pagination** | [**PaginationInput**](.md)| Optional pagination.  This parameter exists in alpha. | [optional] |
 
 ### Return type
@@ -329,7 +325,7 @@ public class Example {
 
 ## Operation: removeActivationFromAudience
 
-> RemoveActivationFromAudience200Response removeActivationFromAudience(spaceId, audienceId, id, workspaceId)
+> RemoveActivationFromAudience200Response removeActivationFromAudience(spaceId, audienceId, id)
 
 Remove Activation from Audience
 
@@ -358,9 +354,8 @@ public class Example {
         String spaceId = "spa_9aQ1Lj62S4bomZKLF4DPqW"; // String | 
         String audienceId = "aud_0ujsszwN8NRY24YaXiTIE2VWDTS"; // String | 
         String id = "act_987654321"; // String | 
-        String workspaceId = "LF4DPqW"; // String | The workspace id  This parameter exists in alpha.
         try {
-            RemoveActivationFromAudience200Response result = apiInstance.removeActivationFromAudience(spaceId, audienceId, id, workspaceId);
+            RemoveActivationFromAudience200Response result = apiInstance.removeActivationFromAudience(spaceId, audienceId, id);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling ActivationsApi#removeActivationFromAudience");
@@ -381,7 +376,6 @@ public class Example {
 | **spaceId** | **String**|  | |
 | **audienceId** | **String**|  | |
 | **id** | **String**|  | |
-| **workspaceId** | **String**| The workspace id  This parameter exists in alpha. | |
 
 ### Return type
 

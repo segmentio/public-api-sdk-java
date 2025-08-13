@@ -29,16 +29,6 @@ import java.util.Set;
 
 /** Input to create an activation. */
 public class AddActivationToAudienceAlphaInput {
-    public static final String SERIALIZED_NAME_VERSION_SCHEMA = "versionSchema";
-
-    @SerializedName(SERIALIZED_NAME_VERSION_SCHEMA)
-    private String versionSchema;
-
-    public static final String SERIALIZED_NAME_WORKSPACE_ID = "workspaceId";
-
-    @SerializedName(SERIALIZED_NAME_WORKSPACE_ID)
-    private String workspaceId;
-
     public static final String SERIALIZED_NAME_DESTINATION_ID = "destinationId";
 
     @SerializedName(SERIALIZED_NAME_DESTINATION_ID)
@@ -49,67 +39,37 @@ public class AddActivationToAudienceAlphaInput {
     @SerializedName(SERIALIZED_NAME_ENABLED)
     private Boolean enabled;
 
-    public static final String SERIALIZED_NAME_HAS_ENABLED_RESYNC = "hasEnabledResync";
+    public static final String SERIALIZED_NAME_PERFORM_FIRST_SYNC = "performFirstSync";
 
-    @SerializedName(SERIALIZED_NAME_HAS_ENABLED_RESYNC)
-    private Boolean hasEnabledResync;
+    @SerializedName(SERIALIZED_NAME_PERFORM_FIRST_SYNC)
+    private Boolean performFirstSync;
 
-    public static final String SERIALIZED_NAME_EMIT_ENTITY_CONTEXT = "emitEntityContext";
+    public static final String SERIALIZED_NAME_ACTIVATION_TYPE = "activationType";
 
-    @SerializedName(SERIALIZED_NAME_EMIT_ENTITY_CONTEXT)
-    private String emitEntityContext;
+    @SerializedName(SERIALIZED_NAME_ACTIVATION_TYPE)
+    private String activationType;
 
-    public static final String SERIALIZED_NAME_EVENT_EMITTER = "eventEmitter";
+    public static final String SERIALIZED_NAME_ACTIVATION_NAME = "activationName";
 
-    @SerializedName(SERIALIZED_NAME_EVENT_EMITTER)
-    private Object eventEmitter = null;
+    @SerializedName(SERIALIZED_NAME_ACTIVATION_NAME)
+    private String activationName;
 
-    public static final String SERIALIZED_NAME_SUBSCRIPTION = "subscription";
+    public static final String SERIALIZED_NAME_SEGMENT_EVENT = "segmentEvent";
 
-    @SerializedName(SERIALIZED_NAME_SUBSCRIPTION)
-    private Object subscription = null;
+    @SerializedName(SERIALIZED_NAME_SEGMENT_EVENT)
+    private String segmentEvent;
+
+    public static final String SERIALIZED_NAME_PERSONALIZATION = "personalization";
+
+    @SerializedName(SERIALIZED_NAME_PERSONALIZATION)
+    private PersonalizationInput personalization;
+
+    public static final String SERIALIZED_NAME_DESTINATION_MAPPING = "destinationMapping";
+
+    @SerializedName(SERIALIZED_NAME_DESTINATION_MAPPING)
+    private DestinationSubscriptionConfiguration destinationMapping;
 
     public AddActivationToAudienceAlphaInput() {}
-
-    public AddActivationToAudienceAlphaInput versionSchema(String versionSchema) {
-
-        this.versionSchema = versionSchema;
-        return this;
-    }
-
-    /**
-     * Version Schema.
-     *
-     * @return versionSchema
-     */
-    @javax.annotation.Nonnull
-    public String getVersionSchema() {
-        return versionSchema;
-    }
-
-    public void setVersionSchema(String versionSchema) {
-        this.versionSchema = versionSchema;
-    }
-
-    public AddActivationToAudienceAlphaInput workspaceId(String workspaceId) {
-
-        this.workspaceId = workspaceId;
-        return this;
-    }
-
-    /**
-     * The id of the Workspace the audience exists within.
-     *
-     * @return workspaceId
-     */
-    @javax.annotation.Nonnull
-    public String getWorkspaceId() {
-        return workspaceId;
-    }
-
-    public void setWorkspaceId(String workspaceId) {
-        this.workspaceId = workspaceId;
-    }
 
     public AddActivationToAudienceAlphaInput destinationId(String destinationId) {
 
@@ -138,7 +98,8 @@ public class AddActivationToAudienceAlphaInput {
     }
 
     /**
-     * Whether the event emitter should be created in an enabled state.
+     * Whether the event emitter should be created in an enabled state. Will trigger an audience run
+     * if enabled.
      *
      * @return enabled
      */
@@ -151,85 +112,126 @@ public class AddActivationToAudienceAlphaInput {
         this.enabled = enabled;
     }
 
-    public AddActivationToAudienceAlphaInput hasEnabledResync(Boolean hasEnabledResync) {
+    public AddActivationToAudienceAlphaInput performFirstSync(Boolean performFirstSync) {
 
-        this.hasEnabledResync = hasEnabledResync;
+        this.performFirstSync = performFirstSync;
         return this;
     }
 
     /**
-     * Whether the event emitter should be created with the resync option.
+     * Whether to skip the first sync so the activation events are not generated on the first
+     * audience sync.
      *
-     * @return hasEnabledResync
+     * @return performFirstSync
      */
-    @javax.annotation.Nullable
-    public Boolean getHasEnabledResync() {
-        return hasEnabledResync;
+    @javax.annotation.Nonnull
+    public Boolean getPerformFirstSync() {
+        return performFirstSync;
     }
 
-    public void setHasEnabledResync(Boolean hasEnabledResync) {
-        this.hasEnabledResync = hasEnabledResync;
+    public void setPerformFirstSync(Boolean performFirstSync) {
+        this.performFirstSync = performFirstSync;
     }
 
-    public AddActivationToAudienceAlphaInput emitEntityContext(String emitEntityContext) {
+    public AddActivationToAudienceAlphaInput activationType(String activationType) {
 
-        this.emitEntityContext = emitEntityContext;
+        this.activationType = activationType;
         return this;
     }
 
     /**
-     * Whether the event emitter should emit events when the profile changes or when any enriched
-     * entity values changes. Only valid for identify events.
+     * Type of activation trigger.
      *
-     * @return emitEntityContext
+     * @return activationType
      */
-    @javax.annotation.Nullable
-    public String getEmitEntityContext() {
-        return emitEntityContext;
+    @javax.annotation.Nonnull
+    public String getActivationType() {
+        return activationType;
     }
 
-    public void setEmitEntityContext(String emitEntityContext) {
-        this.emitEntityContext = emitEntityContext;
+    public void setActivationType(String activationType) {
+        this.activationType = activationType;
     }
 
-    public AddActivationToAudienceAlphaInput eventEmitter(Object eventEmitter) {
+    public AddActivationToAudienceAlphaInput activationName(String activationName) {
 
-        this.eventEmitter = eventEmitter;
+        this.activationName = activationName;
         return this;
     }
 
     /**
-     * Configuration settings for the event emitter to be created.
+     * Name of the activation.
      *
-     * @return eventEmitter
+     * @return activationName
      */
-    @javax.annotation.Nullable
-    public Object getEventEmitter() {
-        return eventEmitter;
+    @javax.annotation.Nonnull
+    public String getActivationName() {
+        return activationName;
     }
 
-    public void setEventEmitter(Object eventEmitter) {
-        this.eventEmitter = eventEmitter;
+    public void setActivationName(String activationName) {
+        this.activationName = activationName;
     }
 
-    public AddActivationToAudienceAlphaInput subscription(Object subscription) {
+    public AddActivationToAudienceAlphaInput segmentEvent(String segmentEvent) {
 
-        this.subscription = subscription;
+        this.segmentEvent = segmentEvent;
         return this;
     }
 
     /**
-     * Subscription info to connect the event emitter to a Destination attached to the audience.
+     * Segment event type to emit.
      *
-     * @return subscription
+     * @return segmentEvent
      */
-    @javax.annotation.Nullable
-    public Object getSubscription() {
-        return subscription;
+    @javax.annotation.Nonnull
+    public String getSegmentEvent() {
+        return segmentEvent;
     }
 
-    public void setSubscription(Object subscription) {
-        this.subscription = subscription;
+    public void setSegmentEvent(String segmentEvent) {
+        this.segmentEvent = segmentEvent;
+    }
+
+    public AddActivationToAudienceAlphaInput personalization(PersonalizationInput personalization) {
+
+        this.personalization = personalization;
+        return this;
+    }
+
+    /**
+     * Get personalization
+     *
+     * @return personalization
+     */
+    @javax.annotation.Nullable
+    public PersonalizationInput getPersonalization() {
+        return personalization;
+    }
+
+    public void setPersonalization(PersonalizationInput personalization) {
+        this.personalization = personalization;
+    }
+
+    public AddActivationToAudienceAlphaInput destinationMapping(
+            DestinationSubscriptionConfiguration destinationMapping) {
+
+        this.destinationMapping = destinationMapping;
+        return this;
+    }
+
+    /**
+     * Get destinationMapping
+     *
+     * @return destinationMapping
+     */
+    @javax.annotation.Nonnull
+    public DestinationSubscriptionConfiguration getDestinationMapping() {
+        return destinationMapping;
+    }
+
+    public void setDestinationMapping(DestinationSubscriptionConfiguration destinationMapping) {
+        this.destinationMapping = destinationMapping;
     }
 
     @Override
@@ -242,47 +244,49 @@ public class AddActivationToAudienceAlphaInput {
         }
         AddActivationToAudienceAlphaInput addActivationToAudienceAlphaInput =
                 (AddActivationToAudienceAlphaInput) o;
-        return Objects.equals(this.versionSchema, addActivationToAudienceAlphaInput.versionSchema)
-                && Objects.equals(this.workspaceId, addActivationToAudienceAlphaInput.workspaceId)
-                && Objects.equals(
-                        this.destinationId, addActivationToAudienceAlphaInput.destinationId)
+        return Objects.equals(this.destinationId, addActivationToAudienceAlphaInput.destinationId)
                 && Objects.equals(this.enabled, addActivationToAudienceAlphaInput.enabled)
                 && Objects.equals(
-                        this.hasEnabledResync, addActivationToAudienceAlphaInput.hasEnabledResync)
+                        this.performFirstSync, addActivationToAudienceAlphaInput.performFirstSync)
                 && Objects.equals(
-                        this.emitEntityContext, addActivationToAudienceAlphaInput.emitEntityContext)
-                && Objects.equals(this.eventEmitter, addActivationToAudienceAlphaInput.eventEmitter)
+                        this.activationType, addActivationToAudienceAlphaInput.activationType)
                 && Objects.equals(
-                        this.subscription, addActivationToAudienceAlphaInput.subscription);
+                        this.activationName, addActivationToAudienceAlphaInput.activationName)
+                && Objects.equals(this.segmentEvent, addActivationToAudienceAlphaInput.segmentEvent)
+                && Objects.equals(
+                        this.personalization, addActivationToAudienceAlphaInput.personalization)
+                && Objects.equals(
+                        this.destinationMapping,
+                        addActivationToAudienceAlphaInput.destinationMapping);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(
-                versionSchema,
-                workspaceId,
                 destinationId,
                 enabled,
-                hasEnabledResync,
-                emitEntityContext,
-                eventEmitter,
-                subscription);
+                performFirstSync,
+                activationType,
+                activationName,
+                segmentEvent,
+                personalization,
+                destinationMapping);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class AddActivationToAudienceAlphaInput {\n");
-        sb.append("    versionSchema: ").append(toIndentedString(versionSchema)).append("\n");
-        sb.append("    workspaceId: ").append(toIndentedString(workspaceId)).append("\n");
         sb.append("    destinationId: ").append(toIndentedString(destinationId)).append("\n");
         sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
-        sb.append("    hasEnabledResync: ").append(toIndentedString(hasEnabledResync)).append("\n");
-        sb.append("    emitEntityContext: ")
-                .append(toIndentedString(emitEntityContext))
+        sb.append("    performFirstSync: ").append(toIndentedString(performFirstSync)).append("\n");
+        sb.append("    activationType: ").append(toIndentedString(activationType)).append("\n");
+        sb.append("    activationName: ").append(toIndentedString(activationName)).append("\n");
+        sb.append("    segmentEvent: ").append(toIndentedString(segmentEvent)).append("\n");
+        sb.append("    personalization: ").append(toIndentedString(personalization)).append("\n");
+        sb.append("    destinationMapping: ")
+                .append(toIndentedString(destinationMapping))
                 .append("\n");
-        sb.append("    eventEmitter: ").append(toIndentedString(eventEmitter)).append("\n");
-        sb.append("    subscription: ").append(toIndentedString(subscription)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -304,22 +308,23 @@ public class AddActivationToAudienceAlphaInput {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("versionSchema");
-        openapiFields.add("workspaceId");
         openapiFields.add("destinationId");
         openapiFields.add("enabled");
-        openapiFields.add("hasEnabledResync");
-        openapiFields.add("emitEntityContext");
-        openapiFields.add("eventEmitter");
-        openapiFields.add("subscription");
+        openapiFields.add("performFirstSync");
+        openapiFields.add("activationType");
+        openapiFields.add("activationName");
+        openapiFields.add("segmentEvent");
+        openapiFields.add("personalization");
+        openapiFields.add("destinationMapping");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("versionSchema");
-        openapiRequiredFields.add("workspaceId");
         openapiRequiredFields.add("destinationId");
-        openapiRequiredFields.add("eventEmitter");
-        openapiRequiredFields.add("subscription");
+        openapiRequiredFields.add("performFirstSync");
+        openapiRequiredFields.add("activationType");
+        openapiRequiredFields.add("activationName");
+        openapiRequiredFields.add("segmentEvent");
+        openapiRequiredFields.add("destinationMapping");
     }
 
     /**
@@ -364,20 +369,6 @@ public class AddActivationToAudienceAlphaInput {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if (!jsonObj.get("versionSchema").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `versionSchema` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
-                            jsonObj.get("versionSchema").toString()));
-        }
-        if (!jsonObj.get("workspaceId").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `workspaceId` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
-                            jsonObj.get("workspaceId").toString()));
-        }
         if (!jsonObj.get("destinationId").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -385,15 +376,34 @@ public class AddActivationToAudienceAlphaInput {
                                     + " string but got `%s`",
                             jsonObj.get("destinationId").toString()));
         }
-        if ((jsonObj.get("emitEntityContext") != null
-                        && !jsonObj.get("emitEntityContext").isJsonNull())
-                && !jsonObj.get("emitEntityContext").isJsonPrimitive()) {
+        if (!jsonObj.get("activationType").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `emitEntityContext` to be a primitive type in the"
-                                    + " JSON string but got `%s`",
-                            jsonObj.get("emitEntityContext").toString()));
+                            "Expected the field `activationType` to be a primitive type in the JSON"
+                                    + " string but got `%s`",
+                            jsonObj.get("activationType").toString()));
         }
+        if (!jsonObj.get("activationName").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `activationName` to be a primitive type in the JSON"
+                                    + " string but got `%s`",
+                            jsonObj.get("activationName").toString()));
+        }
+        if (!jsonObj.get("segmentEvent").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `segmentEvent` to be a primitive type in the JSON"
+                                    + " string but got `%s`",
+                            jsonObj.get("segmentEvent").toString()));
+        }
+        // validate the optional field `personalization`
+        if (jsonObj.get("personalization") != null
+                && !jsonObj.get("personalization").isJsonNull()) {
+            PersonalizationInput.validateJsonElement(jsonObj.get("personalization"));
+        }
+        // validate the required field `destinationMapping`
+        DestinationSubscriptionConfiguration.validateJsonElement(jsonObj.get("destinationMapping"));
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
