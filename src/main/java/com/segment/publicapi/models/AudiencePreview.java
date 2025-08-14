@@ -38,7 +38,7 @@ public class AudiencePreview {
     @SerializedName(SERIALIZED_NAME_ID)
     private String id;
 
-    /** The audience type of the preview. */
+    /** The audience type of the preview. Possible values: USERS, ACCOUNTS, LINKED. */
     @JsonAdapter(AudienceTypeEnum.Adapter.class)
     public enum AudienceTypeEnum {
         ACCOUNTS("ACCOUNTS"),
@@ -198,7 +198,7 @@ public class AudiencePreview {
     }
 
     /**
-     * The audience type of the preview.
+     * The audience type of the preview. Possible values: USERS, ACCOUNTS, LINKED.
      *
      * @return audienceType
      */

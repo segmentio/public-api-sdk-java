@@ -90,7 +90,7 @@ public class AudienceSummary {
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
     private String updatedAt;
 
-    /** Discriminator denoting the audience&#39;s product type. */
+    /** Denotes the type of audience product. */
     @JsonAdapter(AudienceTypeEnum.Adapter.class)
     public enum AudienceTypeEnum {
         ACCOUNTS("ACCOUNTS"),
@@ -398,7 +398,7 @@ public class AudienceSummary {
     }
 
     /**
-     * Discriminator denoting the audience&#39;s product type.
+     * Denotes the type of audience product.
      *
      * @return audienceType
      */

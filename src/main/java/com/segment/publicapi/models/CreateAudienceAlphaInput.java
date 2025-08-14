@@ -16,6 +16,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
@@ -48,6 +49,57 @@ public class CreateAudienceAlphaInput {
 
     @SerializedName(SERIALIZED_NAME_DEFINITION)
     private AudienceDefinition definition;
+
+    /** Denotes the type of audience product. Possible values: USERS, ACCOUNTS. */
+    @JsonAdapter(AudienceTypeEnum.Adapter.class)
+    public enum AudienceTypeEnum {
+        ACCOUNTS("ACCOUNTS"),
+
+        USERS("USERS");
+
+        private String value;
+
+        AudienceTypeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static AudienceTypeEnum fromValue(String value) {
+            for (AudienceTypeEnum b : AudienceTypeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<AudienceTypeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final AudienceTypeEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public AudienceTypeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return AudienceTypeEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_AUDIENCE_TYPE = "audienceType";
+
+    @SerializedName(SERIALIZED_NAME_AUDIENCE_TYPE)
+    private AudienceTypeEnum audienceType;
 
     public static final String SERIALIZED_NAME_OPTIONS = "options";
 
@@ -136,6 +188,26 @@ public class CreateAudienceAlphaInput {
         this.definition = definition;
     }
 
+    public CreateAudienceAlphaInput audienceType(AudienceTypeEnum audienceType) {
+
+        this.audienceType = audienceType;
+        return this;
+    }
+
+    /**
+     * Denotes the type of audience product. Possible values: USERS, ACCOUNTS.
+     *
+     * @return audienceType
+     */
+    @javax.annotation.Nullable
+    public AudienceTypeEnum getAudienceType() {
+        return audienceType;
+    }
+
+    public void setAudienceType(AudienceTypeEnum audienceType) {
+        this.audienceType = audienceType;
+    }
+
     public CreateAudienceAlphaInput options(AudienceOptions options) {
 
         this.options = options;
@@ -169,12 +241,13 @@ public class CreateAudienceAlphaInput {
                 && Objects.equals(this.enabled, createAudienceAlphaInput.enabled)
                 && Objects.equals(this.description, createAudienceAlphaInput.description)
                 && Objects.equals(this.definition, createAudienceAlphaInput.definition)
+                && Objects.equals(this.audienceType, createAudienceAlphaInput.audienceType)
                 && Objects.equals(this.options, createAudienceAlphaInput.options);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, enabled, description, definition, options);
+        return Objects.hash(name, enabled, description, definition, audienceType, options);
     }
 
     @Override
@@ -185,6 +258,7 @@ public class CreateAudienceAlphaInput {
         sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    definition: ").append(toIndentedString(definition)).append("\n");
+        sb.append("    audienceType: ").append(toIndentedString(audienceType)).append("\n");
         sb.append("    options: ").append(toIndentedString(options)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -211,6 +285,7 @@ public class CreateAudienceAlphaInput {
         openapiFields.add("enabled");
         openapiFields.add("description");
         openapiFields.add("definition");
+        openapiFields.add("audienceType");
         openapiFields.add("options");
 
         // a set of required properties/fields (JSON key names)
@@ -276,6 +351,14 @@ public class CreateAudienceAlphaInput {
         }
         // validate the required field `definition`
         AudienceDefinition.validateJsonElement(jsonObj.get("definition"));
+        if ((jsonObj.get("audienceType") != null && !jsonObj.get("audienceType").isJsonNull())
+                && !jsonObj.get("audienceType").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `audienceType` to be a primitive type in the JSON"
+                                    + " string but got `%s`",
+                            jsonObj.get("audienceType").toString()));
+        }
         // validate the optional field `options`
         if (jsonObj.get("options") != null && !jsonObj.get("options").isJsonNull()) {
             AudienceOptions.validateJsonElement(jsonObj.get("options"));
