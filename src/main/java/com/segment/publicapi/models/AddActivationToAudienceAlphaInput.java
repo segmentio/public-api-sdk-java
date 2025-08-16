@@ -54,11 +54,6 @@ public class AddActivationToAudienceAlphaInput {
     @SerializedName(SERIALIZED_NAME_ACTIVATION_NAME)
     private String activationName;
 
-    public static final String SERIALIZED_NAME_SEGMENT_EVENT = "segmentEvent";
-
-    @SerializedName(SERIALIZED_NAME_SEGMENT_EVENT)
-    private String segmentEvent;
-
     public static final String SERIALIZED_NAME_PERSONALIZATION = "personalization";
 
     @SerializedName(SERIALIZED_NAME_PERSONALIZATION)
@@ -173,26 +168,6 @@ public class AddActivationToAudienceAlphaInput {
         this.activationName = activationName;
     }
 
-    public AddActivationToAudienceAlphaInput segmentEvent(String segmentEvent) {
-
-        this.segmentEvent = segmentEvent;
-        return this;
-    }
-
-    /**
-     * Segment event type to emit.
-     *
-     * @return segmentEvent
-     */
-    @javax.annotation.Nonnull
-    public String getSegmentEvent() {
-        return segmentEvent;
-    }
-
-    public void setSegmentEvent(String segmentEvent) {
-        this.segmentEvent = segmentEvent;
-    }
-
     public AddActivationToAudienceAlphaInput personalization(PersonalizationInput personalization) {
 
         this.personalization = personalization;
@@ -204,7 +179,7 @@ public class AddActivationToAudienceAlphaInput {
      *
      * @return personalization
      */
-    @javax.annotation.Nullable
+    @javax.annotation.Nonnull
     public PersonalizationInput getPersonalization() {
         return personalization;
     }
@@ -252,7 +227,6 @@ public class AddActivationToAudienceAlphaInput {
                         this.activationType, addActivationToAudienceAlphaInput.activationType)
                 && Objects.equals(
                         this.activationName, addActivationToAudienceAlphaInput.activationName)
-                && Objects.equals(this.segmentEvent, addActivationToAudienceAlphaInput.segmentEvent)
                 && Objects.equals(
                         this.personalization, addActivationToAudienceAlphaInput.personalization)
                 && Objects.equals(
@@ -268,7 +242,6 @@ public class AddActivationToAudienceAlphaInput {
                 performFirstSync,
                 activationType,
                 activationName,
-                segmentEvent,
                 personalization,
                 destinationMapping);
     }
@@ -282,7 +255,6 @@ public class AddActivationToAudienceAlphaInput {
         sb.append("    performFirstSync: ").append(toIndentedString(performFirstSync)).append("\n");
         sb.append("    activationType: ").append(toIndentedString(activationType)).append("\n");
         sb.append("    activationName: ").append(toIndentedString(activationName)).append("\n");
-        sb.append("    segmentEvent: ").append(toIndentedString(segmentEvent)).append("\n");
         sb.append("    personalization: ").append(toIndentedString(personalization)).append("\n");
         sb.append("    destinationMapping: ")
                 .append(toIndentedString(destinationMapping))
@@ -313,7 +285,6 @@ public class AddActivationToAudienceAlphaInput {
         openapiFields.add("performFirstSync");
         openapiFields.add("activationType");
         openapiFields.add("activationName");
-        openapiFields.add("segmentEvent");
         openapiFields.add("personalization");
         openapiFields.add("destinationMapping");
 
@@ -323,7 +294,7 @@ public class AddActivationToAudienceAlphaInput {
         openapiRequiredFields.add("performFirstSync");
         openapiRequiredFields.add("activationType");
         openapiRequiredFields.add("activationName");
-        openapiRequiredFields.add("segmentEvent");
+        openapiRequiredFields.add("personalization");
         openapiRequiredFields.add("destinationMapping");
     }
 
@@ -390,18 +361,8 @@ public class AddActivationToAudienceAlphaInput {
                                     + " string but got `%s`",
                             jsonObj.get("activationName").toString()));
         }
-        if (!jsonObj.get("segmentEvent").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `segmentEvent` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
-                            jsonObj.get("segmentEvent").toString()));
-        }
-        // validate the optional field `personalization`
-        if (jsonObj.get("personalization") != null
-                && !jsonObj.get("personalization").isJsonNull()) {
-            PersonalizationInput.validateJsonElement(jsonObj.get("personalization"));
-        }
+        // validate the required field `personalization`
+        PersonalizationInput.validateJsonElement(jsonObj.get("personalization"));
         // validate the required field `destinationMapping`
         DestinationSubscriptionConfiguration.validateJsonElement(jsonObj.get("destinationMapping"));
     }
