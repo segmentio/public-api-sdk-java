@@ -22,48 +22,72 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Profile Object. */
-public class Profile {
-    public static final String SERIALIZED_NAME_PROPERTIES = "properties";
+/** Destination Subscription Configuration. */
+public class DestinationSubscriptionConfiguration {
+    public static final String SERIALIZED_NAME_ACTION_ID = "actionId";
 
-    @SerializedName(SERIALIZED_NAME_PROPERTIES)
-    private List<String> properties = new ArrayList<>();
+    @SerializedName(SERIALIZED_NAME_ACTION_ID)
+    private String actionId;
 
-    public Profile() {}
+    public static final String SERIALIZED_NAME_SETTINGS = "settings";
 
-    public Profile properties(List<String> properties) {
+    @SerializedName(SERIALIZED_NAME_SETTINGS)
+    private Map<String, Object> settings;
 
-        this.properties = properties;
-        return this;
-    }
+    public DestinationSubscriptionConfiguration() {}
 
-    public Profile addPropertiesItem(String propertiesItem) {
-        if (this.properties == null) {
-            this.properties = new ArrayList<>();
-        }
-        this.properties.add(propertiesItem);
+    public DestinationSubscriptionConfiguration actionId(String actionId) {
+
+        this.actionId = actionId;
         return this;
     }
 
     /**
-     * Get properties
+     * The action id to instantiate.
      *
-     * @return properties
+     * @return actionId
      */
     @javax.annotation.Nonnull
-    public List<String> getProperties() {
-        return properties;
+    public String getActionId() {
+        return actionId;
     }
 
-    public void setProperties(List<String> properties) {
-        this.properties = properties;
+    public void setActionId(String actionId) {
+        this.actionId = actionId;
+    }
+
+    public DestinationSubscriptionConfiguration settings(Map<String, Object> settings) {
+
+        this.settings = settings;
+        return this;
+    }
+
+    public DestinationSubscriptionConfiguration putSettingsItem(String key, Object settingsItem) {
+        if (this.settings == null) {
+            this.settings = new HashMap<>();
+        }
+        this.settings.put(key, settingsItem);
+        return this;
+    }
+
+    /**
+     * Represents settings used to configure an action subscription.
+     *
+     * @return settings
+     */
+    @javax.annotation.Nullable
+    public Map<String, Object> getSettings() {
+        return settings;
+    }
+
+    public void setSettings(Map<String, Object> settings) {
+        this.settings = settings;
     }
 
     @Override
@@ -74,20 +98,23 @@ public class Profile {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Profile profile = (Profile) o;
-        return Objects.equals(this.properties, profile.properties);
+        DestinationSubscriptionConfiguration destinationSubscriptionConfiguration =
+                (DestinationSubscriptionConfiguration) o;
+        return Objects.equals(this.actionId, destinationSubscriptionConfiguration.actionId)
+                && Objects.equals(this.settings, destinationSubscriptionConfiguration.settings);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(properties);
+        return Objects.hash(actionId, settings);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class Profile {\n");
-        sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
+        sb.append("class DestinationSubscriptionConfiguration {\n");
+        sb.append("    actionId: ").append(toIndentedString(actionId)).append("\n");
+        sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -109,45 +136,49 @@ public class Profile {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("properties");
+        openapiFields.add("actionId");
+        openapiFields.add("settings");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("properties");
+        openapiRequiredFields.add("actionId");
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to Profile
+     * @throws IOException if the JSON Element is invalid with respect to
+     *     DestinationSubscriptionConfiguration
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!Profile.openapiRequiredFields
+            if (!DestinationSubscriptionConfiguration.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in Profile is not found in the empty JSON"
-                                        + " string",
-                                Profile.openapiRequiredFields.toString()));
+                                "The required field(s) %s in DestinationSubscriptionConfiguration"
+                                        + " is not found in the empty JSON string",
+                                DestinationSubscriptionConfiguration.openapiRequiredFields
+                                        .toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!Profile.openapiFields.contains(entry.getKey())) {
+            if (!DestinationSubscriptionConfiguration.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
-                                "The field `%s` in the JSON string is not defined in the `Profile`"
-                                        + " properties. JSON: %s",
+                                "The field `%s` in the JSON string is not defined in the"
+                                    + " `DestinationSubscriptionConfiguration` properties. JSON:"
+                                    + " %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : Profile.openapiRequiredFields) {
+        for (String requiredField : DestinationSubscriptionConfiguration.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -156,17 +187,12 @@ public class Profile {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        // ensure the required json array is present
-        if (jsonObj.get("properties") == null) {
-            throw new IllegalArgumentException(
-                    "Expected the field `linkedContent` to be an array in the JSON string but got"
-                            + " `null`");
-        } else if (!jsonObj.get("properties").isJsonArray()) {
+        if (!jsonObj.get("actionId").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `properties` to be an array in the JSON string but"
-                                    + " got `%s`",
-                            jsonObj.get("properties").toString()));
+                            "Expected the field `actionId` to be a primitive type in the JSON"
+                                    + " string but got `%s`",
+                            jsonObj.get("actionId").toString()));
         }
     }
 
@@ -174,23 +200,28 @@ public class Profile {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!Profile.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'Profile' and its subtypes
+            if (!DestinationSubscriptionConfiguration.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'DestinationSubscriptionConfiguration'
+                // and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<Profile> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(Profile.class));
+            final TypeAdapter<DestinationSubscriptionConfiguration> thisAdapter =
+                    gson.getDelegateAdapter(
+                            this, TypeToken.get(DestinationSubscriptionConfiguration.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<Profile>() {
+                    new TypeAdapter<DestinationSubscriptionConfiguration>() {
                         @Override
-                        public void write(JsonWriter out, Profile value) throws IOException {
+                        public void write(
+                                JsonWriter out, DestinationSubscriptionConfiguration value)
+                                throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public Profile read(JsonReader in) throws IOException {
+                        public DestinationSubscriptionConfiguration read(JsonReader in)
+                                throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -200,18 +231,20 @@ public class Profile {
     }
 
     /**
-     * Create an instance of Profile given an JSON string
+     * Create an instance of DestinationSubscriptionConfiguration given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of Profile
-     * @throws IOException if the JSON string is invalid with respect to Profile
+     * @return An instance of DestinationSubscriptionConfiguration
+     * @throws IOException if the JSON string is invalid with respect to
+     *     DestinationSubscriptionConfiguration
      */
-    public static Profile fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, Profile.class);
+    public static DestinationSubscriptionConfiguration fromJson(String jsonString)
+            throws IOException {
+        return JSON.getGson().fromJson(jsonString, DestinationSubscriptionConfiguration.class);
     }
 
     /**
-     * Convert an instance of Profile to an JSON string
+     * Convert an instance of DestinationSubscriptionConfiguration to an JSON string
      *
      * @return JSON string
      */
