@@ -114,7 +114,7 @@ public class AddActivationToAudienceAlphaInput {
     }
 
     /**
-     * Whether to skip the first sync so the activation events are not generated on the first
+     * Whether to perform the first sync so the activation events are generated on the first
      * audience sync.
      *
      * @return performFirstSync

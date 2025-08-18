@@ -145,8 +145,8 @@ public class UpdateActivationForAudienceAlphaInput {
     }
 
     /**
-     * Whether to skip the first sync so the activation events are not generated on the first
-     * audience sync. Will only work if the Audience has not already synced.
+     * Whether to perform the first sync so the activation events are generated on the first
+     * audience sync.
      *
      * @return performFirstSync
      */
