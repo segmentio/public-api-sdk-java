@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -35,6 +36,11 @@ public class Profile {
 
     @SerializedName(SERIALIZED_NAME_PROPERTIES)
     private List<String> properties = new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_MAPPING = "mapping";
+
+    @SerializedName(SERIALIZED_NAME_MAPPING)
+    private Map<String, String> mapping = new HashMap<>();
 
     public Profile() {}
 
@@ -66,6 +72,34 @@ public class Profile {
         this.properties = properties;
     }
 
+    public Profile mapping(Map<String, String> mapping) {
+
+        this.mapping = mapping;
+        return this;
+    }
+
+    public Profile putMappingItem(String key, String mappingItem) {
+        if (this.mapping == null) {
+            this.mapping = new HashMap<>();
+        }
+        this.mapping.put(key, mappingItem);
+        return this;
+    }
+
+    /**
+     * Get mapping
+     *
+     * @return mapping
+     */
+    @javax.annotation.Nullable
+    public Map<String, String> getMapping() {
+        return mapping;
+    }
+
+    public void setMapping(Map<String, String> mapping) {
+        this.mapping = mapping;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -75,12 +109,13 @@ public class Profile {
             return false;
         }
         Profile profile = (Profile) o;
-        return Objects.equals(this.properties, profile.properties);
+        return Objects.equals(this.properties, profile.properties)
+                && Objects.equals(this.mapping, profile.mapping);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(properties);
+        return Objects.hash(properties, mapping);
     }
 
     @Override
@@ -88,6 +123,7 @@ public class Profile {
         StringBuilder sb = new StringBuilder();
         sb.append("class Profile {\n");
         sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
+        sb.append("    mapping: ").append(toIndentedString(mapping)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -110,6 +146,7 @@ public class Profile {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
         openapiFields.add("properties");
+        openapiFields.add("mapping");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
