@@ -12,6 +12,7 @@
 package com.segment.publicapi.models;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
@@ -23,81 +24,72 @@ import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Profile Object. */
-public class Profile {
-    public static final String SERIALIZED_NAME_PROPERTIES = "properties";
+/** The Personalization Input Object. */
+public class PersonalizationInput {
+    public static final String SERIALIZED_NAME_PROFILE = "profile";
 
-    @SerializedName(SERIALIZED_NAME_PROPERTIES)
-    private List<String> properties = new ArrayList<>();
+    @SerializedName(SERIALIZED_NAME_PROFILE)
+    private Profile profile;
 
-    public static final String SERIALIZED_NAME_MAPPING = "mapping";
+    public static final String SERIALIZED_NAME_ENTITIES = "entities";
 
-    @SerializedName(SERIALIZED_NAME_MAPPING)
-    private Map<String, String> mapping = new HashMap<>();
+    @SerializedName(SERIALIZED_NAME_ENTITIES)
+    private List<PersonalizationInputEntity> entities;
 
-    public Profile() {}
+    public PersonalizationInput() {}
 
-    public Profile properties(List<String> properties) {
+    public PersonalizationInput profile(Profile profile) {
 
-        this.properties = properties;
-        return this;
-    }
-
-    public Profile addPropertiesItem(String propertiesItem) {
-        if (this.properties == null) {
-            this.properties = new ArrayList<>();
-        }
-        this.properties.add(propertiesItem);
+        this.profile = profile;
         return this;
     }
 
     /**
-     * Get properties
+     * Get profile
      *
-     * @return properties
+     * @return profile
      */
     @javax.annotation.Nonnull
-    public List<String> getProperties() {
-        return properties;
+    public Profile getProfile() {
+        return profile;
     }
 
-    public void setProperties(List<String> properties) {
-        this.properties = properties;
+    public void setProfile(Profile profile) {
+        this.profile = profile;
     }
 
-    public Profile mapping(Map<String, String> mapping) {
+    public PersonalizationInput entities(List<PersonalizationInputEntity> entities) {
 
-        this.mapping = mapping;
+        this.entities = entities;
         return this;
     }
 
-    public Profile putMappingItem(String key, String mappingItem) {
-        if (this.mapping == null) {
-            this.mapping = new HashMap<>();
+    public PersonalizationInput addEntitiesItem(PersonalizationInputEntity entitiesItem) {
+        if (this.entities == null) {
+            this.entities = new ArrayList<>();
         }
-        this.mapping.put(key, mappingItem);
+        this.entities.add(entitiesItem);
         return this;
     }
 
     /**
-     * Get mapping
+     * Entities V2 Object.
      *
-     * @return mapping
+     * @return entities
      */
     @javax.annotation.Nullable
-    public Map<String, String> getMapping() {
-        return mapping;
+    public List<PersonalizationInputEntity> getEntities() {
+        return entities;
     }
 
-    public void setMapping(Map<String, String> mapping) {
-        this.mapping = mapping;
+    public void setEntities(List<PersonalizationInputEntity> entities) {
+        this.entities = entities;
     }
 
     @Override
@@ -108,22 +100,22 @@ public class Profile {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Profile profile = (Profile) o;
-        return Objects.equals(this.properties, profile.properties)
-                && Objects.equals(this.mapping, profile.mapping);
+        PersonalizationInput personalizationInput = (PersonalizationInput) o;
+        return Objects.equals(this.profile, personalizationInput.profile)
+                && Objects.equals(this.entities, personalizationInput.entities);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(properties, mapping);
+        return Objects.hash(profile, entities);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class Profile {\n");
-        sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
-        sb.append("    mapping: ").append(toIndentedString(mapping)).append("\n");
+        sb.append("class PersonalizationInput {\n");
+        sb.append("    profile: ").append(toIndentedString(profile)).append("\n");
+        sb.append("    entities: ").append(toIndentedString(entities)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -145,46 +137,46 @@ public class Profile {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("properties");
-        openapiFields.add("mapping");
+        openapiFields.add("profile");
+        openapiFields.add("entities");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("properties");
+        openapiRequiredFields.add("profile");
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to Profile
+     * @throws IOException if the JSON Element is invalid with respect to PersonalizationInput
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!Profile.openapiRequiredFields
+            if (!PersonalizationInput.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in Profile is not found in the empty JSON"
-                                        + " string",
-                                Profile.openapiRequiredFields.toString()));
+                                "The required field(s) %s in PersonalizationInput is not found in"
+                                        + " the empty JSON string",
+                                PersonalizationInput.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!Profile.openapiFields.contains(entry.getKey())) {
+            if (!PersonalizationInput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
-                                "The field `%s` in the JSON string is not defined in the `Profile`"
-                                        + " properties. JSON: %s",
+                                "The field `%s` in the JSON string is not defined in the"
+                                        + " `PersonalizationInput` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : Profile.openapiRequiredFields) {
+        for (String requiredField : PersonalizationInput.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -193,17 +185,26 @@ public class Profile {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        // ensure the required json array is present
-        if (jsonObj.get("properties") == null) {
-            throw new IllegalArgumentException(
-                    "Expected the field `linkedContent` to be an array in the JSON string but got"
-                            + " `null`");
-        } else if (!jsonObj.get("properties").isJsonArray()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `properties` to be an array in the JSON string but"
-                                    + " got `%s`",
-                            jsonObj.get("properties").toString()));
+        // validate the required field `profile`
+        Profile.validateJsonElement(jsonObj.get("profile"));
+        if (jsonObj.get("entities") != null && !jsonObj.get("entities").isJsonNull()) {
+            JsonArray jsonArrayentities = jsonObj.getAsJsonArray("entities");
+            if (jsonArrayentities != null) {
+                // ensure the json data is an array
+                if (!jsonObj.get("entities").isJsonArray()) {
+                    throw new IllegalArgumentException(
+                            String.format(
+                                    "Expected the field `entities` to be an array in the JSON"
+                                            + " string but got `%s`",
+                                    jsonObj.get("entities").toString()));
+                }
+
+                // validate the optional field `entities` (array)
+                for (int i = 0; i < jsonArrayentities.size(); i++) {
+                    PersonalizationInputEntity.validateJsonElement(jsonArrayentities.get(i));
+                }
+                ;
+            }
         }
     }
 
@@ -211,23 +212,24 @@ public class Profile {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!Profile.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'Profile' and its subtypes
+            if (!PersonalizationInput.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'PersonalizationInput' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<Profile> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(Profile.class));
+            final TypeAdapter<PersonalizationInput> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(PersonalizationInput.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<Profile>() {
+                    new TypeAdapter<PersonalizationInput>() {
                         @Override
-                        public void write(JsonWriter out, Profile value) throws IOException {
+                        public void write(JsonWriter out, PersonalizationInput value)
+                                throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public Profile read(JsonReader in) throws IOException {
+                        public PersonalizationInput read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -237,18 +239,18 @@ public class Profile {
     }
 
     /**
-     * Create an instance of Profile given an JSON string
+     * Create an instance of PersonalizationInput given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of Profile
-     * @throws IOException if the JSON string is invalid with respect to Profile
+     * @return An instance of PersonalizationInput
+     * @throws IOException if the JSON string is invalid with respect to PersonalizationInput
      */
-    public static Profile fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, Profile.class);
+    public static PersonalizationInput fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, PersonalizationInput.class);
     }
 
     /**
-     * Convert an instance of Profile to an JSON string
+     * Convert an instance of PersonalizationInput to an JSON string
      *
      * @return JSON string
      */

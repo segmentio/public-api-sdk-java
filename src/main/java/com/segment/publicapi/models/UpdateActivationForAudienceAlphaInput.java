@@ -29,47 +29,32 @@ import java.util.Set;
 
 /** Input to update an activation. */
 public class UpdateActivationForAudienceAlphaInput {
-    public static final String SERIALIZED_NAME_WORKSPACE_ID = "workspaceId";
-
-    @SerializedName(SERIALIZED_NAME_WORKSPACE_ID)
-    private String workspaceId;
-
     public static final String SERIALIZED_NAME_ENABLED = "enabled";
 
     @SerializedName(SERIALIZED_NAME_ENABLED)
     private Boolean enabled;
 
-    public static final String SERIALIZED_NAME_EVENT_EMITTER = "eventEmitter";
+    public static final String SERIALIZED_NAME_ACTIVATION_NAME = "activationName";
 
-    @SerializedName(SERIALIZED_NAME_EVENT_EMITTER)
-    private Object eventEmitter = null;
+    @SerializedName(SERIALIZED_NAME_ACTIVATION_NAME)
+    private String activationName;
 
-    public static final String SERIALIZED_NAME_SUBSCRIPTION = "subscription";
+    public static final String SERIALIZED_NAME_PERSONALIZATION = "personalization";
 
-    @SerializedName(SERIALIZED_NAME_SUBSCRIPTION)
-    private Object subscription = null;
+    @SerializedName(SERIALIZED_NAME_PERSONALIZATION)
+    private PersonalizationInput personalization;
+
+    public static final String SERIALIZED_NAME_DESTINATION_MAPPING = "destinationMapping";
+
+    @SerializedName(SERIALIZED_NAME_DESTINATION_MAPPING)
+    private DestinationSubscriptionConfiguration destinationMapping;
+
+    public static final String SERIALIZED_NAME_PERFORM_FIRST_SYNC = "performFirstSync";
+
+    @SerializedName(SERIALIZED_NAME_PERFORM_FIRST_SYNC)
+    private Boolean performFirstSync;
 
     public UpdateActivationForAudienceAlphaInput() {}
-
-    public UpdateActivationForAudienceAlphaInput workspaceId(String workspaceId) {
-
-        this.workspaceId = workspaceId;
-        return this;
-    }
-
-    /**
-     * The Workspace id.
-     *
-     * @return workspaceId
-     */
-    @javax.annotation.Nonnull
-    public String getWorkspaceId() {
-        return workspaceId;
-    }
-
-    public void setWorkspaceId(String workspaceId) {
-        this.workspaceId = workspaceId;
-    }
 
     public UpdateActivationForAudienceAlphaInput enabled(Boolean enabled) {
 
@@ -91,44 +76,87 @@ public class UpdateActivationForAudienceAlphaInput {
         this.enabled = enabled;
     }
 
-    public UpdateActivationForAudienceAlphaInput eventEmitter(Object eventEmitter) {
+    public UpdateActivationForAudienceAlphaInput activationName(String activationName) {
 
-        this.eventEmitter = eventEmitter;
+        this.activationName = activationName;
         return this;
     }
 
     /**
-     * Configuration settings for the event emitter to be created.
+     * Activation name.
      *
-     * @return eventEmitter
+     * @return activationName
      */
     @javax.annotation.Nullable
-    public Object getEventEmitter() {
-        return eventEmitter;
+    public String getActivationName() {
+        return activationName;
     }
 
-    public void setEventEmitter(Object eventEmitter) {
-        this.eventEmitter = eventEmitter;
+    public void setActivationName(String activationName) {
+        this.activationName = activationName;
     }
 
-    public UpdateActivationForAudienceAlphaInput subscription(Object subscription) {
+    public UpdateActivationForAudienceAlphaInput personalization(
+            PersonalizationInput personalization) {
 
-        this.subscription = subscription;
+        this.personalization = personalization;
         return this;
     }
 
     /**
-     * Subscription info to connect the event emitter to a Destination attached to the audience.
+     * Get personalization
      *
-     * @return subscription
+     * @return personalization
      */
     @javax.annotation.Nullable
-    public Object getSubscription() {
-        return subscription;
+    public PersonalizationInput getPersonalization() {
+        return personalization;
     }
 
-    public void setSubscription(Object subscription) {
-        this.subscription = subscription;
+    public void setPersonalization(PersonalizationInput personalization) {
+        this.personalization = personalization;
+    }
+
+    public UpdateActivationForAudienceAlphaInput destinationMapping(
+            DestinationSubscriptionConfiguration destinationMapping) {
+
+        this.destinationMapping = destinationMapping;
+        return this;
+    }
+
+    /**
+     * Get destinationMapping
+     *
+     * @return destinationMapping
+     */
+    @javax.annotation.Nullable
+    public DestinationSubscriptionConfiguration getDestinationMapping() {
+        return destinationMapping;
+    }
+
+    public void setDestinationMapping(DestinationSubscriptionConfiguration destinationMapping) {
+        this.destinationMapping = destinationMapping;
+    }
+
+    public UpdateActivationForAudienceAlphaInput performFirstSync(Boolean performFirstSync) {
+
+        this.performFirstSync = performFirstSync;
+        return this;
+    }
+
+    /**
+     * Whether to perform the first sync so the activation events are generated on the first
+     * audience sync.
+     *
+     * @return performFirstSync
+     */
+    @javax.annotation.Nullable
+    public Boolean getPerformFirstSync() {
+        return performFirstSync;
+    }
+
+    public void setPerformFirstSync(Boolean performFirstSync) {
+        this.performFirstSync = performFirstSync;
     }
 
     @Override
@@ -141,27 +169,36 @@ public class UpdateActivationForAudienceAlphaInput {
         }
         UpdateActivationForAudienceAlphaInput updateActivationForAudienceAlphaInput =
                 (UpdateActivationForAudienceAlphaInput) o;
-        return Objects.equals(this.workspaceId, updateActivationForAudienceAlphaInput.workspaceId)
-                && Objects.equals(this.enabled, updateActivationForAudienceAlphaInput.enabled)
+        return Objects.equals(this.enabled, updateActivationForAudienceAlphaInput.enabled)
                 && Objects.equals(
-                        this.eventEmitter, updateActivationForAudienceAlphaInput.eventEmitter)
+                        this.activationName, updateActivationForAudienceAlphaInput.activationName)
                 && Objects.equals(
-                        this.subscription, updateActivationForAudienceAlphaInput.subscription);
+                        this.personalization, updateActivationForAudienceAlphaInput.personalization)
+                && Objects.equals(
+                        this.destinationMapping,
+                        updateActivationForAudienceAlphaInput.destinationMapping)
+                && Objects.equals(
+                        this.performFirstSync,
+                        updateActivationForAudienceAlphaInput.performFirstSync);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(workspaceId, enabled, eventEmitter, subscription);
+        return Objects.hash(
+                enabled, activationName, personalization, destinationMapping, performFirstSync);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class UpdateActivationForAudienceAlphaInput {\n");
-        sb.append("    workspaceId: ").append(toIndentedString(workspaceId)).append("\n");
         sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
-        sb.append("    eventEmitter: ").append(toIndentedString(eventEmitter)).append("\n");
-        sb.append("    subscription: ").append(toIndentedString(subscription)).append("\n");
+        sb.append("    activationName: ").append(toIndentedString(activationName)).append("\n");
+        sb.append("    personalization: ").append(toIndentedString(personalization)).append("\n");
+        sb.append("    destinationMapping: ")
+                .append(toIndentedString(destinationMapping))
+                .append("\n");
+        sb.append("    performFirstSync: ").append(toIndentedString(performFirstSync)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -183,16 +220,14 @@ public class UpdateActivationForAudienceAlphaInput {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("workspaceId");
         openapiFields.add("enabled");
-        openapiFields.add("eventEmitter");
-        openapiFields.add("subscription");
+        openapiFields.add("activationName");
+        openapiFields.add("personalization");
+        openapiFields.add("destinationMapping");
+        openapiFields.add("performFirstSync");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("workspaceId");
-        openapiRequiredFields.add("eventEmitter");
-        openapiRequiredFields.add("subscription");
     }
 
     /**
@@ -227,23 +262,25 @@ public class UpdateActivationForAudienceAlphaInput {
                                 entry.getKey(), jsonElement.toString()));
             }
         }
-
-        // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : UpdateActivationForAudienceAlphaInput.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-                throw new IllegalArgumentException(
-                        String.format(
-                                "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonElement.toString()));
-            }
-        }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if (!jsonObj.get("workspaceId").isJsonPrimitive()) {
+        if ((jsonObj.get("activationName") != null && !jsonObj.get("activationName").isJsonNull())
+                && !jsonObj.get("activationName").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `workspaceId` to be a primitive type in the JSON"
+                            "Expected the field `activationName` to be a primitive type in the JSON"
                                     + " string but got `%s`",
-                            jsonObj.get("workspaceId").toString()));
+                            jsonObj.get("activationName").toString()));
+        }
+        // validate the optional field `personalization`
+        if (jsonObj.get("personalization") != null
+                && !jsonObj.get("personalization").isJsonNull()) {
+            PersonalizationInput.validateJsonElement(jsonObj.get("personalization"));
+        }
+        // validate the optional field `destinationMapping`
+        if (jsonObj.get("destinationMapping") != null
+                && !jsonObj.get("destinationMapping").isJsonNull()) {
+            DestinationSubscriptionConfiguration.validateJsonElement(
+                    jsonObj.get("destinationMapping"));
         }
     }
 

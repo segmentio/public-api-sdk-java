@@ -22,69 +22,31 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Input to Add a Destination into an Audience. */
 public class AddDestinationToAudienceAlphaInput {
-    public static final String SERIALIZED_NAME_VERSION_SCHEMA = "versionSchema";
-
-    @SerializedName(SERIALIZED_NAME_VERSION_SCHEMA)
-    private String versionSchema;
-
-    public static final String SERIALIZED_NAME_WORKSPACE_ID = "workspaceId";
-
-    @SerializedName(SERIALIZED_NAME_WORKSPACE_ID)
-    private String workspaceId;
-
     public static final String SERIALIZED_NAME_DESTINATION = "destination";
 
     @SerializedName(SERIALIZED_NAME_DESTINATION)
     private DestinationInput destination;
 
+    public static final String SERIALIZED_NAME_ID_SYNC_CONFIGURATION = "idSyncConfiguration";
+
+    @SerializedName(SERIALIZED_NAME_ID_SYNC_CONFIGURATION)
+    private Object idSyncConfiguration;
+
+    public static final String SERIALIZED_NAME_CONNECTION_SETTINGS = "connectionSettings";
+
+    @SerializedName(SERIALIZED_NAME_CONNECTION_SETTINGS)
+    private Object connectionSettings = null;
+
     public AddDestinationToAudienceAlphaInput() {}
-
-    public AddDestinationToAudienceAlphaInput versionSchema(String versionSchema) {
-
-        this.versionSchema = versionSchema;
-        return this;
-    }
-
-    /**
-     * Version Schema.
-     *
-     * @return versionSchema
-     */
-    @javax.annotation.Nonnull
-    public String getVersionSchema() {
-        return versionSchema;
-    }
-
-    public void setVersionSchema(String versionSchema) {
-        this.versionSchema = versionSchema;
-    }
-
-    public AddDestinationToAudienceAlphaInput workspaceId(String workspaceId) {
-
-        this.workspaceId = workspaceId;
-        return this;
-    }
-
-    /**
-     * The id of the Workspace the audience exists within.
-     *
-     * @return workspaceId
-     */
-    @javax.annotation.Nonnull
-    public String getWorkspaceId() {
-        return workspaceId;
-    }
-
-    public void setWorkspaceId(String workspaceId) {
-        this.workspaceId = workspaceId;
-    }
 
     public AddDestinationToAudienceAlphaInput destination(DestinationInput destination) {
 
@@ -106,6 +68,47 @@ public class AddDestinationToAudienceAlphaInput {
         this.destination = destination;
     }
 
+    public AddDestinationToAudienceAlphaInput idSyncConfiguration(Object idSyncConfiguration) {
+
+        this.idSyncConfiguration = idSyncConfiguration;
+        return this;
+    }
+
+    /**
+     * The identifier sync configuration input.
+     *
+     * @return idSyncConfiguration
+     */
+    @javax.annotation.Nullable
+    public Object getIdSyncConfiguration() {
+        return idSyncConfiguration;
+    }
+
+    public void setIdSyncConfiguration(Object idSyncConfiguration) {
+        this.idSyncConfiguration = idSyncConfiguration;
+    }
+
+    public AddDestinationToAudienceAlphaInput connectionSettings(Object connectionSettings) {
+
+        this.connectionSettings = connectionSettings;
+        return this;
+    }
+
+    /**
+     * The settings that a Destination requires to create audiences on a third-party platform. These
+     * settings are Destination-specific and thus are best defined as unknown.
+     *
+     * @return connectionSettings
+     */
+    @javax.annotation.Nullable
+    public Object getConnectionSettings() {
+        return connectionSettings;
+    }
+
+    public void setConnectionSettings(Object connectionSettings) {
+        this.connectionSettings = connectionSettings;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -116,23 +119,47 @@ public class AddDestinationToAudienceAlphaInput {
         }
         AddDestinationToAudienceAlphaInput addDestinationToAudienceAlphaInput =
                 (AddDestinationToAudienceAlphaInput) o;
-        return Objects.equals(this.versionSchema, addDestinationToAudienceAlphaInput.versionSchema)
-                && Objects.equals(this.workspaceId, addDestinationToAudienceAlphaInput.workspaceId)
-                && Objects.equals(this.destination, addDestinationToAudienceAlphaInput.destination);
+        return Objects.equals(this.destination, addDestinationToAudienceAlphaInput.destination)
+                && Objects.equals(
+                        this.idSyncConfiguration,
+                        addDestinationToAudienceAlphaInput.idSyncConfiguration)
+                && Objects.equals(
+                        this.connectionSettings,
+                        addDestinationToAudienceAlphaInput.connectionSettings);
+    }
+
+    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+        return a == b
+                || (a != null
+                        && b != null
+                        && a.isPresent()
+                        && b.isPresent()
+                        && Objects.deepEquals(a.get(), b.get()));
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(versionSchema, workspaceId, destination);
+        return Objects.hash(destination, idSyncConfiguration, connectionSettings);
+    }
+
+    private static <T> int hashCodeNullable(JsonNullable<T> a) {
+        if (a == null) {
+            return 1;
+        }
+        return a.isPresent() ? Arrays.deepHashCode(new Object[] {a.get()}) : 31;
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class AddDestinationToAudienceAlphaInput {\n");
-        sb.append("    versionSchema: ").append(toIndentedString(versionSchema)).append("\n");
-        sb.append("    workspaceId: ").append(toIndentedString(workspaceId)).append("\n");
         sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
+        sb.append("    idSyncConfiguration: ")
+                .append(toIndentedString(idSyncConfiguration))
+                .append("\n");
+        sb.append("    connectionSettings: ")
+                .append(toIndentedString(connectionSettings))
+                .append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -154,14 +181,12 @@ public class AddDestinationToAudienceAlphaInput {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("versionSchema");
-        openapiFields.add("workspaceId");
         openapiFields.add("destination");
+        openapiFields.add("idSyncConfiguration");
+        openapiFields.add("connectionSettings");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("versionSchema");
-        openapiRequiredFields.add("workspaceId");
         openapiRequiredFields.add("destination");
     }
 
@@ -207,20 +232,6 @@ public class AddDestinationToAudienceAlphaInput {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if (!jsonObj.get("versionSchema").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `versionSchema` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
-                            jsonObj.get("versionSchema").toString()));
-        }
-        if (!jsonObj.get("workspaceId").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `workspaceId` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
-                            jsonObj.get("workspaceId").toString()));
-        }
         // validate the required field `destination`
         DestinationInput.validateJsonElement(jsonObj.get("destination"));
     }
