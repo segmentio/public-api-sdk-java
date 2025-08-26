@@ -37,12 +37,12 @@ public class AudiencePreviewResult extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'AudiencePreviewResult' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<AudiencePreviewAccountResult> adapterAudiencePreviewAccountResult =
-                    gson.getDelegateAdapter(
-                            this, TypeToken.get(AudiencePreviewAccountResult.class));
             final TypeAdapter<AudiencePreviewProfileResult> adapterAudiencePreviewProfileResult =
                     gson.getDelegateAdapter(
                             this, TypeToken.get(AudiencePreviewProfileResult.class));
+            final TypeAdapter<AudiencePreviewAccountResult> adapterAudiencePreviewAccountResult =
+                    gson.getDelegateAdapter(
+                            this, TypeToken.get(AudiencePreviewAccountResult.class));
             final TypeAdapter<AudiencePreviewEntitiesResult> adapterAudiencePreviewEntitiesResult =
                     gson.getDelegateAdapter(
                             this, TypeToken.get(AudiencePreviewEntitiesResult.class));
@@ -58,21 +58,21 @@ public class AudiencePreviewResult extends AbstractOpenApiSchema {
                             }
 
                             // check if the actual instance is of the type
-                            // `AudiencePreviewAccountResult`
-                            if (value.getActualInstance() instanceof AudiencePreviewAccountResult) {
-                                JsonElement element =
-                                        adapterAudiencePreviewAccountResult.toJsonTree(
-                                                (AudiencePreviewAccountResult)
-                                                        value.getActualInstance());
-                                elementAdapter.write(out, element);
-                                return;
-                            }
-                            // check if the actual instance is of the type
                             // `AudiencePreviewProfileResult`
                             if (value.getActualInstance() instanceof AudiencePreviewProfileResult) {
                                 JsonElement element =
                                         adapterAudiencePreviewProfileResult.toJsonTree(
                                                 (AudiencePreviewProfileResult)
+                                                        value.getActualInstance());
+                                elementAdapter.write(out, element);
+                                return;
+                            }
+                            // check if the actual instance is of the type
+                            // `AudiencePreviewAccountResult`
+                            if (value.getActualInstance() instanceof AudiencePreviewAccountResult) {
+                                JsonElement element =
+                                        adapterAudiencePreviewAccountResult.toJsonTree(
+                                                (AudiencePreviewAccountResult)
                                                         value.getActualInstance());
                                 elementAdapter.write(out, element);
                                 return;
@@ -103,27 +103,6 @@ public class AudiencePreviewResult extends AbstractOpenApiSchema {
                             ArrayList<String> errorMessages = new ArrayList<>();
                             TypeAdapter actualAdapter = elementAdapter;
 
-                            // deserialize AudiencePreviewAccountResult
-                            try {
-                                // validate the JSON object to see if any exception is thrown
-                                AudiencePreviewAccountResult.validateJsonElement(jsonElement);
-                                actualAdapter = adapterAudiencePreviewAccountResult;
-                                AudiencePreviewResult ret = new AudiencePreviewResult();
-                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
-                                return ret;
-                            } catch (Exception e) {
-                                // deserialization failed, continue
-                                errorMessages.add(
-                                        String.format(
-                                                "Deserialization for AudiencePreviewAccountResult"
-                                                        + " failed with `%s`.",
-                                                e.getMessage()));
-                                log.log(
-                                        Level.FINER,
-                                        "Input data does not match schema"
-                                                + " 'AudiencePreviewAccountResult'",
-                                        e);
-                            }
                             // deserialize AudiencePreviewProfileResult
                             try {
                                 // validate the JSON object to see if any exception is thrown
@@ -143,6 +122,27 @@ public class AudiencePreviewResult extends AbstractOpenApiSchema {
                                         Level.FINER,
                                         "Input data does not match schema"
                                                 + " 'AudiencePreviewProfileResult'",
+                                        e);
+                            }
+                            // deserialize AudiencePreviewAccountResult
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                AudiencePreviewAccountResult.validateJsonElement(jsonElement);
+                                actualAdapter = adapterAudiencePreviewAccountResult;
+                                AudiencePreviewResult ret = new AudiencePreviewResult();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                return ret;
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                "Deserialization for AudiencePreviewAccountResult"
+                                                        + " failed with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema"
+                                                + " 'AudiencePreviewAccountResult'",
                                         e);
                             }
                             // deserialize AudiencePreviewEntitiesResult
@@ -202,8 +202,8 @@ public class AudiencePreviewResult extends AbstractOpenApiSchema {
     }
 
     static {
-        schemas.put("AudiencePreviewAccountResult", AudiencePreviewAccountResult.class);
         schemas.put("AudiencePreviewProfileResult", AudiencePreviewProfileResult.class);
+        schemas.put("AudiencePreviewAccountResult", AudiencePreviewAccountResult.class);
         schemas.put("AudiencePreviewEntitiesResult", AudiencePreviewEntitiesResult.class);
     }
 
@@ -221,12 +221,12 @@ public class AudiencePreviewResult extends AbstractOpenApiSchema {
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (instance instanceof AudiencePreviewAccountResult) {
+        if (instance instanceof AudiencePreviewProfileResult) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof AudiencePreviewProfileResult) {
+        if (instance instanceof AudiencePreviewAccountResult) {
             super.setActualInstance(instance);
             return;
         }
@@ -254,18 +254,6 @@ public class AudiencePreviewResult extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `AudiencePreviewAccountResult`. If the actual instance is not
-     * `AudiencePreviewAccountResult`, the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `AudiencePreviewAccountResult`
-     * @throws ClassCastException if the instance is not `AudiencePreviewAccountResult`
-     */
-    public AudiencePreviewAccountResult getAudiencePreviewAccountResult()
-            throws ClassCastException {
-        return (AudiencePreviewAccountResult) super.getActualInstance();
-    }
-
-    /**
      * Get the actual instance of `AudiencePreviewProfileResult`. If the actual instance is not
      * `AudiencePreviewProfileResult`, the ClassCastException will be thrown.
      *
@@ -275,6 +263,18 @@ public class AudiencePreviewResult extends AbstractOpenApiSchema {
     public AudiencePreviewProfileResult getAudiencePreviewProfileResult()
             throws ClassCastException {
         return (AudiencePreviewProfileResult) super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `AudiencePreviewAccountResult`. If the actual instance is not
+     * `AudiencePreviewAccountResult`, the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `AudiencePreviewAccountResult`
+     * @throws ClassCastException if the instance is not `AudiencePreviewAccountResult`
+     */
+    public AudiencePreviewAccountResult getAudiencePreviewAccountResult()
+            throws ClassCastException {
+        return (AudiencePreviewAccountResult) super.getActualInstance();
     }
 
     /**
@@ -298,17 +298,6 @@ public class AudiencePreviewResult extends AbstractOpenApiSchema {
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         // validate anyOf schemas one by one
         ArrayList<String> errorMessages = new ArrayList<>();
-        // validate the json string with AudiencePreviewAccountResult
-        try {
-            AudiencePreviewAccountResult.validateJsonElement(jsonElement);
-            return;
-        } catch (Exception e) {
-            errorMessages.add(
-                    String.format(
-                            "Deserialization for AudiencePreviewAccountResult failed with `%s`.",
-                            e.getMessage()));
-            // continue to the next one
-        }
         // validate the json string with AudiencePreviewProfileResult
         try {
             AudiencePreviewProfileResult.validateJsonElement(jsonElement);
@@ -317,6 +306,17 @@ public class AudiencePreviewResult extends AbstractOpenApiSchema {
             errorMessages.add(
                     String.format(
                             "Deserialization for AudiencePreviewProfileResult failed with `%s`.",
+                            e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with AudiencePreviewAccountResult
+        try {
+            AudiencePreviewAccountResult.validateJsonElement(jsonElement);
+            return;
+        } catch (Exception e) {
+            errorMessages.add(
+                    String.format(
+                            "Deserialization for AudiencePreviewAccountResult failed with `%s`.",
                             e.getMessage()));
             // continue to the next one
         }

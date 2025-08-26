@@ -27,16 +27,16 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** CreateAudiencePreview200Response */
-public class CreateAudiencePreview200Response {
+/** GetAudiencePreview200Response1 */
+public class GetAudiencePreview200Response1 {
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    private CreateAudiencePreviewBetaOutput data;
+    private GetAudiencePreviewAlphaOutput data;
 
-    public CreateAudiencePreview200Response() {}
+    public GetAudiencePreview200Response1() {}
 
-    public CreateAudiencePreview200Response data(CreateAudiencePreviewBetaOutput data) {
+    public GetAudiencePreview200Response1 data(GetAudiencePreviewAlphaOutput data) {
 
         this.data = data;
         return this;
@@ -48,11 +48,11 @@ public class CreateAudiencePreview200Response {
      * @return data
      */
     @javax.annotation.Nullable
-    public CreateAudiencePreviewBetaOutput getData() {
+    public GetAudiencePreviewAlphaOutput getData() {
         return data;
     }
 
-    public void setData(CreateAudiencePreviewBetaOutput data) {
+    public void setData(GetAudiencePreviewAlphaOutput data) {
         this.data = data;
     }
 
@@ -64,9 +64,9 @@ public class CreateAudiencePreview200Response {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        CreateAudiencePreview200Response createAudiencePreview200Response =
-                (CreateAudiencePreview200Response) o;
-        return Objects.equals(this.data, createAudiencePreview200Response.data);
+        GetAudiencePreview200Response1 getAudiencePreview200Response1 =
+                (GetAudiencePreview200Response1) o;
+        return Objects.equals(this.data, getAudiencePreview200Response1.data);
     }
 
     @Override
@@ -77,7 +77,7 @@ public class CreateAudiencePreview200Response {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CreateAudiencePreview200Response {\n");
+        sb.append("class GetAudiencePreview200Response1 {\n");
         sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -111,35 +111,35 @@ public class CreateAudiencePreview200Response {
      *
      * @param jsonElement JSON Element
      * @throws IOException if the JSON Element is invalid with respect to
-     *     CreateAudiencePreview200Response
+     *     GetAudiencePreview200Response1
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!CreateAudiencePreview200Response.openapiRequiredFields
+            if (!GetAudiencePreview200Response1.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in CreateAudiencePreview200Response is"
-                                        + " not found in the empty JSON string",
-                                CreateAudiencePreview200Response.openapiRequiredFields.toString()));
+                                "The required field(s) %s in GetAudiencePreview200Response1 is not"
+                                        + " found in the empty JSON string",
+                                GetAudiencePreview200Response1.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!CreateAudiencePreview200Response.openapiFields.contains(entry.getKey())) {
+            if (!GetAudiencePreview200Response1.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                    + " `CreateAudiencePreview200Response` properties. JSON: %s",
+                                        + " `GetAudiencePreview200Response1` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the optional field `data`
         if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-            CreateAudiencePreviewBetaOutput.validateJsonElement(jsonObj.get("data"));
+            GetAudiencePreviewAlphaOutput.validateJsonElement(jsonObj.get("data"));
         }
     }
 
@@ -147,26 +147,26 @@ public class CreateAudiencePreview200Response {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!CreateAudiencePreview200Response.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'CreateAudiencePreview200Response' and
-                // its subtypes
+            if (!GetAudiencePreview200Response1.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'GetAudiencePreview200Response1' and its
+                // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<CreateAudiencePreview200Response> thisAdapter =
+            final TypeAdapter<GetAudiencePreview200Response1> thisAdapter =
                     gson.getDelegateAdapter(
-                            this, TypeToken.get(CreateAudiencePreview200Response.class));
+                            this, TypeToken.get(GetAudiencePreview200Response1.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<CreateAudiencePreview200Response>() {
+                    new TypeAdapter<GetAudiencePreview200Response1>() {
                         @Override
-                        public void write(JsonWriter out, CreateAudiencePreview200Response value)
+                        public void write(JsonWriter out, GetAudiencePreview200Response1 value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public CreateAudiencePreview200Response read(JsonReader in)
+                        public GetAudiencePreview200Response1 read(JsonReader in)
                                 throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
@@ -177,19 +177,19 @@ public class CreateAudiencePreview200Response {
     }
 
     /**
-     * Create an instance of CreateAudiencePreview200Response given an JSON string
+     * Create an instance of GetAudiencePreview200Response1 given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of CreateAudiencePreview200Response
+     * @return An instance of GetAudiencePreview200Response1
      * @throws IOException if the JSON string is invalid with respect to
-     *     CreateAudiencePreview200Response
+     *     GetAudiencePreview200Response1
      */
-    public static CreateAudiencePreview200Response fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, CreateAudiencePreview200Response.class);
+    public static GetAudiencePreview200Response1 fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, GetAudiencePreview200Response1.class);
     }
 
     /**
-     * Convert an instance of CreateAudiencePreview200Response to an JSON string
+     * Convert an instance of GetAudiencePreview200Response1 to an JSON string
      *
      * @return JSON string
      */
