@@ -21,7 +21,7 @@ import com.segment.publicapi.Pair;
 import com.segment.publicapi.models.CreateAudience200Response;
 import com.segment.publicapi.models.CreateAudienceAlphaInput;
 import com.segment.publicapi.models.CreateAudiencePreview200Response;
-import com.segment.publicapi.models.CreateAudiencePreviewAlphaInput;
+import com.segment.publicapi.models.CreateAudiencePreviewBetaInput;
 import com.segment.publicapi.models.GetAudience200Response;
 import com.segment.publicapi.models.GetAudiencePreview200Response;
 import com.segment.publicapi.models.GetAudienceScheduleFromSpaceAndAudience200Response;
@@ -291,7 +291,7 @@ public class AudiencesApi {
      * Build call for createAudiencePreview
      *
      * @param spaceId (required)
-     * @param createAudiencePreviewAlphaInput (required)
+     * @param createAudiencePreviewBetaInput (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -306,7 +306,7 @@ public class AudiencesApi {
      */
     public okhttp3.Call createAudiencePreviewCall(
             String spaceId,
-            CreateAudiencePreviewAlphaInput createAudiencePreviewAlphaInput,
+            CreateAudiencePreviewBetaInput createAudiencePreviewBetaInput,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -322,7 +322,7 @@ public class AudiencesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = createAudiencePreviewAlphaInput;
+        Object localVarPostBody = createAudiencePreviewBetaInput;
 
         // create path and map variables
         String localVarPath =
@@ -338,14 +338,18 @@ public class AudiencesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json", "application/json"
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json",
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
             localVarHeaderParams.put("Accept", localVarAccept);
         }
 
-        final String[] localVarContentTypes = {"application/vnd.segment.v1alpha+json"};
+        final String[] localVarContentTypes = {
+            "application/vnd.segment.v1beta+json", "application/vnd.segment.v1alpha+json"
+        };
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -370,7 +374,7 @@ public class AudiencesApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createAudiencePreviewValidateBeforeCall(
             String spaceId,
-            CreateAudiencePreviewAlphaInput createAudiencePreviewAlphaInput,
+            CreateAudiencePreviewBetaInput createAudiencePreviewBetaInput,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'spaceId' is set
@@ -380,18 +384,18 @@ public class AudiencesApi {
                             + " createAudiencePreview(Async)");
         }
 
-        // verify the required parameter 'createAudiencePreviewAlphaInput' is set
-        if (createAudiencePreviewAlphaInput == null) {
+        // verify the required parameter 'createAudiencePreviewBetaInput' is set
+        if (createAudiencePreviewBetaInput == null) {
             throw new ApiException(
-                    "Missing the required parameter 'createAudiencePreviewAlphaInput' when calling"
+                    "Missing the required parameter 'createAudiencePreviewBetaInput' when calling"
                             + " createAudiencePreview(Async)");
         }
 
-        return createAudiencePreviewCall(spaceId, createAudiencePreviewAlphaInput, _callback);
+        return createAudiencePreviewCall(spaceId, createAudiencePreviewBetaInput, _callback);
     }
 
     /**
-     * Create Audience Preview Previews Audience. • This endpoint is in **Alpha** testing. Please
+     * Create Audience Preview Previews Audience. • This endpoint is in **Beta** testing. Please
      * submit any feedback by sending an email to friends@segment.com. • In order to successfully
      * call this endpoint, the specified Workspace needs to have the Audience feature enabled.
      * Please reach out to your customer success manager for more information. • When called, this
@@ -404,7 +408,7 @@ public class AudiencesApi {
      * restrictions.
      *
      * @param spaceId (required)
-     * @param createAudiencePreviewAlphaInput (required)
+     * @param createAudiencePreviewBetaInput (required)
      * @return CreateAudiencePreview200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -418,15 +422,15 @@ public class AudiencesApi {
      * </table>
      */
     public CreateAudiencePreview200Response createAudiencePreview(
-            String spaceId, CreateAudiencePreviewAlphaInput createAudiencePreviewAlphaInput)
+            String spaceId, CreateAudiencePreviewBetaInput createAudiencePreviewBetaInput)
             throws ApiException {
         ApiResponse<CreateAudiencePreview200Response> localVarResp =
-                createAudiencePreviewWithHttpInfo(spaceId, createAudiencePreviewAlphaInput);
+                createAudiencePreviewWithHttpInfo(spaceId, createAudiencePreviewBetaInput);
         return localVarResp.getData();
     }
 
     /**
-     * Create Audience Preview Previews Audience. • This endpoint is in **Alpha** testing. Please
+     * Create Audience Preview Previews Audience. • This endpoint is in **Beta** testing. Please
      * submit any feedback by sending an email to friends@segment.com. • In order to successfully
      * call this endpoint, the specified Workspace needs to have the Audience feature enabled.
      * Please reach out to your customer success manager for more information. • When called, this
@@ -439,7 +443,7 @@ public class AudiencesApi {
      * restrictions.
      *
      * @param spaceId (required)
-     * @param createAudiencePreviewAlphaInput (required)
+     * @param createAudiencePreviewBetaInput (required)
      * @return ApiResponse&lt;CreateAudiencePreview200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -453,17 +457,17 @@ public class AudiencesApi {
      * </table>
      */
     public ApiResponse<CreateAudiencePreview200Response> createAudiencePreviewWithHttpInfo(
-            String spaceId, CreateAudiencePreviewAlphaInput createAudiencePreviewAlphaInput)
+            String spaceId, CreateAudiencePreviewBetaInput createAudiencePreviewBetaInput)
             throws ApiException {
         okhttp3.Call localVarCall =
                 createAudiencePreviewValidateBeforeCall(
-                        spaceId, createAudiencePreviewAlphaInput, null);
+                        spaceId, createAudiencePreviewBetaInput, null);
         Type localVarReturnType = new TypeToken<CreateAudiencePreview200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Create Audience Preview (asynchronously) Previews Audience. • This endpoint is in **Alpha**
+     * Create Audience Preview (asynchronously) Previews Audience. • This endpoint is in **Beta**
      * testing. Please submit any feedback by sending an email to friends@segment.com. • In order to
      * successfully call this endpoint, the specified Workspace needs to have the Audience feature
      * enabled. Please reach out to your customer success manager for more information. • When
@@ -476,7 +480,7 @@ public class AudiencesApi {
      * to access pattern restrictions.
      *
      * @param spaceId (required)
-     * @param createAudiencePreviewAlphaInput (required)
+     * @param createAudiencePreviewBetaInput (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -492,13 +496,13 @@ public class AudiencesApi {
      */
     public okhttp3.Call createAudiencePreviewAsync(
             String spaceId,
-            CreateAudiencePreviewAlphaInput createAudiencePreviewAlphaInput,
+            CreateAudiencePreviewBetaInput createAudiencePreviewBetaInput,
             final ApiCallback<CreateAudiencePreview200Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 createAudiencePreviewValidateBeforeCall(
-                        spaceId, createAudiencePreviewAlphaInput, _callback);
+                        spaceId, createAudiencePreviewBetaInput, _callback);
         Type localVarReturnType = new TypeToken<CreateAudiencePreview200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -768,7 +772,9 @@ public class AudiencesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json", "application/json"
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json",
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -817,13 +823,13 @@ public class AudiencesApi {
     }
 
     /**
-     * Get Audience Preview Reads the results of an audience preview. • This endpoint is in
-     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
-     * In order to successfully call this endpoint, the specified Workspace needs to have the
-     * Audience feature enabled. Please reach out to your customer success manager for more
-     * information. The rate limit for this endpoint is 100 requests per minute, which is lower than
-     * the default due to access pattern restrictions. Once reached, this endpoint will respond with
-     * the 429 HTTP status code with headers indicating the limit parameters. See [Rate
+     * Get Audience Preview Reads the results of an audience preview. • This endpoint is in **Beta**
+     * testing. Please submit any feedback by sending an email to friends@segment.com. • In order to
+     * successfully call this endpoint, the specified Workspace needs to have the Audience feature
+     * enabled. Please reach out to your customer success manager for more information. The rate
+     * limit for this endpoint is 100 requests per minute, which is lower than the default due to
+     * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
+     * status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
@@ -848,13 +854,13 @@ public class AudiencesApi {
     }
 
     /**
-     * Get Audience Preview Reads the results of an audience preview. • This endpoint is in
-     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
-     * In order to successfully call this endpoint, the specified Workspace needs to have the
-     * Audience feature enabled. Please reach out to your customer success manager for more
-     * information. The rate limit for this endpoint is 100 requests per minute, which is lower than
-     * the default due to access pattern restrictions. Once reached, this endpoint will respond with
-     * the 429 HTTP status code with headers indicating the limit parameters. See [Rate
+     * Get Audience Preview Reads the results of an audience preview. • This endpoint is in **Beta**
+     * testing. Please submit any feedback by sending an email to friends@segment.com. • In order to
+     * successfully call this endpoint, the specified Workspace needs to have the Audience feature
+     * enabled. Please reach out to your customer success manager for more information. The rate
+     * limit for this endpoint is 100 requests per minute, which is lower than the default due to
+     * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
+     * status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
@@ -880,7 +886,7 @@ public class AudiencesApi {
 
     /**
      * Get Audience Preview (asynchronously) Reads the results of an audience preview. • This
-     * endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
+     * endpoint is in **Beta** testing. Please submit any feedback by sending an email to
      * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
      * needs to have the Audience feature enabled. Please reach out to your customer success manager
      * for more information. The rate limit for this endpoint is 100 requests per minute, which is
