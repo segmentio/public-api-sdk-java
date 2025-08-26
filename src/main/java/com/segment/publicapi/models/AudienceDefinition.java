@@ -106,7 +106,7 @@ public class AudienceDefinition {
      *
      * @return type
      */
-    @javax.annotation.Nonnull
+    @javax.annotation.Nullable
     public TypeEnum getType() {
         return type;
     }
@@ -210,7 +210,6 @@ public class AudienceDefinition {
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("type");
         openapiRequiredFields.add("query");
     }
 
@@ -254,7 +253,8 @@ public class AudienceDefinition {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if (!jsonObj.get("type").isJsonPrimitive()) {
+        if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull())
+                && !jsonObj.get("type").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             "Expected the field `type` to be a primitive type in the JSON string"
