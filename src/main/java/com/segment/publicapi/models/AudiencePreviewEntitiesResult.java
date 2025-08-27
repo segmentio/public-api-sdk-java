@@ -80,9 +80,7 @@ public class AudiencePreviewEntitiesResult {
     }
 
     /**
-     * The entities associated with the profile. Will only have a value if the audience preview has
-     * &#x60;audienceType: LINKED&#x60; and entities are referenced in the audience preview&#39;s
-     * definition.
+     * Entity id.
      *
      * @return id
      */

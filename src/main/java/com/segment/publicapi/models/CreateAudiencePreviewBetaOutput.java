@@ -27,33 +27,34 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** CreateAudiencePreview200Response */
-public class CreateAudiencePreview200Response {
-    public static final String SERIALIZED_NAME_DATA = "data";
+/** Output when creating an audience preview. */
+public class CreateAudiencePreviewBetaOutput {
+    public static final String SERIALIZED_NAME_AUDIENCE_PREVIEW = "audiencePreview";
 
-    @SerializedName(SERIALIZED_NAME_DATA)
-    private CreateAudiencePreviewBetaOutput data;
+    @SerializedName(SERIALIZED_NAME_AUDIENCE_PREVIEW)
+    private AudiencePreviewIdentifier audiencePreview;
 
-    public CreateAudiencePreview200Response() {}
+    public CreateAudiencePreviewBetaOutput() {}
 
-    public CreateAudiencePreview200Response data(CreateAudiencePreviewBetaOutput data) {
+    public CreateAudiencePreviewBetaOutput audiencePreview(
+            AudiencePreviewIdentifier audiencePreview) {
 
-        this.data = data;
+        this.audiencePreview = audiencePreview;
         return this;
     }
 
     /**
-     * Get data
+     * Get audiencePreview
      *
-     * @return data
+     * @return audiencePreview
      */
-    @javax.annotation.Nullable
-    public CreateAudiencePreviewBetaOutput getData() {
-        return data;
+    @javax.annotation.Nonnull
+    public AudiencePreviewIdentifier getAudiencePreview() {
+        return audiencePreview;
     }
 
-    public void setData(CreateAudiencePreviewBetaOutput data) {
-        this.data = data;
+    public void setAudiencePreview(AudiencePreviewIdentifier audiencePreview) {
+        this.audiencePreview = audiencePreview;
     }
 
     @Override
@@ -64,21 +65,22 @@ public class CreateAudiencePreview200Response {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        CreateAudiencePreview200Response createAudiencePreview200Response =
-                (CreateAudiencePreview200Response) o;
-        return Objects.equals(this.data, createAudiencePreview200Response.data);
+        CreateAudiencePreviewBetaOutput createAudiencePreviewBetaOutput =
+                (CreateAudiencePreviewBetaOutput) o;
+        return Objects.equals(
+                this.audiencePreview, createAudiencePreviewBetaOutput.audiencePreview);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(data);
+        return Objects.hash(audiencePreview);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CreateAudiencePreview200Response {\n");
-        sb.append("    data: ").append(toIndentedString(data)).append("\n");
+        sb.append("class CreateAudiencePreviewBetaOutput {\n");
+        sb.append("    audiencePreview: ").append(toIndentedString(audiencePreview)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -100,10 +102,11 @@ public class CreateAudiencePreview200Response {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("data");
+        openapiFields.add("audiencePreview");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
+        openapiRequiredFields.add("audiencePreview");
     }
 
     /**
@@ -111,62 +114,70 @@ public class CreateAudiencePreview200Response {
      *
      * @param jsonElement JSON Element
      * @throws IOException if the JSON Element is invalid with respect to
-     *     CreateAudiencePreview200Response
+     *     CreateAudiencePreviewBetaOutput
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!CreateAudiencePreview200Response.openapiRequiredFields
+            if (!CreateAudiencePreviewBetaOutput.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in CreateAudiencePreview200Response is"
-                                        + " not found in the empty JSON string",
-                                CreateAudiencePreview200Response.openapiRequiredFields.toString()));
+                                "The required field(s) %s in CreateAudiencePreviewBetaOutput is not"
+                                        + " found in the empty JSON string",
+                                CreateAudiencePreviewBetaOutput.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!CreateAudiencePreview200Response.openapiFields.contains(entry.getKey())) {
+            if (!CreateAudiencePreviewBetaOutput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                    + " `CreateAudiencePreview200Response` properties. JSON: %s",
+                                        + " `CreateAudiencePreviewBetaOutput` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-        // validate the optional field `data`
-        if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-            CreateAudiencePreviewBetaOutput.validateJsonElement(jsonObj.get("data"));
+
+        // check to make sure all required properties/fields are present in the JSON string
+        for (String requiredField : CreateAudiencePreviewBetaOutput.openapiRequiredFields) {
+            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+                throw new IllegalArgumentException(
+                        String.format(
+                                "The required field `%s` is not found in the JSON string: %s",
+                                requiredField, jsonElement.toString()));
+            }
         }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+        // validate the required field `audiencePreview`
+        AudiencePreviewIdentifier.validateJsonElement(jsonObj.get("audiencePreview"));
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!CreateAudiencePreview200Response.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'CreateAudiencePreview200Response' and
-                // its subtypes
+            if (!CreateAudiencePreviewBetaOutput.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'CreateAudiencePreviewBetaOutput' and its
+                // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<CreateAudiencePreview200Response> thisAdapter =
+            final TypeAdapter<CreateAudiencePreviewBetaOutput> thisAdapter =
                     gson.getDelegateAdapter(
-                            this, TypeToken.get(CreateAudiencePreview200Response.class));
+                            this, TypeToken.get(CreateAudiencePreviewBetaOutput.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<CreateAudiencePreview200Response>() {
+                    new TypeAdapter<CreateAudiencePreviewBetaOutput>() {
                         @Override
-                        public void write(JsonWriter out, CreateAudiencePreview200Response value)
+                        public void write(JsonWriter out, CreateAudiencePreviewBetaOutput value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public CreateAudiencePreview200Response read(JsonReader in)
+                        public CreateAudiencePreviewBetaOutput read(JsonReader in)
                                 throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
@@ -177,19 +188,19 @@ public class CreateAudiencePreview200Response {
     }
 
     /**
-     * Create an instance of CreateAudiencePreview200Response given an JSON string
+     * Create an instance of CreateAudiencePreviewBetaOutput given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of CreateAudiencePreview200Response
+     * @return An instance of CreateAudiencePreviewBetaOutput
      * @throws IOException if the JSON string is invalid with respect to
-     *     CreateAudiencePreview200Response
+     *     CreateAudiencePreviewBetaOutput
      */
-    public static CreateAudiencePreview200Response fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, CreateAudiencePreview200Response.class);
+    public static CreateAudiencePreviewBetaOutput fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, CreateAudiencePreviewBetaOutput.class);
     }
 
     /**
-     * Convert an instance of CreateAudiencePreview200Response to an JSON string
+     * Convert an instance of CreateAudiencePreviewBetaOutput to an JSON string
      *
      * @return JSON string
      */

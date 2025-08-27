@@ -35,7 +35,7 @@ public class ReadAudiencePreviewOptions {
     public static final String SERIALIZED_NAME_FILTER_BY_EXTERNAL_IDS = "filterByExternalIds";
 
     @SerializedName(SERIALIZED_NAME_FILTER_BY_EXTERNAL_IDS)
-    private List<String> filterByExternalIds = new ArrayList<>();
+    private List<String> filterByExternalIds;
 
     public static final String SERIALIZED_NAME_INCLUDE_HISTORICAL_DATA = "includeHistoricalData";
 
@@ -70,7 +70,7 @@ public class ReadAudiencePreviewOptions {
      *
      * @return filterByExternalIds
      */
-    @javax.annotation.Nonnull
+    @javax.annotation.Nullable
     public List<String> getFilterByExternalIds() {
         return filterByExternalIds;
     }
@@ -94,7 +94,7 @@ public class ReadAudiencePreviewOptions {
      *
      * @return includeHistoricalData
      */
-    @javax.annotation.Nonnull
+    @javax.annotation.Nullable
     public Boolean getIncludeHistoricalData() {
         return includeHistoricalData;
     }
@@ -191,8 +191,6 @@ public class ReadAudiencePreviewOptions {
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("filterByExternalIds");
-        openapiRequiredFields.add("includeHistoricalData");
     }
 
     /**
@@ -224,23 +222,11 @@ public class ReadAudiencePreviewOptions {
                                 entry.getKey(), jsonElement.toString()));
             }
         }
-
-        // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : ReadAudiencePreviewOptions.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-                throw new IllegalArgumentException(
-                        String.format(
-                                "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonElement.toString()));
-            }
-        }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        // ensure the required json array is present
-        if (jsonObj.get("filterByExternalIds") == null) {
-            throw new IllegalArgumentException(
-                    "Expected the field `linkedContent` to be an array in the JSON string but got"
-                            + " `null`");
-        } else if (!jsonObj.get("filterByExternalIds").isJsonArray()) {
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("filterByExternalIds") != null
+                && !jsonObj.get("filterByExternalIds").isJsonNull()
+                && !jsonObj.get("filterByExternalIds").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
                             "Expected the field `filterByExternalIds` to be an array in the JSON"
