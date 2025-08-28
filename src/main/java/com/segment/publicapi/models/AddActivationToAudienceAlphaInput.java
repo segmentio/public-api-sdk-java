@@ -29,11 +29,6 @@ import java.util.Set;
 
 /** Input to create an activation. */
 public class AddActivationToAudienceAlphaInput {
-    public static final String SERIALIZED_NAME_DESTINATION_ID = "destinationId";
-
-    @SerializedName(SERIALIZED_NAME_DESTINATION_ID)
-    private String destinationId;
-
     public static final String SERIALIZED_NAME_ENABLED = "enabled";
 
     @SerializedName(SERIALIZED_NAME_ENABLED)
@@ -65,26 +60,6 @@ public class AddActivationToAudienceAlphaInput {
     private DestinationSubscriptionConfiguration destinationMapping;
 
     public AddActivationToAudienceAlphaInput() {}
-
-    public AddActivationToAudienceAlphaInput destinationId(String destinationId) {
-
-        this.destinationId = destinationId;
-        return this;
-    }
-
-    /**
-     * The Destination id.
-     *
-     * @return destinationId
-     */
-    @javax.annotation.Nonnull
-    public String getDestinationId() {
-        return destinationId;
-    }
-
-    public void setDestinationId(String destinationId) {
-        this.destinationId = destinationId;
-    }
 
     public AddActivationToAudienceAlphaInput enabled(Boolean enabled) {
 
@@ -219,8 +194,7 @@ public class AddActivationToAudienceAlphaInput {
         }
         AddActivationToAudienceAlphaInput addActivationToAudienceAlphaInput =
                 (AddActivationToAudienceAlphaInput) o;
-        return Objects.equals(this.destinationId, addActivationToAudienceAlphaInput.destinationId)
-                && Objects.equals(this.enabled, addActivationToAudienceAlphaInput.enabled)
+        return Objects.equals(this.enabled, addActivationToAudienceAlphaInput.enabled)
                 && Objects.equals(
                         this.performFirstSync, addActivationToAudienceAlphaInput.performFirstSync)
                 && Objects.equals(
@@ -237,7 +211,6 @@ public class AddActivationToAudienceAlphaInput {
     @Override
     public int hashCode() {
         return Objects.hash(
-                destinationId,
                 enabled,
                 performFirstSync,
                 activationType,
@@ -250,7 +223,6 @@ public class AddActivationToAudienceAlphaInput {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class AddActivationToAudienceAlphaInput {\n");
-        sb.append("    destinationId: ").append(toIndentedString(destinationId)).append("\n");
         sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
         sb.append("    performFirstSync: ").append(toIndentedString(performFirstSync)).append("\n");
         sb.append("    activationType: ").append(toIndentedString(activationType)).append("\n");
@@ -280,7 +252,6 @@ public class AddActivationToAudienceAlphaInput {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("destinationId");
         openapiFields.add("enabled");
         openapiFields.add("performFirstSync");
         openapiFields.add("activationType");
@@ -290,7 +261,6 @@ public class AddActivationToAudienceAlphaInput {
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("destinationId");
         openapiRequiredFields.add("performFirstSync");
         openapiRequiredFields.add("activationType");
         openapiRequiredFields.add("activationName");
@@ -340,13 +310,6 @@ public class AddActivationToAudienceAlphaInput {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if (!jsonObj.get("destinationId").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `destinationId` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
-                            jsonObj.get("destinationId").toString()));
-        }
         if (!jsonObj.get("activationType").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
