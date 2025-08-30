@@ -27,33 +27,58 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** CreateAudience200Response */
-public class CreateAudience200Response {
-    public static final String SERIALIZED_NAME_DATA = "data";
+/** Compute conditions wrapper for beta API. */
+public class ComputeConditionsWrapper {
+    public static final String SERIALIZED_NAME_FORMAT = "format";
 
-    @SerializedName(SERIALIZED_NAME_DATA)
-    private CreateAudienceBetaOutput data;
+    @SerializedName(SERIALIZED_NAME_FORMAT)
+    private String format;
 
-    public CreateAudience200Response() {}
+    public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
 
-    public CreateAudience200Response data(CreateAudienceBetaOutput data) {
+    @SerializedName(SERIALIZED_NAME_CONDITIONS)
+    private Object conditions;
 
-        this.data = data;
+    public ComputeConditionsWrapper() {}
+
+    public ComputeConditionsWrapper format(String format) {
+
+        this.format = format;
         return this;
     }
 
     /**
-     * Get data
+     * The query format.
      *
-     * @return data
+     * @return format
      */
-    @javax.annotation.Nullable
-    public CreateAudienceBetaOutput getData() {
-        return data;
+    @javax.annotation.Nonnull
+    public String getFormat() {
+        return format;
     }
 
-    public void setData(CreateAudienceBetaOutput data) {
-        this.data = data;
+    public void setFormat(String format) {
+        this.format = format;
+    }
+
+    public ComputeConditionsWrapper conditions(Object conditions) {
+
+        this.conditions = conditions;
+        return this;
+    }
+
+    /**
+     * The query language string or AST object defining the audience segmentation criteria.
+     *
+     * @return conditions
+     */
+    @javax.annotation.Nullable
+    public Object getConditions() {
+        return conditions;
+    }
+
+    public void setConditions(Object conditions) {
+        this.conditions = conditions;
     }
 
     @Override
@@ -64,20 +89,22 @@ public class CreateAudience200Response {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        CreateAudience200Response createAudience200Response = (CreateAudience200Response) o;
-        return Objects.equals(this.data, createAudience200Response.data);
+        ComputeConditionsWrapper computeConditionsWrapper = (ComputeConditionsWrapper) o;
+        return Objects.equals(this.format, computeConditionsWrapper.format)
+                && Objects.equals(this.conditions, computeConditionsWrapper.conditions);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(data);
+        return Objects.hash(format, conditions);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CreateAudience200Response {\n");
-        sb.append("    data: ").append(toIndentedString(data)).append("\n");
+        sb.append("class ComputeConditionsWrapper {\n");
+        sb.append("    format: ").append(toIndentedString(format)).append("\n");
+        sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -99,45 +126,61 @@ public class CreateAudience200Response {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("data");
+        openapiFields.add("format");
+        openapiFields.add("conditions");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
+        openapiRequiredFields.add("format");
+        openapiRequiredFields.add("conditions");
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to CreateAudience200Response
+     * @throws IOException if the JSON Element is invalid with respect to ComputeConditionsWrapper
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!CreateAudience200Response.openapiRequiredFields
+            if (!ComputeConditionsWrapper.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in CreateAudience200Response is not found"
+                                "The required field(s) %s in ComputeConditionsWrapper is not found"
                                         + " in the empty JSON string",
-                                CreateAudience200Response.openapiRequiredFields.toString()));
+                                ComputeConditionsWrapper.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!CreateAudience200Response.openapiFields.contains(entry.getKey())) {
+            if (!ComputeConditionsWrapper.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `CreateAudience200Response` properties. JSON: %s",
+                                        + " `ComputeConditionsWrapper` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
+
+        // check to make sure all required properties/fields are present in the JSON string
+        for (String requiredField : ComputeConditionsWrapper.openapiRequiredFields) {
+            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+                throw new IllegalArgumentException(
+                        String.format(
+                                "The required field `%s` is not found in the JSON string: %s",
+                                requiredField, jsonElement.toString()));
+            }
+        }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        // validate the optional field `data`
-        if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-            CreateAudienceBetaOutput.validateJsonElement(jsonObj.get("data"));
+        if (!jsonObj.get("format").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `format` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
+                            jsonObj.get("format").toString()));
         }
     }
 
@@ -145,25 +188,25 @@ public class CreateAudience200Response {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!CreateAudience200Response.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'CreateAudience200Response' and its
+            if (!ComputeConditionsWrapper.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'ComputeConditionsWrapper' and its
                 // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<CreateAudience200Response> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(CreateAudience200Response.class));
+            final TypeAdapter<ComputeConditionsWrapper> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(ComputeConditionsWrapper.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<CreateAudience200Response>() {
+                    new TypeAdapter<ComputeConditionsWrapper>() {
                         @Override
-                        public void write(JsonWriter out, CreateAudience200Response value)
+                        public void write(JsonWriter out, ComputeConditionsWrapper value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public CreateAudience200Response read(JsonReader in) throws IOException {
+                        public ComputeConditionsWrapper read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -173,18 +216,18 @@ public class CreateAudience200Response {
     }
 
     /**
-     * Create an instance of CreateAudience200Response given an JSON string
+     * Create an instance of ComputeConditionsWrapper given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of CreateAudience200Response
-     * @throws IOException if the JSON string is invalid with respect to CreateAudience200Response
+     * @return An instance of ComputeConditionsWrapper
+     * @throws IOException if the JSON string is invalid with respect to ComputeConditionsWrapper
      */
-    public static CreateAudience200Response fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, CreateAudience200Response.class);
+    public static ComputeConditionsWrapper fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, ComputeConditionsWrapper.class);
     }
 
     /**
-     * Convert an instance of CreateAudience200Response to an JSON string
+     * Convert an instance of ComputeConditionsWrapper to an JSON string
      *
      * @return JSON string
      */
