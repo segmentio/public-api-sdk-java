@@ -207,7 +207,7 @@ public class ActivationsApi {
      * successfully call this endpoint, the specified Workspace needs to have the Audience feature
      * enabled. Please reach out to your customer success manager for more information. • When
      * called, this endpoint may generate the &#x60;Activation Created&#x60; event in the [audit
-     * trail](/tag/Audit-Trail). The rate limit for this endpoint is 10 requests per minute, which
+     * trail](/tag/Audit-Trail). The rate limit for this endpoint is 50 requests per minute, which
      * is lower than the default due to access pattern restrictions. Once reached, this endpoint
      * will respond with the 429 HTTP status code with headers indicating the limit parameters. See
      * [Rate Limiting](/#tag/Rate-Limits) for more information.
@@ -246,7 +246,7 @@ public class ActivationsApi {
      * successfully call this endpoint, the specified Workspace needs to have the Audience feature
      * enabled. Please reach out to your customer success manager for more information. • When
      * called, this endpoint may generate the &#x60;Activation Created&#x60; event in the [audit
-     * trail](/tag/Audit-Trail). The rate limit for this endpoint is 10 requests per minute, which
+     * trail](/tag/Audit-Trail). The rate limit for this endpoint is 50 requests per minute, which
      * is lower than the default due to access pattern restrictions. Once reached, this endpoint
      * will respond with the 429 HTTP status code with headers indicating the limit parameters. See
      * [Rate Limiting](/#tag/Rate-Limits) for more information.
@@ -286,7 +286,7 @@ public class ActivationsApi {
      * In order to successfully call this endpoint, the specified Workspace needs to have the
      * Audience feature enabled. Please reach out to your customer success manager for more
      * information. • When called, this endpoint may generate the &#x60;Activation Created&#x60;
-     * event in the [audit trail](/tag/Audit-Trail). The rate limit for this endpoint is 10 requests
+     * event in the [audit trail](/tag/Audit-Trail). The rate limit for this endpoint is 50 requests
      * per minute, which is lower than the default due to access pattern restrictions. Once reached,
      * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
      * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
@@ -451,7 +451,11 @@ public class ActivationsApi {
      * In order to successfully call this endpoint, the specified Workspace needs to have the
      * Audience feature enabled. Please reach out to your customer success manager for more
      * information. • When called, this endpoint may generate the &#x60;Destination Added into
-     * Audience&#x60; event in the [audit trail](/tag/Audit-Trail).
+     * Audience&#x60; event in the [audit trail](/tag/Audit-Trail). The rate limit for this endpoint
+     * is 50 requests per minute, which is lower than the default due to access pattern
+     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
+     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
+     * information.
      *
      * @param spaceId (required)
      * @param audienceId (required)
@@ -485,7 +489,11 @@ public class ActivationsApi {
      * In order to successfully call this endpoint, the specified Workspace needs to have the
      * Audience feature enabled. Please reach out to your customer success manager for more
      * information. • When called, this endpoint may generate the &#x60;Destination Added into
-     * Audience&#x60; event in the [audit trail](/tag/Audit-Trail).
+     * Audience&#x60; event in the [audit trail](/tag/Audit-Trail). The rate limit for this endpoint
+     * is 50 requests per minute, which is lower than the default due to access pattern
+     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
+     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
+     * information.
      *
      * @param spaceId (required)
      * @param audienceId (required)
@@ -520,7 +528,11 @@ public class ActivationsApi {
      * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
      * needs to have the Audience feature enabled. Please reach out to your customer success manager
      * for more information. • When called, this endpoint may generate the &#x60;Destination Added
-     * into Audience&#x60; event in the [audit trail](/tag/Audit-Trail).
+     * into Audience&#x60; event in the [audit trail](/tag/Audit-Trail). The rate limit for this
+     * endpoint is 50 requests per minute, which is lower than the default due to access pattern
+     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
+     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
+     * information.
      *
      * @param spaceId (required)
      * @param audienceId (required)
@@ -1087,7 +1099,7 @@ public class ActivationsApi {
     }
 
     /**
-     * Remove Activation from Audience Deletes an Activation. The rate limit for this endpoint is 10
+     * Remove Activation from Audience Deletes an Activation. The rate limit for this endpoint is 50
      * requests per minute, which is lower than the default due to access pattern restrictions. Once
      * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
      * limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
@@ -1115,7 +1127,7 @@ public class ActivationsApi {
     }
 
     /**
-     * Remove Activation from Audience Deletes an Activation. The rate limit for this endpoint is 10
+     * Remove Activation from Audience Deletes an Activation. The rate limit for this endpoint is 50
      * requests per minute, which is lower than the default due to access pattern restrictions. Once
      * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
      * limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
@@ -1147,7 +1159,7 @@ public class ActivationsApi {
 
     /**
      * Remove Activation from Audience (asynchronously) Deletes an Activation. The rate limit for
-     * this endpoint is 10 requests per minute, which is lower than the default due to access
+     * this endpoint is 50 requests per minute, which is lower than the default due to access
      * pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code
      * with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
      * information.
@@ -1312,7 +1324,7 @@ public class ActivationsApi {
     }
 
     /**
-     * Update Activation for Audience Updates an Activation. The rate limit for this endpoint is 10
+     * Update Activation for Audience Updates an Activation. The rate limit for this endpoint is 50
      * requests per minute, which is lower than the default due to access pattern restrictions. Once
      * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
      * limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
@@ -1346,7 +1358,7 @@ public class ActivationsApi {
     }
 
     /**
-     * Update Activation for Audience Updates an Activation. The rate limit for this endpoint is 10
+     * Update Activation for Audience Updates an Activation. The rate limit for this endpoint is 50
      * requests per minute, which is lower than the default due to access pattern restrictions. Once
      * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
      * limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
@@ -1384,7 +1396,7 @@ public class ActivationsApi {
 
     /**
      * Update Activation for Audience (asynchronously) Updates an Activation. The rate limit for
-     * this endpoint is 10 requests per minute, which is lower than the default due to access
+     * this endpoint is 50 requests per minute, which is lower than the default due to access
      * pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code
      * with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
      * information.

@@ -16,6 +16,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
@@ -27,33 +28,77 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** RemoveAudienceFromSpace200Response */
-public class RemoveAudienceFromSpace200Response {
-    public static final String SERIALIZED_NAME_DATA = "data";
+/** Delete audience endpoint output. */
+public class RemoveAudienceFromSpaceBetaOutput {
+    /** The status of the operation. */
+    @JsonAdapter(StatusEnum.Adapter.class)
+    public enum StatusEnum {
+        SUCCESS("SUCCESS");
 
-    @SerializedName(SERIALIZED_NAME_DATA)
-    private RemoveAudienceFromSpaceBetaOutput data;
+        private String value;
 
-    public RemoveAudienceFromSpace200Response() {}
+        StatusEnum(String value) {
+            this.value = value;
+        }
 
-    public RemoveAudienceFromSpace200Response data(RemoveAudienceFromSpaceBetaOutput data) {
+        public String getValue() {
+            return value;
+        }
 
-        this.data = data;
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static StatusEnum fromValue(String value) {
+            for (StatusEnum b : StatusEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<StatusEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final StatusEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public StatusEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return StatusEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_STATUS = "status";
+
+    @SerializedName(SERIALIZED_NAME_STATUS)
+    private StatusEnum status;
+
+    public RemoveAudienceFromSpaceBetaOutput() {}
+
+    public RemoveAudienceFromSpaceBetaOutput status(StatusEnum status) {
+
+        this.status = status;
         return this;
     }
 
     /**
-     * Get data
+     * The status of the operation.
      *
-     * @return data
+     * @return status
      */
-    @javax.annotation.Nullable
-    public RemoveAudienceFromSpaceBetaOutput getData() {
-        return data;
+    @javax.annotation.Nonnull
+    public StatusEnum getStatus() {
+        return status;
     }
 
-    public void setData(RemoveAudienceFromSpaceBetaOutput data) {
-        this.data = data;
+    public void setStatus(StatusEnum status) {
+        this.status = status;
     }
 
     @Override
@@ -64,21 +109,21 @@ public class RemoveAudienceFromSpace200Response {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        RemoveAudienceFromSpace200Response removeAudienceFromSpace200Response =
-                (RemoveAudienceFromSpace200Response) o;
-        return Objects.equals(this.data, removeAudienceFromSpace200Response.data);
+        RemoveAudienceFromSpaceBetaOutput removeAudienceFromSpaceBetaOutput =
+                (RemoveAudienceFromSpaceBetaOutput) o;
+        return Objects.equals(this.status, removeAudienceFromSpaceBetaOutput.status);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(data);
+        return Objects.hash(status);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class RemoveAudienceFromSpace200Response {\n");
-        sb.append("    data: ").append(toIndentedString(data)).append("\n");
+        sb.append("class RemoveAudienceFromSpaceBetaOutput {\n");
+        sb.append("    status: ").append(toIndentedString(status)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -100,10 +145,11 @@ public class RemoveAudienceFromSpace200Response {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("data");
+        openapiFields.add("status");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
+        openapiRequiredFields.add("status");
     }
 
     /**
@@ -111,17 +157,17 @@ public class RemoveAudienceFromSpace200Response {
      *
      * @param jsonElement JSON Element
      * @throws IOException if the JSON Element is invalid with respect to
-     *     RemoveAudienceFromSpace200Response
+     *     RemoveAudienceFromSpaceBetaOutput
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!RemoveAudienceFromSpace200Response.openapiRequiredFields
+            if (!RemoveAudienceFromSpaceBetaOutput.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in RemoveAudienceFromSpace200Response is"
+                                "The required field(s) %s in RemoveAudienceFromSpaceBetaOutput is"
                                         + " not found in the empty JSON string",
-                                RemoveAudienceFromSpace200Response.openapiRequiredFields
+                                RemoveAudienceFromSpaceBetaOutput.openapiRequiredFields
                                         .toString()));
             }
         }
@@ -129,18 +175,31 @@ public class RemoveAudienceFromSpace200Response {
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!RemoveAudienceFromSpace200Response.openapiFields.contains(entry.getKey())) {
+            if (!RemoveAudienceFromSpaceBetaOutput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                    + " `RemoveAudienceFromSpace200Response` properties. JSON: %s",
+                                    + " `RemoveAudienceFromSpaceBetaOutput` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
+
+        // check to make sure all required properties/fields are present in the JSON string
+        for (String requiredField : RemoveAudienceFromSpaceBetaOutput.openapiRequiredFields) {
+            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+                throw new IllegalArgumentException(
+                        String.format(
+                                "The required field `%s` is not found in the JSON string: %s",
+                                requiredField, jsonElement.toString()));
+            }
+        }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        // validate the optional field `data`
-        if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-            RemoveAudienceFromSpaceBetaOutput.validateJsonElement(jsonObj.get("data"));
+        if (!jsonObj.get("status").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `status` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
+                            jsonObj.get("status").toString()));
         }
     }
 
@@ -148,26 +207,26 @@ public class RemoveAudienceFromSpace200Response {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!RemoveAudienceFromSpace200Response.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'RemoveAudienceFromSpace200Response' and
+            if (!RemoveAudienceFromSpaceBetaOutput.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'RemoveAudienceFromSpaceBetaOutput' and
                 // its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<RemoveAudienceFromSpace200Response> thisAdapter =
+            final TypeAdapter<RemoveAudienceFromSpaceBetaOutput> thisAdapter =
                     gson.getDelegateAdapter(
-                            this, TypeToken.get(RemoveAudienceFromSpace200Response.class));
+                            this, TypeToken.get(RemoveAudienceFromSpaceBetaOutput.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<RemoveAudienceFromSpace200Response>() {
+                    new TypeAdapter<RemoveAudienceFromSpaceBetaOutput>() {
                         @Override
-                        public void write(JsonWriter out, RemoveAudienceFromSpace200Response value)
+                        public void write(JsonWriter out, RemoveAudienceFromSpaceBetaOutput value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public RemoveAudienceFromSpace200Response read(JsonReader in)
+                        public RemoveAudienceFromSpaceBetaOutput read(JsonReader in)
                                 throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
@@ -178,20 +237,19 @@ public class RemoveAudienceFromSpace200Response {
     }
 
     /**
-     * Create an instance of RemoveAudienceFromSpace200Response given an JSON string
+     * Create an instance of RemoveAudienceFromSpaceBetaOutput given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of RemoveAudienceFromSpace200Response
+     * @return An instance of RemoveAudienceFromSpaceBetaOutput
      * @throws IOException if the JSON string is invalid with respect to
-     *     RemoveAudienceFromSpace200Response
+     *     RemoveAudienceFromSpaceBetaOutput
      */
-    public static RemoveAudienceFromSpace200Response fromJson(String jsonString)
-            throws IOException {
-        return JSON.getGson().fromJson(jsonString, RemoveAudienceFromSpace200Response.class);
+    public static RemoveAudienceFromSpaceBetaOutput fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, RemoveAudienceFromSpaceBetaOutput.class);
     }
 
     /**
-     * Convert an instance of RemoveAudienceFromSpace200Response to an JSON string
+     * Convert an instance of RemoveAudienceFromSpaceBetaOutput to an JSON string
      *
      * @return JSON string
      */
