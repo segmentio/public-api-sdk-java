@@ -19,11 +19,11 @@ All URIs are relative to *https://api.segmentapis.com*
 
 ## Operation: createAudience
 
-> CreateAudience200Response createAudience(spaceId, createAudienceBetaInput)
+> CreateAudience200Response createAudience(spaceId, createAudienceAlphaInput)
 
 Create Audience
 
-Creates Audience.  • This endpoint is in **Beta** testing.  Please submit any feedback by sending an email to friends@segment.com.   • In order to successfully call this endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach out to your customer success manager for more information.  • When called, this endpoint may generate the &#x60;Audience Created&#x60; event in the [audit trail](/tag/Audit-Trail).  Note: The definition for an Audience created using the API is not editable through the Segment App.   The rate limit for this endpoint is 10 requests per minute, which is lower than the default due to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+Creates Audience.  • This endpoint is in **Alpha** testing.  Please submit any feedback by sending an email to friends@segment.com.   • In order to successfully call this endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach out to your customer success manager for more information.  • When called, this endpoint may generate the &#x60;Audience Created&#x60; event in the [audit trail](/tag/Audit-Trail).  Note: The definition for an Audience created using the API is not editable through the Segment App.   The rate limit for this endpoint is 10 requests per minute, which is lower than the default due to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
 
 ### Example
 
@@ -46,9 +46,9 @@ public class Example {
 
         AudiencesApi apiInstance = new AudiencesApi(defaultClient);
         String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
-        CreateAudienceBetaInput createAudienceBetaInput = new CreateAudienceBetaInput(); // CreateAudienceBetaInput | 
+        CreateAudienceAlphaInput createAudienceAlphaInput = new CreateAudienceAlphaInput(); // CreateAudienceAlphaInput | 
         try {
-            CreateAudience200Response result = apiInstance.createAudience(spaceId, createAudienceBetaInput);
+            CreateAudience200Response result = apiInstance.createAudience(spaceId, createAudienceAlphaInput);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AudiencesApi#createAudience");
@@ -67,7 +67,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **spaceId** | **String**|  | |
-| **createAudienceBetaInput** | [**CreateAudienceBetaInput**](CreateAudienceBetaInput.md)|  | |
+| **createAudienceAlphaInput** | [**CreateAudienceAlphaInput**](CreateAudienceAlphaInput.md)|  | |
 
 ### Return type
 
@@ -79,8 +79,8 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
-- **Accept**: application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json, application/json
+- **Content-Type**: application/vnd.segment.v1alpha+json
+- **Accept**: application/vnd.segment.v1alpha+json, application/json
 
 
 ### HTTP response details
