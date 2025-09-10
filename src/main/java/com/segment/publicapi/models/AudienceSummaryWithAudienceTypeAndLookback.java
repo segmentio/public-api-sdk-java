@@ -88,6 +88,11 @@ public class AudienceSummaryWithAudienceTypeAndLookback {
     @SerializedName(SERIALIZED_NAME_DEFINITION)
     private AudienceDefinition definition;
 
+    public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
+
+    @SerializedName(SERIALIZED_NAME_CONDITIONS)
+    private List<AudienceConditionsWrapper> conditions;
+
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
@@ -398,6 +403,36 @@ public class AudienceSummaryWithAudienceTypeAndLookback {
         this.definition = definition;
     }
 
+    public AudienceSummaryWithAudienceTypeAndLookback conditions(
+            List<AudienceConditionsWrapper> conditions) {
+
+        this.conditions = conditions;
+        return this;
+    }
+
+    public AudienceSummaryWithAudienceTypeAndLookback addConditionsItem(
+            AudienceConditionsWrapper conditionsItem) {
+        if (this.conditions == null) {
+            this.conditions = new ArrayList<>();
+        }
+        this.conditions.add(conditionsItem);
+        return this;
+    }
+
+    /**
+     * Array of conditions in different formats (AST, CQL) - Enhanced format.
+     *
+     * @return conditions
+     */
+    @javax.annotation.Nullable
+    public List<AudienceConditionsWrapper> getConditions() {
+        return conditions;
+    }
+
+    public void setConditions(List<AudienceConditionsWrapper> conditions) {
+        this.conditions = conditions;
+    }
+
     public AudienceSummaryWithAudienceTypeAndLookback status(String status) {
 
         this.status = status;
@@ -545,6 +580,8 @@ public class AudienceSummaryWithAudienceTypeAndLookback {
                 && Objects.equals(this.enabled, audienceSummaryWithAudienceTypeAndLookback.enabled)
                 && Objects.equals(
                         this.definition, audienceSummaryWithAudienceTypeAndLookback.definition)
+                && Objects.equals(
+                        this.conditions, audienceSummaryWithAudienceTypeAndLookback.conditions)
                 && Objects.equals(this.status, audienceSummaryWithAudienceTypeAndLookback.status)
                 && Objects.equals(
                         this.createdBy, audienceSummaryWithAudienceTypeAndLookback.createdBy)
@@ -572,6 +609,7 @@ public class AudienceSummaryWithAudienceTypeAndLookback {
                 key,
                 enabled,
                 definition,
+                conditions,
                 status,
                 createdBy,
                 updatedBy,
@@ -595,6 +633,7 @@ public class AudienceSummaryWithAudienceTypeAndLookback {
         sb.append("    key: ").append(toIndentedString(key)).append("\n");
         sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
         sb.append("    definition: ").append(toIndentedString(definition)).append("\n");
+        sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
         sb.append("    status: ").append(toIndentedString(status)).append("\n");
         sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
         sb.append("    updatedBy: ").append(toIndentedString(updatedBy)).append("\n");
@@ -633,6 +672,7 @@ public class AudienceSummaryWithAudienceTypeAndLookback {
         openapiFields.add("key");
         openapiFields.add("enabled");
         openapiFields.add("definition");
+        openapiFields.add("conditions");
         openapiFields.add("status");
         openapiFields.add("createdBy");
         openapiFields.add("updatedBy");
@@ -769,6 +809,25 @@ public class AudienceSummaryWithAudienceTypeAndLookback {
         }
         // validate the required field `definition`
         AudienceDefinition.validateJsonElement(jsonObj.get("definition"));
+        if (jsonObj.get("conditions") != null && !jsonObj.get("conditions").isJsonNull()) {
+            JsonArray jsonArrayconditions = jsonObj.getAsJsonArray("conditions");
+            if (jsonArrayconditions != null) {
+                // ensure the json data is an array
+                if (!jsonObj.get("conditions").isJsonArray()) {
+                    throw new IllegalArgumentException(
+                            String.format(
+                                    "Expected the field `conditions` to be an array in the JSON"
+                                            + " string but got `%s`",
+                                    jsonObj.get("conditions").toString()));
+                }
+
+                // validate the optional field `conditions` (array)
+                for (int i = 0; i < jsonArrayconditions.size(); i++) {
+                    AudienceConditionsWrapper.validateJsonElement(jsonArrayconditions.get(i));
+                }
+                ;
+            }
+        }
         if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull())
                 && !jsonObj.get("status").isJsonPrimitive()) {
             throw new IllegalArgumentException(

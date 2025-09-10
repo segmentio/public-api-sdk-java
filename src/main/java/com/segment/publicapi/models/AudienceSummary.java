@@ -12,6 +12,7 @@
 package com.segment.publicapi.models;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
@@ -23,7 +24,9 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
@@ -64,6 +67,11 @@ public class AudienceSummary {
 
     @SerializedName(SERIALIZED_NAME_DEFINITION)
     private AudienceDefinition definition;
+
+    public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
+
+    @SerializedName(SERIALIZED_NAME_CONDITIONS)
+    private List<AudienceConditionsWrapper> conditions;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
@@ -290,6 +298,34 @@ public class AudienceSummary {
         this.definition = definition;
     }
 
+    public AudienceSummary conditions(List<AudienceConditionsWrapper> conditions) {
+
+        this.conditions = conditions;
+        return this;
+    }
+
+    public AudienceSummary addConditionsItem(AudienceConditionsWrapper conditionsItem) {
+        if (this.conditions == null) {
+            this.conditions = new ArrayList<>();
+        }
+        this.conditions.add(conditionsItem);
+        return this;
+    }
+
+    /**
+     * Array of conditions in different formats (AST, CQL) - Enhanced format.
+     *
+     * @return conditions
+     */
+    @javax.annotation.Nullable
+    public List<AudienceConditionsWrapper> getConditions() {
+        return conditions;
+    }
+
+    public void setConditions(List<AudienceConditionsWrapper> conditions) {
+        this.conditions = conditions;
+    }
+
     public AudienceSummary status(String status) {
 
         this.status = status;
@@ -447,6 +483,7 @@ public class AudienceSummary {
                 && Objects.equals(this.key, audienceSummary.key)
                 && Objects.equals(this.enabled, audienceSummary.enabled)
                 && Objects.equals(this.definition, audienceSummary.definition)
+                && Objects.equals(this.conditions, audienceSummary.conditions)
                 && Objects.equals(this.status, audienceSummary.status)
                 && Objects.equals(this.createdBy, audienceSummary.createdBy)
                 && Objects.equals(this.updatedBy, audienceSummary.updatedBy)
@@ -466,6 +503,7 @@ public class AudienceSummary {
                 key,
                 enabled,
                 definition,
+                conditions,
                 status,
                 createdBy,
                 updatedBy,
@@ -486,6 +524,7 @@ public class AudienceSummary {
         sb.append("    key: ").append(toIndentedString(key)).append("\n");
         sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
         sb.append("    definition: ").append(toIndentedString(definition)).append("\n");
+        sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
         sb.append("    status: ").append(toIndentedString(status)).append("\n");
         sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
         sb.append("    updatedBy: ").append(toIndentedString(updatedBy)).append("\n");
@@ -521,6 +560,7 @@ public class AudienceSummary {
         openapiFields.add("key");
         openapiFields.add("enabled");
         openapiFields.add("definition");
+        openapiFields.add("conditions");
         openapiFields.add("status");
         openapiFields.add("createdBy");
         openapiFields.add("updatedBy");
@@ -622,6 +662,25 @@ public class AudienceSummary {
         }
         // validate the required field `definition`
         AudienceDefinition.validateJsonElement(jsonObj.get("definition"));
+        if (jsonObj.get("conditions") != null && !jsonObj.get("conditions").isJsonNull()) {
+            JsonArray jsonArrayconditions = jsonObj.getAsJsonArray("conditions");
+            if (jsonArrayconditions != null) {
+                // ensure the json data is an array
+                if (!jsonObj.get("conditions").isJsonArray()) {
+                    throw new IllegalArgumentException(
+                            String.format(
+                                    "Expected the field `conditions` to be an array in the JSON"
+                                            + " string but got `%s`",
+                                    jsonObj.get("conditions").toString()));
+                }
+
+                // validate the optional field `conditions` (array)
+                for (int i = 0; i < jsonArrayconditions.size(); i++) {
+                    AudienceConditionsWrapper.validateJsonElement(jsonArrayconditions.get(i));
+                }
+                ;
+            }
+        }
         if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull())
                 && !jsonObj.get("status").isJsonPrimitive()) {
             throw new IllegalArgumentException(
