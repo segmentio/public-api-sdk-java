@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
@@ -38,6 +39,11 @@ public class TraitOptions {
 
     @SerializedName(SERIALIZED_NAME_INCLUDE_ANONYMOUS_USERS)
     private Boolean includeAnonymousUsers;
+
+    public static final String SERIALIZED_NAME_BACKFILL_DURATION_DAYS = "backfillDurationDays";
+
+    @SerializedName(SERIALIZED_NAME_BACKFILL_DURATION_DAYS)
+    private BigDecimal backfillDurationDays;
 
     public TraitOptions() {}
 
@@ -86,6 +92,30 @@ public class TraitOptions {
         this.includeAnonymousUsers = includeAnonymousUsers;
     }
 
+    public TraitOptions backfillDurationDays(BigDecimal backfillDurationDays) {
+
+        this.backfillDurationDays = backfillDurationDays;
+        return this;
+    }
+
+    /**
+     * If specified, the value of this field indicates the number of days, specified from the date
+     * the audience was created, that event data will be included from when determining audience
+     * membership. If unspecified, defer to the value of &#x60;includeHistoricalData&#x60; to
+     * determine whether historical data is either entirely included or entirely excluded when
+     * determining audience membership.
+     *
+     * @return backfillDurationDays
+     */
+    @javax.annotation.Nullable
+    public BigDecimal getBackfillDurationDays() {
+        return backfillDurationDays;
+    }
+
+    public void setBackfillDurationDays(BigDecimal backfillDurationDays) {
+        this.backfillDurationDays = backfillDurationDays;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -96,12 +126,13 @@ public class TraitOptions {
         }
         TraitOptions traitOptions = (TraitOptions) o;
         return Objects.equals(this.includeHistoricalData, traitOptions.includeHistoricalData)
-                && Objects.equals(this.includeAnonymousUsers, traitOptions.includeAnonymousUsers);
+                && Objects.equals(this.includeAnonymousUsers, traitOptions.includeAnonymousUsers)
+                && Objects.equals(this.backfillDurationDays, traitOptions.backfillDurationDays);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(includeHistoricalData, includeAnonymousUsers);
+        return Objects.hash(includeHistoricalData, includeAnonymousUsers, backfillDurationDays);
     }
 
     @Override
@@ -113,6 +144,9 @@ public class TraitOptions {
                 .append("\n");
         sb.append("    includeAnonymousUsers: ")
                 .append(toIndentedString(includeAnonymousUsers))
+                .append("\n");
+        sb.append("    backfillDurationDays: ")
+                .append(toIndentedString(backfillDurationDays))
                 .append("\n");
         sb.append("}");
         return sb.toString();
@@ -137,6 +171,7 @@ public class TraitOptions {
         openapiFields = new HashSet<String>();
         openapiFields.add("includeHistoricalData");
         openapiFields.add("includeAnonymousUsers");
+        openapiFields.add("backfillDurationDays");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
