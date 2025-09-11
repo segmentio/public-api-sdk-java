@@ -27,7 +27,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** A class that encapsulates the output shared across endpoints for a given activation. */
+/** ActivationSummaryOutput */
 public class ActivationSummaryOutput {
     public static final String SERIALIZED_NAME_ID = "id";
 

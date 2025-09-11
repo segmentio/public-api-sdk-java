@@ -32,11 +32,11 @@ public class GetActivationFromAudienceOutput {
     public static final String SERIALIZED_NAME_ACTIVATION = "activation";
 
     @SerializedName(SERIALIZED_NAME_ACTIVATION)
-    private ActivationSummaryOutput activation;
+    private ActivationOutput activation;
 
     public GetActivationFromAudienceOutput() {}
 
-    public GetActivationFromAudienceOutput activation(ActivationSummaryOutput activation) {
+    public GetActivationFromAudienceOutput activation(ActivationOutput activation) {
 
         this.activation = activation;
         return this;
@@ -48,11 +48,11 @@ public class GetActivationFromAudienceOutput {
      * @return activation
      */
     @javax.annotation.Nonnull
-    public ActivationSummaryOutput getActivation() {
+    public ActivationOutput getActivation() {
         return activation;
     }
 
-    public void setActivation(ActivationSummaryOutput activation) {
+    public void setActivation(ActivationOutput activation) {
         this.activation = activation;
     }
 
@@ -149,7 +149,7 @@ public class GetActivationFromAudienceOutput {
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the required field `activation`
-        ActivationSummaryOutput.validateJsonElement(jsonObj.get("activation"));
+        ActivationOutput.validateJsonElement(jsonObj.get("activation"));
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
