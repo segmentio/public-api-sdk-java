@@ -35,7 +35,7 @@ public class ListActivationsAlphaOutput {
     public static final String SERIALIZED_NAME_ACTIVATIONS = "activations";
 
     @SerializedName(SERIALIZED_NAME_ACTIVATIONS)
-    private List<ActivationSummaryOutput> activations = new ArrayList<>();
+    private List<ActivationOutput> activations = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_PAGINATION = "pagination";
 
@@ -44,13 +44,13 @@ public class ListActivationsAlphaOutput {
 
     public ListActivationsAlphaOutput() {}
 
-    public ListActivationsAlphaOutput activations(List<ActivationSummaryOutput> activations) {
+    public ListActivationsAlphaOutput activations(List<ActivationOutput> activations) {
 
         this.activations = activations;
         return this;
     }
 
-    public ListActivationsAlphaOutput addActivationsItem(ActivationSummaryOutput activationsItem) {
+    public ListActivationsAlphaOutput addActivationsItem(ActivationOutput activationsItem) {
         if (this.activations == null) {
             this.activations = new ArrayList<>();
         }
@@ -64,11 +64,11 @@ public class ListActivationsAlphaOutput {
      * @return activations
      */
     @javax.annotation.Nonnull
-    public List<ActivationSummaryOutput> getActivations() {
+    public List<ActivationOutput> getActivations() {
         return activations;
     }
 
-    public void setActivations(List<ActivationSummaryOutput> activations) {
+    public void setActivations(List<ActivationOutput> activations) {
         this.activations = activations;
     }
 
@@ -197,7 +197,7 @@ public class ListActivationsAlphaOutput {
         JsonArray jsonArrayactivations = jsonObj.getAsJsonArray("activations");
         // validate the required field `activations` (array)
         for (int i = 0; i < jsonArrayactivations.size(); i++) {
-            ActivationSummaryOutput.validateJsonElement(jsonArrayactivations.get(i));
+            ActivationOutput.validateJsonElement(jsonArrayactivations.get(i));
         }
         ;
         // validate the optional field `pagination`

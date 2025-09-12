@@ -27,17 +27,38 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Input to create an activation. */
-public class AddActivationToAudienceAlphaInput {
+/** A class that encapsulates the complete activation output with full details. */
+public class ActivationOutput {
+    public static final String SERIALIZED_NAME_ID = "id";
+
+    @SerializedName(SERIALIZED_NAME_ID)
+    private String id;
+
     public static final String SERIALIZED_NAME_ENABLED = "enabled";
 
     @SerializedName(SERIALIZED_NAME_ENABLED)
     private Boolean enabled;
 
-    public static final String SERIALIZED_NAME_PERFORM_RESYNC = "performResync";
+    public static final String SERIALIZED_NAME_WORKSPACE_ID = "workspaceId";
 
-    @SerializedName(SERIALIZED_NAME_PERFORM_RESYNC)
-    private Boolean performResync;
+    @SerializedName(SERIALIZED_NAME_WORKSPACE_ID)
+    private String workspaceId;
+
+    public static final String SERIALIZED_NAME_SPACE_ID = "spaceId";
+
+    @SerializedName(SERIALIZED_NAME_SPACE_ID)
+    private String spaceId;
+
+    public static final String SERIALIZED_NAME_AUDIENCE_ID = "audienceId";
+
+    @SerializedName(SERIALIZED_NAME_AUDIENCE_ID)
+    private String audienceId;
+
+    public static final String SERIALIZED_NAME_DESTINATION_CONNECTION_ID =
+            "destinationConnectionId";
+
+    @SerializedName(SERIALIZED_NAME_DESTINATION_CONNECTION_ID)
+    private String destinationConnectionId;
 
     public static final String SERIALIZED_NAME_ACTIVATION_TYPE = "activationType";
 
@@ -59,21 +80,45 @@ public class AddActivationToAudienceAlphaInput {
     @SerializedName(SERIALIZED_NAME_DESTINATION_MAPPING)
     private DestinationSubscriptionConfiguration destinationMapping;
 
-    public AddActivationToAudienceAlphaInput() {}
+    public static final String SERIALIZED_NAME_PERFORM_RESYNC = "performResync";
 
-    public AddActivationToAudienceAlphaInput enabled(Boolean enabled) {
+    @SerializedName(SERIALIZED_NAME_PERFORM_RESYNC)
+    private Boolean performResync;
+
+    public ActivationOutput() {}
+
+    public ActivationOutput id(String id) {
+
+        this.id = id;
+        return this;
+    }
+
+    /**
+     * The activation id.
+     *
+     * @return id
+     */
+    @javax.annotation.Nonnull
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public ActivationOutput enabled(Boolean enabled) {
 
         this.enabled = enabled;
         return this;
     }
 
     /**
-     * Whether the event emitter should be created in an enabled state. Will trigger an audience run
-     * if enabled.
+     * Activation Enabled Status.
      *
      * @return enabled
      */
-    @javax.annotation.Nullable
+    @javax.annotation.Nonnull
     public Boolean getEnabled() {
         return enabled;
     }
@@ -82,27 +127,87 @@ public class AddActivationToAudienceAlphaInput {
         this.enabled = enabled;
     }
 
-    public AddActivationToAudienceAlphaInput performResync(Boolean performResync) {
+    public ActivationOutput workspaceId(String workspaceId) {
 
-        this.performResync = performResync;
+        this.workspaceId = workspaceId;
         return this;
     }
 
     /**
-     * Whether to perform a resync after creation of the activation.
+     * The WORKSPACE id.
      *
-     * @return performResync
+     * @return workspaceId
      */
     @javax.annotation.Nonnull
-    public Boolean getPerformResync() {
-        return performResync;
+    public String getWorkspaceId() {
+        return workspaceId;
     }
 
-    public void setPerformResync(Boolean performResync) {
-        this.performResync = performResync;
+    public void setWorkspaceId(String workspaceId) {
+        this.workspaceId = workspaceId;
     }
 
-    public AddActivationToAudienceAlphaInput activationType(String activationType) {
+    public ActivationOutput spaceId(String spaceId) {
+
+        this.spaceId = spaceId;
+        return this;
+    }
+
+    /**
+     * The space id.
+     *
+     * @return spaceId
+     */
+    @javax.annotation.Nonnull
+    public String getSpaceId() {
+        return spaceId;
+    }
+
+    public void setSpaceId(String spaceId) {
+        this.spaceId = spaceId;
+    }
+
+    public ActivationOutput audienceId(String audienceId) {
+
+        this.audienceId = audienceId;
+        return this;
+    }
+
+    /**
+     * The audience id.
+     *
+     * @return audienceId
+     */
+    @javax.annotation.Nonnull
+    public String getAudienceId() {
+        return audienceId;
+    }
+
+    public void setAudienceId(String audienceId) {
+        this.audienceId = audienceId;
+    }
+
+    public ActivationOutput destinationConnectionId(String destinationConnectionId) {
+
+        this.destinationConnectionId = destinationConnectionId;
+        return this;
+    }
+
+    /**
+     * The DESTINATION connection id (formerly integrationInstanceId).
+     *
+     * @return destinationConnectionId
+     */
+    @javax.annotation.Nonnull
+    public String getDestinationConnectionId() {
+        return destinationConnectionId;
+    }
+
+    public void setDestinationConnectionId(String destinationConnectionId) {
+        this.destinationConnectionId = destinationConnectionId;
+    }
+
+    public ActivationOutput activationType(String activationType) {
 
         this.activationType = activationType;
         return this;
@@ -122,7 +227,7 @@ public class AddActivationToAudienceAlphaInput {
         this.activationType = activationType;
     }
 
-    public AddActivationToAudienceAlphaInput activationName(String activationName) {
+    public ActivationOutput activationName(String activationName) {
 
         this.activationName = activationName;
         return this;
@@ -142,7 +247,7 @@ public class AddActivationToAudienceAlphaInput {
         this.activationName = activationName;
     }
 
-    public AddActivationToAudienceAlphaInput personalization(PersonalizationInput personalization) {
+    public ActivationOutput personalization(PersonalizationInput personalization) {
 
         this.personalization = personalization;
         return this;
@@ -162,7 +267,7 @@ public class AddActivationToAudienceAlphaInput {
         this.personalization = personalization;
     }
 
-    public AddActivationToAudienceAlphaInput destinationMapping(
+    public ActivationOutput destinationMapping(
             DestinationSubscriptionConfiguration destinationMapping) {
 
         this.destinationMapping = destinationMapping;
@@ -183,6 +288,26 @@ public class AddActivationToAudienceAlphaInput {
         this.destinationMapping = destinationMapping;
     }
 
+    public ActivationOutput performResync(Boolean performResync) {
+
+        this.performResync = performResync;
+        return this;
+    }
+
+    /**
+     * Whether to perform a resync after creation of the activation.
+     *
+     * @return performResync
+     */
+    @javax.annotation.Nullable
+    public Boolean getPerformResync() {
+        return performResync;
+    }
+
+    public void setPerformResync(Boolean performResync) {
+        this.performResync = performResync;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -191,45 +316,56 @@ public class AddActivationToAudienceAlphaInput {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        AddActivationToAudienceAlphaInput addActivationToAudienceAlphaInput =
-                (AddActivationToAudienceAlphaInput) o;
-        return Objects.equals(this.enabled, addActivationToAudienceAlphaInput.enabled)
+        ActivationOutput activationOutput = (ActivationOutput) o;
+        return Objects.equals(this.id, activationOutput.id)
+                && Objects.equals(this.enabled, activationOutput.enabled)
+                && Objects.equals(this.workspaceId, activationOutput.workspaceId)
+                && Objects.equals(this.spaceId, activationOutput.spaceId)
+                && Objects.equals(this.audienceId, activationOutput.audienceId)
                 && Objects.equals(
-                        this.performResync, addActivationToAudienceAlphaInput.performResync)
-                && Objects.equals(
-                        this.activationType, addActivationToAudienceAlphaInput.activationType)
-                && Objects.equals(
-                        this.activationName, addActivationToAudienceAlphaInput.activationName)
-                && Objects.equals(
-                        this.personalization, addActivationToAudienceAlphaInput.personalization)
-                && Objects.equals(
-                        this.destinationMapping,
-                        addActivationToAudienceAlphaInput.destinationMapping);
+                        this.destinationConnectionId, activationOutput.destinationConnectionId)
+                && Objects.equals(this.activationType, activationOutput.activationType)
+                && Objects.equals(this.activationName, activationOutput.activationName)
+                && Objects.equals(this.personalization, activationOutput.personalization)
+                && Objects.equals(this.destinationMapping, activationOutput.destinationMapping)
+                && Objects.equals(this.performResync, activationOutput.performResync);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(
+                id,
                 enabled,
-                performResync,
+                workspaceId,
+                spaceId,
+                audienceId,
+                destinationConnectionId,
                 activationType,
                 activationName,
                 personalization,
-                destinationMapping);
+                destinationMapping,
+                performResync);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AddActivationToAudienceAlphaInput {\n");
+        sb.append("class ActivationOutput {\n");
+        sb.append("    id: ").append(toIndentedString(id)).append("\n");
         sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
-        sb.append("    performResync: ").append(toIndentedString(performResync)).append("\n");
+        sb.append("    workspaceId: ").append(toIndentedString(workspaceId)).append("\n");
+        sb.append("    spaceId: ").append(toIndentedString(spaceId)).append("\n");
+        sb.append("    audienceId: ").append(toIndentedString(audienceId)).append("\n");
+        sb.append("    destinationConnectionId: ")
+                .append(toIndentedString(destinationConnectionId))
+                .append("\n");
         sb.append("    activationType: ").append(toIndentedString(activationType)).append("\n");
         sb.append("    activationName: ").append(toIndentedString(activationName)).append("\n");
         sb.append("    personalization: ").append(toIndentedString(personalization)).append("\n");
         sb.append("    destinationMapping: ")
                 .append(toIndentedString(destinationMapping))
                 .append("\n");
+        sb.append("    performResync: ").append(toIndentedString(performResync)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -251,16 +387,26 @@ public class AddActivationToAudienceAlphaInput {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
+        openapiFields.add("id");
         openapiFields.add("enabled");
-        openapiFields.add("performResync");
+        openapiFields.add("workspaceId");
+        openapiFields.add("spaceId");
+        openapiFields.add("audienceId");
+        openapiFields.add("destinationConnectionId");
         openapiFields.add("activationType");
         openapiFields.add("activationName");
         openapiFields.add("personalization");
         openapiFields.add("destinationMapping");
+        openapiFields.add("performResync");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("performResync");
+        openapiRequiredFields.add("id");
+        openapiRequiredFields.add("enabled");
+        openapiRequiredFields.add("workspaceId");
+        openapiRequiredFields.add("spaceId");
+        openapiRequiredFields.add("audienceId");
+        openapiRequiredFields.add("destinationConnectionId");
         openapiRequiredFields.add("activationType");
         openapiRequiredFields.add("activationName");
         openapiRequiredFields.add("personalization");
@@ -271,36 +417,34 @@ public class AddActivationToAudienceAlphaInput {
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to
-     *     AddActivationToAudienceAlphaInput
+     * @throws IOException if the JSON Element is invalid with respect to ActivationOutput
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!AddActivationToAudienceAlphaInput.openapiRequiredFields
+            if (!ActivationOutput.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in AddActivationToAudienceAlphaInput is"
-                                        + " not found in the empty JSON string",
-                                AddActivationToAudienceAlphaInput.openapiRequiredFields
-                                        .toString()));
+                                "The required field(s) %s in ActivationOutput is not found in the"
+                                        + " empty JSON string",
+                                ActivationOutput.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!AddActivationToAudienceAlphaInput.openapiFields.contains(entry.getKey())) {
+            if (!ActivationOutput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                    + " `AddActivationToAudienceAlphaInput` properties. JSON: %s",
+                                        + " `ActivationOutput` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : AddActivationToAudienceAlphaInput.openapiRequiredFields) {
+        for (String requiredField : ActivationOutput.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -309,6 +453,41 @@ public class AddActivationToAudienceAlphaInput {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+        if (!jsonObj.get("id").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `id` to be a primitive type in the JSON string but"
+                                    + " got `%s`",
+                            jsonObj.get("id").toString()));
+        }
+        if (!jsonObj.get("workspaceId").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `workspaceId` to be a primitive type in the JSON"
+                                    + " string but got `%s`",
+                            jsonObj.get("workspaceId").toString()));
+        }
+        if (!jsonObj.get("spaceId").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `spaceId` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
+                            jsonObj.get("spaceId").toString()));
+        }
+        if (!jsonObj.get("audienceId").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `audienceId` to be a primitive type in the JSON"
+                                    + " string but got `%s`",
+                            jsonObj.get("audienceId").toString()));
+        }
+        if (!jsonObj.get("destinationConnectionId").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `destinationConnectionId` to be a primitive type in"
+                                    + " the JSON string but got `%s`",
+                            jsonObj.get("destinationConnectionId").toString()));
+        }
         if (!jsonObj.get("activationType").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -333,27 +512,24 @@ public class AddActivationToAudienceAlphaInput {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!AddActivationToAudienceAlphaInput.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'AddActivationToAudienceAlphaInput' and
-                // its subtypes
+            if (!ActivationOutput.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'ActivationOutput' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<AddActivationToAudienceAlphaInput> thisAdapter =
-                    gson.getDelegateAdapter(
-                            this, TypeToken.get(AddActivationToAudienceAlphaInput.class));
+            final TypeAdapter<ActivationOutput> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(ActivationOutput.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<AddActivationToAudienceAlphaInput>() {
+                    new TypeAdapter<ActivationOutput>() {
                         @Override
-                        public void write(JsonWriter out, AddActivationToAudienceAlphaInput value)
+                        public void write(JsonWriter out, ActivationOutput value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public AddActivationToAudienceAlphaInput read(JsonReader in)
-                                throws IOException {
+                        public ActivationOutput read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -363,19 +539,18 @@ public class AddActivationToAudienceAlphaInput {
     }
 
     /**
-     * Create an instance of AddActivationToAudienceAlphaInput given an JSON string
+     * Create an instance of ActivationOutput given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of AddActivationToAudienceAlphaInput
-     * @throws IOException if the JSON string is invalid with respect to
-     *     AddActivationToAudienceAlphaInput
+     * @return An instance of ActivationOutput
+     * @throws IOException if the JSON string is invalid with respect to ActivationOutput
      */
-    public static AddActivationToAudienceAlphaInput fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, AddActivationToAudienceAlphaInput.class);
+    public static ActivationOutput fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, ActivationOutput.class);
     }
 
     /**
-     * Convert an instance of AddActivationToAudienceAlphaInput to an JSON string
+     * Convert an instance of ActivationOutput to an JSON string
      *
      * @return JSON string
      */
