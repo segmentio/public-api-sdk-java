@@ -49,10 +49,10 @@ public class UpdateActivationForAudienceAlphaInput {
     @SerializedName(SERIALIZED_NAME_DESTINATION_MAPPING)
     private DestinationSubscriptionConfiguration destinationMapping;
 
-    public static final String SERIALIZED_NAME_PERFORM_FIRST_SYNC = "performFirstSync";
+    public static final String SERIALIZED_NAME_PERFORM_RESYNC = "performResync";
 
-    @SerializedName(SERIALIZED_NAME_PERFORM_FIRST_SYNC)
-    private Boolean performFirstSync;
+    @SerializedName(SERIALIZED_NAME_PERFORM_RESYNC)
+    private Boolean performResync;
 
     public UpdateActivationForAudienceAlphaInput() {}
 
@@ -138,25 +138,24 @@ public class UpdateActivationForAudienceAlphaInput {
         this.destinationMapping = destinationMapping;
     }
 
-    public UpdateActivationForAudienceAlphaInput performFirstSync(Boolean performFirstSync) {
+    public UpdateActivationForAudienceAlphaInput performResync(Boolean performResync) {
 
-        this.performFirstSync = performFirstSync;
+        this.performResync = performResync;
         return this;
     }
 
     /**
-     * Whether to perform the first sync so the activation events are generated on the first
-     * audience sync.
+     * Whether to perform a resync after creation of the activation.
      *
-     * @return performFirstSync
+     * @return performResync
      */
     @javax.annotation.Nullable
-    public Boolean getPerformFirstSync() {
-        return performFirstSync;
+    public Boolean getPerformResync() {
+        return performResync;
     }
 
-    public void setPerformFirstSync(Boolean performFirstSync) {
-        this.performFirstSync = performFirstSync;
+    public void setPerformResync(Boolean performResync) {
+        this.performResync = performResync;
     }
 
     @Override
@@ -178,14 +177,13 @@ public class UpdateActivationForAudienceAlphaInput {
                         this.destinationMapping,
                         updateActivationForAudienceAlphaInput.destinationMapping)
                 && Objects.equals(
-                        this.performFirstSync,
-                        updateActivationForAudienceAlphaInput.performFirstSync);
+                        this.performResync, updateActivationForAudienceAlphaInput.performResync);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(
-                enabled, activationName, personalization, destinationMapping, performFirstSync);
+                enabled, activationName, personalization, destinationMapping, performResync);
     }
 
     @Override
@@ -198,7 +196,7 @@ public class UpdateActivationForAudienceAlphaInput {
         sb.append("    destinationMapping: ")
                 .append(toIndentedString(destinationMapping))
                 .append("\n");
-        sb.append("    performFirstSync: ").append(toIndentedString(performFirstSync)).append("\n");
+        sb.append("    performResync: ").append(toIndentedString(performResync)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -224,7 +222,7 @@ public class UpdateActivationForAudienceAlphaInput {
         openapiFields.add("activationName");
         openapiFields.add("personalization");
         openapiFields.add("destinationMapping");
-        openapiFields.add("performFirstSync");
+        openapiFields.add("performResync");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();

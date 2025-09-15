@@ -35,7 +35,7 @@ public class ListActivationsFromAudienceOutput {
     public static final String SERIALIZED_NAME_ACTIVATIONS = "activations";
 
     @SerializedName(SERIALIZED_NAME_ACTIVATIONS)
-    private List<ActivationSummaryOutput> activations = new ArrayList<>();
+    private List<ActivationOutput> activations = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_PAGINATION = "pagination";
 
@@ -44,15 +44,13 @@ public class ListActivationsFromAudienceOutput {
 
     public ListActivationsFromAudienceOutput() {}
 
-    public ListActivationsFromAudienceOutput activations(
-            List<ActivationSummaryOutput> activations) {
+    public ListActivationsFromAudienceOutput activations(List<ActivationOutput> activations) {
 
         this.activations = activations;
         return this;
     }
 
-    public ListActivationsFromAudienceOutput addActivationsItem(
-            ActivationSummaryOutput activationsItem) {
+    public ListActivationsFromAudienceOutput addActivationsItem(ActivationOutput activationsItem) {
         if (this.activations == null) {
             this.activations = new ArrayList<>();
         }
@@ -66,11 +64,11 @@ public class ListActivationsFromAudienceOutput {
      * @return activations
      */
     @javax.annotation.Nonnull
-    public List<ActivationSummaryOutput> getActivations() {
+    public List<ActivationOutput> getActivations() {
         return activations;
     }
 
-    public void setActivations(List<ActivationSummaryOutput> activations) {
+    public void setActivations(List<ActivationOutput> activations) {
         this.activations = activations;
     }
 
@@ -202,7 +200,7 @@ public class ListActivationsFromAudienceOutput {
         JsonArray jsonArrayactivations = jsonObj.getAsJsonArray("activations");
         // validate the required field `activations` (array)
         for (int i = 0; i < jsonArrayactivations.size(); i++) {
-            ActivationSummaryOutput.validateJsonElement(jsonArrayactivations.get(i));
+            ActivationOutput.validateJsonElement(jsonArrayactivations.get(i));
         }
         ;
         // validate the optional field `pagination`
