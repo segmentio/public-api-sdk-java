@@ -58,6 +58,8 @@ public class CreateFunctionV1Input {
     public enum ResourceTypeEnum {
         DESTINATION("DESTINATION"),
 
+        INSERT("INSERT"),
+
         INSERT_DESTINATION("INSERT_DESTINATION"),
 
         INSERT_SOURCE("INSERT_SOURCE"),
