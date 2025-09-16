@@ -199,7 +199,7 @@ public class CreateAudienceAlphaInput {
      *
      * @return audienceType
      */
-    @javax.annotation.Nullable
+    @javax.annotation.Nonnull
     public AudienceTypeEnum getAudienceType() {
         return audienceType;
     }
@@ -292,6 +292,7 @@ public class CreateAudienceAlphaInput {
         openapiRequiredFields = new HashSet<String>();
         openapiRequiredFields.add("name");
         openapiRequiredFields.add("definition");
+        openapiRequiredFields.add("audienceType");
     }
 
     /**
@@ -351,8 +352,7 @@ public class CreateAudienceAlphaInput {
         }
         // validate the required field `definition`
         AudienceDefinition.validateJsonElement(jsonObj.get("definition"));
-        if ((jsonObj.get("audienceType") != null && !jsonObj.get("audienceType").isJsonNull())
-                && !jsonObj.get("audienceType").isJsonPrimitive()) {
+        if (!jsonObj.get("audienceType").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             "Expected the field `audienceType` to be a primitive type in the JSON"

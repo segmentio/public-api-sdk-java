@@ -94,7 +94,7 @@ public class AudiencePreview {
     public static final String SERIALIZED_NAME_DEFINITION = "definition";
 
     @SerializedName(SERIALIZED_NAME_DEFINITION)
-    private AudienceDefinitionWithoutType definition;
+    private AudienceDefinition definition;
 
     public static final String SERIALIZED_NAME_OPTIONS = "options";
 
@@ -211,7 +211,7 @@ public class AudiencePreview {
         this.audienceType = audienceType;
     }
 
-    public AudiencePreview definition(AudienceDefinitionWithoutType definition) {
+    public AudiencePreview definition(AudienceDefinition definition) {
 
         this.definition = definition;
         return this;
@@ -223,11 +223,11 @@ public class AudiencePreview {
      * @return definition
      */
     @javax.annotation.Nonnull
-    public AudienceDefinitionWithoutType getDefinition() {
+    public AudienceDefinition getDefinition() {
         return definition;
     }
 
-    public void setDefinition(AudienceDefinitionWithoutType definition) {
+    public void setDefinition(AudienceDefinition definition) {
         this.definition = definition;
     }
 
@@ -472,7 +472,7 @@ public class AudiencePreview {
                             jsonObj.get("audienceType").toString()));
         }
         // validate the required field `definition`
-        AudienceDefinitionWithoutType.validateJsonElement(jsonObj.get("definition"));
+        AudienceDefinition.validateJsonElement(jsonObj.get("definition"));
         // validate the required field `options`
         ReadAudiencePreviewOptions.validateJsonElement(jsonObj.get("options"));
         if (!jsonObj.get("status").isJsonPrimitive()) {
