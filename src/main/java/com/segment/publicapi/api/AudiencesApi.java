@@ -19,7 +19,7 @@ import com.segment.publicapi.ApiResponse;
 import com.segment.publicapi.Configuration;
 import com.segment.publicapi.Pair;
 import com.segment.publicapi.models.CreateAudience200Response;
-import com.segment.publicapi.models.CreateAudienceAlphaInput;
+import com.segment.publicapi.models.CreateAudienceBetaInput;
 import com.segment.publicapi.models.CreateAudiencePreview200Response;
 import com.segment.publicapi.models.CreateAudiencePreviewBetaInput;
 import com.segment.publicapi.models.GetAudience200Response;
@@ -82,7 +82,7 @@ public class AudiencesApi {
      * Build call for createAudience
      *
      * @param spaceId (required)
-     * @param createAudienceAlphaInput (required)
+     * @param createAudienceBetaInput (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -97,7 +97,7 @@ public class AudiencesApi {
      */
     public okhttp3.Call createAudienceCall(
             String spaceId,
-            CreateAudienceAlphaInput createAudienceAlphaInput,
+            CreateAudienceBetaInput createAudienceBetaInput,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -113,7 +113,7 @@ public class AudiencesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = createAudienceAlphaInput;
+        Object localVarPostBody = createAudienceBetaInput;
 
         // create path and map variables
         String localVarPath =
@@ -129,14 +129,18 @@ public class AudiencesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json", "application/json"
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json",
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
             localVarHeaderParams.put("Accept", localVarAccept);
         }
 
-        final String[] localVarContentTypes = {"application/vnd.segment.v1alpha+json"};
+        final String[] localVarContentTypes = {
+            "application/vnd.segment.v1beta+json", "application/vnd.segment.v1alpha+json"
+        };
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -161,7 +165,7 @@ public class AudiencesApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createAudienceValidateBeforeCall(
             String spaceId,
-            CreateAudienceAlphaInput createAudienceAlphaInput,
+            CreateAudienceBetaInput createAudienceBetaInput,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'spaceId' is set
@@ -170,18 +174,18 @@ public class AudiencesApi {
                     "Missing the required parameter 'spaceId' when calling createAudience(Async)");
         }
 
-        // verify the required parameter 'createAudienceAlphaInput' is set
-        if (createAudienceAlphaInput == null) {
+        // verify the required parameter 'createAudienceBetaInput' is set
+        if (createAudienceBetaInput == null) {
             throw new ApiException(
-                    "Missing the required parameter 'createAudienceAlphaInput' when calling"
+                    "Missing the required parameter 'createAudienceBetaInput' when calling"
                             + " createAudience(Async)");
         }
 
-        return createAudienceCall(spaceId, createAudienceAlphaInput, _callback);
+        return createAudienceCall(spaceId, createAudienceBetaInput, _callback);
     }
 
     /**
-     * Create Audience Creates Audience. • This endpoint is in **Alpha** testing. Please submit any
+     * Create Audience Creates Audience. • This endpoint is in **Beta** testing. Please submit any
      * feedback by sending an email to friends@segment.com. • In order to successfully call this
      * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
      * out to your customer success manager for more information. • When called, this endpoint may
@@ -193,7 +197,7 @@ public class AudiencesApi {
      * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
-     * @param createAudienceAlphaInput (required)
+     * @param createAudienceBetaInput (required)
      * @return CreateAudience200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -207,14 +211,14 @@ public class AudiencesApi {
      * </table>
      */
     public CreateAudience200Response createAudience(
-            String spaceId, CreateAudienceAlphaInput createAudienceAlphaInput) throws ApiException {
+            String spaceId, CreateAudienceBetaInput createAudienceBetaInput) throws ApiException {
         ApiResponse<CreateAudience200Response> localVarResp =
-                createAudienceWithHttpInfo(spaceId, createAudienceAlphaInput);
+                createAudienceWithHttpInfo(spaceId, createAudienceBetaInput);
         return localVarResp.getData();
     }
 
     /**
-     * Create Audience Creates Audience. • This endpoint is in **Alpha** testing. Please submit any
+     * Create Audience Creates Audience. • This endpoint is in **Beta** testing. Please submit any
      * feedback by sending an email to friends@segment.com. • In order to successfully call this
      * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
      * out to your customer success manager for more information. • When called, this endpoint may
@@ -226,7 +230,7 @@ public class AudiencesApi {
      * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
-     * @param createAudienceAlphaInput (required)
+     * @param createAudienceBetaInput (required)
      * @return ApiResponse&lt;CreateAudience200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -240,15 +244,15 @@ public class AudiencesApi {
      * </table>
      */
     public ApiResponse<CreateAudience200Response> createAudienceWithHttpInfo(
-            String spaceId, CreateAudienceAlphaInput createAudienceAlphaInput) throws ApiException {
+            String spaceId, CreateAudienceBetaInput createAudienceBetaInput) throws ApiException {
         okhttp3.Call localVarCall =
-                createAudienceValidateBeforeCall(spaceId, createAudienceAlphaInput, null);
+                createAudienceValidateBeforeCall(spaceId, createAudienceBetaInput, null);
         Type localVarReturnType = new TypeToken<CreateAudience200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Create Audience (asynchronously) Creates Audience. • This endpoint is in **Alpha** testing.
+     * Create Audience (asynchronously) Creates Audience. • This endpoint is in **Beta** testing.
      * Please submit any feedback by sending an email to friends@segment.com. • In order to
      * successfully call this endpoint, the specified Workspace needs to have the Audience feature
      * enabled. Please reach out to your customer success manager for more information. • When
@@ -260,7 +264,7 @@ public class AudiencesApi {
      * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
-     * @param createAudienceAlphaInput (required)
+     * @param createAudienceBetaInput (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -276,12 +280,12 @@ public class AudiencesApi {
      */
     public okhttp3.Call createAudienceAsync(
             String spaceId,
-            CreateAudienceAlphaInput createAudienceAlphaInput,
+            CreateAudienceBetaInput createAudienceBetaInput,
             final ApiCallback<CreateAudience200Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
-                createAudienceValidateBeforeCall(spaceId, createAudienceAlphaInput, _callback);
+                createAudienceValidateBeforeCall(spaceId, createAudienceBetaInput, _callback);
         Type localVarReturnType = new TypeToken<CreateAudience200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
