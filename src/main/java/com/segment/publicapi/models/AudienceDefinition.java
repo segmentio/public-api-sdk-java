@@ -16,7 +16,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
@@ -30,59 +29,6 @@ import java.util.Set;
 
 /** AudienceDefinition */
 public class AudienceDefinition {
-    /**
-     * The underlying data type being segmented for this audience. Possible values: users, accounts.
-     */
-    @JsonAdapter(TypeEnum.Adapter.class)
-    public enum TypeEnum {
-        ACCOUNTS("ACCOUNTS"),
-
-        USERS("USERS");
-
-        private String value;
-
-        TypeEnum(String value) {
-            this.value = value;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        public static TypeEnum fromValue(String value) {
-            for (TypeEnum b : TypeEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
-        }
-
-        public static class Adapter extends TypeAdapter<TypeEnum> {
-            @Override
-            public void write(final JsonWriter jsonWriter, final TypeEnum enumeration)
-                    throws IOException {
-                jsonWriter.value(enumeration.getValue());
-            }
-
-            @Override
-            public TypeEnum read(final JsonReader jsonReader) throws IOException {
-                String value = jsonReader.nextString();
-                return TypeEnum.fromValue(value);
-            }
-        }
-    }
-
-    public static final String SERIALIZED_NAME_TYPE = "type";
-
-    @SerializedName(SERIALIZED_NAME_TYPE)
-    private TypeEnum type;
-
     public static final String SERIALIZED_NAME_QUERY = "query";
 
     @SerializedName(SERIALIZED_NAME_QUERY)
@@ -94,26 +40,6 @@ public class AudienceDefinition {
     private String targetEntity;
 
     public AudienceDefinition() {}
-
-    public AudienceDefinition type(TypeEnum type) {
-
-        this.type = type;
-        return this;
-    }
-
-    /**
-     * The underlying data type being segmented for this audience. Possible values: users, accounts.
-     *
-     * @return type
-     */
-    @javax.annotation.Nullable
-    public TypeEnum getType() {
-        return type;
-    }
-
-    public void setType(TypeEnum type) {
-        this.type = type;
-    }
 
     public AudienceDefinition query(String query) {
 
@@ -166,21 +92,19 @@ public class AudienceDefinition {
             return false;
         }
         AudienceDefinition audienceDefinition = (AudienceDefinition) o;
-        return Objects.equals(this.type, audienceDefinition.type)
-                && Objects.equals(this.query, audienceDefinition.query)
+        return Objects.equals(this.query, audienceDefinition.query)
                 && Objects.equals(this.targetEntity, audienceDefinition.targetEntity);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(type, query, targetEntity);
+        return Objects.hash(query, targetEntity);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class AudienceDefinition {\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("    query: ").append(toIndentedString(query)).append("\n");
         sb.append("    targetEntity: ").append(toIndentedString(targetEntity)).append("\n");
         sb.append("}");
@@ -204,7 +128,6 @@ public class AudienceDefinition {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("type");
         openapiFields.add("query");
         openapiFields.add("targetEntity");
 
@@ -253,14 +176,6 @@ public class AudienceDefinition {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull())
-                && !jsonObj.get("type").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `type` to be a primitive type in the JSON string"
-                                    + " but got `%s`",
-                            jsonObj.get("type").toString()));
-        }
         if (!jsonObj.get("query").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(

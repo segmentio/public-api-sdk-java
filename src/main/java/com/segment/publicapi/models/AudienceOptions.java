@@ -37,11 +37,6 @@ public class AudienceOptions {
     @SerializedName(SERIALIZED_NAME_INCLUDE_HISTORICAL_DATA)
     private Boolean includeHistoricalData;
 
-    public static final String SERIALIZED_NAME_INCLUDE_ANONYMOUS_USERS = "includeAnonymousUsers";
-
-    @SerializedName(SERIALIZED_NAME_INCLUDE_ANONYMOUS_USERS)
-    private Boolean includeAnonymousUsers;
-
     public static final String SERIALIZED_NAME_FILTER_BY_EXTERNAL_IDS = "filterByExternalIds";
 
     @SerializedName(SERIALIZED_NAME_FILTER_BY_EXTERNAL_IDS)
@@ -75,26 +70,6 @@ public class AudienceOptions {
 
     public void setIncludeHistoricalData(Boolean includeHistoricalData) {
         this.includeHistoricalData = includeHistoricalData;
-    }
-
-    public AudienceOptions includeAnonymousUsers(Boolean includeAnonymousUsers) {
-
-        this.includeAnonymousUsers = includeAnonymousUsers;
-        return this;
-    }
-
-    /**
-     * Determines whether anonymous users should be included when determining audience membership.
-     *
-     * @return includeAnonymousUsers
-     */
-    @javax.annotation.Nullable
-    public Boolean getIncludeAnonymousUsers() {
-        return includeAnonymousUsers;
-    }
-
-    public void setIncludeAnonymousUsers(Boolean includeAnonymousUsers) {
-        this.includeAnonymousUsers = includeAnonymousUsers;
     }
 
     public AudienceOptions filterByExternalIds(List<String> filterByExternalIds) {
@@ -161,7 +136,6 @@ public class AudienceOptions {
         }
         AudienceOptions audienceOptions = (AudienceOptions) o;
         return Objects.equals(this.includeHistoricalData, audienceOptions.includeHistoricalData)
-                && Objects.equals(this.includeAnonymousUsers, audienceOptions.includeAnonymousUsers)
                 && Objects.equals(this.filterByExternalIds, audienceOptions.filterByExternalIds)
                 && Objects.equals(
                         this.backfillEventDataDays, audienceOptions.backfillEventDataDays);
@@ -169,11 +143,7 @@ public class AudienceOptions {
 
     @Override
     public int hashCode() {
-        return Objects.hash(
-                includeHistoricalData,
-                includeAnonymousUsers,
-                filterByExternalIds,
-                backfillEventDataDays);
+        return Objects.hash(includeHistoricalData, filterByExternalIds, backfillEventDataDays);
     }
 
     @Override
@@ -182,9 +152,6 @@ public class AudienceOptions {
         sb.append("class AudienceOptions {\n");
         sb.append("    includeHistoricalData: ")
                 .append(toIndentedString(includeHistoricalData))
-                .append("\n");
-        sb.append("    includeAnonymousUsers: ")
-                .append(toIndentedString(includeAnonymousUsers))
                 .append("\n");
         sb.append("    filterByExternalIds: ")
                 .append(toIndentedString(filterByExternalIds))
@@ -214,7 +181,6 @@ public class AudienceOptions {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
         openapiFields.add("includeHistoricalData");
-        openapiFields.add("includeAnonymousUsers");
         openapiFields.add("filterByExternalIds");
         openapiFields.add("backfillEventDataDays");
 

@@ -42,11 +42,6 @@ public class AudienceOptionsWithLookback {
     @SerializedName(SERIALIZED_NAME_INCLUDE_HISTORICAL_DATA)
     private Boolean includeHistoricalData;
 
-    public static final String SERIALIZED_NAME_INCLUDE_ANONYMOUS_USERS = "includeAnonymousUsers";
-
-    @SerializedName(SERIALIZED_NAME_INCLUDE_ANONYMOUS_USERS)
-    private Boolean includeAnonymousUsers;
-
     public static final String SERIALIZED_NAME_BACKFILL_EVENT_DATA_DAYS = "backfillEventDataDays";
 
     @SerializedName(SERIALIZED_NAME_BACKFILL_EVENT_DATA_DAYS)
@@ -107,26 +102,6 @@ public class AudienceOptionsWithLookback {
         this.includeHistoricalData = includeHistoricalData;
     }
 
-    public AudienceOptionsWithLookback includeAnonymousUsers(Boolean includeAnonymousUsers) {
-
-        this.includeAnonymousUsers = includeAnonymousUsers;
-        return this;
-    }
-
-    /**
-     * Determines whether anonymous users should be included when determining audience membership.
-     *
-     * @return includeAnonymousUsers
-     */
-    @javax.annotation.Nullable
-    public Boolean getIncludeAnonymousUsers() {
-        return includeAnonymousUsers;
-    }
-
-    public void setIncludeAnonymousUsers(Boolean includeAnonymousUsers) {
-        this.includeAnonymousUsers = includeAnonymousUsers;
-    }
-
     public AudienceOptionsWithLookback backfillEventDataDays(BigDecimal backfillEventDataDays) {
 
         this.backfillEventDataDays = backfillEventDataDays;
@@ -166,20 +141,13 @@ public class AudienceOptionsWithLookback {
                         this.includeHistoricalData,
                         audienceOptionsWithLookback.includeHistoricalData)
                 && Objects.equals(
-                        this.includeAnonymousUsers,
-                        audienceOptionsWithLookback.includeAnonymousUsers)
-                && Objects.equals(
                         this.backfillEventDataDays,
                         audienceOptionsWithLookback.backfillEventDataDays);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(
-                filterByExternalIds,
-                includeHistoricalData,
-                includeAnonymousUsers,
-                backfillEventDataDays);
+        return Objects.hash(filterByExternalIds, includeHistoricalData, backfillEventDataDays);
     }
 
     @Override
@@ -191,9 +159,6 @@ public class AudienceOptionsWithLookback {
                 .append("\n");
         sb.append("    includeHistoricalData: ")
                 .append(toIndentedString(includeHistoricalData))
-                .append("\n");
-        sb.append("    includeAnonymousUsers: ")
-                .append(toIndentedString(includeAnonymousUsers))
                 .append("\n");
         sb.append("    backfillEventDataDays: ")
                 .append(toIndentedString(backfillEventDataDays))
@@ -221,7 +186,6 @@ public class AudienceOptionsWithLookback {
         openapiFields = new HashSet<String>();
         openapiFields.add("filterByExternalIds");
         openapiFields.add("includeHistoricalData");
-        openapiFields.add("includeAnonymousUsers");
         openapiFields.add("backfillEventDataDays");
 
         // a set of required properties/fields (JSON key names)

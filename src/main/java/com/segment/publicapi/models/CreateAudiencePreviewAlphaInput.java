@@ -33,7 +33,7 @@ public class CreateAudiencePreviewAlphaInput {
     public static final String SERIALIZED_NAME_DEFINITION = "definition";
 
     @SerializedName(SERIALIZED_NAME_DEFINITION)
-    private AudienceDefinitionWithoutType definition;
+    private AudienceDefinition definition;
 
     /** Denotes the type of audience product. Possible values: USERS, ACCOUNTS, LINKED. */
     @JsonAdapter(AudienceTypeEnum.Adapter.class)
@@ -95,7 +95,7 @@ public class CreateAudiencePreviewAlphaInput {
 
     public CreateAudiencePreviewAlphaInput() {}
 
-    public CreateAudiencePreviewAlphaInput definition(AudienceDefinitionWithoutType definition) {
+    public CreateAudiencePreviewAlphaInput definition(AudienceDefinition definition) {
 
         this.definition = definition;
         return this;
@@ -107,11 +107,11 @@ public class CreateAudiencePreviewAlphaInput {
      * @return definition
      */
     @javax.annotation.Nonnull
-    public AudienceDefinitionWithoutType getDefinition() {
+    public AudienceDefinition getDefinition() {
         return definition;
     }
 
-    public void setDefinition(AudienceDefinitionWithoutType definition) {
+    public void setDefinition(AudienceDefinition definition) {
         this.definition = definition;
     }
 
@@ -255,7 +255,7 @@ public class CreateAudiencePreviewAlphaInput {
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the required field `definition`
-        AudienceDefinitionWithoutType.validateJsonElement(jsonObj.get("definition"));
+        AudienceDefinition.validateJsonElement(jsonObj.get("definition"));
         if (!jsonObj.get("audienceType").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
