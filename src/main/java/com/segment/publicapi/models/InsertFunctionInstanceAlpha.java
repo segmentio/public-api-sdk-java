@@ -22,11 +22,13 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** InsertFunctionInstanceAlpha */
 public class InsertFunctionInstanceAlpha {
@@ -74,6 +76,11 @@ public class InsertFunctionInstanceAlpha {
 
     @SerializedName(SERIALIZED_NAME_ENCRYPTED_SETTINGS)
     private Map<String, Object> encryptedSettings = new HashMap<>();
+
+    public static final String SERIALIZED_NAME_INTEGRATION_TYPE = "integrationType";
+
+    @SerializedName(SERIALIZED_NAME_INTEGRATION_TYPE)
+    private Object integrationType;
 
     public InsertFunctionInstanceAlpha() {}
 
@@ -274,6 +281,26 @@ public class InsertFunctionInstanceAlpha {
         this.encryptedSettings = encryptedSettings;
     }
 
+    public InsertFunctionInstanceAlpha integrationType(Object integrationType) {
+
+        this.integrationType = integrationType;
+        return this;
+    }
+
+    /**
+     * Get integrationType
+     *
+     * @return integrationType
+     */
+    @javax.annotation.Nullable
+    public Object getIntegrationType() {
+        return integrationType;
+    }
+
+    public void setIntegrationType(Object integrationType) {
+        this.integrationType = integrationType;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -292,7 +319,18 @@ public class InsertFunctionInstanceAlpha {
                 && Objects.equals(this.updatedAt, insertFunctionInstanceAlpha.updatedAt)
                 && Objects.equals(this.settings, insertFunctionInstanceAlpha.settings)
                 && Objects.equals(
-                        this.encryptedSettings, insertFunctionInstanceAlpha.encryptedSettings);
+                        this.encryptedSettings, insertFunctionInstanceAlpha.encryptedSettings)
+                && Objects.equals(
+                        this.integrationType, insertFunctionInstanceAlpha.integrationType);
+    }
+
+    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+        return a == b
+                || (a != null
+                        && b != null
+                        && a.isPresent()
+                        && b.isPresent()
+                        && Objects.deepEquals(a.get(), b.get()));
     }
 
     @Override
@@ -306,7 +344,15 @@ public class InsertFunctionInstanceAlpha {
                 createdAt,
                 updatedAt,
                 settings,
-                encryptedSettings);
+                encryptedSettings,
+                integrationType);
+    }
+
+    private static <T> int hashCodeNullable(JsonNullable<T> a) {
+        if (a == null) {
+            return 1;
+        }
+        return a.isPresent() ? Arrays.deepHashCode(new Object[] {a.get()}) : 31;
     }
 
     @Override
@@ -324,6 +370,7 @@ public class InsertFunctionInstanceAlpha {
         sb.append("    encryptedSettings: ")
                 .append(toIndentedString(encryptedSettings))
                 .append("\n");
+        sb.append("    integrationType: ").append(toIndentedString(integrationType)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -354,6 +401,7 @@ public class InsertFunctionInstanceAlpha {
         openapiFields.add("updatedAt");
         openapiFields.add("settings");
         openapiFields.add("encryptedSettings");
+        openapiFields.add("integrationType");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
