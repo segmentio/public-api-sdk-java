@@ -16,7 +16,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
@@ -56,59 +55,6 @@ public class CreateInsertFunctionInstanceAlphaInput {
     @SerializedName(SERIALIZED_NAME_SETTINGS)
     private Map<String, Object> settings = new HashMap<>();
 
-    /** The Integration type for the insert Function instance. */
-    @JsonAdapter(IntegrationTypeEnum.Adapter.class)
-    public enum IntegrationTypeEnum {
-        DESTINATION("DESTINATION"),
-
-        JOURNEY("JOURNEY"),
-
-        SOURCE("SOURCE");
-
-        private String value;
-
-        IntegrationTypeEnum(String value) {
-            this.value = value;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        public static IntegrationTypeEnum fromValue(String value) {
-            for (IntegrationTypeEnum b : IntegrationTypeEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
-        }
-
-        public static class Adapter extends TypeAdapter<IntegrationTypeEnum> {
-            @Override
-            public void write(final JsonWriter jsonWriter, final IntegrationTypeEnum enumeration)
-                    throws IOException {
-                jsonWriter.value(enumeration.getValue());
-            }
-
-            @Override
-            public IntegrationTypeEnum read(final JsonReader jsonReader) throws IOException {
-                String value = jsonReader.nextString();
-                return IntegrationTypeEnum.fromValue(value);
-            }
-        }
-    }
-
-    public static final String SERIALIZED_NAME_INTEGRATION_TYPE = "integrationType";
-
-    @SerializedName(SERIALIZED_NAME_INTEGRATION_TYPE)
-    private IntegrationTypeEnum integrationType;
-
     public CreateInsertFunctionInstanceAlphaInput() {}
 
     public CreateInsertFunctionInstanceAlphaInput functionId(String functionId) {
@@ -118,8 +64,8 @@ public class CreateInsertFunctionInstanceAlphaInput {
     }
 
     /**
-     * Insert Function id to which this instance is associated. Note: Remove the ifnd_/ifns_/ifn_
-     * prefix from the id.
+     * Insert Function id to which this instance is associated. Note: Remove the ifnd_/ifns_ prefix
+     * from the id.
      *
      * @return functionId
      */
@@ -221,27 +167,6 @@ public class CreateInsertFunctionInstanceAlphaInput {
         this.settings = settings;
     }
 
-    public CreateInsertFunctionInstanceAlphaInput integrationType(
-            IntegrationTypeEnum integrationType) {
-
-        this.integrationType = integrationType;
-        return this;
-    }
-
-    /**
-     * The Integration type for the insert Function instance.
-     *
-     * @return integrationType
-     */
-    @javax.annotation.Nonnull
-    public IntegrationTypeEnum getIntegrationType() {
-        return integrationType;
-    }
-
-    public void setIntegrationType(IntegrationTypeEnum integrationType) {
-        this.integrationType = integrationType;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -257,15 +182,12 @@ public class CreateInsertFunctionInstanceAlphaInput {
                         this.integrationId, createInsertFunctionInstanceAlphaInput.integrationId)
                 && Objects.equals(this.enabled, createInsertFunctionInstanceAlphaInput.enabled)
                 && Objects.equals(this.name, createInsertFunctionInstanceAlphaInput.name)
-                && Objects.equals(this.settings, createInsertFunctionInstanceAlphaInput.settings)
-                && Objects.equals(
-                        this.integrationType,
-                        createInsertFunctionInstanceAlphaInput.integrationType);
+                && Objects.equals(this.settings, createInsertFunctionInstanceAlphaInput.settings);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(functionId, integrationId, enabled, name, settings, integrationType);
+        return Objects.hash(functionId, integrationId, enabled, name, settings);
     }
 
     @Override
@@ -277,7 +199,6 @@ public class CreateInsertFunctionInstanceAlphaInput {
         sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
-        sb.append("    integrationType: ").append(toIndentedString(integrationType)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -304,7 +225,6 @@ public class CreateInsertFunctionInstanceAlphaInput {
         openapiFields.add("enabled");
         openapiFields.add("name");
         openapiFields.add("settings");
-        openapiFields.add("integrationType");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
@@ -312,7 +232,6 @@ public class CreateInsertFunctionInstanceAlphaInput {
         openapiRequiredFields.add("integrationId");
         openapiRequiredFields.add("name");
         openapiRequiredFields.add("settings");
-        openapiRequiredFields.add("integrationType");
     }
 
     /**
@@ -378,13 +297,6 @@ public class CreateInsertFunctionInstanceAlphaInput {
                             "Expected the field `name` to be a primitive type in the JSON string"
                                     + " but got `%s`",
                             jsonObj.get("name").toString()));
-        }
-        if (!jsonObj.get("integrationType").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `integrationType` to be a primitive type in the"
-                                    + " JSON string but got `%s`",
-                            jsonObj.get("integrationType").toString()));
         }
     }
 
