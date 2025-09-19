@@ -27,17 +27,17 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** AddAudienceScheduleToAudience200Response */
-public class AddAudienceScheduleToAudience200Response {
+/** ListDestinationsFromAudience200Response */
+public class ListDestinationsFromAudience200Response {
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    private AddAudienceScheduleToAudienceAlphaOutput data;
+    private ListDestinationsFromAudienceAlphaOutput data;
 
-    public AddAudienceScheduleToAudience200Response() {}
+    public ListDestinationsFromAudience200Response() {}
 
-    public AddAudienceScheduleToAudience200Response data(
-            AddAudienceScheduleToAudienceAlphaOutput data) {
+    public ListDestinationsFromAudience200Response data(
+            ListDestinationsFromAudienceAlphaOutput data) {
 
         this.data = data;
         return this;
@@ -49,11 +49,11 @@ public class AddAudienceScheduleToAudience200Response {
      * @return data
      */
     @javax.annotation.Nullable
-    public AddAudienceScheduleToAudienceAlphaOutput getData() {
+    public ListDestinationsFromAudienceAlphaOutput getData() {
         return data;
     }
 
-    public void setData(AddAudienceScheduleToAudienceAlphaOutput data) {
+    public void setData(ListDestinationsFromAudienceAlphaOutput data) {
         this.data = data;
     }
 
@@ -65,9 +65,9 @@ public class AddAudienceScheduleToAudience200Response {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        AddAudienceScheduleToAudience200Response addAudienceScheduleToAudience200Response =
-                (AddAudienceScheduleToAudience200Response) o;
-        return Objects.equals(this.data, addAudienceScheduleToAudience200Response.data);
+        ListDestinationsFromAudience200Response listDestinationsFromAudience200Response =
+                (ListDestinationsFromAudience200Response) o;
+        return Objects.equals(this.data, listDestinationsFromAudience200Response.data);
     }
 
     @Override
@@ -78,7 +78,7 @@ public class AddAudienceScheduleToAudience200Response {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AddAudienceScheduleToAudience200Response {\n");
+        sb.append("class ListDestinationsFromAudience200Response {\n");
         sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -112,18 +112,18 @@ public class AddAudienceScheduleToAudience200Response {
      *
      * @param jsonElement JSON Element
      * @throws IOException if the JSON Element is invalid with respect to
-     *     AddAudienceScheduleToAudience200Response
+     *     ListDestinationsFromAudience200Response
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!AddAudienceScheduleToAudience200Response.openapiRequiredFields
+            if (!ListDestinationsFromAudience200Response.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in"
-                                    + " AddAudienceScheduleToAudience200Response is not found in"
-                                    + " the empty JSON string",
-                                AddAudienceScheduleToAudience200Response.openapiRequiredFields
+                                    + " ListDestinationsFromAudience200Response is not found in the"
+                                    + " empty JSON string",
+                                ListDestinationsFromAudience200Response.openapiRequiredFields
                                         .toString()));
             }
         }
@@ -131,19 +131,19 @@ public class AddAudienceScheduleToAudience200Response {
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!AddAudienceScheduleToAudience200Response.openapiFields.contains(entry.getKey())) {
+            if (!ListDestinationsFromAudience200Response.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `AddAudienceScheduleToAudience200Response` properties."
-                                        + " JSON: %s",
+                                    + " `ListDestinationsFromAudience200Response` properties. JSON:"
+                                    + " %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the optional field `data`
         if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-            AddAudienceScheduleToAudienceAlphaOutput.validateJsonElement(jsonObj.get("data"));
+            ListDestinationsFromAudienceAlphaOutput.validateJsonElement(jsonObj.get("data"));
         }
     }
 
@@ -151,28 +151,28 @@ public class AddAudienceScheduleToAudience200Response {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!AddAudienceScheduleToAudience200Response.class.isAssignableFrom(
+            if (!ListDestinationsFromAudience200Response.class.isAssignableFrom(
                     type.getRawType())) {
-                return null; // this class only serializes
-                // 'AddAudienceScheduleToAudience200Response' and its subtypes
+                return null; // this class only serializes 'ListDestinationsFromAudience200Response'
+                // and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<AddAudienceScheduleToAudience200Response> thisAdapter =
+            final TypeAdapter<ListDestinationsFromAudience200Response> thisAdapter =
                     gson.getDelegateAdapter(
-                            this, TypeToken.get(AddAudienceScheduleToAudience200Response.class));
+                            this, TypeToken.get(ListDestinationsFromAudience200Response.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<AddAudienceScheduleToAudience200Response>() {
+                    new TypeAdapter<ListDestinationsFromAudience200Response>() {
                         @Override
                         public void write(
-                                JsonWriter out, AddAudienceScheduleToAudience200Response value)
+                                JsonWriter out, ListDestinationsFromAudience200Response value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public AddAudienceScheduleToAudience200Response read(JsonReader in)
+                        public ListDestinationsFromAudience200Response read(JsonReader in)
                                 throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
@@ -183,20 +183,20 @@ public class AddAudienceScheduleToAudience200Response {
     }
 
     /**
-     * Create an instance of AddAudienceScheduleToAudience200Response given an JSON string
+     * Create an instance of ListDestinationsFromAudience200Response given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of AddAudienceScheduleToAudience200Response
+     * @return An instance of ListDestinationsFromAudience200Response
      * @throws IOException if the JSON string is invalid with respect to
-     *     AddAudienceScheduleToAudience200Response
+     *     ListDestinationsFromAudience200Response
      */
-    public static AddAudienceScheduleToAudience200Response fromJson(String jsonString)
+    public static ListDestinationsFromAudience200Response fromJson(String jsonString)
             throws IOException {
-        return JSON.getGson().fromJson(jsonString, AddAudienceScheduleToAudience200Response.class);
+        return JSON.getGson().fromJson(jsonString, ListDestinationsFromAudience200Response.class);
     }
 
     /**
-     * Convert an instance of AddAudienceScheduleToAudience200Response to an JSON string
+     * Convert an instance of ListDestinationsFromAudience200Response to an JSON string
      *
      * @return JSON string
      */

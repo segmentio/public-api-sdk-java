@@ -12,6 +12,7 @@
 package com.segment.publicapi.models;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
@@ -22,39 +23,75 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Defines an Create Audience Schedule Output. */
-public class AddAudienceScheduleToAudienceAlphaOutput {
-    public static final String SERIALIZED_NAME_AUDIENCE_SCHEDULE = "audienceSchedule";
+/** Output to List all Destinations from an Audience. */
+public class ListDestinationsFromAudienceAlphaOutput {
+    public static final String SERIALIZED_NAME_CONNECTIONS = "connections";
 
-    @SerializedName(SERIALIZED_NAME_AUDIENCE_SCHEDULE)
-    private AudienceSchedule audienceSchedule;
+    @SerializedName(SERIALIZED_NAME_CONNECTIONS)
+    private List<SimpleDestination> connections = new ArrayList<>();
 
-    public AddAudienceScheduleToAudienceAlphaOutput() {}
+    public static final String SERIALIZED_NAME_PAGINATION = "pagination";
 
-    public AddAudienceScheduleToAudienceAlphaOutput audienceSchedule(
-            AudienceSchedule audienceSchedule) {
+    @SerializedName(SERIALIZED_NAME_PAGINATION)
+    private PaginationOutput pagination;
 
-        this.audienceSchedule = audienceSchedule;
+    public ListDestinationsFromAudienceAlphaOutput() {}
+
+    public ListDestinationsFromAudienceAlphaOutput connections(
+            List<SimpleDestination> connections) {
+
+        this.connections = connections;
+        return this;
+    }
+
+    public ListDestinationsFromAudienceAlphaOutput addConnectionsItem(
+            SimpleDestination connectionsItem) {
+        if (this.connections == null) {
+            this.connections = new ArrayList<>();
+        }
+        this.connections.add(connectionsItem);
         return this;
     }
 
     /**
-     * Get audienceSchedule
+     * A list of connection results.
      *
-     * @return audienceSchedule
+     * @return connections
      */
     @javax.annotation.Nonnull
-    public AudienceSchedule getAudienceSchedule() {
-        return audienceSchedule;
+    public List<SimpleDestination> getConnections() {
+        return connections;
     }
 
-    public void setAudienceSchedule(AudienceSchedule audienceSchedule) {
-        this.audienceSchedule = audienceSchedule;
+    public void setConnections(List<SimpleDestination> connections) {
+        this.connections = connections;
+    }
+
+    public ListDestinationsFromAudienceAlphaOutput pagination(PaginationOutput pagination) {
+
+        this.pagination = pagination;
+        return this;
+    }
+
+    /**
+     * Get pagination
+     *
+     * @return pagination
+     */
+    @javax.annotation.Nullable
+    public PaginationOutput getPagination() {
+        return pagination;
+    }
+
+    public void setPagination(PaginationOutput pagination) {
+        this.pagination = pagination;
     }
 
     @Override
@@ -65,22 +102,24 @@ public class AddAudienceScheduleToAudienceAlphaOutput {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        AddAudienceScheduleToAudienceAlphaOutput addAudienceScheduleToAudienceAlphaOutput =
-                (AddAudienceScheduleToAudienceAlphaOutput) o;
-        return Objects.equals(
-                this.audienceSchedule, addAudienceScheduleToAudienceAlphaOutput.audienceSchedule);
+        ListDestinationsFromAudienceAlphaOutput listDestinationsFromAudienceAlphaOutput =
+                (ListDestinationsFromAudienceAlphaOutput) o;
+        return Objects.equals(this.connections, listDestinationsFromAudienceAlphaOutput.connections)
+                && Objects.equals(
+                        this.pagination, listDestinationsFromAudienceAlphaOutput.pagination);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(audienceSchedule);
+        return Objects.hash(connections, pagination);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AddAudienceScheduleToAudienceAlphaOutput {\n");
-        sb.append("    audienceSchedule: ").append(toIndentedString(audienceSchedule)).append("\n");
+        sb.append("class ListDestinationsFromAudienceAlphaOutput {\n");
+        sb.append("    connections: ").append(toIndentedString(connections)).append("\n");
+        sb.append("    pagination: ").append(toIndentedString(pagination)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -102,11 +141,12 @@ public class AddAudienceScheduleToAudienceAlphaOutput {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("audienceSchedule");
+        openapiFields.add("connections");
+        openapiFields.add("pagination");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("audienceSchedule");
+        openapiRequiredFields.add("connections");
     }
 
     /**
@@ -114,18 +154,18 @@ public class AddAudienceScheduleToAudienceAlphaOutput {
      *
      * @param jsonElement JSON Element
      * @throws IOException if the JSON Element is invalid with respect to
-     *     AddAudienceScheduleToAudienceAlphaOutput
+     *     ListDestinationsFromAudienceAlphaOutput
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!AddAudienceScheduleToAudienceAlphaOutput.openapiRequiredFields
+            if (!ListDestinationsFromAudienceAlphaOutput.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in"
-                                    + " AddAudienceScheduleToAudienceAlphaOutput is not found in"
-                                    + " the empty JSON string",
-                                AddAudienceScheduleToAudienceAlphaOutput.openapiRequiredFields
+                                    + " ListDestinationsFromAudienceAlphaOutput is not found in the"
+                                    + " empty JSON string",
+                                ListDestinationsFromAudienceAlphaOutput.openapiRequiredFields
                                         .toString()));
             }
         }
@@ -133,19 +173,18 @@ public class AddAudienceScheduleToAudienceAlphaOutput {
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!AddAudienceScheduleToAudienceAlphaOutput.openapiFields.contains(entry.getKey())) {
+            if (!ListDestinationsFromAudienceAlphaOutput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `AddAudienceScheduleToAudienceAlphaOutput` properties."
-                                        + " JSON: %s",
+                                    + " `ListDestinationsFromAudienceAlphaOutput` properties. JSON:"
+                                    + " %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField :
-                AddAudienceScheduleToAudienceAlphaOutput.openapiRequiredFields) {
+        for (String requiredField : ListDestinationsFromAudienceAlphaOutput.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -154,36 +193,53 @@ public class AddAudienceScheduleToAudienceAlphaOutput {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        // validate the required field `audienceSchedule`
-        AudienceSchedule.validateJsonElement(jsonObj.get("audienceSchedule"));
+        // ensure the json data is an array
+        if (!jsonObj.get("connections").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `connections` to be an array in the JSON string but"
+                                    + " got `%s`",
+                            jsonObj.get("connections").toString()));
+        }
+
+        JsonArray jsonArrayconnections = jsonObj.getAsJsonArray("connections");
+        // validate the required field `connections` (array)
+        for (int i = 0; i < jsonArrayconnections.size(); i++) {
+            SimpleDestination.validateJsonElement(jsonArrayconnections.get(i));
+        }
+        ;
+        // validate the optional field `pagination`
+        if (jsonObj.get("pagination") != null && !jsonObj.get("pagination").isJsonNull()) {
+            PaginationOutput.validateJsonElement(jsonObj.get("pagination"));
+        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!AddAudienceScheduleToAudienceAlphaOutput.class.isAssignableFrom(
+            if (!ListDestinationsFromAudienceAlphaOutput.class.isAssignableFrom(
                     type.getRawType())) {
-                return null; // this class only serializes
-                // 'AddAudienceScheduleToAudienceAlphaOutput' and its subtypes
+                return null; // this class only serializes 'ListDestinationsFromAudienceAlphaOutput'
+                // and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<AddAudienceScheduleToAudienceAlphaOutput> thisAdapter =
+            final TypeAdapter<ListDestinationsFromAudienceAlphaOutput> thisAdapter =
                     gson.getDelegateAdapter(
-                            this, TypeToken.get(AddAudienceScheduleToAudienceAlphaOutput.class));
+                            this, TypeToken.get(ListDestinationsFromAudienceAlphaOutput.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<AddAudienceScheduleToAudienceAlphaOutput>() {
+                    new TypeAdapter<ListDestinationsFromAudienceAlphaOutput>() {
                         @Override
                         public void write(
-                                JsonWriter out, AddAudienceScheduleToAudienceAlphaOutput value)
+                                JsonWriter out, ListDestinationsFromAudienceAlphaOutput value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public AddAudienceScheduleToAudienceAlphaOutput read(JsonReader in)
+                        public ListDestinationsFromAudienceAlphaOutput read(JsonReader in)
                                 throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
@@ -194,20 +250,20 @@ public class AddAudienceScheduleToAudienceAlphaOutput {
     }
 
     /**
-     * Create an instance of AddAudienceScheduleToAudienceAlphaOutput given an JSON string
+     * Create an instance of ListDestinationsFromAudienceAlphaOutput given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of AddAudienceScheduleToAudienceAlphaOutput
+     * @return An instance of ListDestinationsFromAudienceAlphaOutput
      * @throws IOException if the JSON string is invalid with respect to
-     *     AddAudienceScheduleToAudienceAlphaOutput
+     *     ListDestinationsFromAudienceAlphaOutput
      */
-    public static AddAudienceScheduleToAudienceAlphaOutput fromJson(String jsonString)
+    public static ListDestinationsFromAudienceAlphaOutput fromJson(String jsonString)
             throws IOException {
-        return JSON.getGson().fromJson(jsonString, AddAudienceScheduleToAudienceAlphaOutput.class);
+        return JSON.getGson().fromJson(jsonString, ListDestinationsFromAudienceAlphaOutput.class);
     }
 
     /**
-     * Convert an instance of AddAudienceScheduleToAudienceAlphaOutput to an JSON string
+     * Convert an instance of ListDestinationsFromAudienceAlphaOutput to an JSON string
      *
      * @return JSON string
      */

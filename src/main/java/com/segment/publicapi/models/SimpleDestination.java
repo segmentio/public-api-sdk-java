@@ -28,8 +28,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** InsertFunctionInstanceAlpha */
-public class InsertFunctionInstanceAlpha {
+/** SimpleDestination */
+public class SimpleDestination {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
@@ -40,15 +40,10 @@ public class InsertFunctionInstanceAlpha {
     @SerializedName(SERIALIZED_NAME_NAME)
     private String name;
 
-    public static final String SERIALIZED_NAME_INTEGRATION_ID = "integrationId";
+    public static final String SERIALIZED_NAME_SOURCE_ID = "sourceId";
 
-    @SerializedName(SERIALIZED_NAME_INTEGRATION_ID)
-    private String integrationId;
-
-    public static final String SERIALIZED_NAME_CLASS_ID = "classId";
-
-    @SerializedName(SERIALIZED_NAME_CLASS_ID)
-    private String classId;
+    @SerializedName(SERIALIZED_NAME_SOURCE_ID)
+    private String sourceId;
 
     public static final String SERIALIZED_NAME_ENABLED = "enabled";
 
@@ -70,21 +65,31 @@ public class InsertFunctionInstanceAlpha {
     @SerializedName(SERIALIZED_NAME_SETTINGS)
     private Map<String, Object> settings = new HashMap<>();
 
-    public static final String SERIALIZED_NAME_ENCRYPTED_SETTINGS = "encryptedSettings";
+    public static final String SERIALIZED_NAME_DESTINATION_ID = "destinationId";
 
-    @SerializedName(SERIALIZED_NAME_ENCRYPTED_SETTINGS)
-    private Map<String, Object> encryptedSettings = new HashMap<>();
+    @SerializedName(SERIALIZED_NAME_DESTINATION_ID)
+    private String destinationId;
 
-    public InsertFunctionInstanceAlpha() {}
+    public static final String SERIALIZED_NAME_METADATA = "metadata";
 
-    public InsertFunctionInstanceAlpha id(String id) {
+    @SerializedName(SERIALIZED_NAME_METADATA)
+    private Metadata metadata;
+
+    public static final String SERIALIZED_NAME_ID_SYNC = "idSync";
+
+    @SerializedName(SERIALIZED_NAME_ID_SYNC)
+    private IDSyncOptions idSync;
+
+    public SimpleDestination() {}
+
+    public SimpleDestination id(String id) {
 
         this.id = id;
         return this;
     }
 
     /**
-     * Get id
+     * The id of the Integration.
      *
      * @return id
      */
@@ -97,14 +102,14 @@ public class InsertFunctionInstanceAlpha {
         this.id = id;
     }
 
-    public InsertFunctionInstanceAlpha name(String name) {
+    public SimpleDestination name(String name) {
 
         this.name = name;
         return this;
     }
 
     /**
-     * Get name
+     * The name of the Destination.
      *
      * @return name
      */
@@ -117,54 +122,34 @@ public class InsertFunctionInstanceAlpha {
         this.name = name;
     }
 
-    public InsertFunctionInstanceAlpha integrationId(String integrationId) {
+    public SimpleDestination sourceId(String sourceId) {
 
-        this.integrationId = integrationId;
+        this.sourceId = sourceId;
         return this;
     }
 
     /**
-     * Get integrationId
+     * The Source of the Destination.
      *
-     * @return integrationId
+     * @return sourceId
      */
     @javax.annotation.Nonnull
-    public String getIntegrationId() {
-        return integrationId;
+    public String getSourceId() {
+        return sourceId;
     }
 
-    public void setIntegrationId(String integrationId) {
-        this.integrationId = integrationId;
+    public void setSourceId(String sourceId) {
+        this.sourceId = sourceId;
     }
 
-    public InsertFunctionInstanceAlpha classId(String classId) {
-
-        this.classId = classId;
-        return this;
-    }
-
-    /**
-     * Get classId
-     *
-     * @return classId
-     */
-    @javax.annotation.Nonnull
-    public String getClassId() {
-        return classId;
-    }
-
-    public void setClassId(String classId) {
-        this.classId = classId;
-    }
-
-    public InsertFunctionInstanceAlpha enabled(Boolean enabled) {
+    public SimpleDestination enabled(Boolean enabled) {
 
         this.enabled = enabled;
         return this;
     }
 
     /**
-     * Get enabled
+     * Whether the Integration is enabled or not.
      *
      * @return enabled
      */
@@ -177,14 +162,14 @@ public class InsertFunctionInstanceAlpha {
         this.enabled = enabled;
     }
 
-    public InsertFunctionInstanceAlpha createdAt(String createdAt) {
+    public SimpleDestination createdAt(String createdAt) {
 
         this.createdAt = createdAt;
         return this;
     }
 
     /**
-     * Get createdAt
+     * When the Integration connection was created.
      *
      * @return createdAt
      */
@@ -197,14 +182,14 @@ public class InsertFunctionInstanceAlpha {
         this.createdAt = createdAt;
     }
 
-    public InsertFunctionInstanceAlpha updatedAt(String updatedAt) {
+    public SimpleDestination updatedAt(String updatedAt) {
 
         this.updatedAt = updatedAt;
         return this;
     }
 
     /**
-     * Get updatedAt
+     * When the Integration connection was last updated.
      *
      * @return updatedAt
      */
@@ -217,13 +202,13 @@ public class InsertFunctionInstanceAlpha {
         this.updatedAt = updatedAt;
     }
 
-    public InsertFunctionInstanceAlpha settings(Map<String, Object> settings) {
+    public SimpleDestination settings(Map<String, Object> settings) {
 
         this.settings = settings;
         return this;
     }
 
-    public InsertFunctionInstanceAlpha putSettingsItem(String key, Object settingsItem) {
+    public SimpleDestination putSettingsItem(String key, Object settingsItem) {
         if (this.settings == null) {
             this.settings = new HashMap<>();
         }
@@ -232,7 +217,7 @@ public class InsertFunctionInstanceAlpha {
     }
 
     /**
-     * Get settings
+     * The Destination settings.
      *
      * @return settings
      */
@@ -245,33 +230,64 @@ public class InsertFunctionInstanceAlpha {
         this.settings = settings;
     }
 
-    public InsertFunctionInstanceAlpha encryptedSettings(Map<String, Object> encryptedSettings) {
+    public SimpleDestination destinationId(String destinationId) {
 
-        this.encryptedSettings = encryptedSettings;
-        return this;
-    }
-
-    public InsertFunctionInstanceAlpha putEncryptedSettingsItem(
-            String key, Object encryptedSettingsItem) {
-        if (this.encryptedSettings == null) {
-            this.encryptedSettings = new HashMap<>();
-        }
-        this.encryptedSettings.put(key, encryptedSettingsItem);
+        this.destinationId = destinationId;
         return this;
     }
 
     /**
-     * Get encryptedSettings
+     * The Destination id.
      *
-     * @return encryptedSettings
+     * @return destinationId
      */
     @javax.annotation.Nonnull
-    public Map<String, Object> getEncryptedSettings() {
-        return encryptedSettings;
+    public String getDestinationId() {
+        return destinationId;
     }
 
-    public void setEncryptedSettings(Map<String, Object> encryptedSettings) {
-        this.encryptedSettings = encryptedSettings;
+    public void setDestinationId(String destinationId) {
+        this.destinationId = destinationId;
+    }
+
+    public SimpleDestination metadata(Metadata metadata) {
+
+        this.metadata = metadata;
+        return this;
+    }
+
+    /**
+     * Get metadata
+     *
+     * @return metadata
+     */
+    @javax.annotation.Nullable
+    public Metadata getMetadata() {
+        return metadata;
+    }
+
+    public void setMetadata(Metadata metadata) {
+        this.metadata = metadata;
+    }
+
+    public SimpleDestination idSync(IDSyncOptions idSync) {
+
+        this.idSync = idSync;
+        return this;
+    }
+
+    /**
+     * Get idSync
+     *
+     * @return idSync
+     */
+    @javax.annotation.Nullable
+    public IDSyncOptions getIdSync() {
+        return idSync;
+    }
+
+    public void setIdSync(IDSyncOptions idSync) {
+        this.idSync = idSync;
     }
 
     @Override
@@ -282,17 +298,17 @@ public class InsertFunctionInstanceAlpha {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        InsertFunctionInstanceAlpha insertFunctionInstanceAlpha = (InsertFunctionInstanceAlpha) o;
-        return Objects.equals(this.id, insertFunctionInstanceAlpha.id)
-                && Objects.equals(this.name, insertFunctionInstanceAlpha.name)
-                && Objects.equals(this.integrationId, insertFunctionInstanceAlpha.integrationId)
-                && Objects.equals(this.classId, insertFunctionInstanceAlpha.classId)
-                && Objects.equals(this.enabled, insertFunctionInstanceAlpha.enabled)
-                && Objects.equals(this.createdAt, insertFunctionInstanceAlpha.createdAt)
-                && Objects.equals(this.updatedAt, insertFunctionInstanceAlpha.updatedAt)
-                && Objects.equals(this.settings, insertFunctionInstanceAlpha.settings)
-                && Objects.equals(
-                        this.encryptedSettings, insertFunctionInstanceAlpha.encryptedSettings);
+        SimpleDestination simpleDestination = (SimpleDestination) o;
+        return Objects.equals(this.id, simpleDestination.id)
+                && Objects.equals(this.name, simpleDestination.name)
+                && Objects.equals(this.sourceId, simpleDestination.sourceId)
+                && Objects.equals(this.enabled, simpleDestination.enabled)
+                && Objects.equals(this.createdAt, simpleDestination.createdAt)
+                && Objects.equals(this.updatedAt, simpleDestination.updatedAt)
+                && Objects.equals(this.settings, simpleDestination.settings)
+                && Objects.equals(this.destinationId, simpleDestination.destinationId)
+                && Objects.equals(this.metadata, simpleDestination.metadata)
+                && Objects.equals(this.idSync, simpleDestination.idSync);
     }
 
     @Override
@@ -300,30 +316,30 @@ public class InsertFunctionInstanceAlpha {
         return Objects.hash(
                 id,
                 name,
-                integrationId,
-                classId,
+                sourceId,
                 enabled,
                 createdAt,
                 updatedAt,
                 settings,
-                encryptedSettings);
+                destinationId,
+                metadata,
+                idSync);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class InsertFunctionInstanceAlpha {\n");
+        sb.append("class SimpleDestination {\n");
         sb.append("    id: ").append(toIndentedString(id)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    integrationId: ").append(toIndentedString(integrationId)).append("\n");
-        sb.append("    classId: ").append(toIndentedString(classId)).append("\n");
+        sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
         sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
         sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
         sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
         sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
-        sb.append("    encryptedSettings: ")
-                .append(toIndentedString(encryptedSettings))
-                .append("\n");
+        sb.append("    destinationId: ").append(toIndentedString(destinationId)).append("\n");
+        sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+        sb.append("    idSync: ").append(toIndentedString(idSync)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -347,59 +363,58 @@ public class InsertFunctionInstanceAlpha {
         openapiFields = new HashSet<String>();
         openapiFields.add("id");
         openapiFields.add("name");
-        openapiFields.add("integrationId");
-        openapiFields.add("classId");
+        openapiFields.add("sourceId");
         openapiFields.add("enabled");
         openapiFields.add("createdAt");
         openapiFields.add("updatedAt");
         openapiFields.add("settings");
-        openapiFields.add("encryptedSettings");
+        openapiFields.add("destinationId");
+        openapiFields.add("metadata");
+        openapiFields.add("idSync");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
         openapiRequiredFields.add("id");
-        openapiRequiredFields.add("integrationId");
-        openapiRequiredFields.add("classId");
+        openapiRequiredFields.add("sourceId");
         openapiRequiredFields.add("enabled");
         openapiRequiredFields.add("createdAt");
         openapiRequiredFields.add("updatedAt");
         openapiRequiredFields.add("settings");
-        openapiRequiredFields.add("encryptedSettings");
+        openapiRequiredFields.add("destinationId");
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to
-     *     InsertFunctionInstanceAlpha
+     * @throws IOException if the JSON Element is invalid with respect to SimpleDestination
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!InsertFunctionInstanceAlpha.openapiRequiredFields
+            if (!SimpleDestination.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in InsertFunctionInstanceAlpha is not"
-                                        + " found in the empty JSON string",
-                                InsertFunctionInstanceAlpha.openapiRequiredFields.toString()));
+                                "The required field(s) %s in SimpleDestination is not found in the"
+                                        + " empty JSON string",
+                                SimpleDestination.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!InsertFunctionInstanceAlpha.openapiFields.contains(entry.getKey())) {
+            if (!SimpleDestination.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `InsertFunctionInstanceAlpha` properties. JSON: %s",
+                                        + " `SimpleDestination` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : InsertFunctionInstanceAlpha.openapiRequiredFields) {
+        for (String requiredField : SimpleDestination.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -423,19 +438,12 @@ public class InsertFunctionInstanceAlpha {
                                     + " but got `%s`",
                             jsonObj.get("name").toString()));
         }
-        if (!jsonObj.get("integrationId").isJsonPrimitive()) {
+        if (!jsonObj.get("sourceId").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `integrationId` to be a primitive type in the JSON"
+                            "Expected the field `sourceId` to be a primitive type in the JSON"
                                     + " string but got `%s`",
-                            jsonObj.get("integrationId").toString()));
-        }
-        if (!jsonObj.get("classId").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `classId` to be a primitive type in the JSON string"
-                                    + " but got `%s`",
-                            jsonObj.get("classId").toString()));
+                            jsonObj.get("sourceId").toString()));
         }
         if (!jsonObj.get("createdAt").isJsonPrimitive()) {
             throw new IllegalArgumentException(
@@ -451,31 +459,45 @@ public class InsertFunctionInstanceAlpha {
                                     + " string but got `%s`",
                             jsonObj.get("updatedAt").toString()));
         }
+        if (!jsonObj.get("destinationId").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `destinationId` to be a primitive type in the JSON"
+                                    + " string but got `%s`",
+                            jsonObj.get("destinationId").toString()));
+        }
+        // validate the optional field `metadata`
+        if (jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) {
+            Metadata.validateJsonElement(jsonObj.get("metadata"));
+        }
+        // validate the optional field `idSync`
+        if (jsonObj.get("idSync") != null && !jsonObj.get("idSync").isJsonNull()) {
+            IDSyncOptions.validateJsonElement(jsonObj.get("idSync"));
+        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!InsertFunctionInstanceAlpha.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'InsertFunctionInstanceAlpha' and its
-                // subtypes
+            if (!SimpleDestination.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'SimpleDestination' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<InsertFunctionInstanceAlpha> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(InsertFunctionInstanceAlpha.class));
+            final TypeAdapter<SimpleDestination> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(SimpleDestination.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<InsertFunctionInstanceAlpha>() {
+                    new TypeAdapter<SimpleDestination>() {
                         @Override
-                        public void write(JsonWriter out, InsertFunctionInstanceAlpha value)
+                        public void write(JsonWriter out, SimpleDestination value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public InsertFunctionInstanceAlpha read(JsonReader in) throws IOException {
+                        public SimpleDestination read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -485,18 +507,18 @@ public class InsertFunctionInstanceAlpha {
     }
 
     /**
-     * Create an instance of InsertFunctionInstanceAlpha given an JSON string
+     * Create an instance of SimpleDestination given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of InsertFunctionInstanceAlpha
-     * @throws IOException if the JSON string is invalid with respect to InsertFunctionInstanceAlpha
+     * @return An instance of SimpleDestination
+     * @throws IOException if the JSON string is invalid with respect to SimpleDestination
      */
-    public static InsertFunctionInstanceAlpha fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, InsertFunctionInstanceAlpha.class);
+    public static SimpleDestination fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, SimpleDestination.class);
     }
 
     /**
-     * Convert an instance of InsertFunctionInstanceAlpha to an JSON string
+     * Convert an instance of SimpleDestination to an JSON string
      *
      * @return JSON string
      */
