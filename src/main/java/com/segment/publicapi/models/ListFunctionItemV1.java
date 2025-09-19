@@ -40,11 +40,11 @@ public class ListFunctionItemV1 {
     public enum ResourceTypeEnum {
         DESTINATION("DESTINATION"),
 
-        INSERT("INSERT"),
-
         INSERT_DESTINATION("INSERT_DESTINATION"),
 
         INSERT_SOURCE("INSERT_SOURCE"),
+
+        INSERT_TRANSFORMATION("INSERT_TRANSFORMATION"),
 
         SOURCE("SOURCE");
 
