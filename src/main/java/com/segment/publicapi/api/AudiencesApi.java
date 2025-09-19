@@ -18,6 +18,8 @@ import com.segment.publicapi.ApiException;
 import com.segment.publicapi.ApiResponse;
 import com.segment.publicapi.Configuration;
 import com.segment.publicapi.Pair;
+import com.segment.publicapi.models.AddAudienceScheduleToAudience200Response;
+import com.segment.publicapi.models.AddAudienceScheduleToAudienceAlphaInput;
 import com.segment.publicapi.models.CreateAudience200Response;
 import com.segment.publicapi.models.CreateAudienceBetaInput;
 import com.segment.publicapi.models.CreateAudiencePreview200Response;
@@ -76,6 +78,229 @@ public class AudiencesApi {
 
     public void setCustomBaseUrl(String customBaseUrl) {
         this.localCustomBaseUrl = customBaseUrl;
+    }
+
+    /**
+     * Build call for addAudienceScheduleToAudience
+     *
+     * @param spaceId (required)
+     * @param id (required)
+     * @param addAudienceScheduleToAudienceAlphaInput (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call addAudienceScheduleToAudienceCall(
+            String spaceId,
+            String id,
+            AddAudienceScheduleToAudienceAlphaInput addAudienceScheduleToAudienceAlphaInput,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = addAudienceScheduleToAudienceAlphaInput;
+
+        // create path and map variables
+        String localVarPath =
+                "/spaces/{spaceId}/audiences/{id}/schedules"
+                        .replace(
+                                "{" + "spaceId" + "}",
+                                localVarApiClient.escapeString(spaceId.toString()))
+                        .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.segment.v1alpha+json", "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/vnd.segment.v1alpha+json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"token"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call addAudienceScheduleToAudienceValidateBeforeCall(
+            String spaceId,
+            String id,
+            AddAudienceScheduleToAudienceAlphaInput addAudienceScheduleToAudienceAlphaInput,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'spaceId' when calling"
+                            + " addAudienceScheduleToAudience(Async)");
+        }
+
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'id' when calling"
+                            + " addAudienceScheduleToAudience(Async)");
+        }
+
+        // verify the required parameter 'addAudienceScheduleToAudienceAlphaInput' is set
+        if (addAudienceScheduleToAudienceAlphaInput == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'addAudienceScheduleToAudienceAlphaInput' when"
+                            + " calling addAudienceScheduleToAudience(Async)");
+        }
+
+        return addAudienceScheduleToAudienceCall(
+                spaceId, id, addAudienceScheduleToAudienceAlphaInput, _callback);
+    }
+
+    /**
+     * Add Audience Schedule to Audience Creates a schedule for the given audience. • This endpoint
+     * is in **Alpha** testing. Please submit any feedback by sending an email to
+     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
+     * needs to have the Audience feature enabled. Please reach out to your customer success manager
+     * for more information.
+     *
+     * @param spaceId (required)
+     * @param id (required)
+     * @param addAudienceScheduleToAudienceAlphaInput (required)
+     * @return AddAudienceScheduleToAudience200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public AddAudienceScheduleToAudience200Response addAudienceScheduleToAudience(
+            String spaceId,
+            String id,
+            AddAudienceScheduleToAudienceAlphaInput addAudienceScheduleToAudienceAlphaInput)
+            throws ApiException {
+        ApiResponse<AddAudienceScheduleToAudience200Response> localVarResp =
+                addAudienceScheduleToAudienceWithHttpInfo(
+                        spaceId, id, addAudienceScheduleToAudienceAlphaInput);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Add Audience Schedule to Audience Creates a schedule for the given audience. • This endpoint
+     * is in **Alpha** testing. Please submit any feedback by sending an email to
+     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
+     * needs to have the Audience feature enabled. Please reach out to your customer success manager
+     * for more information.
+     *
+     * @param spaceId (required)
+     * @param id (required)
+     * @param addAudienceScheduleToAudienceAlphaInput (required)
+     * @return ApiResponse&lt;AddAudienceScheduleToAudience200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<AddAudienceScheduleToAudience200Response>
+            addAudienceScheduleToAudienceWithHttpInfo(
+                    String spaceId,
+                    String id,
+                    AddAudienceScheduleToAudienceAlphaInput addAudienceScheduleToAudienceAlphaInput)
+                    throws ApiException {
+        okhttp3.Call localVarCall =
+                addAudienceScheduleToAudienceValidateBeforeCall(
+                        spaceId, id, addAudienceScheduleToAudienceAlphaInput, null);
+        Type localVarReturnType =
+                new TypeToken<AddAudienceScheduleToAudience200Response>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Add Audience Schedule to Audience (asynchronously) Creates a schedule for the given audience.
+     * • This endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
+     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
+     * needs to have the Audience feature enabled. Please reach out to your customer success manager
+     * for more information.
+     *
+     * @param spaceId (required)
+     * @param id (required)
+     * @param addAudienceScheduleToAudienceAlphaInput (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body
+     *     object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call addAudienceScheduleToAudienceAsync(
+            String spaceId,
+            String id,
+            AddAudienceScheduleToAudienceAlphaInput addAudienceScheduleToAudienceAlphaInput,
+            final ApiCallback<AddAudienceScheduleToAudience200Response> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                addAudienceScheduleToAudienceValidateBeforeCall(
+                        spaceId, id, addAudienceScheduleToAudienceAlphaInput, _callback);
+        Type localVarReturnType =
+                new TypeToken<AddAudienceScheduleToAudience200Response>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
     }
 
     /**
