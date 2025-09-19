@@ -65,6 +65,11 @@ public class SimpleDestination {
     @SerializedName(SERIALIZED_NAME_SETTINGS)
     private Map<String, Object> settings = new HashMap<>();
 
+    public static final String SERIALIZED_NAME_DESTINATION_ID = "destinationId";
+
+    @SerializedName(SERIALIZED_NAME_DESTINATION_ID)
+    private String destinationId;
+
     public static final String SERIALIZED_NAME_METADATA = "metadata";
 
     @SerializedName(SERIALIZED_NAME_METADATA)
@@ -84,7 +89,7 @@ public class SimpleDestination {
     }
 
     /**
-     * The id of the Destination.
+     * The id of the Integration.
      *
      * @return id
      */
@@ -144,7 +149,7 @@ public class SimpleDestination {
     }
 
     /**
-     * Enabled or not.
+     * Whether the Integration is enabled or not.
      *
      * @return enabled
      */
@@ -225,6 +230,26 @@ public class SimpleDestination {
         this.settings = settings;
     }
 
+    public SimpleDestination destinationId(String destinationId) {
+
+        this.destinationId = destinationId;
+        return this;
+    }
+
+    /**
+     * The Destination id.
+     *
+     * @return destinationId
+     */
+    @javax.annotation.Nonnull
+    public String getDestinationId() {
+        return destinationId;
+    }
+
+    public void setDestinationId(String destinationId) {
+        this.destinationId = destinationId;
+    }
+
     public SimpleDestination metadata(Metadata metadata) {
 
         this.metadata = metadata;
@@ -281,6 +306,7 @@ public class SimpleDestination {
                 && Objects.equals(this.createdAt, simpleDestination.createdAt)
                 && Objects.equals(this.updatedAt, simpleDestination.updatedAt)
                 && Objects.equals(this.settings, simpleDestination.settings)
+                && Objects.equals(this.destinationId, simpleDestination.destinationId)
                 && Objects.equals(this.metadata, simpleDestination.metadata)
                 && Objects.equals(this.idSync, simpleDestination.idSync);
     }
@@ -288,7 +314,16 @@ public class SimpleDestination {
     @Override
     public int hashCode() {
         return Objects.hash(
-                id, name, sourceId, enabled, createdAt, updatedAt, settings, metadata, idSync);
+                id,
+                name,
+                sourceId,
+                enabled,
+                createdAt,
+                updatedAt,
+                settings,
+                destinationId,
+                metadata,
+                idSync);
     }
 
     @Override
@@ -302,6 +337,7 @@ public class SimpleDestination {
         sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
         sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
         sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
+        sb.append("    destinationId: ").append(toIndentedString(destinationId)).append("\n");
         sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
         sb.append("    idSync: ").append(toIndentedString(idSync)).append("\n");
         sb.append("}");
@@ -332,6 +368,7 @@ public class SimpleDestination {
         openapiFields.add("createdAt");
         openapiFields.add("updatedAt");
         openapiFields.add("settings");
+        openapiFields.add("destinationId");
         openapiFields.add("metadata");
         openapiFields.add("idSync");
 
@@ -343,6 +380,7 @@ public class SimpleDestination {
         openapiRequiredFields.add("createdAt");
         openapiRequiredFields.add("updatedAt");
         openapiRequiredFields.add("settings");
+        openapiRequiredFields.add("destinationId");
     }
 
     /**
@@ -420,6 +458,13 @@ public class SimpleDestination {
                             "Expected the field `updatedAt` to be a primitive type in the JSON"
                                     + " string but got `%s`",
                             jsonObj.get("updatedAt").toString()));
+        }
+        if (!jsonObj.get("destinationId").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `destinationId` to be a primitive type in the JSON"
+                                    + " string but got `%s`",
+                            jsonObj.get("destinationId").toString()));
         }
         // validate the optional field `metadata`
         if (jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) {
