@@ -107,6 +107,15 @@ public class JSON {
                 new com.segment.publicapi.models.AddActivationToAudienceAlphaOutput
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.AddAudienceScheduleToAudience200Response
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.AddAudienceScheduleToAudienceAlphaInput
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.AddAudienceScheduleToAudienceAlphaOutput
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.AddConnectionFromSourceToWarehouse201Response
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
