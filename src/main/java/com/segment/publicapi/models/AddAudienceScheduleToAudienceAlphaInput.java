@@ -30,7 +30,7 @@ import java.util.Objects;
 import java.util.Set;
 import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Defines a Create Audience Schedule Input. */
+/** Defines an input for creating an audience schedule. */
 public class AddAudienceScheduleToAudienceAlphaInput {
     public static final String SERIALIZED_NAME_ENABLED = "enabled";
 

@@ -27,7 +27,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Defines a Create Audience Schedule Output. */
+/** Defines the output of creating an audience schedule. */
 public class AddAudienceScheduleToAudienceAlphaOutput {
     public static final String SERIALIZED_NAME_AUDIENCE_SCHEDULE = "audienceSchedule";
 
