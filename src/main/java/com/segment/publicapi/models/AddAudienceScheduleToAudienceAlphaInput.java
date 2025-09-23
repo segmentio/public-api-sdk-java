@@ -32,11 +32,6 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Defines an input for creating an audience schedule. */
 public class AddAudienceScheduleToAudienceAlphaInput {
-    public static final String SERIALIZED_NAME_ENABLED = "enabled";
-
-    @SerializedName(SERIALIZED_NAME_ENABLED)
-    private Boolean enabled;
-
     /** Strategy of the audience schedule (manual, periodic, or specific days). */
     @JsonAdapter(StrategyEnum.Adapter.class)
     public enum StrategyEnum {
@@ -97,26 +92,6 @@ public class AddAudienceScheduleToAudienceAlphaInput {
 
     public AddAudienceScheduleToAudienceAlphaInput() {}
 
-    public AddAudienceScheduleToAudienceAlphaInput enabled(Boolean enabled) {
-
-        this.enabled = enabled;
-        return this;
-    }
-
-    /**
-     * The enabled status of the schedule to be created.
-     *
-     * @return enabled
-     */
-    @javax.annotation.Nonnull
-    public Boolean getEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
-    }
-
     public AddAudienceScheduleToAudienceAlphaInput strategy(StrategyEnum strategy) {
 
         this.strategy = strategy;
@@ -167,8 +142,7 @@ public class AddAudienceScheduleToAudienceAlphaInput {
         }
         AddAudienceScheduleToAudienceAlphaInput addAudienceScheduleToAudienceAlphaInput =
                 (AddAudienceScheduleToAudienceAlphaInput) o;
-        return Objects.equals(this.enabled, addAudienceScheduleToAudienceAlphaInput.enabled)
-                && Objects.equals(this.strategy, addAudienceScheduleToAudienceAlphaInput.strategy)
+        return Objects.equals(this.strategy, addAudienceScheduleToAudienceAlphaInput.strategy)
                 && Objects.equals(this.config, addAudienceScheduleToAudienceAlphaInput.config);
     }
 
@@ -183,7 +157,7 @@ public class AddAudienceScheduleToAudienceAlphaInput {
 
     @Override
     public int hashCode() {
-        return Objects.hash(enabled, strategy, config);
+        return Objects.hash(strategy, config);
     }
 
     private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -197,7 +171,6 @@ public class AddAudienceScheduleToAudienceAlphaInput {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class AddAudienceScheduleToAudienceAlphaInput {\n");
-        sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
         sb.append("    strategy: ").append(toIndentedString(strategy)).append("\n");
         sb.append("    config: ").append(toIndentedString(config)).append("\n");
         sb.append("}");
@@ -221,13 +194,11 @@ public class AddAudienceScheduleToAudienceAlphaInput {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("enabled");
         openapiFields.add("strategy");
         openapiFields.add("config");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("enabled");
         openapiRequiredFields.add("strategy");
     }
 
