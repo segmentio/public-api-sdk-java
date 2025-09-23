@@ -1162,7 +1162,9 @@ public class DeletionAndSuppressionApi {
     }
 
     /**
-     * List Regulations from Source Lists all Source-scoped regulations.
+     * List Regulations from Source Lists all Source-scoped regulations. Please note: List
+     * regulations for Source only returns deletion requests from the past 90 days. Deletion
+     * requests older than 90 days are not retained and will result in 404 resource not found.
      *
      * @param sourceId (required)
      * @param status The status on which to filter returned regulations. This parameter exists in
@@ -1195,7 +1197,9 @@ public class DeletionAndSuppressionApi {
     }
 
     /**
-     * List Regulations from Source Lists all Source-scoped regulations.
+     * List Regulations from Source Lists all Source-scoped regulations. Please note: List
+     * regulations for Source only returns deletion requests from the past 90 days. Deletion
+     * requests older than 90 days are not retained and will result in 404 resource not found.
      *
      * @param sourceId (required)
      * @param status The status on which to filter returned regulations. This parameter exists in
@@ -1230,7 +1234,10 @@ public class DeletionAndSuppressionApi {
     }
 
     /**
-     * List Regulations from Source (asynchronously) Lists all Source-scoped regulations.
+     * List Regulations from Source (asynchronously) Lists all Source-scoped regulations. Please
+     * note: List regulations for Source only returns deletion requests from the past 90 days.
+     * Deletion requests older than 90 days are not retained and will result in 404 resource not
+     * found.
      *
      * @param sourceId (required)
      * @param status The status on which to filter returned regulations. This parameter exists in
@@ -1534,7 +1541,9 @@ public class DeletionAndSuppressionApi {
     }
 
     /**
-     * List Workspace Regulations Lists all Workspace-scoped regulations.
+     * List Workspace Regulations Lists all Workspace-scoped regulations. Please note: List
+     * Workspace regulations only returns deletion requests from the past 90 days. Deletion requests
+     * older than 90 days are not retained and will result in 404 resource not found.
      *
      * @param status The status on which to filter the returned regulations. This parameter exists
      *     in v1. (optional)
@@ -1562,7 +1571,9 @@ public class DeletionAndSuppressionApi {
     }
 
     /**
-     * List Workspace Regulations Lists all Workspace-scoped regulations.
+     * List Workspace Regulations Lists all Workspace-scoped regulations. Please note: List
+     * Workspace regulations only returns deletion requests from the past 90 days. Deletion requests
+     * older than 90 days are not retained and will result in 404 resource not found.
      *
      * @param status The status on which to filter the returned regulations. This parameter exists
      *     in v1. (optional)
@@ -1592,7 +1603,10 @@ public class DeletionAndSuppressionApi {
     }
 
     /**
-     * List Workspace Regulations (asynchronously) Lists all Workspace-scoped regulations.
+     * List Workspace Regulations (asynchronously) Lists all Workspace-scoped regulations. Please
+     * note: List Workspace regulations only returns deletion requests from the past 90 days.
+     * Deletion requests older than 90 days are not retained and will result in 404 resource not
+     * found.
      *
      * @param status The status on which to filter the returned regulations. This parameter exists
      *     in v1. (optional)
