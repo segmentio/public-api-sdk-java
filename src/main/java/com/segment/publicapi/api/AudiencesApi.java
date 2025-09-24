@@ -2648,11 +2648,11 @@ public class AudiencesApi {
     }
 
     /**
-     * Update Audience Schedule for Audience Updates an audience schedule for the given audience id.
-     * • This endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
-     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
-     * needs to have the Audience feature enabled. Please reach out to your customer success manager
-     * for more information.
+     * Update Audience Schedule for Audience Updates an audience schedule for a Linked Audience
+     * (audienceType &#x3D; LINKED). • This endpoint is in **Alpha** testing. Please submit any
+     * feedback by sending an email to friends@segment.com. • In order to successfully call this
+     * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
+     * out to your customer success manager for more information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -2683,11 +2683,11 @@ public class AudiencesApi {
     }
 
     /**
-     * Update Audience Schedule for Audience Updates an audience schedule for the given audience id.
-     * • This endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
-     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
-     * needs to have the Audience feature enabled. Please reach out to your customer success manager
-     * for more information.
+     * Update Audience Schedule for Audience Updates an audience schedule for a Linked Audience
+     * (audienceType &#x3D; LINKED). • This endpoint is in **Alpha** testing. Please submit any
+     * feedback by sending an email to friends@segment.com. • In order to successfully call this
+     * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
+     * out to your customer success manager for more information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -2722,11 +2722,11 @@ public class AudiencesApi {
     }
 
     /**
-     * Update Audience Schedule for Audience (asynchronously) Updates an audience schedule for the
-     * given audience id. • This endpoint is in **Alpha** testing. Please submit any feedback by
-     * sending an email to friends@segment.com. • In order to successfully call this endpoint, the
-     * specified Workspace needs to have the Audience feature enabled. Please reach out to your
-     * customer success manager for more information.
+     * Update Audience Schedule for Audience (asynchronously) Updates an audience schedule for a
+     * Linked Audience (audienceType &#x3D; LINKED). • This endpoint is in **Alpha** testing. Please
+     * submit any feedback by sending an email to friends@segment.com. • In order to successfully
+     * call this endpoint, the specified Workspace needs to have the Audience feature enabled.
+     * Please reach out to your customer success manager for more information.
      *
      * @param spaceId (required)
      * @param id (required)
