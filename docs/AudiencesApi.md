@@ -7,7 +7,6 @@ All URIs are relative to *https://api.segmentapis.com*
 | [**addAudienceScheduleToAudience**](AudiencesApi.md#addAudienceScheduleToAudience) | **POST** /spaces/{spaceId}/audiences/{id}/schedules | Add Audience Schedule to Audience |
 | [**createAudience**](AudiencesApi.md#createAudience) | **POST** /spaces/{spaceId}/audiences | Create Audience |
 | [**createAudiencePreview**](AudiencesApi.md#createAudiencePreview) | **POST** /spaces/{spaceId}/audiences/previews | Create Audience Preview |
-| [**forceExecuteAudienceRun**](AudiencesApi.md#forceExecuteAudienceRun) | **POST** /spaces/{spaceId}/audiences/{audienceId}/runs | Force Execute Audience Run |
 | [**getAudience**](AudiencesApi.md#getAudience) | **GET** /spaces/{spaceId}/audiences/{id} | Get Audience |
 | [**getAudiencePreview**](AudiencesApi.md#getAudiencePreview) | **GET** /spaces/{spaceId}/audiences/previews/{id} | Get Audience Preview |
 | [**getAudienceScheduleFromSpaceAndAudience**](AudiencesApi.md#getAudienceScheduleFromSpaceAndAudience) | **GET** /spaces/{spaceId}/audiences/{id}/schedules/{scheduleId} | Get Audience Schedule from Space And Audience |
@@ -236,81 +235,6 @@ public class Example {
 
 - **Content-Type**: application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
 - **Accept**: application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json, application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **404** | Resource not found |  -  |
-| **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
-
-
-## Operation: forceExecuteAudienceRun
-
-> ForceExecuteAudienceRun200Response forceExecuteAudienceRun(spaceId, audienceId)
-
-Force Execute Audience Run
-
-Forces execution of an audience run.  • This endpoint is in **Alpha** testing.  Please submit any feedback by sending an email to friends@segment.com.   • In order to successfully call this endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach out to your customer success manager for more information.  • When called, this endpoint may generate the &#x60;Audience Run Forced&#x60; event in the [audit trail](/tag/Audit-Trail).
-
-### Example
-
-```java
-// Import classes:
-import com.segment.publicapi.ApiClient;
-import com.segment.publicapi.ApiException;
-import com.segment.publicapi.Configuration;
-import com.segment.publicapi.auth.*;
-import com.segment.publicapi.models.*;
-import com.segment.publicapi.api.AudiencesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        
-        // Configure HTTP bearer authorization: token
-        HttpBearerAuth token = (HttpBearerAuth) defaultClient.getAuthentication("token");
-        token.setBearerToken("BEARER TOKEN");
-
-        AudiencesApi apiInstance = new AudiencesApi(defaultClient);
-        String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
-        String audienceId = "aud_0ujsszwN8NRY24YaXiTIE2VWDTS"; // String | 
-        try {
-            ForceExecuteAudienceRun200Response result = apiInstance.forceExecuteAudienceRun(spaceId, audienceId);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling AudiencesApi#forceExecuteAudienceRun");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **spaceId** | **String**|  | |
-| **audienceId** | **String**|  | |
-
-### Return type
-
-[**ForceExecuteAudienceRun200Response**](ForceExecuteAudienceRun200Response.md)
-
-### Authorization
-
-[token](../README.md#token)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/vnd.segment.v1alpha+json, application/json
 
 
 ### HTTP response details
