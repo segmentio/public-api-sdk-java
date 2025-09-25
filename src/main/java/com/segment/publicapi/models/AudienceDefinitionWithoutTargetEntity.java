@@ -27,41 +27,16 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** AudienceDefinition */
-public class AudienceDefinition {
-    public static final String SERIALIZED_NAME_TARGET_ENTITY = "targetEntity";
-
-    @SerializedName(SERIALIZED_NAME_TARGET_ENTITY)
-    private String targetEntity;
-
+/** AudienceDefinitionWithoutTargetEntity */
+public class AudienceDefinitionWithoutTargetEntity {
     public static final String SERIALIZED_NAME_QUERY = "query";
 
     @SerializedName(SERIALIZED_NAME_QUERY)
     private String query;
 
-    public AudienceDefinition() {}
+    public AudienceDefinitionWithoutTargetEntity() {}
 
-    public AudienceDefinition targetEntity(String targetEntity) {
-
-        this.targetEntity = targetEntity;
-        return this;
-    }
-
-    /**
-     * The target entity slug, required in creating a linked audience.
-     *
-     * @return targetEntity
-     */
-    @javax.annotation.Nullable
-    public String getTargetEntity() {
-        return targetEntity;
-    }
-
-    public void setTargetEntity(String targetEntity) {
-        this.targetEntity = targetEntity;
-    }
-
-    public AudienceDefinition query(String query) {
+    public AudienceDefinitionWithoutTargetEntity query(String query) {
 
         this.query = query;
         return this;
@@ -91,21 +66,20 @@ public class AudienceDefinition {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        AudienceDefinition audienceDefinition = (AudienceDefinition) o;
-        return Objects.equals(this.targetEntity, audienceDefinition.targetEntity)
-                && Objects.equals(this.query, audienceDefinition.query);
+        AudienceDefinitionWithoutTargetEntity audienceDefinitionWithoutTargetEntity =
+                (AudienceDefinitionWithoutTargetEntity) o;
+        return Objects.equals(this.query, audienceDefinitionWithoutTargetEntity.query);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(targetEntity, query);
+        return Objects.hash(query);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AudienceDefinition {\n");
-        sb.append("    targetEntity: ").append(toIndentedString(targetEntity)).append("\n");
+        sb.append("class AudienceDefinitionWithoutTargetEntity {\n");
         sb.append("    query: ").append(toIndentedString(query)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -128,7 +102,6 @@ public class AudienceDefinition {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("targetEntity");
         openapiFields.add("query");
 
         // a set of required properties/fields (JSON key names)
@@ -140,34 +113,37 @@ public class AudienceDefinition {
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to AudienceDefinition
+     * @throws IOException if the JSON Element is invalid with respect to
+     *     AudienceDefinitionWithoutTargetEntity
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!AudienceDefinition.openapiRequiredFields
+            if (!AudienceDefinitionWithoutTargetEntity.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in AudienceDefinition is not found in the"
-                                        + " empty JSON string",
-                                AudienceDefinition.openapiRequiredFields.toString()));
+                                "The required field(s) %s in AudienceDefinitionWithoutTargetEntity"
+                                        + " is not found in the empty JSON string",
+                                AudienceDefinitionWithoutTargetEntity.openapiRequiredFields
+                                        .toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!AudienceDefinition.openapiFields.contains(entry.getKey())) {
+            if (!AudienceDefinitionWithoutTargetEntity.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `AudienceDefinition` properties. JSON: %s",
+                                    + " `AudienceDefinitionWithoutTargetEntity` properties. JSON:"
+                                    + " %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : AudienceDefinition.openapiRequiredFields) {
+        for (String requiredField : AudienceDefinitionWithoutTargetEntity.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -176,14 +152,6 @@ public class AudienceDefinition {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if ((jsonObj.get("targetEntity") != null && !jsonObj.get("targetEntity").isJsonNull())
-                && !jsonObj.get("targetEntity").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `targetEntity` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
-                            jsonObj.get("targetEntity").toString()));
-        }
         if (!jsonObj.get("query").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -197,24 +165,28 @@ public class AudienceDefinition {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!AudienceDefinition.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'AudienceDefinition' and its subtypes
+            if (!AudienceDefinitionWithoutTargetEntity.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'AudienceDefinitionWithoutTargetEntity'
+                // and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<AudienceDefinition> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(AudienceDefinition.class));
+            final TypeAdapter<AudienceDefinitionWithoutTargetEntity> thisAdapter =
+                    gson.getDelegateAdapter(
+                            this, TypeToken.get(AudienceDefinitionWithoutTargetEntity.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<AudienceDefinition>() {
+                    new TypeAdapter<AudienceDefinitionWithoutTargetEntity>() {
                         @Override
-                        public void write(JsonWriter out, AudienceDefinition value)
+                        public void write(
+                                JsonWriter out, AudienceDefinitionWithoutTargetEntity value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public AudienceDefinition read(JsonReader in) throws IOException {
+                        public AudienceDefinitionWithoutTargetEntity read(JsonReader in)
+                                throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -224,18 +196,20 @@ public class AudienceDefinition {
     }
 
     /**
-     * Create an instance of AudienceDefinition given an JSON string
+     * Create an instance of AudienceDefinitionWithoutTargetEntity given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of AudienceDefinition
-     * @throws IOException if the JSON string is invalid with respect to AudienceDefinition
+     * @return An instance of AudienceDefinitionWithoutTargetEntity
+     * @throws IOException if the JSON string is invalid with respect to
+     *     AudienceDefinitionWithoutTargetEntity
      */
-    public static AudienceDefinition fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, AudienceDefinition.class);
+    public static AudienceDefinitionWithoutTargetEntity fromJson(String jsonString)
+            throws IOException {
+        return JSON.getGson().fromJson(jsonString, AudienceDefinitionWithoutTargetEntity.class);
     }
 
     /**
-     * Convert an instance of AudienceDefinition to an JSON string
+     * Convert an instance of AudienceDefinitionWithoutTargetEntity to an JSON string
      *
      * @return JSON string
      */
