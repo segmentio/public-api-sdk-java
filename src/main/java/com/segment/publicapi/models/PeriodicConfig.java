@@ -43,9 +43,8 @@ public class PeriodicConfig {
     }
 
     /**
-     * Go duration format string, only supporting units \&quot;d\&quot; (days), \&quot;h\&quot;
-     * (hours) and \&quot;m\&quot; (minutes). Acceptable values are: - 15m - 30m - 1h - 2h - 4h - 6h
-     * - 8h - 12h - 1d
+     * Go duration format string, only supporting units \&quot;day\&quot; (days), \&quot;h\&quot;
+     * (hours) and \&quot;m\&quot; (minutes).
      *
      * @return interval
      */
