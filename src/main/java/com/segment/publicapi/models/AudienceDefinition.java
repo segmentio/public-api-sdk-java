@@ -48,7 +48,8 @@ public class AudienceDefinition {
     }
 
     /**
-     * The target entity slug, required in creating a linked audience.
+     * The target entity relationship slug, required in a linked audience, default to profile if not
+     * specified.
      *
      * @return targetEntity
      */
