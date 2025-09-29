@@ -1044,7 +1044,7 @@ public class AudiencesApi {
 
     /**
      * Get Audience Returns the Audience by id and spaceId. Supports including audience schedules
-     * via &#x60;?include&#x3D;schedules&#x60;. • This endpoint is in **Beta** testing. Please
+     * using &#x60;?include&#x3D;schedules&#x60;. • This endpoint is in **Beta** testing. Please
      * submit any feedback by sending an email to friends@segment.com. • In order to successfully
      * call this endpoint, the specified Workspace needs to have the Audience feature enabled.
      * Please reach out to your customer success manager for more information. The rate limit for
@@ -1078,7 +1078,7 @@ public class AudiencesApi {
 
     /**
      * Get Audience Returns the Audience by id and spaceId. Supports including audience schedules
-     * via &#x60;?include&#x3D;schedules&#x60;. • This endpoint is in **Beta** testing. Please
+     * using &#x60;?include&#x3D;schedules&#x60;. • This endpoint is in **Beta** testing. Please
      * submit any feedback by sending an email to friends@segment.com. • In order to successfully
      * call this endpoint, the specified Workspace needs to have the Audience feature enabled.
      * Please reach out to your customer success manager for more information. The rate limit for
@@ -1112,7 +1112,7 @@ public class AudiencesApi {
 
     /**
      * Get Audience (asynchronously) Returns the Audience by id and spaceId. Supports including
-     * audience schedules via &#x60;?include&#x3D;schedules&#x60;. • This endpoint is in **Beta**
+     * audience schedules using &#x60;?include&#x3D;schedules&#x60;. • This endpoint is in **Beta**
      * testing. Please submit any feedback by sending an email to friends@segment.com. • In order to
      * successfully call this endpoint, the specified Workspace needs to have the Audience feature
      * enabled. Please reach out to your customer success manager for more information. The rate
@@ -2138,7 +2138,7 @@ public class AudiencesApi {
     }
 
     /**
-     * List Audiences Returns Audiences by spaceId. Supports including audience schedules via
+     * List Audiences Returns Audiences by spaceId. Supports including audience schedules using
      * &#x60;?include&#x3D;schedules&#x60;. • This endpoint is in **Beta** testing. Please submit
      * any feedback by sending an email to friends@segment.com. • In order to successfully call this
      * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
@@ -2179,7 +2179,7 @@ public class AudiencesApi {
     }
 
     /**
-     * List Audiences Returns Audiences by spaceId. Supports including audience schedules via
+     * List Audiences Returns Audiences by spaceId. Supports including audience schedules using
      * &#x60;?include&#x3D;schedules&#x60;. • This endpoint is in **Beta** testing. Please submit
      * any feedback by sending an email to friends@segment.com. • In order to successfully call this
      * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
@@ -2222,7 +2222,7 @@ public class AudiencesApi {
 
     /**
      * List Audiences (asynchronously) Returns Audiences by spaceId. Supports including audience
-     * schedules via &#x60;?include&#x3D;schedules&#x60;. • This endpoint is in **Beta** testing.
+     * schedules using &#x60;?include&#x3D;schedules&#x60;. • This endpoint is in **Beta** testing.
      * Please submit any feedback by sending an email to friends@segment.com. • In order to
      * successfully call this endpoint, the specified Workspace needs to have the Audience feature
      * enabled. Please reach out to your customer success manager for more information. The rate
