@@ -29,17 +29,38 @@ import java.util.Set;
 
 /** AudienceDefinition */
 public class AudienceDefinition {
-    public static final String SERIALIZED_NAME_QUERY = "query";
-
-    @SerializedName(SERIALIZED_NAME_QUERY)
-    private String query;
-
     public static final String SERIALIZED_NAME_TARGET_ENTITY = "targetEntity";
 
     @SerializedName(SERIALIZED_NAME_TARGET_ENTITY)
     private String targetEntity;
 
+    public static final String SERIALIZED_NAME_QUERY = "query";
+
+    @SerializedName(SERIALIZED_NAME_QUERY)
+    private String query;
+
     public AudienceDefinition() {}
+
+    public AudienceDefinition targetEntity(String targetEntity) {
+
+        this.targetEntity = targetEntity;
+        return this;
+    }
+
+    /**
+     * The target entity relationship slug, required in a linked audience, default to profile if not
+     * specified.
+     *
+     * @return targetEntity
+     */
+    @javax.annotation.Nullable
+    public String getTargetEntity() {
+        return targetEntity;
+    }
+
+    public void setTargetEntity(String targetEntity) {
+        this.targetEntity = targetEntity;
+    }
 
     public AudienceDefinition query(String query) {
 
@@ -63,26 +84,6 @@ public class AudienceDefinition {
         this.query = query;
     }
 
-    public AudienceDefinition targetEntity(String targetEntity) {
-
-        this.targetEntity = targetEntity;
-        return this;
-    }
-
-    /**
-     * The target entity slug.
-     *
-     * @return targetEntity
-     */
-    @javax.annotation.Nullable
-    public String getTargetEntity() {
-        return targetEntity;
-    }
-
-    public void setTargetEntity(String targetEntity) {
-        this.targetEntity = targetEntity;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -92,21 +93,21 @@ public class AudienceDefinition {
             return false;
         }
         AudienceDefinition audienceDefinition = (AudienceDefinition) o;
-        return Objects.equals(this.query, audienceDefinition.query)
-                && Objects.equals(this.targetEntity, audienceDefinition.targetEntity);
+        return Objects.equals(this.targetEntity, audienceDefinition.targetEntity)
+                && Objects.equals(this.query, audienceDefinition.query);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(query, targetEntity);
+        return Objects.hash(targetEntity, query);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class AudienceDefinition {\n");
-        sb.append("    query: ").append(toIndentedString(query)).append("\n");
         sb.append("    targetEntity: ").append(toIndentedString(targetEntity)).append("\n");
+        sb.append("    query: ").append(toIndentedString(query)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -128,8 +129,8 @@ public class AudienceDefinition {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("query");
         openapiFields.add("targetEntity");
+        openapiFields.add("query");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
@@ -176,13 +177,6 @@ public class AudienceDefinition {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if (!jsonObj.get("query").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `query` to be a primitive type in the JSON string"
-                                    + " but got `%s`",
-                            jsonObj.get("query").toString()));
-        }
         if ((jsonObj.get("targetEntity") != null && !jsonObj.get("targetEntity").isJsonNull())
                 && !jsonObj.get("targetEntity").isJsonPrimitive()) {
             throw new IllegalArgumentException(
@@ -190,6 +184,13 @@ public class AudienceDefinition {
                             "Expected the field `targetEntity` to be a primitive type in the JSON"
                                     + " string but got `%s`",
                             jsonObj.get("targetEntity").toString()));
+        }
+        if (!jsonObj.get("query").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `query` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
+                            jsonObj.get("query").toString()));
         }
     }
 

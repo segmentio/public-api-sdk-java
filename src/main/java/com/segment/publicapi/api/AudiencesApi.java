@@ -36,7 +36,9 @@ import com.segment.publicapi.models.ListAudiencesPaginationInput;
 import com.segment.publicapi.models.PaginationInput;
 import com.segment.publicapi.models.RemoveAudienceFromSpace200Response;
 import com.segment.publicapi.models.UpdateAudienceForSpace200Response;
-import com.segment.publicapi.models.UpdateAudienceForSpaceAlphaInput;
+import com.segment.publicapi.models.UpdateAudienceForSpaceBetaInput;
+import com.segment.publicapi.models.UpdateAudienceScheduleForAudience200Response;
+import com.segment.publicapi.models.UpdateAudienceScheduleForAudienceAlphaInput;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -2277,7 +2279,7 @@ public class AudiencesApi {
      *
      * @param spaceId (required)
      * @param id (required)
-     * @param updateAudienceForSpaceAlphaInput (required)
+     * @param updateAudienceForSpaceBetaInput (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2293,7 +2295,7 @@ public class AudiencesApi {
     public okhttp3.Call updateAudienceForSpaceCall(
             String spaceId,
             String id,
-            UpdateAudienceForSpaceAlphaInput updateAudienceForSpaceAlphaInput,
+            UpdateAudienceForSpaceBetaInput updateAudienceForSpaceBetaInput,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -2309,7 +2311,7 @@ public class AudiencesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = updateAudienceForSpaceAlphaInput;
+        Object localVarPostBody = updateAudienceForSpaceBetaInput;
 
         // create path and map variables
         String localVarPath =
@@ -2318,6 +2320,260 @@ public class AudiencesApi {
                                 "{" + "spaceId" + "}",
                                 localVarApiClient.escapeString(spaceId.toString()))
                         .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json",
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/vnd.segment.v1beta+json", "application/vnd.segment.v1alpha+json"
+        };
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"token"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "PATCH",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateAudienceForSpaceValidateBeforeCall(
+            String spaceId,
+            String id,
+            UpdateAudienceForSpaceBetaInput updateAudienceForSpaceBetaInput,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'spaceId' when calling"
+                            + " updateAudienceForSpace(Async)");
+        }
+
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'id' when calling"
+                            + " updateAudienceForSpace(Async)");
+        }
+
+        // verify the required parameter 'updateAudienceForSpaceBetaInput' is set
+        if (updateAudienceForSpaceBetaInput == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'updateAudienceForSpaceBetaInput' when calling"
+                            + " updateAudienceForSpace(Async)");
+        }
+
+        return updateAudienceForSpaceCall(spaceId, id, updateAudienceForSpaceBetaInput, _callback);
+    }
+
+    /**
+     * Update Audience for Space Updates the Audience. • This endpoint is in **Alpha** testing.
+     * Please submit any feedback by sending an email to friends@segment.com. • In order to
+     * successfully call this endpoint, the specified Workspace needs to have the Audience feature
+     * enabled. Please reach out to your customer success manager for more information. • When
+     * called, this endpoint may generate the &#x60;Audience Modified&#x60; event in the [audit
+     * trail](/tag/Audit-Trail). • Note that when an Audience is updated, the Audience will be
+     * locked from future edits until the changes have been incorporated. You can find more
+     * information [in the Segment
+     * docs](https://segment-docs.netlify.app/docs/engage/audiences/#editing-realtime-audiences-and-traits).
+     * Note: The definition for an Audience updated using the API is not editable through the
+     * Segment App. The rate limit for this endpoint is 10 requests per minute, which is lower than
+     * the default due to access pattern restrictions. Once reached, this endpoint will respond with
+     * the 429 HTTP status code with headers indicating the limit parameters. See [Rate
+     * Limiting](/#tag/Rate-Limits) for more information.
+     *
+     * @param spaceId (required)
+     * @param id (required)
+     * @param updateAudienceForSpaceBetaInput (required)
+     * @return UpdateAudienceForSpace200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public UpdateAudienceForSpace200Response updateAudienceForSpace(
+            String spaceId,
+            String id,
+            UpdateAudienceForSpaceBetaInput updateAudienceForSpaceBetaInput)
+            throws ApiException {
+        ApiResponse<UpdateAudienceForSpace200Response> localVarResp =
+                updateAudienceForSpaceWithHttpInfo(spaceId, id, updateAudienceForSpaceBetaInput);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update Audience for Space Updates the Audience. • This endpoint is in **Alpha** testing.
+     * Please submit any feedback by sending an email to friends@segment.com. • In order to
+     * successfully call this endpoint, the specified Workspace needs to have the Audience feature
+     * enabled. Please reach out to your customer success manager for more information. • When
+     * called, this endpoint may generate the &#x60;Audience Modified&#x60; event in the [audit
+     * trail](/tag/Audit-Trail). • Note that when an Audience is updated, the Audience will be
+     * locked from future edits until the changes have been incorporated. You can find more
+     * information [in the Segment
+     * docs](https://segment-docs.netlify.app/docs/engage/audiences/#editing-realtime-audiences-and-traits).
+     * Note: The definition for an Audience updated using the API is not editable through the
+     * Segment App. The rate limit for this endpoint is 10 requests per minute, which is lower than
+     * the default due to access pattern restrictions. Once reached, this endpoint will respond with
+     * the 429 HTTP status code with headers indicating the limit parameters. See [Rate
+     * Limiting](/#tag/Rate-Limits) for more information.
+     *
+     * @param spaceId (required)
+     * @param id (required)
+     * @param updateAudienceForSpaceBetaInput (required)
+     * @return ApiResponse&lt;UpdateAudienceForSpace200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<UpdateAudienceForSpace200Response> updateAudienceForSpaceWithHttpInfo(
+            String spaceId,
+            String id,
+            UpdateAudienceForSpaceBetaInput updateAudienceForSpaceBetaInput)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                updateAudienceForSpaceValidateBeforeCall(
+                        spaceId, id, updateAudienceForSpaceBetaInput, null);
+        Type localVarReturnType = new TypeToken<UpdateAudienceForSpace200Response>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update Audience for Space (asynchronously) Updates the Audience. • This endpoint is in
+     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
+     * In order to successfully call this endpoint, the specified Workspace needs to have the
+     * Audience feature enabled. Please reach out to your customer success manager for more
+     * information. • When called, this endpoint may generate the &#x60;Audience Modified&#x60;
+     * event in the [audit trail](/tag/Audit-Trail). • Note that when an Audience is updated, the
+     * Audience will be locked from future edits until the changes have been incorporated. You can
+     * find more information [in the Segment
+     * docs](https://segment-docs.netlify.app/docs/engage/audiences/#editing-realtime-audiences-and-traits).
+     * Note: The definition for an Audience updated using the API is not editable through the
+     * Segment App. The rate limit for this endpoint is 10 requests per minute, which is lower than
+     * the default due to access pattern restrictions. Once reached, this endpoint will respond with
+     * the 429 HTTP status code with headers indicating the limit parameters. See [Rate
+     * Limiting](/#tag/Rate-Limits) for more information.
+     *
+     * @param spaceId (required)
+     * @param id (required)
+     * @param updateAudienceForSpaceBetaInput (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body
+     *     object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call updateAudienceForSpaceAsync(
+            String spaceId,
+            String id,
+            UpdateAudienceForSpaceBetaInput updateAudienceForSpaceBetaInput,
+            final ApiCallback<UpdateAudienceForSpace200Response> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                updateAudienceForSpaceValidateBeforeCall(
+                        spaceId, id, updateAudienceForSpaceBetaInput, _callback);
+        Type localVarReturnType = new TypeToken<UpdateAudienceForSpace200Response>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for updateAudienceScheduleForAudience
+     *
+     * @param spaceId (required)
+     * @param id (required)
+     * @param scheduleId (required)
+     * @param updateAudienceScheduleForAudienceAlphaInput (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call updateAudienceScheduleForAudienceCall(
+            String spaceId,
+            String id,
+            String scheduleId,
+            UpdateAudienceScheduleForAudienceAlphaInput updateAudienceScheduleForAudienceAlphaInput,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = updateAudienceScheduleForAudienceAlphaInput;
+
+        // create path and map variables
+        String localVarPath =
+                "/spaces/{spaceId}/audiences/{id}/schedules/{scheduleId}"
+                        .replace(
+                                "{" + "spaceId" + "}",
+                                localVarApiClient.escapeString(spaceId.toString()))
+                        .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()))
+                        .replace(
+                                "{" + "scheduleId" + "}",
+                                localVarApiClient.escapeString(scheduleId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2356,56 +2612,57 @@ public class AudiencesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateAudienceForSpaceValidateBeforeCall(
+    private okhttp3.Call updateAudienceScheduleForAudienceValidateBeforeCall(
             String spaceId,
             String id,
-            UpdateAudienceForSpaceAlphaInput updateAudienceForSpaceAlphaInput,
+            String scheduleId,
+            UpdateAudienceScheduleForAudienceAlphaInput updateAudienceScheduleForAudienceAlphaInput,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new ApiException(
                     "Missing the required parameter 'spaceId' when calling"
-                            + " updateAudienceForSpace(Async)");
+                            + " updateAudienceScheduleForAudience(Async)");
         }
 
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException(
                     "Missing the required parameter 'id' when calling"
-                            + " updateAudienceForSpace(Async)");
+                            + " updateAudienceScheduleForAudience(Async)");
         }
 
-        // verify the required parameter 'updateAudienceForSpaceAlphaInput' is set
-        if (updateAudienceForSpaceAlphaInput == null) {
+        // verify the required parameter 'scheduleId' is set
+        if (scheduleId == null) {
             throw new ApiException(
-                    "Missing the required parameter 'updateAudienceForSpaceAlphaInput' when calling"
-                            + " updateAudienceForSpace(Async)");
+                    "Missing the required parameter 'scheduleId' when calling"
+                            + " updateAudienceScheduleForAudience(Async)");
         }
 
-        return updateAudienceForSpaceCall(spaceId, id, updateAudienceForSpaceAlphaInput, _callback);
+        // verify the required parameter 'updateAudienceScheduleForAudienceAlphaInput' is set
+        if (updateAudienceScheduleForAudienceAlphaInput == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'updateAudienceScheduleForAudienceAlphaInput'"
+                            + " when calling updateAudienceScheduleForAudience(Async)");
+        }
+
+        return updateAudienceScheduleForAudienceCall(
+                spaceId, id, scheduleId, updateAudienceScheduleForAudienceAlphaInput, _callback);
     }
 
     /**
-     * Update Audience for Space Updates the Audience. • This endpoint is in **Alpha** testing.
-     * Please submit any feedback by sending an email to friends@segment.com. • In order to
-     * successfully call this endpoint, the specified Workspace needs to have the Audience feature
-     * enabled. Please reach out to your customer success manager for more information. • When
-     * called, this endpoint may generate the &#x60;Audience Modified&#x60; event in the [audit
-     * trail](/tag/Audit-Trail). • Note that when an Audience is updated, the Audience will be
-     * locked from future edits until the changes have been incorporated. You can find more
-     * information [in the Segment
-     * docs](https://segment-docs.netlify.app/docs/engage/audiences/#editing-realtime-audiences-and-traits).
-     * Note: The definition for an Audience updated using the API is not editable through the
-     * Segment App. The rate limit for this endpoint is 10 requests per minute, which is lower than
-     * the default due to access pattern restrictions. Once reached, this endpoint will respond with
-     * the 429 HTTP status code with headers indicating the limit parameters. See [Rate
-     * Limiting](/#tag/Rate-Limits) for more information.
+     * Update Audience Schedule for Audience Updates an audience schedule for a Linked Audience
+     * (audienceType &#x3D; LINKED). • This endpoint is in **Alpha** testing. Please submit any
+     * feedback by sending an email to friends@segment.com. • In order to successfully call this
+     * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
+     * out to your customer success manager for more information.
      *
      * @param spaceId (required)
      * @param id (required)
-     * @param updateAudienceForSpaceAlphaInput (required)
-     * @return UpdateAudienceForSpace200Response
+     * @param scheduleId (required)
+     * @param updateAudienceScheduleForAudienceAlphaInput (required)
+     * @return UpdateAudienceScheduleForAudience200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
      * @http.response.details
@@ -2417,36 +2674,30 @@ public class AudiencesApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public UpdateAudienceForSpace200Response updateAudienceForSpace(
+    public UpdateAudienceScheduleForAudience200Response updateAudienceScheduleForAudience(
             String spaceId,
             String id,
-            UpdateAudienceForSpaceAlphaInput updateAudienceForSpaceAlphaInput)
+            String scheduleId,
+            UpdateAudienceScheduleForAudienceAlphaInput updateAudienceScheduleForAudienceAlphaInput)
             throws ApiException {
-        ApiResponse<UpdateAudienceForSpace200Response> localVarResp =
-                updateAudienceForSpaceWithHttpInfo(spaceId, id, updateAudienceForSpaceAlphaInput);
+        ApiResponse<UpdateAudienceScheduleForAudience200Response> localVarResp =
+                updateAudienceScheduleForAudienceWithHttpInfo(
+                        spaceId, id, scheduleId, updateAudienceScheduleForAudienceAlphaInput);
         return localVarResp.getData();
     }
 
     /**
-     * Update Audience for Space Updates the Audience. • This endpoint is in **Alpha** testing.
-     * Please submit any feedback by sending an email to friends@segment.com. • In order to
-     * successfully call this endpoint, the specified Workspace needs to have the Audience feature
-     * enabled. Please reach out to your customer success manager for more information. • When
-     * called, this endpoint may generate the &#x60;Audience Modified&#x60; event in the [audit
-     * trail](/tag/Audit-Trail). • Note that when an Audience is updated, the Audience will be
-     * locked from future edits until the changes have been incorporated. You can find more
-     * information [in the Segment
-     * docs](https://segment-docs.netlify.app/docs/engage/audiences/#editing-realtime-audiences-and-traits).
-     * Note: The definition for an Audience updated using the API is not editable through the
-     * Segment App. The rate limit for this endpoint is 10 requests per minute, which is lower than
-     * the default due to access pattern restrictions. Once reached, this endpoint will respond with
-     * the 429 HTTP status code with headers indicating the limit parameters. See [Rate
-     * Limiting](/#tag/Rate-Limits) for more information.
+     * Update Audience Schedule for Audience Updates an audience schedule for a Linked Audience
+     * (audienceType &#x3D; LINKED). • This endpoint is in **Alpha** testing. Please submit any
+     * feedback by sending an email to friends@segment.com. • In order to successfully call this
+     * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
+     * out to your customer success manager for more information.
      *
      * @param spaceId (required)
      * @param id (required)
-     * @param updateAudienceForSpaceAlphaInput (required)
-     * @return ApiResponse&lt;UpdateAudienceForSpace200Response&gt;
+     * @param scheduleId (required)
+     * @param updateAudienceScheduleForAudienceAlphaInput (required)
+     * @return ApiResponse&lt;UpdateAudienceScheduleForAudience200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
      * @http.response.details
@@ -2458,37 +2709,33 @@ public class AudiencesApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<UpdateAudienceForSpace200Response> updateAudienceForSpaceWithHttpInfo(
-            String spaceId,
-            String id,
-            UpdateAudienceForSpaceAlphaInput updateAudienceForSpaceAlphaInput)
-            throws ApiException {
+    public ApiResponse<UpdateAudienceScheduleForAudience200Response>
+            updateAudienceScheduleForAudienceWithHttpInfo(
+                    String spaceId,
+                    String id,
+                    String scheduleId,
+                    UpdateAudienceScheduleForAudienceAlphaInput
+                            updateAudienceScheduleForAudienceAlphaInput)
+                    throws ApiException {
         okhttp3.Call localVarCall =
-                updateAudienceForSpaceValidateBeforeCall(
-                        spaceId, id, updateAudienceForSpaceAlphaInput, null);
-        Type localVarReturnType = new TypeToken<UpdateAudienceForSpace200Response>() {}.getType();
+                updateAudienceScheduleForAudienceValidateBeforeCall(
+                        spaceId, id, scheduleId, updateAudienceScheduleForAudienceAlphaInput, null);
+        Type localVarReturnType =
+                new TypeToken<UpdateAudienceScheduleForAudience200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Update Audience for Space (asynchronously) Updates the Audience. • This endpoint is in
-     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
-     * In order to successfully call this endpoint, the specified Workspace needs to have the
-     * Audience feature enabled. Please reach out to your customer success manager for more
-     * information. • When called, this endpoint may generate the &#x60;Audience Modified&#x60;
-     * event in the [audit trail](/tag/Audit-Trail). • Note that when an Audience is updated, the
-     * Audience will be locked from future edits until the changes have been incorporated. You can
-     * find more information [in the Segment
-     * docs](https://segment-docs.netlify.app/docs/engage/audiences/#editing-realtime-audiences-and-traits).
-     * Note: The definition for an Audience updated using the API is not editable through the
-     * Segment App. The rate limit for this endpoint is 10 requests per minute, which is lower than
-     * the default due to access pattern restrictions. Once reached, this endpoint will respond with
-     * the 429 HTTP status code with headers indicating the limit parameters. See [Rate
-     * Limiting](/#tag/Rate-Limits) for more information.
+     * Update Audience Schedule for Audience (asynchronously) Updates an audience schedule for a
+     * Linked Audience (audienceType &#x3D; LINKED). • This endpoint is in **Alpha** testing. Please
+     * submit any feedback by sending an email to friends@segment.com. • In order to successfully
+     * call this endpoint, the specified Workspace needs to have the Audience feature enabled.
+     * Please reach out to your customer success manager for more information.
      *
      * @param spaceId (required)
      * @param id (required)
-     * @param updateAudienceForSpaceAlphaInput (required)
+     * @param scheduleId (required)
+     * @param updateAudienceScheduleForAudienceAlphaInput (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -2502,17 +2749,23 @@ public class AudiencesApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateAudienceForSpaceAsync(
+    public okhttp3.Call updateAudienceScheduleForAudienceAsync(
             String spaceId,
             String id,
-            UpdateAudienceForSpaceAlphaInput updateAudienceForSpaceAlphaInput,
-            final ApiCallback<UpdateAudienceForSpace200Response> _callback)
+            String scheduleId,
+            UpdateAudienceScheduleForAudienceAlphaInput updateAudienceScheduleForAudienceAlphaInput,
+            final ApiCallback<UpdateAudienceScheduleForAudience200Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
-                updateAudienceForSpaceValidateBeforeCall(
-                        spaceId, id, updateAudienceForSpaceAlphaInput, _callback);
-        Type localVarReturnType = new TypeToken<UpdateAudienceForSpace200Response>() {}.getType();
+                updateAudienceScheduleForAudienceValidateBeforeCall(
+                        spaceId,
+                        id,
+                        scheduleId,
+                        updateAudienceScheduleForAudienceAlphaInput,
+                        _callback);
+        Type localVarReturnType =
+                new TypeToken<UpdateAudienceScheduleForAudience200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

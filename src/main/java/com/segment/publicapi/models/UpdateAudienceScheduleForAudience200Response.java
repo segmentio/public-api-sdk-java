@@ -27,35 +27,34 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Configures a periodic schedule interval. */
-public class PeriodicConfig {
-    public static final String SERIALIZED_NAME_INTERVAL = "interval";
+/** UpdateAudienceScheduleForAudience200Response */
+public class UpdateAudienceScheduleForAudience200Response {
+    public static final String SERIALIZED_NAME_DATA = "data";
 
-    @SerializedName(SERIALIZED_NAME_INTERVAL)
-    private String interval;
+    @SerializedName(SERIALIZED_NAME_DATA)
+    private UpdateAudienceScheduleForAudienceAlphaOutput data;
 
-    public PeriodicConfig() {}
+    public UpdateAudienceScheduleForAudience200Response() {}
 
-    public PeriodicConfig interval(String interval) {
+    public UpdateAudienceScheduleForAudience200Response data(
+            UpdateAudienceScheduleForAudienceAlphaOutput data) {
 
-        this.interval = interval;
+        this.data = data;
         return this;
     }
 
     /**
-     * Go duration format string, only supporting units \&quot;d\&quot; (days), \&quot;h\&quot;
-     * (hours) and \&quot;m\&quot; (minutes). Acceptable values are: - 15m - 30m - 1h - 2h - 4h - 6h
-     * - 8h - 12h - 1d
+     * Get data
      *
-     * @return interval
+     * @return data
      */
-    @javax.annotation.Nonnull
-    public String getInterval() {
-        return interval;
+    @javax.annotation.Nullable
+    public UpdateAudienceScheduleForAudienceAlphaOutput getData() {
+        return data;
     }
 
-    public void setInterval(String interval) {
-        this.interval = interval;
+    public void setData(UpdateAudienceScheduleForAudienceAlphaOutput data) {
+        this.data = data;
     }
 
     @Override
@@ -66,20 +65,21 @@ public class PeriodicConfig {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        PeriodicConfig periodicConfig = (PeriodicConfig) o;
-        return Objects.equals(this.interval, periodicConfig.interval);
+        UpdateAudienceScheduleForAudience200Response updateAudienceScheduleForAudience200Response =
+                (UpdateAudienceScheduleForAudience200Response) o;
+        return Objects.equals(this.data, updateAudienceScheduleForAudience200Response.data);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(interval);
+        return Objects.hash(data);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class PeriodicConfig {\n");
-        sb.append("    interval: ").append(toIndentedString(interval)).append("\n");
+        sb.append("class UpdateAudienceScheduleForAudience200Response {\n");
+        sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -101,59 +101,50 @@ public class PeriodicConfig {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("interval");
+        openapiFields.add("data");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("interval");
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to PeriodicConfig
+     * @throws IOException if the JSON Element is invalid with respect to
+     *     UpdateAudienceScheduleForAudience200Response
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!PeriodicConfig.openapiRequiredFields
+            if (!UpdateAudienceScheduleForAudience200Response.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in PeriodicConfig is not found in the"
-                                        + " empty JSON string",
-                                PeriodicConfig.openapiRequiredFields.toString()));
+                                "The required field(s) %s in"
+                                    + " UpdateAudienceScheduleForAudience200Response is not found"
+                                    + " in the empty JSON string",
+                                UpdateAudienceScheduleForAudience200Response.openapiRequiredFields
+                                        .toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!PeriodicConfig.openapiFields.contains(entry.getKey())) {
+            if (!UpdateAudienceScheduleForAudience200Response.openapiFields.contains(
+                    entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `PeriodicConfig` properties. JSON: %s",
+                                    + " `UpdateAudienceScheduleForAudience200Response` properties."
+                                    + " JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
-
-        // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : PeriodicConfig.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-                throw new IllegalArgumentException(
-                        String.format(
-                                "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonElement.toString()));
-            }
-        }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if (!jsonObj.get("interval").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `interval` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
-                            jsonObj.get("interval").toString()));
+        // validate the optional field `data`
+        if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
+            UpdateAudienceScheduleForAudienceAlphaOutput.validateJsonElement(jsonObj.get("data"));
         }
     }
 
@@ -161,23 +152,30 @@ public class PeriodicConfig {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!PeriodicConfig.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'PeriodicConfig' and its subtypes
+            if (!UpdateAudienceScheduleForAudience200Response.class.isAssignableFrom(
+                    type.getRawType())) {
+                return null; // this class only serializes
+                // 'UpdateAudienceScheduleForAudience200Response' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<PeriodicConfig> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(PeriodicConfig.class));
+            final TypeAdapter<UpdateAudienceScheduleForAudience200Response> thisAdapter =
+                    gson.getDelegateAdapter(
+                            this,
+                            TypeToken.get(UpdateAudienceScheduleForAudience200Response.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<PeriodicConfig>() {
+                    new TypeAdapter<UpdateAudienceScheduleForAudience200Response>() {
                         @Override
-                        public void write(JsonWriter out, PeriodicConfig value) throws IOException {
+                        public void write(
+                                JsonWriter out, UpdateAudienceScheduleForAudience200Response value)
+                                throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public PeriodicConfig read(JsonReader in) throws IOException {
+                        public UpdateAudienceScheduleForAudience200Response read(JsonReader in)
+                                throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -187,18 +185,21 @@ public class PeriodicConfig {
     }
 
     /**
-     * Create an instance of PeriodicConfig given an JSON string
+     * Create an instance of UpdateAudienceScheduleForAudience200Response given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of PeriodicConfig
-     * @throws IOException if the JSON string is invalid with respect to PeriodicConfig
+     * @return An instance of UpdateAudienceScheduleForAudience200Response
+     * @throws IOException if the JSON string is invalid with respect to
+     *     UpdateAudienceScheduleForAudience200Response
      */
-    public static PeriodicConfig fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, PeriodicConfig.class);
+    public static UpdateAudienceScheduleForAudience200Response fromJson(String jsonString)
+            throws IOException {
+        return JSON.getGson()
+                .fromJson(jsonString, UpdateAudienceScheduleForAudience200Response.class);
     }
 
     /**
-     * Convert an instance of PeriodicConfig to an JSON string
+     * Convert an instance of UpdateAudienceScheduleForAudience200Response to an JSON string
      *
      * @return JSON string
      */
