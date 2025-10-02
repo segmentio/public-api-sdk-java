@@ -15,7 +15,7 @@ All URIs are relative to *https://api.segmentapis.com*
 | [**listAudienceSchedulesFromSpaceAndAudience**](AudiencesApi.md#listAudienceSchedulesFromSpaceAndAudience) | **GET** /spaces/{spaceId}/audiences/{id}/schedules | List Audience Schedules from Space And Audience |
 | [**listAudiences**](AudiencesApi.md#listAudiences) | **GET** /spaces/{spaceId}/audiences | List Audiences |
 | [**removeAudienceFromSpace**](AudiencesApi.md#removeAudienceFromSpace) | **DELETE** /spaces/{spaceId}/audiences/{id} | Remove Audience from Space |
-| [**removeAudienceScheduleFromAudience**](AudiencesApi.md#removeAudienceScheduleFromAudience) | **DELETE** /spaces/{spaceId}/audiences/{id}/schedules/{scheduleId} | Remove Audience Schedule from Audience |
+| [**removeAudienceScheduleFromAudience**](AudiencesApi.md#removeAudienceScheduleFromAudience) | **DELETE** /spaces/{spaceId}/audiences/{id}/schedules | Remove Audience Schedule from Audience |
 | [**updateAudienceForSpace**](AudiencesApi.md#updateAudienceForSpace) | **PATCH** /spaces/{spaceId}/audiences/{id} | Update Audience for Space |
 | [**updateAudienceScheduleForAudience**](AudiencesApi.md#updateAudienceScheduleForAudience) | **PATCH** /spaces/{spaceId}/audiences/{id}/schedules/{scheduleId} | Update Audience Schedule for Audience |
 
@@ -892,7 +892,7 @@ public class Example {
         AudiencesApi apiInstance = new AudiencesApi(defaultClient);
         String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
         String id = "aud_0ujsszwN8NRY24YaXiTIE2VWDTS"; // String | 
-        String scheduleId = "sch_0ujsszwN8NRY24YaXiTIE2VWDTS"; // String | 
+        String scheduleId = "sch_0ujsszwN8NRY24YaXiTIE2VWDTS"; // String | The ID of the schedule to delete  This parameter exists in alpha.
         try {
             RemoveAudienceScheduleFromAudience200Response result = apiInstance.removeAudienceScheduleFromAudience(spaceId, id, scheduleId);
             System.out.println(result);
@@ -914,7 +914,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **spaceId** | **String**|  | |
 | **id** | **String**|  | |
-| **scheduleId** | **String**|  | |
+| **scheduleId** | **String**| The ID of the schedule to delete  This parameter exists in alpha. | [optional] |
 
 ### Return type
 

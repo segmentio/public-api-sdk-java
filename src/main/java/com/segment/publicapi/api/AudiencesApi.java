@@ -2479,7 +2479,7 @@ public class AudiencesApi {
      *
      * @param spaceId (required)
      * @param id (required)
-     * @param scheduleId (required)
+     * @param scheduleId The ID of the schedule to delete This parameter exists in alpha. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2512,20 +2512,21 @@ public class AudiencesApi {
 
         // create path and map variables
         String localVarPath =
-                "/spaces/{spaceId}/audiences/{id}/schedules/{scheduleId}"
+                "/spaces/{spaceId}/audiences/{id}/schedules"
                         .replace(
                                 "{" + "spaceId" + "}",
                                 localVarApiClient.escapeString(spaceId.toString()))
-                        .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()))
-                        .replace(
-                                "{" + "scheduleId" + "}",
-                                localVarApiClient.escapeString(scheduleId.toString()));
+                        .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (scheduleId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("scheduleId", scheduleId));
+        }
 
         final String[] localVarAccepts = {
             "application/vnd.segment.v1alpha+json", "application/json"
@@ -2575,13 +2576,6 @@ public class AudiencesApi {
                             + " removeAudienceScheduleFromAudience(Async)");
         }
 
-        // verify the required parameter 'scheduleId' is set
-        if (scheduleId == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'scheduleId' when calling"
-                            + " removeAudienceScheduleFromAudience(Async)");
-        }
-
         return removeAudienceScheduleFromAudienceCall(spaceId, id, scheduleId, _callback);
     }
 
@@ -2594,7 +2588,7 @@ public class AudiencesApi {
      *
      * @param spaceId (required)
      * @param id (required)
-     * @param scheduleId (required)
+     * @param scheduleId The ID of the schedule to delete This parameter exists in alpha. (optional)
      * @return RemoveAudienceScheduleFromAudience200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -2623,7 +2617,7 @@ public class AudiencesApi {
      *
      * @param spaceId (required)
      * @param id (required)
-     * @param scheduleId (required)
+     * @param scheduleId The ID of the schedule to delete This parameter exists in alpha. (optional)
      * @return ApiResponse&lt;RemoveAudienceScheduleFromAudience200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -2655,7 +2649,7 @@ public class AudiencesApi {
      *
      * @param spaceId (required)
      * @param id (required)
-     * @param scheduleId (required)
+     * @param scheduleId The ID of the schedule to delete This parameter exists in alpha. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
