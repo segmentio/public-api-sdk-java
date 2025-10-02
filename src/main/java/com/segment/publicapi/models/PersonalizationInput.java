@@ -42,6 +42,12 @@ public class PersonalizationInput {
     @SerializedName(SERIALIZED_NAME_ENTITIES)
     private List<PersonalizationInputEntity> entities;
 
+    public static final String SERIALIZED_NAME_SYNC_ENTITY_PROPERTY_CHANGES =
+            "syncEntityPropertyChanges";
+
+    @SerializedName(SERIALIZED_NAME_SYNC_ENTITY_PROPERTY_CHANGES)
+    private Boolean syncEntityPropertyChanges;
+
     public PersonalizationInput() {}
 
     public PersonalizationInput profile(Profile profile) {
@@ -92,6 +98,27 @@ public class PersonalizationInput {
         this.entities = entities;
     }
 
+    public PersonalizationInput syncEntityPropertyChanges(Boolean syncEntityPropertyChanges) {
+
+        this.syncEntityPropertyChanges = syncEntityPropertyChanges;
+        return this;
+    }
+
+    /**
+     * Sync entity property changes back to Segment. Only applicable if activationType is
+     * \&quot;Audience Membership Changed\&quot; and segmentEvent is \&quot;identify\&quot;.
+     *
+     * @return syncEntityPropertyChanges
+     */
+    @javax.annotation.Nullable
+    public Boolean getSyncEntityPropertyChanges() {
+        return syncEntityPropertyChanges;
+    }
+
+    public void setSyncEntityPropertyChanges(Boolean syncEntityPropertyChanges) {
+        this.syncEntityPropertyChanges = syncEntityPropertyChanges;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -102,12 +129,15 @@ public class PersonalizationInput {
         }
         PersonalizationInput personalizationInput = (PersonalizationInput) o;
         return Objects.equals(this.profile, personalizationInput.profile)
-                && Objects.equals(this.entities, personalizationInput.entities);
+                && Objects.equals(this.entities, personalizationInput.entities)
+                && Objects.equals(
+                        this.syncEntityPropertyChanges,
+                        personalizationInput.syncEntityPropertyChanges);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(profile, entities);
+        return Objects.hash(profile, entities, syncEntityPropertyChanges);
     }
 
     @Override
@@ -116,6 +146,9 @@ public class PersonalizationInput {
         sb.append("class PersonalizationInput {\n");
         sb.append("    profile: ").append(toIndentedString(profile)).append("\n");
         sb.append("    entities: ").append(toIndentedString(entities)).append("\n");
+        sb.append("    syncEntityPropertyChanges: ")
+                .append(toIndentedString(syncEntityPropertyChanges))
+                .append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -139,6 +172,7 @@ public class PersonalizationInput {
         openapiFields = new HashSet<String>();
         openapiFields.add("profile");
         openapiFields.add("entities");
+        openapiFields.add("syncEntityPropertyChanges");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
