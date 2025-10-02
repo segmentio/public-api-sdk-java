@@ -14,6 +14,7 @@ All URIs are relative to *https://api.segmentapis.com*
 | [**listAudienceSchedulesFromSpaceAndAudience**](AudiencesApi.md#listAudienceSchedulesFromSpaceAndAudience) | **GET** /spaces/{spaceId}/audiences/{id}/schedules | List Audience Schedules from Space And Audience |
 | [**listAudiences**](AudiencesApi.md#listAudiences) | **GET** /spaces/{spaceId}/audiences | List Audiences |
 | [**removeAudienceFromSpace**](AudiencesApi.md#removeAudienceFromSpace) | **DELETE** /spaces/{spaceId}/audiences/{id} | Remove Audience from Space |
+| [**removeAudienceScheduleFromAudience**](AudiencesApi.md#removeAudienceScheduleFromAudience) | **DELETE** /spaces/{spaceId}/audiences/{id}/schedules/{scheduleId} | Remove Audience Schedule from Audience |
 | [**updateAudienceForSpace**](AudiencesApi.md#updateAudienceForSpace) | **PATCH** /spaces/{spaceId}/audiences/{id} | Update Audience for Space |
 | [**updateAudienceScheduleForAudience**](AudiencesApi.md#updateAudienceScheduleForAudience) | **PATCH** /spaces/{spaceId}/audiences/{id}/schedules/{scheduleId} | Update Audience Schedule for Audience |
 
@@ -774,6 +775,83 @@ public class Example {
 
 - **Content-Type**: Not defined
 - **Accept**: application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json, application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **404** | Resource not found |  -  |
+| **422** | Validation failure |  -  |
+| **429** | Too many requests |  -  |
+
+
+## Operation: removeAudienceScheduleFromAudience
+
+> RemoveAudienceScheduleFromAudience200Response removeAudienceScheduleFromAudience(spaceId, id, scheduleId)
+
+Remove Audience Schedule from Audience
+
+Deletes an audience schedule for a Linked Audience (audienceType &#x3D; LINKED).  • This endpoint is in **Alpha** testing.  Please submit any feedback by sending an email to friends@segment.com.   • In order to successfully call this endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach out to your customer success manager for more information.
+
+### Example
+
+```java
+// Import classes:
+import com.segment.publicapi.ApiClient;
+import com.segment.publicapi.ApiException;
+import com.segment.publicapi.Configuration;
+import com.segment.publicapi.auth.*;
+import com.segment.publicapi.models.*;
+import com.segment.publicapi.api.AudiencesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        
+        // Configure HTTP bearer authorization: token
+        HttpBearerAuth token = (HttpBearerAuth) defaultClient.getAuthentication("token");
+        token.setBearerToken("BEARER TOKEN");
+
+        AudiencesApi apiInstance = new AudiencesApi(defaultClient);
+        String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
+        String id = "aud_0ujsszwN8NRY24YaXiTIE2VWDTS"; // String | 
+        String scheduleId = "sch_0ujsszwN8NRY24YaXiTIE2VWDTS"; // String | 
+        try {
+            RemoveAudienceScheduleFromAudience200Response result = apiInstance.removeAudienceScheduleFromAudience(spaceId, id, scheduleId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AudiencesApi#removeAudienceScheduleFromAudience");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **spaceId** | **String**|  | |
+| **id** | **String**|  | |
+| **scheduleId** | **String**|  | |
+
+### Return type
+
+[**RemoveAudienceScheduleFromAudience200Response**](RemoveAudienceScheduleFromAudience200Response.md)
+
+### Authorization
+
+[token](../README.md#token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/vnd.segment.v1alpha+json, application/json
 
 
 ### HTTP response details
