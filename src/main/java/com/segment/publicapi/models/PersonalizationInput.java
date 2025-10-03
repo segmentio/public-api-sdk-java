@@ -106,7 +106,7 @@ public class PersonalizationInput {
 
     /**
      * Sync entity property changes back to Segment. Only applicable if activationType is
-     * \&quot;Audience Membership Changed\&quot; and segmentEvent is \&quot;identify\&quot;.
+     * \&quot;Audience Membership Changed\&quot;.
      *
      * @return syncEntityPropertyChanges
      */
