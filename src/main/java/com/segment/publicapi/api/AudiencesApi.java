@@ -24,6 +24,7 @@ import com.segment.publicapi.models.CreateAudience200Response;
 import com.segment.publicapi.models.CreateAudienceBetaInput;
 import com.segment.publicapi.models.CreateAudiencePreview200Response;
 import com.segment.publicapi.models.CreateAudiencePreviewBetaInput;
+import com.segment.publicapi.models.ForceExecuteAudienceRun200Response;
 import com.segment.publicapi.models.GetAudience200Response;
 import com.segment.publicapi.models.GetAudiencePreview200Response;
 import com.segment.publicapi.models.GetAudienceScheduleFromSpaceAndAudience200Response;
@@ -737,6 +738,204 @@ public class AudiencesApi {
                 createAudiencePreviewValidateBeforeCall(
                         spaceId, createAudiencePreviewBetaInput, _callback);
         Type localVarReturnType = new TypeToken<CreateAudiencePreview200Response>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for forceExecuteAudienceRun
+     *
+     * @param spaceId (required)
+     * @param audienceId (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call forceExecuteAudienceRunCall(
+            String spaceId, String audienceId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/spaces/{spaceId}/audiences/{audienceId}/runs"
+                        .replace(
+                                "{" + "spaceId" + "}",
+                                localVarApiClient.escapeString(spaceId.toString()))
+                        .replace(
+                                "{" + "audienceId" + "}",
+                                localVarApiClient.escapeString(audienceId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.segment.v1alpha+json", "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"token"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call forceExecuteAudienceRunValidateBeforeCall(
+            String spaceId, String audienceId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'spaceId' when calling"
+                            + " forceExecuteAudienceRun(Async)");
+        }
+
+        // verify the required parameter 'audienceId' is set
+        if (audienceId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'audienceId' when calling"
+                            + " forceExecuteAudienceRun(Async)");
+        }
+
+        return forceExecuteAudienceRunCall(spaceId, audienceId, _callback);
+    }
+
+    /**
+     * Force Execute Audience Run The ability to force execute a run for an Audience is limited to
+     * Linked Audiences (audienceType &#x3D; &#x60;LINKED&#x60;). • This endpoint is in **Alpha**
+     * testing. Please submit any feedback by sending an email to friends@segment.com. • In order to
+     * successfully call this endpoint, the specified Workspace needs to have the Audience feature
+     * enabled. Please reach out to your customer success manager for more information. • When
+     * called, this endpoint may generate the &#x60;Audience Run Forced&#x60; event in the [audit
+     * trail](/tag/Audit-Trail).
+     *
+     * @param spaceId (required)
+     * @param audienceId (required)
+     * @return ForceExecuteAudienceRun200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ForceExecuteAudienceRun200Response forceExecuteAudienceRun(
+            String spaceId, String audienceId) throws ApiException {
+        ApiResponse<ForceExecuteAudienceRun200Response> localVarResp =
+                forceExecuteAudienceRunWithHttpInfo(spaceId, audienceId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Force Execute Audience Run The ability to force execute a run for an Audience is limited to
+     * Linked Audiences (audienceType &#x3D; &#x60;LINKED&#x60;). • This endpoint is in **Alpha**
+     * testing. Please submit any feedback by sending an email to friends@segment.com. • In order to
+     * successfully call this endpoint, the specified Workspace needs to have the Audience feature
+     * enabled. Please reach out to your customer success manager for more information. • When
+     * called, this endpoint may generate the &#x60;Audience Run Forced&#x60; event in the [audit
+     * trail](/tag/Audit-Trail).
+     *
+     * @param spaceId (required)
+     * @param audienceId (required)
+     * @return ApiResponse&lt;ForceExecuteAudienceRun200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<ForceExecuteAudienceRun200Response> forceExecuteAudienceRunWithHttpInfo(
+            String spaceId, String audienceId) throws ApiException {
+        okhttp3.Call localVarCall =
+                forceExecuteAudienceRunValidateBeforeCall(spaceId, audienceId, null);
+        Type localVarReturnType = new TypeToken<ForceExecuteAudienceRun200Response>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Force Execute Audience Run (asynchronously) The ability to force execute a run for an
+     * Audience is limited to Linked Audiences (audienceType &#x3D; &#x60;LINKED&#x60;). • This
+     * endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
+     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
+     * needs to have the Audience feature enabled. Please reach out to your customer success manager
+     * for more information. • When called, this endpoint may generate the &#x60;Audience Run
+     * Forced&#x60; event in the [audit trail](/tag/Audit-Trail).
+     *
+     * @param spaceId (required)
+     * @param audienceId (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body
+     *     object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call forceExecuteAudienceRunAsync(
+            String spaceId,
+            String audienceId,
+            final ApiCallback<ForceExecuteAudienceRun200Response> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                forceExecuteAudienceRunValidateBeforeCall(spaceId, audienceId, _callback);
+        Type localVarReturnType = new TypeToken<ForceExecuteAudienceRun200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2280,7 +2479,7 @@ public class AudiencesApi {
      *
      * @param spaceId (required)
      * @param id (required)
-     * @param scheduleId (required)
+     * @param scheduleId The ID of the schedule to delete This parameter exists in alpha. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2313,20 +2512,21 @@ public class AudiencesApi {
 
         // create path and map variables
         String localVarPath =
-                "/spaces/{spaceId}/audiences/{id}/schedules/{scheduleId}"
+                "/spaces/{spaceId}/audiences/{id}/schedules"
                         .replace(
                                 "{" + "spaceId" + "}",
                                 localVarApiClient.escapeString(spaceId.toString()))
-                        .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()))
-                        .replace(
-                                "{" + "scheduleId" + "}",
-                                localVarApiClient.escapeString(scheduleId.toString()));
+                        .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (scheduleId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("scheduleId", scheduleId));
+        }
 
         final String[] localVarAccepts = {
             "application/vnd.segment.v1alpha+json", "application/json"
@@ -2376,13 +2576,6 @@ public class AudiencesApi {
                             + " removeAudienceScheduleFromAudience(Async)");
         }
 
-        // verify the required parameter 'scheduleId' is set
-        if (scheduleId == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'scheduleId' when calling"
-                            + " removeAudienceScheduleFromAudience(Async)");
-        }
-
         return removeAudienceScheduleFromAudienceCall(spaceId, id, scheduleId, _callback);
     }
 
@@ -2395,7 +2588,7 @@ public class AudiencesApi {
      *
      * @param spaceId (required)
      * @param id (required)
-     * @param scheduleId (required)
+     * @param scheduleId The ID of the schedule to delete This parameter exists in alpha. (optional)
      * @return RemoveAudienceScheduleFromAudience200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -2424,7 +2617,7 @@ public class AudiencesApi {
      *
      * @param spaceId (required)
      * @param id (required)
-     * @param scheduleId (required)
+     * @param scheduleId The ID of the schedule to delete This parameter exists in alpha. (optional)
      * @return ApiResponse&lt;RemoveAudienceScheduleFromAudience200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -2456,7 +2649,7 @@ public class AudiencesApi {
      *
      * @param spaceId (required)
      * @param id (required)
-     * @param scheduleId (required)
+     * @param scheduleId The ID of the schedule to delete This parameter exists in alpha. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
