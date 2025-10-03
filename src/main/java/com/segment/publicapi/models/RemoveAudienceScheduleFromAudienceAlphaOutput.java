@@ -28,7 +28,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Output to remove a RETL audience schedule. */
+/** Delete audience schedule endpoint output. */
 public class RemoveAudienceScheduleFromAudienceAlphaOutput {
     /** The status of the operation. */
     @JsonAdapter(StatusEnum.Adapter.class)
