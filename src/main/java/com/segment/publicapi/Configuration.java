@@ -12,7 +12,7 @@
 package com.segment.publicapi;
 
 public class Configuration {
-    public static final String VERSION = "59.8.0";
+    public static final String VERSION = "60.1.0";
 
     private static ApiClient defaultApiClient = new ApiClient();
 
