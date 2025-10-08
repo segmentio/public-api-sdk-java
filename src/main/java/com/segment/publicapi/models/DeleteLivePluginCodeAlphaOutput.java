@@ -28,8 +28,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Output for DeleteEdgeFunctionCode. */
-public class DeleteEdgeFunctionCodeAlphaOutput {
+/** Output for DeleteLivePlugin. */
+public class DeleteLivePluginCodeAlphaOutput {
     /** The status of the delete operation. */
     @JsonAdapter(StatusEnum.Adapter.class)
     public enum StatusEnum {
@@ -79,9 +79,9 @@ public class DeleteEdgeFunctionCodeAlphaOutput {
     @SerializedName(SERIALIZED_NAME_STATUS)
     private StatusEnum status;
 
-    public DeleteEdgeFunctionCodeAlphaOutput() {}
+    public DeleteLivePluginCodeAlphaOutput() {}
 
-    public DeleteEdgeFunctionCodeAlphaOutput status(StatusEnum status) {
+    public DeleteLivePluginCodeAlphaOutput status(StatusEnum status) {
 
         this.status = status;
         return this;
@@ -109,9 +109,9 @@ public class DeleteEdgeFunctionCodeAlphaOutput {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        DeleteEdgeFunctionCodeAlphaOutput deleteEdgeFunctionCodeAlphaOutput =
-                (DeleteEdgeFunctionCodeAlphaOutput) o;
-        return Objects.equals(this.status, deleteEdgeFunctionCodeAlphaOutput.status);
+        DeleteLivePluginCodeAlphaOutput deleteLivePluginCodeAlphaOutput =
+                (DeleteLivePluginCodeAlphaOutput) o;
+        return Objects.equals(this.status, deleteLivePluginCodeAlphaOutput.status);
     }
 
     @Override
@@ -122,7 +122,7 @@ public class DeleteEdgeFunctionCodeAlphaOutput {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class DeleteEdgeFunctionCodeAlphaOutput {\n");
+        sb.append("class DeleteLivePluginCodeAlphaOutput {\n");
         sb.append("    status: ").append(toIndentedString(status)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -157,35 +157,34 @@ public class DeleteEdgeFunctionCodeAlphaOutput {
      *
      * @param jsonElement JSON Element
      * @throws IOException if the JSON Element is invalid with respect to
-     *     DeleteEdgeFunctionCodeAlphaOutput
+     *     DeleteLivePluginCodeAlphaOutput
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!DeleteEdgeFunctionCodeAlphaOutput.openapiRequiredFields
+            if (!DeleteLivePluginCodeAlphaOutput.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in DeleteEdgeFunctionCodeAlphaOutput is"
-                                        + " not found in the empty JSON string",
-                                DeleteEdgeFunctionCodeAlphaOutput.openapiRequiredFields
-                                        .toString()));
+                                "The required field(s) %s in DeleteLivePluginCodeAlphaOutput is not"
+                                        + " found in the empty JSON string",
+                                DeleteLivePluginCodeAlphaOutput.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!DeleteEdgeFunctionCodeAlphaOutput.openapiFields.contains(entry.getKey())) {
+            if (!DeleteLivePluginCodeAlphaOutput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                    + " `DeleteEdgeFunctionCodeAlphaOutput` properties. JSON: %s",
+                                        + " `DeleteLivePluginCodeAlphaOutput` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : DeleteEdgeFunctionCodeAlphaOutput.openapiRequiredFields) {
+        for (String requiredField : DeleteLivePluginCodeAlphaOutput.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -207,26 +206,26 @@ public class DeleteEdgeFunctionCodeAlphaOutput {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!DeleteEdgeFunctionCodeAlphaOutput.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'DeleteEdgeFunctionCodeAlphaOutput' and
-                // its subtypes
+            if (!DeleteLivePluginCodeAlphaOutput.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'DeleteLivePluginCodeAlphaOutput' and its
+                // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<DeleteEdgeFunctionCodeAlphaOutput> thisAdapter =
+            final TypeAdapter<DeleteLivePluginCodeAlphaOutput> thisAdapter =
                     gson.getDelegateAdapter(
-                            this, TypeToken.get(DeleteEdgeFunctionCodeAlphaOutput.class));
+                            this, TypeToken.get(DeleteLivePluginCodeAlphaOutput.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<DeleteEdgeFunctionCodeAlphaOutput>() {
+                    new TypeAdapter<DeleteLivePluginCodeAlphaOutput>() {
                         @Override
-                        public void write(JsonWriter out, DeleteEdgeFunctionCodeAlphaOutput value)
+                        public void write(JsonWriter out, DeleteLivePluginCodeAlphaOutput value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public DeleteEdgeFunctionCodeAlphaOutput read(JsonReader in)
+                        public DeleteLivePluginCodeAlphaOutput read(JsonReader in)
                                 throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
@@ -237,19 +236,19 @@ public class DeleteEdgeFunctionCodeAlphaOutput {
     }
 
     /**
-     * Create an instance of DeleteEdgeFunctionCodeAlphaOutput given an JSON string
+     * Create an instance of DeleteLivePluginCodeAlphaOutput given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of DeleteEdgeFunctionCodeAlphaOutput
+     * @return An instance of DeleteLivePluginCodeAlphaOutput
      * @throws IOException if the JSON string is invalid with respect to
-     *     DeleteEdgeFunctionCodeAlphaOutput
+     *     DeleteLivePluginCodeAlphaOutput
      */
-    public static DeleteEdgeFunctionCodeAlphaOutput fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, DeleteEdgeFunctionCodeAlphaOutput.class);
+    public static DeleteLivePluginCodeAlphaOutput fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, DeleteLivePluginCodeAlphaOutput.class);
     }
 
     /**
-     * Convert an instance of DeleteEdgeFunctionCodeAlphaOutput to an JSON string
+     * Convert an instance of DeleteLivePluginCodeAlphaOutput to an JSON string
      *
      * @return JSON string
      */

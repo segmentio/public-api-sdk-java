@@ -27,16 +27,16 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** DeleteEdgeFunctionCode200Response */
-public class DeleteEdgeFunctionCode200Response {
+/** GetLatestFromLivePlugins200Response */
+public class GetLatestFromLivePlugins200Response {
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    private DeleteEdgeFunctionCodeAlphaOutput data;
+    private GetLatestFromLivePluginsAlphaOutput data;
 
-    public DeleteEdgeFunctionCode200Response() {}
+    public GetLatestFromLivePlugins200Response() {}
 
-    public DeleteEdgeFunctionCode200Response data(DeleteEdgeFunctionCodeAlphaOutput data) {
+    public GetLatestFromLivePlugins200Response data(GetLatestFromLivePluginsAlphaOutput data) {
 
         this.data = data;
         return this;
@@ -48,11 +48,11 @@ public class DeleteEdgeFunctionCode200Response {
      * @return data
      */
     @javax.annotation.Nullable
-    public DeleteEdgeFunctionCodeAlphaOutput getData() {
+    public GetLatestFromLivePluginsAlphaOutput getData() {
         return data;
     }
 
-    public void setData(DeleteEdgeFunctionCodeAlphaOutput data) {
+    public void setData(GetLatestFromLivePluginsAlphaOutput data) {
         this.data = data;
     }
 
@@ -64,9 +64,9 @@ public class DeleteEdgeFunctionCode200Response {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        DeleteEdgeFunctionCode200Response deleteEdgeFunctionCode200Response =
-                (DeleteEdgeFunctionCode200Response) o;
-        return Objects.equals(this.data, deleteEdgeFunctionCode200Response.data);
+        GetLatestFromLivePlugins200Response getLatestFromLivePlugins200Response =
+                (GetLatestFromLivePlugins200Response) o;
+        return Objects.equals(this.data, getLatestFromLivePlugins200Response.data);
     }
 
     @Override
@@ -77,7 +77,7 @@ public class DeleteEdgeFunctionCode200Response {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class DeleteEdgeFunctionCode200Response {\n");
+        sb.append("class GetLatestFromLivePlugins200Response {\n");
         sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -111,17 +111,17 @@ public class DeleteEdgeFunctionCode200Response {
      *
      * @param jsonElement JSON Element
      * @throws IOException if the JSON Element is invalid with respect to
-     *     DeleteEdgeFunctionCode200Response
+     *     GetLatestFromLivePlugins200Response
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!DeleteEdgeFunctionCode200Response.openapiRequiredFields
+            if (!GetLatestFromLivePlugins200Response.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in DeleteEdgeFunctionCode200Response is"
+                                "The required field(s) %s in GetLatestFromLivePlugins200Response is"
                                         + " not found in the empty JSON string",
-                                DeleteEdgeFunctionCode200Response.openapiRequiredFields
+                                GetLatestFromLivePlugins200Response.openapiRequiredFields
                                         .toString()));
             }
         }
@@ -129,18 +129,18 @@ public class DeleteEdgeFunctionCode200Response {
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!DeleteEdgeFunctionCode200Response.openapiFields.contains(entry.getKey())) {
+            if (!GetLatestFromLivePlugins200Response.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                    + " `DeleteEdgeFunctionCode200Response` properties. JSON: %s",
+                                    + " `GetLatestFromLivePlugins200Response` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the optional field `data`
         if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-            DeleteEdgeFunctionCodeAlphaOutput.validateJsonElement(jsonObj.get("data"));
+            GetLatestFromLivePluginsAlphaOutput.validateJsonElement(jsonObj.get("data"));
         }
     }
 
@@ -148,26 +148,26 @@ public class DeleteEdgeFunctionCode200Response {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!DeleteEdgeFunctionCode200Response.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'DeleteEdgeFunctionCode200Response' and
+            if (!GetLatestFromLivePlugins200Response.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'GetLatestFromLivePlugins200Response' and
                 // its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<DeleteEdgeFunctionCode200Response> thisAdapter =
+            final TypeAdapter<GetLatestFromLivePlugins200Response> thisAdapter =
                     gson.getDelegateAdapter(
-                            this, TypeToken.get(DeleteEdgeFunctionCode200Response.class));
+                            this, TypeToken.get(GetLatestFromLivePlugins200Response.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<DeleteEdgeFunctionCode200Response>() {
+                    new TypeAdapter<GetLatestFromLivePlugins200Response>() {
                         @Override
-                        public void write(JsonWriter out, DeleteEdgeFunctionCode200Response value)
+                        public void write(JsonWriter out, GetLatestFromLivePlugins200Response value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public DeleteEdgeFunctionCode200Response read(JsonReader in)
+                        public GetLatestFromLivePlugins200Response read(JsonReader in)
                                 throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
@@ -178,19 +178,20 @@ public class DeleteEdgeFunctionCode200Response {
     }
 
     /**
-     * Create an instance of DeleteEdgeFunctionCode200Response given an JSON string
+     * Create an instance of GetLatestFromLivePlugins200Response given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of DeleteEdgeFunctionCode200Response
+     * @return An instance of GetLatestFromLivePlugins200Response
      * @throws IOException if the JSON string is invalid with respect to
-     *     DeleteEdgeFunctionCode200Response
+     *     GetLatestFromLivePlugins200Response
      */
-    public static DeleteEdgeFunctionCode200Response fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, DeleteEdgeFunctionCode200Response.class);
+    public static GetLatestFromLivePlugins200Response fromJson(String jsonString)
+            throws IOException {
+        return JSON.getGson().fromJson(jsonString, GetLatestFromLivePlugins200Response.class);
     }
 
     /**
-     * Convert an instance of DeleteEdgeFunctionCode200Response to an JSON string
+     * Convert an instance of GetLatestFromLivePlugins200Response to an JSON string
      *
      * @return JSON string
      */

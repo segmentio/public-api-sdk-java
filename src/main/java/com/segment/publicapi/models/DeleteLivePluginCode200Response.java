@@ -27,33 +27,33 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Output for GetLatestFromEdgeFunctions. */
-public class GetLatestFromEdgeFunctionsAlphaOutput {
-    public static final String SERIALIZED_NAME_EDGE_FUNCTIONS = "edgeFunctions";
+/** DeleteLivePluginCode200Response */
+public class DeleteLivePluginCode200Response {
+    public static final String SERIALIZED_NAME_DATA = "data";
 
-    @SerializedName(SERIALIZED_NAME_EDGE_FUNCTIONS)
-    private EdgeFunctionsAlpha edgeFunctions;
+    @SerializedName(SERIALIZED_NAME_DATA)
+    private DeleteLivePluginCodeAlphaOutput data;
 
-    public GetLatestFromEdgeFunctionsAlphaOutput() {}
+    public DeleteLivePluginCode200Response() {}
 
-    public GetLatestFromEdgeFunctionsAlphaOutput edgeFunctions(EdgeFunctionsAlpha edgeFunctions) {
+    public DeleteLivePluginCode200Response data(DeleteLivePluginCodeAlphaOutput data) {
 
-        this.edgeFunctions = edgeFunctions;
+        this.data = data;
         return this;
     }
 
     /**
-     * Get edgeFunctions
+     * Get data
      *
-     * @return edgeFunctions
+     * @return data
      */
-    @javax.annotation.Nonnull
-    public EdgeFunctionsAlpha getEdgeFunctions() {
-        return edgeFunctions;
+    @javax.annotation.Nullable
+    public DeleteLivePluginCodeAlphaOutput getData() {
+        return data;
     }
 
-    public void setEdgeFunctions(EdgeFunctionsAlpha edgeFunctions) {
-        this.edgeFunctions = edgeFunctions;
+    public void setData(DeleteLivePluginCodeAlphaOutput data) {
+        this.data = data;
     }
 
     @Override
@@ -64,22 +64,21 @@ public class GetLatestFromEdgeFunctionsAlphaOutput {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        GetLatestFromEdgeFunctionsAlphaOutput getLatestFromEdgeFunctionsAlphaOutput =
-                (GetLatestFromEdgeFunctionsAlphaOutput) o;
-        return Objects.equals(
-                this.edgeFunctions, getLatestFromEdgeFunctionsAlphaOutput.edgeFunctions);
+        DeleteLivePluginCode200Response deleteLivePluginCode200Response =
+                (DeleteLivePluginCode200Response) o;
+        return Objects.equals(this.data, deleteLivePluginCode200Response.data);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(edgeFunctions);
+        return Objects.hash(data);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class GetLatestFromEdgeFunctionsAlphaOutput {\n");
-        sb.append("    edgeFunctions: ").append(toIndentedString(edgeFunctions)).append("\n");
+        sb.append("class DeleteLivePluginCode200Response {\n");
+        sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -101,11 +100,10 @@ public class GetLatestFromEdgeFunctionsAlphaOutput {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("edgeFunctions");
+        openapiFields.add("data");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("edgeFunctions");
     }
 
     /**
@@ -113,73 +111,62 @@ public class GetLatestFromEdgeFunctionsAlphaOutput {
      *
      * @param jsonElement JSON Element
      * @throws IOException if the JSON Element is invalid with respect to
-     *     GetLatestFromEdgeFunctionsAlphaOutput
+     *     DeleteLivePluginCode200Response
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!GetLatestFromEdgeFunctionsAlphaOutput.openapiRequiredFields
+            if (!DeleteLivePluginCode200Response.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in GetLatestFromEdgeFunctionsAlphaOutput"
-                                        + " is not found in the empty JSON string",
-                                GetLatestFromEdgeFunctionsAlphaOutput.openapiRequiredFields
-                                        .toString()));
+                                "The required field(s) %s in DeleteLivePluginCode200Response is not"
+                                        + " found in the empty JSON string",
+                                DeleteLivePluginCode200Response.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!GetLatestFromEdgeFunctionsAlphaOutput.openapiFields.contains(entry.getKey())) {
+            if (!DeleteLivePluginCode200Response.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                    + " `GetLatestFromEdgeFunctionsAlphaOutput` properties. JSON:"
-                                    + " %s",
+                                        + " `DeleteLivePluginCode200Response` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
-
-        // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : GetLatestFromEdgeFunctionsAlphaOutput.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-                throw new IllegalArgumentException(
-                        String.format(
-                                "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonElement.toString()));
-            }
-        }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        // validate the required field `edgeFunctions`
-        EdgeFunctionsAlpha.validateJsonElement(jsonObj.get("edgeFunctions"));
+        // validate the optional field `data`
+        if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
+            DeleteLivePluginCodeAlphaOutput.validateJsonElement(jsonObj.get("data"));
+        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!GetLatestFromEdgeFunctionsAlphaOutput.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'GetLatestFromEdgeFunctionsAlphaOutput'
-                // and its subtypes
+            if (!DeleteLivePluginCode200Response.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'DeleteLivePluginCode200Response' and its
+                // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<GetLatestFromEdgeFunctionsAlphaOutput> thisAdapter =
+            final TypeAdapter<DeleteLivePluginCode200Response> thisAdapter =
                     gson.getDelegateAdapter(
-                            this, TypeToken.get(GetLatestFromEdgeFunctionsAlphaOutput.class));
+                            this, TypeToken.get(DeleteLivePluginCode200Response.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<GetLatestFromEdgeFunctionsAlphaOutput>() {
+                    new TypeAdapter<DeleteLivePluginCode200Response>() {
                         @Override
-                        public void write(
-                                JsonWriter out, GetLatestFromEdgeFunctionsAlphaOutput value)
+                        public void write(JsonWriter out, DeleteLivePluginCode200Response value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public GetLatestFromEdgeFunctionsAlphaOutput read(JsonReader in)
+                        public DeleteLivePluginCode200Response read(JsonReader in)
                                 throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
@@ -190,20 +177,19 @@ public class GetLatestFromEdgeFunctionsAlphaOutput {
     }
 
     /**
-     * Create an instance of GetLatestFromEdgeFunctionsAlphaOutput given an JSON string
+     * Create an instance of DeleteLivePluginCode200Response given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of GetLatestFromEdgeFunctionsAlphaOutput
+     * @return An instance of DeleteLivePluginCode200Response
      * @throws IOException if the JSON string is invalid with respect to
-     *     GetLatestFromEdgeFunctionsAlphaOutput
+     *     DeleteLivePluginCode200Response
      */
-    public static GetLatestFromEdgeFunctionsAlphaOutput fromJson(String jsonString)
-            throws IOException {
-        return JSON.getGson().fromJson(jsonString, GetLatestFromEdgeFunctionsAlphaOutput.class);
+    public static DeleteLivePluginCode200Response fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, DeleteLivePluginCode200Response.class);
     }
 
     /**
-     * Convert an instance of GetLatestFromEdgeFunctionsAlphaOutput to an JSON string
+     * Convert an instance of DeleteLivePluginCode200Response to an JSON string
      *
      * @return JSON string
      */
