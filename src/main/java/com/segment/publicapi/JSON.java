@@ -362,13 +362,13 @@ public class JSON {
                 new com.segment.publicapi.models.CreateDownloadAlphaOutput
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.CreateEdgeFunctions200Response
+                new com.segment.publicapi.models.CreateEdgeFunction200Response
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.CreateEdgeFunctionsAlphaInput
+                new com.segment.publicapi.models.CreateEdgeFunctionAlphaInput
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.CreateEdgeFunctionsAlphaOutput
+                new com.segment.publicapi.models.CreateEdgeFunctionAlphaOutput
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.CreateFilterForDestination200Response
@@ -548,6 +548,12 @@ public class JSON {
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.DeleteDestinationV1Output
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.DeleteEdgeFunctionCode200Response
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.DeleteEdgeFunctionCodeAlphaOutput
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.DeleteFilterById200Response

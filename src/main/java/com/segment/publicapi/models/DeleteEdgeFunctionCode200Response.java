@@ -27,16 +27,16 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** CreateEdgeFunctions200Response */
-public class CreateEdgeFunctions200Response {
+/** DeleteEdgeFunctionCode200Response */
+public class DeleteEdgeFunctionCode200Response {
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    private CreateEdgeFunctionsAlphaOutput data;
+    private DeleteEdgeFunctionCodeAlphaOutput data;
 
-    public CreateEdgeFunctions200Response() {}
+    public DeleteEdgeFunctionCode200Response() {}
 
-    public CreateEdgeFunctions200Response data(CreateEdgeFunctionsAlphaOutput data) {
+    public DeleteEdgeFunctionCode200Response data(DeleteEdgeFunctionCodeAlphaOutput data) {
 
         this.data = data;
         return this;
@@ -48,11 +48,11 @@ public class CreateEdgeFunctions200Response {
      * @return data
      */
     @javax.annotation.Nullable
-    public CreateEdgeFunctionsAlphaOutput getData() {
+    public DeleteEdgeFunctionCodeAlphaOutput getData() {
         return data;
     }
 
-    public void setData(CreateEdgeFunctionsAlphaOutput data) {
+    public void setData(DeleteEdgeFunctionCodeAlphaOutput data) {
         this.data = data;
     }
 
@@ -64,9 +64,9 @@ public class CreateEdgeFunctions200Response {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        CreateEdgeFunctions200Response createEdgeFunctions200Response =
-                (CreateEdgeFunctions200Response) o;
-        return Objects.equals(this.data, createEdgeFunctions200Response.data);
+        DeleteEdgeFunctionCode200Response deleteEdgeFunctionCode200Response =
+                (DeleteEdgeFunctionCode200Response) o;
+        return Objects.equals(this.data, deleteEdgeFunctionCode200Response.data);
     }
 
     @Override
@@ -77,7 +77,7 @@ public class CreateEdgeFunctions200Response {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CreateEdgeFunctions200Response {\n");
+        sb.append("class DeleteEdgeFunctionCode200Response {\n");
         sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -111,35 +111,36 @@ public class CreateEdgeFunctions200Response {
      *
      * @param jsonElement JSON Element
      * @throws IOException if the JSON Element is invalid with respect to
-     *     CreateEdgeFunctions200Response
+     *     DeleteEdgeFunctionCode200Response
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!CreateEdgeFunctions200Response.openapiRequiredFields
+            if (!DeleteEdgeFunctionCode200Response.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in CreateEdgeFunctions200Response is not"
-                                        + " found in the empty JSON string",
-                                CreateEdgeFunctions200Response.openapiRequiredFields.toString()));
+                                "The required field(s) %s in DeleteEdgeFunctionCode200Response is"
+                                        + " not found in the empty JSON string",
+                                DeleteEdgeFunctionCode200Response.openapiRequiredFields
+                                        .toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!CreateEdgeFunctions200Response.openapiFields.contains(entry.getKey())) {
+            if (!DeleteEdgeFunctionCode200Response.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `CreateEdgeFunctions200Response` properties. JSON: %s",
+                                    + " `DeleteEdgeFunctionCode200Response` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the optional field `data`
         if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-            CreateEdgeFunctionsAlphaOutput.validateJsonElement(jsonObj.get("data"));
+            DeleteEdgeFunctionCodeAlphaOutput.validateJsonElement(jsonObj.get("data"));
         }
     }
 
@@ -147,26 +148,26 @@ public class CreateEdgeFunctions200Response {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!CreateEdgeFunctions200Response.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'CreateEdgeFunctions200Response' and its
-                // subtypes
+            if (!DeleteEdgeFunctionCode200Response.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'DeleteEdgeFunctionCode200Response' and
+                // its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<CreateEdgeFunctions200Response> thisAdapter =
+            final TypeAdapter<DeleteEdgeFunctionCode200Response> thisAdapter =
                     gson.getDelegateAdapter(
-                            this, TypeToken.get(CreateEdgeFunctions200Response.class));
+                            this, TypeToken.get(DeleteEdgeFunctionCode200Response.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<CreateEdgeFunctions200Response>() {
+                    new TypeAdapter<DeleteEdgeFunctionCode200Response>() {
                         @Override
-                        public void write(JsonWriter out, CreateEdgeFunctions200Response value)
+                        public void write(JsonWriter out, DeleteEdgeFunctionCode200Response value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public CreateEdgeFunctions200Response read(JsonReader in)
+                        public DeleteEdgeFunctionCode200Response read(JsonReader in)
                                 throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
@@ -177,19 +178,19 @@ public class CreateEdgeFunctions200Response {
     }
 
     /**
-     * Create an instance of CreateEdgeFunctions200Response given an JSON string
+     * Create an instance of DeleteEdgeFunctionCode200Response given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of CreateEdgeFunctions200Response
+     * @return An instance of DeleteEdgeFunctionCode200Response
      * @throws IOException if the JSON string is invalid with respect to
-     *     CreateEdgeFunctions200Response
+     *     DeleteEdgeFunctionCode200Response
      */
-    public static CreateEdgeFunctions200Response fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, CreateEdgeFunctions200Response.class);
+    public static DeleteEdgeFunctionCode200Response fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, DeleteEdgeFunctionCode200Response.class);
     }
 
     /**
-     * Convert an instance of CreateEdgeFunctions200Response to an JSON string
+     * Convert an instance of DeleteEdgeFunctionCode200Response to an JSON string
      *
      * @return JSON string
      */

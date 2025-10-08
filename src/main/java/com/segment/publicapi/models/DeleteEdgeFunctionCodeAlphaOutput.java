@@ -16,6 +16,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
@@ -27,33 +28,77 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Output for CreateEdgeFunctions. */
-public class CreateEdgeFunctionsAlphaOutput {
-    public static final String SERIALIZED_NAME_EDGE_FUNCTIONS = "edgeFunctions";
+/** Output for DeleteEdgeFunctionCode. */
+public class DeleteEdgeFunctionCodeAlphaOutput {
+    /** The status of the delete operation. */
+    @JsonAdapter(StatusEnum.Adapter.class)
+    public enum StatusEnum {
+        SUCCESS("SUCCESS");
 
-    @SerializedName(SERIALIZED_NAME_EDGE_FUNCTIONS)
-    private EdgeFunctionsAlpha edgeFunctions;
+        private String value;
 
-    public CreateEdgeFunctionsAlphaOutput() {}
+        StatusEnum(String value) {
+            this.value = value;
+        }
 
-    public CreateEdgeFunctionsAlphaOutput edgeFunctions(EdgeFunctionsAlpha edgeFunctions) {
+        public String getValue() {
+            return value;
+        }
 
-        this.edgeFunctions = edgeFunctions;
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static StatusEnum fromValue(String value) {
+            for (StatusEnum b : StatusEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<StatusEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final StatusEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public StatusEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return StatusEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_STATUS = "status";
+
+    @SerializedName(SERIALIZED_NAME_STATUS)
+    private StatusEnum status;
+
+    public DeleteEdgeFunctionCodeAlphaOutput() {}
+
+    public DeleteEdgeFunctionCodeAlphaOutput status(StatusEnum status) {
+
+        this.status = status;
         return this;
     }
 
     /**
-     * Get edgeFunctions
+     * The status of the delete operation.
      *
-     * @return edgeFunctions
+     * @return status
      */
     @javax.annotation.Nonnull
-    public EdgeFunctionsAlpha getEdgeFunctions() {
-        return edgeFunctions;
+    public StatusEnum getStatus() {
+        return status;
     }
 
-    public void setEdgeFunctions(EdgeFunctionsAlpha edgeFunctions) {
-        this.edgeFunctions = edgeFunctions;
+    public void setStatus(StatusEnum status) {
+        this.status = status;
     }
 
     @Override
@@ -64,21 +109,21 @@ public class CreateEdgeFunctionsAlphaOutput {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        CreateEdgeFunctionsAlphaOutput createEdgeFunctionsAlphaOutput =
-                (CreateEdgeFunctionsAlphaOutput) o;
-        return Objects.equals(this.edgeFunctions, createEdgeFunctionsAlphaOutput.edgeFunctions);
+        DeleteEdgeFunctionCodeAlphaOutput deleteEdgeFunctionCodeAlphaOutput =
+                (DeleteEdgeFunctionCodeAlphaOutput) o;
+        return Objects.equals(this.status, deleteEdgeFunctionCodeAlphaOutput.status);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(edgeFunctions);
+        return Objects.hash(status);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CreateEdgeFunctionsAlphaOutput {\n");
-        sb.append("    edgeFunctions: ").append(toIndentedString(edgeFunctions)).append("\n");
+        sb.append("class DeleteEdgeFunctionCodeAlphaOutput {\n");
+        sb.append("    status: ").append(toIndentedString(status)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -100,11 +145,11 @@ public class CreateEdgeFunctionsAlphaOutput {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("edgeFunctions");
+        openapiFields.add("status");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("edgeFunctions");
+        openapiRequiredFields.add("status");
     }
 
     /**
@@ -112,34 +157,35 @@ public class CreateEdgeFunctionsAlphaOutput {
      *
      * @param jsonElement JSON Element
      * @throws IOException if the JSON Element is invalid with respect to
-     *     CreateEdgeFunctionsAlphaOutput
+     *     DeleteEdgeFunctionCodeAlphaOutput
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!CreateEdgeFunctionsAlphaOutput.openapiRequiredFields
+            if (!DeleteEdgeFunctionCodeAlphaOutput.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in CreateEdgeFunctionsAlphaOutput is not"
-                                        + " found in the empty JSON string",
-                                CreateEdgeFunctionsAlphaOutput.openapiRequiredFields.toString()));
+                                "The required field(s) %s in DeleteEdgeFunctionCodeAlphaOutput is"
+                                        + " not found in the empty JSON string",
+                                DeleteEdgeFunctionCodeAlphaOutput.openapiRequiredFields
+                                        .toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!CreateEdgeFunctionsAlphaOutput.openapiFields.contains(entry.getKey())) {
+            if (!DeleteEdgeFunctionCodeAlphaOutput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `CreateEdgeFunctionsAlphaOutput` properties. JSON: %s",
+                                    + " `DeleteEdgeFunctionCodeAlphaOutput` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : CreateEdgeFunctionsAlphaOutput.openapiRequiredFields) {
+        for (String requiredField : DeleteEdgeFunctionCodeAlphaOutput.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -148,34 +194,39 @@ public class CreateEdgeFunctionsAlphaOutput {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        // validate the required field `edgeFunctions`
-        EdgeFunctionsAlpha.validateJsonElement(jsonObj.get("edgeFunctions"));
+        if (!jsonObj.get("status").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `status` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
+                            jsonObj.get("status").toString()));
+        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!CreateEdgeFunctionsAlphaOutput.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'CreateEdgeFunctionsAlphaOutput' and its
-                // subtypes
+            if (!DeleteEdgeFunctionCodeAlphaOutput.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'DeleteEdgeFunctionCodeAlphaOutput' and
+                // its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<CreateEdgeFunctionsAlphaOutput> thisAdapter =
+            final TypeAdapter<DeleteEdgeFunctionCodeAlphaOutput> thisAdapter =
                     gson.getDelegateAdapter(
-                            this, TypeToken.get(CreateEdgeFunctionsAlphaOutput.class));
+                            this, TypeToken.get(DeleteEdgeFunctionCodeAlphaOutput.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<CreateEdgeFunctionsAlphaOutput>() {
+                    new TypeAdapter<DeleteEdgeFunctionCodeAlphaOutput>() {
                         @Override
-                        public void write(JsonWriter out, CreateEdgeFunctionsAlphaOutput value)
+                        public void write(JsonWriter out, DeleteEdgeFunctionCodeAlphaOutput value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public CreateEdgeFunctionsAlphaOutput read(JsonReader in)
+                        public DeleteEdgeFunctionCodeAlphaOutput read(JsonReader in)
                                 throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
@@ -186,19 +237,19 @@ public class CreateEdgeFunctionsAlphaOutput {
     }
 
     /**
-     * Create an instance of CreateEdgeFunctionsAlphaOutput given an JSON string
+     * Create an instance of DeleteEdgeFunctionCodeAlphaOutput given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of CreateEdgeFunctionsAlphaOutput
+     * @return An instance of DeleteEdgeFunctionCodeAlphaOutput
      * @throws IOException if the JSON string is invalid with respect to
-     *     CreateEdgeFunctionsAlphaOutput
+     *     DeleteEdgeFunctionCodeAlphaOutput
      */
-    public static CreateEdgeFunctionsAlphaOutput fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, CreateEdgeFunctionsAlphaOutput.class);
+    public static DeleteEdgeFunctionCodeAlphaOutput fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, DeleteEdgeFunctionCodeAlphaOutput.class);
     }
 
     /**
-     * Convert an instance of CreateEdgeFunctionsAlphaOutput to an JSON string
+     * Convert an instance of DeleteEdgeFunctionCodeAlphaOutput to an JSON string
      *
      * @return JSON string
      */

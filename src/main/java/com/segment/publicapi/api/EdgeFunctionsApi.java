@@ -18,8 +18,9 @@ import com.segment.publicapi.ApiException;
 import com.segment.publicapi.ApiResponse;
 import com.segment.publicapi.Configuration;
 import com.segment.publicapi.Pair;
-import com.segment.publicapi.models.CreateEdgeFunctions200Response;
-import com.segment.publicapi.models.CreateEdgeFunctionsAlphaInput;
+import com.segment.publicapi.models.CreateEdgeFunction200Response;
+import com.segment.publicapi.models.CreateEdgeFunctionAlphaInput;
+import com.segment.publicapi.models.DeleteEdgeFunctionCode200Response;
 import com.segment.publicapi.models.DisableEdgeFunctions200Response;
 import com.segment.publicapi.models.GenerateUploadURLForEdgeFunctions200Response;
 import com.segment.publicapi.models.GetLatestFromEdgeFunctions200Response;
@@ -67,10 +68,10 @@ public class EdgeFunctionsApi {
     }
 
     /**
-     * Build call for createEdgeFunctions
+     * Build call for createEdgeFunction
      *
      * @param sourceId (required)
-     * @param createEdgeFunctionsAlphaInput (required)
+     * @param createEdgeFunctionAlphaInput (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -83,9 +84,9 @@ public class EdgeFunctionsApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call createEdgeFunctionsCall(
+    public okhttp3.Call createEdgeFunctionCall(
             String sourceId,
-            CreateEdgeFunctionsAlphaInput createEdgeFunctionsAlphaInput,
+            CreateEdgeFunctionAlphaInput createEdgeFunctionAlphaInput,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -101,11 +102,11 @@ public class EdgeFunctionsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = createEdgeFunctionsAlphaInput;
+        Object localVarPostBody = createEdgeFunctionAlphaInput;
 
         // create path and map variables
         String localVarPath =
-                "/sources/{sourceId}/edge-functions"
+                "/sources/{sourceId}/edge-functions/create"
                         .replace(
                                 "{" + "sourceId" + "}",
                                 localVarApiClient.escapeString(sourceId.toString()));
@@ -147,38 +148,38 @@ public class EdgeFunctionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createEdgeFunctionsValidateBeforeCall(
+    private okhttp3.Call createEdgeFunctionValidateBeforeCall(
             String sourceId,
-            CreateEdgeFunctionsAlphaInput createEdgeFunctionsAlphaInput,
+            CreateEdgeFunctionAlphaInput createEdgeFunctionAlphaInput,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'sourceId' is set
         if (sourceId == null) {
             throw new ApiException(
                     "Missing the required parameter 'sourceId' when calling"
-                            + " createEdgeFunctions(Async)");
+                            + " createEdgeFunction(Async)");
         }
 
-        // verify the required parameter 'createEdgeFunctionsAlphaInput' is set
-        if (createEdgeFunctionsAlphaInput == null) {
+        // verify the required parameter 'createEdgeFunctionAlphaInput' is set
+        if (createEdgeFunctionAlphaInput == null) {
             throw new ApiException(
-                    "Missing the required parameter 'createEdgeFunctionsAlphaInput' when calling"
-                            + " createEdgeFunctions(Async)");
+                    "Missing the required parameter 'createEdgeFunctionAlphaInput' when calling"
+                            + " createEdgeFunction(Async)");
         }
 
-        return createEdgeFunctionsCall(sourceId, createEdgeFunctionsAlphaInput, _callback);
+        return createEdgeFunctionCall(sourceId, createEdgeFunctionAlphaInput, _callback);
     }
 
     /**
-     * Create Edge Functions Create EdgeFunctions for your Source given a valid upload URL for an
-     * Edge Functions bundle. • This endpoint is in **Alpha** testing. Please submit any feedback by
-     * sending an email to friends@segment.com. • In order to successfully call this endpoint, the
-     * specified Workspace needs to have the Edge Functions feature enabled. Please reach out to
-     * your customer success manager for more information.
+     * Create Edge Function Creates or updates an Edge Function for your Source with given code. •
+     * This endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
+     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
+     * needs to have the Edge Functions feature enabled. Please reach out to your customer success
+     * manager for more information.
      *
      * @param sourceId (required)
-     * @param createEdgeFunctionsAlphaInput (required)
-     * @return CreateEdgeFunctions200Response
+     * @param createEdgeFunctionAlphaInput (required)
+     * @return CreateEdgeFunction200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
      * @http.response.details
@@ -190,24 +191,24 @@ public class EdgeFunctionsApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public CreateEdgeFunctions200Response createEdgeFunctions(
-            String sourceId, CreateEdgeFunctionsAlphaInput createEdgeFunctionsAlphaInput)
+    public CreateEdgeFunction200Response createEdgeFunction(
+            String sourceId, CreateEdgeFunctionAlphaInput createEdgeFunctionAlphaInput)
             throws ApiException {
-        ApiResponse<CreateEdgeFunctions200Response> localVarResp =
-                createEdgeFunctionsWithHttpInfo(sourceId, createEdgeFunctionsAlphaInput);
+        ApiResponse<CreateEdgeFunction200Response> localVarResp =
+                createEdgeFunctionWithHttpInfo(sourceId, createEdgeFunctionAlphaInput);
         return localVarResp.getData();
     }
 
     /**
-     * Create Edge Functions Create EdgeFunctions for your Source given a valid upload URL for an
-     * Edge Functions bundle. • This endpoint is in **Alpha** testing. Please submit any feedback by
-     * sending an email to friends@segment.com. • In order to successfully call this endpoint, the
-     * specified Workspace needs to have the Edge Functions feature enabled. Please reach out to
-     * your customer success manager for more information.
+     * Create Edge Function Creates or updates an Edge Function for your Source with given code. •
+     * This endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
+     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
+     * needs to have the Edge Functions feature enabled. Please reach out to your customer success
+     * manager for more information.
      *
      * @param sourceId (required)
-     * @param createEdgeFunctionsAlphaInput (required)
-     * @return ApiResponse&lt;CreateEdgeFunctions200Response&gt;
+     * @param createEdgeFunctionAlphaInput (required)
+     * @return ApiResponse&lt;CreateEdgeFunction200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
      * @http.response.details
@@ -219,25 +220,24 @@ public class EdgeFunctionsApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<CreateEdgeFunctions200Response> createEdgeFunctionsWithHttpInfo(
-            String sourceId, CreateEdgeFunctionsAlphaInput createEdgeFunctionsAlphaInput)
+    public ApiResponse<CreateEdgeFunction200Response> createEdgeFunctionWithHttpInfo(
+            String sourceId, CreateEdgeFunctionAlphaInput createEdgeFunctionAlphaInput)
             throws ApiException {
         okhttp3.Call localVarCall =
-                createEdgeFunctionsValidateBeforeCall(
-                        sourceId, createEdgeFunctionsAlphaInput, null);
-        Type localVarReturnType = new TypeToken<CreateEdgeFunctions200Response>() {}.getType();
+                createEdgeFunctionValidateBeforeCall(sourceId, createEdgeFunctionAlphaInput, null);
+        Type localVarReturnType = new TypeToken<CreateEdgeFunction200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Create Edge Functions (asynchronously) Create EdgeFunctions for your Source given a valid
-     * upload URL for an Edge Functions bundle. • This endpoint is in **Alpha** testing. Please
-     * submit any feedback by sending an email to friends@segment.com. • In order to successfully
-     * call this endpoint, the specified Workspace needs to have the Edge Functions feature enabled.
-     * Please reach out to your customer success manager for more information.
+     * Create Edge Function (asynchronously) Creates or updates an Edge Function for your Source
+     * with given code. • This endpoint is in **Alpha** testing. Please submit any feedback by
+     * sending an email to friends@segment.com. • In order to successfully call this endpoint, the
+     * specified Workspace needs to have the Edge Functions feature enabled. Please reach out to
+     * your customer success manager for more information.
      *
      * @param sourceId (required)
-     * @param createEdgeFunctionsAlphaInput (required)
+     * @param createEdgeFunctionAlphaInput (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -251,16 +251,193 @@ public class EdgeFunctionsApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call createEdgeFunctionsAsync(
+    public okhttp3.Call createEdgeFunctionAsync(
             String sourceId,
-            CreateEdgeFunctionsAlphaInput createEdgeFunctionsAlphaInput,
-            final ApiCallback<CreateEdgeFunctions200Response> _callback)
+            CreateEdgeFunctionAlphaInput createEdgeFunctionAlphaInput,
+            final ApiCallback<CreateEdgeFunction200Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
-                createEdgeFunctionsValidateBeforeCall(
-                        sourceId, createEdgeFunctionsAlphaInput, _callback);
-        Type localVarReturnType = new TypeToken<CreateEdgeFunctions200Response>() {}.getType();
+                createEdgeFunctionValidateBeforeCall(
+                        sourceId, createEdgeFunctionAlphaInput, _callback);
+        Type localVarReturnType = new TypeToken<CreateEdgeFunction200Response>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for deleteEdgeFunctionCode
+     *
+     * @param sourceId (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call deleteEdgeFunctionCodeCall(String sourceId, final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/sources/{sourceId}/edge-functions/delete-code"
+                        .replace(
+                                "{" + "sourceId" + "}",
+                                localVarApiClient.escapeString(sourceId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.segment.v1alpha+json", "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"token"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "DELETE",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteEdgeFunctionCodeValidateBeforeCall(
+            String sourceId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'sourceId' is set
+        if (sourceId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'sourceId' when calling"
+                            + " deleteEdgeFunctionCode(Async)");
+        }
+
+        return deleteEdgeFunctionCodeCall(sourceId, _callback);
+    }
+
+    /**
+     * Delete Edge Function Code Delete the Edge Function code for a Source. This will not disable
+     * Edge Functions for the Source, but will remove any existing code. • This endpoint is in
+     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
+     * In order to successfully call this endpoint, the specified Workspace needs to have the Edge
+     * Functions feature enabled. Please reach out to your customer success manager for more
+     * information.
+     *
+     * @param sourceId (required)
+     * @return DeleteEdgeFunctionCode200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public DeleteEdgeFunctionCode200Response deleteEdgeFunctionCode(String sourceId)
+            throws ApiException {
+        ApiResponse<DeleteEdgeFunctionCode200Response> localVarResp =
+                deleteEdgeFunctionCodeWithHttpInfo(sourceId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Delete Edge Function Code Delete the Edge Function code for a Source. This will not disable
+     * Edge Functions for the Source, but will remove any existing code. • This endpoint is in
+     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
+     * In order to successfully call this endpoint, the specified Workspace needs to have the Edge
+     * Functions feature enabled. Please reach out to your customer success manager for more
+     * information.
+     *
+     * @param sourceId (required)
+     * @return ApiResponse&lt;DeleteEdgeFunctionCode200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<DeleteEdgeFunctionCode200Response> deleteEdgeFunctionCodeWithHttpInfo(
+            String sourceId) throws ApiException {
+        okhttp3.Call localVarCall = deleteEdgeFunctionCodeValidateBeforeCall(sourceId, null);
+        Type localVarReturnType = new TypeToken<DeleteEdgeFunctionCode200Response>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Delete Edge Function Code (asynchronously) Delete the Edge Function code for a Source. This
+     * will not disable Edge Functions for the Source, but will remove any existing code. • This
+     * endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
+     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
+     * needs to have the Edge Functions feature enabled. Please reach out to your customer success
+     * manager for more information.
+     *
+     * @param sourceId (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body
+     *     object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call deleteEdgeFunctionCodeAsync(
+            String sourceId, final ApiCallback<DeleteEdgeFunctionCode200Response> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall = deleteEdgeFunctionCodeValidateBeforeCall(sourceId, _callback);
+        Type localVarReturnType = new TypeToken<DeleteEdgeFunctionCode200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

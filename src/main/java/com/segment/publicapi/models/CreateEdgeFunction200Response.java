@@ -27,33 +27,33 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Input for CreateEdgeFunctions. */
-public class CreateEdgeFunctionsAlphaInput {
-    public static final String SERIALIZED_NAME_UPLOAD_U_R_L = "uploadURL";
+/** CreateEdgeFunction200Response */
+public class CreateEdgeFunction200Response {
+    public static final String SERIALIZED_NAME_DATA = "data";
 
-    @SerializedName(SERIALIZED_NAME_UPLOAD_U_R_L)
-    private String uploadURL;
+    @SerializedName(SERIALIZED_NAME_DATA)
+    private CreateEdgeFunctionAlphaOutput data;
 
-    public CreateEdgeFunctionsAlphaInput() {}
+    public CreateEdgeFunction200Response() {}
 
-    public CreateEdgeFunctionsAlphaInput uploadURL(String uploadURL) {
+    public CreateEdgeFunction200Response data(CreateEdgeFunctionAlphaOutput data) {
 
-        this.uploadURL = uploadURL;
+        this.data = data;
         return this;
     }
 
     /**
-     * The id of the Source associated with this Edge Function.
+     * Get data
      *
-     * @return uploadURL
+     * @return data
      */
-    @javax.annotation.Nonnull
-    public String getUploadURL() {
-        return uploadURL;
+    @javax.annotation.Nullable
+    public CreateEdgeFunctionAlphaOutput getData() {
+        return data;
     }
 
-    public void setUploadURL(String uploadURL) {
-        this.uploadURL = uploadURL;
+    public void setData(CreateEdgeFunctionAlphaOutput data) {
+        this.data = data;
     }
 
     @Override
@@ -64,21 +64,21 @@ public class CreateEdgeFunctionsAlphaInput {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        CreateEdgeFunctionsAlphaInput createEdgeFunctionsAlphaInput =
-                (CreateEdgeFunctionsAlphaInput) o;
-        return Objects.equals(this.uploadURL, createEdgeFunctionsAlphaInput.uploadURL);
+        CreateEdgeFunction200Response createEdgeFunction200Response =
+                (CreateEdgeFunction200Response) o;
+        return Objects.equals(this.data, createEdgeFunction200Response.data);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(uploadURL);
+        return Objects.hash(data);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CreateEdgeFunctionsAlphaInput {\n");
-        sb.append("    uploadURL: ").append(toIndentedString(uploadURL)).append("\n");
+        sb.append("class CreateEdgeFunction200Response {\n");
+        sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -100,11 +100,10 @@ public class CreateEdgeFunctionsAlphaInput {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("uploadURL");
+        openapiFields.add("data");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("uploadURL");
     }
 
     /**
@@ -112,48 +111,35 @@ public class CreateEdgeFunctionsAlphaInput {
      *
      * @param jsonElement JSON Element
      * @throws IOException if the JSON Element is invalid with respect to
-     *     CreateEdgeFunctionsAlphaInput
+     *     CreateEdgeFunction200Response
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!CreateEdgeFunctionsAlphaInput.openapiRequiredFields
+            if (!CreateEdgeFunction200Response.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in CreateEdgeFunctionsAlphaInput is not"
+                                "The required field(s) %s in CreateEdgeFunction200Response is not"
                                         + " found in the empty JSON string",
-                                CreateEdgeFunctionsAlphaInput.openapiRequiredFields.toString()));
+                                CreateEdgeFunction200Response.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!CreateEdgeFunctionsAlphaInput.openapiFields.contains(entry.getKey())) {
+            if (!CreateEdgeFunction200Response.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `CreateEdgeFunctionsAlphaInput` properties. JSON: %s",
+                                        + " `CreateEdgeFunction200Response` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
-
-        // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : CreateEdgeFunctionsAlphaInput.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-                throw new IllegalArgumentException(
-                        String.format(
-                                "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonElement.toString()));
-            }
-        }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if (!jsonObj.get("uploadURL").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `uploadURL` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
-                            jsonObj.get("uploadURL").toString()));
+        // validate the optional field `data`
+        if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
+            CreateEdgeFunctionAlphaOutput.validateJsonElement(jsonObj.get("data"));
         }
     }
 
@@ -161,26 +147,26 @@ public class CreateEdgeFunctionsAlphaInput {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!CreateEdgeFunctionsAlphaInput.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'CreateEdgeFunctionsAlphaInput' and its
+            if (!CreateEdgeFunction200Response.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'CreateEdgeFunction200Response' and its
                 // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<CreateEdgeFunctionsAlphaInput> thisAdapter =
+            final TypeAdapter<CreateEdgeFunction200Response> thisAdapter =
                     gson.getDelegateAdapter(
-                            this, TypeToken.get(CreateEdgeFunctionsAlphaInput.class));
+                            this, TypeToken.get(CreateEdgeFunction200Response.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<CreateEdgeFunctionsAlphaInput>() {
+                    new TypeAdapter<CreateEdgeFunction200Response>() {
                         @Override
-                        public void write(JsonWriter out, CreateEdgeFunctionsAlphaInput value)
+                        public void write(JsonWriter out, CreateEdgeFunction200Response value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public CreateEdgeFunctionsAlphaInput read(JsonReader in)
+                        public CreateEdgeFunction200Response read(JsonReader in)
                                 throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
@@ -191,19 +177,19 @@ public class CreateEdgeFunctionsAlphaInput {
     }
 
     /**
-     * Create an instance of CreateEdgeFunctionsAlphaInput given an JSON string
+     * Create an instance of CreateEdgeFunction200Response given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of CreateEdgeFunctionsAlphaInput
+     * @return An instance of CreateEdgeFunction200Response
      * @throws IOException if the JSON string is invalid with respect to
-     *     CreateEdgeFunctionsAlphaInput
+     *     CreateEdgeFunction200Response
      */
-    public static CreateEdgeFunctionsAlphaInput fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, CreateEdgeFunctionsAlphaInput.class);
+    public static CreateEdgeFunction200Response fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, CreateEdgeFunction200Response.class);
     }
 
     /**
-     * Convert an instance of CreateEdgeFunctionsAlphaInput to an JSON string
+     * Convert an instance of CreateEdgeFunction200Response to an JSON string
      *
      * @return JSON string
      */

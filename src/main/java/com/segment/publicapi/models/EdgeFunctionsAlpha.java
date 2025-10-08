@@ -23,10 +23,12 @@ import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Represents an Edge Function bundle. */
 public class EdgeFunctionsAlpha {
@@ -59,6 +61,11 @@ public class EdgeFunctionsAlpha {
 
     @SerializedName(SERIALIZED_NAME_VERSION)
     private BigDecimal version;
+
+    public static final String SERIALIZED_NAME_CODE = "code";
+
+    @SerializedName(SERIALIZED_NAME_CODE)
+    private String code;
 
     public EdgeFunctionsAlpha() {}
 
@@ -182,6 +189,26 @@ public class EdgeFunctionsAlpha {
         this.version = version;
     }
 
+    public EdgeFunctionsAlpha code(String code) {
+
+        this.code = code;
+        return this;
+    }
+
+    /**
+     * The code of the Edge Function.
+     *
+     * @return code
+     */
+    @javax.annotation.Nullable
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -196,12 +223,29 @@ public class EdgeFunctionsAlpha {
                 && Objects.equals(this.createdAt, edgeFunctionsAlpha.createdAt)
                 && Objects.equals(this.createdBy, edgeFunctionsAlpha.createdBy)
                 && Objects.equals(this.downloadURL, edgeFunctionsAlpha.downloadURL)
-                && Objects.equals(this.version, edgeFunctionsAlpha.version);
+                && Objects.equals(this.version, edgeFunctionsAlpha.version)
+                && Objects.equals(this.code, edgeFunctionsAlpha.code);
+    }
+
+    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+        return a == b
+                || (a != null
+                        && b != null
+                        && a.isPresent()
+                        && b.isPresent()
+                        && Objects.deepEquals(a.get(), b.get()));
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, sourceId, createdAt, createdBy, downloadURL, version);
+        return Objects.hash(id, sourceId, createdAt, createdBy, downloadURL, version, code);
+    }
+
+    private static <T> int hashCodeNullable(JsonNullable<T> a) {
+        if (a == null) {
+            return 1;
+        }
+        return a.isPresent() ? Arrays.deepHashCode(new Object[] {a.get()}) : 31;
     }
 
     @Override
@@ -214,6 +258,7 @@ public class EdgeFunctionsAlpha {
         sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
         sb.append("    downloadURL: ").append(toIndentedString(downloadURL)).append("\n");
         sb.append("    version: ").append(toIndentedString(version)).append("\n");
+        sb.append("    code: ").append(toIndentedString(code)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -241,6 +286,7 @@ public class EdgeFunctionsAlpha {
         openapiFields.add("createdBy");
         openapiFields.add("downloadURL");
         openapiFields.add("version");
+        openapiFields.add("code");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
@@ -326,6 +372,14 @@ public class EdgeFunctionsAlpha {
                             "Expected the field `downloadURL` to be a primitive type in the JSON"
                                     + " string but got `%s`",
                             jsonObj.get("downloadURL").toString()));
+        }
+        if ((jsonObj.get("code") != null && !jsonObj.get("code").isJsonNull())
+                && !jsonObj.get("code").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `code` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
+                            jsonObj.get("code").toString()));
         }
     }
 
