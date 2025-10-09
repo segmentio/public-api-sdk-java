@@ -206,7 +206,10 @@ public class AudiencesApi {
      * will need to be created. • This endpoint is in **Alpha** testing. Please submit any feedback
      * by sending an email to friends@segment.com. • In order to successfully call this endpoint,
      * the specified Workspace needs to have the Audience feature enabled. Please reach out to your
-     * customer success manager for more information.
+     * customer success manager for more information. The rate limit for this endpoint is 50
+     * requests per minute, which is lower than the default due to access pattern restrictions. Once
+     * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
+     * limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -241,7 +244,10 @@ public class AudiencesApi {
      * will need to be created. • This endpoint is in **Alpha** testing. Please submit any feedback
      * by sending an email to friends@segment.com. • In order to successfully call this endpoint,
      * the specified Workspace needs to have the Audience feature enabled. Please reach out to your
-     * customer success manager for more information.
+     * customer success manager for more information. The rate limit for this endpoint is 50
+     * requests per minute, which is lower than the default due to access pattern restrictions. Once
+     * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
+     * limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -279,7 +285,11 @@ public class AudiencesApi {
      * a new schedule will need to be created. • This endpoint is in **Alpha** testing. Please
      * submit any feedback by sending an email to friends@segment.com. • In order to successfully
      * call this endpoint, the specified Workspace needs to have the Audience feature enabled.
-     * Please reach out to your customer success manager for more information.
+     * Please reach out to your customer success manager for more information. The rate limit for
+     * this endpoint is 50 requests per minute, which is lower than the default due to access
+     * pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code
+     * with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
+     * information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -426,7 +436,7 @@ public class AudiencesApi {
      * out to your customer success manager for more information. • When called, this endpoint may
      * generate the &#x60;Audience Created&#x60; event in the [audit trail](/tag/Audit-Trail). Note:
      * The definition for an Audience created using the API is not editable through the Segment App.
-     * The rate limit for this endpoint is 10 requests per minute, which is lower than the default
+     * The rate limit for this endpoint is 50 requests per minute, which is lower than the default
      * due to access pattern restrictions. Once reached, this endpoint will respond with the 429
      * HTTP status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.
@@ -459,7 +469,7 @@ public class AudiencesApi {
      * out to your customer success manager for more information. • When called, this endpoint may
      * generate the &#x60;Audience Created&#x60; event in the [audit trail](/tag/Audit-Trail). Note:
      * The definition for an Audience created using the API is not editable through the Segment App.
-     * The rate limit for this endpoint is 10 requests per minute, which is lower than the default
+     * The rate limit for this endpoint is 50 requests per minute, which is lower than the default
      * due to access pattern restrictions. Once reached, this endpoint will respond with the 429
      * HTTP status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.
@@ -493,7 +503,7 @@ public class AudiencesApi {
      * enabled. Please reach out to your customer success manager for more information. • When
      * called, this endpoint may generate the &#x60;Audience Created&#x60; event in the [audit
      * trail](/tag/Audit-Trail). Note: The definition for an Audience created using the API is not
-     * editable through the Segment App. The rate limit for this endpoint is 10 requests per minute,
+     * editable through the Segment App. The rate limit for this endpoint is 50 requests per minute,
      * which is lower than the default due to access pattern restrictions. Once reached, this
      * endpoint will respond with the 429 HTTP status code with headers indicating the limit
      * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
@@ -1264,7 +1274,7 @@ public class AudiencesApi {
      * testing. Please submit any feedback by sending an email to friends@segment.com. • In order to
      * successfully call this endpoint, the specified Workspace needs to have the Audience feature
      * enabled. Please reach out to your customer success manager for more information. The rate
-     * limit for this endpoint is 100 requests per minute, which is lower than the default due to
+     * limit for this endpoint is 300 requests per minute, which is lower than the default due to
      * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
      * status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.
@@ -1295,7 +1305,7 @@ public class AudiencesApi {
      * testing. Please submit any feedback by sending an email to friends@segment.com. • In order to
      * successfully call this endpoint, the specified Workspace needs to have the Audience feature
      * enabled. Please reach out to your customer success manager for more information. The rate
-     * limit for this endpoint is 100 requests per minute, which is lower than the default due to
+     * limit for this endpoint is 300 requests per minute, which is lower than the default due to
      * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
      * status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.
@@ -1326,7 +1336,7 @@ public class AudiencesApi {
      * endpoint is in **Beta** testing. Please submit any feedback by sending an email to
      * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
      * needs to have the Audience feature enabled. Please reach out to your customer success manager
-     * for more information. The rate limit for this endpoint is 100 requests per minute, which is
+     * for more information. The rate limit for this endpoint is 300 requests per minute, which is
      * lower than the default due to access pattern restrictions. Once reached, this endpoint will
      * respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.
@@ -2152,7 +2162,7 @@ public class AudiencesApi {
      * any feedback by sending an email to friends@segment.com. • In order to successfully call this
      * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
      * out to your customer success manager for more information. The rate limit for this endpoint
-     * is 25 requests per minute, which is lower than the default due to access pattern
+     * is 60 requests per minute, which is lower than the default due to access pattern
      * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
      * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
      * information.
@@ -2193,7 +2203,7 @@ public class AudiencesApi {
      * any feedback by sending an email to friends@segment.com. • In order to successfully call this
      * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
      * out to your customer success manager for more information. The rate limit for this endpoint
-     * is 25 requests per minute, which is lower than the default due to access pattern
+     * is 60 requests per minute, which is lower than the default due to access pattern
      * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
      * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
      * information.
@@ -2235,7 +2245,7 @@ public class AudiencesApi {
      * Please submit any feedback by sending an email to friends@segment.com. • In order to
      * successfully call this endpoint, the specified Workspace needs to have the Audience feature
      * enabled. Please reach out to your customer success manager for more information. The rate
-     * limit for this endpoint is 25 requests per minute, which is lower than the default due to
+     * limit for this endpoint is 60 requests per minute, which is lower than the default due to
      * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
      * status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.
@@ -2381,7 +2391,7 @@ public class AudiencesApi {
      * order to successfully call this endpoint, the specified Workspace needs to have the Audience
      * feature enabled. Please reach out to your customer success manager for more information. •
      * When called, this endpoint may generate the &#x60;Audience Deleted&#x60; event in the [audit
-     * trail](/tag/Audit-Trail). The rate limit for this endpoint is 20 requests per minute, which
+     * trail](/tag/Audit-Trail). The rate limit for this endpoint is 50 requests per minute, which
      * is lower than the default due to access pattern restrictions. Once reached, this endpoint
      * will respond with the 429 HTTP status code with headers indicating the limit parameters. See
      * [Rate Limiting](/#tag/Rate-Limits) for more information.
@@ -2413,7 +2423,7 @@ public class AudiencesApi {
      * order to successfully call this endpoint, the specified Workspace needs to have the Audience
      * feature enabled. Please reach out to your customer success manager for more information. •
      * When called, this endpoint may generate the &#x60;Audience Deleted&#x60; event in the [audit
-     * trail](/tag/Audit-Trail). The rate limit for this endpoint is 20 requests per minute, which
+     * trail](/tag/Audit-Trail). The rate limit for this endpoint is 50 requests per minute, which
      * is lower than the default due to access pattern restrictions. Once reached, this endpoint
      * will respond with the 429 HTTP status code with headers indicating the limit parameters. See
      * [Rate Limiting](/#tag/Rate-Limits) for more information.
@@ -2446,7 +2456,7 @@ public class AudiencesApi {
      * needs to have the Audience feature enabled. Please reach out to your customer success manager
      * for more information. • When called, this endpoint may generate the &#x60;Audience
      * Deleted&#x60; event in the [audit trail](/tag/Audit-Trail). The rate limit for this endpoint
-     * is 20 requests per minute, which is lower than the default due to access pattern
+     * is 50 requests per minute, which is lower than the default due to access pattern
      * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
      * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
      * information.
@@ -2595,7 +2605,11 @@ public class AudiencesApi {
      * (audienceType &#x3D; LINKED). • This endpoint is in **Alpha** testing. Please submit any
      * feedback by sending an email to friends@segment.com. • In order to successfully call this
      * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
-     * out to your customer success manager for more information.
+     * out to your customer success manager for more information. The rate limit for this endpoint
+     * is 50 requests per minute, which is lower than the default due to access pattern
+     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
+     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
+     * information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -2624,7 +2638,11 @@ public class AudiencesApi {
      * (audienceType &#x3D; LINKED). • This endpoint is in **Alpha** testing. Please submit any
      * feedback by sending an email to friends@segment.com. • In order to successfully call this
      * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
-     * out to your customer success manager for more information.
+     * out to your customer success manager for more information. The rate limit for this endpoint
+     * is 50 requests per minute, which is lower than the default due to access pattern
+     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
+     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
+     * information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -2656,7 +2674,11 @@ public class AudiencesApi {
      * Linked Audience (audienceType &#x3D; LINKED). • This endpoint is in **Alpha** testing. Please
      * submit any feedback by sending an email to friends@segment.com. • In order to successfully
      * call this endpoint, the specified Workspace needs to have the Audience feature enabled.
-     * Please reach out to your customer success manager for more information.
+     * Please reach out to your customer success manager for more information. The rate limit for
+     * this endpoint is 50 requests per minute, which is lower than the default due to access
+     * pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code
+     * with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
+     * information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -2819,7 +2841,7 @@ public class AudiencesApi {
      * information [in the Segment
      * docs](https://segment-docs.netlify.app/docs/engage/audiences/#editing-realtime-audiences-and-traits).
      * Note: The definition for an Audience updated using the API is not editable through the
-     * Segment App. The rate limit for this endpoint is 10 requests per minute, which is lower than
+     * Segment App. The rate limit for this endpoint is 50 requests per minute, which is lower than
      * the default due to access pattern restrictions. Once reached, this endpoint will respond with
      * the 429 HTTP status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.
@@ -2860,7 +2882,7 @@ public class AudiencesApi {
      * information [in the Segment
      * docs](https://segment-docs.netlify.app/docs/engage/audiences/#editing-realtime-audiences-and-traits).
      * Note: The definition for an Audience updated using the API is not editable through the
-     * Segment App. The rate limit for this endpoint is 10 requests per minute, which is lower than
+     * Segment App. The rate limit for this endpoint is 50 requests per minute, which is lower than
      * the default due to access pattern restrictions. Once reached, this endpoint will respond with
      * the 429 HTTP status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.
@@ -2903,7 +2925,7 @@ public class AudiencesApi {
      * find more information [in the Segment
      * docs](https://segment-docs.netlify.app/docs/engage/audiences/#editing-realtime-audiences-and-traits).
      * Note: The definition for an Audience updated using the API is not editable through the
-     * Segment App. The rate limit for this endpoint is 10 requests per minute, which is lower than
+     * Segment App. The rate limit for this endpoint is 50 requests per minute, which is lower than
      * the default due to access pattern restrictions. Once reached, this endpoint will respond with
      * the 429 HTTP status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.
@@ -3072,7 +3094,11 @@ public class AudiencesApi {
      * (audienceType &#x3D; LINKED). • This endpoint is in **Alpha** testing. Please submit any
      * feedback by sending an email to friends@segment.com. • In order to successfully call this
      * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
-     * out to your customer success manager for more information.
+     * out to your customer success manager for more information. The rate limit for this endpoint
+     * is 50 requests per minute, which is lower than the default due to access pattern
+     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
+     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
+     * information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -3107,7 +3133,11 @@ public class AudiencesApi {
      * (audienceType &#x3D; LINKED). • This endpoint is in **Alpha** testing. Please submit any
      * feedback by sending an email to friends@segment.com. • In order to successfully call this
      * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
-     * out to your customer success manager for more information.
+     * out to your customer success manager for more information. The rate limit for this endpoint
+     * is 50 requests per minute, which is lower than the default due to access pattern
+     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
+     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
+     * information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -3146,7 +3176,11 @@ public class AudiencesApi {
      * Linked Audience (audienceType &#x3D; LINKED). • This endpoint is in **Alpha** testing. Please
      * submit any feedback by sending an email to friends@segment.com. • In order to successfully
      * call this endpoint, the specified Workspace needs to have the Audience feature enabled.
-     * Please reach out to your customer success manager for more information.
+     * Please reach out to your customer success manager for more information. The rate limit for
+     * this endpoint is 50 requests per minute, which is lower than the default due to access
+     * pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code
+     * with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
+     * information.
      *
      * @param spaceId (required)
      * @param id (required)
