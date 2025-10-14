@@ -37,9 +37,11 @@ public class AudienceSchedule {
     @SerializedName(SERIALIZED_NAME_ID)
     private String id;
 
-    /** Strategy of the audience schedule (periodic or specific days). */
+    /** Strategy of the audience schedule (manual, periodic, or specific days). */
     @JsonAdapter(StrategyEnum.Adapter.class)
     public enum StrategyEnum {
+        MANUAL("MANUAL"),
+
         PERIODIC("PERIODIC"),
 
         SPECIFIC_DAYS("SPECIFIC_DAYS");
@@ -127,7 +129,7 @@ public class AudienceSchedule {
     }
 
     /**
-     * Strategy of the audience schedule (periodic or specific days).
+     * Strategy of the audience schedule (manual, periodic, or specific days).
      *
      * @return strategy
      */

@@ -27,16 +27,16 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** DeleteLivePluginCode200Response */
-public class DeleteLivePluginCode200Response {
+/** CreateEdgeFunctions200Response */
+public class CreateEdgeFunctions200Response {
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    private DeleteLivePluginCodeAlphaOutput data;
+    private CreateEdgeFunctionsAlphaOutput data;
 
-    public DeleteLivePluginCode200Response() {}
+    public CreateEdgeFunctions200Response() {}
 
-    public DeleteLivePluginCode200Response data(DeleteLivePluginCodeAlphaOutput data) {
+    public CreateEdgeFunctions200Response data(CreateEdgeFunctionsAlphaOutput data) {
 
         this.data = data;
         return this;
@@ -48,11 +48,11 @@ public class DeleteLivePluginCode200Response {
      * @return data
      */
     @javax.annotation.Nullable
-    public DeleteLivePluginCodeAlphaOutput getData() {
+    public CreateEdgeFunctionsAlphaOutput getData() {
         return data;
     }
 
-    public void setData(DeleteLivePluginCodeAlphaOutput data) {
+    public void setData(CreateEdgeFunctionsAlphaOutput data) {
         this.data = data;
     }
 
@@ -64,9 +64,9 @@ public class DeleteLivePluginCode200Response {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        DeleteLivePluginCode200Response deleteLivePluginCode200Response =
-                (DeleteLivePluginCode200Response) o;
-        return Objects.equals(this.data, deleteLivePluginCode200Response.data);
+        CreateEdgeFunctions200Response createEdgeFunctions200Response =
+                (CreateEdgeFunctions200Response) o;
+        return Objects.equals(this.data, createEdgeFunctions200Response.data);
     }
 
     @Override
@@ -77,7 +77,7 @@ public class DeleteLivePluginCode200Response {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class DeleteLivePluginCode200Response {\n");
+        sb.append("class CreateEdgeFunctions200Response {\n");
         sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -111,35 +111,35 @@ public class DeleteLivePluginCode200Response {
      *
      * @param jsonElement JSON Element
      * @throws IOException if the JSON Element is invalid with respect to
-     *     DeleteLivePluginCode200Response
+     *     CreateEdgeFunctions200Response
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!DeleteLivePluginCode200Response.openapiRequiredFields
+            if (!CreateEdgeFunctions200Response.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in DeleteLivePluginCode200Response is not"
+                                "The required field(s) %s in CreateEdgeFunctions200Response is not"
                                         + " found in the empty JSON string",
-                                DeleteLivePluginCode200Response.openapiRequiredFields.toString()));
+                                CreateEdgeFunctions200Response.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!DeleteLivePluginCode200Response.openapiFields.contains(entry.getKey())) {
+            if (!CreateEdgeFunctions200Response.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `DeleteLivePluginCode200Response` properties. JSON: %s",
+                                        + " `CreateEdgeFunctions200Response` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the optional field `data`
         if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-            DeleteLivePluginCodeAlphaOutput.validateJsonElement(jsonObj.get("data"));
+            CreateEdgeFunctionsAlphaOutput.validateJsonElement(jsonObj.get("data"));
         }
     }
 
@@ -147,26 +147,26 @@ public class DeleteLivePluginCode200Response {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!DeleteLivePluginCode200Response.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'DeleteLivePluginCode200Response' and its
+            if (!CreateEdgeFunctions200Response.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'CreateEdgeFunctions200Response' and its
                 // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<DeleteLivePluginCode200Response> thisAdapter =
+            final TypeAdapter<CreateEdgeFunctions200Response> thisAdapter =
                     gson.getDelegateAdapter(
-                            this, TypeToken.get(DeleteLivePluginCode200Response.class));
+                            this, TypeToken.get(CreateEdgeFunctions200Response.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<DeleteLivePluginCode200Response>() {
+                    new TypeAdapter<CreateEdgeFunctions200Response>() {
                         @Override
-                        public void write(JsonWriter out, DeleteLivePluginCode200Response value)
+                        public void write(JsonWriter out, CreateEdgeFunctions200Response value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public DeleteLivePluginCode200Response read(JsonReader in)
+                        public CreateEdgeFunctions200Response read(JsonReader in)
                                 throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
@@ -177,19 +177,19 @@ public class DeleteLivePluginCode200Response {
     }
 
     /**
-     * Create an instance of DeleteLivePluginCode200Response given an JSON string
+     * Create an instance of CreateEdgeFunctions200Response given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of DeleteLivePluginCode200Response
+     * @return An instance of CreateEdgeFunctions200Response
      * @throws IOException if the JSON string is invalid with respect to
-     *     DeleteLivePluginCode200Response
+     *     CreateEdgeFunctions200Response
      */
-    public static DeleteLivePluginCode200Response fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, DeleteLivePluginCode200Response.class);
+    public static CreateEdgeFunctions200Response fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, CreateEdgeFunctions200Response.class);
     }
 
     /**
-     * Convert an instance of DeleteLivePluginCode200Response to an JSON string
+     * Convert an instance of CreateEdgeFunctions200Response to an JSON string
      *
      * @return JSON string
      */

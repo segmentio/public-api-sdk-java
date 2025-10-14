@@ -18,26 +18,27 @@ import com.segment.publicapi.ApiException;
 import com.segment.publicapi.ApiResponse;
 import com.segment.publicapi.Configuration;
 import com.segment.publicapi.Pair;
-import com.segment.publicapi.models.CreateLivePlugin200Response;
-import com.segment.publicapi.models.CreateLivePluginAlphaInput;
-import com.segment.publicapi.models.DeleteLivePluginCode200Response;
-import com.segment.publicapi.models.GetLatestFromLivePlugins200Response;
+import com.segment.publicapi.models.CreateEdgeFunctions200Response;
+import com.segment.publicapi.models.CreateEdgeFunctionsAlphaInput;
+import com.segment.publicapi.models.DisableEdgeFunctions200Response;
+import com.segment.publicapi.models.GenerateUploadURLForEdgeFunctions200Response;
+import com.segment.publicapi.models.GetLatestFromEdgeFunctions200Response;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class LivePluginsApi {
+public class EdgeFunctionsApi {
     private ApiClient localVarApiClient;
     private int localHostIndex;
     private String localCustomBaseUrl;
 
-    public LivePluginsApi() {
+    public EdgeFunctionsApi() {
         this(Configuration.getDefaultApiClient());
     }
 
-    public LivePluginsApi(ApiClient apiClient) {
+    public EdgeFunctionsApi(ApiClient apiClient) {
         this.localVarApiClient = apiClient;
     }
 
@@ -66,10 +67,10 @@ public class LivePluginsApi {
     }
 
     /**
-     * Build call for createLivePlugin
+     * Build call for createEdgeFunctions
      *
      * @param sourceId (required)
-     * @param createLivePluginAlphaInput (required)
+     * @param createEdgeFunctionsAlphaInput (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -82,9 +83,9 @@ public class LivePluginsApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call createLivePluginCall(
+    public okhttp3.Call createEdgeFunctionsCall(
             String sourceId,
-            CreateLivePluginAlphaInput createLivePluginAlphaInput,
+            CreateEdgeFunctionsAlphaInput createEdgeFunctionsAlphaInput,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -100,11 +101,11 @@ public class LivePluginsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = createLivePluginAlphaInput;
+        Object localVarPostBody = createEdgeFunctionsAlphaInput;
 
         // create path and map variables
         String localVarPath =
-                "/sources/{sourceId}/live-plugins/create"
+                "/sources/{sourceId}/edge-functions"
                         .replace(
                                 "{" + "sourceId" + "}",
                                 localVarApiClient.escapeString(sourceId.toString()));
@@ -146,38 +147,38 @@ public class LivePluginsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createLivePluginValidateBeforeCall(
+    private okhttp3.Call createEdgeFunctionsValidateBeforeCall(
             String sourceId,
-            CreateLivePluginAlphaInput createLivePluginAlphaInput,
+            CreateEdgeFunctionsAlphaInput createEdgeFunctionsAlphaInput,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'sourceId' is set
         if (sourceId == null) {
             throw new ApiException(
                     "Missing the required parameter 'sourceId' when calling"
-                            + " createLivePlugin(Async)");
+                            + " createEdgeFunctions(Async)");
         }
 
-        // verify the required parameter 'createLivePluginAlphaInput' is set
-        if (createLivePluginAlphaInput == null) {
+        // verify the required parameter 'createEdgeFunctionsAlphaInput' is set
+        if (createEdgeFunctionsAlphaInput == null) {
             throw new ApiException(
-                    "Missing the required parameter 'createLivePluginAlphaInput' when calling"
-                            + " createLivePlugin(Async)");
+                    "Missing the required parameter 'createEdgeFunctionsAlphaInput' when calling"
+                            + " createEdgeFunctions(Async)");
         }
 
-        return createLivePluginCall(sourceId, createLivePluginAlphaInput, _callback);
+        return createEdgeFunctionsCall(sourceId, createEdgeFunctionsAlphaInput, _callback);
     }
 
     /**
-     * Create Live Plugin Creates or updates a Live Plugin for your Source with given code. • This
-     * endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
-     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
-     * needs to have the Live Plugins feature enabled. Please reach out to your customer success
-     * manager for more information.
+     * Create Edge Functions Create EdgeFunctions for your Source given a valid upload URL for an
+     * Edge Functions bundle. • This endpoint is in **Alpha** testing. Please submit any feedback by
+     * sending an email to friends@segment.com. • In order to successfully call this endpoint, the
+     * specified Workspace needs to have the Edge Functions feature enabled. Please reach out to
+     * your customer success manager for more information.
      *
      * @param sourceId (required)
-     * @param createLivePluginAlphaInput (required)
-     * @return CreateLivePlugin200Response
+     * @param createEdgeFunctionsAlphaInput (required)
+     * @return CreateEdgeFunctions200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
      * @http.response.details
@@ -189,24 +190,24 @@ public class LivePluginsApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public CreateLivePlugin200Response createLivePlugin(
-            String sourceId, CreateLivePluginAlphaInput createLivePluginAlphaInput)
+    public CreateEdgeFunctions200Response createEdgeFunctions(
+            String sourceId, CreateEdgeFunctionsAlphaInput createEdgeFunctionsAlphaInput)
             throws ApiException {
-        ApiResponse<CreateLivePlugin200Response> localVarResp =
-                createLivePluginWithHttpInfo(sourceId, createLivePluginAlphaInput);
+        ApiResponse<CreateEdgeFunctions200Response> localVarResp =
+                createEdgeFunctionsWithHttpInfo(sourceId, createEdgeFunctionsAlphaInput);
         return localVarResp.getData();
     }
 
     /**
-     * Create Live Plugin Creates or updates a Live Plugin for your Source with given code. • This
-     * endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
-     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
-     * needs to have the Live Plugins feature enabled. Please reach out to your customer success
-     * manager for more information.
+     * Create Edge Functions Create EdgeFunctions for your Source given a valid upload URL for an
+     * Edge Functions bundle. • This endpoint is in **Alpha** testing. Please submit any feedback by
+     * sending an email to friends@segment.com. • In order to successfully call this endpoint, the
+     * specified Workspace needs to have the Edge Functions feature enabled. Please reach out to
+     * your customer success manager for more information.
      *
      * @param sourceId (required)
-     * @param createLivePluginAlphaInput (required)
-     * @return ApiResponse&lt;CreateLivePlugin200Response&gt;
+     * @param createEdgeFunctionsAlphaInput (required)
+     * @return ApiResponse&lt;CreateEdgeFunctions200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
      * @http.response.details
@@ -218,24 +219,25 @@ public class LivePluginsApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<CreateLivePlugin200Response> createLivePluginWithHttpInfo(
-            String sourceId, CreateLivePluginAlphaInput createLivePluginAlphaInput)
+    public ApiResponse<CreateEdgeFunctions200Response> createEdgeFunctionsWithHttpInfo(
+            String sourceId, CreateEdgeFunctionsAlphaInput createEdgeFunctionsAlphaInput)
             throws ApiException {
         okhttp3.Call localVarCall =
-                createLivePluginValidateBeforeCall(sourceId, createLivePluginAlphaInput, null);
-        Type localVarReturnType = new TypeToken<CreateLivePlugin200Response>() {}.getType();
+                createEdgeFunctionsValidateBeforeCall(
+                        sourceId, createEdgeFunctionsAlphaInput, null);
+        Type localVarReturnType = new TypeToken<CreateEdgeFunctions200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Create Live Plugin (asynchronously) Creates or updates a Live Plugin for your Source with
-     * given code. • This endpoint is in **Alpha** testing. Please submit any feedback by sending an
-     * email to friends@segment.com. • In order to successfully call this endpoint, the specified
-     * Workspace needs to have the Live Plugins feature enabled. Please reach out to your customer
-     * success manager for more information.
+     * Create Edge Functions (asynchronously) Create EdgeFunctions for your Source given a valid
+     * upload URL for an Edge Functions bundle. • This endpoint is in **Alpha** testing. Please
+     * submit any feedback by sending an email to friends@segment.com. • In order to successfully
+     * call this endpoint, the specified Workspace needs to have the Edge Functions feature enabled.
+     * Please reach out to your customer success manager for more information.
      *
      * @param sourceId (required)
-     * @param createLivePluginAlphaInput (required)
+     * @param createEdgeFunctionsAlphaInput (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -249,21 +251,22 @@ public class LivePluginsApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call createLivePluginAsync(
+    public okhttp3.Call createEdgeFunctionsAsync(
             String sourceId,
-            CreateLivePluginAlphaInput createLivePluginAlphaInput,
-            final ApiCallback<CreateLivePlugin200Response> _callback)
+            CreateEdgeFunctionsAlphaInput createEdgeFunctionsAlphaInput,
+            final ApiCallback<CreateEdgeFunctions200Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
-                createLivePluginValidateBeforeCall(sourceId, createLivePluginAlphaInput, _callback);
-        Type localVarReturnType = new TypeToken<CreateLivePlugin200Response>() {}.getType();
+                createEdgeFunctionsValidateBeforeCall(
+                        sourceId, createEdgeFunctionsAlphaInput, _callback);
+        Type localVarReturnType = new TypeToken<CreateEdgeFunctions200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
     /**
-     * Build call for deleteLivePluginCode
+     * Build call for disableEdgeFunctions
      *
      * @param sourceId (required)
      * @param _callback Callback for upload/download progress
@@ -278,7 +281,7 @@ public class LivePluginsApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call deleteLivePluginCodeCall(String sourceId, final ApiCallback _callback)
+    public okhttp3.Call disableEdgeFunctionsCall(String sourceId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -297,7 +300,7 @@ public class LivePluginsApi {
 
         // create path and map variables
         String localVarPath =
-                "/sources/{sourceId}/live-plugins/delete-code"
+                "/sources/{sourceId}/edge-functions/disable"
                         .replace(
                                 "{" + "sourceId" + "}",
                                 localVarApiClient.escapeString(sourceId.toString()));
@@ -327,7 +330,7 @@ public class LivePluginsApi {
         return localVarApiClient.buildCall(
                 basePath,
                 localVarPath,
-                "DELETE",
+                "PATCH",
                 localVarQueryParams,
                 localVarCollectionQueryParams,
                 localVarPostBody,
@@ -339,27 +342,27 @@ public class LivePluginsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteLivePluginCodeValidateBeforeCall(
+    private okhttp3.Call disableEdgeFunctionsValidateBeforeCall(
             String sourceId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'sourceId' is set
         if (sourceId == null) {
             throw new ApiException(
                     "Missing the required parameter 'sourceId' when calling"
-                            + " deleteLivePluginCode(Async)");
+                            + " disableEdgeFunctions(Async)");
         }
 
-        return deleteLivePluginCodeCall(sourceId, _callback);
+        return disableEdgeFunctionsCall(sourceId, _callback);
     }
 
     /**
-     * Delete Live Plugin Code Delete the Live Plugin code for a Source. This will not disable Live
-     * Plugins for the Source, but will remove any existing code. • This endpoint is in **Alpha**
-     * testing. Please submit any feedback by sending an email to friends@segment.com. • In order to
-     * successfully call this endpoint, the specified Workspace needs to have the Live Plugins
-     * feature enabled. Please reach out to your customer success manager for more information.
+     * Disable Edge Functions Disable Edge Functions for your Source. • This endpoint is in
+     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
+     * In order to successfully call this endpoint, the specified Workspace needs to have the Edge
+     * Functions feature enabled. Please reach out to your customer success manager for more
+     * information.
      *
      * @param sourceId (required)
-     * @return DeleteLivePluginCode200Response
+     * @return DisableEdgeFunctions200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
      * @http.response.details
@@ -371,22 +374,22 @@ public class LivePluginsApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public DeleteLivePluginCode200Response deleteLivePluginCode(String sourceId)
+    public DisableEdgeFunctions200Response disableEdgeFunctions(String sourceId)
             throws ApiException {
-        ApiResponse<DeleteLivePluginCode200Response> localVarResp =
-                deleteLivePluginCodeWithHttpInfo(sourceId);
+        ApiResponse<DisableEdgeFunctions200Response> localVarResp =
+                disableEdgeFunctionsWithHttpInfo(sourceId);
         return localVarResp.getData();
     }
 
     /**
-     * Delete Live Plugin Code Delete the Live Plugin code for a Source. This will not disable Live
-     * Plugins for the Source, but will remove any existing code. • This endpoint is in **Alpha**
-     * testing. Please submit any feedback by sending an email to friends@segment.com. • In order to
-     * successfully call this endpoint, the specified Workspace needs to have the Live Plugins
-     * feature enabled. Please reach out to your customer success manager for more information.
+     * Disable Edge Functions Disable Edge Functions for your Source. • This endpoint is in
+     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
+     * In order to successfully call this endpoint, the specified Workspace needs to have the Edge
+     * Functions feature enabled. Please reach out to your customer success manager for more
+     * information.
      *
      * @param sourceId (required)
-     * @return ApiResponse&lt;DeleteLivePluginCode200Response&gt;
+     * @return ApiResponse&lt;DisableEdgeFunctions200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
      * @http.response.details
@@ -398,19 +401,18 @@ public class LivePluginsApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<DeleteLivePluginCode200Response> deleteLivePluginCodeWithHttpInfo(
+    public ApiResponse<DisableEdgeFunctions200Response> disableEdgeFunctionsWithHttpInfo(
             String sourceId) throws ApiException {
-        okhttp3.Call localVarCall = deleteLivePluginCodeValidateBeforeCall(sourceId, null);
-        Type localVarReturnType = new TypeToken<DeleteLivePluginCode200Response>() {}.getType();
+        okhttp3.Call localVarCall = disableEdgeFunctionsValidateBeforeCall(sourceId, null);
+        Type localVarReturnType = new TypeToken<DisableEdgeFunctions200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Delete Live Plugin Code (asynchronously) Delete the Live Plugin code for a Source. This will
-     * not disable Live Plugins for the Source, but will remove any existing code. • This endpoint
-     * is in **Alpha** testing. Please submit any feedback by sending an email to
+     * Disable Edge Functions (asynchronously) Disable Edge Functions for your Source. • This
+     * endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
      * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
-     * needs to have the Live Plugins feature enabled. Please reach out to your customer success
+     * needs to have the Edge Functions feature enabled. Please reach out to your customer success
      * manager for more information.
      *
      * @param sourceId (required)
@@ -427,18 +429,18 @@ public class LivePluginsApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call deleteLivePluginCodeAsync(
-            String sourceId, final ApiCallback<DeleteLivePluginCode200Response> _callback)
+    public okhttp3.Call disableEdgeFunctionsAsync(
+            String sourceId, final ApiCallback<DisableEdgeFunctions200Response> _callback)
             throws ApiException {
 
-        okhttp3.Call localVarCall = deleteLivePluginCodeValidateBeforeCall(sourceId, _callback);
-        Type localVarReturnType = new TypeToken<DeleteLivePluginCode200Response>() {}.getType();
+        okhttp3.Call localVarCall = disableEdgeFunctionsValidateBeforeCall(sourceId, _callback);
+        Type localVarReturnType = new TypeToken<DisableEdgeFunctions200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
     /**
-     * Build call for getLatestFromLivePlugins
+     * Build call for generateUploadURLForEdgeFunctions
      *
      * @param sourceId (required)
      * @param _callback Callback for upload/download progress
@@ -453,7 +455,186 @@ public class LivePluginsApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getLatestFromLivePluginsCall(String sourceId, final ApiCallback _callback)
+    public okhttp3.Call generateUploadURLForEdgeFunctionsCall(
+            String sourceId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/sources/{sourceId}/edge-functions/upload-url"
+                        .replace(
+                                "{" + "sourceId" + "}",
+                                localVarApiClient.escapeString(sourceId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.segment.v1alpha+json", "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"token"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call generateUploadURLForEdgeFunctionsValidateBeforeCall(
+            String sourceId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'sourceId' is set
+        if (sourceId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'sourceId' when calling"
+                            + " generateUploadURLForEdgeFunctions(Async)");
+        }
+
+        return generateUploadURLForEdgeFunctionsCall(sourceId, _callback);
+    }
+
+    /**
+     * Generate Upload URL for Edge Functions Generate a temporary upload URL that can be used to
+     * upload an Edge Functions bundle. • This endpoint is in **Alpha** testing. Please submit any
+     * feedback by sending an email to friends@segment.com. • In order to successfully call this
+     * endpoint, the specified Workspace needs to have the Edge Functions feature enabled. Please
+     * reach out to your customer success manager for more information.
+     *
+     * @param sourceId (required)
+     * @return GenerateUploadURLForEdgeFunctions200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public GenerateUploadURLForEdgeFunctions200Response generateUploadURLForEdgeFunctions(
+            String sourceId) throws ApiException {
+        ApiResponse<GenerateUploadURLForEdgeFunctions200Response> localVarResp =
+                generateUploadURLForEdgeFunctionsWithHttpInfo(sourceId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Generate Upload URL for Edge Functions Generate a temporary upload URL that can be used to
+     * upload an Edge Functions bundle. • This endpoint is in **Alpha** testing. Please submit any
+     * feedback by sending an email to friends@segment.com. • In order to successfully call this
+     * endpoint, the specified Workspace needs to have the Edge Functions feature enabled. Please
+     * reach out to your customer success manager for more information.
+     *
+     * @param sourceId (required)
+     * @return ApiResponse&lt;GenerateUploadURLForEdgeFunctions200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<GenerateUploadURLForEdgeFunctions200Response>
+            generateUploadURLForEdgeFunctionsWithHttpInfo(String sourceId) throws ApiException {
+        okhttp3.Call localVarCall =
+                generateUploadURLForEdgeFunctionsValidateBeforeCall(sourceId, null);
+        Type localVarReturnType =
+                new TypeToken<GenerateUploadURLForEdgeFunctions200Response>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Generate Upload URL for Edge Functions (asynchronously) Generate a temporary upload URL that
+     * can be used to upload an Edge Functions bundle. • This endpoint is in **Alpha** testing.
+     * Please submit any feedback by sending an email to friends@segment.com. • In order to
+     * successfully call this endpoint, the specified Workspace needs to have the Edge Functions
+     * feature enabled. Please reach out to your customer success manager for more information.
+     *
+     * @param sourceId (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body
+     *     object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call generateUploadURLForEdgeFunctionsAsync(
+            String sourceId,
+            final ApiCallback<GenerateUploadURLForEdgeFunctions200Response> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                generateUploadURLForEdgeFunctionsValidateBeforeCall(sourceId, _callback);
+        Type localVarReturnType =
+                new TypeToken<GenerateUploadURLForEdgeFunctions200Response>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getLatestFromEdgeFunctions
+     *
+     * @param sourceId (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getLatestFromEdgeFunctionsCall(String sourceId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -472,7 +653,7 @@ public class LivePluginsApi {
 
         // create path and map variables
         String localVarPath =
-                "/sources/{sourceId}/live-plugins/latest"
+                "/sources/{sourceId}/edge-functions/latest"
                         .replace(
                                 "{" + "sourceId" + "}",
                                 localVarApiClient.escapeString(sourceId.toString()));
@@ -514,27 +695,27 @@ public class LivePluginsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLatestFromLivePluginsValidateBeforeCall(
+    private okhttp3.Call getLatestFromEdgeFunctionsValidateBeforeCall(
             String sourceId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'sourceId' is set
         if (sourceId == null) {
             throw new ApiException(
                     "Missing the required parameter 'sourceId' when calling"
-                            + " getLatestFromLivePlugins(Async)");
+                            + " getLatestFromEdgeFunctions(Async)");
         }
 
-        return getLatestFromLivePluginsCall(sourceId, _callback);
+        return getLatestFromEdgeFunctionsCall(sourceId, _callback);
     }
 
     /**
-     * Get Latest from Live Plugins Get the latest Live Plugins for your Source. • This endpoint is
-     * in **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com.
-     * • In order to successfully call this endpoint, the specified Workspace needs to have the Live
-     * Plugins feature enabled. Please reach out to your customer success manager for more
-     * information.
+     * Get Latest from Edge Functions Get the latest Edge Functions for your Source. • This endpoint
+     * is in **Alpha** testing. Please submit any feedback by sending an email to
+     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
+     * needs to have the Edge Functions feature enabled. Please reach out to your customer success
+     * manager for more information.
      *
      * @param sourceId (required)
-     * @return GetLatestFromLivePlugins200Response
+     * @return GetLatestFromEdgeFunctions200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
      * @http.response.details
@@ -546,22 +727,22 @@ public class LivePluginsApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public GetLatestFromLivePlugins200Response getLatestFromLivePlugins(String sourceId)
+    public GetLatestFromEdgeFunctions200Response getLatestFromEdgeFunctions(String sourceId)
             throws ApiException {
-        ApiResponse<GetLatestFromLivePlugins200Response> localVarResp =
-                getLatestFromLivePluginsWithHttpInfo(sourceId);
+        ApiResponse<GetLatestFromEdgeFunctions200Response> localVarResp =
+                getLatestFromEdgeFunctionsWithHttpInfo(sourceId);
         return localVarResp.getData();
     }
 
     /**
-     * Get Latest from Live Plugins Get the latest Live Plugins for your Source. • This endpoint is
-     * in **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com.
-     * • In order to successfully call this endpoint, the specified Workspace needs to have the Live
-     * Plugins feature enabled. Please reach out to your customer success manager for more
-     * information.
+     * Get Latest from Edge Functions Get the latest Edge Functions for your Source. • This endpoint
+     * is in **Alpha** testing. Please submit any feedback by sending an email to
+     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
+     * needs to have the Edge Functions feature enabled. Please reach out to your customer success
+     * manager for more information.
      *
      * @param sourceId (required)
-     * @return ApiResponse&lt;GetLatestFromLivePlugins200Response&gt;
+     * @return ApiResponse&lt;GetLatestFromEdgeFunctions200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
      * @http.response.details
@@ -573,19 +754,20 @@ public class LivePluginsApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<GetLatestFromLivePlugins200Response> getLatestFromLivePluginsWithHttpInfo(
-            String sourceId) throws ApiException {
-        okhttp3.Call localVarCall = getLatestFromLivePluginsValidateBeforeCall(sourceId, null);
-        Type localVarReturnType = new TypeToken<GetLatestFromLivePlugins200Response>() {}.getType();
+    public ApiResponse<GetLatestFromEdgeFunctions200Response>
+            getLatestFromEdgeFunctionsWithHttpInfo(String sourceId) throws ApiException {
+        okhttp3.Call localVarCall = getLatestFromEdgeFunctionsValidateBeforeCall(sourceId, null);
+        Type localVarReturnType =
+                new TypeToken<GetLatestFromEdgeFunctions200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Get Latest from Live Plugins (asynchronously) Get the latest Live Plugins for your Source. •
-     * This endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
-     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
-     * needs to have the Live Plugins feature enabled. Please reach out to your customer success
-     * manager for more information.
+     * Get Latest from Edge Functions (asynchronously) Get the latest Edge Functions for your
+     * Source. • This endpoint is in **Alpha** testing. Please submit any feedback by sending an
+     * email to friends@segment.com. • In order to successfully call this endpoint, the specified
+     * Workspace needs to have the Edge Functions feature enabled. Please reach out to your customer
+     * success manager for more information.
      *
      * @param sourceId (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -601,12 +783,14 @@ public class LivePluginsApi {
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getLatestFromLivePluginsAsync(
-            String sourceId, final ApiCallback<GetLatestFromLivePlugins200Response> _callback)
+    public okhttp3.Call getLatestFromEdgeFunctionsAsync(
+            String sourceId, final ApiCallback<GetLatestFromEdgeFunctions200Response> _callback)
             throws ApiException {
 
-        okhttp3.Call localVarCall = getLatestFromLivePluginsValidateBeforeCall(sourceId, _callback);
-        Type localVarReturnType = new TypeToken<GetLatestFromLivePlugins200Response>() {}.getType();
+        okhttp3.Call localVarCall =
+                getLatestFromEdgeFunctionsValidateBeforeCall(sourceId, _callback);
+        Type localVarReturnType =
+                new TypeToken<GetLatestFromEdgeFunctions200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
