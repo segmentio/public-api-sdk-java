@@ -23,13 +23,15 @@ import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import org.openapitools.jackson.nullable.JsonNullable;
 
-/** Represents an Edge Function bundle. */
-public class EdgeFunctionsAlpha {
+/** Represents a Live Plugin bundle. */
+public class LivePluginsAlpha {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
@@ -60,16 +62,21 @@ public class EdgeFunctionsAlpha {
     @SerializedName(SERIALIZED_NAME_VERSION)
     private BigDecimal version;
 
-    public EdgeFunctionsAlpha() {}
+    public static final String SERIALIZED_NAME_CODE = "code";
 
-    public EdgeFunctionsAlpha id(String id) {
+    @SerializedName(SERIALIZED_NAME_CODE)
+    private String code;
+
+    public LivePluginsAlpha() {}
+
+    public LivePluginsAlpha id(String id) {
 
         this.id = id;
         return this;
     }
 
     /**
-     * The Edge Function id.
+     * The Live Plugin id.
      *
      * @return id
      */
@@ -82,7 +89,7 @@ public class EdgeFunctionsAlpha {
         this.id = id;
     }
 
-    public EdgeFunctionsAlpha sourceId(String sourceId) {
+    public LivePluginsAlpha sourceId(String sourceId) {
 
         this.sourceId = sourceId;
         return this;
@@ -102,7 +109,7 @@ public class EdgeFunctionsAlpha {
         this.sourceId = sourceId;
     }
 
-    public EdgeFunctionsAlpha createdAt(String createdAt) {
+    public LivePluginsAlpha createdAt(String createdAt) {
 
         this.createdAt = createdAt;
         return this;
@@ -122,7 +129,7 @@ public class EdgeFunctionsAlpha {
         this.createdAt = createdAt;
     }
 
-    public EdgeFunctionsAlpha createdBy(String createdBy) {
+    public LivePluginsAlpha createdBy(String createdBy) {
 
         this.createdBy = createdBy;
         return this;
@@ -142,14 +149,14 @@ public class EdgeFunctionsAlpha {
         this.createdBy = createdBy;
     }
 
-    public EdgeFunctionsAlpha downloadURL(String downloadURL) {
+    public LivePluginsAlpha downloadURL(String downloadURL) {
 
         this.downloadURL = downloadURL;
         return this;
     }
 
     /**
-     * The CDN URL that can be used to fetch your latest EdgeFunctions bundle.
+     * The CDN URL that can be used to fetch your latest Live Plugin bundle.
      *
      * @return downloadURL
      */
@@ -162,14 +169,14 @@ public class EdgeFunctionsAlpha {
         this.downloadURL = downloadURL;
     }
 
-    public EdgeFunctionsAlpha version(BigDecimal version) {
+    public LivePluginsAlpha version(BigDecimal version) {
 
         this.version = version;
         return this;
     }
 
     /**
-     * Revision number associated with the latest Edge Function.
+     * Revision number associated with the latest Live Plugin.
      *
      * @return version
      */
@@ -182,6 +189,26 @@ public class EdgeFunctionsAlpha {
         this.version = version;
     }
 
+    public LivePluginsAlpha code(String code) {
+
+        this.code = code;
+        return this;
+    }
+
+    /**
+     * The code of the Live Plugin.
+     *
+     * @return code
+     */
+    @javax.annotation.Nullable
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -190,30 +217,48 @@ public class EdgeFunctionsAlpha {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        EdgeFunctionsAlpha edgeFunctionsAlpha = (EdgeFunctionsAlpha) o;
-        return Objects.equals(this.id, edgeFunctionsAlpha.id)
-                && Objects.equals(this.sourceId, edgeFunctionsAlpha.sourceId)
-                && Objects.equals(this.createdAt, edgeFunctionsAlpha.createdAt)
-                && Objects.equals(this.createdBy, edgeFunctionsAlpha.createdBy)
-                && Objects.equals(this.downloadURL, edgeFunctionsAlpha.downloadURL)
-                && Objects.equals(this.version, edgeFunctionsAlpha.version);
+        LivePluginsAlpha livePluginsAlpha = (LivePluginsAlpha) o;
+        return Objects.equals(this.id, livePluginsAlpha.id)
+                && Objects.equals(this.sourceId, livePluginsAlpha.sourceId)
+                && Objects.equals(this.createdAt, livePluginsAlpha.createdAt)
+                && Objects.equals(this.createdBy, livePluginsAlpha.createdBy)
+                && Objects.equals(this.downloadURL, livePluginsAlpha.downloadURL)
+                && Objects.equals(this.version, livePluginsAlpha.version)
+                && Objects.equals(this.code, livePluginsAlpha.code);
+    }
+
+    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+        return a == b
+                || (a != null
+                        && b != null
+                        && a.isPresent()
+                        && b.isPresent()
+                        && Objects.deepEquals(a.get(), b.get()));
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, sourceId, createdAt, createdBy, downloadURL, version);
+        return Objects.hash(id, sourceId, createdAt, createdBy, downloadURL, version, code);
+    }
+
+    private static <T> int hashCodeNullable(JsonNullable<T> a) {
+        if (a == null) {
+            return 1;
+        }
+        return a.isPresent() ? Arrays.deepHashCode(new Object[] {a.get()}) : 31;
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class EdgeFunctionsAlpha {\n");
+        sb.append("class LivePluginsAlpha {\n");
         sb.append("    id: ").append(toIndentedString(id)).append("\n");
         sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
         sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
         sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
         sb.append("    downloadURL: ").append(toIndentedString(downloadURL)).append("\n");
         sb.append("    version: ").append(toIndentedString(version)).append("\n");
+        sb.append("    code: ").append(toIndentedString(code)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -241,6 +286,7 @@ public class EdgeFunctionsAlpha {
         openapiFields.add("createdBy");
         openapiFields.add("downloadURL");
         openapiFields.add("version");
+        openapiFields.add("code");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
@@ -256,34 +302,34 @@ public class EdgeFunctionsAlpha {
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to EdgeFunctionsAlpha
+     * @throws IOException if the JSON Element is invalid with respect to LivePluginsAlpha
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!EdgeFunctionsAlpha.openapiRequiredFields
+            if (!LivePluginsAlpha.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in EdgeFunctionsAlpha is not found in the"
+                                "The required field(s) %s in LivePluginsAlpha is not found in the"
                                         + " empty JSON string",
-                                EdgeFunctionsAlpha.openapiRequiredFields.toString()));
+                                LivePluginsAlpha.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!EdgeFunctionsAlpha.openapiFields.contains(entry.getKey())) {
+            if (!LivePluginsAlpha.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `EdgeFunctionsAlpha` properties. JSON: %s",
+                                        + " `LivePluginsAlpha` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : EdgeFunctionsAlpha.openapiRequiredFields) {
+        for (String requiredField : LivePluginsAlpha.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -327,30 +373,38 @@ public class EdgeFunctionsAlpha {
                                     + " string but got `%s`",
                             jsonObj.get("downloadURL").toString()));
         }
+        if ((jsonObj.get("code") != null && !jsonObj.get("code").isJsonNull())
+                && !jsonObj.get("code").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `code` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
+                            jsonObj.get("code").toString()));
+        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!EdgeFunctionsAlpha.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'EdgeFunctionsAlpha' and its subtypes
+            if (!LivePluginsAlpha.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'LivePluginsAlpha' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<EdgeFunctionsAlpha> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(EdgeFunctionsAlpha.class));
+            final TypeAdapter<LivePluginsAlpha> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(LivePluginsAlpha.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<EdgeFunctionsAlpha>() {
+                    new TypeAdapter<LivePluginsAlpha>() {
                         @Override
-                        public void write(JsonWriter out, EdgeFunctionsAlpha value)
+                        public void write(JsonWriter out, LivePluginsAlpha value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public EdgeFunctionsAlpha read(JsonReader in) throws IOException {
+                        public LivePluginsAlpha read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -360,18 +414,18 @@ public class EdgeFunctionsAlpha {
     }
 
     /**
-     * Create an instance of EdgeFunctionsAlpha given an JSON string
+     * Create an instance of LivePluginsAlpha given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of EdgeFunctionsAlpha
-     * @throws IOException if the JSON string is invalid with respect to EdgeFunctionsAlpha
+     * @return An instance of LivePluginsAlpha
+     * @throws IOException if the JSON string is invalid with respect to LivePluginsAlpha
      */
-    public static EdgeFunctionsAlpha fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, EdgeFunctionsAlpha.class);
+    public static LivePluginsAlpha fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, LivePluginsAlpha.class);
     }
 
     /**
-     * Convert an instance of EdgeFunctionsAlpha to an JSON string
+     * Convert an instance of LivePluginsAlpha to an JSON string
      *
      * @return JSON string
      */
