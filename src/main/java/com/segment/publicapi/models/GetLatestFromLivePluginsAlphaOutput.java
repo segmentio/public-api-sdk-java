@@ -27,34 +27,33 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** GenerateUploadURLForEdgeFunctions200Response */
-public class GenerateUploadURLForEdgeFunctions200Response {
-    public static final String SERIALIZED_NAME_DATA = "data";
+/** Output for GetLatestFromLivePlugins. */
+public class GetLatestFromLivePluginsAlphaOutput {
+    public static final String SERIALIZED_NAME_LIVE_PLUGIN = "livePlugin";
 
-    @SerializedName(SERIALIZED_NAME_DATA)
-    private GenerateUploadURLForEdgeFunctionsAlphaOutput data;
+    @SerializedName(SERIALIZED_NAME_LIVE_PLUGIN)
+    private LivePluginsAlpha livePlugin;
 
-    public GenerateUploadURLForEdgeFunctions200Response() {}
+    public GetLatestFromLivePluginsAlphaOutput() {}
 
-    public GenerateUploadURLForEdgeFunctions200Response data(
-            GenerateUploadURLForEdgeFunctionsAlphaOutput data) {
+    public GetLatestFromLivePluginsAlphaOutput livePlugin(LivePluginsAlpha livePlugin) {
 
-        this.data = data;
+        this.livePlugin = livePlugin;
         return this;
     }
 
     /**
-     * Get data
+     * Get livePlugin
      *
-     * @return data
+     * @return livePlugin
      */
-    @javax.annotation.Nullable
-    public GenerateUploadURLForEdgeFunctionsAlphaOutput getData() {
-        return data;
+    @javax.annotation.Nonnull
+    public LivePluginsAlpha getLivePlugin() {
+        return livePlugin;
     }
 
-    public void setData(GenerateUploadURLForEdgeFunctionsAlphaOutput data) {
-        this.data = data;
+    public void setLivePlugin(LivePluginsAlpha livePlugin) {
+        this.livePlugin = livePlugin;
     }
 
     @Override
@@ -65,21 +64,21 @@ public class GenerateUploadURLForEdgeFunctions200Response {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        GenerateUploadURLForEdgeFunctions200Response generateUploadURLForEdgeFunctions200Response =
-                (GenerateUploadURLForEdgeFunctions200Response) o;
-        return Objects.equals(this.data, generateUploadURLForEdgeFunctions200Response.data);
+        GetLatestFromLivePluginsAlphaOutput getLatestFromLivePluginsAlphaOutput =
+                (GetLatestFromLivePluginsAlphaOutput) o;
+        return Objects.equals(this.livePlugin, getLatestFromLivePluginsAlphaOutput.livePlugin);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(data);
+        return Objects.hash(livePlugin);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class GenerateUploadURLForEdgeFunctions200Response {\n");
-        sb.append("    data: ").append(toIndentedString(data)).append("\n");
+        sb.append("class GetLatestFromLivePluginsAlphaOutput {\n");
+        sb.append("    livePlugin: ").append(toIndentedString(livePlugin)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -101,10 +100,11 @@ public class GenerateUploadURLForEdgeFunctions200Response {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("data");
+        openapiFields.add("livePlugin");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
+        openapiRequiredFields.add("livePlugin");
     }
 
     /**
@@ -112,18 +112,17 @@ public class GenerateUploadURLForEdgeFunctions200Response {
      *
      * @param jsonElement JSON Element
      * @throws IOException if the JSON Element is invalid with respect to
-     *     GenerateUploadURLForEdgeFunctions200Response
+     *     GetLatestFromLivePluginsAlphaOutput
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!GenerateUploadURLForEdgeFunctions200Response.openapiRequiredFields
+            if (!GetLatestFromLivePluginsAlphaOutput.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in"
-                                    + " GenerateUploadURLForEdgeFunctions200Response is not found"
-                                    + " in the empty JSON string",
-                                GenerateUploadURLForEdgeFunctions200Response.openapiRequiredFields
+                                "The required field(s) %s in GetLatestFromLivePluginsAlphaOutput is"
+                                        + " not found in the empty JSON string",
+                                GetLatestFromLivePluginsAlphaOutput.openapiRequiredFields
                                         .toString()));
             }
         }
@@ -131,50 +130,53 @@ public class GenerateUploadURLForEdgeFunctions200Response {
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!GenerateUploadURLForEdgeFunctions200Response.openapiFields.contains(
-                    entry.getKey())) {
+            if (!GetLatestFromLivePluginsAlphaOutput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                    + " `GenerateUploadURLForEdgeFunctions200Response` properties."
-                                    + " JSON: %s",
+                                    + " `GetLatestFromLivePluginsAlphaOutput` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-        // validate the optional field `data`
-        if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-            GenerateUploadURLForEdgeFunctionsAlphaOutput.validateJsonElement(jsonObj.get("data"));
+
+        // check to make sure all required properties/fields are present in the JSON string
+        for (String requiredField : GetLatestFromLivePluginsAlphaOutput.openapiRequiredFields) {
+            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+                throw new IllegalArgumentException(
+                        String.format(
+                                "The required field `%s` is not found in the JSON string: %s",
+                                requiredField, jsonElement.toString()));
+            }
         }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+        // validate the required field `livePlugin`
+        LivePluginsAlpha.validateJsonElement(jsonObj.get("livePlugin"));
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!GenerateUploadURLForEdgeFunctions200Response.class.isAssignableFrom(
-                    type.getRawType())) {
-                return null; // this class only serializes
-                // 'GenerateUploadURLForEdgeFunctions200Response' and its subtypes
+            if (!GetLatestFromLivePluginsAlphaOutput.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'GetLatestFromLivePluginsAlphaOutput' and
+                // its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<GenerateUploadURLForEdgeFunctions200Response> thisAdapter =
+            final TypeAdapter<GetLatestFromLivePluginsAlphaOutput> thisAdapter =
                     gson.getDelegateAdapter(
-                            this,
-                            TypeToken.get(GenerateUploadURLForEdgeFunctions200Response.class));
+                            this, TypeToken.get(GetLatestFromLivePluginsAlphaOutput.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<GenerateUploadURLForEdgeFunctions200Response>() {
+                    new TypeAdapter<GetLatestFromLivePluginsAlphaOutput>() {
                         @Override
-                        public void write(
-                                JsonWriter out, GenerateUploadURLForEdgeFunctions200Response value)
+                        public void write(JsonWriter out, GetLatestFromLivePluginsAlphaOutput value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public GenerateUploadURLForEdgeFunctions200Response read(JsonReader in)
+                        public GetLatestFromLivePluginsAlphaOutput read(JsonReader in)
                                 throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
@@ -185,21 +187,20 @@ public class GenerateUploadURLForEdgeFunctions200Response {
     }
 
     /**
-     * Create an instance of GenerateUploadURLForEdgeFunctions200Response given an JSON string
+     * Create an instance of GetLatestFromLivePluginsAlphaOutput given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of GenerateUploadURLForEdgeFunctions200Response
+     * @return An instance of GetLatestFromLivePluginsAlphaOutput
      * @throws IOException if the JSON string is invalid with respect to
-     *     GenerateUploadURLForEdgeFunctions200Response
+     *     GetLatestFromLivePluginsAlphaOutput
      */
-    public static GenerateUploadURLForEdgeFunctions200Response fromJson(String jsonString)
+    public static GetLatestFromLivePluginsAlphaOutput fromJson(String jsonString)
             throws IOException {
-        return JSON.getGson()
-                .fromJson(jsonString, GenerateUploadURLForEdgeFunctions200Response.class);
+        return JSON.getGson().fromJson(jsonString, GetLatestFromLivePluginsAlphaOutput.class);
     }
 
     /**
-     * Convert an instance of GenerateUploadURLForEdgeFunctions200Response to an JSON string
+     * Convert an instance of GetLatestFromLivePluginsAlphaOutput to an JSON string
      *
      * @return JSON string
      */

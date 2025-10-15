@@ -27,16 +27,16 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** DisableEdgeFunctions200Response */
-public class DisableEdgeFunctions200Response {
+/** CreateLivePlugin200Response */
+public class CreateLivePlugin200Response {
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    private DisableEdgeFunctionsAlphaOutput data;
+    private CreateLivePluginAlphaOutput data;
 
-    public DisableEdgeFunctions200Response() {}
+    public CreateLivePlugin200Response() {}
 
-    public DisableEdgeFunctions200Response data(DisableEdgeFunctionsAlphaOutput data) {
+    public CreateLivePlugin200Response data(CreateLivePluginAlphaOutput data) {
 
         this.data = data;
         return this;
@@ -48,11 +48,11 @@ public class DisableEdgeFunctions200Response {
      * @return data
      */
     @javax.annotation.Nullable
-    public DisableEdgeFunctionsAlphaOutput getData() {
+    public CreateLivePluginAlphaOutput getData() {
         return data;
     }
 
-    public void setData(DisableEdgeFunctionsAlphaOutput data) {
+    public void setData(CreateLivePluginAlphaOutput data) {
         this.data = data;
     }
 
@@ -64,9 +64,8 @@ public class DisableEdgeFunctions200Response {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        DisableEdgeFunctions200Response disableEdgeFunctions200Response =
-                (DisableEdgeFunctions200Response) o;
-        return Objects.equals(this.data, disableEdgeFunctions200Response.data);
+        CreateLivePlugin200Response createLivePlugin200Response = (CreateLivePlugin200Response) o;
+        return Objects.equals(this.data, createLivePlugin200Response.data);
     }
 
     @Override
@@ -77,7 +76,7 @@ public class DisableEdgeFunctions200Response {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class DisableEdgeFunctions200Response {\n");
+        sb.append("class CreateLivePlugin200Response {\n");
         sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -111,35 +110,35 @@ public class DisableEdgeFunctions200Response {
      *
      * @param jsonElement JSON Element
      * @throws IOException if the JSON Element is invalid with respect to
-     *     DisableEdgeFunctions200Response
+     *     CreateLivePlugin200Response
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!DisableEdgeFunctions200Response.openapiRequiredFields
+            if (!CreateLivePlugin200Response.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in DisableEdgeFunctions200Response is not"
+                                "The required field(s) %s in CreateLivePlugin200Response is not"
                                         + " found in the empty JSON string",
-                                DisableEdgeFunctions200Response.openapiRequiredFields.toString()));
+                                CreateLivePlugin200Response.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!DisableEdgeFunctions200Response.openapiFields.contains(entry.getKey())) {
+            if (!CreateLivePlugin200Response.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `DisableEdgeFunctions200Response` properties. JSON: %s",
+                                        + " `CreateLivePlugin200Response` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the optional field `data`
         if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-            DisableEdgeFunctionsAlphaOutput.validateJsonElement(jsonObj.get("data"));
+            CreateLivePluginAlphaOutput.validateJsonElement(jsonObj.get("data"));
         }
     }
 
@@ -147,27 +146,25 @@ public class DisableEdgeFunctions200Response {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!DisableEdgeFunctions200Response.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'DisableEdgeFunctions200Response' and its
+            if (!CreateLivePlugin200Response.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'CreateLivePlugin200Response' and its
                 // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<DisableEdgeFunctions200Response> thisAdapter =
-                    gson.getDelegateAdapter(
-                            this, TypeToken.get(DisableEdgeFunctions200Response.class));
+            final TypeAdapter<CreateLivePlugin200Response> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(CreateLivePlugin200Response.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<DisableEdgeFunctions200Response>() {
+                    new TypeAdapter<CreateLivePlugin200Response>() {
                         @Override
-                        public void write(JsonWriter out, DisableEdgeFunctions200Response value)
+                        public void write(JsonWriter out, CreateLivePlugin200Response value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public DisableEdgeFunctions200Response read(JsonReader in)
-                                throws IOException {
+                        public CreateLivePlugin200Response read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -177,19 +174,18 @@ public class DisableEdgeFunctions200Response {
     }
 
     /**
-     * Create an instance of DisableEdgeFunctions200Response given an JSON string
+     * Create an instance of CreateLivePlugin200Response given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of DisableEdgeFunctions200Response
-     * @throws IOException if the JSON string is invalid with respect to
-     *     DisableEdgeFunctions200Response
+     * @return An instance of CreateLivePlugin200Response
+     * @throws IOException if the JSON string is invalid with respect to CreateLivePlugin200Response
      */
-    public static DisableEdgeFunctions200Response fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, DisableEdgeFunctions200Response.class);
+    public static CreateLivePlugin200Response fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, CreateLivePlugin200Response.class);
     }
 
     /**
-     * Convert an instance of DisableEdgeFunctions200Response to an JSON string
+     * Convert an instance of CreateLivePlugin200Response to an JSON string
      *
      * @return JSON string
      */
