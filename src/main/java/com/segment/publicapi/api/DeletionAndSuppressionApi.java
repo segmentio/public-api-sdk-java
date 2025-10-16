@@ -84,7 +84,7 @@ public class DeletionAndSuppressionApi {
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  * X-Regulation-RateLimit-Segment-Remaining - Remaining requests in the current period <br>  * X-Regulation-RateLimit-Quota-Reset - ISO 8601 timestamp for when the quota resets <br>  </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  * X-Regulation-RateLimit-Remaining - Remaining requests in the current period <br>  * X-Regulation-RateLimit-Quota-Reset - ISO 8601 timestamp for when the quota resets <br>  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -190,12 +190,10 @@ public class DeletionAndSuppressionApi {
      * rules at the Workspace level take precedence over those at the Source level. If a user has
      * been suppressed at the Workspace level, any attempt to un-suppress at the Source level is not
      * supported and the processing of the request will fail in Segment Config API omitted fields: -
-     * &#x60;attributes&#x60;, - &#x60;userAgent&#x60; Rate limit headers If the control plane
-     * returns limit metadata for the created regulation, the response will include rate-limit
-     * headers similar to the other create endpoints: - X-Regulation-RateLimit-Segment-Remaining:
-     * remaining requests (string) - X-Regulation-RateLimit-Quota-Reset: reset time as an ISO 8601
-     * timestamp (for example, 2024-12-31T23:59:59.000Z) Header name casing may be normalized by
-     * intermediaries; use case-insensitive header access in clients.
+     * &#x60;attributes&#x60;, - &#x60;userAgent&#x60; Rate limit headers: -
+     * X-Regulation-RateLimit-Remaining: Remaining requests in the current period (stringified
+     * integer) - X-Regulation-RateLimit-Quota-Reset: ISO 8601 timestamp for when the quota resets
+     * (e.g., 2024-12-31T23:59:59.000Z)
      *
      * @param sourceId (required)
      * @param createCloudSourceRegulationV1Input (required)
@@ -205,7 +203,7 @@ public class DeletionAndSuppressionApi {
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  * X-Regulation-RateLimit-Segment-Remaining - Remaining requests in the current period <br>  * X-Regulation-RateLimit-Quota-Reset - ISO 8601 timestamp for when the quota resets <br>  </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  * X-Regulation-RateLimit-Remaining - Remaining requests in the current period <br>  * X-Regulation-RateLimit-Quota-Reset - ISO 8601 timestamp for when the quota resets <br>  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -225,12 +223,10 @@ public class DeletionAndSuppressionApi {
      * rules at the Workspace level take precedence over those at the Source level. If a user has
      * been suppressed at the Workspace level, any attempt to un-suppress at the Source level is not
      * supported and the processing of the request will fail in Segment Config API omitted fields: -
-     * &#x60;attributes&#x60;, - &#x60;userAgent&#x60; Rate limit headers If the control plane
-     * returns limit metadata for the created regulation, the response will include rate-limit
-     * headers similar to the other create endpoints: - X-Regulation-RateLimit-Segment-Remaining:
-     * remaining requests (string) - X-Regulation-RateLimit-Quota-Reset: reset time as an ISO 8601
-     * timestamp (for example, 2024-12-31T23:59:59.000Z) Header name casing may be normalized by
-     * intermediaries; use case-insensitive header access in clients.
+     * &#x60;attributes&#x60;, - &#x60;userAgent&#x60; Rate limit headers: -
+     * X-Regulation-RateLimit-Remaining: Remaining requests in the current period (stringified
+     * integer) - X-Regulation-RateLimit-Quota-Reset: ISO 8601 timestamp for when the quota resets
+     * (e.g., 2024-12-31T23:59:59.000Z)
      *
      * @param sourceId (required)
      * @param createCloudSourceRegulationV1Input (required)
@@ -240,7 +236,7 @@ public class DeletionAndSuppressionApi {
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  * X-Regulation-RateLimit-Segment-Remaining - Remaining requests in the current period <br>  * X-Regulation-RateLimit-Quota-Reset - ISO 8601 timestamp for when the quota resets <br>  </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  * X-Regulation-RateLimit-Remaining - Remaining requests in the current period <br>  * X-Regulation-RateLimit-Quota-Reset - ISO 8601 timestamp for when the quota resets <br>  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -265,12 +261,9 @@ public class DeletionAndSuppressionApi {
      * level. If a user has been suppressed at the Workspace level, any attempt to un-suppress at
      * the Source level is not supported and the processing of the request will fail in Segment
      * Config API omitted fields: - &#x60;attributes&#x60;, - &#x60;userAgent&#x60; Rate limit
-     * headers If the control plane returns limit metadata for the created regulation, the response
-     * will include rate-limit headers similar to the other create endpoints: -
-     * X-Regulation-RateLimit-Segment-Remaining: remaining requests (string) -
-     * X-Regulation-RateLimit-Quota-Reset: reset time as an ISO 8601 timestamp (for example,
-     * 2024-12-31T23:59:59.000Z) Header name casing may be normalized by intermediaries; use
-     * case-insensitive header access in clients.
+     * headers: - X-Regulation-RateLimit-Remaining: Remaining requests in the current period
+     * (stringified integer) - X-Regulation-RateLimit-Quota-Reset: ISO 8601 timestamp for when the
+     * quota resets (e.g., 2024-12-31T23:59:59.000Z)
      *
      * @param sourceId (required)
      * @param createCloudSourceRegulationV1Input (required)
@@ -281,7 +274,7 @@ public class DeletionAndSuppressionApi {
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  * X-Regulation-RateLimit-Segment-Remaining - Remaining requests in the current period <br>  * X-Regulation-RateLimit-Quota-Reset - ISO 8601 timestamp for when the quota resets <br>  </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  * X-Regulation-RateLimit-Remaining - Remaining requests in the current period <br>  * X-Regulation-RateLimit-Quota-Reset - ISO 8601 timestamp for when the quota resets <br>  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -313,7 +306,7 @@ public class DeletionAndSuppressionApi {
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  * X-Regulation-RateLimit-Segment-Remaining - Remaining requests in the current period <br>  * X-Regulation-RateLimit-Quota-Reset - ISO 8601 timestamp for when the quota resets <br>  </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  * X-Regulation-RateLimit-Remaining - Remaining requests in the current period <br>  * X-Regulation-RateLimit-Quota-Reset - ISO 8601 timestamp for when the quota resets <br>  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -420,12 +413,9 @@ public class DeletionAndSuppressionApi {
      * supported and the processing of the request will fail in Segment • When called, this endpoint
      * may generate the &#x60;Source Regulation Created&#x60; event in the [audit
      * trail](/tag/Audit-Trail). Config API omitted fields: - &#x60;attributes&#x60;, -
-     * &#x60;userAgent&#x60; Rate limit headers When available, the response includes the following
-     * headers to indicate rate-limit state for the operation: -
-     * X-Regulation-RateLimit-Segment-Remaining: remaining requests in the current period (string) -
-     * X-Regulation-RateLimit-Quota-Reset: ISO 8601 timestamp for when the quota resets (for
-     * example, 2024-12-31T23:59:59.000Z) Treat header names as case-insensitive when reading these
-     * headers from HTTP client libraries.
+     * &#x60;userAgent&#x60; Rate limit headers: - X-Regulation-RateLimit-Remaining: Remaining
+     * requests in the current period (stringified integer) - X-Regulation-RateLimit-Quota-Reset:
+     * ISO 8601 timestamp for when the quota resets (e.g., 2024-12-31T23:59:59.000Z)
      *
      * @param sourceId (required)
      * @param createSourceRegulationV1Input (required)
@@ -435,7 +425,7 @@ public class DeletionAndSuppressionApi {
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  * X-Regulation-RateLimit-Segment-Remaining - Remaining requests in the current period <br>  * X-Regulation-RateLimit-Quota-Reset - ISO 8601 timestamp for when the quota resets <br>  </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  * X-Regulation-RateLimit-Remaining - Remaining requests in the current period <br>  * X-Regulation-RateLimit-Quota-Reset - ISO 8601 timestamp for when the quota resets <br>  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -456,12 +446,9 @@ public class DeletionAndSuppressionApi {
      * supported and the processing of the request will fail in Segment • When called, this endpoint
      * may generate the &#x60;Source Regulation Created&#x60; event in the [audit
      * trail](/tag/Audit-Trail). Config API omitted fields: - &#x60;attributes&#x60;, -
-     * &#x60;userAgent&#x60; Rate limit headers When available, the response includes the following
-     * headers to indicate rate-limit state for the operation: -
-     * X-Regulation-RateLimit-Segment-Remaining: remaining requests in the current period (string) -
-     * X-Regulation-RateLimit-Quota-Reset: ISO 8601 timestamp for when the quota resets (for
-     * example, 2024-12-31T23:59:59.000Z) Treat header names as case-insensitive when reading these
-     * headers from HTTP client libraries.
+     * &#x60;userAgent&#x60; Rate limit headers: - X-Regulation-RateLimit-Remaining: Remaining
+     * requests in the current period (stringified integer) - X-Regulation-RateLimit-Quota-Reset:
+     * ISO 8601 timestamp for when the quota resets (e.g., 2024-12-31T23:59:59.000Z)
      *
      * @param sourceId (required)
      * @param createSourceRegulationV1Input (required)
@@ -471,7 +458,7 @@ public class DeletionAndSuppressionApi {
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  * X-Regulation-RateLimit-Segment-Remaining - Remaining requests in the current period <br>  * X-Regulation-RateLimit-Quota-Reset - ISO 8601 timestamp for when the quota resets <br>  </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  * X-Regulation-RateLimit-Remaining - Remaining requests in the current period <br>  * X-Regulation-RateLimit-Quota-Reset - ISO 8601 timestamp for when the quota resets <br>  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -494,12 +481,9 @@ public class DeletionAndSuppressionApi {
      * level is not supported and the processing of the request will fail in Segment • When called,
      * this endpoint may generate the &#x60;Source Regulation Created&#x60; event in the [audit
      * trail](/tag/Audit-Trail). Config API omitted fields: - &#x60;attributes&#x60;, -
-     * &#x60;userAgent&#x60; Rate limit headers When available, the response includes the following
-     * headers to indicate rate-limit state for the operation: -
-     * X-Regulation-RateLimit-Segment-Remaining: remaining requests in the current period (string) -
-     * X-Regulation-RateLimit-Quota-Reset: ISO 8601 timestamp for when the quota resets (for
-     * example, 2024-12-31T23:59:59.000Z) Treat header names as case-insensitive when reading these
-     * headers from HTTP client libraries.
+     * &#x60;userAgent&#x60; Rate limit headers: - X-Regulation-RateLimit-Remaining: Remaining
+     * requests in the current period (stringified integer) - X-Regulation-RateLimit-Quota-Reset:
+     * ISO 8601 timestamp for when the quota resets (e.g., 2024-12-31T23:59:59.000Z)
      *
      * @param sourceId (required)
      * @param createSourceRegulationV1Input (required)
@@ -510,7 +494,7 @@ public class DeletionAndSuppressionApi {
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  * X-Regulation-RateLimit-Segment-Remaining - Remaining requests in the current period <br>  * X-Regulation-RateLimit-Quota-Reset - ISO 8601 timestamp for when the quota resets <br>  </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  * X-Regulation-RateLimit-Remaining - Remaining requests in the current period <br>  * X-Regulation-RateLimit-Quota-Reset - ISO 8601 timestamp for when the quota resets <br>  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -540,7 +524,7 @@ public class DeletionAndSuppressionApi {
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  * X-Regulation-RateLimit-Segment-Remaining - Remaining requests in the current period <br>  * X-Regulation-RateLimit-Quota-Reset - ISO 8601 timestamp for when the quota resets <br>  </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  * X-Regulation-RateLimit-Remaining - Remaining requests in the current period <br>  * X-Regulation-RateLimit-Quota-Reset - ISO 8601 timestamp for when the quota resets <br>  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -631,13 +615,9 @@ public class DeletionAndSuppressionApi {
      * Create Workspace Regulation Creates a Workspace-scoped regulation. • When called, this
      * endpoint may generate the &#x60;Workspace Regulation Created&#x60; event in the [audit
      * trail](/tag/Audit-Trail). Config API omitted fields: - &#x60;attributes&#x60;, -
-     * &#x60;userAgent&#x60; Rate limit headers: The handler sets rate-limit information on the
-     * response when the control plane returns limit metadata. These headers are useful for clients
-     * to understand remaining quota and reset times. Header names (examples): -
-     * X-Regulation-RateLimit-Segment-Remaining: remaining requests in the current period (string) -
-     * X-Regulation-RateLimit-Quota-Reset: ISO 8601 timestamp for when the quota resets (for
-     * example, 2024-12-31T23:59:59.000Z) Note: HTTP clients and proxies may normalize header name
-     * casing; consumers should treat header names as case-insensitive.
+     * &#x60;userAgent&#x60; Rate limit headers: - X-Regulation-RateLimit-Remaining: Remaining
+     * requests in the current period (stringified integer) - X-Regulation-RateLimit-Quota-Reset:
+     * ISO 8601 timestamp for when the quota resets (e.g., 2024-12-31T23:59:59.000Z)
      *
      * @param createWorkspaceRegulationV1Input (required)
      * @return CreateWorkspaceRegulation200Response
@@ -646,7 +626,7 @@ public class DeletionAndSuppressionApi {
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  * X-Regulation-RateLimit-Segment-Remaining - Remaining requests in the current period <br>  * X-Regulation-RateLimit-Quota-Reset - ISO 8601 timestamp for when the quota resets <br>  </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  * X-Regulation-RateLimit-Remaining - Remaining requests in the current period <br>  * X-Regulation-RateLimit-Quota-Reset - ISO 8601 timestamp for when the quota resets <br>  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -663,13 +643,9 @@ public class DeletionAndSuppressionApi {
      * Create Workspace Regulation Creates a Workspace-scoped regulation. • When called, this
      * endpoint may generate the &#x60;Workspace Regulation Created&#x60; event in the [audit
      * trail](/tag/Audit-Trail). Config API omitted fields: - &#x60;attributes&#x60;, -
-     * &#x60;userAgent&#x60; Rate limit headers: The handler sets rate-limit information on the
-     * response when the control plane returns limit metadata. These headers are useful for clients
-     * to understand remaining quota and reset times. Header names (examples): -
-     * X-Regulation-RateLimit-Segment-Remaining: remaining requests in the current period (string) -
-     * X-Regulation-RateLimit-Quota-Reset: ISO 8601 timestamp for when the quota resets (for
-     * example, 2024-12-31T23:59:59.000Z) Note: HTTP clients and proxies may normalize header name
-     * casing; consumers should treat header names as case-insensitive.
+     * &#x60;userAgent&#x60; Rate limit headers: - X-Regulation-RateLimit-Remaining: Remaining
+     * requests in the current period (stringified integer) - X-Regulation-RateLimit-Quota-Reset:
+     * ISO 8601 timestamp for when the quota resets (e.g., 2024-12-31T23:59:59.000Z)
      *
      * @param createWorkspaceRegulationV1Input (required)
      * @return ApiResponse&lt;CreateWorkspaceRegulation200Response&gt;
@@ -678,7 +654,7 @@ public class DeletionAndSuppressionApi {
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  * X-Regulation-RateLimit-Segment-Remaining - Remaining requests in the current period <br>  * X-Regulation-RateLimit-Quota-Reset - ISO 8601 timestamp for when the quota resets <br>  </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  * X-Regulation-RateLimit-Remaining - Remaining requests in the current period <br>  * X-Regulation-RateLimit-Quota-Reset - ISO 8601 timestamp for when the quota resets <br>  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -697,13 +673,9 @@ public class DeletionAndSuppressionApi {
      * Create Workspace Regulation (asynchronously) Creates a Workspace-scoped regulation. • When
      * called, this endpoint may generate the &#x60;Workspace Regulation Created&#x60; event in the
      * [audit trail](/tag/Audit-Trail). Config API omitted fields: - &#x60;attributes&#x60;, -
-     * &#x60;userAgent&#x60; Rate limit headers: The handler sets rate-limit information on the
-     * response when the control plane returns limit metadata. These headers are useful for clients
-     * to understand remaining quota and reset times. Header names (examples): -
-     * X-Regulation-RateLimit-Segment-Remaining: remaining requests in the current period (string) -
-     * X-Regulation-RateLimit-Quota-Reset: ISO 8601 timestamp for when the quota resets (for
-     * example, 2024-12-31T23:59:59.000Z) Note: HTTP clients and proxies may normalize header name
-     * casing; consumers should treat header names as case-insensitive.
+     * &#x60;userAgent&#x60; Rate limit headers: - X-Regulation-RateLimit-Remaining: Remaining
+     * requests in the current period (stringified integer) - X-Regulation-RateLimit-Quota-Reset:
+     * ISO 8601 timestamp for when the quota resets (e.g., 2024-12-31T23:59:59.000Z)
      *
      * @param createWorkspaceRegulationV1Input (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -713,7 +685,7 @@ public class DeletionAndSuppressionApi {
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  * X-Regulation-RateLimit-Segment-Remaining - Remaining requests in the current period <br>  * X-Regulation-RateLimit-Quota-Reset - ISO 8601 timestamp for when the quota resets <br>  </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  * X-Regulation-RateLimit-Remaining - Remaining requests in the current period <br>  * X-Regulation-RateLimit-Quota-Reset - ISO 8601 timestamp for when the quota resets <br>  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
