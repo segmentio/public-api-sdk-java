@@ -32,11 +32,9 @@ import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Input for updating a schedule on an audience. */
 public class UpdateAudienceScheduleForAudienceAlphaInput {
-    /** Strategy of the audience schedule (manual, periodic, or specific days). */
+    /** Strategy of the audience schedule (periodic or specific days). */
     @JsonAdapter(StrategyEnum.Adapter.class)
     public enum StrategyEnum {
-        MANUAL("MANUAL"),
-
         PERIODIC("PERIODIC"),
 
         SPECIFIC_DAYS("SPECIFIC_DAYS");
@@ -99,7 +97,7 @@ public class UpdateAudienceScheduleForAudienceAlphaInput {
     }
 
     /**
-     * Strategy of the audience schedule (manual, periodic, or specific days).
+     * Strategy of the audience schedule (periodic or specific days).
      *
      * @return strategy
      */
