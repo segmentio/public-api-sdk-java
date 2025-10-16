@@ -192,11 +192,11 @@ public class DeletionAndSuppressionApi {
      * supported and the processing of the request will fail in Segment Config API omitted fields: -
      * &#x60;attributes&#x60;, - &#x60;userAgent&#x60; Rate limit headers (tracked separately for
      * internal vs external regulation types): - X-Regulation-RateLimit-Remaining: Remaining
-     * requests for the regulation type category (stringified integer) - Internal types:
+     * requests for the regulation type category (string field integer) - Internal types:
      * DELETE_INTERNAL, SUPPRESS_WITH_DELETE_INTERNAL, SUPPRESS_ONLY, UNSUPPRESS,
      * DELETE_ARCHIVE_ONLY - External types: DELETE_ONLY, SUPPRESS_WITH_DELETE -
-     * X-Regulation-RateLimit-Quota-Reset: ISO 8601 timestamp for when the quota resets (e.g.,
-     * 2024-12-31T23:59:59.000Z)
+     * X-Regulation-RateLimit-Quota-Reset: ISO 8601 timestamp for when the quota resets (for
+     * example, 2024-12-31T23:59:59.000Z)
      *
      * @param sourceId (required)
      * @param createCloudSourceRegulationV1Input (required)
@@ -228,11 +228,11 @@ public class DeletionAndSuppressionApi {
      * supported and the processing of the request will fail in Segment Config API omitted fields: -
      * &#x60;attributes&#x60;, - &#x60;userAgent&#x60; Rate limit headers (tracked separately for
      * internal vs external regulation types): - X-Regulation-RateLimit-Remaining: Remaining
-     * requests for the regulation type category (stringified integer) - Internal types:
+     * requests for the regulation type category (string field integer) - Internal types:
      * DELETE_INTERNAL, SUPPRESS_WITH_DELETE_INTERNAL, SUPPRESS_ONLY, UNSUPPRESS,
      * DELETE_ARCHIVE_ONLY - External types: DELETE_ONLY, SUPPRESS_WITH_DELETE -
-     * X-Regulation-RateLimit-Quota-Reset: ISO 8601 timestamp for when the quota resets (e.g.,
-     * 2024-12-31T23:59:59.000Z)
+     * X-Regulation-RateLimit-Quota-Reset: ISO 8601 timestamp for when the quota resets (for
+     * example, 2024-12-31T23:59:59.000Z)
      *
      * @param sourceId (required)
      * @param createCloudSourceRegulationV1Input (required)
@@ -268,11 +268,11 @@ public class DeletionAndSuppressionApi {
      * the Source level is not supported and the processing of the request will fail in Segment
      * Config API omitted fields: - &#x60;attributes&#x60;, - &#x60;userAgent&#x60; Rate limit
      * headers (tracked separately for internal vs external regulation types): -
-     * X-Regulation-RateLimit-Remaining: Remaining requests for the regulation type category
-     * (stringified integer) - Internal types: DELETE_INTERNAL, SUPPRESS_WITH_DELETE_INTERNAL,
+     * X-Regulation-RateLimit-Remaining: Remaining requests for the regulation type category (string
+     * field integer) - Internal types: DELETE_INTERNAL, SUPPRESS_WITH_DELETE_INTERNAL,
      * SUPPRESS_ONLY, UNSUPPRESS, DELETE_ARCHIVE_ONLY - External types: DELETE_ONLY,
      * SUPPRESS_WITH_DELETE - X-Regulation-RateLimit-Quota-Reset: ISO 8601 timestamp for when the
-     * quota resets (e.g., 2024-12-31T23:59:59.000Z)
+     * quota resets (for example, 2024-12-31T23:59:59.000Z)
      *
      * @param sourceId (required)
      * @param createCloudSourceRegulationV1Input (required)
@@ -424,10 +424,10 @@ public class DeletionAndSuppressionApi {
      * trail](/tag/Audit-Trail). Config API omitted fields: - &#x60;attributes&#x60;, -
      * &#x60;userAgent&#x60; Rate limit headers (tracked separately for internal vs external
      * regulation types): - X-Regulation-RateLimit-Remaining: Remaining requests for the regulation
-     * type category (stringified integer) - Internal types: DELETE_INTERNAL,
+     * type category (string field integer) - Internal types: DELETE_INTERNAL,
      * SUPPRESS_WITH_DELETE_INTERNAL, SUPPRESS_ONLY, UNSUPPRESS, DELETE_ARCHIVE_ONLY - External
      * types: DELETE_ONLY, SUPPRESS_WITH_DELETE - X-Regulation-RateLimit-Quota-Reset: ISO 8601
-     * timestamp for when the quota resets (e.g., 2024-12-31T23:59:59.000Z)
+     * timestamp for when the quota resets (for example, 2024-12-31T23:59:59.000Z)
      *
      * @param sourceId (required)
      * @param createSourceRegulationV1Input (required)
@@ -460,10 +460,10 @@ public class DeletionAndSuppressionApi {
      * trail](/tag/Audit-Trail). Config API omitted fields: - &#x60;attributes&#x60;, -
      * &#x60;userAgent&#x60; Rate limit headers (tracked separately for internal vs external
      * regulation types): - X-Regulation-RateLimit-Remaining: Remaining requests for the regulation
-     * type category (stringified integer) - Internal types: DELETE_INTERNAL,
+     * type category (string field integer) - Internal types: DELETE_INTERNAL,
      * SUPPRESS_WITH_DELETE_INTERNAL, SUPPRESS_ONLY, UNSUPPRESS, DELETE_ARCHIVE_ONLY - External
      * types: DELETE_ONLY, SUPPRESS_WITH_DELETE - X-Regulation-RateLimit-Quota-Reset: ISO 8601
-     * timestamp for when the quota resets (e.g., 2024-12-31T23:59:59.000Z)
+     * timestamp for when the quota resets (for example, 2024-12-31T23:59:59.000Z)
      *
      * @param sourceId (required)
      * @param createSourceRegulationV1Input (required)
@@ -498,10 +498,10 @@ public class DeletionAndSuppressionApi {
      * trail](/tag/Audit-Trail). Config API omitted fields: - &#x60;attributes&#x60;, -
      * &#x60;userAgent&#x60; Rate limit headers (tracked separately for internal vs external
      * regulation types): - X-Regulation-RateLimit-Remaining: Remaining requests for the regulation
-     * type category (stringified integer) - Internal types: DELETE_INTERNAL,
+     * type category (string field integer) - Internal types: DELETE_INTERNAL,
      * SUPPRESS_WITH_DELETE_INTERNAL, SUPPRESS_ONLY, UNSUPPRESS, DELETE_ARCHIVE_ONLY - External
      * types: DELETE_ONLY, SUPPRESS_WITH_DELETE - X-Regulation-RateLimit-Quota-Reset: ISO 8601
-     * timestamp for when the quota resets (e.g., 2024-12-31T23:59:59.000Z)
+     * timestamp for when the quota resets (for example, 2024-12-31T23:59:59.000Z)
      *
      * @param sourceId (required)
      * @param createSourceRegulationV1Input (required)
@@ -635,10 +635,10 @@ public class DeletionAndSuppressionApi {
      * trail](/tag/Audit-Trail). Config API omitted fields: - &#x60;attributes&#x60;, -
      * &#x60;userAgent&#x60; Rate limit headers (tracked separately for internal vs external
      * regulation types): - X-Regulation-RateLimit-Remaining: Remaining requests for the regulation
-     * type category (stringified integer) - Internal types: DELETE_INTERNAL,
+     * type category (string field integer) - Internal types: DELETE_INTERNAL,
      * SUPPRESS_WITH_DELETE_INTERNAL, SUPPRESS_ONLY, UNSUPPRESS, DELETE_ARCHIVE_ONLY - External
      * types: DELETE_ONLY, SUPPRESS_WITH_DELETE - X-Regulation-RateLimit-Quota-Reset: ISO 8601
-     * timestamp for when the quota resets (e.g., 2024-12-31T23:59:59.000Z)
+     * timestamp for when the quota resets (for example, 2024-12-31T23:59:59.000Z)
      *
      * @param createWorkspaceRegulationV1Input (required)
      * @return CreateWorkspaceRegulation200Response
@@ -666,10 +666,10 @@ public class DeletionAndSuppressionApi {
      * trail](/tag/Audit-Trail). Config API omitted fields: - &#x60;attributes&#x60;, -
      * &#x60;userAgent&#x60; Rate limit headers (tracked separately for internal vs external
      * regulation types): - X-Regulation-RateLimit-Remaining: Remaining requests for the regulation
-     * type category (stringified integer) - Internal types: DELETE_INTERNAL,
+     * type category (string field integer) - Internal types: DELETE_INTERNAL,
      * SUPPRESS_WITH_DELETE_INTERNAL, SUPPRESS_ONLY, UNSUPPRESS, DELETE_ARCHIVE_ONLY - External
      * types: DELETE_ONLY, SUPPRESS_WITH_DELETE - X-Regulation-RateLimit-Quota-Reset: ISO 8601
-     * timestamp for when the quota resets (e.g., 2024-12-31T23:59:59.000Z)
+     * timestamp for when the quota resets (for example, 2024-12-31T23:59:59.000Z)
      *
      * @param createWorkspaceRegulationV1Input (required)
      * @return ApiResponse&lt;CreateWorkspaceRegulation200Response&gt;
@@ -699,10 +699,10 @@ public class DeletionAndSuppressionApi {
      * [audit trail](/tag/Audit-Trail). Config API omitted fields: - &#x60;attributes&#x60;, -
      * &#x60;userAgent&#x60; Rate limit headers (tracked separately for internal vs external
      * regulation types): - X-Regulation-RateLimit-Remaining: Remaining requests for the regulation
-     * type category (stringified integer) - Internal types: DELETE_INTERNAL,
+     * type category (string field integer) - Internal types: DELETE_INTERNAL,
      * SUPPRESS_WITH_DELETE_INTERNAL, SUPPRESS_ONLY, UNSUPPRESS, DELETE_ARCHIVE_ONLY - External
      * types: DELETE_ONLY, SUPPRESS_WITH_DELETE - X-Regulation-RateLimit-Quota-Reset: ISO 8601
-     * timestamp for when the quota resets (e.g., 2024-12-31T23:59:59.000Z)
+     * timestamp for when the quota resets (for example, 2024-12-31T23:59:59.000Z)
      *
      * @param createWorkspaceRegulationV1Input (required)
      * @param _callback The callback to be executed when the API call finishes
