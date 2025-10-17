@@ -23,12 +23,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Defines an input for creating an audience schedule. */
 public class AddAudienceScheduleToAudienceAlphaInput {
@@ -144,25 +142,9 @@ public class AddAudienceScheduleToAudienceAlphaInput {
                 && Objects.equals(this.config, addAudienceScheduleToAudienceAlphaInput.config);
     }
 
-    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-        return a == b
-                || (a != null
-                        && b != null
-                        && a.isPresent()
-                        && b.isPresent()
-                        && Objects.deepEquals(a.get(), b.get()));
-    }
-
     @Override
     public int hashCode() {
         return Objects.hash(strategy, config);
-    }
-
-    private static <T> int hashCodeNullable(JsonNullable<T> a) {
-        if (a == null) {
-            return 1;
-        }
-        return a.isPresent() ? Arrays.deepHashCode(new Object[] {a.get()}) : 31;
     }
 
     @Override
@@ -198,6 +180,7 @@ public class AddAudienceScheduleToAudienceAlphaInput {
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
         openapiRequiredFields.add("strategy");
+        openapiRequiredFields.add("config");
     }
 
     /**
@@ -251,10 +234,8 @@ public class AddAudienceScheduleToAudienceAlphaInput {
                                     + " string but got `%s`",
                             jsonObj.get("strategy").toString()));
         }
-        // validate the optional field `config`
-        if (jsonObj.get("config") != null && !jsonObj.get("config").isJsonNull()) {
-            Config.validateJsonElement(jsonObj.get("config"));
-        }
+        // validate the required field `config`
+        Config.validateJsonElement(jsonObj.get("config"));
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
