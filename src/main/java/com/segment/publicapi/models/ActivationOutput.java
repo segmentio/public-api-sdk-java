@@ -279,7 +279,7 @@ public class ActivationOutput {
      *
      * @return destinationMapping
      */
-    @javax.annotation.Nonnull
+    @javax.annotation.Nullable
     public DestinationSubscriptionConfiguration getDestinationMapping() {
         return destinationMapping;
     }
@@ -410,7 +410,6 @@ public class ActivationOutput {
         openapiRequiredFields.add("activationType");
         openapiRequiredFields.add("activationName");
         openapiRequiredFields.add("personalization");
-        openapiRequiredFields.add("destinationMapping");
     }
 
     /**
@@ -504,8 +503,12 @@ public class ActivationOutput {
         }
         // validate the required field `personalization`
         PersonalizationInput.validateJsonElement(jsonObj.get("personalization"));
-        // validate the required field `destinationMapping`
-        DestinationSubscriptionConfiguration.validateJsonElement(jsonObj.get("destinationMapping"));
+        // validate the optional field `destinationMapping`
+        if (jsonObj.get("destinationMapping") != null
+                && !jsonObj.get("destinationMapping").isJsonNull()) {
+            DestinationSubscriptionConfiguration.validateJsonElement(
+                    jsonObj.get("destinationMapping"));
+        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
