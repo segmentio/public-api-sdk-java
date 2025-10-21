@@ -23,12 +23,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 /** Defines an Audience Schedule. */
 public class AudienceSchedule {
@@ -37,11 +35,9 @@ public class AudienceSchedule {
     @SerializedName(SERIALIZED_NAME_ID)
     private String id;
 
-    /** Strategy of the audience schedule (manual, periodic, or specific days). */
+    /** Strategy of the audience schedule (periodic or specific days). */
     @JsonAdapter(StrategyEnum.Adapter.class)
     public enum StrategyEnum {
-        MANUAL("MANUAL"),
-
         PERIODIC("PERIODIC"),
 
         SPECIFIC_DAYS("SPECIFIC_DAYS");
@@ -129,7 +125,7 @@ public class AudienceSchedule {
     }
 
     /**
-     * Strategy of the audience schedule (manual, periodic, or specific days).
+     * Strategy of the audience schedule (periodic or specific days).
      *
      * @return strategy
      */
@@ -197,25 +193,9 @@ public class AudienceSchedule {
                 && Objects.equals(this.nextExecution, audienceSchedule.nextExecution);
     }
 
-    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-        return a == b
-                || (a != null
-                        && b != null
-                        && a.isPresent()
-                        && b.isPresent()
-                        && Objects.deepEquals(a.get(), b.get()));
-    }
-
     @Override
     public int hashCode() {
         return Objects.hash(id, strategy, config, nextExecution);
-    }
-
-    private static <T> int hashCodeNullable(JsonNullable<T> a) {
-        if (a == null) {
-            return 1;
-        }
-        return a.isPresent() ? Arrays.deepHashCode(new Object[] {a.get()}) : 31;
     }
 
     @Override
@@ -256,6 +236,7 @@ public class AudienceSchedule {
         openapiRequiredFields = new HashSet<String>();
         openapiRequiredFields.add("id");
         openapiRequiredFields.add("strategy");
+        openapiRequiredFields.add("config");
     }
 
     /**
@@ -312,10 +293,8 @@ public class AudienceSchedule {
                                     + " string but got `%s`",
                             jsonObj.get("strategy").toString()));
         }
-        // validate the optional field `config`
-        if (jsonObj.get("config") != null && !jsonObj.get("config").isJsonNull()) {
-            Config.validateJsonElement(jsonObj.get("config"));
-        }
+        // validate the required field `config`
+        Config.validateJsonElement(jsonObj.get("config"));
         if ((jsonObj.get("nextExecution") != null && !jsonObj.get("nextExecution").isJsonNull())
                 && !jsonObj.get("nextExecution").isJsonPrimitive()) {
             throw new IllegalArgumentException(
