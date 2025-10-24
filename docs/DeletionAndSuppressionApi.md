@@ -21,7 +21,7 @@ All URIs are relative to *https://api.segmentapis.com*
 
 Create Cloud Source Regulation
 
-Creates a Source-scoped regulation.    Please Note: Suppression rules at the Workspace level take precedence over those at the Source level. If a user has been suppressed at the Workspace level, any attempt to un-suppress at the Source level is not supported and the processing of the request will fail in Segment    Config API omitted fields: - &#x60;attributes&#x60;, - &#x60;userAgent&#x60;  Rate limit headers (tracked separately for internal vs external regulation types): - X-Regulation-RateLimit-Remaining: Remaining requests for the regulation type category (integer as string)   - Internal types: DELETE_INTERNAL, SUPPRESS_WITH_DELETE_INTERNAL, SUPPRESS_ONLY, UNSUPPRESS, DELETE_ARCHIVE_ONLY   - External types: DELETE_ONLY, SUPPRESS_WITH_DELETE - X-Regulation-RateLimit-Quota-Reset: ISO 8601 timestamp for when the quota resets (for example, 2024-12-31T23:59:59.000Z)   
+Creates a Source-scoped regulation.    Please Note: Suppression rules at the Workspace level take precedence over those at the Source level. If a user has been suppressed at the Workspace level, any attempt to un-suppress at the Source level is not supported and the processing of the request will fail in Segment    Config API omitted fields: - &#x60;attributes&#x60;, - &#x60;userAgent&#x60;  Rate limit headers will be updated to reflect regulation-specific limits (tracked separately for Segment-only vs Segment &amp; Destination regulation types): - X-RateLimit-Remaining: Remaining requests for the regulation type category   - Segment-only Regulations: DELETE_INTERNAL, SUPPRESS_WITH_DELETE_INTERNAL, SUPPRESS_ONLY, UNSUPPRESS, DELETE_ARCHIVE_ONLY   - Segment &amp; Destination Regulations: DELETE_ONLY, SUPPRESS_WITH_DELETE - X-RateLimit-Reset: RFC 5322 timestamp for when the quota resets (for example, Tue, 31 Dec 2024 23:59:59 GMT)   
 
 ### Example
 
@@ -84,7 +84,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  * X-Regulation-RateLimit-Remaining - Remaining requests in the current period <br>  * X-Regulation-RateLimit-Quota-Reset - ISO 8601 timestamp for when the quota resets <br>  |
+| **200** | OK |  * X-RateLimit-Remaining - Remaining requests in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Reset - RFC 5322 timestamp indicating when the regulation quota resets for the specific regulation type category. <br>  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
 | **429** | Too many requests |  -  |
@@ -96,7 +96,7 @@ public class Example {
 
 Create Source Regulation
 
-Creates a Source-scoped regulation.    Please Note: Suppression rules at the Workspace level take precedence over those at the Source level. If a user has been suppressed at the Workspace level, any attempt to un-suppress at the Source level is not supported and the processing of the request will fail in Segment    • When called, this endpoint may generate the &#x60;Source Regulation Created&#x60; event in the [audit trail](/tag/Audit-Trail).  Config API omitted fields: - &#x60;attributes&#x60;, - &#x60;userAgent&#x60;  Rate limit headers (tracked separately for internal vs external regulation types): - X-Regulation-RateLimit-Remaining: Remaining requests for the regulation type category (integer as string)   - Internal types: DELETE_INTERNAL, SUPPRESS_WITH_DELETE_INTERNAL, SUPPRESS_ONLY, UNSUPPRESS, DELETE_ARCHIVE_ONLY   - External types: DELETE_ONLY, SUPPRESS_WITH_DELETE - X-Regulation-RateLimit-Quota-Reset: ISO 8601 timestamp for when the quota resets (for example, 2024-12-31T23:59:59.000Z)   
+Creates a Source-scoped regulation.    Please Note: Suppression rules at the Workspace level take precedence over those at the Source level. If a user has been suppressed at the Workspace level, any attempt to un-suppress at the Source level is not supported and the processing of the request will fail in Segment    • When called, this endpoint may generate the &#x60;Source Regulation Created&#x60; event in the [audit trail](/tag/Audit-Trail).  Config API omitted fields: - &#x60;attributes&#x60;, - &#x60;userAgent&#x60;  Rate limit headers will be updated to reflect regulation-specific limits (tracked separately for Segment-only vs Segment &amp; Destination regulation types): - X-RateLimit-Remaining: Remaining requests for the regulation type category   - Segment-only Regulations: DELETE_INTERNAL, SUPPRESS_WITH_DELETE_INTERNAL, SUPPRESS_ONLY, UNSUPPRESS, DELETE_ARCHIVE_ONLY   - Segment &amp; Destination Regulations: DELETE_ONLY, SUPPRESS_WITH_DELETE - X-RateLimit-Reset: RFC 5322 timestamp for when the quota resets (for example, Tue, 31 Dec 2024 23:59:59 GMT)   
 
 ### Example
 
@@ -159,7 +159,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  * X-Regulation-RateLimit-Remaining - Remaining requests in the current period <br>  * X-Regulation-RateLimit-Quota-Reset - ISO 8601 timestamp for when the quota resets <br>  |
+| **200** | OK |  * X-RateLimit-Remaining - Remaining requests in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Reset - RFC 5322 timestamp indicating when the regulation quota resets for the specific regulation type category. <br>  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
 | **429** | Too many requests |  -  |
@@ -171,7 +171,7 @@ public class Example {
 
 Create Workspace Regulation
 
-Creates a Workspace-scoped regulation.    • When called, this endpoint may generate the &#x60;Workspace Regulation Created&#x60; event in the [audit trail](/tag/Audit-Trail).  Config API omitted fields: - &#x60;attributes&#x60;, - &#x60;userAgent&#x60;  Rate limit headers (tracked separately for internal vs external regulation types): - X-Regulation-RateLimit-Remaining: Remaining requests for the regulation type category (integer as string)   - Internal types: DELETE_INTERNAL, SUPPRESS_WITH_DELETE_INTERNAL, SUPPRESS_ONLY, UNSUPPRESS, DELETE_ARCHIVE_ONLY   - External types: DELETE_ONLY, SUPPRESS_WITH_DELETE - X-Regulation-RateLimit-Quota-Reset: ISO 8601 timestamp for when the quota resets (for example, 2024-12-31T23:59:59.000Z)   
+Creates a Workspace-scoped regulation.    • When called, this endpoint may generate the &#x60;Workspace Regulation Created&#x60; event in the [audit trail](/tag/Audit-Trail).  Config API omitted fields: - &#x60;attributes&#x60;, - &#x60;userAgent&#x60;  Rate limit headers will be updated to reflect regulation-specific limits (tracked separately for Segment-only vs Segment &amp; Destination regulation types): - X-RateLimit-Remaining: Remaining requests for the regulation type category   - Segment-only Regulations: DELETE_INTERNAL, SUPPRESS_WITH_DELETE_INTERNAL, SUPPRESS_ONLY, UNSUPPRESS, DELETE_ARCHIVE_ONLY   - Segment &amp; Destination Regulations: DELETE_ONLY, SUPPRESS_WITH_DELETE - X-RateLimit-Reset: RFC 5322 timestamp for when the quota resets (for example, Tue, 31 Dec 2024 23:59:59 GMT)   
 
 ### Example
 
@@ -232,7 +232,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  * X-Regulation-RateLimit-Remaining - Remaining requests in the current period <br>  * X-Regulation-RateLimit-Quota-Reset - ISO 8601 timestamp for when the quota resets <br>  |
+| **200** | OK |  * X-RateLimit-Remaining - Remaining requests in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Reset - RFC 5322 timestamp indicating when the regulation quota resets for the specific regulation type category. <br>  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
 | **429** | Too many requests |  -  |

@@ -22,10 +22,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** AudienceDefinition */
 public class AudienceDefinition {
@@ -48,8 +50,10 @@ public class AudienceDefinition {
     }
 
     /**
-     * The target entity relationship slug, required in a linked audience, default to profile if not
-     * specified.
+     * The target entity relationship slug, only applicable for linked audiences. Use
+     * &#x60;&#x60;&#x60;profile&#x60;&#x60;&#x60; when the targeting the profile. Note that the
+     * value defaults to profile if not specified. Also note, that the value will be returned as
+     * null if the target entity is removed from the data graph.
      *
      * @return targetEntity
      */
@@ -97,9 +101,25 @@ public class AudienceDefinition {
                 && Objects.equals(this.query, audienceDefinition.query);
     }
 
+    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+        return a == b
+                || (a != null
+                        && b != null
+                        && a.isPresent()
+                        && b.isPresent()
+                        && Objects.deepEquals(a.get(), b.get()));
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(targetEntity, query);
+    }
+
+    private static <T> int hashCodeNullable(JsonNullable<T> a) {
+        if (a == null) {
+            return 1;
+        }
+        return a.isPresent() ? Arrays.deepHashCode(new Object[] {a.get()}) : 31;
     }
 
     @Override
