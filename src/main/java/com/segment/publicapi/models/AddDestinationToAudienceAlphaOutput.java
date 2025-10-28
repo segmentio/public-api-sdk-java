@@ -12,6 +12,7 @@
 package com.segment.publicapi.models;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
@@ -22,7 +23,9 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
@@ -33,6 +36,11 @@ public class AddDestinationToAudienceAlphaOutput {
 
     @SerializedName(SERIALIZED_NAME_CONNECTION)
     private Connection connection;
+
+    public static final String SERIALIZED_NAME_ID_SYNC_CONFIGURATION = "idSyncConfiguration";
+
+    @SerializedName(SERIALIZED_NAME_ID_SYNC_CONFIGURATION)
+    private List<IDSyncConfigurationInput> idSyncConfiguration = new ArrayList<>();
 
     public AddDestinationToAudienceAlphaOutput() {}
 
@@ -56,6 +64,36 @@ public class AddDestinationToAudienceAlphaOutput {
         this.connection = connection;
     }
 
+    public AddDestinationToAudienceAlphaOutput idSyncConfiguration(
+            List<IDSyncConfigurationInput> idSyncConfiguration) {
+
+        this.idSyncConfiguration = idSyncConfiguration;
+        return this;
+    }
+
+    public AddDestinationToAudienceAlphaOutput addIdSyncConfigurationItem(
+            IDSyncConfigurationInput idSyncConfigurationItem) {
+        if (this.idSyncConfiguration == null) {
+            this.idSyncConfiguration = new ArrayList<>();
+        }
+        this.idSyncConfiguration.add(idSyncConfigurationItem);
+        return this;
+    }
+
+    /**
+     * The id sync configuration for the Destination - array of external ids with their strategies.
+     *
+     * @return idSyncConfiguration
+     */
+    @javax.annotation.Nonnull
+    public List<IDSyncConfigurationInput> getIdSyncConfiguration() {
+        return idSyncConfiguration;
+    }
+
+    public void setIdSyncConfiguration(List<IDSyncConfigurationInput> idSyncConfiguration) {
+        this.idSyncConfiguration = idSyncConfiguration;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -66,12 +104,15 @@ public class AddDestinationToAudienceAlphaOutput {
         }
         AddDestinationToAudienceAlphaOutput addDestinationToAudienceAlphaOutput =
                 (AddDestinationToAudienceAlphaOutput) o;
-        return Objects.equals(this.connection, addDestinationToAudienceAlphaOutput.connection);
+        return Objects.equals(this.connection, addDestinationToAudienceAlphaOutput.connection)
+                && Objects.equals(
+                        this.idSyncConfiguration,
+                        addDestinationToAudienceAlphaOutput.idSyncConfiguration);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(connection);
+        return Objects.hash(connection, idSyncConfiguration);
     }
 
     @Override
@@ -79,6 +120,9 @@ public class AddDestinationToAudienceAlphaOutput {
         StringBuilder sb = new StringBuilder();
         sb.append("class AddDestinationToAudienceAlphaOutput {\n");
         sb.append("    connection: ").append(toIndentedString(connection)).append("\n");
+        sb.append("    idSyncConfiguration: ")
+                .append(toIndentedString(idSyncConfiguration))
+                .append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -101,10 +145,12 @@ public class AddDestinationToAudienceAlphaOutput {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
         openapiFields.add("connection");
+        openapiFields.add("idSyncConfiguration");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
         openapiRequiredFields.add("connection");
+        openapiRequiredFields.add("idSyncConfiguration");
     }
 
     /**
@@ -151,6 +197,21 @@ public class AddDestinationToAudienceAlphaOutput {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the required field `connection`
         Connection.validateJsonElement(jsonObj.get("connection"));
+        // ensure the json data is an array
+        if (!jsonObj.get("idSyncConfiguration").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `idSyncConfiguration` to be an array in the JSON"
+                                    + " string but got `%s`",
+                            jsonObj.get("idSyncConfiguration").toString()));
+        }
+
+        JsonArray jsonArrayidSyncConfiguration = jsonObj.getAsJsonArray("idSyncConfiguration");
+        // validate the required field `idSyncConfiguration` (array)
+        for (int i = 0; i < jsonArrayidSyncConfiguration.size(); i++) {
+            IDSyncConfigurationInput.validateJsonElement(jsonArrayidSyncConfiguration.get(i));
+        }
+        ;
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

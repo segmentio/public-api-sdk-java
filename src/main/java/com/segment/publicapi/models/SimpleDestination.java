@@ -75,10 +75,10 @@ public class SimpleDestination {
     @SerializedName(SERIALIZED_NAME_METADATA)
     private Metadata metadata;
 
-    public static final String SERIALIZED_NAME_ID_SYNC = "idSync";
+    public static final String SERIALIZED_NAME_ID_SYNC_CONFIGURATION = "idSyncConfiguration";
 
-    @SerializedName(SERIALIZED_NAME_ID_SYNC)
-    private IDSyncOptions idSync;
+    @SerializedName(SERIALIZED_NAME_ID_SYNC_CONFIGURATION)
+    private IDSyncOptions idSyncConfiguration;
 
     public SimpleDestination() {}
 
@@ -270,24 +270,24 @@ public class SimpleDestination {
         this.metadata = metadata;
     }
 
-    public SimpleDestination idSync(IDSyncOptions idSync) {
+    public SimpleDestination idSyncConfiguration(IDSyncOptions idSyncConfiguration) {
 
-        this.idSync = idSync;
+        this.idSyncConfiguration = idSyncConfiguration;
         return this;
     }
 
     /**
-     * Get idSync
+     * Get idSyncConfiguration
      *
-     * @return idSync
+     * @return idSyncConfiguration
      */
     @javax.annotation.Nullable
-    public IDSyncOptions getIdSync() {
-        return idSync;
+    public IDSyncOptions getIdSyncConfiguration() {
+        return idSyncConfiguration;
     }
 
-    public void setIdSync(IDSyncOptions idSync) {
-        this.idSync = idSync;
+    public void setIdSyncConfiguration(IDSyncOptions idSyncConfiguration) {
+        this.idSyncConfiguration = idSyncConfiguration;
     }
 
     @Override
@@ -308,7 +308,7 @@ public class SimpleDestination {
                 && Objects.equals(this.settings, simpleDestination.settings)
                 && Objects.equals(this.destinationId, simpleDestination.destinationId)
                 && Objects.equals(this.metadata, simpleDestination.metadata)
-                && Objects.equals(this.idSync, simpleDestination.idSync);
+                && Objects.equals(this.idSyncConfiguration, simpleDestination.idSyncConfiguration);
     }
 
     @Override
@@ -323,7 +323,7 @@ public class SimpleDestination {
                 settings,
                 destinationId,
                 metadata,
-                idSync);
+                idSyncConfiguration);
     }
 
     @Override
@@ -339,7 +339,9 @@ public class SimpleDestination {
         sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
         sb.append("    destinationId: ").append(toIndentedString(destinationId)).append("\n");
         sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-        sb.append("    idSync: ").append(toIndentedString(idSync)).append("\n");
+        sb.append("    idSyncConfiguration: ")
+                .append(toIndentedString(idSyncConfiguration))
+                .append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -370,7 +372,7 @@ public class SimpleDestination {
         openapiFields.add("settings");
         openapiFields.add("destinationId");
         openapiFields.add("metadata");
-        openapiFields.add("idSync");
+        openapiFields.add("idSyncConfiguration");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
@@ -470,9 +472,10 @@ public class SimpleDestination {
         if (jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) {
             Metadata.validateJsonElement(jsonObj.get("metadata"));
         }
-        // validate the optional field `idSync`
-        if (jsonObj.get("idSync") != null && !jsonObj.get("idSync").isJsonNull()) {
-            IDSyncOptions.validateJsonElement(jsonObj.get("idSync"));
+        // validate the optional field `idSyncConfiguration`
+        if (jsonObj.get("idSyncConfiguration") != null
+                && !jsonObj.get("idSyncConfiguration").isJsonNull()) {
+            IDSyncOptions.validateJsonElement(jsonObj.get("idSyncConfiguration"));
         }
     }
 
