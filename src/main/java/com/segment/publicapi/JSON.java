@@ -994,12 +994,8 @@ public class JSON {
                 new com.segment.publicapi.models.HashPropertiesConfiguration
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.IDSyncConfig.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.IDSyncConfigurationInput
                         .CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.IDSyncOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.IdentifySourceSettingsV1
                         .CustomTypeAdapterFactory());
