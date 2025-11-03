@@ -54,11 +54,10 @@ public class ActivationOutput {
     @SerializedName(SERIALIZED_NAME_AUDIENCE_ID)
     private String audienceId;
 
-    public static final String SERIALIZED_NAME_DESTINATION_CONNECTION_ID =
-            "destinationConnectionId";
+    public static final String SERIALIZED_NAME_CONNECTION_ID = "connectionId";
 
-    @SerializedName(SERIALIZED_NAME_DESTINATION_CONNECTION_ID)
-    private String destinationConnectionId;
+    @SerializedName(SERIALIZED_NAME_CONNECTION_ID)
+    private String connectionId;
 
     public static final String SERIALIZED_NAME_ACTIVATION_TYPE = "activationType";
 
@@ -187,24 +186,24 @@ public class ActivationOutput {
         this.audienceId = audienceId;
     }
 
-    public ActivationOutput destinationConnectionId(String destinationConnectionId) {
+    public ActivationOutput connectionId(String connectionId) {
 
-        this.destinationConnectionId = destinationConnectionId;
+        this.connectionId = connectionId;
         return this;
     }
 
     /**
-     * The DESTINATION connection id (formerly integrationInstanceId).
+     * The connection id.
      *
-     * @return destinationConnectionId
+     * @return connectionId
      */
     @javax.annotation.Nonnull
-    public String getDestinationConnectionId() {
-        return destinationConnectionId;
+    public String getConnectionId() {
+        return connectionId;
     }
 
-    public void setDestinationConnectionId(String destinationConnectionId) {
-        this.destinationConnectionId = destinationConnectionId;
+    public void setConnectionId(String connectionId) {
+        this.connectionId = connectionId;
     }
 
     public ActivationOutput activationType(String activationType) {
@@ -322,8 +321,7 @@ public class ActivationOutput {
                 && Objects.equals(this.workspaceId, activationOutput.workspaceId)
                 && Objects.equals(this.spaceId, activationOutput.spaceId)
                 && Objects.equals(this.audienceId, activationOutput.audienceId)
-                && Objects.equals(
-                        this.destinationConnectionId, activationOutput.destinationConnectionId)
+                && Objects.equals(this.connectionId, activationOutput.connectionId)
                 && Objects.equals(this.activationType, activationOutput.activationType)
                 && Objects.equals(this.activationName, activationOutput.activationName)
                 && Objects.equals(this.personalization, activationOutput.personalization)
@@ -339,7 +337,7 @@ public class ActivationOutput {
                 workspaceId,
                 spaceId,
                 audienceId,
-                destinationConnectionId,
+                connectionId,
                 activationType,
                 activationName,
                 personalization,
@@ -356,9 +354,7 @@ public class ActivationOutput {
         sb.append("    workspaceId: ").append(toIndentedString(workspaceId)).append("\n");
         sb.append("    spaceId: ").append(toIndentedString(spaceId)).append("\n");
         sb.append("    audienceId: ").append(toIndentedString(audienceId)).append("\n");
-        sb.append("    destinationConnectionId: ")
-                .append(toIndentedString(destinationConnectionId))
-                .append("\n");
+        sb.append("    connectionId: ").append(toIndentedString(connectionId)).append("\n");
         sb.append("    activationType: ").append(toIndentedString(activationType)).append("\n");
         sb.append("    activationName: ").append(toIndentedString(activationName)).append("\n");
         sb.append("    personalization: ").append(toIndentedString(personalization)).append("\n");
@@ -392,7 +388,7 @@ public class ActivationOutput {
         openapiFields.add("workspaceId");
         openapiFields.add("spaceId");
         openapiFields.add("audienceId");
-        openapiFields.add("destinationConnectionId");
+        openapiFields.add("connectionId");
         openapiFields.add("activationType");
         openapiFields.add("activationName");
         openapiFields.add("personalization");
@@ -406,7 +402,7 @@ public class ActivationOutput {
         openapiRequiredFields.add("workspaceId");
         openapiRequiredFields.add("spaceId");
         openapiRequiredFields.add("audienceId");
-        openapiRequiredFields.add("destinationConnectionId");
+        openapiRequiredFields.add("connectionId");
         openapiRequiredFields.add("activationType");
         openapiRequiredFields.add("activationName");
         openapiRequiredFields.add("personalization");
@@ -480,12 +476,12 @@ public class ActivationOutput {
                                     + " string but got `%s`",
                             jsonObj.get("audienceId").toString()));
         }
-        if (!jsonObj.get("destinationConnectionId").isJsonPrimitive()) {
+        if (!jsonObj.get("connectionId").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `destinationConnectionId` to be a primitive type in"
-                                    + " the JSON string but got `%s`",
-                            jsonObj.get("destinationConnectionId").toString()));
+                            "Expected the field `connectionId` to be a primitive type in the JSON"
+                                    + " string but got `%s`",
+                            jsonObj.get("connectionId").toString()));
         }
         if (!jsonObj.get("activationType").isJsonPrimitive()) {
             throw new IllegalArgumentException(
