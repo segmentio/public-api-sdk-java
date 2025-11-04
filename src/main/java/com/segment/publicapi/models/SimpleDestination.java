@@ -12,6 +12,7 @@
 package com.segment.publicapi.models;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
@@ -22,8 +23,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
@@ -75,10 +78,10 @@ public class SimpleDestination {
     @SerializedName(SERIALIZED_NAME_METADATA)
     private Metadata metadata;
 
-    public static final String SERIALIZED_NAME_ID_SYNC = "idSync";
+    public static final String SERIALIZED_NAME_ID_SYNC_CONFIGURATION = "idSyncConfiguration";
 
-    @SerializedName(SERIALIZED_NAME_ID_SYNC)
-    private IDSyncOptions idSync;
+    @SerializedName(SERIALIZED_NAME_ID_SYNC_CONFIGURATION)
+    private List<IDSyncConfigurationInput> idSyncConfiguration;
 
     public SimpleDestination() {}
 
@@ -270,24 +273,34 @@ public class SimpleDestination {
         this.metadata = metadata;
     }
 
-    public SimpleDestination idSync(IDSyncOptions idSync) {
+    public SimpleDestination idSyncConfiguration(
+            List<IDSyncConfigurationInput> idSyncConfiguration) {
 
-        this.idSync = idSync;
+        this.idSyncConfiguration = idSyncConfiguration;
+        return this;
+    }
+
+    public SimpleDestination addIdSyncConfigurationItem(
+            IDSyncConfigurationInput idSyncConfigurationItem) {
+        if (this.idSyncConfiguration == null) {
+            this.idSyncConfiguration = new ArrayList<>();
+        }
+        this.idSyncConfiguration.add(idSyncConfigurationItem);
         return this;
     }
 
     /**
-     * Get idSync
+     * ID Sync configuration - array of external IDs with their strategies.
      *
-     * @return idSync
+     * @return idSyncConfiguration
      */
     @javax.annotation.Nullable
-    public IDSyncOptions getIdSync() {
-        return idSync;
+    public List<IDSyncConfigurationInput> getIdSyncConfiguration() {
+        return idSyncConfiguration;
     }
 
-    public void setIdSync(IDSyncOptions idSync) {
-        this.idSync = idSync;
+    public void setIdSyncConfiguration(List<IDSyncConfigurationInput> idSyncConfiguration) {
+        this.idSyncConfiguration = idSyncConfiguration;
     }
 
     @Override
@@ -308,7 +321,7 @@ public class SimpleDestination {
                 && Objects.equals(this.settings, simpleDestination.settings)
                 && Objects.equals(this.destinationId, simpleDestination.destinationId)
                 && Objects.equals(this.metadata, simpleDestination.metadata)
-                && Objects.equals(this.idSync, simpleDestination.idSync);
+                && Objects.equals(this.idSyncConfiguration, simpleDestination.idSyncConfiguration);
     }
 
     @Override
@@ -323,7 +336,7 @@ public class SimpleDestination {
                 settings,
                 destinationId,
                 metadata,
-                idSync);
+                idSyncConfiguration);
     }
 
     @Override
@@ -339,7 +352,9 @@ public class SimpleDestination {
         sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
         sb.append("    destinationId: ").append(toIndentedString(destinationId)).append("\n");
         sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-        sb.append("    idSync: ").append(toIndentedString(idSync)).append("\n");
+        sb.append("    idSyncConfiguration: ")
+                .append(toIndentedString(idSyncConfiguration))
+                .append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -370,7 +385,7 @@ public class SimpleDestination {
         openapiFields.add("settings");
         openapiFields.add("destinationId");
         openapiFields.add("metadata");
-        openapiFields.add("idSync");
+        openapiFields.add("idSyncConfiguration");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
@@ -470,9 +485,26 @@ public class SimpleDestination {
         if (jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) {
             Metadata.validateJsonElement(jsonObj.get("metadata"));
         }
-        // validate the optional field `idSync`
-        if (jsonObj.get("idSync") != null && !jsonObj.get("idSync").isJsonNull()) {
-            IDSyncOptions.validateJsonElement(jsonObj.get("idSync"));
+        if (jsonObj.get("idSyncConfiguration") != null
+                && !jsonObj.get("idSyncConfiguration").isJsonNull()) {
+            JsonArray jsonArrayidSyncConfiguration = jsonObj.getAsJsonArray("idSyncConfiguration");
+            if (jsonArrayidSyncConfiguration != null) {
+                // ensure the json data is an array
+                if (!jsonObj.get("idSyncConfiguration").isJsonArray()) {
+                    throw new IllegalArgumentException(
+                            String.format(
+                                    "Expected the field `idSyncConfiguration` to be an array in the"
+                                            + " JSON string but got `%s`",
+                                    jsonObj.get("idSyncConfiguration").toString()));
+                }
+
+                // validate the optional field `idSyncConfiguration` (array)
+                for (int i = 0; i < jsonArrayidSyncConfiguration.size(); i++) {
+                    IDSyncConfigurationInput.validateJsonElement(
+                            jsonArrayidSyncConfiguration.get(i));
+                }
+                ;
+            }
         }
     }
 

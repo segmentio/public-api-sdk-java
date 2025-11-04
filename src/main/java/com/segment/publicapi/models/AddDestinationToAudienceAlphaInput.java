@@ -12,6 +12,7 @@
 package com.segment.publicapi.models;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
@@ -22,8 +23,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
@@ -39,7 +42,7 @@ public class AddDestinationToAudienceAlphaInput {
     public static final String SERIALIZED_NAME_ID_SYNC_CONFIGURATION = "idSyncConfiguration";
 
     @SerializedName(SERIALIZED_NAME_ID_SYNC_CONFIGURATION)
-    private Object idSyncConfiguration;
+    private List<IDSyncConfigurationInput> idSyncConfiguration;
 
     public static final String SERIALIZED_NAME_CONNECTION_SETTINGS = "connectionSettings";
 
@@ -68,23 +71,34 @@ public class AddDestinationToAudienceAlphaInput {
         this.destination = destination;
     }
 
-    public AddDestinationToAudienceAlphaInput idSyncConfiguration(Object idSyncConfiguration) {
+    public AddDestinationToAudienceAlphaInput idSyncConfiguration(
+            List<IDSyncConfigurationInput> idSyncConfiguration) {
 
         this.idSyncConfiguration = idSyncConfiguration;
         return this;
     }
 
+    public AddDestinationToAudienceAlphaInput addIdSyncConfigurationItem(
+            IDSyncConfigurationInput idSyncConfigurationItem) {
+        if (this.idSyncConfiguration == null) {
+            this.idSyncConfiguration = new ArrayList<>();
+        }
+        this.idSyncConfiguration.add(idSyncConfigurationItem);
+        return this;
+    }
+
     /**
-     * The identifier sync configuration input.
+     * Identifier sync configuration - array of external IDs to sync with their strategies. Maximum
+     * 5 items allowed.
      *
      * @return idSyncConfiguration
      */
     @javax.annotation.Nullable
-    public Object getIdSyncConfiguration() {
+    public List<IDSyncConfigurationInput> getIdSyncConfiguration() {
         return idSyncConfiguration;
     }
 
-    public void setIdSyncConfiguration(Object idSyncConfiguration) {
+    public void setIdSyncConfiguration(List<IDSyncConfigurationInput> idSyncConfiguration) {
         this.idSyncConfiguration = idSyncConfiguration;
     }
 
@@ -234,6 +248,27 @@ public class AddDestinationToAudienceAlphaInput {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the required field `destination`
         DestinationInput.validateJsonElement(jsonObj.get("destination"));
+        if (jsonObj.get("idSyncConfiguration") != null
+                && !jsonObj.get("idSyncConfiguration").isJsonNull()) {
+            JsonArray jsonArrayidSyncConfiguration = jsonObj.getAsJsonArray("idSyncConfiguration");
+            if (jsonArrayidSyncConfiguration != null) {
+                // ensure the json data is an array
+                if (!jsonObj.get("idSyncConfiguration").isJsonArray()) {
+                    throw new IllegalArgumentException(
+                            String.format(
+                                    "Expected the field `idSyncConfiguration` to be an array in the"
+                                            + " JSON string but got `%s`",
+                                    jsonObj.get("idSyncConfiguration").toString()));
+                }
+
+                // validate the optional field `idSyncConfiguration` (array)
+                for (int i = 0; i < jsonArrayidSyncConfiguration.size(); i++) {
+                    IDSyncConfigurationInput.validateJsonElement(
+                            jsonArrayidSyncConfiguration.get(i));
+                }
+                ;
+            }
+        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

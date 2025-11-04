@@ -27,28 +27,49 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** IDSyncConfig */
-public class IDSyncConfig {
+/** The identifier sync configuration input. */
+public class IDSyncConfigurationInput {
+    public static final String SERIALIZED_NAME_EXTERNAL_ID = "externalId";
+
+    @SerializedName(SERIALIZED_NAME_EXTERNAL_ID)
+    private String externalId;
+
     public static final String SERIALIZED_NAME_STRATEGY = "strategy";
 
     @SerializedName(SERIALIZED_NAME_STRATEGY)
     private String strategy;
 
-    public static final String SERIALIZED_NAME_MAP_TO = "mapTo";
+    public IDSyncConfigurationInput() {}
 
-    @SerializedName(SERIALIZED_NAME_MAP_TO)
-    private String mapTo;
+    public IDSyncConfigurationInput externalId(String externalId) {
 
-    public IDSyncConfig() {}
+        this.externalId = externalId;
+        return this;
+    }
 
-    public IDSyncConfig strategy(String strategy) {
+    /**
+     * The external id to sync, for example \&quot;user_id\&quot; or \&quot;email\&quot;.
+     *
+     * @return externalId
+     */
+    @javax.annotation.Nonnull
+    public String getExternalId() {
+        return externalId;
+    }
+
+    public void setExternalId(String externalId) {
+        this.externalId = externalId;
+    }
+
+    public IDSyncConfigurationInput strategy(String strategy) {
 
         this.strategy = strategy;
         return this;
     }
 
     /**
-     * The strategy of the identifier.
+     * The strategy for syncing this identifier. Valid values: \&quot;first\&quot;,
+     * \&quot;last\&quot;, \&quot;all\&quot;.
      *
      * @return strategy
      */
@@ -61,26 +82,6 @@ public class IDSyncConfig {
         this.strategy = strategy;
     }
 
-    public IDSyncConfig mapTo(String mapTo) {
-
-        this.mapTo = mapTo;
-        return this;
-    }
-
-    /**
-     * The property to map the identifier to.
-     *
-     * @return mapTo
-     */
-    @javax.annotation.Nullable
-    public String getMapTo() {
-        return mapTo;
-    }
-
-    public void setMapTo(String mapTo) {
-        this.mapTo = mapTo;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -89,22 +90,22 @@ public class IDSyncConfig {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        IDSyncConfig idSyncConfig = (IDSyncConfig) o;
-        return Objects.equals(this.strategy, idSyncConfig.strategy)
-                && Objects.equals(this.mapTo, idSyncConfig.mapTo);
+        IDSyncConfigurationInput idSyncConfigurationInput = (IDSyncConfigurationInput) o;
+        return Objects.equals(this.externalId, idSyncConfigurationInput.externalId)
+                && Objects.equals(this.strategy, idSyncConfigurationInput.strategy);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(strategy, mapTo);
+        return Objects.hash(externalId, strategy);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class IDSyncConfig {\n");
+        sb.append("class IDSyncConfigurationInput {\n");
+        sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
         sb.append("    strategy: ").append(toIndentedString(strategy)).append("\n");
-        sb.append("    mapTo: ").append(toIndentedString(mapTo)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -126,11 +127,12 @@ public class IDSyncConfig {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
+        openapiFields.add("externalId");
         openapiFields.add("strategy");
-        openapiFields.add("mapTo");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
+        openapiRequiredFields.add("externalId");
         openapiRequiredFields.add("strategy");
     }
 
@@ -138,34 +140,34 @@ public class IDSyncConfig {
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to IDSyncConfig
+     * @throws IOException if the JSON Element is invalid with respect to IDSyncConfigurationInput
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!IDSyncConfig.openapiRequiredFields
+            if (!IDSyncConfigurationInput.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in IDSyncConfig is not found in the empty"
-                                        + " JSON string",
-                                IDSyncConfig.openapiRequiredFields.toString()));
+                                "The required field(s) %s in IDSyncConfigurationInput is not found"
+                                        + " in the empty JSON string",
+                                IDSyncConfigurationInput.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!IDSyncConfig.openapiFields.contains(entry.getKey())) {
+            if (!IDSyncConfigurationInput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `IDSyncConfig` properties. JSON: %s",
+                                        + " `IDSyncConfigurationInput` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : IDSyncConfig.openapiRequiredFields) {
+        for (String requiredField : IDSyncConfigurationInput.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -174,6 +176,13 @@ public class IDSyncConfig {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+        if (!jsonObj.get("externalId").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `externalId` to be a primitive type in the JSON"
+                                    + " string but got `%s`",
+                            jsonObj.get("externalId").toString()));
+        }
         if (!jsonObj.get("strategy").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -181,37 +190,31 @@ public class IDSyncConfig {
                                     + " string but got `%s`",
                             jsonObj.get("strategy").toString()));
         }
-        if ((jsonObj.get("mapTo") != null && !jsonObj.get("mapTo").isJsonNull())
-                && !jsonObj.get("mapTo").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `mapTo` to be a primitive type in the JSON string"
-                                    + " but got `%s`",
-                            jsonObj.get("mapTo").toString()));
-        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!IDSyncConfig.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'IDSyncConfig' and its subtypes
+            if (!IDSyncConfigurationInput.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'IDSyncConfigurationInput' and its
+                // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<IDSyncConfig> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(IDSyncConfig.class));
+            final TypeAdapter<IDSyncConfigurationInput> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(IDSyncConfigurationInput.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<IDSyncConfig>() {
+                    new TypeAdapter<IDSyncConfigurationInput>() {
                         @Override
-                        public void write(JsonWriter out, IDSyncConfig value) throws IOException {
+                        public void write(JsonWriter out, IDSyncConfigurationInput value)
+                                throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public IDSyncConfig read(JsonReader in) throws IOException {
+                        public IDSyncConfigurationInput read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -221,18 +224,18 @@ public class IDSyncConfig {
     }
 
     /**
-     * Create an instance of IDSyncConfig given an JSON string
+     * Create an instance of IDSyncConfigurationInput given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of IDSyncConfig
-     * @throws IOException if the JSON string is invalid with respect to IDSyncConfig
+     * @return An instance of IDSyncConfigurationInput
+     * @throws IOException if the JSON string is invalid with respect to IDSyncConfigurationInput
      */
-    public static IDSyncConfig fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, IDSyncConfig.class);
+    public static IDSyncConfigurationInput fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, IDSyncConfigurationInput.class);
     }
 
     /**
-     * Convert an instance of IDSyncConfig to an JSON string
+     * Convert an instance of IDSyncConfigurationInput to an JSON string
      *
      * @return JSON string
      */
