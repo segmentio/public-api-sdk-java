@@ -25,6 +25,7 @@ import com.segment.publicapi.models.AddDestinationToAudienceAlphaInput;
 import com.segment.publicapi.models.GetActivationFromAudience200Response;
 import com.segment.publicapi.models.ListActivationsFromAudience200Response;
 import com.segment.publicapi.models.ListDestinationsFromAudience200Response;
+import com.segment.publicapi.models.ListSupportedDestinationsFromAudience200Response;
 import com.segment.publicapi.models.PaginationInput;
 import com.segment.publicapi.models.RemoveActivationFromAudience200Response;
 import com.segment.publicapi.models.UpdateActivationForAudience200Response;
@@ -1214,6 +1215,257 @@ public class ActivationsApi {
                         spaceId, audienceId, pagination, _callback);
         Type localVarReturnType =
                 new TypeToken<ListDestinationsFromAudience200Response>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for listSupportedDestinationsFromAudience
+     *
+     * @param spaceId (required)
+     * @param audienceType (required)
+     * @param slug Optional destination slug to filter results. This parameter exists in alpha.
+     *     (optional)
+     * @param actionId Optional destination action id to filter results. This parameter exists in
+     *     alpha. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listSupportedDestinationsFromAudienceCall(
+            String spaceId,
+            String audienceType,
+            String slug,
+            String actionId,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/spaces/{spaceId}/audienceType/{audienceType}/supported-destinations"
+                        .replace(
+                                "{" + "spaceId" + "}",
+                                localVarApiClient.escapeString(spaceId.toString()))
+                        .replace(
+                                "{" + "audienceType" + "}",
+                                localVarApiClient.escapeString(audienceType.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (slug != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("slug", slug));
+        }
+
+        if (actionId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("actionId", actionId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/vnd.segment.v1alpha+json", "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"token"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listSupportedDestinationsFromAudienceValidateBeforeCall(
+            String spaceId,
+            String audienceType,
+            String slug,
+            String actionId,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'spaceId' when calling"
+                            + " listSupportedDestinationsFromAudience(Async)");
+        }
+
+        // verify the required parameter 'audienceType' is set
+        if (audienceType == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'audienceType' when calling"
+                            + " listSupportedDestinationsFromAudience(Async)");
+        }
+
+        return listSupportedDestinationsFromAudienceCall(
+                spaceId, audienceType, slug, actionId, _callback);
+    }
+
+    /**
+     * List Supported Destinations from Audience Lists all Supported Destinations for this audience
+     * type that can be activated. • This endpoint is in **Alpha** testing. Please submit any
+     * feedback by sending an email to friends@segment.com. • In order to successfully call this
+     * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
+     * out to your customer success manager for more information. • When called, this endpoint may
+     * generate the &#x60;Supported Destinations Listed For Audience&#x60; event in the [audit
+     * trail](/tag/Audit-Trail). The rate limit for this endpoint is 60 requests per minute, which
+     * is lower than the default due to access pattern restrictions. Once reached, this endpoint
+     * will respond with the 429 HTTP status code with headers indicating the limit parameters. See
+     * [Rate Limiting](/#tag/Rate-Limits) for more information.
+     *
+     * @param spaceId (required)
+     * @param audienceType (required)
+     * @param slug Optional destination slug to filter results. This parameter exists in alpha.
+     *     (optional)
+     * @param actionId Optional destination action id to filter results. This parameter exists in
+     *     alpha. (optional)
+     * @return ListSupportedDestinationsFromAudience200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ListSupportedDestinationsFromAudience200Response listSupportedDestinationsFromAudience(
+            String spaceId, String audienceType, String slug, String actionId) throws ApiException {
+        ApiResponse<ListSupportedDestinationsFromAudience200Response> localVarResp =
+                listSupportedDestinationsFromAudienceWithHttpInfo(
+                        spaceId, audienceType, slug, actionId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List Supported Destinations from Audience Lists all Supported Destinations for this audience
+     * type that can be activated. • This endpoint is in **Alpha** testing. Please submit any
+     * feedback by sending an email to friends@segment.com. • In order to successfully call this
+     * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
+     * out to your customer success manager for more information. • When called, this endpoint may
+     * generate the &#x60;Supported Destinations Listed For Audience&#x60; event in the [audit
+     * trail](/tag/Audit-Trail). The rate limit for this endpoint is 60 requests per minute, which
+     * is lower than the default due to access pattern restrictions. Once reached, this endpoint
+     * will respond with the 429 HTTP status code with headers indicating the limit parameters. See
+     * [Rate Limiting](/#tag/Rate-Limits) for more information.
+     *
+     * @param spaceId (required)
+     * @param audienceType (required)
+     * @param slug Optional destination slug to filter results. This parameter exists in alpha.
+     *     (optional)
+     * @param actionId Optional destination action id to filter results. This parameter exists in
+     *     alpha. (optional)
+     * @return ApiResponse&lt;ListSupportedDestinationsFromAudience200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<ListSupportedDestinationsFromAudience200Response>
+            listSupportedDestinationsFromAudienceWithHttpInfo(
+                    String spaceId, String audienceType, String slug, String actionId)
+                    throws ApiException {
+        okhttp3.Call localVarCall =
+                listSupportedDestinationsFromAudienceValidateBeforeCall(
+                        spaceId, audienceType, slug, actionId, null);
+        Type localVarReturnType =
+                new TypeToken<ListSupportedDestinationsFromAudience200Response>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List Supported Destinations from Audience (asynchronously) Lists all Supported Destinations
+     * for this audience type that can be activated. • This endpoint is in **Alpha** testing. Please
+     * submit any feedback by sending an email to friends@segment.com. • In order to successfully
+     * call this endpoint, the specified Workspace needs to have the Audience feature enabled.
+     * Please reach out to your customer success manager for more information. • When called, this
+     * endpoint may generate the &#x60;Supported Destinations Listed For Audience&#x60; event in the
+     * [audit trail](/tag/Audit-Trail). The rate limit for this endpoint is 60 requests per minute,
+     * which is lower than the default due to access pattern restrictions. Once reached, this
+     * endpoint will respond with the 429 HTTP status code with headers indicating the limit
+     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     *
+     * @param spaceId (required)
+     * @param audienceType (required)
+     * @param slug Optional destination slug to filter results. This parameter exists in alpha.
+     *     (optional)
+     * @param actionId Optional destination action id to filter results. This parameter exists in
+     *     alpha. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body
+     *     object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listSupportedDestinationsFromAudienceAsync(
+            String spaceId,
+            String audienceType,
+            String slug,
+            String actionId,
+            final ApiCallback<ListSupportedDestinationsFromAudience200Response> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                listSupportedDestinationsFromAudienceValidateBeforeCall(
+                        spaceId, audienceType, slug, actionId, _callback);
+        Type localVarReturnType =
+                new TypeToken<ListSupportedDestinationsFromAudience200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
