@@ -7,6 +7,7 @@ All URIs are relative to *https://api.segmentapis.com*
 | [**createFunction**](FunctionsApi.md#createFunction) | **POST** /functions | Create Function |
 | [**createFunctionDeployment**](FunctionsApi.md#createFunctionDeployment) | **POST** /functions/{functionId}/deploy | Create Function Deployment |
 | [**createInsertFunctionInstance**](FunctionsApi.md#createInsertFunctionInstance) | **POST** /insert-function-instances | Create Insert Function Instance |
+| [**createTransformationFunctionInstance**](FunctionsApi.md#createTransformationFunctionInstance) | **POST** /transformation-function-instances | Create Transformation Function Instance |
 | [**deleteFunction**](FunctionsApi.md#deleteFunction) | **DELETE** /functions/{functionId} | Delete Function |
 | [**deleteInsertFunctionInstance**](FunctionsApi.md#deleteInsertFunctionInstance) | **DELETE** /insert-function-instances/{instanceId} | Delete Insert Function Instance |
 | [**getFunction**](FunctionsApi.md#getFunction) | **GET** /functions/{functionId} | Get Function |
@@ -220,6 +221,79 @@ public class Example {
 ### Return type
 
 [**CreateInsertFunctionInstance200Response**](CreateInsertFunctionInstance200Response.md)
+
+### Authorization
+
+[token](../README.md#token)
+
+### HTTP request headers
+
+- **Content-Type**: application/vnd.segment.v1alpha+json
+- **Accept**: application/vnd.segment.v1alpha+json, application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **404** | Resource not found |  -  |
+| **422** | Validation failure |  -  |
+| **429** | Too many requests |  -  |
+
+
+## Operation: createTransformationFunctionInstance
+
+> CreateTransformationFunctionInstance200Response createTransformationFunctionInstance(createTransformationFunctionInstanceAlphaInput)
+
+Create Transformation Function Instance
+
+Creates a Transformation Function instance connected to the given Integration.  This endpoint is specifically designed for Transformations and includes integration_type as a mandatory field.    • In order to successfully call this endpoint, the specified Workspace needs to have the Functions feature enabled. Please reach out to your customer success manager for more information.
+
+### Example
+
+```java
+// Import classes:
+import com.segment.publicapi.ApiClient;
+import com.segment.publicapi.ApiException;
+import com.segment.publicapi.Configuration;
+import com.segment.publicapi.auth.*;
+import com.segment.publicapi.models.*;
+import com.segment.publicapi.api.FunctionsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        
+        // Configure HTTP bearer authorization: token
+        HttpBearerAuth token = (HttpBearerAuth) defaultClient.getAuthentication("token");
+        token.setBearerToken("BEARER TOKEN");
+
+        FunctionsApi apiInstance = new FunctionsApi(defaultClient);
+        CreateTransformationFunctionInstanceAlphaInput createTransformationFunctionInstanceAlphaInput = new CreateTransformationFunctionInstanceAlphaInput(); // CreateTransformationFunctionInstanceAlphaInput | 
+        try {
+            CreateTransformationFunctionInstance200Response result = apiInstance.createTransformationFunctionInstance(createTransformationFunctionInstanceAlphaInput);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling FunctionsApi#createTransformationFunctionInstance");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createTransformationFunctionInstanceAlphaInput** | [**CreateTransformationFunctionInstanceAlphaInput**](CreateTransformationFunctionInstanceAlphaInput.md)|  | |
+
+### Return type
+
+[**CreateTransformationFunctionInstance200Response**](CreateTransformationFunctionInstance200Response.md)
 
 ### Authorization
 
@@ -732,7 +806,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **pagination** | [**PaginationInput**](.md)| Pagination parameters.  This parameter exists in v1. | [optional] |
-| **resourceType** | **String**| The Function type.  Config API note: equal to &#x60;type&#x60;.  This parameter exists in v1. | [enum: DESTINATION, INSERT_DESTINATION, INSERT_SOURCE, SOURCE] |
+| **resourceType** | **String**| The Function type.  Config API note: equal to &#x60;type&#x60;.  This parameter exists in v1. | [enum: DESTINATION, INSERT_DESTINATION, INSERT_SOURCE, INSERT_TRANSFORMATION, SOURCE] |
 
 ### Return type
 
