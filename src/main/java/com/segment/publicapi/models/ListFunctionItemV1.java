@@ -44,8 +44,6 @@ public class ListFunctionItemV1 {
 
         INSERT_SOURCE("INSERT_SOURCE"),
 
-        INSERT_TRANSFORMATION("INSERT_TRANSFORMATION"),
-
         SOURCE("SOURCE");
 
         private String value;

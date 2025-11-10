@@ -84,7 +84,7 @@ public class DeletionAndSuppressionApi {
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  * X-RateLimit-Remaining - Remaining requests in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Reset - RFC 5322 timestamp indicating when the regulation quota resets for the specific regulation type category. <br>  </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -190,13 +190,7 @@ public class DeletionAndSuppressionApi {
      * rules at the Workspace level take precedence over those at the Source level. If a user has
      * been suppressed at the Workspace level, any attempt to un-suppress at the Source level is not
      * supported and the processing of the request will fail in Segment Config API omitted fields: -
-     * &#x60;attributes&#x60;, - &#x60;userAgent&#x60; Rate limit headers will be updated to reflect
-     * regulation-specific limits (tracked separately for Segment-only vs Segment &amp; Destination
-     * regulation types): - X-RateLimit-Remaining: Remaining requests for the regulation type
-     * category - Segment-only Regulations: DELETE_INTERNAL, SUPPRESS_WITH_DELETE_INTERNAL,
-     * SUPPRESS_ONLY, UNSUPPRESS, DELETE_ARCHIVE_ONLY - Segment &amp; Destination Regulations:
-     * DELETE_ONLY, SUPPRESS_WITH_DELETE - X-RateLimit-Reset: RFC 5322 timestamp for when the quota
-     * resets (for example, Tue, 31 Dec 2024 23:59:59 GMT)
+     * &#x60;attributes&#x60;, - &#x60;userAgent&#x60;
      *
      * @param sourceId (required)
      * @param createCloudSourceRegulationV1Input (required)
@@ -206,7 +200,7 @@ public class DeletionAndSuppressionApi {
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  * X-RateLimit-Remaining - Remaining requests in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Reset - RFC 5322 timestamp indicating when the regulation quota resets for the specific regulation type category. <br>  </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -226,13 +220,7 @@ public class DeletionAndSuppressionApi {
      * rules at the Workspace level take precedence over those at the Source level. If a user has
      * been suppressed at the Workspace level, any attempt to un-suppress at the Source level is not
      * supported and the processing of the request will fail in Segment Config API omitted fields: -
-     * &#x60;attributes&#x60;, - &#x60;userAgent&#x60; Rate limit headers will be updated to reflect
-     * regulation-specific limits (tracked separately for Segment-only vs Segment &amp; Destination
-     * regulation types): - X-RateLimit-Remaining: Remaining requests for the regulation type
-     * category - Segment-only Regulations: DELETE_INTERNAL, SUPPRESS_WITH_DELETE_INTERNAL,
-     * SUPPRESS_ONLY, UNSUPPRESS, DELETE_ARCHIVE_ONLY - Segment &amp; Destination Regulations:
-     * DELETE_ONLY, SUPPRESS_WITH_DELETE - X-RateLimit-Reset: RFC 5322 timestamp for when the quota
-     * resets (for example, Tue, 31 Dec 2024 23:59:59 GMT)
+     * &#x60;attributes&#x60;, - &#x60;userAgent&#x60;
      *
      * @param sourceId (required)
      * @param createCloudSourceRegulationV1Input (required)
@@ -242,7 +230,7 @@ public class DeletionAndSuppressionApi {
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  * X-RateLimit-Remaining - Remaining requests in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Reset - RFC 5322 timestamp indicating when the regulation quota resets for the specific regulation type category. <br>  </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -266,14 +254,7 @@ public class DeletionAndSuppressionApi {
      * Note: Suppression rules at the Workspace level take precedence over those at the Source
      * level. If a user has been suppressed at the Workspace level, any attempt to un-suppress at
      * the Source level is not supported and the processing of the request will fail in Segment
-     * Config API omitted fields: - &#x60;attributes&#x60;, - &#x60;userAgent&#x60; Rate limit
-     * headers will be updated to reflect regulation-specific limits (tracked separately for
-     * Segment-only vs Segment &amp; Destination regulation types): - X-RateLimit-Remaining:
-     * Remaining requests for the regulation type category - Segment-only Regulations:
-     * DELETE_INTERNAL, SUPPRESS_WITH_DELETE_INTERNAL, SUPPRESS_ONLY, UNSUPPRESS,
-     * DELETE_ARCHIVE_ONLY - Segment &amp; Destination Regulations: DELETE_ONLY,
-     * SUPPRESS_WITH_DELETE - X-RateLimit-Reset: RFC 5322 timestamp for when the quota resets (for
-     * example, Tue, 31 Dec 2024 23:59:59 GMT)
+     * Config API omitted fields: - &#x60;attributes&#x60;, - &#x60;userAgent&#x60;
      *
      * @param sourceId (required)
      * @param createCloudSourceRegulationV1Input (required)
@@ -284,7 +265,7 @@ public class DeletionAndSuppressionApi {
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  * X-RateLimit-Remaining - Remaining requests in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Reset - RFC 5322 timestamp indicating when the regulation quota resets for the specific regulation type category. <br>  </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -316,7 +297,7 @@ public class DeletionAndSuppressionApi {
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  * X-RateLimit-Remaining - Remaining requests in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Reset - RFC 5322 timestamp indicating when the regulation quota resets for the specific regulation type category. <br>  </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -423,13 +404,7 @@ public class DeletionAndSuppressionApi {
      * supported and the processing of the request will fail in Segment • When called, this endpoint
      * may generate the &#x60;Source Regulation Created&#x60; event in the [audit
      * trail](/tag/Audit-Trail). Config API omitted fields: - &#x60;attributes&#x60;, -
-     * &#x60;userAgent&#x60; Rate limit headers will be updated to reflect regulation-specific
-     * limits (tracked separately for Segment-only vs Segment &amp; Destination regulation types): -
-     * X-RateLimit-Remaining: Remaining requests for the regulation type category - Segment-only
-     * Regulations: DELETE_INTERNAL, SUPPRESS_WITH_DELETE_INTERNAL, SUPPRESS_ONLY, UNSUPPRESS,
-     * DELETE_ARCHIVE_ONLY - Segment &amp; Destination Regulations: DELETE_ONLY,
-     * SUPPRESS_WITH_DELETE - X-RateLimit-Reset: RFC 5322 timestamp for when the quota resets (for
-     * example, Tue, 31 Dec 2024 23:59:59 GMT)
+     * &#x60;userAgent&#x60;
      *
      * @param sourceId (required)
      * @param createSourceRegulationV1Input (required)
@@ -439,7 +414,7 @@ public class DeletionAndSuppressionApi {
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  * X-RateLimit-Remaining - Remaining requests in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Reset - RFC 5322 timestamp indicating when the regulation quota resets for the specific regulation type category. <br>  </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -460,13 +435,7 @@ public class DeletionAndSuppressionApi {
      * supported and the processing of the request will fail in Segment • When called, this endpoint
      * may generate the &#x60;Source Regulation Created&#x60; event in the [audit
      * trail](/tag/Audit-Trail). Config API omitted fields: - &#x60;attributes&#x60;, -
-     * &#x60;userAgent&#x60; Rate limit headers will be updated to reflect regulation-specific
-     * limits (tracked separately for Segment-only vs Segment &amp; Destination regulation types): -
-     * X-RateLimit-Remaining: Remaining requests for the regulation type category - Segment-only
-     * Regulations: DELETE_INTERNAL, SUPPRESS_WITH_DELETE_INTERNAL, SUPPRESS_ONLY, UNSUPPRESS,
-     * DELETE_ARCHIVE_ONLY - Segment &amp; Destination Regulations: DELETE_ONLY,
-     * SUPPRESS_WITH_DELETE - X-RateLimit-Reset: RFC 5322 timestamp for when the quota resets (for
-     * example, Tue, 31 Dec 2024 23:59:59 GMT)
+     * &#x60;userAgent&#x60;
      *
      * @param sourceId (required)
      * @param createSourceRegulationV1Input (required)
@@ -476,7 +445,7 @@ public class DeletionAndSuppressionApi {
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  * X-RateLimit-Remaining - Remaining requests in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Reset - RFC 5322 timestamp indicating when the regulation quota resets for the specific regulation type category. <br>  </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -499,13 +468,7 @@ public class DeletionAndSuppressionApi {
      * level is not supported and the processing of the request will fail in Segment • When called,
      * this endpoint may generate the &#x60;Source Regulation Created&#x60; event in the [audit
      * trail](/tag/Audit-Trail). Config API omitted fields: - &#x60;attributes&#x60;, -
-     * &#x60;userAgent&#x60; Rate limit headers will be updated to reflect regulation-specific
-     * limits (tracked separately for Segment-only vs Segment &amp; Destination regulation types): -
-     * X-RateLimit-Remaining: Remaining requests for the regulation type category - Segment-only
-     * Regulations: DELETE_INTERNAL, SUPPRESS_WITH_DELETE_INTERNAL, SUPPRESS_ONLY, UNSUPPRESS,
-     * DELETE_ARCHIVE_ONLY - Segment &amp; Destination Regulations: DELETE_ONLY,
-     * SUPPRESS_WITH_DELETE - X-RateLimit-Reset: RFC 5322 timestamp for when the quota resets (for
-     * example, Tue, 31 Dec 2024 23:59:59 GMT)
+     * &#x60;userAgent&#x60;
      *
      * @param sourceId (required)
      * @param createSourceRegulationV1Input (required)
@@ -516,7 +479,7 @@ public class DeletionAndSuppressionApi {
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  * X-RateLimit-Remaining - Remaining requests in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Reset - RFC 5322 timestamp indicating when the regulation quota resets for the specific regulation type category. <br>  </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -546,7 +509,7 @@ public class DeletionAndSuppressionApi {
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  * X-RateLimit-Remaining - Remaining requests in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Reset - RFC 5322 timestamp indicating when the regulation quota resets for the specific regulation type category. <br>  </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -637,13 +600,7 @@ public class DeletionAndSuppressionApi {
      * Create Workspace Regulation Creates a Workspace-scoped regulation. • When called, this
      * endpoint may generate the &#x60;Workspace Regulation Created&#x60; event in the [audit
      * trail](/tag/Audit-Trail). Config API omitted fields: - &#x60;attributes&#x60;, -
-     * &#x60;userAgent&#x60; Rate limit headers will be updated to reflect regulation-specific
-     * limits (tracked separately for Segment-only vs Segment &amp; Destination regulation types): -
-     * X-RateLimit-Remaining: Remaining requests for the regulation type category - Segment-only
-     * Regulations: DELETE_INTERNAL, SUPPRESS_WITH_DELETE_INTERNAL, SUPPRESS_ONLY, UNSUPPRESS,
-     * DELETE_ARCHIVE_ONLY - Segment &amp; Destination Regulations: DELETE_ONLY,
-     * SUPPRESS_WITH_DELETE - X-RateLimit-Reset: RFC 5322 timestamp for when the quota resets (for
-     * example, Tue, 31 Dec 2024 23:59:59 GMT)
+     * &#x60;userAgent&#x60;
      *
      * @param createWorkspaceRegulationV1Input (required)
      * @return CreateWorkspaceRegulation200Response
@@ -652,7 +609,7 @@ public class DeletionAndSuppressionApi {
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  * X-RateLimit-Remaining - Remaining requests in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Reset - RFC 5322 timestamp indicating when the regulation quota resets for the specific regulation type category. <br>  </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -669,13 +626,7 @@ public class DeletionAndSuppressionApi {
      * Create Workspace Regulation Creates a Workspace-scoped regulation. • When called, this
      * endpoint may generate the &#x60;Workspace Regulation Created&#x60; event in the [audit
      * trail](/tag/Audit-Trail). Config API omitted fields: - &#x60;attributes&#x60;, -
-     * &#x60;userAgent&#x60; Rate limit headers will be updated to reflect regulation-specific
-     * limits (tracked separately for Segment-only vs Segment &amp; Destination regulation types): -
-     * X-RateLimit-Remaining: Remaining requests for the regulation type category - Segment-only
-     * Regulations: DELETE_INTERNAL, SUPPRESS_WITH_DELETE_INTERNAL, SUPPRESS_ONLY, UNSUPPRESS,
-     * DELETE_ARCHIVE_ONLY - Segment &amp; Destination Regulations: DELETE_ONLY,
-     * SUPPRESS_WITH_DELETE - X-RateLimit-Reset: RFC 5322 timestamp for when the quota resets (for
-     * example, Tue, 31 Dec 2024 23:59:59 GMT)
+     * &#x60;userAgent&#x60;
      *
      * @param createWorkspaceRegulationV1Input (required)
      * @return ApiResponse&lt;CreateWorkspaceRegulation200Response&gt;
@@ -684,7 +635,7 @@ public class DeletionAndSuppressionApi {
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  * X-RateLimit-Remaining - Remaining requests in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Reset - RFC 5322 timestamp indicating when the regulation quota resets for the specific regulation type category. <br>  </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
@@ -703,13 +654,7 @@ public class DeletionAndSuppressionApi {
      * Create Workspace Regulation (asynchronously) Creates a Workspace-scoped regulation. • When
      * called, this endpoint may generate the &#x60;Workspace Regulation Created&#x60; event in the
      * [audit trail](/tag/Audit-Trail). Config API omitted fields: - &#x60;attributes&#x60;, -
-     * &#x60;userAgent&#x60; Rate limit headers will be updated to reflect regulation-specific
-     * limits (tracked separately for Segment-only vs Segment &amp; Destination regulation types): -
-     * X-RateLimit-Remaining: Remaining requests for the regulation type category - Segment-only
-     * Regulations: DELETE_INTERNAL, SUPPRESS_WITH_DELETE_INTERNAL, SUPPRESS_ONLY, UNSUPPRESS,
-     * DELETE_ARCHIVE_ONLY - Segment &amp; Destination Regulations: DELETE_ONLY,
-     * SUPPRESS_WITH_DELETE - X-RateLimit-Reset: RFC 5322 timestamp for when the quota resets (for
-     * example, Tue, 31 Dec 2024 23:59:59 GMT)
+     * &#x60;userAgent&#x60;
      *
      * @param createWorkspaceRegulationV1Input (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -719,7 +664,7 @@ public class DeletionAndSuppressionApi {
      * @http.response.details
      *     <table summary="Response Details" border="1">
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  * X-RateLimit-Remaining - Remaining requests in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Reset - RFC 5322 timestamp indicating when the regulation quota resets for the specific regulation type category. <br>  </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
      * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
