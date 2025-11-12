@@ -24,11 +24,13 @@ import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** AddDestinationToAudienceAlphaOutput */
 public class AddDestinationToAudienceAlphaOutput {
@@ -41,6 +43,11 @@ public class AddDestinationToAudienceAlphaOutput {
 
     @SerializedName(SERIALIZED_NAME_ID_SYNC_CONFIGURATION)
     private List<IDSyncConfigurationInput> idSyncConfiguration = new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_CONNECTION_SETTINGS = "connectionSettings";
+
+    @SerializedName(SERIALIZED_NAME_CONNECTION_SETTINGS)
+    private Object connectionSettings = null;
 
     public AddDestinationToAudienceAlphaOutput() {}
 
@@ -94,6 +101,27 @@ public class AddDestinationToAudienceAlphaOutput {
         this.idSyncConfiguration = idSyncConfiguration;
     }
 
+    public AddDestinationToAudienceAlphaOutput connectionSettings(Object connectionSettings) {
+
+        this.connectionSettings = connectionSettings;
+        return this;
+    }
+
+    /**
+     * The settings that a Destination requires to create audiences on a third-party platform. These
+     * settings are Destination-specific and thus are best defined as unknown.
+     *
+     * @return connectionSettings
+     */
+    @javax.annotation.Nullable
+    public Object getConnectionSettings() {
+        return connectionSettings;
+    }
+
+    public void setConnectionSettings(Object connectionSettings) {
+        this.connectionSettings = connectionSettings;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -107,12 +135,31 @@ public class AddDestinationToAudienceAlphaOutput {
         return Objects.equals(this.connection, addDestinationToAudienceAlphaOutput.connection)
                 && Objects.equals(
                         this.idSyncConfiguration,
-                        addDestinationToAudienceAlphaOutput.idSyncConfiguration);
+                        addDestinationToAudienceAlphaOutput.idSyncConfiguration)
+                && Objects.equals(
+                        this.connectionSettings,
+                        addDestinationToAudienceAlphaOutput.connectionSettings);
+    }
+
+    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+        return a == b
+                || (a != null
+                        && b != null
+                        && a.isPresent()
+                        && b.isPresent()
+                        && Objects.deepEquals(a.get(), b.get()));
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(connection, idSyncConfiguration);
+        return Objects.hash(connection, idSyncConfiguration, connectionSettings);
+    }
+
+    private static <T> int hashCodeNullable(JsonNullable<T> a) {
+        if (a == null) {
+            return 1;
+        }
+        return a.isPresent() ? Arrays.deepHashCode(new Object[] {a.get()}) : 31;
     }
 
     @Override
@@ -122,6 +169,9 @@ public class AddDestinationToAudienceAlphaOutput {
         sb.append("    connection: ").append(toIndentedString(connection)).append("\n");
         sb.append("    idSyncConfiguration: ")
                 .append(toIndentedString(idSyncConfiguration))
+                .append("\n");
+        sb.append("    connectionSettings: ")
+                .append(toIndentedString(connectionSettings))
                 .append("\n");
         sb.append("}");
         return sb.toString();
@@ -146,6 +196,7 @@ public class AddDestinationToAudienceAlphaOutput {
         openapiFields = new HashSet<String>();
         openapiFields.add("connection");
         openapiFields.add("idSyncConfiguration");
+        openapiFields.add("connectionSettings");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
