@@ -24,12 +24,14 @@ import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** SimpleDestination */
 public class SimpleDestination {
@@ -82,6 +84,11 @@ public class SimpleDestination {
 
     @SerializedName(SERIALIZED_NAME_ID_SYNC_CONFIGURATION)
     private List<IDSyncConfigurationInput> idSyncConfiguration;
+
+    public static final String SERIALIZED_NAME_CONNECTION_SETTINGS = "connectionSettings";
+
+    @SerializedName(SERIALIZED_NAME_CONNECTION_SETTINGS)
+    private Object connectionSettings = null;
 
     public SimpleDestination() {}
 
@@ -303,6 +310,27 @@ public class SimpleDestination {
         this.idSyncConfiguration = idSyncConfiguration;
     }
 
+    public SimpleDestination connectionSettings(Object connectionSettings) {
+
+        this.connectionSettings = connectionSettings;
+        return this;
+    }
+
+    /**
+     * The settings that a Destination requires to create audiences on a third-party platform. These
+     * settings are Destination-specific and thus are best defined as unknown.
+     *
+     * @return connectionSettings
+     */
+    @javax.annotation.Nullable
+    public Object getConnectionSettings() {
+        return connectionSettings;
+    }
+
+    public void setConnectionSettings(Object connectionSettings) {
+        this.connectionSettings = connectionSettings;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -321,7 +349,17 @@ public class SimpleDestination {
                 && Objects.equals(this.settings, simpleDestination.settings)
                 && Objects.equals(this.destinationId, simpleDestination.destinationId)
                 && Objects.equals(this.metadata, simpleDestination.metadata)
-                && Objects.equals(this.idSyncConfiguration, simpleDestination.idSyncConfiguration);
+                && Objects.equals(this.idSyncConfiguration, simpleDestination.idSyncConfiguration)
+                && Objects.equals(this.connectionSettings, simpleDestination.connectionSettings);
+    }
+
+    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+        return a == b
+                || (a != null
+                        && b != null
+                        && a.isPresent()
+                        && b.isPresent()
+                        && Objects.deepEquals(a.get(), b.get()));
     }
 
     @Override
@@ -336,7 +374,15 @@ public class SimpleDestination {
                 settings,
                 destinationId,
                 metadata,
-                idSyncConfiguration);
+                idSyncConfiguration,
+                connectionSettings);
+    }
+
+    private static <T> int hashCodeNullable(JsonNullable<T> a) {
+        if (a == null) {
+            return 1;
+        }
+        return a.isPresent() ? Arrays.deepHashCode(new Object[] {a.get()}) : 31;
     }
 
     @Override
@@ -354,6 +400,9 @@ public class SimpleDestination {
         sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
         sb.append("    idSyncConfiguration: ")
                 .append(toIndentedString(idSyncConfiguration))
+                .append("\n");
+        sb.append("    connectionSettings: ")
+                .append(toIndentedString(connectionSettings))
                 .append("\n");
         sb.append("}");
         return sb.toString();
@@ -386,6 +435,7 @@ public class SimpleDestination {
         openapiFields.add("destinationId");
         openapiFields.add("metadata");
         openapiFields.add("idSyncConfiguration");
+        openapiFields.add("connectionSettings");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
