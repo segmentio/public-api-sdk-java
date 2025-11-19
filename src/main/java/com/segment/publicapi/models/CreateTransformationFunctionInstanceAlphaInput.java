@@ -69,7 +69,7 @@ public class CreateTransformationFunctionInstanceAlphaInput {
     }
 
     /**
-     * Transformation Function id to which this instance is associated. Note: Remove the ifnd_/ifns_
+     * Transformation Function id to which this instance is associated. Note: Remove the ifnt_
      * prefix from the id.
      *
      * @return functionId
