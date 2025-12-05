@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - APICS-3912/java-sdk
+      - master
+    paths:
+      - 'VERSION'
 
 jobs:
   publish:
