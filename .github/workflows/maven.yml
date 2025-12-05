@@ -1,0 +1,43 @@
+name: Publish to Maven Central on VERSION change
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'VERSION'
+
+jobs:
+  publish:
+    name: Publish to Maven Central
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    env:
+      MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+      MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
+      MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Java & Maven for Central
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '8'
+          cache: maven
+
+          # for central-publishing-maven-plugin
+          server-id: central
+          server-username: MAVEN_USERNAME
+          server-password: MAVEN_PASSWORD
+
+          # import the private key only
+          gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
+          gpg-passphrase: MAVEN_GPG_PASSPHRASE
+
+      - name: Publish to Maven Central
+        run: mvn -B clean deploy --no-transfer-progress
