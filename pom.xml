@@ -256,6 +256,9 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <passphraseEnvName>MAVEN_GPG_PASSPHRASE</passphraseEnvName>
+                </configuration>
             </plugin>
         </plugins>
     </build>
