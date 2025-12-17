@@ -493,15 +493,6 @@ public class JSON {
                 new com.segment.publicapi.models.CreateTransformationBetaOutput
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.CreateTransformationFunctionInstance200Response
-                        .CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.CreateTransformationFunctionInstanceAlphaInput
-                        .CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.CreateTransformationFunctionInstanceAlphaOutput
-                        .CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.CreateTransformationV1Input
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
@@ -1657,9 +1648,6 @@ public class JSON {
                 new com.segment.publicapi.models.TraitOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.TransformationBeta.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.TransformationFunctionInstanceAlpha
-                        .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.TransformationV1.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(

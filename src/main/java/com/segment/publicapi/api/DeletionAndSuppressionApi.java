@@ -643,10 +643,7 @@ public class DeletionAndSuppressionApi {
      * Regulations: DELETE_INTERNAL, SUPPRESS_WITH_DELETE_INTERNAL, SUPPRESS_ONLY, UNSUPPRESS,
      * DELETE_ARCHIVE_ONLY - Segment &amp; Destination Regulations: DELETE_ONLY,
      * SUPPRESS_WITH_DELETE - X-RateLimit-Reset: RFC 5322 timestamp for when the quota resets (for
-     * example, Tue, 31 Dec 2024 23:59:59 GMT) The rate limit for this endpoint is 5 requests per
-     * minute, which is lower than the default due to access pattern restrictions. Once reached,
-     * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
-     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * example, Tue, 31 Dec 2024 23:59:59 GMT)
      *
      * @param createWorkspaceRegulationV1Input (required)
      * @return CreateWorkspaceRegulation200Response
@@ -678,10 +675,7 @@ public class DeletionAndSuppressionApi {
      * Regulations: DELETE_INTERNAL, SUPPRESS_WITH_DELETE_INTERNAL, SUPPRESS_ONLY, UNSUPPRESS,
      * DELETE_ARCHIVE_ONLY - Segment &amp; Destination Regulations: DELETE_ONLY,
      * SUPPRESS_WITH_DELETE - X-RateLimit-Reset: RFC 5322 timestamp for when the quota resets (for
-     * example, Tue, 31 Dec 2024 23:59:59 GMT) The rate limit for this endpoint is 5 requests per
-     * minute, which is lower than the default due to access pattern restrictions. Once reached,
-     * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
-     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * example, Tue, 31 Dec 2024 23:59:59 GMT)
      *
      * @param createWorkspaceRegulationV1Input (required)
      * @return ApiResponse&lt;CreateWorkspaceRegulation200Response&gt;
@@ -715,10 +709,7 @@ public class DeletionAndSuppressionApi {
      * Regulations: DELETE_INTERNAL, SUPPRESS_WITH_DELETE_INTERNAL, SUPPRESS_ONLY, UNSUPPRESS,
      * DELETE_ARCHIVE_ONLY - Segment &amp; Destination Regulations: DELETE_ONLY,
      * SUPPRESS_WITH_DELETE - X-RateLimit-Reset: RFC 5322 timestamp for when the quota resets (for
-     * example, Tue, 31 Dec 2024 23:59:59 GMT) The rate limit for this endpoint is 5 requests per
-     * minute, which is lower than the default due to access pattern restrictions. Once reached,
-     * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
-     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * example, Tue, 31 Dec 2024 23:59:59 GMT)
      *
      * @param createWorkspaceRegulationV1Input (required)
      * @param _callback The callback to be executed when the API call finishes
