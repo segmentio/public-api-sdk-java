@@ -2331,9 +2331,10 @@ public class AudiencesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
+            "application/vnd.segment.v1+json",
+            "application/json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1alpha+json",
-            "application/json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
