@@ -23,7 +23,7 @@ import com.segment.publicapi.models.AddAudienceScheduleToAudienceAlphaInput;
 import com.segment.publicapi.models.CreateAudience200Response;
 import com.segment.publicapi.models.CreateAudienceInput;
 import com.segment.publicapi.models.CreateAudiencePreview200Response;
-import com.segment.publicapi.models.CreateAudiencePreviewBetaInput;
+import com.segment.publicapi.models.CreateAudiencePreviewInput;
 import com.segment.publicapi.models.ForceExecuteAudienceRun200Response;
 import com.segment.publicapi.models.GetAudience200Response;
 import com.segment.publicapi.models.GetAudiencePreview200Response;
@@ -38,7 +38,7 @@ import com.segment.publicapi.models.PaginationInput;
 import com.segment.publicapi.models.RemoveAudienceFromSpace200Response;
 import com.segment.publicapi.models.RemoveAudienceScheduleFromAudience200Response;
 import com.segment.publicapi.models.UpdateAudienceForSpace200Response;
-import com.segment.publicapi.models.UpdateAudienceForSpaceBetaInput;
+import com.segment.publicapi.models.UpdateAudienceForSpaceInput;
 import com.segment.publicapi.models.UpdateAudienceScheduleForAudience200Response;
 import com.segment.publicapi.models.UpdateAudienceScheduleForAudienceAlphaInput;
 import java.lang.reflect.Type;
@@ -537,7 +537,7 @@ public class AudiencesApi {
      * Build call for createAudiencePreview
      *
      * @param spaceId (required)
-     * @param createAudiencePreviewBetaInput (required)
+     * @param createAudiencePreviewInput (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -552,7 +552,7 @@ public class AudiencesApi {
      */
     public okhttp3.Call createAudiencePreviewCall(
             String spaceId,
-            CreateAudiencePreviewBetaInput createAudiencePreviewBetaInput,
+            CreateAudiencePreviewInput createAudiencePreviewInput,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -568,7 +568,7 @@ public class AudiencesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = createAudiencePreviewBetaInput;
+        Object localVarPostBody = createAudiencePreviewInput;
 
         // create path and map variables
         String localVarPath =
@@ -584,9 +584,10 @@ public class AudiencesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
+            "application/vnd.segment.v1+json",
+            "application/json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1alpha+json",
-            "application/json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -594,7 +595,10 @@ public class AudiencesApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/vnd.segment.v1beta+json", "application/vnd.segment.v1alpha+json"
+            "application/json",
+            "application/vnd.segment.v1+json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
@@ -620,7 +624,7 @@ public class AudiencesApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createAudiencePreviewValidateBeforeCall(
             String spaceId,
-            CreateAudiencePreviewBetaInput createAudiencePreviewBetaInput,
+            CreateAudiencePreviewInput createAudiencePreviewInput,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'spaceId' is set
@@ -630,14 +634,14 @@ public class AudiencesApi {
                             + " createAudiencePreview(Async)");
         }
 
-        // verify the required parameter 'createAudiencePreviewBetaInput' is set
-        if (createAudiencePreviewBetaInput == null) {
+        // verify the required parameter 'createAudiencePreviewInput' is set
+        if (createAudiencePreviewInput == null) {
             throw new ApiException(
-                    "Missing the required parameter 'createAudiencePreviewBetaInput' when calling"
+                    "Missing the required parameter 'createAudiencePreviewInput' when calling"
                             + " createAudiencePreview(Async)");
         }
 
-        return createAudiencePreviewCall(spaceId, createAudiencePreviewBetaInput, _callback);
+        return createAudiencePreviewCall(spaceId, createAudiencePreviewInput, _callback);
     }
 
     /**
@@ -654,7 +658,7 @@ public class AudiencesApi {
      * restrictions.
      *
      * @param spaceId (required)
-     * @param createAudiencePreviewBetaInput (required)
+     * @param createAudiencePreviewInput (required)
      * @return CreateAudiencePreview200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -668,10 +672,10 @@ public class AudiencesApi {
      * </table>
      */
     public CreateAudiencePreview200Response createAudiencePreview(
-            String spaceId, CreateAudiencePreviewBetaInput createAudiencePreviewBetaInput)
+            String spaceId, CreateAudiencePreviewInput createAudiencePreviewInput)
             throws ApiException {
         ApiResponse<CreateAudiencePreview200Response> localVarResp =
-                createAudiencePreviewWithHttpInfo(spaceId, createAudiencePreviewBetaInput);
+                createAudiencePreviewWithHttpInfo(spaceId, createAudiencePreviewInput);
         return localVarResp.getData();
     }
 
@@ -689,7 +693,7 @@ public class AudiencesApi {
      * restrictions.
      *
      * @param spaceId (required)
-     * @param createAudiencePreviewBetaInput (required)
+     * @param createAudiencePreviewInput (required)
      * @return ApiResponse&lt;CreateAudiencePreview200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -703,11 +707,10 @@ public class AudiencesApi {
      * </table>
      */
     public ApiResponse<CreateAudiencePreview200Response> createAudiencePreviewWithHttpInfo(
-            String spaceId, CreateAudiencePreviewBetaInput createAudiencePreviewBetaInput)
+            String spaceId, CreateAudiencePreviewInput createAudiencePreviewInput)
             throws ApiException {
         okhttp3.Call localVarCall =
-                createAudiencePreviewValidateBeforeCall(
-                        spaceId, createAudiencePreviewBetaInput, null);
+                createAudiencePreviewValidateBeforeCall(spaceId, createAudiencePreviewInput, null);
         Type localVarReturnType = new TypeToken<CreateAudiencePreview200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -726,7 +729,7 @@ public class AudiencesApi {
      * to access pattern restrictions.
      *
      * @param spaceId (required)
-     * @param createAudiencePreviewBetaInput (required)
+     * @param createAudiencePreviewInput (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -742,13 +745,13 @@ public class AudiencesApi {
      */
     public okhttp3.Call createAudiencePreviewAsync(
             String spaceId,
-            CreateAudiencePreviewBetaInput createAudiencePreviewBetaInput,
+            CreateAudiencePreviewInput createAudiencePreviewInput,
             final ApiCallback<CreateAudiencePreview200Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 createAudiencePreviewValidateBeforeCall(
-                        spaceId, createAudiencePreviewBetaInput, _callback);
+                        spaceId, createAudiencePreviewInput, _callback);
         Type localVarReturnType = new TypeToken<CreateAudiencePreview200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1008,9 +1011,10 @@ public class AudiencesApi {
         }
 
         final String[] localVarAccepts = {
+            "application/vnd.segment.v1+json",
+            "application/json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1alpha+json",
-            "application/json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1216,9 +1220,10 @@ public class AudiencesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
+            "application/vnd.segment.v1+json",
+            "application/json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1alpha+json",
-            "application/json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -2105,9 +2110,10 @@ public class AudiencesApi {
         }
 
         final String[] localVarAccepts = {
+            "application/vnd.segment.v1+json",
+            "application/json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1alpha+json",
-            "application/json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -2715,7 +2721,7 @@ public class AudiencesApi {
      *
      * @param spaceId (required)
      * @param id (required)
-     * @param updateAudienceForSpaceBetaInput (required)
+     * @param updateAudienceForSpaceInput (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2731,7 +2737,7 @@ public class AudiencesApi {
     public okhttp3.Call updateAudienceForSpaceCall(
             String spaceId,
             String id,
-            UpdateAudienceForSpaceBetaInput updateAudienceForSpaceBetaInput,
+            UpdateAudienceForSpaceInput updateAudienceForSpaceInput,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -2747,7 +2753,7 @@ public class AudiencesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = updateAudienceForSpaceBetaInput;
+        Object localVarPostBody = updateAudienceForSpaceInput;
 
         // create path and map variables
         String localVarPath =
@@ -2764,9 +2770,10 @@ public class AudiencesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
+            "application/vnd.segment.v1+json",
+            "application/json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1alpha+json",
-            "application/json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -2774,7 +2781,10 @@ public class AudiencesApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/vnd.segment.v1beta+json", "application/vnd.segment.v1alpha+json"
+            "application/json",
+            "application/vnd.segment.v1+json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
@@ -2801,7 +2811,7 @@ public class AudiencesApi {
     private okhttp3.Call updateAudienceForSpaceValidateBeforeCall(
             String spaceId,
             String id,
-            UpdateAudienceForSpaceBetaInput updateAudienceForSpaceBetaInput,
+            UpdateAudienceForSpaceInput updateAudienceForSpaceInput,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'spaceId' is set
@@ -2818,14 +2828,14 @@ public class AudiencesApi {
                             + " updateAudienceForSpace(Async)");
         }
 
-        // verify the required parameter 'updateAudienceForSpaceBetaInput' is set
-        if (updateAudienceForSpaceBetaInput == null) {
+        // verify the required parameter 'updateAudienceForSpaceInput' is set
+        if (updateAudienceForSpaceInput == null) {
             throw new ApiException(
-                    "Missing the required parameter 'updateAudienceForSpaceBetaInput' when calling"
+                    "Missing the required parameter 'updateAudienceForSpaceInput' when calling"
                             + " updateAudienceForSpace(Async)");
         }
 
-        return updateAudienceForSpaceCall(spaceId, id, updateAudienceForSpaceBetaInput, _callback);
+        return updateAudienceForSpaceCall(spaceId, id, updateAudienceForSpaceInput, _callback);
     }
 
     /**
@@ -2846,7 +2856,7 @@ public class AudiencesApi {
      *
      * @param spaceId (required)
      * @param id (required)
-     * @param updateAudienceForSpaceBetaInput (required)
+     * @param updateAudienceForSpaceInput (required)
      * @return UpdateAudienceForSpace200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -2860,12 +2870,10 @@ public class AudiencesApi {
      * </table>
      */
     public UpdateAudienceForSpace200Response updateAudienceForSpace(
-            String spaceId,
-            String id,
-            UpdateAudienceForSpaceBetaInput updateAudienceForSpaceBetaInput)
+            String spaceId, String id, UpdateAudienceForSpaceInput updateAudienceForSpaceInput)
             throws ApiException {
         ApiResponse<UpdateAudienceForSpace200Response> localVarResp =
-                updateAudienceForSpaceWithHttpInfo(spaceId, id, updateAudienceForSpaceBetaInput);
+                updateAudienceForSpaceWithHttpInfo(spaceId, id, updateAudienceForSpaceInput);
         return localVarResp.getData();
     }
 
@@ -2887,7 +2895,7 @@ public class AudiencesApi {
      *
      * @param spaceId (required)
      * @param id (required)
-     * @param updateAudienceForSpaceBetaInput (required)
+     * @param updateAudienceForSpaceInput (required)
      * @return ApiResponse&lt;UpdateAudienceForSpace200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -2901,13 +2909,11 @@ public class AudiencesApi {
      * </table>
      */
     public ApiResponse<UpdateAudienceForSpace200Response> updateAudienceForSpaceWithHttpInfo(
-            String spaceId,
-            String id,
-            UpdateAudienceForSpaceBetaInput updateAudienceForSpaceBetaInput)
+            String spaceId, String id, UpdateAudienceForSpaceInput updateAudienceForSpaceInput)
             throws ApiException {
         okhttp3.Call localVarCall =
                 updateAudienceForSpaceValidateBeforeCall(
-                        spaceId, id, updateAudienceForSpaceBetaInput, null);
+                        spaceId, id, updateAudienceForSpaceInput, null);
         Type localVarReturnType = new TypeToken<UpdateAudienceForSpace200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2930,7 +2936,7 @@ public class AudiencesApi {
      *
      * @param spaceId (required)
      * @param id (required)
-     * @param updateAudienceForSpaceBetaInput (required)
+     * @param updateAudienceForSpaceInput (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -2947,13 +2953,13 @@ public class AudiencesApi {
     public okhttp3.Call updateAudienceForSpaceAsync(
             String spaceId,
             String id,
-            UpdateAudienceForSpaceBetaInput updateAudienceForSpaceBetaInput,
+            UpdateAudienceForSpaceInput updateAudienceForSpaceInput,
             final ApiCallback<UpdateAudienceForSpace200Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 updateAudienceForSpaceValidateBeforeCall(
-                        spaceId, id, updateAudienceForSpaceBetaInput, _callback);
+                        spaceId, id, updateAudienceForSpaceInput, _callback);
         Type localVarReturnType = new TypeToken<UpdateAudienceForSpace200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

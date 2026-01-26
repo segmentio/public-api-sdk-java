@@ -175,7 +175,7 @@ public class Example {
 
 ## Operation: createAudiencePreview
 
-> CreateAudiencePreview200Response createAudiencePreview(spaceId, createAudiencePreviewBetaInput)
+> CreateAudiencePreview200Response createAudiencePreview(spaceId, createAudiencePreviewInput)
 
 Create Audience Preview
 
@@ -202,9 +202,9 @@ public class Example {
 
         AudiencesApi apiInstance = new AudiencesApi(defaultClient);
         String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
-        CreateAudiencePreviewBetaInput createAudiencePreviewBetaInput = new CreateAudiencePreviewBetaInput(); // CreateAudiencePreviewBetaInput | 
+        CreateAudiencePreviewInput createAudiencePreviewInput = new CreateAudiencePreviewInput(); // CreateAudiencePreviewInput | 
         try {
-            CreateAudiencePreview200Response result = apiInstance.createAudiencePreview(spaceId, createAudiencePreviewBetaInput);
+            CreateAudiencePreview200Response result = apiInstance.createAudiencePreview(spaceId, createAudiencePreviewInput);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AudiencesApi#createAudiencePreview");
@@ -223,7 +223,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **spaceId** | **String**|  | |
-| **createAudiencePreviewBetaInput** | [**CreateAudiencePreviewBetaInput**](CreateAudiencePreviewBetaInput.md)|  | |
+| **createAudiencePreviewInput** | [**CreateAudiencePreviewInput**](CreateAudiencePreviewInput.md)|  | |
 
 ### Return type
 
@@ -235,8 +235,8 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
-- **Accept**: application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json, application/json
+- **Content-Type**: application/json, application/vnd.segment.v1+json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
+- **Accept**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
 
 
 ### HTTP response details
@@ -388,7 +388,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json, application/json
+- **Accept**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
 
 
 ### HTTP response details
@@ -463,7 +463,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json, application/json
+- **Accept**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
 
 
 ### HTTP response details
@@ -775,7 +775,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json, application/json
+- **Accept**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
 
 
 ### HTTP response details
@@ -941,7 +941,7 @@ public class Example {
 
 ## Operation: updateAudienceForSpace
 
-> UpdateAudienceForSpace200Response updateAudienceForSpace(spaceId, id, updateAudienceForSpaceBetaInput)
+> UpdateAudienceForSpace200Response updateAudienceForSpace(spaceId, id, updateAudienceForSpaceInput)
 
 Update Audience for Space
 
@@ -969,9 +969,9 @@ public class Example {
         AudiencesApi apiInstance = new AudiencesApi(defaultClient);
         String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
         String id = "aud_0ujsszwN8NRY24YaXiTIE2VWDTS"; // String | 
-        UpdateAudienceForSpaceBetaInput updateAudienceForSpaceBetaInput = new UpdateAudienceForSpaceBetaInput(); // UpdateAudienceForSpaceBetaInput | 
+        UpdateAudienceForSpaceInput updateAudienceForSpaceInput = new UpdateAudienceForSpaceInput(); // UpdateAudienceForSpaceInput | 
         try {
-            UpdateAudienceForSpace200Response result = apiInstance.updateAudienceForSpace(spaceId, id, updateAudienceForSpaceBetaInput);
+            UpdateAudienceForSpace200Response result = apiInstance.updateAudienceForSpace(spaceId, id, updateAudienceForSpaceInput);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AudiencesApi#updateAudienceForSpace");
@@ -991,7 +991,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **spaceId** | **String**|  | |
 | **id** | **String**|  | |
-| **updateAudienceForSpaceBetaInput** | [**UpdateAudienceForSpaceBetaInput**](UpdateAudienceForSpaceBetaInput.md)|  | |
+| **updateAudienceForSpaceInput** | [**UpdateAudienceForSpaceInput**](UpdateAudienceForSpaceInput.md)|  | |
 
 ### Return type
 
@@ -1003,8 +1003,8 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
-- **Accept**: application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json, application/json
+- **Content-Type**: application/json, application/vnd.segment.v1+json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
+- **Accept**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
 
 
 ### HTTP response details
