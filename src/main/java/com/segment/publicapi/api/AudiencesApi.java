@@ -21,7 +21,7 @@ import com.segment.publicapi.Pair;
 import com.segment.publicapi.models.AddAudienceScheduleToAudience200Response;
 import com.segment.publicapi.models.AddAudienceScheduleToAudienceAlphaInput;
 import com.segment.publicapi.models.CreateAudience200Response;
-import com.segment.publicapi.models.CreateAudienceBetaInput;
+import com.segment.publicapi.models.CreateAudienceInput;
 import com.segment.publicapi.models.CreateAudiencePreview200Response;
 import com.segment.publicapi.models.CreateAudiencePreviewBetaInput;
 import com.segment.publicapi.models.ForceExecuteAudienceRun200Response;
@@ -327,7 +327,7 @@ public class AudiencesApi {
      * Build call for createAudience
      *
      * @param spaceId (required)
-     * @param createAudienceBetaInput (required)
+     * @param createAudienceInput (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -341,9 +341,7 @@ public class AudiencesApi {
      * </table>
      */
     public okhttp3.Call createAudienceCall(
-            String spaceId,
-            CreateAudienceBetaInput createAudienceBetaInput,
-            final ApiCallback _callback)
+            String spaceId, CreateAudienceInput createAudienceInput, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -358,7 +356,7 @@ public class AudiencesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = createAudienceBetaInput;
+        Object localVarPostBody = createAudienceInput;
 
         // create path and map variables
         String localVarPath =
@@ -374,9 +372,10 @@ public class AudiencesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
+            "application/vnd.segment.v1+json",
+            "application/json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1alpha+json",
-            "application/json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -384,7 +383,10 @@ public class AudiencesApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/vnd.segment.v1beta+json", "application/vnd.segment.v1alpha+json"
+            "application/json",
+            "application/vnd.segment.v1+json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
@@ -409,9 +411,7 @@ public class AudiencesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createAudienceValidateBeforeCall(
-            String spaceId,
-            CreateAudienceBetaInput createAudienceBetaInput,
-            final ApiCallback _callback)
+            String spaceId, CreateAudienceInput createAudienceInput, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
@@ -419,30 +419,29 @@ public class AudiencesApi {
                     "Missing the required parameter 'spaceId' when calling createAudience(Async)");
         }
 
-        // verify the required parameter 'createAudienceBetaInput' is set
-        if (createAudienceBetaInput == null) {
+        // verify the required parameter 'createAudienceInput' is set
+        if (createAudienceInput == null) {
             throw new ApiException(
-                    "Missing the required parameter 'createAudienceBetaInput' when calling"
+                    "Missing the required parameter 'createAudienceInput' when calling"
                             + " createAudience(Async)");
         }
 
-        return createAudienceCall(spaceId, createAudienceBetaInput, _callback);
+        return createAudienceCall(spaceId, createAudienceInput, _callback);
     }
 
     /**
-     * Create Audience Creates Audience. • This endpoint is in **Beta** testing. Please submit any
-     * feedback by sending an email to friends@segment.com. • In order to successfully call this
-     * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
-     * out to your customer success manager for more information. • When called, this endpoint may
-     * generate the &#x60;Audience Created&#x60; event in the [audit trail](/tag/Audit-Trail). Note:
-     * The definition for an Audience created using the API is not editable through the Segment App.
-     * The rate limit for this endpoint is 50 requests per minute, which is lower than the default
-     * due to access pattern restrictions. Once reached, this endpoint will respond with the 429
-     * HTTP status code with headers indicating the limit parameters. See [Rate
+     * Create Audience Creates Audience. • In order to successfully call this endpoint, the
+     * specified Workspace needs to have the Audience feature enabled. Please reach out to your
+     * customer success manager for more information. • When called, this endpoint may generate the
+     * &#x60;Audience Created&#x60; event in the [audit trail](/tag/Audit-Trail). Note: The
+     * definition for an Audience created using the API is not editable through the Segment App. The
+     * rate limit for this endpoint is 50 requests per minute, which is lower than the default due
+     * to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
+     * status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
-     * @param createAudienceBetaInput (required)
+     * @param createAudienceInput (required)
      * @return CreateAudience200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -456,26 +455,25 @@ public class AudiencesApi {
      * </table>
      */
     public CreateAudience200Response createAudience(
-            String spaceId, CreateAudienceBetaInput createAudienceBetaInput) throws ApiException {
+            String spaceId, CreateAudienceInput createAudienceInput) throws ApiException {
         ApiResponse<CreateAudience200Response> localVarResp =
-                createAudienceWithHttpInfo(spaceId, createAudienceBetaInput);
+                createAudienceWithHttpInfo(spaceId, createAudienceInput);
         return localVarResp.getData();
     }
 
     /**
-     * Create Audience Creates Audience. • This endpoint is in **Beta** testing. Please submit any
-     * feedback by sending an email to friends@segment.com. • In order to successfully call this
-     * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
-     * out to your customer success manager for more information. • When called, this endpoint may
-     * generate the &#x60;Audience Created&#x60; event in the [audit trail](/tag/Audit-Trail). Note:
-     * The definition for an Audience created using the API is not editable through the Segment App.
-     * The rate limit for this endpoint is 50 requests per minute, which is lower than the default
-     * due to access pattern restrictions. Once reached, this endpoint will respond with the 429
-     * HTTP status code with headers indicating the limit parameters. See [Rate
+     * Create Audience Creates Audience. • In order to successfully call this endpoint, the
+     * specified Workspace needs to have the Audience feature enabled. Please reach out to your
+     * customer success manager for more information. • When called, this endpoint may generate the
+     * &#x60;Audience Created&#x60; event in the [audit trail](/tag/Audit-Trail). Note: The
+     * definition for an Audience created using the API is not editable through the Segment App. The
+     * rate limit for this endpoint is 50 requests per minute, which is lower than the default due
+     * to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
+     * status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
-     * @param createAudienceBetaInput (required)
+     * @param createAudienceInput (required)
      * @return ApiResponse&lt;CreateAudience200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -489,27 +487,26 @@ public class AudiencesApi {
      * </table>
      */
     public ApiResponse<CreateAudience200Response> createAudienceWithHttpInfo(
-            String spaceId, CreateAudienceBetaInput createAudienceBetaInput) throws ApiException {
+            String spaceId, CreateAudienceInput createAudienceInput) throws ApiException {
         okhttp3.Call localVarCall =
-                createAudienceValidateBeforeCall(spaceId, createAudienceBetaInput, null);
+                createAudienceValidateBeforeCall(spaceId, createAudienceInput, null);
         Type localVarReturnType = new TypeToken<CreateAudience200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Create Audience (asynchronously) Creates Audience. • This endpoint is in **Beta** testing.
-     * Please submit any feedback by sending an email to friends@segment.com. • In order to
-     * successfully call this endpoint, the specified Workspace needs to have the Audience feature
-     * enabled. Please reach out to your customer success manager for more information. • When
-     * called, this endpoint may generate the &#x60;Audience Created&#x60; event in the [audit
-     * trail](/tag/Audit-Trail). Note: The definition for an Audience created using the API is not
-     * editable through the Segment App. The rate limit for this endpoint is 50 requests per minute,
-     * which is lower than the default due to access pattern restrictions. Once reached, this
-     * endpoint will respond with the 429 HTTP status code with headers indicating the limit
-     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * Create Audience (asynchronously) Creates Audience. • In order to successfully call this
+     * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
+     * out to your customer success manager for more information. • When called, this endpoint may
+     * generate the &#x60;Audience Created&#x60; event in the [audit trail](/tag/Audit-Trail). Note:
+     * The definition for an Audience created using the API is not editable through the Segment App.
+     * The rate limit for this endpoint is 50 requests per minute, which is lower than the default
+     * due to access pattern restrictions. Once reached, this endpoint will respond with the 429
+     * HTTP status code with headers indicating the limit parameters. See [Rate
+     * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
-     * @param createAudienceBetaInput (required)
+     * @param createAudienceInput (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -525,12 +522,12 @@ public class AudiencesApi {
      */
     public okhttp3.Call createAudienceAsync(
             String spaceId,
-            CreateAudienceBetaInput createAudienceBetaInput,
+            CreateAudienceInput createAudienceInput,
             final ApiCallback<CreateAudience200Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
-                createAudienceValidateBeforeCall(spaceId, createAudienceBetaInput, _callback);
+                createAudienceValidateBeforeCall(spaceId, createAudienceInput, _callback);
         Type localVarReturnType = new TypeToken<CreateAudience200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
