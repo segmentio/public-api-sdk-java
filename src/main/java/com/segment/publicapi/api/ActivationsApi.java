@@ -28,6 +28,7 @@ import com.segment.publicapi.models.ListDestinationsFromAudience200Response;
 import com.segment.publicapi.models.ListSupportedDestinationsFromAudience200Response;
 import com.segment.publicapi.models.PaginationInput;
 import com.segment.publicapi.models.RemoveActivationFromAudience200Response;
+import com.segment.publicapi.models.RemoveDestinationFromAudience200Response;
 import com.segment.publicapi.models.UpdateActivationForAudience200Response;
 import com.segment.publicapi.models.UpdateActivationForAudienceAlphaInput;
 import java.lang.reflect.Type;
@@ -1674,6 +1675,226 @@ public class ActivationsApi {
                 removeActivationFromAudienceValidateBeforeCall(spaceId, audienceId, id, _callback);
         Type localVarReturnType =
                 new TypeToken<RemoveActivationFromAudience200Response>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for removeDestinationFromAudience
+     *
+     * @param spaceId (required)
+     * @param audienceId (required)
+     * @param destinationId (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call removeDestinationFromAudienceCall(
+            String spaceId, String audienceId, String destinationId, final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/spaces/{spaceId}/audiences/{audienceId}/destination-connections/{destinationId}"
+                        .replace(
+                                "{" + "spaceId" + "}",
+                                localVarApiClient.escapeString(spaceId.toString()))
+                        .replace(
+                                "{" + "audienceId" + "}",
+                                localVarApiClient.escapeString(audienceId.toString()))
+                        .replace(
+                                "{" + "destinationId" + "}",
+                                localVarApiClient.escapeString(destinationId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.segment.v1alpha+json", "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"token"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "DELETE",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call removeDestinationFromAudienceValidateBeforeCall(
+            String spaceId, String audienceId, String destinationId, final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'spaceId' when calling"
+                            + " removeDestinationFromAudience(Async)");
+        }
+
+        // verify the required parameter 'audienceId' is set
+        if (audienceId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'audienceId' when calling"
+                            + " removeDestinationFromAudience(Async)");
+        }
+
+        // verify the required parameter 'destinationId' is set
+        if (destinationId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'destinationId' when calling"
+                            + " removeDestinationFromAudience(Async)");
+        }
+
+        return removeDestinationFromAudienceCall(spaceId, audienceId, destinationId, _callback);
+    }
+
+    /**
+     * Remove Destination from Audience Removes a Destination from an Audience. The Destination can
+     * only be removed if there are no activations associated with it. • This endpoint is in
+     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
+     * In order to successfully call this endpoint, the specified Workspace needs to have the
+     * Audience feature enabled. Please reach out to your customer success manager for more
+     * information. • When called, this endpoint may generate the &#x60;Destination Removed from
+     * Audience&#x60; event in the [audit trail](/tag/Audit-Trail).
+     *
+     * @param spaceId (required)
+     * @param audienceId (required)
+     * @param destinationId (required)
+     * @return RemoveDestinationFromAudience200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public RemoveDestinationFromAudience200Response removeDestinationFromAudience(
+            String spaceId, String audienceId, String destinationId) throws ApiException {
+        ApiResponse<RemoveDestinationFromAudience200Response> localVarResp =
+                removeDestinationFromAudienceWithHttpInfo(spaceId, audienceId, destinationId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Remove Destination from Audience Removes a Destination from an Audience. The Destination can
+     * only be removed if there are no activations associated with it. • This endpoint is in
+     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
+     * In order to successfully call this endpoint, the specified Workspace needs to have the
+     * Audience feature enabled. Please reach out to your customer success manager for more
+     * information. • When called, this endpoint may generate the &#x60;Destination Removed from
+     * Audience&#x60; event in the [audit trail](/tag/Audit-Trail).
+     *
+     * @param spaceId (required)
+     * @param audienceId (required)
+     * @param destinationId (required)
+     * @return ApiResponse&lt;RemoveDestinationFromAudience200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<RemoveDestinationFromAudience200Response>
+            removeDestinationFromAudienceWithHttpInfo(
+                    String spaceId, String audienceId, String destinationId) throws ApiException {
+        okhttp3.Call localVarCall =
+                removeDestinationFromAudienceValidateBeforeCall(
+                        spaceId, audienceId, destinationId, null);
+        Type localVarReturnType =
+                new TypeToken<RemoveDestinationFromAudience200Response>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Remove Destination from Audience (asynchronously) Removes a Destination from an Audience. The
+     * Destination can only be removed if there are no activations associated with it. • This
+     * endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
+     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
+     * needs to have the Audience feature enabled. Please reach out to your customer success manager
+     * for more information. • When called, this endpoint may generate the &#x60;Destination Removed
+     * from Audience&#x60; event in the [audit trail](/tag/Audit-Trail).
+     *
+     * @param spaceId (required)
+     * @param audienceId (required)
+     * @param destinationId (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body
+     *     object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call removeDestinationFromAudienceAsync(
+            String spaceId,
+            String audienceId,
+            String destinationId,
+            final ApiCallback<RemoveDestinationFromAudience200Response> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                removeDestinationFromAudienceValidateBeforeCall(
+                        spaceId, audienceId, destinationId, _callback);
+        Type localVarReturnType =
+                new TypeToken<RemoveDestinationFromAudience200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
