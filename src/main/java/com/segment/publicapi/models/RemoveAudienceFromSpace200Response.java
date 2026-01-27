@@ -32,11 +32,11 @@ public class RemoveAudienceFromSpace200Response {
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    private RemoveAudienceFromSpaceBetaOutput data;
+    private RemoveAudienceFromSpaceOutput data;
 
     public RemoveAudienceFromSpace200Response() {}
 
-    public RemoveAudienceFromSpace200Response data(RemoveAudienceFromSpaceBetaOutput data) {
+    public RemoveAudienceFromSpace200Response data(RemoveAudienceFromSpaceOutput data) {
 
         this.data = data;
         return this;
@@ -48,11 +48,11 @@ public class RemoveAudienceFromSpace200Response {
      * @return data
      */
     @javax.annotation.Nullable
-    public RemoveAudienceFromSpaceBetaOutput getData() {
+    public RemoveAudienceFromSpaceOutput getData() {
         return data;
     }
 
-    public void setData(RemoveAudienceFromSpaceBetaOutput data) {
+    public void setData(RemoveAudienceFromSpaceOutput data) {
         this.data = data;
     }
 
@@ -140,7 +140,7 @@ public class RemoveAudienceFromSpace200Response {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the optional field `data`
         if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-            RemoveAudienceFromSpaceBetaOutput.validateJsonElement(jsonObj.get("data"));
+            RemoveAudienceFromSpaceOutput.validateJsonElement(jsonObj.get("data"));
         }
     }
 

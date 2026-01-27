@@ -1420,10 +1420,16 @@ public class JSON {
                 new com.segment.publicapi.models.RemoveAudienceFromSpace200Response1
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.RemoveAudienceFromSpace200Response2
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.RemoveAudienceFromSpaceAlphaOutput
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.RemoveAudienceFromSpaceBetaOutput
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.RemoveAudienceFromSpaceOutput
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.RemoveAudienceScheduleFromAudience200Response

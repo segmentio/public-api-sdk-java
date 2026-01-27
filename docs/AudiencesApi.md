@@ -850,7 +850,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json, application/json
+- **Accept**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
 
 
 ### HTTP response details
