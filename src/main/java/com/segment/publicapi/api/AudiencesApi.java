@@ -38,7 +38,7 @@ import com.segment.publicapi.models.PaginationInput;
 import com.segment.publicapi.models.RemoveAudienceFromSpace200Response;
 import com.segment.publicapi.models.RemoveAudienceScheduleFromAudience200Response;
 import com.segment.publicapi.models.UpdateAudienceForSpace200Response;
-import com.segment.publicapi.models.UpdateAudienceForSpaceBetaInput;
+import com.segment.publicapi.models.UpdateAudienceForSpaceInput;
 import com.segment.publicapi.models.UpdateAudienceScheduleForAudience200Response;
 import com.segment.publicapi.models.UpdateAudienceScheduleForAudienceAlphaInput;
 import java.lang.reflect.Type;
@@ -2384,11 +2384,10 @@ public class AudiencesApi {
     }
 
     /**
-     * Remove Audience from Space Deletes an Audience by id and spaceId. • This endpoint is in
-     * **Beta** testing. Please submit any feedback by sending an email to friends@segment.com. • In
-     * order to successfully call this endpoint, the specified Workspace needs to have the Audience
-     * feature enabled. Please reach out to your customer success manager for more information. •
-     * When called, this endpoint may generate the &#x60;Audience Deleted&#x60; event in the [audit
+     * Remove Audience from Space Deletes an Audience by id and spaceId. • In order to successfully
+     * call this endpoint, the specified Workspace needs to have the Audience feature enabled.
+     * Please reach out to your customer success manager for more information. • When called, this
+     * endpoint may generate the &#x60;Audience Deleted&#x60; event in the [audit
      * trail](/tag/Audit-Trail). The rate limit for this endpoint is 50 requests per minute, which
      * is lower than the default due to access pattern restrictions. Once reached, this endpoint
      * will respond with the 429 HTTP status code with headers indicating the limit parameters. See
@@ -2416,11 +2415,10 @@ public class AudiencesApi {
     }
 
     /**
-     * Remove Audience from Space Deletes an Audience by id and spaceId. • This endpoint is in
-     * **Beta** testing. Please submit any feedback by sending an email to friends@segment.com. • In
-     * order to successfully call this endpoint, the specified Workspace needs to have the Audience
-     * feature enabled. Please reach out to your customer success manager for more information. •
-     * When called, this endpoint may generate the &#x60;Audience Deleted&#x60; event in the [audit
+     * Remove Audience from Space Deletes an Audience by id and spaceId. • In order to successfully
+     * call this endpoint, the specified Workspace needs to have the Audience feature enabled.
+     * Please reach out to your customer success manager for more information. • When called, this
+     * endpoint may generate the &#x60;Audience Deleted&#x60; event in the [audit
      * trail](/tag/Audit-Trail). The rate limit for this endpoint is 50 requests per minute, which
      * is lower than the default due to access pattern restrictions. Once reached, this endpoint
      * will respond with the 429 HTTP status code with headers indicating the limit parameters. See
@@ -2448,16 +2446,14 @@ public class AudiencesApi {
     }
 
     /**
-     * Remove Audience from Space (asynchronously) Deletes an Audience by id and spaceId. • This
-     * endpoint is in **Beta** testing. Please submit any feedback by sending an email to
-     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
-     * needs to have the Audience feature enabled. Please reach out to your customer success manager
-     * for more information. • When called, this endpoint may generate the &#x60;Audience
-     * Deleted&#x60; event in the [audit trail](/tag/Audit-Trail). The rate limit for this endpoint
-     * is 50 requests per minute, which is lower than the default due to access pattern
-     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
-     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
-     * information.
+     * Remove Audience from Space (asynchronously) Deletes an Audience by id and spaceId. • In order
+     * to successfully call this endpoint, the specified Workspace needs to have the Audience
+     * feature enabled. Please reach out to your customer success manager for more information. •
+     * When called, this endpoint may generate the &#x60;Audience Deleted&#x60; event in the [audit
+     * trail](/tag/Audit-Trail). The rate limit for this endpoint is 50 requests per minute, which
+     * is lower than the default due to access pattern restrictions. Once reached, this endpoint
+     * will respond with the 429 HTTP status code with headers indicating the limit parameters. See
+     * [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -2715,7 +2711,7 @@ public class AudiencesApi {
      *
      * @param spaceId (required)
      * @param id (required)
-     * @param updateAudienceForSpaceBetaInput (required)
+     * @param updateAudienceForSpaceInput (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2731,7 +2727,7 @@ public class AudiencesApi {
     public okhttp3.Call updateAudienceForSpaceCall(
             String spaceId,
             String id,
-            UpdateAudienceForSpaceBetaInput updateAudienceForSpaceBetaInput,
+            UpdateAudienceForSpaceInput updateAudienceForSpaceInput,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -2747,7 +2743,7 @@ public class AudiencesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = updateAudienceForSpaceBetaInput;
+        Object localVarPostBody = updateAudienceForSpaceInput;
 
         // create path and map variables
         String localVarPath =
@@ -2764,9 +2760,10 @@ public class AudiencesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
+            "application/vnd.segment.v1+json",
+            "application/json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1alpha+json",
-            "application/json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -2774,7 +2771,10 @@ public class AudiencesApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/vnd.segment.v1beta+json", "application/vnd.segment.v1alpha+json"
+            "application/json",
+            "application/vnd.segment.v1+json",
+            "application/vnd.segment.v1beta+json",
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
@@ -2801,7 +2801,7 @@ public class AudiencesApi {
     private okhttp3.Call updateAudienceForSpaceValidateBeforeCall(
             String spaceId,
             String id,
-            UpdateAudienceForSpaceBetaInput updateAudienceForSpaceBetaInput,
+            UpdateAudienceForSpaceInput updateAudienceForSpaceInput,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'spaceId' is set
@@ -2818,25 +2818,23 @@ public class AudiencesApi {
                             + " updateAudienceForSpace(Async)");
         }
 
-        // verify the required parameter 'updateAudienceForSpaceBetaInput' is set
-        if (updateAudienceForSpaceBetaInput == null) {
+        // verify the required parameter 'updateAudienceForSpaceInput' is set
+        if (updateAudienceForSpaceInput == null) {
             throw new ApiException(
-                    "Missing the required parameter 'updateAudienceForSpaceBetaInput' when calling"
+                    "Missing the required parameter 'updateAudienceForSpaceInput' when calling"
                             + " updateAudienceForSpace(Async)");
         }
 
-        return updateAudienceForSpaceCall(spaceId, id, updateAudienceForSpaceBetaInput, _callback);
+        return updateAudienceForSpaceCall(spaceId, id, updateAudienceForSpaceInput, _callback);
     }
 
     /**
-     * Update Audience for Space Updates the Audience. • This endpoint is in **Alpha** testing.
-     * Please submit any feedback by sending an email to friends@segment.com. • In order to
-     * successfully call this endpoint, the specified Workspace needs to have the Audience feature
-     * enabled. Please reach out to your customer success manager for more information. • When
-     * called, this endpoint may generate the &#x60;Audience Modified&#x60; event in the [audit
-     * trail](/tag/Audit-Trail). • Note that when an Audience is updated, the Audience will be
-     * locked from future edits until the changes have been incorporated. You can find more
-     * information [in the Segment
+     * Update Audience for Space Updates the Audience. • In order to successfully call this
+     * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
+     * out to your customer success manager for more information. • When called, this endpoint may
+     * generate the &#x60;Audience Modified&#x60; event in the [audit trail](/tag/Audit-Trail). •
+     * Note that when an Audience is updated, the Audience will be locked from future edits until
+     * the changes have been incorporated. You can find more information [in the Segment
      * docs](https://segment-docs.netlify.app/docs/engage/audiences/#editing-realtime-audiences-and-traits).
      * Note: The definition for an Audience updated using the API is not editable through the
      * Segment App. The rate limit for this endpoint is 50 requests per minute, which is lower than
@@ -2846,7 +2844,7 @@ public class AudiencesApi {
      *
      * @param spaceId (required)
      * @param id (required)
-     * @param updateAudienceForSpaceBetaInput (required)
+     * @param updateAudienceForSpaceInput (required)
      * @return UpdateAudienceForSpace200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -2860,24 +2858,20 @@ public class AudiencesApi {
      * </table>
      */
     public UpdateAudienceForSpace200Response updateAudienceForSpace(
-            String spaceId,
-            String id,
-            UpdateAudienceForSpaceBetaInput updateAudienceForSpaceBetaInput)
+            String spaceId, String id, UpdateAudienceForSpaceInput updateAudienceForSpaceInput)
             throws ApiException {
         ApiResponse<UpdateAudienceForSpace200Response> localVarResp =
-                updateAudienceForSpaceWithHttpInfo(spaceId, id, updateAudienceForSpaceBetaInput);
+                updateAudienceForSpaceWithHttpInfo(spaceId, id, updateAudienceForSpaceInput);
         return localVarResp.getData();
     }
 
     /**
-     * Update Audience for Space Updates the Audience. • This endpoint is in **Alpha** testing.
-     * Please submit any feedback by sending an email to friends@segment.com. • In order to
-     * successfully call this endpoint, the specified Workspace needs to have the Audience feature
-     * enabled. Please reach out to your customer success manager for more information. • When
-     * called, this endpoint may generate the &#x60;Audience Modified&#x60; event in the [audit
-     * trail](/tag/Audit-Trail). • Note that when an Audience is updated, the Audience will be
-     * locked from future edits until the changes have been incorporated. You can find more
-     * information [in the Segment
+     * Update Audience for Space Updates the Audience. • In order to successfully call this
+     * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
+     * out to your customer success manager for more information. • When called, this endpoint may
+     * generate the &#x60;Audience Modified&#x60; event in the [audit trail](/tag/Audit-Trail). •
+     * Note that when an Audience is updated, the Audience will be locked from future edits until
+     * the changes have been incorporated. You can find more information [in the Segment
      * docs](https://segment-docs.netlify.app/docs/engage/audiences/#editing-realtime-audiences-and-traits).
      * Note: The definition for an Audience updated using the API is not editable through the
      * Segment App. The rate limit for this endpoint is 50 requests per minute, which is lower than
@@ -2887,7 +2881,7 @@ public class AudiencesApi {
      *
      * @param spaceId (required)
      * @param id (required)
-     * @param updateAudienceForSpaceBetaInput (required)
+     * @param updateAudienceForSpaceInput (required)
      * @return ApiResponse&lt;UpdateAudienceForSpace200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -2901,26 +2895,23 @@ public class AudiencesApi {
      * </table>
      */
     public ApiResponse<UpdateAudienceForSpace200Response> updateAudienceForSpaceWithHttpInfo(
-            String spaceId,
-            String id,
-            UpdateAudienceForSpaceBetaInput updateAudienceForSpaceBetaInput)
+            String spaceId, String id, UpdateAudienceForSpaceInput updateAudienceForSpaceInput)
             throws ApiException {
         okhttp3.Call localVarCall =
                 updateAudienceForSpaceValidateBeforeCall(
-                        spaceId, id, updateAudienceForSpaceBetaInput, null);
+                        spaceId, id, updateAudienceForSpaceInput, null);
         Type localVarReturnType = new TypeToken<UpdateAudienceForSpace200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Update Audience for Space (asynchronously) Updates the Audience. • This endpoint is in
-     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
-     * In order to successfully call this endpoint, the specified Workspace needs to have the
-     * Audience feature enabled. Please reach out to your customer success manager for more
-     * information. • When called, this endpoint may generate the &#x60;Audience Modified&#x60;
-     * event in the [audit trail](/tag/Audit-Trail). • Note that when an Audience is updated, the
-     * Audience will be locked from future edits until the changes have been incorporated. You can
-     * find more information [in the Segment
+     * Update Audience for Space (asynchronously) Updates the Audience. • In order to successfully
+     * call this endpoint, the specified Workspace needs to have the Audience feature enabled.
+     * Please reach out to your customer success manager for more information. • When called, this
+     * endpoint may generate the &#x60;Audience Modified&#x60; event in the [audit
+     * trail](/tag/Audit-Trail). • Note that when an Audience is updated, the Audience will be
+     * locked from future edits until the changes have been incorporated. You can find more
+     * information [in the Segment
      * docs](https://segment-docs.netlify.app/docs/engage/audiences/#editing-realtime-audiences-and-traits).
      * Note: The definition for an Audience updated using the API is not editable through the
      * Segment App. The rate limit for this endpoint is 50 requests per minute, which is lower than
@@ -2930,7 +2921,7 @@ public class AudiencesApi {
      *
      * @param spaceId (required)
      * @param id (required)
-     * @param updateAudienceForSpaceBetaInput (required)
+     * @param updateAudienceForSpaceInput (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -2947,13 +2938,13 @@ public class AudiencesApi {
     public okhttp3.Call updateAudienceForSpaceAsync(
             String spaceId,
             String id,
-            UpdateAudienceForSpaceBetaInput updateAudienceForSpaceBetaInput,
+            UpdateAudienceForSpaceInput updateAudienceForSpaceInput,
             final ApiCallback<UpdateAudienceForSpace200Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 updateAudienceForSpaceValidateBeforeCall(
-                        spaceId, id, updateAudienceForSpaceBetaInput, _callback);
+                        spaceId, id, updateAudienceForSpaceInput, _callback);
         Type localVarReturnType = new TypeToken<UpdateAudienceForSpace200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
