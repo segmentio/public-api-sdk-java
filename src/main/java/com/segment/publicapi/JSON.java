@@ -758,9 +758,14 @@ public class JSON {
                 new com.segment.publicapi.models.GetAudience200Response1
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.GetAudience200Response2
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.GetAudienceAlphaOutput.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.GetAudienceBetaOutput.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.GetAudienceOutput.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.GetAudiencePreview200Response
                         .CustomTypeAdapterFactory());
