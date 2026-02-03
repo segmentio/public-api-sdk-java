@@ -2101,9 +2101,10 @@ public class AudiencesApi {
         }
 
         final String[] localVarAccepts = {
+            "application/vnd.segment.v1+json",
+            "application/json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1alpha+json",
-            "application/json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -2151,14 +2152,12 @@ public class AudiencesApi {
 
     /**
      * List Audiences Returns Audiences by spaceId. Supports including audience schedules using
-     * &#x60;?include&#x3D;schedules&#x60;. • This endpoint is in **Beta** testing. Please submit
-     * any feedback by sending an email to friends@segment.com. • In order to successfully call this
-     * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
-     * out to your customer success manager for more information. The rate limit for this endpoint
-     * is 60 requests per minute, which is lower than the default due to access pattern
-     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
-     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
-     * information.
+     * &#x60;?include&#x3D;schedules&#x60;. • In order to successfully call this endpoint, the
+     * specified Workspace needs to have the Audience feature enabled. Please reach out to your
+     * customer success manager for more information. The rate limit for this endpoint is 60
+     * requests per minute, which is lower than the default due to access pattern restrictions. Once
+     * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
+     * limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
      * @param search Optional search criteria This parameter exists in alpha. (optional)
@@ -2192,14 +2191,12 @@ public class AudiencesApi {
 
     /**
      * List Audiences Returns Audiences by spaceId. Supports including audience schedules using
-     * &#x60;?include&#x3D;schedules&#x60;. • This endpoint is in **Beta** testing. Please submit
-     * any feedback by sending an email to friends@segment.com. • In order to successfully call this
-     * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
-     * out to your customer success manager for more information. The rate limit for this endpoint
-     * is 60 requests per minute, which is lower than the default due to access pattern
-     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
-     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
-     * information.
+     * &#x60;?include&#x3D;schedules&#x60;. • In order to successfully call this endpoint, the
+     * specified Workspace needs to have the Audience feature enabled. Please reach out to your
+     * customer success manager for more information. The rate limit for this endpoint is 60
+     * requests per minute, which is lower than the default due to access pattern restrictions. Once
+     * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
+     * limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
      * @param search Optional search criteria This parameter exists in alpha. (optional)
@@ -2234,14 +2231,13 @@ public class AudiencesApi {
 
     /**
      * List Audiences (asynchronously) Returns Audiences by spaceId. Supports including audience
-     * schedules using &#x60;?include&#x3D;schedules&#x60;. • This endpoint is in **Beta** testing.
-     * Please submit any feedback by sending an email to friends@segment.com. • In order to
-     * successfully call this endpoint, the specified Workspace needs to have the Audience feature
-     * enabled. Please reach out to your customer success manager for more information. The rate
-     * limit for this endpoint is 60 requests per minute, which is lower than the default due to
-     * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
-     * status code with headers indicating the limit parameters. See [Rate
-     * Limiting](/#tag/Rate-Limits) for more information.
+     * schedules using &#x60;?include&#x3D;schedules&#x60;. • In order to successfully call this
+     * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
+     * out to your customer success manager for more information. The rate limit for this endpoint
+     * is 60 requests per minute, which is lower than the default due to access pattern
+     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
+     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
+     * information.
      *
      * @param spaceId (required)
      * @param search Optional search criteria This parameter exists in alpha. (optional)

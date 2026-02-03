@@ -27,16 +27,16 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** ListAudiences200Response */
-public class ListAudiences200Response {
+/** ListAudiences200Response2 */
+public class ListAudiences200Response2 {
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    private ListAudiencesOutput data;
+    private ListAudiencesAlphaOutput data;
 
-    public ListAudiences200Response() {}
+    public ListAudiences200Response2() {}
 
-    public ListAudiences200Response data(ListAudiencesOutput data) {
+    public ListAudiences200Response2 data(ListAudiencesAlphaOutput data) {
 
         this.data = data;
         return this;
@@ -48,11 +48,11 @@ public class ListAudiences200Response {
      * @return data
      */
     @javax.annotation.Nullable
-    public ListAudiencesOutput getData() {
+    public ListAudiencesAlphaOutput getData() {
         return data;
     }
 
-    public void setData(ListAudiencesOutput data) {
+    public void setData(ListAudiencesAlphaOutput data) {
         this.data = data;
     }
 
@@ -64,8 +64,8 @@ public class ListAudiences200Response {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        ListAudiences200Response listAudiences200Response = (ListAudiences200Response) o;
-        return Objects.equals(this.data, listAudiences200Response.data);
+        ListAudiences200Response2 listAudiences200Response2 = (ListAudiences200Response2) o;
+        return Objects.equals(this.data, listAudiences200Response2.data);
     }
 
     @Override
@@ -76,7 +76,7 @@ public class ListAudiences200Response {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ListAudiences200Response {\n");
+        sb.append("class ListAudiences200Response2 {\n");
         sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -109,35 +109,35 @@ public class ListAudiences200Response {
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to ListAudiences200Response
+     * @throws IOException if the JSON Element is invalid with respect to ListAudiences200Response2
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!ListAudiences200Response.openapiRequiredFields
+            if (!ListAudiences200Response2.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in ListAudiences200Response is not found"
+                                "The required field(s) %s in ListAudiences200Response2 is not found"
                                         + " in the empty JSON string",
-                                ListAudiences200Response.openapiRequiredFields.toString()));
+                                ListAudiences200Response2.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!ListAudiences200Response.openapiFields.contains(entry.getKey())) {
+            if (!ListAudiences200Response2.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `ListAudiences200Response` properties. JSON: %s",
+                                        + " `ListAudiences200Response2` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the optional field `data`
         if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-            ListAudiencesOutput.validateJsonElement(jsonObj.get("data"));
+            ListAudiencesAlphaOutput.validateJsonElement(jsonObj.get("data"));
         }
     }
 
@@ -145,25 +145,25 @@ public class ListAudiences200Response {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!ListAudiences200Response.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'ListAudiences200Response' and its
+            if (!ListAudiences200Response2.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'ListAudiences200Response2' and its
                 // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<ListAudiences200Response> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(ListAudiences200Response.class));
+            final TypeAdapter<ListAudiences200Response2> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(ListAudiences200Response2.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<ListAudiences200Response>() {
+                    new TypeAdapter<ListAudiences200Response2>() {
                         @Override
-                        public void write(JsonWriter out, ListAudiences200Response value)
+                        public void write(JsonWriter out, ListAudiences200Response2 value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public ListAudiences200Response read(JsonReader in) throws IOException {
+                        public ListAudiences200Response2 read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -173,18 +173,18 @@ public class ListAudiences200Response {
     }
 
     /**
-     * Create an instance of ListAudiences200Response given an JSON string
+     * Create an instance of ListAudiences200Response2 given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of ListAudiences200Response
-     * @throws IOException if the JSON string is invalid with respect to ListAudiences200Response
+     * @return An instance of ListAudiences200Response2
+     * @throws IOException if the JSON string is invalid with respect to ListAudiences200Response2
      */
-    public static ListAudiences200Response fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, ListAudiences200Response.class);
+    public static ListAudiences200Response2 fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, ListAudiences200Response2.class);
     }
 
     /**
-     * Convert an instance of ListAudiences200Response to an JSON string
+     * Convert an instance of ListAudiences200Response2 to an JSON string
      *
      * @return JSON string
      */
