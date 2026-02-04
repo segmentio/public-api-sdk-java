@@ -300,6 +300,9 @@ public class JSON {
                 new com.segment.publicapi.models.CreateAudiencePreview200Response1
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.CreateAudiencePreview200Response2
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.CreateAudiencePreviewAlphaInput
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
@@ -312,7 +315,13 @@ public class JSON {
                 new com.segment.publicapi.models.CreateAudiencePreviewBetaOutput
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.CreateAudiencePreviewInput
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.CreateAudiencePreviewOptions
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.CreateAudiencePreviewOutput
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.CreateCloudSourceRegulation200Response

@@ -175,11 +175,11 @@ public class Example {
 
 ## Operation: createAudiencePreview
 
-> CreateAudiencePreview200Response createAudiencePreview(spaceId, createAudiencePreviewBetaInput)
+> CreateAudiencePreview200Response createAudiencePreview(spaceId, createAudiencePreviewInput)
 
 Create Audience Preview
 
-Previews Audience.  • This endpoint is in **Beta** testing.  Please submit any feedback by sending an email to friends@segment.com.   • In order to successfully call this endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach out to your customer success manager for more information.  • When called, this endpoint may generate the &#x60;Audience Preview Created&#x60; event in the [audit trail](/tag/Audit-Trail).   The rate limit for this endpoint is 5 requests per minute, which is lower than the default due to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information. This endpoint also has a rate limit of 700 requests per month per spaceId, which is lower than the default due to access pattern restrictions.
+Previews Audience.  • In order to successfully call this endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach out to your customer success manager for more information.  • When called, this endpoint may generate the &#x60;Audience Preview Created&#x60; event in the [audit trail](/tag/Audit-Trail).   The rate limit for this endpoint is 5 requests per minute, which is lower than the default due to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information. This endpoint also has a rate limit of 700 requests per month per spaceId, which is lower than the default due to access pattern restrictions.
 
 ### Example
 
@@ -202,9 +202,9 @@ public class Example {
 
         AudiencesApi apiInstance = new AudiencesApi(defaultClient);
         String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
-        CreateAudiencePreviewBetaInput createAudiencePreviewBetaInput = new CreateAudiencePreviewBetaInput(); // CreateAudiencePreviewBetaInput | 
+        CreateAudiencePreviewInput createAudiencePreviewInput = new CreateAudiencePreviewInput(); // CreateAudiencePreviewInput | 
         try {
-            CreateAudiencePreview200Response result = apiInstance.createAudiencePreview(spaceId, createAudiencePreviewBetaInput);
+            CreateAudiencePreview200Response result = apiInstance.createAudiencePreview(spaceId, createAudiencePreviewInput);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AudiencesApi#createAudiencePreview");
@@ -223,7 +223,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **spaceId** | **String**|  | |
-| **createAudiencePreviewBetaInput** | [**CreateAudiencePreviewBetaInput**](CreateAudiencePreviewBetaInput.md)|  | |
+| **createAudiencePreviewInput** | [**CreateAudiencePreviewInput**](CreateAudiencePreviewInput.md)|  | |
 
 ### Return type
 
@@ -235,8 +235,8 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
-- **Accept**: application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json, application/json
+- **Content-Type**: application/json, application/vnd.segment.v1+json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
+- **Accept**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
 
 
 ### HTTP response details
