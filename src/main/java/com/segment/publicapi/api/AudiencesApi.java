@@ -209,13 +209,12 @@ public class AudiencesApi {
      * Add Audience Schedule to Audience The ability to configure the run schedule for an Audience
      * is limited to Linked Audiences (audienceType &#x3D; LINKED). Note that if a Linked Audience
      * remains disabled for 90 days Segment will delete the associated schedule and a new schedule
-     * will need to be created. • This endpoint is in **Alpha** testing. Please submit any feedback
-     * by sending an email to friends@segment.com. • In order to successfully call this endpoint,
-     * the specified Workspace needs to have the Audience feature enabled. Please reach out to your
-     * customer success manager for more information. The rate limit for this endpoint is 50
-     * requests per minute, which is lower than the default due to access pattern restrictions. Once
-     * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
-     * limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * will need to be created. • In order to successfully call this endpoint, the specified
+     * Workspace needs to have the Audience feature enabled. Please reach out to your customer
+     * success manager for more information. The rate limit for this endpoint is 50 requests per
+     * minute, which is lower than the default due to access pattern restrictions. Once reached,
+     * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
+     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -247,13 +246,12 @@ public class AudiencesApi {
      * Add Audience Schedule to Audience The ability to configure the run schedule for an Audience
      * is limited to Linked Audiences (audienceType &#x3D; LINKED). Note that if a Linked Audience
      * remains disabled for 90 days Segment will delete the associated schedule and a new schedule
-     * will need to be created. • This endpoint is in **Alpha** testing. Please submit any feedback
-     * by sending an email to friends@segment.com. • In order to successfully call this endpoint,
-     * the specified Workspace needs to have the Audience feature enabled. Please reach out to your
-     * customer success manager for more information. The rate limit for this endpoint is 50
-     * requests per minute, which is lower than the default due to access pattern restrictions. Once
-     * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
-     * limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * will need to be created. • In order to successfully call this endpoint, the specified
+     * Workspace needs to have the Audience feature enabled. Please reach out to your customer
+     * success manager for more information. The rate limit for this endpoint is 50 requests per
+     * minute, which is lower than the default due to access pattern restrictions. Once reached,
+     * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
+     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -288,14 +286,12 @@ public class AudiencesApi {
      * Add Audience Schedule to Audience (asynchronously) The ability to configure the run schedule
      * for an Audience is limited to Linked Audiences (audienceType &#x3D; LINKED). Note that if a
      * Linked Audience remains disabled for 90 days Segment will delete the associated schedule and
-     * a new schedule will need to be created. • This endpoint is in **Alpha** testing. Please
-     * submit any feedback by sending an email to friends@segment.com. • In order to successfully
-     * call this endpoint, the specified Workspace needs to have the Audience feature enabled.
-     * Please reach out to your customer success manager for more information. The rate limit for
-     * this endpoint is 50 requests per minute, which is lower than the default due to access
-     * pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code
-     * with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
-     * information.
+     * a new schedule will need to be created. • In order to successfully call this endpoint, the
+     * specified Workspace needs to have the Audience feature enabled. Please reach out to your
+     * customer success manager for more information. The rate limit for this endpoint is 50
+     * requests per minute, which is lower than the default due to access pattern restrictions. Once
+     * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
+     * limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -1478,10 +1474,9 @@ public class AudiencesApi {
 
     /**
      * Get Audience Schedule from Space And Audience Returns the schedule for the given audience and
-     * scheduleId. • This endpoint is in **Alpha** testing. Please submit any feedback by sending an
-     * email to friends@segment.com. • In order to successfully call this endpoint, the specified
-     * Workspace needs to have the Audience feature enabled. Please reach out to your customer
-     * success manager for more information.
+     * scheduleId. • In order to successfully call this endpoint, the specified Workspace needs to
+     * have the Audience feature enabled. Please reach out to your customer success manager for more
+     * information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -1508,10 +1503,9 @@ public class AudiencesApi {
 
     /**
      * Get Audience Schedule from Space And Audience Returns the schedule for the given audience and
-     * scheduleId. • This endpoint is in **Alpha** testing. Please submit any feedback by sending an
-     * email to friends@segment.com. • In order to successfully call this endpoint, the specified
-     * Workspace needs to have the Audience feature enabled. Please reach out to your customer
-     * success manager for more information.
+     * scheduleId. • In order to successfully call this endpoint, the specified Workspace needs to
+     * have the Audience feature enabled. Please reach out to your customer success manager for more
+     * information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -1541,10 +1535,9 @@ public class AudiencesApi {
 
     /**
      * Get Audience Schedule from Space And Audience (asynchronously) Returns the schedule for the
-     * given audience and scheduleId. • This endpoint is in **Alpha** testing. Please submit any
-     * feedback by sending an email to friends@segment.com. • In order to successfully call this
-     * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
-     * out to your customer success manager for more information.
+     * given audience and scheduleId. • In order to successfully call this endpoint, the specified
+     * Workspace needs to have the Audience feature enabled. Please reach out to your customer
+     * success manager for more information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -1945,10 +1938,9 @@ public class AudiencesApi {
 
     /**
      * List Audience Schedules from Space And Audience Returns the list of schedules for the given
-     * audience. • This endpoint is in **Alpha** testing. Please submit any feedback by sending an
-     * email to friends@segment.com. • In order to successfully call this endpoint, the specified
-     * Workspace needs to have the Audience feature enabled. Please reach out to your customer
-     * success manager for more information.
+     * audience. • In order to successfully call this endpoint, the specified Workspace needs to
+     * have the Audience feature enabled. Please reach out to your customer success manager for more
+     * information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -1974,10 +1966,9 @@ public class AudiencesApi {
 
     /**
      * List Audience Schedules from Space And Audience Returns the list of schedules for the given
-     * audience. • This endpoint is in **Alpha** testing. Please submit any feedback by sending an
-     * email to friends@segment.com. • In order to successfully call this endpoint, the specified
-     * Workspace needs to have the Audience feature enabled. Please reach out to your customer
-     * success manager for more information.
+     * audience. • In order to successfully call this endpoint, the specified Workspace needs to
+     * have the Audience feature enabled. Please reach out to your customer success manager for more
+     * information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -2005,10 +1996,9 @@ public class AudiencesApi {
 
     /**
      * List Audience Schedules from Space And Audience (asynchronously) Returns the list of
-     * schedules for the given audience. • This endpoint is in **Alpha** testing. Please submit any
-     * feedback by sending an email to friends@segment.com. • In order to successfully call this
-     * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
-     * out to your customer success manager for more information.
+     * schedules for the given audience. • In order to successfully call this endpoint, the
+     * specified Workspace needs to have the Audience feature enabled. Please reach out to your
+     * customer success manager for more information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -2598,14 +2588,12 @@ public class AudiencesApi {
 
     /**
      * Remove Audience Schedule from Audience Deletes an audience schedule for a Linked Audience
-     * (audienceType &#x3D; LINKED). • This endpoint is in **Alpha** testing. Please submit any
-     * feedback by sending an email to friends@segment.com. • In order to successfully call this
-     * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
-     * out to your customer success manager for more information. The rate limit for this endpoint
-     * is 50 requests per minute, which is lower than the default due to access pattern
-     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
-     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
-     * information.
+     * (audienceType &#x3D; LINKED). • In order to successfully call this endpoint, the specified
+     * Workspace needs to have the Audience feature enabled. Please reach out to your customer
+     * success manager for more information. The rate limit for this endpoint is 50 requests per
+     * minute, which is lower than the default due to access pattern restrictions. Once reached,
+     * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
+     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -2631,14 +2619,12 @@ public class AudiencesApi {
 
     /**
      * Remove Audience Schedule from Audience Deletes an audience schedule for a Linked Audience
-     * (audienceType &#x3D; LINKED). • This endpoint is in **Alpha** testing. Please submit any
-     * feedback by sending an email to friends@segment.com. • In order to successfully call this
-     * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
-     * out to your customer success manager for more information. The rate limit for this endpoint
-     * is 50 requests per minute, which is lower than the default due to access pattern
-     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
-     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
-     * information.
+     * (audienceType &#x3D; LINKED). • In order to successfully call this endpoint, the specified
+     * Workspace needs to have the Audience feature enabled. Please reach out to your customer
+     * success manager for more information. The rate limit for this endpoint is 50 requests per
+     * minute, which is lower than the default due to access pattern restrictions. Once reached,
+     * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
+     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -2667,14 +2653,12 @@ public class AudiencesApi {
 
     /**
      * Remove Audience Schedule from Audience (asynchronously) Deletes an audience schedule for a
-     * Linked Audience (audienceType &#x3D; LINKED). • This endpoint is in **Alpha** testing. Please
-     * submit any feedback by sending an email to friends@segment.com. • In order to successfully
-     * call this endpoint, the specified Workspace needs to have the Audience feature enabled.
-     * Please reach out to your customer success manager for more information. The rate limit for
-     * this endpoint is 50 requests per minute, which is lower than the default due to access
-     * pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code
-     * with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
-     * information.
+     * Linked Audience (audienceType &#x3D; LINKED). • In order to successfully call this endpoint,
+     * the specified Workspace needs to have the Audience feature enabled. Please reach out to your
+     * customer success manager for more information. The rate limit for this endpoint is 50
+     * requests per minute, which is lower than the default due to access pattern restrictions. Once
+     * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
+     * limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -3088,14 +3072,12 @@ public class AudiencesApi {
 
     /**
      * Update Audience Schedule for Audience Updates an audience schedule for a Linked Audience
-     * (audienceType &#x3D; LINKED). • This endpoint is in **Alpha** testing. Please submit any
-     * feedback by sending an email to friends@segment.com. • In order to successfully call this
-     * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
-     * out to your customer success manager for more information. The rate limit for this endpoint
-     * is 50 requests per minute, which is lower than the default due to access pattern
-     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
-     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
-     * information.
+     * (audienceType &#x3D; LINKED). • In order to successfully call this endpoint, the specified
+     * Workspace needs to have the Audience feature enabled. Please reach out to your customer
+     * success manager for more information. The rate limit for this endpoint is 50 requests per
+     * minute, which is lower than the default due to access pattern restrictions. Once reached,
+     * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
+     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -3127,14 +3109,12 @@ public class AudiencesApi {
 
     /**
      * Update Audience Schedule for Audience Updates an audience schedule for a Linked Audience
-     * (audienceType &#x3D; LINKED). • This endpoint is in **Alpha** testing. Please submit any
-     * feedback by sending an email to friends@segment.com. • In order to successfully call this
-     * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
-     * out to your customer success manager for more information. The rate limit for this endpoint
-     * is 50 requests per minute, which is lower than the default due to access pattern
-     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
-     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
-     * information.
+     * (audienceType &#x3D; LINKED). • In order to successfully call this endpoint, the specified
+     * Workspace needs to have the Audience feature enabled. Please reach out to your customer
+     * success manager for more information. The rate limit for this endpoint is 50 requests per
+     * minute, which is lower than the default due to access pattern restrictions. Once reached,
+     * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
+     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -3169,14 +3149,12 @@ public class AudiencesApi {
 
     /**
      * Update Audience Schedule for Audience (asynchronously) Updates an audience schedule for a
-     * Linked Audience (audienceType &#x3D; LINKED). • This endpoint is in **Alpha** testing. Please
-     * submit any feedback by sending an email to friends@segment.com. • In order to successfully
-     * call this endpoint, the specified Workspace needs to have the Audience feature enabled.
-     * Please reach out to your customer success manager for more information. The rate limit for
-     * this endpoint is 50 requests per minute, which is lower than the default due to access
-     * pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code
-     * with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
-     * information.
+     * Linked Audience (audienceType &#x3D; LINKED). • In order to successfully call this endpoint,
+     * the specified Workspace needs to have the Audience feature enabled. Please reach out to your
+     * customer success manager for more information. The rate limit for this endpoint is 50
+     * requests per minute, which is lower than the default due to access pattern restrictions. Once
+     * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
+     * limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
      * @param id (required)
