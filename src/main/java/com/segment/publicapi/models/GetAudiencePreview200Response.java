@@ -32,11 +32,11 @@ public class GetAudiencePreview200Response {
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    private GetAudiencePreviewBetaOutput data;
+    private GetAudiencePreviewOutput data;
 
     public GetAudiencePreview200Response() {}
 
-    public GetAudiencePreview200Response data(GetAudiencePreviewBetaOutput data) {
+    public GetAudiencePreview200Response data(GetAudiencePreviewOutput data) {
 
         this.data = data;
         return this;
@@ -48,11 +48,11 @@ public class GetAudiencePreview200Response {
      * @return data
      */
     @javax.annotation.Nullable
-    public GetAudiencePreviewBetaOutput getData() {
+    public GetAudiencePreviewOutput getData() {
         return data;
     }
 
-    public void setData(GetAudiencePreviewBetaOutput data) {
+    public void setData(GetAudiencePreviewOutput data) {
         this.data = data;
     }
 
@@ -139,7 +139,7 @@ public class GetAudiencePreview200Response {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the optional field `data`
         if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-            GetAudiencePreviewBetaOutput.validateJsonElement(jsonObj.get("data"));
+            GetAudiencePreviewOutput.validateJsonElement(jsonObj.get("data"));
         }
     }
 

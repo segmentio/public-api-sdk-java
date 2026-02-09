@@ -1212,9 +1212,10 @@ public class AudiencesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
+            "application/vnd.segment.v1+json",
+            "application/json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1alpha+json",
-            "application/json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1263,14 +1264,13 @@ public class AudiencesApi {
     }
 
     /**
-     * Get Audience Preview Reads the results of an audience preview. • This endpoint is in **Beta**
-     * testing. Please submit any feedback by sending an email to friends@segment.com. • In order to
-     * successfully call this endpoint, the specified Workspace needs to have the Audience feature
-     * enabled. Please reach out to your customer success manager for more information. The rate
-     * limit for this endpoint is 300 requests per minute, which is lower than the default due to
-     * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
-     * status code with headers indicating the limit parameters. See [Rate
-     * Limiting](/#tag/Rate-Limits) for more information.
+     * Get Audience Preview Reads the results of an audience preview. • In order to successfully
+     * call this endpoint, the specified Workspace needs to have the Audience feature enabled.
+     * Please reach out to your customer success manager for more information. The rate limit for
+     * this endpoint is 300 requests per minute, which is lower than the default due to access
+     * pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code
+     * with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
+     * information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -1294,14 +1294,13 @@ public class AudiencesApi {
     }
 
     /**
-     * Get Audience Preview Reads the results of an audience preview. • This endpoint is in **Beta**
-     * testing. Please submit any feedback by sending an email to friends@segment.com. • In order to
-     * successfully call this endpoint, the specified Workspace needs to have the Audience feature
-     * enabled. Please reach out to your customer success manager for more information. The rate
-     * limit for this endpoint is 300 requests per minute, which is lower than the default due to
-     * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
-     * status code with headers indicating the limit parameters. See [Rate
-     * Limiting](/#tag/Rate-Limits) for more information.
+     * Get Audience Preview Reads the results of an audience preview. • In order to successfully
+     * call this endpoint, the specified Workspace needs to have the Audience feature enabled.
+     * Please reach out to your customer success manager for more information. The rate limit for
+     * this endpoint is 300 requests per minute, which is lower than the default due to access
+     * pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code
+     * with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
+     * information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -1325,13 +1324,12 @@ public class AudiencesApi {
     }
 
     /**
-     * Get Audience Preview (asynchronously) Reads the results of an audience preview. • This
-     * endpoint is in **Beta** testing. Please submit any feedback by sending an email to
-     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
-     * needs to have the Audience feature enabled. Please reach out to your customer success manager
-     * for more information. The rate limit for this endpoint is 300 requests per minute, which is
-     * lower than the default due to access pattern restrictions. Once reached, this endpoint will
-     * respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate
+     * Get Audience Preview (asynchronously) Reads the results of an audience preview. • In order to
+     * successfully call this endpoint, the specified Workspace needs to have the Audience feature
+     * enabled. Please reach out to your customer success manager for more information. The rate
+     * limit for this endpoint is 300 requests per minute, which is lower than the default due to
+     * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
+     * status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
