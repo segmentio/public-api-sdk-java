@@ -32,11 +32,12 @@ public class AddAudienceScheduleToAudience200Response {
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    private AddAudienceScheduleToAudienceOutput data;
+    private AddAudienceScheduleToAudienceAlphaOutput data;
 
     public AddAudienceScheduleToAudience200Response() {}
 
-    public AddAudienceScheduleToAudience200Response data(AddAudienceScheduleToAudienceOutput data) {
+    public AddAudienceScheduleToAudience200Response data(
+            AddAudienceScheduleToAudienceAlphaOutput data) {
 
         this.data = data;
         return this;
@@ -48,11 +49,11 @@ public class AddAudienceScheduleToAudience200Response {
      * @return data
      */
     @javax.annotation.Nullable
-    public AddAudienceScheduleToAudienceOutput getData() {
+    public AddAudienceScheduleToAudienceAlphaOutput getData() {
         return data;
     }
 
-    public void setData(AddAudienceScheduleToAudienceOutput data) {
+    public void setData(AddAudienceScheduleToAudienceAlphaOutput data) {
         this.data = data;
     }
 
@@ -142,7 +143,7 @@ public class AddAudienceScheduleToAudience200Response {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the optional field `data`
         if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-            AddAudienceScheduleToAudienceOutput.validateJsonElement(jsonObj.get("data"));
+            AddAudienceScheduleToAudienceAlphaOutput.validateJsonElement(jsonObj.get("data"));
         }
     }
 

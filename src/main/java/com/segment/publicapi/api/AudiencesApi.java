@@ -19,7 +19,7 @@ import com.segment.publicapi.ApiResponse;
 import com.segment.publicapi.Configuration;
 import com.segment.publicapi.Pair;
 import com.segment.publicapi.models.AddAudienceScheduleToAudience200Response;
-import com.segment.publicapi.models.AddAudienceScheduleToAudienceInput;
+import com.segment.publicapi.models.AddAudienceScheduleToAudienceAlphaInput;
 import com.segment.publicapi.models.CreateAudience200Response;
 import com.segment.publicapi.models.CreateAudienceInput;
 import com.segment.publicapi.models.CreateAudiencePreview200Response;
@@ -40,7 +40,7 @@ import com.segment.publicapi.models.RemoveAudienceScheduleFromAudience200Respons
 import com.segment.publicapi.models.UpdateAudienceForSpace200Response;
 import com.segment.publicapi.models.UpdateAudienceForSpaceInput;
 import com.segment.publicapi.models.UpdateAudienceScheduleForAudience200Response;
-import com.segment.publicapi.models.UpdateAudienceScheduleForAudienceInput;
+import com.segment.publicapi.models.UpdateAudienceScheduleForAudienceAlphaInput;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -89,7 +89,7 @@ public class AudiencesApi {
      *
      * @param spaceId (required)
      * @param id (required)
-     * @param addAudienceScheduleToAudienceInput (required)
+     * @param addAudienceScheduleToAudienceAlphaInput (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -105,7 +105,7 @@ public class AudiencesApi {
     public okhttp3.Call addAudienceScheduleToAudienceCall(
             String spaceId,
             String id,
-            AddAudienceScheduleToAudienceInput addAudienceScheduleToAudienceInput,
+            AddAudienceScheduleToAudienceAlphaInput addAudienceScheduleToAudienceAlphaInput,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -121,7 +121,7 @@ public class AudiencesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = addAudienceScheduleToAudienceInput;
+        Object localVarPostBody = addAudienceScheduleToAudienceAlphaInput;
 
         // create path and map variables
         String localVarPath =
@@ -138,20 +138,14 @@ public class AudiencesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1+json",
-            "application/json",
-            "application/vnd.segment.v1alpha+json"
+            "application/vnd.segment.v1alpha+json", "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
             localVarHeaderParams.put("Accept", localVarAccept);
         }
 
-        final String[] localVarContentTypes = {
-            "application/json",
-            "application/vnd.segment.v1+json",
-            "application/vnd.segment.v1alpha+json"
-        };
+        final String[] localVarContentTypes = {"application/vnd.segment.v1alpha+json"};
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -177,7 +171,7 @@ public class AudiencesApi {
     private okhttp3.Call addAudienceScheduleToAudienceValidateBeforeCall(
             String spaceId,
             String id,
-            AddAudienceScheduleToAudienceInput addAudienceScheduleToAudienceInput,
+            AddAudienceScheduleToAudienceAlphaInput addAudienceScheduleToAudienceAlphaInput,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'spaceId' is set
@@ -194,31 +188,32 @@ public class AudiencesApi {
                             + " addAudienceScheduleToAudience(Async)");
         }
 
-        // verify the required parameter 'addAudienceScheduleToAudienceInput' is set
-        if (addAudienceScheduleToAudienceInput == null) {
+        // verify the required parameter 'addAudienceScheduleToAudienceAlphaInput' is set
+        if (addAudienceScheduleToAudienceAlphaInput == null) {
             throw new ApiException(
-                    "Missing the required parameter 'addAudienceScheduleToAudienceInput' when"
+                    "Missing the required parameter 'addAudienceScheduleToAudienceAlphaInput' when"
                             + " calling addAudienceScheduleToAudience(Async)");
         }
 
         return addAudienceScheduleToAudienceCall(
-                spaceId, id, addAudienceScheduleToAudienceInput, _callback);
+                spaceId, id, addAudienceScheduleToAudienceAlphaInput, _callback);
     }
 
     /**
      * Add Audience Schedule to Audience The ability to configure the run schedule for an Audience
      * is limited to Linked Audiences (audienceType &#x3D; LINKED). Note that if a Linked Audience
      * remains disabled for 90 days Segment will delete the associated schedule and a new schedule
-     * will need to be created. • In order to successfully call this endpoint, the specified
-     * Workspace needs to have the Audience feature enabled. Please reach out to your customer
-     * success manager for more information. The rate limit for this endpoint is 50 requests per
-     * minute, which is lower than the default due to access pattern restrictions. Once reached,
-     * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
-     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * will need to be created. • This endpoint is in **Alpha** testing. Please submit any feedback
+     * by sending an email to friends@segment.com. • In order to successfully call this endpoint,
+     * the specified Workspace needs to have the Audience feature enabled. Please reach out to your
+     * customer success manager for more information. The rate limit for this endpoint is 50
+     * requests per minute, which is lower than the default due to access pattern restrictions. Once
+     * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
+     * limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
      * @param id (required)
-     * @param addAudienceScheduleToAudienceInput (required)
+     * @param addAudienceScheduleToAudienceAlphaInput (required)
      * @return AddAudienceScheduleToAudience200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -234,11 +229,11 @@ public class AudiencesApi {
     public AddAudienceScheduleToAudience200Response addAudienceScheduleToAudience(
             String spaceId,
             String id,
-            AddAudienceScheduleToAudienceInput addAudienceScheduleToAudienceInput)
+            AddAudienceScheduleToAudienceAlphaInput addAudienceScheduleToAudienceAlphaInput)
             throws ApiException {
         ApiResponse<AddAudienceScheduleToAudience200Response> localVarResp =
                 addAudienceScheduleToAudienceWithHttpInfo(
-                        spaceId, id, addAudienceScheduleToAudienceInput);
+                        spaceId, id, addAudienceScheduleToAudienceAlphaInput);
         return localVarResp.getData();
     }
 
@@ -246,16 +241,17 @@ public class AudiencesApi {
      * Add Audience Schedule to Audience The ability to configure the run schedule for an Audience
      * is limited to Linked Audiences (audienceType &#x3D; LINKED). Note that if a Linked Audience
      * remains disabled for 90 days Segment will delete the associated schedule and a new schedule
-     * will need to be created. • In order to successfully call this endpoint, the specified
-     * Workspace needs to have the Audience feature enabled. Please reach out to your customer
-     * success manager for more information. The rate limit for this endpoint is 50 requests per
-     * minute, which is lower than the default due to access pattern restrictions. Once reached,
-     * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
-     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * will need to be created. • This endpoint is in **Alpha** testing. Please submit any feedback
+     * by sending an email to friends@segment.com. • In order to successfully call this endpoint,
+     * the specified Workspace needs to have the Audience feature enabled. Please reach out to your
+     * customer success manager for more information. The rate limit for this endpoint is 50
+     * requests per minute, which is lower than the default due to access pattern restrictions. Once
+     * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
+     * limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
      * @param id (required)
-     * @param addAudienceScheduleToAudienceInput (required)
+     * @param addAudienceScheduleToAudienceAlphaInput (required)
      * @return ApiResponse&lt;AddAudienceScheduleToAudience200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -272,11 +268,11 @@ public class AudiencesApi {
             addAudienceScheduleToAudienceWithHttpInfo(
                     String spaceId,
                     String id,
-                    AddAudienceScheduleToAudienceInput addAudienceScheduleToAudienceInput)
+                    AddAudienceScheduleToAudienceAlphaInput addAudienceScheduleToAudienceAlphaInput)
                     throws ApiException {
         okhttp3.Call localVarCall =
                 addAudienceScheduleToAudienceValidateBeforeCall(
-                        spaceId, id, addAudienceScheduleToAudienceInput, null);
+                        spaceId, id, addAudienceScheduleToAudienceAlphaInput, null);
         Type localVarReturnType =
                 new TypeToken<AddAudienceScheduleToAudience200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -286,16 +282,18 @@ public class AudiencesApi {
      * Add Audience Schedule to Audience (asynchronously) The ability to configure the run schedule
      * for an Audience is limited to Linked Audiences (audienceType &#x3D; LINKED). Note that if a
      * Linked Audience remains disabled for 90 days Segment will delete the associated schedule and
-     * a new schedule will need to be created. • In order to successfully call this endpoint, the
-     * specified Workspace needs to have the Audience feature enabled. Please reach out to your
-     * customer success manager for more information. The rate limit for this endpoint is 50
-     * requests per minute, which is lower than the default due to access pattern restrictions. Once
-     * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
-     * limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * a new schedule will need to be created. • This endpoint is in **Alpha** testing. Please
+     * submit any feedback by sending an email to friends@segment.com. • In order to successfully
+     * call this endpoint, the specified Workspace needs to have the Audience feature enabled.
+     * Please reach out to your customer success manager for more information. The rate limit for
+     * this endpoint is 50 requests per minute, which is lower than the default due to access
+     * pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code
+     * with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
+     * information.
      *
      * @param spaceId (required)
      * @param id (required)
-     * @param addAudienceScheduleToAudienceInput (required)
+     * @param addAudienceScheduleToAudienceAlphaInput (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -312,13 +310,13 @@ public class AudiencesApi {
     public okhttp3.Call addAudienceScheduleToAudienceAsync(
             String spaceId,
             String id,
-            AddAudienceScheduleToAudienceInput addAudienceScheduleToAudienceInput,
+            AddAudienceScheduleToAudienceAlphaInput addAudienceScheduleToAudienceAlphaInput,
             final ApiCallback<AddAudienceScheduleToAudience200Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 addAudienceScheduleToAudienceValidateBeforeCall(
-                        spaceId, id, addAudienceScheduleToAudienceInput, _callback);
+                        spaceId, id, addAudienceScheduleToAudienceAlphaInput, _callback);
         Type localVarReturnType =
                 new TypeToken<AddAudienceScheduleToAudience200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
@@ -1413,9 +1411,7 @@ public class AudiencesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1+json",
-            "application/json",
-            "application/vnd.segment.v1alpha+json"
+            "application/vnd.segment.v1alpha+json", "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1474,9 +1470,10 @@ public class AudiencesApi {
 
     /**
      * Get Audience Schedule from Space And Audience Returns the schedule for the given audience and
-     * scheduleId. • In order to successfully call this endpoint, the specified Workspace needs to
-     * have the Audience feature enabled. Please reach out to your customer success manager for more
-     * information.
+     * scheduleId. • This endpoint is in **Alpha** testing. Please submit any feedback by sending an
+     * email to friends@segment.com. • In order to successfully call this endpoint, the specified
+     * Workspace needs to have the Audience feature enabled. Please reach out to your customer
+     * success manager for more information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -1503,9 +1500,10 @@ public class AudiencesApi {
 
     /**
      * Get Audience Schedule from Space And Audience Returns the schedule for the given audience and
-     * scheduleId. • In order to successfully call this endpoint, the specified Workspace needs to
-     * have the Audience feature enabled. Please reach out to your customer success manager for more
-     * information.
+     * scheduleId. • This endpoint is in **Alpha** testing. Please submit any feedback by sending an
+     * email to friends@segment.com. • In order to successfully call this endpoint, the specified
+     * Workspace needs to have the Audience feature enabled. Please reach out to your customer
+     * success manager for more information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -1535,9 +1533,10 @@ public class AudiencesApi {
 
     /**
      * Get Audience Schedule from Space And Audience (asynchronously) Returns the schedule for the
-     * given audience and scheduleId. • In order to successfully call this endpoint, the specified
-     * Workspace needs to have the Audience feature enabled. Please reach out to your customer
-     * success manager for more information.
+     * given audience and scheduleId. • This endpoint is in **Alpha** testing. Please submit any
+     * feedback by sending an email to friends@segment.com. • In order to successfully call this
+     * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
+     * out to your customer success manager for more information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -1885,9 +1884,7 @@ public class AudiencesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1+json",
-            "application/json",
-            "application/vnd.segment.v1alpha+json"
+            "application/vnd.segment.v1alpha+json", "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1938,9 +1935,10 @@ public class AudiencesApi {
 
     /**
      * List Audience Schedules from Space And Audience Returns the list of schedules for the given
-     * audience. • In order to successfully call this endpoint, the specified Workspace needs to
-     * have the Audience feature enabled. Please reach out to your customer success manager for more
-     * information.
+     * audience. • This endpoint is in **Alpha** testing. Please submit any feedback by sending an
+     * email to friends@segment.com. • In order to successfully call this endpoint, the specified
+     * Workspace needs to have the Audience feature enabled. Please reach out to your customer
+     * success manager for more information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -1966,9 +1964,10 @@ public class AudiencesApi {
 
     /**
      * List Audience Schedules from Space And Audience Returns the list of schedules for the given
-     * audience. • In order to successfully call this endpoint, the specified Workspace needs to
-     * have the Audience feature enabled. Please reach out to your customer success manager for more
-     * information.
+     * audience. • This endpoint is in **Alpha** testing. Please submit any feedback by sending an
+     * email to friends@segment.com. • In order to successfully call this endpoint, the specified
+     * Workspace needs to have the Audience feature enabled. Please reach out to your customer
+     * success manager for more information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -1996,9 +1995,10 @@ public class AudiencesApi {
 
     /**
      * List Audience Schedules from Space And Audience (asynchronously) Returns the list of
-     * schedules for the given audience. • In order to successfully call this endpoint, the
-     * specified Workspace needs to have the Audience feature enabled. Please reach out to your
-     * customer success manager for more information.
+     * schedules for the given audience. • This endpoint is in **Alpha** testing. Please submit any
+     * feedback by sending an email to friends@segment.com. • In order to successfully call this
+     * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
+     * out to your customer success manager for more information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -2527,9 +2527,7 @@ public class AudiencesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1+json",
-            "application/json",
-            "application/vnd.segment.v1alpha+json"
+            "application/vnd.segment.v1alpha+json", "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -2588,12 +2586,14 @@ public class AudiencesApi {
 
     /**
      * Remove Audience Schedule from Audience Deletes an audience schedule for a Linked Audience
-     * (audienceType &#x3D; LINKED). • In order to successfully call this endpoint, the specified
-     * Workspace needs to have the Audience feature enabled. Please reach out to your customer
-     * success manager for more information. The rate limit for this endpoint is 50 requests per
-     * minute, which is lower than the default due to access pattern restrictions. Once reached,
-     * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
-     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * (audienceType &#x3D; LINKED). • This endpoint is in **Alpha** testing. Please submit any
+     * feedback by sending an email to friends@segment.com. • In order to successfully call this
+     * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
+     * out to your customer success manager for more information. The rate limit for this endpoint
+     * is 50 requests per minute, which is lower than the default due to access pattern
+     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
+     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
+     * information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -2619,12 +2619,14 @@ public class AudiencesApi {
 
     /**
      * Remove Audience Schedule from Audience Deletes an audience schedule for a Linked Audience
-     * (audienceType &#x3D; LINKED). • In order to successfully call this endpoint, the specified
-     * Workspace needs to have the Audience feature enabled. Please reach out to your customer
-     * success manager for more information. The rate limit for this endpoint is 50 requests per
-     * minute, which is lower than the default due to access pattern restrictions. Once reached,
-     * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
-     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * (audienceType &#x3D; LINKED). • This endpoint is in **Alpha** testing. Please submit any
+     * feedback by sending an email to friends@segment.com. • In order to successfully call this
+     * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
+     * out to your customer success manager for more information. The rate limit for this endpoint
+     * is 50 requests per minute, which is lower than the default due to access pattern
+     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
+     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
+     * information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -2653,12 +2655,14 @@ public class AudiencesApi {
 
     /**
      * Remove Audience Schedule from Audience (asynchronously) Deletes an audience schedule for a
-     * Linked Audience (audienceType &#x3D; LINKED). • In order to successfully call this endpoint,
-     * the specified Workspace needs to have the Audience feature enabled. Please reach out to your
-     * customer success manager for more information. The rate limit for this endpoint is 50
-     * requests per minute, which is lower than the default due to access pattern restrictions. Once
-     * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
-     * limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * Linked Audience (audienceType &#x3D; LINKED). • This endpoint is in **Alpha** testing. Please
+     * submit any feedback by sending an email to friends@segment.com. • In order to successfully
+     * call this endpoint, the specified Workspace needs to have the Audience feature enabled.
+     * Please reach out to your customer success manager for more information. The rate limit for
+     * this endpoint is 50 requests per minute, which is lower than the default due to access
+     * pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code
+     * with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
+     * information.
      *
      * @param spaceId (required)
      * @param id (required)
@@ -2942,7 +2946,7 @@ public class AudiencesApi {
      * @param spaceId (required)
      * @param id (required)
      * @param scheduleId (required)
-     * @param updateAudienceScheduleForAudienceInput (required)
+     * @param updateAudienceScheduleForAudienceAlphaInput (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2959,7 +2963,7 @@ public class AudiencesApi {
             String spaceId,
             String id,
             String scheduleId,
-            UpdateAudienceScheduleForAudienceInput updateAudienceScheduleForAudienceInput,
+            UpdateAudienceScheduleForAudienceAlphaInput updateAudienceScheduleForAudienceAlphaInput,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -2975,7 +2979,7 @@ public class AudiencesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = updateAudienceScheduleForAudienceInput;
+        Object localVarPostBody = updateAudienceScheduleForAudienceAlphaInput;
 
         // create path and map variables
         String localVarPath =
@@ -2995,20 +2999,14 @@ public class AudiencesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/vnd.segment.v1+json",
-            "application/json",
-            "application/vnd.segment.v1alpha+json"
+            "application/vnd.segment.v1alpha+json", "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
             localVarHeaderParams.put("Accept", localVarAccept);
         }
 
-        final String[] localVarContentTypes = {
-            "application/json",
-            "application/vnd.segment.v1+json",
-            "application/vnd.segment.v1alpha+json"
-        };
+        final String[] localVarContentTypes = {"application/vnd.segment.v1alpha+json"};
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -3035,7 +3033,7 @@ public class AudiencesApi {
             String spaceId,
             String id,
             String scheduleId,
-            UpdateAudienceScheduleForAudienceInput updateAudienceScheduleForAudienceInput,
+            UpdateAudienceScheduleForAudienceAlphaInput updateAudienceScheduleForAudienceAlphaInput,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'spaceId' is set
@@ -3059,30 +3057,32 @@ public class AudiencesApi {
                             + " updateAudienceScheduleForAudience(Async)");
         }
 
-        // verify the required parameter 'updateAudienceScheduleForAudienceInput' is set
-        if (updateAudienceScheduleForAudienceInput == null) {
+        // verify the required parameter 'updateAudienceScheduleForAudienceAlphaInput' is set
+        if (updateAudienceScheduleForAudienceAlphaInput == null) {
             throw new ApiException(
-                    "Missing the required parameter 'updateAudienceScheduleForAudienceInput' when"
-                            + " calling updateAudienceScheduleForAudience(Async)");
+                    "Missing the required parameter 'updateAudienceScheduleForAudienceAlphaInput'"
+                            + " when calling updateAudienceScheduleForAudience(Async)");
         }
 
         return updateAudienceScheduleForAudienceCall(
-                spaceId, id, scheduleId, updateAudienceScheduleForAudienceInput, _callback);
+                spaceId, id, scheduleId, updateAudienceScheduleForAudienceAlphaInput, _callback);
     }
 
     /**
      * Update Audience Schedule for Audience Updates an audience schedule for a Linked Audience
-     * (audienceType &#x3D; LINKED). • In order to successfully call this endpoint, the specified
-     * Workspace needs to have the Audience feature enabled. Please reach out to your customer
-     * success manager for more information. The rate limit for this endpoint is 50 requests per
-     * minute, which is lower than the default due to access pattern restrictions. Once reached,
-     * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
-     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * (audienceType &#x3D; LINKED). • This endpoint is in **Alpha** testing. Please submit any
+     * feedback by sending an email to friends@segment.com. • In order to successfully call this
+     * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
+     * out to your customer success manager for more information. The rate limit for this endpoint
+     * is 50 requests per minute, which is lower than the default due to access pattern
+     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
+     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
+     * information.
      *
      * @param spaceId (required)
      * @param id (required)
      * @param scheduleId (required)
-     * @param updateAudienceScheduleForAudienceInput (required)
+     * @param updateAudienceScheduleForAudienceAlphaInput (required)
      * @return UpdateAudienceScheduleForAudience200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -3099,27 +3099,29 @@ public class AudiencesApi {
             String spaceId,
             String id,
             String scheduleId,
-            UpdateAudienceScheduleForAudienceInput updateAudienceScheduleForAudienceInput)
+            UpdateAudienceScheduleForAudienceAlphaInput updateAudienceScheduleForAudienceAlphaInput)
             throws ApiException {
         ApiResponse<UpdateAudienceScheduleForAudience200Response> localVarResp =
                 updateAudienceScheduleForAudienceWithHttpInfo(
-                        spaceId, id, scheduleId, updateAudienceScheduleForAudienceInput);
+                        spaceId, id, scheduleId, updateAudienceScheduleForAudienceAlphaInput);
         return localVarResp.getData();
     }
 
     /**
      * Update Audience Schedule for Audience Updates an audience schedule for a Linked Audience
-     * (audienceType &#x3D; LINKED). • In order to successfully call this endpoint, the specified
-     * Workspace needs to have the Audience feature enabled. Please reach out to your customer
-     * success manager for more information. The rate limit for this endpoint is 50 requests per
-     * minute, which is lower than the default due to access pattern restrictions. Once reached,
-     * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
-     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * (audienceType &#x3D; LINKED). • This endpoint is in **Alpha** testing. Please submit any
+     * feedback by sending an email to friends@segment.com. • In order to successfully call this
+     * endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach
+     * out to your customer success manager for more information. The rate limit for this endpoint
+     * is 50 requests per minute, which is lower than the default due to access pattern
+     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
+     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
+     * information.
      *
      * @param spaceId (required)
      * @param id (required)
      * @param scheduleId (required)
-     * @param updateAudienceScheduleForAudienceInput (required)
+     * @param updateAudienceScheduleForAudienceAlphaInput (required)
      * @return ApiResponse&lt;UpdateAudienceScheduleForAudience200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -3137,11 +3139,12 @@ public class AudiencesApi {
                     String spaceId,
                     String id,
                     String scheduleId,
-                    UpdateAudienceScheduleForAudienceInput updateAudienceScheduleForAudienceInput)
+                    UpdateAudienceScheduleForAudienceAlphaInput
+                            updateAudienceScheduleForAudienceAlphaInput)
                     throws ApiException {
         okhttp3.Call localVarCall =
                 updateAudienceScheduleForAudienceValidateBeforeCall(
-                        spaceId, id, scheduleId, updateAudienceScheduleForAudienceInput, null);
+                        spaceId, id, scheduleId, updateAudienceScheduleForAudienceAlphaInput, null);
         Type localVarReturnType =
                 new TypeToken<UpdateAudienceScheduleForAudience200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -3149,17 +3152,19 @@ public class AudiencesApi {
 
     /**
      * Update Audience Schedule for Audience (asynchronously) Updates an audience schedule for a
-     * Linked Audience (audienceType &#x3D; LINKED). • In order to successfully call this endpoint,
-     * the specified Workspace needs to have the Audience feature enabled. Please reach out to your
-     * customer success manager for more information. The rate limit for this endpoint is 50
-     * requests per minute, which is lower than the default due to access pattern restrictions. Once
-     * reached, this endpoint will respond with the 429 HTTP status code with headers indicating the
-     * limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * Linked Audience (audienceType &#x3D; LINKED). • This endpoint is in **Alpha** testing. Please
+     * submit any feedback by sending an email to friends@segment.com. • In order to successfully
+     * call this endpoint, the specified Workspace needs to have the Audience feature enabled.
+     * Please reach out to your customer success manager for more information. The rate limit for
+     * this endpoint is 50 requests per minute, which is lower than the default due to access
+     * pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code
+     * with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
+     * information.
      *
      * @param spaceId (required)
      * @param id (required)
      * @param scheduleId (required)
-     * @param updateAudienceScheduleForAudienceInput (required)
+     * @param updateAudienceScheduleForAudienceAlphaInput (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -3177,13 +3182,17 @@ public class AudiencesApi {
             String spaceId,
             String id,
             String scheduleId,
-            UpdateAudienceScheduleForAudienceInput updateAudienceScheduleForAudienceInput,
+            UpdateAudienceScheduleForAudienceAlphaInput updateAudienceScheduleForAudienceAlphaInput,
             final ApiCallback<UpdateAudienceScheduleForAudience200Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 updateAudienceScheduleForAudienceValidateBeforeCall(
-                        spaceId, id, scheduleId, updateAudienceScheduleForAudienceInput, _callback);
+                        spaceId,
+                        id,
+                        scheduleId,
+                        updateAudienceScheduleForAudienceAlphaInput,
+                        _callback);
         Type localVarReturnType =
                 new TypeToken<UpdateAudienceScheduleForAudience200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
