@@ -32,12 +32,12 @@ public class RemoveAudienceScheduleFromAudience200Response {
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    private RemoveAudienceScheduleFromAudienceAlphaOutput data;
+    private RemoveAudienceScheduleFromAudienceOutput data;
 
     public RemoveAudienceScheduleFromAudience200Response() {}
 
     public RemoveAudienceScheduleFromAudience200Response data(
-            RemoveAudienceScheduleFromAudienceAlphaOutput data) {
+            RemoveAudienceScheduleFromAudienceOutput data) {
 
         this.data = data;
         return this;
@@ -49,11 +49,11 @@ public class RemoveAudienceScheduleFromAudience200Response {
      * @return data
      */
     @javax.annotation.Nullable
-    public RemoveAudienceScheduleFromAudienceAlphaOutput getData() {
+    public RemoveAudienceScheduleFromAudienceOutput getData() {
         return data;
     }
 
-    public void setData(RemoveAudienceScheduleFromAudienceAlphaOutput data) {
+    public void setData(RemoveAudienceScheduleFromAudienceOutput data) {
         this.data = data;
     }
 
@@ -145,7 +145,7 @@ public class RemoveAudienceScheduleFromAudience200Response {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the optional field `data`
         if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-            RemoveAudienceScheduleFromAudienceAlphaOutput.validateJsonElement(jsonObj.get("data"));
+            RemoveAudienceScheduleFromAudienceOutput.validateJsonElement(jsonObj.get("data"));
         }
     }
 

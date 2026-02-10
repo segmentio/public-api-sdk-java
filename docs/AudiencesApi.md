@@ -23,11 +23,11 @@ All URIs are relative to *https://api.segmentapis.com*
 
 ## Operation: addAudienceScheduleToAudience
 
-> AddAudienceScheduleToAudience200Response addAudienceScheduleToAudience(spaceId, id, addAudienceScheduleToAudienceAlphaInput)
+> AddAudienceScheduleToAudience200Response addAudienceScheduleToAudience(spaceId, id, addAudienceScheduleToAudienceInput)
 
 Add Audience Schedule to Audience
 
-The ability to configure the run schedule for an Audience is limited to Linked Audiences (audienceType &#x3D; LINKED).  Note that if a Linked Audience remains disabled for 90 days Segment will delete the associated schedule and a new schedule will need to be created.  • This endpoint is in **Alpha** testing.  Please submit any feedback by sending an email to friends@segment.com.   • In order to successfully call this endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach out to your customer success manager for more information.   The rate limit for this endpoint is 50 requests per minute, which is lower than the default due to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+The ability to configure the run schedule for an Audience is limited to Linked Audiences (audienceType &#x3D; LINKED).  Note that if a Linked Audience remains disabled for 90 days Segment will delete the associated schedule and a new schedule will need to be created.  • In order to successfully call this endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach out to your customer success manager for more information.   The rate limit for this endpoint is 50 requests per minute, which is lower than the default due to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
 
 ### Example
 
@@ -51,9 +51,9 @@ public class Example {
         AudiencesApi apiInstance = new AudiencesApi(defaultClient);
         String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
         String id = "aud_0ujsszwN8NRY24YaXiTIE2VWDTS"; // String | 
-        AddAudienceScheduleToAudienceAlphaInput addAudienceScheduleToAudienceAlphaInput = new AddAudienceScheduleToAudienceAlphaInput(); // AddAudienceScheduleToAudienceAlphaInput | 
+        AddAudienceScheduleToAudienceInput addAudienceScheduleToAudienceInput = new AddAudienceScheduleToAudienceInput(); // AddAudienceScheduleToAudienceInput | 
         try {
-            AddAudienceScheduleToAudience200Response result = apiInstance.addAudienceScheduleToAudience(spaceId, id, addAudienceScheduleToAudienceAlphaInput);
+            AddAudienceScheduleToAudience200Response result = apiInstance.addAudienceScheduleToAudience(spaceId, id, addAudienceScheduleToAudienceInput);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AudiencesApi#addAudienceScheduleToAudience");
@@ -73,7 +73,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **spaceId** | **String**|  | |
 | **id** | **String**|  | |
-| **addAudienceScheduleToAudienceAlphaInput** | [**AddAudienceScheduleToAudienceAlphaInput**](AddAudienceScheduleToAudienceAlphaInput.md)|  | |
+| **addAudienceScheduleToAudienceInput** | [**AddAudienceScheduleToAudienceInput**](AddAudienceScheduleToAudienceInput.md)|  | |
 
 ### Return type
 
@@ -85,8 +85,8 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: application/vnd.segment.v1alpha+json
-- **Accept**: application/vnd.segment.v1alpha+json, application/json
+- **Content-Type**: application/json, application/vnd.segment.v1+json, application/vnd.segment.v1alpha+json
+- **Accept**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1alpha+json
 
 
 ### HTTP response details
@@ -481,7 +481,7 @@ public class Example {
 
 Get Audience Schedule from Space And Audience
 
-Returns the schedule for the given audience and scheduleId.  • This endpoint is in **Alpha** testing.  Please submit any feedback by sending an email to friends@segment.com.   • In order to successfully call this endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach out to your customer success manager for more information.
+Returns the schedule for the given audience and scheduleId.  • In order to successfully call this endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach out to your customer success manager for more information.
 
 ### Example
 
@@ -540,7 +540,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/vnd.segment.v1alpha+json, application/json
+- **Accept**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1alpha+json
 
 
 ### HTTP response details
@@ -639,7 +639,7 @@ public class Example {
 
 List Audience Schedules from Space And Audience
 
-Returns the list of schedules for the given audience.  • This endpoint is in **Alpha** testing.  Please submit any feedback by sending an email to friends@segment.com.   • In order to successfully call this endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach out to your customer success manager for more information.
+Returns the list of schedules for the given audience.  • In order to successfully call this endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach out to your customer success manager for more information.
 
 ### Example
 
@@ -696,7 +696,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/vnd.segment.v1alpha+json, application/json
+- **Accept**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1alpha+json
 
 
 ### HTTP response details
@@ -868,7 +868,7 @@ public class Example {
 
 Remove Audience Schedule from Audience
 
-Deletes an audience schedule for a Linked Audience (audienceType &#x3D; LINKED).  • This endpoint is in **Alpha** testing.  Please submit any feedback by sending an email to friends@segment.com.   • In order to successfully call this endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach out to your customer success manager for more information.   The rate limit for this endpoint is 50 requests per minute, which is lower than the default due to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+Deletes an audience schedule for a Linked Audience (audienceType &#x3D; LINKED).  • In order to successfully call this endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach out to your customer success manager for more information.   The rate limit for this endpoint is 50 requests per minute, which is lower than the default due to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
 
 ### Example
 
@@ -927,7 +927,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/vnd.segment.v1alpha+json, application/json
+- **Accept**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1alpha+json
 
 
 ### HTTP response details
@@ -1018,11 +1018,11 @@ public class Example {
 
 ## Operation: updateAudienceScheduleForAudience
 
-> UpdateAudienceScheduleForAudience200Response updateAudienceScheduleForAudience(spaceId, id, scheduleId, updateAudienceScheduleForAudienceAlphaInput)
+> UpdateAudienceScheduleForAudience200Response updateAudienceScheduleForAudience(spaceId, id, scheduleId, updateAudienceScheduleForAudienceInput)
 
 Update Audience Schedule for Audience
 
-Updates an audience schedule for a Linked Audience (audienceType &#x3D; LINKED).  • This endpoint is in **Alpha** testing.  Please submit any feedback by sending an email to friends@segment.com.   • In order to successfully call this endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach out to your customer success manager for more information.   The rate limit for this endpoint is 50 requests per minute, which is lower than the default due to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+Updates an audience schedule for a Linked Audience (audienceType &#x3D; LINKED).  • In order to successfully call this endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach out to your customer success manager for more information.   The rate limit for this endpoint is 50 requests per minute, which is lower than the default due to access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
 
 ### Example
 
@@ -1047,9 +1047,9 @@ public class Example {
         String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
         String id = "aud_0ujsszwN8NRY24YaXiTIE2VWDTS"; // String | 
         String scheduleId = "sch_0ujsszwN8NRY24YaXiTIE2VWDTS"; // String | 
-        UpdateAudienceScheduleForAudienceAlphaInput updateAudienceScheduleForAudienceAlphaInput = new UpdateAudienceScheduleForAudienceAlphaInput(); // UpdateAudienceScheduleForAudienceAlphaInput | 
+        UpdateAudienceScheduleForAudienceInput updateAudienceScheduleForAudienceInput = new UpdateAudienceScheduleForAudienceInput(); // UpdateAudienceScheduleForAudienceInput | 
         try {
-            UpdateAudienceScheduleForAudience200Response result = apiInstance.updateAudienceScheduleForAudience(spaceId, id, scheduleId, updateAudienceScheduleForAudienceAlphaInput);
+            UpdateAudienceScheduleForAudience200Response result = apiInstance.updateAudienceScheduleForAudience(spaceId, id, scheduleId, updateAudienceScheduleForAudienceInput);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AudiencesApi#updateAudienceScheduleForAudience");
@@ -1070,7 +1070,7 @@ public class Example {
 | **spaceId** | **String**|  | |
 | **id** | **String**|  | |
 | **scheduleId** | **String**|  | |
-| **updateAudienceScheduleForAudienceAlphaInput** | [**UpdateAudienceScheduleForAudienceAlphaInput**](UpdateAudienceScheduleForAudienceAlphaInput.md)|  | |
+| **updateAudienceScheduleForAudienceInput** | [**UpdateAudienceScheduleForAudienceInput**](UpdateAudienceScheduleForAudienceInput.md)|  | |
 
 ### Return type
 
@@ -1082,8 +1082,8 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: application/vnd.segment.v1alpha+json
-- **Accept**: application/vnd.segment.v1alpha+json, application/json
+- **Content-Type**: application/json, application/vnd.segment.v1+json, application/vnd.segment.v1alpha+json
+- **Accept**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1alpha+json
 
 
 ### HTTP response details
