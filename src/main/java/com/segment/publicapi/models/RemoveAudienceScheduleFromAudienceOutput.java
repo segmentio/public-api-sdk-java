@@ -16,6 +16,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
@@ -27,34 +28,77 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** UpdateAudienceScheduleForAudience200Response */
-public class UpdateAudienceScheduleForAudience200Response {
-    public static final String SERIALIZED_NAME_DATA = "data";
+/** Output for remove audience schedule. */
+public class RemoveAudienceScheduleFromAudienceOutput {
+    /** The status of the operation. */
+    @JsonAdapter(StatusEnum.Adapter.class)
+    public enum StatusEnum {
+        SUCCESS("SUCCESS");
 
-    @SerializedName(SERIALIZED_NAME_DATA)
-    private UpdateAudienceScheduleForAudienceOutput data;
+        private String value;
 
-    public UpdateAudienceScheduleForAudience200Response() {}
+        StatusEnum(String value) {
+            this.value = value;
+        }
 
-    public UpdateAudienceScheduleForAudience200Response data(
-            UpdateAudienceScheduleForAudienceOutput data) {
+        public String getValue() {
+            return value;
+        }
 
-        this.data = data;
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static StatusEnum fromValue(String value) {
+            for (StatusEnum b : StatusEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            throw new IllegalArgumentException("Unexpected value '" + value + "'");
+        }
+
+        public static class Adapter extends TypeAdapter<StatusEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final StatusEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public StatusEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return StatusEnum.fromValue(value);
+            }
+        }
+    }
+
+    public static final String SERIALIZED_NAME_STATUS = "status";
+
+    @SerializedName(SERIALIZED_NAME_STATUS)
+    private StatusEnum status;
+
+    public RemoveAudienceScheduleFromAudienceOutput() {}
+
+    public RemoveAudienceScheduleFromAudienceOutput status(StatusEnum status) {
+
+        this.status = status;
         return this;
     }
 
     /**
-     * Get data
+     * The status of the operation.
      *
-     * @return data
+     * @return status
      */
-    @javax.annotation.Nullable
-    public UpdateAudienceScheduleForAudienceOutput getData() {
-        return data;
+    @javax.annotation.Nonnull
+    public StatusEnum getStatus() {
+        return status;
     }
 
-    public void setData(UpdateAudienceScheduleForAudienceOutput data) {
-        this.data = data;
+    public void setStatus(StatusEnum status) {
+        this.status = status;
     }
 
     @Override
@@ -65,21 +109,21 @@ public class UpdateAudienceScheduleForAudience200Response {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        UpdateAudienceScheduleForAudience200Response updateAudienceScheduleForAudience200Response =
-                (UpdateAudienceScheduleForAudience200Response) o;
-        return Objects.equals(this.data, updateAudienceScheduleForAudience200Response.data);
+        RemoveAudienceScheduleFromAudienceOutput removeAudienceScheduleFromAudienceOutput =
+                (RemoveAudienceScheduleFromAudienceOutput) o;
+        return Objects.equals(this.status, removeAudienceScheduleFromAudienceOutput.status);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(data);
+        return Objects.hash(status);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class UpdateAudienceScheduleForAudience200Response {\n");
-        sb.append("    data: ").append(toIndentedString(data)).append("\n");
+        sb.append("class RemoveAudienceScheduleFromAudienceOutput {\n");
+        sb.append("    status: ").append(toIndentedString(status)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -101,10 +145,11 @@ public class UpdateAudienceScheduleForAudience200Response {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("data");
+        openapiFields.add("status");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
+        openapiRequiredFields.add("status");
     }
 
     /**
@@ -112,18 +157,18 @@ public class UpdateAudienceScheduleForAudience200Response {
      *
      * @param jsonElement JSON Element
      * @throws IOException if the JSON Element is invalid with respect to
-     *     UpdateAudienceScheduleForAudience200Response
+     *     RemoveAudienceScheduleFromAudienceOutput
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!UpdateAudienceScheduleForAudience200Response.openapiRequiredFields
+            if (!RemoveAudienceScheduleFromAudienceOutput.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in"
-                                    + " UpdateAudienceScheduleForAudience200Response is not found"
-                                    + " in the empty JSON string",
-                                UpdateAudienceScheduleForAudience200Response.openapiRequiredFields
+                                    + " RemoveAudienceScheduleFromAudienceOutput is not found in"
+                                    + " the empty JSON string",
+                                RemoveAudienceScheduleFromAudienceOutput.openapiRequiredFields
                                         .toString()));
             }
         }
@@ -131,20 +176,33 @@ public class UpdateAudienceScheduleForAudience200Response {
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!UpdateAudienceScheduleForAudience200Response.openapiFields.contains(
-                    entry.getKey())) {
+            if (!RemoveAudienceScheduleFromAudienceOutput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                    + " `UpdateAudienceScheduleForAudience200Response` properties."
-                                    + " JSON: %s",
+                                        + " `RemoveAudienceScheduleFromAudienceOutput` properties."
+                                        + " JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
+
+        // check to make sure all required properties/fields are present in the JSON string
+        for (String requiredField :
+                RemoveAudienceScheduleFromAudienceOutput.openapiRequiredFields) {
+            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+                throw new IllegalArgumentException(
+                        String.format(
+                                "The required field `%s` is not found in the JSON string: %s",
+                                requiredField, jsonElement.toString()));
+            }
+        }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        // validate the optional field `data`
-        if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-            UpdateAudienceScheduleForAudienceOutput.validateJsonElement(jsonObj.get("data"));
+        if (!jsonObj.get("status").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `status` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
+                            jsonObj.get("status").toString()));
         }
     }
 
@@ -152,29 +210,28 @@ public class UpdateAudienceScheduleForAudience200Response {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!UpdateAudienceScheduleForAudience200Response.class.isAssignableFrom(
+            if (!RemoveAudienceScheduleFromAudienceOutput.class.isAssignableFrom(
                     type.getRawType())) {
                 return null; // this class only serializes
-                // 'UpdateAudienceScheduleForAudience200Response' and its subtypes
+                // 'RemoveAudienceScheduleFromAudienceOutput' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<UpdateAudienceScheduleForAudience200Response> thisAdapter =
+            final TypeAdapter<RemoveAudienceScheduleFromAudienceOutput> thisAdapter =
                     gson.getDelegateAdapter(
-                            this,
-                            TypeToken.get(UpdateAudienceScheduleForAudience200Response.class));
+                            this, TypeToken.get(RemoveAudienceScheduleFromAudienceOutput.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<UpdateAudienceScheduleForAudience200Response>() {
+                    new TypeAdapter<RemoveAudienceScheduleFromAudienceOutput>() {
                         @Override
                         public void write(
-                                JsonWriter out, UpdateAudienceScheduleForAudience200Response value)
+                                JsonWriter out, RemoveAudienceScheduleFromAudienceOutput value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public UpdateAudienceScheduleForAudience200Response read(JsonReader in)
+                        public RemoveAudienceScheduleFromAudienceOutput read(JsonReader in)
                                 throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
@@ -185,21 +242,20 @@ public class UpdateAudienceScheduleForAudience200Response {
     }
 
     /**
-     * Create an instance of UpdateAudienceScheduleForAudience200Response given an JSON string
+     * Create an instance of RemoveAudienceScheduleFromAudienceOutput given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of UpdateAudienceScheduleForAudience200Response
+     * @return An instance of RemoveAudienceScheduleFromAudienceOutput
      * @throws IOException if the JSON string is invalid with respect to
-     *     UpdateAudienceScheduleForAudience200Response
+     *     RemoveAudienceScheduleFromAudienceOutput
      */
-    public static UpdateAudienceScheduleForAudience200Response fromJson(String jsonString)
+    public static RemoveAudienceScheduleFromAudienceOutput fromJson(String jsonString)
             throws IOException {
-        return JSON.getGson()
-                .fromJson(jsonString, UpdateAudienceScheduleForAudience200Response.class);
+        return JSON.getGson().fromJson(jsonString, RemoveAudienceScheduleFromAudienceOutput.class);
     }
 
     /**
-     * Convert an instance of UpdateAudienceScheduleForAudience200Response to an JSON string
+     * Convert an instance of RemoveAudienceScheduleFromAudienceOutput to an JSON string
      *
      * @return JSON string
      */
