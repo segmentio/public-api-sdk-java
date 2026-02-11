@@ -27,16 +27,16 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** ForceExecuteAudienceRun200Response */
-public class ForceExecuteAudienceRun200Response {
+/** ForceExecuteAudienceRun200Response1 */
+public class ForceExecuteAudienceRun200Response1 {
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    private ForceExecuteAudienceRunOutput data;
+    private ForceExecuteAudienceRunAlphaOutput data;
 
-    public ForceExecuteAudienceRun200Response() {}
+    public ForceExecuteAudienceRun200Response1() {}
 
-    public ForceExecuteAudienceRun200Response data(ForceExecuteAudienceRunOutput data) {
+    public ForceExecuteAudienceRun200Response1 data(ForceExecuteAudienceRunAlphaOutput data) {
 
         this.data = data;
         return this;
@@ -48,11 +48,11 @@ public class ForceExecuteAudienceRun200Response {
      * @return data
      */
     @javax.annotation.Nullable
-    public ForceExecuteAudienceRunOutput getData() {
+    public ForceExecuteAudienceRunAlphaOutput getData() {
         return data;
     }
 
-    public void setData(ForceExecuteAudienceRunOutput data) {
+    public void setData(ForceExecuteAudienceRunAlphaOutput data) {
         this.data = data;
     }
 
@@ -64,9 +64,9 @@ public class ForceExecuteAudienceRun200Response {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        ForceExecuteAudienceRun200Response forceExecuteAudienceRun200Response =
-                (ForceExecuteAudienceRun200Response) o;
-        return Objects.equals(this.data, forceExecuteAudienceRun200Response.data);
+        ForceExecuteAudienceRun200Response1 forceExecuteAudienceRun200Response1 =
+                (ForceExecuteAudienceRun200Response1) o;
+        return Objects.equals(this.data, forceExecuteAudienceRun200Response1.data);
     }
 
     @Override
@@ -77,7 +77,7 @@ public class ForceExecuteAudienceRun200Response {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ForceExecuteAudienceRun200Response {\n");
+        sb.append("class ForceExecuteAudienceRun200Response1 {\n");
         sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -111,17 +111,17 @@ public class ForceExecuteAudienceRun200Response {
      *
      * @param jsonElement JSON Element
      * @throws IOException if the JSON Element is invalid with respect to
-     *     ForceExecuteAudienceRun200Response
+     *     ForceExecuteAudienceRun200Response1
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!ForceExecuteAudienceRun200Response.openapiRequiredFields
+            if (!ForceExecuteAudienceRun200Response1.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in ForceExecuteAudienceRun200Response is"
+                                "The required field(s) %s in ForceExecuteAudienceRun200Response1 is"
                                         + " not found in the empty JSON string",
-                                ForceExecuteAudienceRun200Response.openapiRequiredFields
+                                ForceExecuteAudienceRun200Response1.openapiRequiredFields
                                         .toString()));
             }
         }
@@ -129,18 +129,18 @@ public class ForceExecuteAudienceRun200Response {
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!ForceExecuteAudienceRun200Response.openapiFields.contains(entry.getKey())) {
+            if (!ForceExecuteAudienceRun200Response1.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                    + " `ForceExecuteAudienceRun200Response` properties. JSON: %s",
+                                    + " `ForceExecuteAudienceRun200Response1` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the optional field `data`
         if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-            ForceExecuteAudienceRunOutput.validateJsonElement(jsonObj.get("data"));
+            ForceExecuteAudienceRunAlphaOutput.validateJsonElement(jsonObj.get("data"));
         }
     }
 
@@ -148,26 +148,26 @@ public class ForceExecuteAudienceRun200Response {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!ForceExecuteAudienceRun200Response.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'ForceExecuteAudienceRun200Response' and
+            if (!ForceExecuteAudienceRun200Response1.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'ForceExecuteAudienceRun200Response1' and
                 // its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<ForceExecuteAudienceRun200Response> thisAdapter =
+            final TypeAdapter<ForceExecuteAudienceRun200Response1> thisAdapter =
                     gson.getDelegateAdapter(
-                            this, TypeToken.get(ForceExecuteAudienceRun200Response.class));
+                            this, TypeToken.get(ForceExecuteAudienceRun200Response1.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<ForceExecuteAudienceRun200Response>() {
+                    new TypeAdapter<ForceExecuteAudienceRun200Response1>() {
                         @Override
-                        public void write(JsonWriter out, ForceExecuteAudienceRun200Response value)
+                        public void write(JsonWriter out, ForceExecuteAudienceRun200Response1 value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public ForceExecuteAudienceRun200Response read(JsonReader in)
+                        public ForceExecuteAudienceRun200Response1 read(JsonReader in)
                                 throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
@@ -178,20 +178,20 @@ public class ForceExecuteAudienceRun200Response {
     }
 
     /**
-     * Create an instance of ForceExecuteAudienceRun200Response given an JSON string
+     * Create an instance of ForceExecuteAudienceRun200Response1 given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of ForceExecuteAudienceRun200Response
+     * @return An instance of ForceExecuteAudienceRun200Response1
      * @throws IOException if the JSON string is invalid with respect to
-     *     ForceExecuteAudienceRun200Response
+     *     ForceExecuteAudienceRun200Response1
      */
-    public static ForceExecuteAudienceRun200Response fromJson(String jsonString)
+    public static ForceExecuteAudienceRun200Response1 fromJson(String jsonString)
             throws IOException {
-        return JSON.getGson().fromJson(jsonString, ForceExecuteAudienceRun200Response.class);
+        return JSON.getGson().fromJson(jsonString, ForceExecuteAudienceRun200Response1.class);
     }
 
     /**
-     * Convert an instance of ForceExecuteAudienceRun200Response to an JSON string
+     * Convert an instance of ForceExecuteAudienceRun200Response1 to an JSON string
      *
      * @return JSON string
      */
