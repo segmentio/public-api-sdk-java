@@ -254,7 +254,7 @@ public class Example {
 
 Force Execute Audience Run
 
-The ability to force execute a run for an Audience is limited to Linked Audiences (audienceType &#x3D; &#x60;LINKED&#x60;).  • This endpoint is in **Alpha** testing.  Please submit any feedback by sending an email to friends@segment.com.   • In order to successfully call this endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach out to your customer success manager for more information.  • When called, this endpoint may generate the &#x60;Audience Run Forced&#x60; event in the [audit trail](/tag/Audit-Trail).
+The ability to force execute a run for an Audience is limited to Linked Audiences (audienceType &#x3D; &#x60;LINKED&#x60;).  • In order to successfully call this endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach out to your customer success manager for more information.  • When called, this endpoint may generate the &#x60;Audience Run Forced&#x60; event in the [audit trail](/tag/Audit-Trail).
 
 ### Example
 
@@ -311,7 +311,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/vnd.segment.v1alpha+json, application/json
+- **Accept**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1alpha+json
 
 
 ### HTTP response details

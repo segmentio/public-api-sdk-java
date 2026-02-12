@@ -10,7 +10,7 @@ All endpoints in the API follow REST conventions and use standard HTTP methods. 
 
 See the next sections for more information on how to use the Segment Public API Java SDK.
 
-Latest API and SDK version: 70.0.0
+Latest API and SDK version: 71.0.0
 
 ## Requirements
 
@@ -28,7 +28,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.segment.publicapi</groupId>
   <artifactId>segment-publicapi</artifactId>
-  <version>70.0.0</version>
+  <version>71.0.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -44,7 +44,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.segment.publicapi:segment-publicapi:70.0.0"
+     implementation "com.segment.publicapi:segment-publicapi:71.0.0"
   }
 ```
 
@@ -58,7 +58,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/segment-publicapi-70.0.0.jar`
+* `target/segment-publicapi-71.0.0.jar`
 * `target/lib/*.jar`
 
 You are now ready to start making calls to Public API!
