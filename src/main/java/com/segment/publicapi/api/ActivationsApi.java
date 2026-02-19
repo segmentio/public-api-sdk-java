@@ -205,11 +205,13 @@ public class ActivationsApi {
     }
 
     /**
-     * Add Activation to Audience Creates Activation. • This endpoint is in **Alpha** testing.
-     * Please submit any feedback by sending an email to friends@segment.com. • In order to
-     * successfully call this endpoint, the specified Workspace needs to have the Audience feature
-     * enabled. Please reach out to your customer success manager for more information. • When
-     * called, this endpoint may generate the &#x60;Activation Created&#x60; event in the [audit
+     * Add Activation to Audience Defines how audience data is sent to a Destination. This step
+     * enables the data sync. You must establish a connection (Add Destination to Audience) for this
+     * audience before an Activation can be created. • This endpoint is in **Alpha** testing. Please
+     * submit any feedback by sending an email to friends@segment.com. • In order to successfully
+     * call this endpoint, the specified Workspace needs to have the Audience feature enabled.
+     * Please reach out to your customer success manager for more information. • When called, this
+     * endpoint may generate the &#x60;Activation Created&#x60; event in the [audit
      * trail](/tag/Audit-Trail). The rate limit for this endpoint is 50 requests per minute, which
      * is lower than the default due to access pattern restrictions. Once reached, this endpoint
      * will respond with the 429 HTTP status code with headers indicating the limit parameters. See
@@ -244,11 +246,13 @@ public class ActivationsApi {
     }
 
     /**
-     * Add Activation to Audience Creates Activation. • This endpoint is in **Alpha** testing.
-     * Please submit any feedback by sending an email to friends@segment.com. • In order to
-     * successfully call this endpoint, the specified Workspace needs to have the Audience feature
-     * enabled. Please reach out to your customer success manager for more information. • When
-     * called, this endpoint may generate the &#x60;Activation Created&#x60; event in the [audit
+     * Add Activation to Audience Defines how audience data is sent to a Destination. This step
+     * enables the data sync. You must establish a connection (Add Destination to Audience) for this
+     * audience before an Activation can be created. • This endpoint is in **Alpha** testing. Please
+     * submit any feedback by sending an email to friends@segment.com. • In order to successfully
+     * call this endpoint, the specified Workspace needs to have the Audience feature enabled.
+     * Please reach out to your customer success manager for more information. • When called, this
+     * endpoint may generate the &#x60;Activation Created&#x60; event in the [audit
      * trail](/tag/Audit-Trail). The rate limit for this endpoint is 50 requests per minute, which
      * is lower than the default due to access pattern restrictions. Once reached, this endpoint
      * will respond with the 429 HTTP status code with headers indicating the limit parameters. See
@@ -284,15 +288,18 @@ public class ActivationsApi {
     }
 
     /**
-     * Add Activation to Audience (asynchronously) Creates Activation. • This endpoint is in
-     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
-     * In order to successfully call this endpoint, the specified Workspace needs to have the
-     * Audience feature enabled. Please reach out to your customer success manager for more
-     * information. • When called, this endpoint may generate the &#x60;Activation Created&#x60;
-     * event in the [audit trail](/tag/Audit-Trail). The rate limit for this endpoint is 50 requests
-     * per minute, which is lower than the default due to access pattern restrictions. Once reached,
-     * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
-     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     * Add Activation to Audience (asynchronously) Defines how audience data is sent to a
+     * Destination. This step enables the data sync. You must establish a connection (Add
+     * Destination to Audience) for this audience before an Activation can be created. • This
+     * endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
+     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
+     * needs to have the Audience feature enabled. Please reach out to your customer success manager
+     * for more information. • When called, this endpoint may generate the &#x60;Activation
+     * Created&#x60; event in the [audit trail](/tag/Audit-Trail). The rate limit for this endpoint
+     * is 50 requests per minute, which is lower than the default due to access pattern
+     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
+     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
+     * information.
      *
      * @param spaceId (required)
      * @param audienceId (required)
@@ -449,16 +456,18 @@ public class ActivationsApi {
     }
 
     /**
-     * Add Destination to Audience Adds a Destination to an Audience. • This endpoint is in
-     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
-     * In order to successfully call this endpoint, the specified Workspace needs to have the
-     * Audience feature enabled. Please reach out to your customer success manager for more
-     * information. • When called, this endpoint may generate the &#x60;Destination Added into
-     * Audience&#x60; event in the [audit trail](/tag/Audit-Trail). The rate limit for this endpoint
-     * is 50 requests per minute, which is lower than the default due to access pattern
-     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
-     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
-     * information.
+     * Add Destination to Audience Establishes a connection between an audience and a Destination.
+     * To start syncing data, you must create an Activation for the connection created here. Note
+     * that the Destination must be added to Engage through the Engage Settings page within the App
+     * before creating the connection through the API. • This endpoint is in **Alpha** testing.
+     * Please submit any feedback by sending an email to friends@segment.com. • In order to
+     * successfully call this endpoint, the specified Workspace needs to have the Audience feature
+     * enabled. Please reach out to your customer success manager for more information. • When
+     * called, this endpoint may generate the &#x60;Destination Added into Audience&#x60; event in
+     * the [audit trail](/tag/Audit-Trail). The rate limit for this endpoint is 50 requests per
+     * minute, which is lower than the default due to access pattern restrictions. Once reached,
+     * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
+     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
      * @param audienceId (required)
@@ -487,16 +496,18 @@ public class ActivationsApi {
     }
 
     /**
-     * Add Destination to Audience Adds a Destination to an Audience. • This endpoint is in
-     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
-     * In order to successfully call this endpoint, the specified Workspace needs to have the
-     * Audience feature enabled. Please reach out to your customer success manager for more
-     * information. • When called, this endpoint may generate the &#x60;Destination Added into
-     * Audience&#x60; event in the [audit trail](/tag/Audit-Trail). The rate limit for this endpoint
-     * is 50 requests per minute, which is lower than the default due to access pattern
-     * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
-     * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
-     * information.
+     * Add Destination to Audience Establishes a connection between an audience and a Destination.
+     * To start syncing data, you must create an Activation for the connection created here. Note
+     * that the Destination must be added to Engage through the Engage Settings page within the App
+     * before creating the connection through the API. • This endpoint is in **Alpha** testing.
+     * Please submit any feedback by sending an email to friends@segment.com. • In order to
+     * successfully call this endpoint, the specified Workspace needs to have the Audience feature
+     * enabled. Please reach out to your customer success manager for more information. • When
+     * called, this endpoint may generate the &#x60;Destination Added into Audience&#x60; event in
+     * the [audit trail](/tag/Audit-Trail). The rate limit for this endpoint is 50 requests per
+     * minute, which is lower than the default due to access pattern restrictions. Once reached,
+     * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
+     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
      * @param audienceId (required)
@@ -526,13 +537,16 @@ public class ActivationsApi {
     }
 
     /**
-     * Add Destination to Audience (asynchronously) Adds a Destination to an Audience. • This
-     * endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
-     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
-     * needs to have the Audience feature enabled. Please reach out to your customer success manager
-     * for more information. • When called, this endpoint may generate the &#x60;Destination Added
-     * into Audience&#x60; event in the [audit trail](/tag/Audit-Trail). The rate limit for this
-     * endpoint is 50 requests per minute, which is lower than the default due to access pattern
+     * Add Destination to Audience (asynchronously) Establishes a connection between an audience and
+     * a Destination. To start syncing data, you must create an Activation for the connection
+     * created here. Note that the Destination must be added to Engage through the Engage Settings
+     * page within the App before creating the connection through the API. • This endpoint is in
+     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
+     * In order to successfully call this endpoint, the specified Workspace needs to have the
+     * Audience feature enabled. Please reach out to your customer success manager for more
+     * information. • When called, this endpoint may generate the &#x60;Destination Added into
+     * Audience&#x60; event in the [audit trail](/tag/Audit-Trail). The rate limit for this endpoint
+     * is 50 requests per minute, which is lower than the default due to access pattern
      * restrictions. Once reached, this endpoint will respond with the 429 HTTP status code with
      * headers indicating the limit parameters. See [Rate Limiting](/#tag/Rate-Limits) for more
      * information.

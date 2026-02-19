@@ -48,7 +48,7 @@ public class DestinationInput {
     }
 
     /**
-     * The Destination instance id.
+     * The Destination id. Use the List Destinations endpoint to look up available ids.
      *
      * @return id
      */
@@ -68,7 +68,7 @@ public class DestinationInput {
     }
 
     /**
-     * Type of Destination to add to the audience.
+     * The category of the Destination. Possible values: destination, warehouse.
      *
      * @return type
      */
