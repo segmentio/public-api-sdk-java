@@ -49,7 +49,7 @@ public class DestinationSubscriptionConfiguration {
     }
 
     /**
-     * The action id to instantiate.
+     * The id for the action that Segment should perform on the Destination.
      *
      * @return actionId
      */

@@ -213,7 +213,12 @@ public class ActivationOutput {
     }
 
     /**
-     * Type of activation trigger.
+     * Determines when an event is sent to the Destination. Possible values: Audience Entered: Sends
+     * an event when a profile or entity enters the audience. Audience Exited: Sends an event when a
+     * profile or entity exits the audience. Audience Membership Changed: Sends an event for both
+     * entries and exits. This does not apply to entities. Note that events are sent for the
+     * profile, unless the audience is a Linked Audience. In that case, events are sent for the
+     * target entity defined for that audience.
      *
      * @return activationType
      */
@@ -294,7 +299,7 @@ public class ActivationOutput {
     }
 
     /**
-     * Whether to perform a resync after creation of the activation.
+     * Indicates if a full resync is currently pending or in progress.
      *
      * @return performResync
      */
