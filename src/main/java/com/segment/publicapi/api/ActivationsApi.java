@@ -31,6 +31,8 @@ import com.segment.publicapi.models.RemoveActivationFromAudience200Response;
 import com.segment.publicapi.models.RemoveDestinationFromAudience200Response;
 import com.segment.publicapi.models.UpdateActivationForAudience200Response;
 import com.segment.publicapi.models.UpdateActivationForAudienceAlphaInput;
+import com.segment.publicapi.models.UpdateDestinationForAudience200Response;
+import com.segment.publicapi.models.UpdateDestinationForAudienceAlphaInput;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -2149,6 +2151,265 @@ public class ActivationsApi {
                         spaceId, audienceId, id, updateActivationForAudienceAlphaInput, _callback);
         Type localVarReturnType =
                 new TypeToken<UpdateActivationForAudience200Response>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for updateDestinationForAudience
+     *
+     * @param spaceId (required)
+     * @param audienceId (required)
+     * @param destinationId (required)
+     * @param updateDestinationForAudienceAlphaInput (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call updateDestinationForAudienceCall(
+            String spaceId,
+            String audienceId,
+            String destinationId,
+            UpdateDestinationForAudienceAlphaInput updateDestinationForAudienceAlphaInput,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = updateDestinationForAudienceAlphaInput;
+
+        // create path and map variables
+        String localVarPath =
+                "/spaces/{spaceId}/audiences/{audienceId}/destination-connections/{destinationId}"
+                        .replace(
+                                "{" + "spaceId" + "}",
+                                localVarApiClient.escapeString(spaceId.toString()))
+                        .replace(
+                                "{" + "audienceId" + "}",
+                                localVarApiClient.escapeString(audienceId.toString()))
+                        .replace(
+                                "{" + "destinationId" + "}",
+                                localVarApiClient.escapeString(destinationId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.segment.v1alpha+json", "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/vnd.segment.v1alpha+json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"token"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "PATCH",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateDestinationForAudienceValidateBeforeCall(
+            String spaceId,
+            String audienceId,
+            String destinationId,
+            UpdateDestinationForAudienceAlphaInput updateDestinationForAudienceAlphaInput,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'spaceId' when calling"
+                            + " updateDestinationForAudience(Async)");
+        }
+
+        // verify the required parameter 'audienceId' is set
+        if (audienceId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'audienceId' when calling"
+                            + " updateDestinationForAudience(Async)");
+        }
+
+        // verify the required parameter 'destinationId' is set
+        if (destinationId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'destinationId' when calling"
+                            + " updateDestinationForAudience(Async)");
+        }
+
+        // verify the required parameter 'updateDestinationForAudienceAlphaInput' is set
+        if (updateDestinationForAudienceAlphaInput == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'updateDestinationForAudienceAlphaInput' when"
+                            + " calling updateDestinationForAudience(Async)");
+        }
+
+        return updateDestinationForAudienceCall(
+                spaceId,
+                audienceId,
+                destinationId,
+                updateDestinationForAudienceAlphaInput,
+                _callback);
+    }
+
+    /**
+     * Update Destination for Audience Updates a Destination for an Audience. • This endpoint is in
+     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
+     * In order to successfully call this endpoint, the specified Workspace needs to have the
+     * Audience feature enabled. Please reach out to your customer success manager for more
+     * information. • When called, this endpoint may generate the &#x60;Destination Updated for
+     * Audience&#x60; event in the [audit trail](/tag/Audit-Trail).
+     *
+     * @param spaceId (required)
+     * @param audienceId (required)
+     * @param destinationId (required)
+     * @param updateDestinationForAudienceAlphaInput (required)
+     * @return UpdateDestinationForAudience200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public UpdateDestinationForAudience200Response updateDestinationForAudience(
+            String spaceId,
+            String audienceId,
+            String destinationId,
+            UpdateDestinationForAudienceAlphaInput updateDestinationForAudienceAlphaInput)
+            throws ApiException {
+        ApiResponse<UpdateDestinationForAudience200Response> localVarResp =
+                updateDestinationForAudienceWithHttpInfo(
+                        spaceId, audienceId, destinationId, updateDestinationForAudienceAlphaInput);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update Destination for Audience Updates a Destination for an Audience. • This endpoint is in
+     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com. •
+     * In order to successfully call this endpoint, the specified Workspace needs to have the
+     * Audience feature enabled. Please reach out to your customer success manager for more
+     * information. • When called, this endpoint may generate the &#x60;Destination Updated for
+     * Audience&#x60; event in the [audit trail](/tag/Audit-Trail).
+     *
+     * @param spaceId (required)
+     * @param audienceId (required)
+     * @param destinationId (required)
+     * @param updateDestinationForAudienceAlphaInput (required)
+     * @return ApiResponse&lt;UpdateDestinationForAudience200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<UpdateDestinationForAudience200Response>
+            updateDestinationForAudienceWithHttpInfo(
+                    String spaceId,
+                    String audienceId,
+                    String destinationId,
+                    UpdateDestinationForAudienceAlphaInput updateDestinationForAudienceAlphaInput)
+                    throws ApiException {
+        okhttp3.Call localVarCall =
+                updateDestinationForAudienceValidateBeforeCall(
+                        spaceId,
+                        audienceId,
+                        destinationId,
+                        updateDestinationForAudienceAlphaInput,
+                        null);
+        Type localVarReturnType =
+                new TypeToken<UpdateDestinationForAudience200Response>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update Destination for Audience (asynchronously) Updates a Destination for an Audience. •
+     * This endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
+     * friends@segment.com. • In order to successfully call this endpoint, the specified Workspace
+     * needs to have the Audience feature enabled. Please reach out to your customer success manager
+     * for more information. • When called, this endpoint may generate the &#x60;Destination Updated
+     * for Audience&#x60; event in the [audit trail](/tag/Audit-Trail).
+     *
+     * @param spaceId (required)
+     * @param audienceId (required)
+     * @param destinationId (required)
+     * @param updateDestinationForAudienceAlphaInput (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body
+     *     object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call updateDestinationForAudienceAsync(
+            String spaceId,
+            String audienceId,
+            String destinationId,
+            UpdateDestinationForAudienceAlphaInput updateDestinationForAudienceAlphaInput,
+            final ApiCallback<UpdateDestinationForAudience200Response> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                updateDestinationForAudienceValidateBeforeCall(
+                        spaceId,
+                        audienceId,
+                        destinationId,
+                        updateDestinationForAudienceAlphaInput,
+                        _callback);
+        Type localVarReturnType =
+                new TypeToken<UpdateDestinationForAudience200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
