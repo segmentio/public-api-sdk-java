@@ -13,6 +13,7 @@ All URIs are relative to *https://api.segmentapis.com*
 | [**removeActivationFromAudience**](ActivationsApi.md#removeActivationFromAudience) | **DELETE** /spaces/{spaceId}/audiences/{audienceId}/activations/{id} | Remove Activation from Audience |
 | [**removeDestinationFromAudience**](ActivationsApi.md#removeDestinationFromAudience) | **DELETE** /spaces/{spaceId}/audiences/{audienceId}/destination-connections/{destinationId} | Remove Destination from Audience |
 | [**updateActivationForAudience**](ActivationsApi.md#updateActivationForAudience) | **PATCH** /spaces/{spaceId}/audiences/{audienceId}/activations/{id} | Update Activation for Audience |
+| [**updateDestinationForAudience**](ActivationsApi.md#updateDestinationForAudience) | **PATCH** /spaces/{spaceId}/audiences/{audienceId}/destination-connections/{destinationId} | Update Destination for Audience |
 
 
 
@@ -695,6 +696,85 @@ public class Example {
 ### Return type
 
 [**UpdateActivationForAudience200Response**](UpdateActivationForAudience200Response.md)
+
+### Authorization
+
+[token](../README.md#token)
+
+### HTTP request headers
+
+- **Content-Type**: application/vnd.segment.v1alpha+json
+- **Accept**: application/vnd.segment.v1alpha+json, application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **404** | Resource not found |  -  |
+| **422** | Validation failure |  -  |
+| **429** | Too many requests |  -  |
+
+
+## Operation: updateDestinationForAudience
+
+> UpdateDestinationForAudience200Response updateDestinationForAudience(spaceId, audienceId, destinationId, updateDestinationForAudienceAlphaInput)
+
+Update Destination for Audience
+
+Updates a Destination for an Audience.  • This endpoint is in **Alpha** testing.  Please submit any feedback by sending an email to friends@segment.com.   • In order to successfully call this endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach out to your customer success manager for more information.  • When called, this endpoint may generate the &#x60;Destination Updated for Audience&#x60; event in the [audit trail](/tag/Audit-Trail).
+
+### Example
+
+```java
+// Import classes:
+import com.segment.publicapi.ApiClient;
+import com.segment.publicapi.ApiException;
+import com.segment.publicapi.Configuration;
+import com.segment.publicapi.auth.*;
+import com.segment.publicapi.models.*;
+import com.segment.publicapi.api.ActivationsApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        
+        // Configure HTTP bearer authorization: token
+        HttpBearerAuth token = (HttpBearerAuth) defaultClient.getAuthentication("token");
+        token.setBearerToken("BEARER TOKEN");
+
+        ActivationsApi apiInstance = new ActivationsApi(defaultClient);
+        String spaceId = "spa_9aQ1Lj62S4bomZKLF4DPqW"; // String | 
+        String audienceId = "aud_0ujsszwN8NRY24YaXiTIE2VWDTS"; // String | 
+        String destinationId = "ii_123456789"; // String | 
+        UpdateDestinationForAudienceAlphaInput updateDestinationForAudienceAlphaInput = new UpdateDestinationForAudienceAlphaInput(); // UpdateDestinationForAudienceAlphaInput | 
+        try {
+            UpdateDestinationForAudience200Response result = apiInstance.updateDestinationForAudience(spaceId, audienceId, destinationId, updateDestinationForAudienceAlphaInput);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ActivationsApi#updateDestinationForAudience");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **spaceId** | **String**|  | |
+| **audienceId** | **String**|  | |
+| **destinationId** | **String**|  | |
+| **updateDestinationForAudienceAlphaInput** | [**UpdateDestinationForAudienceAlphaInput**](UpdateDestinationForAudienceAlphaInput.md)|  | |
+
+### Return type
+
+[**UpdateDestinationForAudience200Response**](UpdateDestinationForAudience200Response.md)
 
 ### Authorization
 
