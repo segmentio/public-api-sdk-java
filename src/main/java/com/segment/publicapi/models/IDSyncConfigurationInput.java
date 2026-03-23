@@ -39,6 +39,11 @@ public class IDSyncConfigurationInput {
     @SerializedName(SERIALIZED_NAME_STRATEGY)
     private String strategy;
 
+    public static final String SERIALIZED_NAME_MAP_TO = "mapTo";
+
+    @SerializedName(SERIALIZED_NAME_MAP_TO)
+    private String mapTo;
+
     public IDSyncConfigurationInput() {}
 
     public IDSyncConfigurationInput externalId(String externalId) {
@@ -83,6 +88,27 @@ public class IDSyncConfigurationInput {
         this.strategy = strategy;
     }
 
+    public IDSyncConfigurationInput mapTo(String mapTo) {
+
+        this.mapTo = mapTo;
+        return this;
+    }
+
+    /**
+     * Optional destination-specific identifier to map to (for example,
+     * \&quot;Email_Address_c\&quot;).
+     *
+     * @return mapTo
+     */
+    @javax.annotation.Nullable
+    public String getMapTo() {
+        return mapTo;
+    }
+
+    public void setMapTo(String mapTo) {
+        this.mapTo = mapTo;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -93,12 +119,13 @@ public class IDSyncConfigurationInput {
         }
         IDSyncConfigurationInput idSyncConfigurationInput = (IDSyncConfigurationInput) o;
         return Objects.equals(this.externalId, idSyncConfigurationInput.externalId)
-                && Objects.equals(this.strategy, idSyncConfigurationInput.strategy);
+                && Objects.equals(this.strategy, idSyncConfigurationInput.strategy)
+                && Objects.equals(this.mapTo, idSyncConfigurationInput.mapTo);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(externalId, strategy);
+        return Objects.hash(externalId, strategy, mapTo);
     }
 
     @Override
@@ -107,6 +134,7 @@ public class IDSyncConfigurationInput {
         sb.append("class IDSyncConfigurationInput {\n");
         sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
         sb.append("    strategy: ").append(toIndentedString(strategy)).append("\n");
+        sb.append("    mapTo: ").append(toIndentedString(mapTo)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -130,6 +158,7 @@ public class IDSyncConfigurationInput {
         openapiFields = new HashSet<String>();
         openapiFields.add("externalId");
         openapiFields.add("strategy");
+        openapiFields.add("mapTo");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
@@ -190,6 +219,14 @@ public class IDSyncConfigurationInput {
                             "Expected the field `strategy` to be a primitive type in the JSON"
                                     + " string but got `%s`",
                             jsonObj.get("strategy").toString()));
+        }
+        if ((jsonObj.get("mapTo") != null && !jsonObj.get("mapTo").isJsonNull())
+                && !jsonObj.get("mapTo").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `mapTo` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
+                            jsonObj.get("mapTo").toString()));
         }
     }
 
