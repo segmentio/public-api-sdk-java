@@ -7,7 +7,6 @@ All URIs are relative to *https://api.segmentapis.com*
 | [**createCloudSourceRegulation**](DeletionAndSuppressionApi.md#createCloudSourceRegulation) | **POST** /regulations/cloudsources/{sourceId} | Create Cloud Source Regulation |
 | [**createSourceRegulation**](DeletionAndSuppressionApi.md#createSourceRegulation) | **POST** /regulations/sources/{sourceId} | Create Source Regulation |
 | [**createWorkspaceRegulation**](DeletionAndSuppressionApi.md#createWorkspaceRegulation) | **POST** /regulations | Create Workspace Regulation |
-| [**deleteRegulation**](DeletionAndSuppressionApi.md#deleteRegulation) | **DELETE** /regulations/{regulateId} | Delete Regulation |
 | [**getRegulation**](DeletionAndSuppressionApi.md#getRegulation) | **GET** /regulations/{regulateId} | Get Regulation |
 | [**listRegulationsFromSource**](DeletionAndSuppressionApi.md#listRegulationsFromSource) | **GET** /regulations/sources/{sourceId} | List Regulations from Source |
 | [**listSuppressions**](DeletionAndSuppressionApi.md#listSuppressions) | **GET** /suppressions | List Suppressions |
@@ -233,79 +232,6 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  * X-RateLimit-Remaining - Remaining requests in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Consumed - Number of requests consumed in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Reset - RFC 5322 timestamp indicating when the regulation quota resets for the specific regulation type category. <br>  |
-| **404** | Resource not found |  -  |
-| **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
-
-
-## Operation: deleteRegulation
-
-> DeleteRegulation200Response deleteRegulation(regulateId)
-
-Delete Regulation
-
-Deletes a regulation from the Workspace. The regulation must be in the initialized state to be deleted.    • When called, this endpoint may generate the &#x60;Regulation Deleted&#x60; event in the [audit trail](/tag/Audit-Trail).         **DEPRECATED**: this endpoint has been deprecated according to the guidelines, and may experience reduced SLA guarantees.
-
-### Example
-
-```java
-// Import classes:
-import com.segment.publicapi.ApiClient;
-import com.segment.publicapi.ApiException;
-import com.segment.publicapi.Configuration;
-import com.segment.publicapi.auth.*;
-import com.segment.publicapi.models.*;
-import com.segment.publicapi.api.DeletionAndSuppressionApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        
-        // Configure HTTP bearer authorization: token
-        HttpBearerAuth token = (HttpBearerAuth) defaultClient.getAuthentication("token");
-        token.setBearerToken("BEARER TOKEN");
-
-        DeletionAndSuppressionApi apiInstance = new DeletionAndSuppressionApi(defaultClient);
-        String regulateId = "1qJkfE1tpwvQcklImGksLN629wn"; // String | 
-        try {
-            DeleteRegulation200Response result = apiInstance.deleteRegulation(regulateId);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling DeletionAndSuppressionApi#deleteRegulation");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **regulateId** | **String**|  | |
-
-### Return type
-
-[**DeleteRegulation200Response**](DeleteRegulation200Response.md)
-
-### Authorization
-
-[token](../README.md#token)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
 | **429** | Too many requests |  -  |
