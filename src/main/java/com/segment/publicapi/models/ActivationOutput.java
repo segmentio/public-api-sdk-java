@@ -22,10 +22,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /** A class that encapsulates the complete activation output with full details. */
 public class ActivationOutput {
@@ -68,6 +70,11 @@ public class ActivationOutput {
 
     @SerializedName(SERIALIZED_NAME_ACTIVATION_NAME)
     private String activationName;
+
+    public static final String SERIALIZED_NAME_DISPLAY_NAME = "displayName";
+
+    @SerializedName(SERIALIZED_NAME_DISPLAY_NAME)
+    private String displayName;
 
     public static final String SERIALIZED_NAME_PERSONALIZATION = "personalization";
 
@@ -238,7 +245,7 @@ public class ActivationOutput {
     }
 
     /**
-     * Name of the activation.
+     * Activation name. For Warehouse Destinations, this is the table name.
      *
      * @return activationName
      */
@@ -249,6 +256,27 @@ public class ActivationOutput {
 
     public void setActivationName(String activationName) {
         this.activationName = activationName;
+    }
+
+    public ActivationOutput displayName(String displayName) {
+
+        this.displayName = displayName;
+        return this;
+    }
+
+    /**
+     * Human-readable label for the activation. Only present for Warehouse Destinations that have a
+     * display name configured. When null, the activationName serves as the label.
+     *
+     * @return displayName
+     */
+    @javax.annotation.Nullable
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
     }
 
     public ActivationOutput personalization(PersonalizationInput personalization) {
@@ -329,9 +357,19 @@ public class ActivationOutput {
                 && Objects.equals(this.connectionId, activationOutput.connectionId)
                 && Objects.equals(this.activationType, activationOutput.activationType)
                 && Objects.equals(this.activationName, activationOutput.activationName)
+                && Objects.equals(this.displayName, activationOutput.displayName)
                 && Objects.equals(this.personalization, activationOutput.personalization)
                 && Objects.equals(this.destinationMapping, activationOutput.destinationMapping)
                 && Objects.equals(this.performResync, activationOutput.performResync);
+    }
+
+    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+        return a == b
+                || (a != null
+                        && b != null
+                        && a.isPresent()
+                        && b.isPresent()
+                        && Objects.deepEquals(a.get(), b.get()));
     }
 
     @Override
@@ -345,9 +383,17 @@ public class ActivationOutput {
                 connectionId,
                 activationType,
                 activationName,
+                displayName,
                 personalization,
                 destinationMapping,
                 performResync);
+    }
+
+    private static <T> int hashCodeNullable(JsonNullable<T> a) {
+        if (a == null) {
+            return 1;
+        }
+        return a.isPresent() ? Arrays.deepHashCode(new Object[] {a.get()}) : 31;
     }
 
     @Override
@@ -362,6 +408,7 @@ public class ActivationOutput {
         sb.append("    connectionId: ").append(toIndentedString(connectionId)).append("\n");
         sb.append("    activationType: ").append(toIndentedString(activationType)).append("\n");
         sb.append("    activationName: ").append(toIndentedString(activationName)).append("\n");
+        sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
         sb.append("    personalization: ").append(toIndentedString(personalization)).append("\n");
         sb.append("    destinationMapping: ")
                 .append(toIndentedString(destinationMapping))
@@ -396,6 +443,7 @@ public class ActivationOutput {
         openapiFields.add("connectionId");
         openapiFields.add("activationType");
         openapiFields.add("activationName");
+        openapiFields.add("displayName");
         openapiFields.add("personalization");
         openapiFields.add("destinationMapping");
         openapiFields.add("performResync");
@@ -501,6 +549,14 @@ public class ActivationOutput {
                             "Expected the field `activationName` to be a primitive type in the JSON"
                                     + " string but got `%s`",
                             jsonObj.get("activationName").toString()));
+        }
+        if ((jsonObj.get("displayName") != null && !jsonObj.get("displayName").isJsonNull())
+                && !jsonObj.get("displayName").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `displayName` to be a primitive type in the JSON"
+                                    + " string but got `%s`",
+                            jsonObj.get("displayName").toString()));
         }
         // validate the required field `personalization`
         PersonalizationInput.validateJsonElement(jsonObj.get("personalization"));
