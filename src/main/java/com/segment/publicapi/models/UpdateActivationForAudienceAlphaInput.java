@@ -39,11 +39,6 @@ public class UpdateActivationForAudienceAlphaInput {
     @SerializedName(SERIALIZED_NAME_ACTIVATION_NAME)
     private String activationName;
 
-    public static final String SERIALIZED_NAME_DISPLAY_NAME = "displayName";
-
-    @SerializedName(SERIALIZED_NAME_DISPLAY_NAME)
-    private String displayName;
-
     public static final String SERIALIZED_NAME_PERSONALIZATION = "personalization";
 
     @SerializedName(SERIALIZED_NAME_PERSONALIZATION)
@@ -88,7 +83,7 @@ public class UpdateActivationForAudienceAlphaInput {
     }
 
     /**
-     * Activation name. For Warehouse Destinations, this is used as the table name.
+     * Activation name.
      *
      * @return activationName
      */
@@ -99,27 +94,6 @@ public class UpdateActivationForAudienceAlphaInput {
 
     public void setActivationName(String activationName) {
         this.activationName = activationName;
-    }
-
-    public UpdateActivationForAudienceAlphaInput displayName(String displayName) {
-
-        this.displayName = displayName;
-        return this;
-    }
-
-    /**
-     * Optional human-readable label for the activation. Only supported for Warehouse Destinations.
-     * When omitted, the activationName is used as the label.
-     *
-     * @return displayName
-     */
-    @javax.annotation.Nullable
-    public String getDisplayName() {
-        return displayName;
-    }
-
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
     }
 
     public UpdateActivationForAudienceAlphaInput personalization(
@@ -200,8 +174,6 @@ public class UpdateActivationForAudienceAlphaInput {
                 && Objects.equals(
                         this.activationName, updateActivationForAudienceAlphaInput.activationName)
                 && Objects.equals(
-                        this.displayName, updateActivationForAudienceAlphaInput.displayName)
-                && Objects.equals(
                         this.personalization, updateActivationForAudienceAlphaInput.personalization)
                 && Objects.equals(
                         this.destinationMapping,
@@ -213,12 +185,7 @@ public class UpdateActivationForAudienceAlphaInput {
     @Override
     public int hashCode() {
         return Objects.hash(
-                enabled,
-                activationName,
-                displayName,
-                personalization,
-                destinationMapping,
-                performResync);
+                enabled, activationName, personalization, destinationMapping, performResync);
     }
 
     @Override
@@ -227,7 +194,6 @@ public class UpdateActivationForAudienceAlphaInput {
         sb.append("class UpdateActivationForAudienceAlphaInput {\n");
         sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
         sb.append("    activationName: ").append(toIndentedString(activationName)).append("\n");
-        sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
         sb.append("    personalization: ").append(toIndentedString(personalization)).append("\n");
         sb.append("    destinationMapping: ")
                 .append(toIndentedString(destinationMapping))
@@ -256,7 +222,6 @@ public class UpdateActivationForAudienceAlphaInput {
         openapiFields = new HashSet<String>();
         openapiFields.add("enabled");
         openapiFields.add("activationName");
-        openapiFields.add("displayName");
         openapiFields.add("personalization");
         openapiFields.add("destinationMapping");
         openapiFields.add("performResync");
@@ -305,14 +270,6 @@ public class UpdateActivationForAudienceAlphaInput {
                             "Expected the field `activationName` to be a primitive type in the JSON"
                                     + " string but got `%s`",
                             jsonObj.get("activationName").toString()));
-        }
-        if ((jsonObj.get("displayName") != null && !jsonObj.get("displayName").isJsonNull())
-                && !jsonObj.get("displayName").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `displayName` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
-                            jsonObj.get("displayName").toString()));
         }
         // validate the optional field `personalization`
         if (jsonObj.get("personalization") != null
