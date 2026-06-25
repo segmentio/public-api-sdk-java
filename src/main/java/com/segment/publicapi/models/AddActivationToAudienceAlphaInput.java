@@ -120,11 +120,12 @@ public class AddActivationToAudienceAlphaInput {
      * entries and exits. This does not apply to entities. Entity Added: Sends an event when an
      * entity is added to the audience. Entity Removed: Sends an event when an entity is removed
      * from the audience. Entity Values Changed: Sends an event when an entity&#39;s property values
-     * change. Restricted to freshness-enabled Destinations. All Events: Sends events for all
-     * trigger conditions (enters, exits, and entity value changes for freshness Destinations;
-     * enters and exits only for non-freshness Destinations). Note that events are sent for the
-     * profile, unless the audience is a Linked Audience. In that case, events are sent for the
-     * target entity defined for that audience.
+     * change. All Events: Sends events for all trigger conditions (enters, exits, and entity value
+     * changes). Note that \&quot;Entity Values Changed\&quot; and \&quot;All Events\&quot; require
+     * the data freshness track events feature (the enable-data-freshness-track-events-support flag)
+     * to be enabled for the Workspace; requests using these types are rejected otherwise. Note that
+     * events are sent for the profile, unless the audience is a Linked Audience. In that case,
+     * events are sent for the target entity defined for that audience.
      *
      * @return activationType
      */
