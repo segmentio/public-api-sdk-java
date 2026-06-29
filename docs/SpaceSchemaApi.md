@@ -449,7 +449,7 @@ public class Example {
         String spaceId = "spaceId"; // String | 
         String eventName = "Order Completed"; // String | 
         String propertyName = "revenue"; // String | 
-        String propertyType = "context"; // String | The property type.  This parameter exists in alpha.
+        EventPropertyType propertyType = EventPropertyType.fromValue("CONTEXT"); // EventPropertyType | The property type.  This parameter exists in alpha.
         try {
             ListSampleValuesFromEventProperty200Response result = apiInstance.listSampleValuesFromEventProperty(spaceId, eventName, propertyName, propertyType);
             System.out.println(result);
@@ -472,7 +472,7 @@ public class Example {
 | **spaceId** | **String**|  | |
 | **eventName** | **String**|  | |
 | **propertyName** | **String**|  | |
-| **propertyType** | **String**| The property type.  This parameter exists in alpha. | [enum: context, property] |
+| **propertyType** | [**EventPropertyType**](.md)| The property type.  This parameter exists in alpha. | [enum: CONTEXT, PROPERTY] |
 
 ### Return type
 

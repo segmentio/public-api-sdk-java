@@ -18,6 +18,7 @@ import com.segment.publicapi.ApiException;
 import com.segment.publicapi.ApiResponse;
 import com.segment.publicapi.Configuration;
 import com.segment.publicapi.Pair;
+import com.segment.publicapi.models.EventPropertyType;
 import com.segment.publicapi.models.ListEntityPaths200Response;
 import com.segment.publicapi.models.ListEvents200Response;
 import com.segment.publicapi.models.ListPropertiesFromEntity200Response;
@@ -1396,7 +1397,7 @@ public class SpaceSchemaApi {
             String spaceId,
             String eventName,
             String propertyName,
-            String propertyType,
+            EventPropertyType propertyType,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1473,7 +1474,7 @@ public class SpaceSchemaApi {
             String spaceId,
             String eventName,
             String propertyName,
-            String propertyType,
+            EventPropertyType propertyType,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'spaceId' is set
@@ -1533,7 +1534,7 @@ public class SpaceSchemaApi {
      * </table>
      */
     public ListSampleValuesFromEventProperty200Response listSampleValuesFromEventProperty(
-            String spaceId, String eventName, String propertyName, String propertyType)
+            String spaceId, String eventName, String propertyName, EventPropertyType propertyType)
             throws ApiException {
         ApiResponse<ListSampleValuesFromEventProperty200Response> localVarResp =
                 listSampleValuesFromEventPropertyWithHttpInfo(
@@ -1567,7 +1568,10 @@ public class SpaceSchemaApi {
      */
     public ApiResponse<ListSampleValuesFromEventProperty200Response>
             listSampleValuesFromEventPropertyWithHttpInfo(
-                    String spaceId, String eventName, String propertyName, String propertyType)
+                    String spaceId,
+                    String eventName,
+                    String propertyName,
+                    EventPropertyType propertyType)
                     throws ApiException {
         okhttp3.Call localVarCall =
                 listSampleValuesFromEventPropertyValidateBeforeCall(
@@ -1606,7 +1610,7 @@ public class SpaceSchemaApi {
             String spaceId,
             String eventName,
             String propertyName,
-            String propertyType,
+            EventPropertyType propertyType,
             final ApiCallback<ListSampleValuesFromEventProperty200Response> _callback)
             throws ApiException {
 
