@@ -27,7 +27,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Input to create an activation. */
+/** AddActivationToAudienceAlphaInput */
 public class AddActivationToAudienceAlphaInput {
     public static final String SERIALIZED_NAME_ENABLED = "enabled";
 
@@ -117,9 +117,10 @@ public class AddActivationToAudienceAlphaInput {
      * Determines when an event is sent to the Destination. Possible values: Audience Entered: Sends
      * an event when a profile or entity enters the audience. Audience Exited: Sends an event when a
      * profile or entity exits the audience. Audience Membership Changed: Sends an event for both
-     * entries and exits. This does not apply to entities. Note that events are sent for the
-     * profile, unless the audience is a Linked Audience. In that case, events are sent for the
-     * target entity defined for that audience.
+     * entries and exits. This does not apply to entities. Entity Added: Sends an event when an
+     * entity is added to the audience. Entity Removed: Sends an event when an entity is removed
+     * from the audience. Note that events are sent for the profile, unless the audience is a Linked
+     * Audience. In that case, events are sent for the target entity defined for that audience.
      *
      * @return activationType
      */
