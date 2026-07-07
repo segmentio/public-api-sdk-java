@@ -2004,14 +2004,16 @@ public class SpaceSchemaApi {
      * pagination&lt;/strong&gt;: this endpoint does not support backward traversal. The
      * &lt;code&gt;pagination.previous&lt;/code&gt; field is always absent; use
      * &lt;code&gt;pagination.next&lt;/code&gt; to advance through pages.&lt;/li&gt; &lt;li
-     * style&#x3D;\&quot;margin-bottom: 6px;\&quot;&gt;&lt;strong&gt;Deduplication
-     * guarantee&lt;/strong&gt;: when sorting by &lt;code&gt;lastSeenAt&lt;/code&gt;, results are
-     * fully deduplicated for Spaces with up to 2,500 traits. For Spaces with more than 2,500
-     * traits, duplicate trait entries may appear across pages due to an internal pagination
-     * tradeoff. Sorting by &lt;code&gt;trait&lt;/code&gt; is not affected.&lt;/li&gt; &lt;/ul&gt;
-     * &lt;/div&gt; The rate limit for this endpoint is 25 requests per minute, which is lower than
-     * the default due to access pattern restrictions. Once reached, this endpoint will respond with
-     * the 429 HTTP status code with headers indicating the limit parameters. See [Rate
+     * style&#x3D;\&quot;margin-bottom: 6px;\&quot;&gt;&lt;strong&gt;Approximate total
+     * count&lt;/strong&gt;: &lt;code&gt;pagination.totalEntries&lt;/code&gt; is an upper bound that
+     * decreases as you paginate — the final page reflects the exact deduplicated count.&lt;/li&gt;
+     * &lt;li style&#x3D;\&quot;margin-bottom: 6px;\&quot;&gt;&lt;strong&gt;Duplicate
+     * entries&lt;/strong&gt;: when sorting by &lt;code&gt;lastSeenAt&lt;/code&gt;, duplicate trait
+     * entries may appear across pages for Spaces with more than 2,500 traits. Sorting by
+     * &lt;code&gt;trait&lt;/code&gt; is not affected.&lt;/li&gt; &lt;/ul&gt; &lt;/div&gt; The rate
+     * limit for this endpoint is 25 requests per minute, which is lower than the default due to
+     * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
+     * status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
@@ -2073,14 +2075,16 @@ public class SpaceSchemaApi {
      * pagination&lt;/strong&gt;: this endpoint does not support backward traversal. The
      * &lt;code&gt;pagination.previous&lt;/code&gt; field is always absent; use
      * &lt;code&gt;pagination.next&lt;/code&gt; to advance through pages.&lt;/li&gt; &lt;li
-     * style&#x3D;\&quot;margin-bottom: 6px;\&quot;&gt;&lt;strong&gt;Deduplication
-     * guarantee&lt;/strong&gt;: when sorting by &lt;code&gt;lastSeenAt&lt;/code&gt;, results are
-     * fully deduplicated for Spaces with up to 2,500 traits. For Spaces with more than 2,500
-     * traits, duplicate trait entries may appear across pages due to an internal pagination
-     * tradeoff. Sorting by &lt;code&gt;trait&lt;/code&gt; is not affected.&lt;/li&gt; &lt;/ul&gt;
-     * &lt;/div&gt; The rate limit for this endpoint is 25 requests per minute, which is lower than
-     * the default due to access pattern restrictions. Once reached, this endpoint will respond with
-     * the 429 HTTP status code with headers indicating the limit parameters. See [Rate
+     * style&#x3D;\&quot;margin-bottom: 6px;\&quot;&gt;&lt;strong&gt;Approximate total
+     * count&lt;/strong&gt;: &lt;code&gt;pagination.totalEntries&lt;/code&gt; is an upper bound that
+     * decreases as you paginate — the final page reflects the exact deduplicated count.&lt;/li&gt;
+     * &lt;li style&#x3D;\&quot;margin-bottom: 6px;\&quot;&gt;&lt;strong&gt;Duplicate
+     * entries&lt;/strong&gt;: when sorting by &lt;code&gt;lastSeenAt&lt;/code&gt;, duplicate trait
+     * entries may appear across pages for Spaces with more than 2,500 traits. Sorting by
+     * &lt;code&gt;trait&lt;/code&gt; is not affected.&lt;/li&gt; &lt;/ul&gt; &lt;/div&gt; The rate
+     * limit for this endpoint is 25 requests per minute, which is lower than the default due to
+     * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
+     * status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
@@ -2144,14 +2148,16 @@ public class SpaceSchemaApi {
      * 6px;\&quot;&gt;&lt;strong&gt;Forward-only pagination&lt;/strong&gt;: this endpoint does not
      * support backward traversal. The &lt;code&gt;pagination.previous&lt;/code&gt; field is always
      * absent; use &lt;code&gt;pagination.next&lt;/code&gt; to advance through pages.&lt;/li&gt;
-     * &lt;li style&#x3D;\&quot;margin-bottom: 6px;\&quot;&gt;&lt;strong&gt;Deduplication
-     * guarantee&lt;/strong&gt;: when sorting by &lt;code&gt;lastSeenAt&lt;/code&gt;, results are
-     * fully deduplicated for Spaces with up to 2,500 traits. For Spaces with more than 2,500
-     * traits, duplicate trait entries may appear across pages due to an internal pagination
-     * tradeoff. Sorting by &lt;code&gt;trait&lt;/code&gt; is not affected.&lt;/li&gt; &lt;/ul&gt;
-     * &lt;/div&gt; The rate limit for this endpoint is 25 requests per minute, which is lower than
-     * the default due to access pattern restrictions. Once reached, this endpoint will respond with
-     * the 429 HTTP status code with headers indicating the limit parameters. See [Rate
+     * &lt;li style&#x3D;\&quot;margin-bottom: 6px;\&quot;&gt;&lt;strong&gt;Approximate total
+     * count&lt;/strong&gt;: &lt;code&gt;pagination.totalEntries&lt;/code&gt; is an upper bound that
+     * decreases as you paginate — the final page reflects the exact deduplicated count.&lt;/li&gt;
+     * &lt;li style&#x3D;\&quot;margin-bottom: 6px;\&quot;&gt;&lt;strong&gt;Duplicate
+     * entries&lt;/strong&gt;: when sorting by &lt;code&gt;lastSeenAt&lt;/code&gt;, duplicate trait
+     * entries may appear across pages for Spaces with more than 2,500 traits. Sorting by
+     * &lt;code&gt;trait&lt;/code&gt; is not affected.&lt;/li&gt; &lt;/ul&gt; &lt;/div&gt; The rate
+     * limit for this endpoint is 25 requests per minute, which is lower than the default due to
+     * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
+     * status code with headers indicating the limit parameters. See [Rate
      * Limiting](/#tag/Rate-Limits) for more information.
      *
      * @param spaceId (required)
