@@ -756,6 +756,9 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.EventSourceV1.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.EventTriggeredJourneySummary
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.FQLDefinedPropertyV1.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.Filter.CustomTypeAdapterFactory());
@@ -1074,8 +1077,6 @@ public class JSON {
                 new com.segment.publicapi.models.InviteV1.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.JourneyDefinition.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new com.segment.publicapi.models.JourneySummary.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.LabelAlpha.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(

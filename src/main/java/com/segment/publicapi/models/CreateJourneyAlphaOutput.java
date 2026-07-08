@@ -27,16 +27,16 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Output from create journey. */
+/** Output from create event-triggered journey. */
 public class CreateJourneyAlphaOutput {
     public static final String SERIALIZED_NAME_JOURNEY = "journey";
 
     @SerializedName(SERIALIZED_NAME_JOURNEY)
-    private JourneySummary journey;
+    private EventTriggeredJourneySummary journey;
 
     public CreateJourneyAlphaOutput() {}
 
-    public CreateJourneyAlphaOutput journey(JourneySummary journey) {
+    public CreateJourneyAlphaOutput journey(EventTriggeredJourneySummary journey) {
 
         this.journey = journey;
         return this;
@@ -48,11 +48,11 @@ public class CreateJourneyAlphaOutput {
      * @return journey
      */
     @javax.annotation.Nonnull
-    public JourneySummary getJourney() {
+    public EventTriggeredJourneySummary getJourney() {
         return journey;
     }
 
-    public void setJourney(JourneySummary journey) {
+    public void setJourney(EventTriggeredJourneySummary journey) {
         this.journey = journey;
     }
 
@@ -147,7 +147,7 @@ public class CreateJourneyAlphaOutput {
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the required field `journey`
-        JourneySummary.validateJsonElement(jsonObj.get("journey"));
+        EventTriggeredJourneySummary.validateJsonElement(jsonObj.get("journey"));
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

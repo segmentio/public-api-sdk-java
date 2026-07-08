@@ -28,7 +28,10 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** The XState-format definition of a journey. Passed through to personas-service as-is. */
+/**
+ * The XState-format definition of an event-triggered journey. Passed through to personas-service
+ * as-is.
+ */
 public class JourneyDefinition {
     public static final String SERIALIZED_NAME_INITIAL = "initial";
 

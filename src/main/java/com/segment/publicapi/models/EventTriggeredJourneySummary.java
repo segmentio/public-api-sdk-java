@@ -22,88 +22,64 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Input to create an event-triggered journey. */
-public class CreateJourneyAlphaInput {
-    public static final String SERIALIZED_NAME_NAME = "name";
+/** Summary of a created event-triggered journey draft. */
+public class EventTriggeredJourneySummary {
+    public static final String SERIALIZED_NAME_CONTAINER_ID = "containerId";
 
-    @SerializedName(SERIALIZED_NAME_NAME)
-    private String name;
+    @SerializedName(SERIALIZED_NAME_CONTAINER_ID)
+    private String containerId;
 
-    public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+    public static final String SERIALIZED_NAME_VERSION_NUMBER = "versionNumber";
 
-    @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    private String description;
+    @SerializedName(SERIALIZED_NAME_VERSION_NUMBER)
+    private BigDecimal versionNumber;
 
-    public static final String SERIALIZED_NAME_DEFINITION = "definition";
+    public EventTriggeredJourneySummary() {}
 
-    @SerializedName(SERIALIZED_NAME_DEFINITION)
-    private JourneyDefinition definition;
+    public EventTriggeredJourneySummary containerId(String containerId) {
 
-    public CreateJourneyAlphaInput() {}
-
-    public CreateJourneyAlphaInput name(String name) {
-
-        this.name = name;
+        this.containerId = containerId;
         return this;
     }
 
     /**
-     * Display name for the journey.
+     * Container id of the created journey draft.
      *
-     * @return name
+     * @return containerId
      */
     @javax.annotation.Nonnull
-    public String getName() {
-        return name;
+    public String getContainerId() {
+        return containerId;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setContainerId(String containerId) {
+        this.containerId = containerId;
     }
 
-    public CreateJourneyAlphaInput description(String description) {
+    public EventTriggeredJourneySummary versionNumber(BigDecimal versionNumber) {
 
-        this.description = description;
+        this.versionNumber = versionNumber;
         return this;
     }
 
     /**
-     * Optional description.
+     * Version number of the created draft.
      *
-     * @return description
-     */
-    @javax.annotation.Nullable
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public CreateJourneyAlphaInput definition(JourneyDefinition definition) {
-
-        this.definition = definition;
-        return this;
-    }
-
-    /**
-     * Get definition
-     *
-     * @return definition
+     * @return versionNumber
      */
     @javax.annotation.Nonnull
-    public JourneyDefinition getDefinition() {
-        return definition;
+    public BigDecimal getVersionNumber() {
+        return versionNumber;
     }
 
-    public void setDefinition(JourneyDefinition definition) {
-        this.definition = definition;
+    public void setVersionNumber(BigDecimal versionNumber) {
+        this.versionNumber = versionNumber;
     }
 
     @Override
@@ -114,24 +90,23 @@ public class CreateJourneyAlphaInput {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        CreateJourneyAlphaInput createJourneyAlphaInput = (CreateJourneyAlphaInput) o;
-        return Objects.equals(this.name, createJourneyAlphaInput.name)
-                && Objects.equals(this.description, createJourneyAlphaInput.description)
-                && Objects.equals(this.definition, createJourneyAlphaInput.definition);
+        EventTriggeredJourneySummary eventTriggeredJourneySummary =
+                (EventTriggeredJourneySummary) o;
+        return Objects.equals(this.containerId, eventTriggeredJourneySummary.containerId)
+                && Objects.equals(this.versionNumber, eventTriggeredJourneySummary.versionNumber);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, description, definition);
+        return Objects.hash(containerId, versionNumber);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CreateJourneyAlphaInput {\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    definition: ").append(toIndentedString(definition)).append("\n");
+        sb.append("class EventTriggeredJourneySummary {\n");
+        sb.append("    containerId: ").append(toIndentedString(containerId)).append("\n");
+        sb.append("    versionNumber: ").append(toIndentedString(versionNumber)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -153,48 +128,48 @@ public class CreateJourneyAlphaInput {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("name");
-        openapiFields.add("description");
-        openapiFields.add("definition");
+        openapiFields.add("containerId");
+        openapiFields.add("versionNumber");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("name");
-        openapiRequiredFields.add("definition");
+        openapiRequiredFields.add("containerId");
+        openapiRequiredFields.add("versionNumber");
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to CreateJourneyAlphaInput
+     * @throws IOException if the JSON Element is invalid with respect to
+     *     EventTriggeredJourneySummary
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!CreateJourneyAlphaInput.openapiRequiredFields
+            if (!EventTriggeredJourneySummary.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in CreateJourneyAlphaInput is not found"
-                                        + " in the empty JSON string",
-                                CreateJourneyAlphaInput.openapiRequiredFields.toString()));
+                                "The required field(s) %s in EventTriggeredJourneySummary is not"
+                                        + " found in the empty JSON string",
+                                EventTriggeredJourneySummary.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!CreateJourneyAlphaInput.openapiFields.contains(entry.getKey())) {
+            if (!EventTriggeredJourneySummary.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `CreateJourneyAlphaInput` properties. JSON: %s",
+                                        + " `EventTriggeredJourneySummary` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : CreateJourneyAlphaInput.openapiRequiredFields) {
+        for (String requiredField : EventTriggeredJourneySummary.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -203,48 +178,39 @@ public class CreateJourneyAlphaInput {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if (!jsonObj.get("name").isJsonPrimitive()) {
+        if (!jsonObj.get("containerId").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `name` to be a primitive type in the JSON string"
-                                    + " but got `%s`",
-                            jsonObj.get("name").toString()));
-        }
-        if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull())
-                && !jsonObj.get("description").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `description` to be a primitive type in the JSON"
+                            "Expected the field `containerId` to be a primitive type in the JSON"
                                     + " string but got `%s`",
-                            jsonObj.get("description").toString()));
+                            jsonObj.get("containerId").toString()));
         }
-        // validate the required field `definition`
-        JourneyDefinition.validateJsonElement(jsonObj.get("definition"));
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!CreateJourneyAlphaInput.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'CreateJourneyAlphaInput' and its
+            if (!EventTriggeredJourneySummary.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'EventTriggeredJourneySummary' and its
                 // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<CreateJourneyAlphaInput> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(CreateJourneyAlphaInput.class));
+            final TypeAdapter<EventTriggeredJourneySummary> thisAdapter =
+                    gson.getDelegateAdapter(
+                            this, TypeToken.get(EventTriggeredJourneySummary.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<CreateJourneyAlphaInput>() {
+                    new TypeAdapter<EventTriggeredJourneySummary>() {
                         @Override
-                        public void write(JsonWriter out, CreateJourneyAlphaInput value)
+                        public void write(JsonWriter out, EventTriggeredJourneySummary value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public CreateJourneyAlphaInput read(JsonReader in) throws IOException {
+                        public EventTriggeredJourneySummary read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -254,18 +220,19 @@ public class CreateJourneyAlphaInput {
     }
 
     /**
-     * Create an instance of CreateJourneyAlphaInput given an JSON string
+     * Create an instance of EventTriggeredJourneySummary given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of CreateJourneyAlphaInput
-     * @throws IOException if the JSON string is invalid with respect to CreateJourneyAlphaInput
+     * @return An instance of EventTriggeredJourneySummary
+     * @throws IOException if the JSON string is invalid with respect to
+     *     EventTriggeredJourneySummary
      */
-    public static CreateJourneyAlphaInput fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, CreateJourneyAlphaInput.class);
+    public static EventTriggeredJourneySummary fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, EventTriggeredJourneySummary.class);
     }
 
     /**
-     * Convert an instance of CreateJourneyAlphaInput to an JSON string
+     * Convert an instance of EventTriggeredJourneySummary to an JSON string
      *
      * @return JSON string
      */
