@@ -19,9 +19,14 @@ import com.segment.publicapi.ApiResponse;
 import com.segment.publicapi.Configuration;
 import com.segment.publicapi.Pair;
 import com.segment.publicapi.models.EventPropertyType;
+import com.segment.publicapi.models.ListEntityPaths200Response;
 import com.segment.publicapi.models.ListEvents200Response;
+import com.segment.publicapi.models.ListPropertiesFromEntity200Response;
 import com.segment.publicapi.models.ListPropertiesFromEvent200Response;
+import com.segment.publicapi.models.ListSampleValuesFromEntityProperty200Response;
 import com.segment.publicapi.models.ListSampleValuesFromEventProperty200Response;
+import com.segment.publicapi.models.ListSampleValuesFromTrait200Response;
+import com.segment.publicapi.models.ListTraits200Response;
 import com.segment.publicapi.models.PaginationInput;
 import java.lang.reflect.Type;
 import java.math.BigDecimal;
@@ -65,6 +70,213 @@ public class SpaceSchemaApi {
 
     public void setCustomBaseUrl(String customBaseUrl) {
         this.localCustomBaseUrl = customBaseUrl;
+    }
+
+    /**
+     * Build call for listEntityPaths
+     *
+     * @param spaceId (required)
+     * @param pagination Pagination params. Defaults to count 200. This parameter exists in alpha.
+     *     (optional)
+     * @param search Filter paths by entity name or path name. This parameter exists in alpha.
+     *     (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listEntityPathsCall(
+            String spaceId, PaginationInput pagination, String search, final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/spaces/{spaceId}/entity-paths"
+                        .replace(
+                                "{" + "spaceId" + "}",
+                                localVarApiClient.escapeString(spaceId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (pagination != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pagination", pagination));
+        }
+
+        if (search != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("search", search));
+        }
+
+        final String[] localVarAccepts = {
+            "application/vnd.segment.v1alpha+json", "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"token"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listEntityPathsValidateBeforeCall(
+            String spaceId, PaginationInput pagination, String search, final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'spaceId' when calling listEntityPaths(Async)");
+        }
+
+        return listEntityPathsCall(spaceId, pagination, search, _callback);
+    }
+
+    /**
+     * List Entity Paths Returns a list of Entity Paths for a Space. • This endpoint is in **Alpha**
+     * testing. Please submit any feedback by sending an email to friends@segment.com. The rate
+     * limit for this endpoint is 25 requests per minute, which is lower than the default due to
+     * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
+     * status code with headers indicating the limit parameters. See [Rate
+     * Limiting](/#tag/Rate-Limits) for more information.
+     *
+     * @param spaceId (required)
+     * @param pagination Pagination params. Defaults to count 200. This parameter exists in alpha.
+     *     (optional)
+     * @param search Filter paths by entity name or path name. This parameter exists in alpha.
+     *     (optional)
+     * @return ListEntityPaths200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ListEntityPaths200Response listEntityPaths(
+            String spaceId, PaginationInput pagination, String search) throws ApiException {
+        ApiResponse<ListEntityPaths200Response> localVarResp =
+                listEntityPathsWithHttpInfo(spaceId, pagination, search);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List Entity Paths Returns a list of Entity Paths for a Space. • This endpoint is in **Alpha**
+     * testing. Please submit any feedback by sending an email to friends@segment.com. The rate
+     * limit for this endpoint is 25 requests per minute, which is lower than the default due to
+     * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
+     * status code with headers indicating the limit parameters. See [Rate
+     * Limiting](/#tag/Rate-Limits) for more information.
+     *
+     * @param spaceId (required)
+     * @param pagination Pagination params. Defaults to count 200. This parameter exists in alpha.
+     *     (optional)
+     * @param search Filter paths by entity name or path name. This parameter exists in alpha.
+     *     (optional)
+     * @return ApiResponse&lt;ListEntityPaths200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<ListEntityPaths200Response> listEntityPathsWithHttpInfo(
+            String spaceId, PaginationInput pagination, String search) throws ApiException {
+        okhttp3.Call localVarCall =
+                listEntityPathsValidateBeforeCall(spaceId, pagination, search, null);
+        Type localVarReturnType = new TypeToken<ListEntityPaths200Response>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List Entity Paths (asynchronously) Returns a list of Entity Paths for a Space. • This
+     * endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
+     * friends@segment.com. The rate limit for this endpoint is 25 requests per minute, which is
+     * lower than the default due to access pattern restrictions. Once reached, this endpoint will
+     * respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate
+     * Limiting](/#tag/Rate-Limits) for more information.
+     *
+     * @param spaceId (required)
+     * @param pagination Pagination params. Defaults to count 200. This parameter exists in alpha.
+     *     (optional)
+     * @param search Filter paths by entity name or path name. This parameter exists in alpha.
+     *     (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body
+     *     object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listEntityPathsAsync(
+            String spaceId,
+            PaginationInput pagination,
+            String search,
+            final ApiCallback<ListEntityPaths200Response> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                listEntityPathsValidateBeforeCall(spaceId, pagination, search, _callback);
+        Type localVarReturnType = new TypeToken<ListEntityPaths200Response>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
     }
 
     /**
@@ -313,6 +525,294 @@ public class SpaceSchemaApi {
                 listEventsValidateBeforeCall(
                         spaceId, pagination, sortBy, sortDir, search, _callback);
         Type localVarReturnType = new TypeToken<ListEvents200Response>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for listPropertiesFromEntity
+     *
+     * @param spaceId (required)
+     * @param entitySlug (required)
+     * @param pagination Pagination params. Defaults to count 200. This parameter exists in alpha.
+     *     (optional)
+     * @param includeSampleValues When true, include sample values for each property. Defaults to
+     *     false. This parameter exists in alpha. (optional)
+     * @param samplesCount Max number of sample values to return per property. Defaults to 20, min
+     *     1, max 100. This parameter exists in alpha. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listPropertiesFromEntityCall(
+            String spaceId,
+            String entitySlug,
+            PaginationInput pagination,
+            Boolean includeSampleValues,
+            BigDecimal samplesCount,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/spaces/{spaceId}/entities/{entitySlug}/properties"
+                        .replace(
+                                "{" + "spaceId" + "}",
+                                localVarApiClient.escapeString(spaceId.toString()))
+                        .replace(
+                                "{" + "entitySlug" + "}",
+                                localVarApiClient.escapeString(entitySlug.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (pagination != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pagination", pagination));
+        }
+
+        if (includeSampleValues != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("includeSampleValues", includeSampleValues));
+        }
+
+        if (samplesCount != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("samplesCount", samplesCount));
+        }
+
+        final String[] localVarAccepts = {
+            "application/vnd.segment.v1alpha+json", "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"token"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listPropertiesFromEntityValidateBeforeCall(
+            String spaceId,
+            String entitySlug,
+            PaginationInput pagination,
+            Boolean includeSampleValues,
+            BigDecimal samplesCount,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'spaceId' when calling"
+                            + " listPropertiesFromEntity(Async)");
+        }
+
+        // verify the required parameter 'entitySlug' is set
+        if (entitySlug == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'entitySlug' when calling"
+                            + " listPropertiesFromEntity(Async)");
+        }
+
+        return listPropertiesFromEntityCall(
+                spaceId, entitySlug, pagination, includeSampleValues, samplesCount, _callback);
+    }
+
+    /**
+     * List Properties from Entity Returns a list of Properties for an Entity in a Space. • This
+     * endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
+     * friends@segment.com. &lt;div style&#x3D;\&quot;background-color: #e8f4fd; border: 1px solid
+     * #90caf9; border-radius: 6px; padding: 16px; margin: 16px 0; color: #0d47a1; line-height:
+     * 1.5;\&quot;&gt; &lt;ul style&#x3D;\&quot;margin: 0; padding-left: 20px; font-size:
+     * 13px;\&quot;&gt; &lt;li style&#x3D;\&quot;margin-bottom:
+     * 6px;\&quot;&gt;&lt;strong&gt;Forward-only pagination&lt;/strong&gt;: this endpoint does not
+     * support backward traversal. The &lt;code&gt;pagination.previous&lt;/code&gt; field is always
+     * absent; use &lt;code&gt;pagination.next&lt;/code&gt; to advance through pages.&lt;/li&gt;
+     * &lt;/ul&gt; &lt;/div&gt; The rate limit for this endpoint is 25 requests per minute, which is
+     * lower than the default due to access pattern restrictions. Once reached, this endpoint will
+     * respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate
+     * Limiting](/#tag/Rate-Limits) for more information.
+     *
+     * @param spaceId (required)
+     * @param entitySlug (required)
+     * @param pagination Pagination params. Defaults to count 200. This parameter exists in alpha.
+     *     (optional)
+     * @param includeSampleValues When true, include sample values for each property. Defaults to
+     *     false. This parameter exists in alpha. (optional)
+     * @param samplesCount Max number of sample values to return per property. Defaults to 20, min
+     *     1, max 100. This parameter exists in alpha. (optional)
+     * @return ListPropertiesFromEntity200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ListPropertiesFromEntity200Response listPropertiesFromEntity(
+            String spaceId,
+            String entitySlug,
+            PaginationInput pagination,
+            Boolean includeSampleValues,
+            BigDecimal samplesCount)
+            throws ApiException {
+        ApiResponse<ListPropertiesFromEntity200Response> localVarResp =
+                listPropertiesFromEntityWithHttpInfo(
+                        spaceId, entitySlug, pagination, includeSampleValues, samplesCount);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List Properties from Entity Returns a list of Properties for an Entity in a Space. • This
+     * endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
+     * friends@segment.com. &lt;div style&#x3D;\&quot;background-color: #e8f4fd; border: 1px solid
+     * #90caf9; border-radius: 6px; padding: 16px; margin: 16px 0; color: #0d47a1; line-height:
+     * 1.5;\&quot;&gt; &lt;ul style&#x3D;\&quot;margin: 0; padding-left: 20px; font-size:
+     * 13px;\&quot;&gt; &lt;li style&#x3D;\&quot;margin-bottom:
+     * 6px;\&quot;&gt;&lt;strong&gt;Forward-only pagination&lt;/strong&gt;: this endpoint does not
+     * support backward traversal. The &lt;code&gt;pagination.previous&lt;/code&gt; field is always
+     * absent; use &lt;code&gt;pagination.next&lt;/code&gt; to advance through pages.&lt;/li&gt;
+     * &lt;/ul&gt; &lt;/div&gt; The rate limit for this endpoint is 25 requests per minute, which is
+     * lower than the default due to access pattern restrictions. Once reached, this endpoint will
+     * respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate
+     * Limiting](/#tag/Rate-Limits) for more information.
+     *
+     * @param spaceId (required)
+     * @param entitySlug (required)
+     * @param pagination Pagination params. Defaults to count 200. This parameter exists in alpha.
+     *     (optional)
+     * @param includeSampleValues When true, include sample values for each property. Defaults to
+     *     false. This parameter exists in alpha. (optional)
+     * @param samplesCount Max number of sample values to return per property. Defaults to 20, min
+     *     1, max 100. This parameter exists in alpha. (optional)
+     * @return ApiResponse&lt;ListPropertiesFromEntity200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<ListPropertiesFromEntity200Response> listPropertiesFromEntityWithHttpInfo(
+            String spaceId,
+            String entitySlug,
+            PaginationInput pagination,
+            Boolean includeSampleValues,
+            BigDecimal samplesCount)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                listPropertiesFromEntityValidateBeforeCall(
+                        spaceId, entitySlug, pagination, includeSampleValues, samplesCount, null);
+        Type localVarReturnType = new TypeToken<ListPropertiesFromEntity200Response>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List Properties from Entity (asynchronously) Returns a list of Properties for an Entity in a
+     * Space. • This endpoint is in **Alpha** testing. Please submit any feedback by sending an
+     * email to friends@segment.com. &lt;div style&#x3D;\&quot;background-color: #e8f4fd; border:
+     * 1px solid #90caf9; border-radius: 6px; padding: 16px; margin: 16px 0; color: #0d47a1;
+     * line-height: 1.5;\&quot;&gt; &lt;ul style&#x3D;\&quot;margin: 0; padding-left: 20px;
+     * font-size: 13px;\&quot;&gt; &lt;li style&#x3D;\&quot;margin-bottom:
+     * 6px;\&quot;&gt;&lt;strong&gt;Forward-only pagination&lt;/strong&gt;: this endpoint does not
+     * support backward traversal. The &lt;code&gt;pagination.previous&lt;/code&gt; field is always
+     * absent; use &lt;code&gt;pagination.next&lt;/code&gt; to advance through pages.&lt;/li&gt;
+     * &lt;/ul&gt; &lt;/div&gt; The rate limit for this endpoint is 25 requests per minute, which is
+     * lower than the default due to access pattern restrictions. Once reached, this endpoint will
+     * respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate
+     * Limiting](/#tag/Rate-Limits) for more information.
+     *
+     * @param spaceId (required)
+     * @param entitySlug (required)
+     * @param pagination Pagination params. Defaults to count 200. This parameter exists in alpha.
+     *     (optional)
+     * @param includeSampleValues When true, include sample values for each property. Defaults to
+     *     false. This parameter exists in alpha. (optional)
+     * @param samplesCount Max number of sample values to return per property. Defaults to 20, min
+     *     1, max 100. This parameter exists in alpha. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body
+     *     object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listPropertiesFromEntityAsync(
+            String spaceId,
+            String entitySlug,
+            PaginationInput pagination,
+            Boolean includeSampleValues,
+            BigDecimal samplesCount,
+            final ApiCallback<ListPropertiesFromEntity200Response> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                listPropertiesFromEntityValidateBeforeCall(
+                        spaceId,
+                        entitySlug,
+                        pagination,
+                        includeSampleValues,
+                        samplesCount,
+                        _callback);
+        Type localVarReturnType = new TypeToken<ListPropertiesFromEntity200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -658,6 +1158,223 @@ public class SpaceSchemaApi {
     }
 
     /**
+     * Build call for listSampleValuesFromEntityProperty
+     *
+     * @param spaceId (required)
+     * @param entitySlug (required)
+     * @param propertyName (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listSampleValuesFromEntityPropertyCall(
+            String spaceId, String entitySlug, String propertyName, final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/spaces/{spaceId}/entities/{entitySlug}/properties/{propertyName}/sample-values"
+                        .replace(
+                                "{" + "spaceId" + "}",
+                                localVarApiClient.escapeString(spaceId.toString()))
+                        .replace(
+                                "{" + "entitySlug" + "}",
+                                localVarApiClient.escapeString(entitySlug.toString()))
+                        .replace(
+                                "{" + "propertyName" + "}",
+                                localVarApiClient.escapeString(propertyName.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.segment.v1alpha+json", "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"token"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listSampleValuesFromEntityPropertyValidateBeforeCall(
+            String spaceId, String entitySlug, String propertyName, final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'spaceId' when calling"
+                            + " listSampleValuesFromEntityProperty(Async)");
+        }
+
+        // verify the required parameter 'entitySlug' is set
+        if (entitySlug == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'entitySlug' when calling"
+                            + " listSampleValuesFromEntityProperty(Async)");
+        }
+
+        // verify the required parameter 'propertyName' is set
+        if (propertyName == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'propertyName' when calling"
+                            + " listSampleValuesFromEntityProperty(Async)");
+        }
+
+        return listSampleValuesFromEntityPropertyCall(spaceId, entitySlug, propertyName, _callback);
+    }
+
+    /**
+     * List Sample Values from Entity Property Returns sample values for an Entity Property in a
+     * Space. • This endpoint is in **Alpha** testing. Please submit any feedback by sending an
+     * email to friends@segment.com. The rate limit for this endpoint is 25 requests per minute,
+     * which is lower than the default due to access pattern restrictions. Once reached, this
+     * endpoint will respond with the 429 HTTP status code with headers indicating the limit
+     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     *
+     * @param spaceId (required)
+     * @param entitySlug (required)
+     * @param propertyName (required)
+     * @return ListSampleValuesFromEntityProperty200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ListSampleValuesFromEntityProperty200Response listSampleValuesFromEntityProperty(
+            String spaceId, String entitySlug, String propertyName) throws ApiException {
+        ApiResponse<ListSampleValuesFromEntityProperty200Response> localVarResp =
+                listSampleValuesFromEntityPropertyWithHttpInfo(spaceId, entitySlug, propertyName);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List Sample Values from Entity Property Returns sample values for an Entity Property in a
+     * Space. • This endpoint is in **Alpha** testing. Please submit any feedback by sending an
+     * email to friends@segment.com. The rate limit for this endpoint is 25 requests per minute,
+     * which is lower than the default due to access pattern restrictions. Once reached, this
+     * endpoint will respond with the 429 HTTP status code with headers indicating the limit
+     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     *
+     * @param spaceId (required)
+     * @param entitySlug (required)
+     * @param propertyName (required)
+     * @return ApiResponse&lt;ListSampleValuesFromEntityProperty200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<ListSampleValuesFromEntityProperty200Response>
+            listSampleValuesFromEntityPropertyWithHttpInfo(
+                    String spaceId, String entitySlug, String propertyName) throws ApiException {
+        okhttp3.Call localVarCall =
+                listSampleValuesFromEntityPropertyValidateBeforeCall(
+                        spaceId, entitySlug, propertyName, null);
+        Type localVarReturnType =
+                new TypeToken<ListSampleValuesFromEntityProperty200Response>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List Sample Values from Entity Property (asynchronously) Returns sample values for an Entity
+     * Property in a Space. • This endpoint is in **Alpha** testing. Please submit any feedback by
+     * sending an email to friends@segment.com. The rate limit for this endpoint is 25 requests per
+     * minute, which is lower than the default due to access pattern restrictions. Once reached,
+     * this endpoint will respond with the 429 HTTP status code with headers indicating the limit
+     * parameters. See [Rate Limiting](/#tag/Rate-Limits) for more information.
+     *
+     * @param spaceId (required)
+     * @param entitySlug (required)
+     * @param propertyName (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body
+     *     object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listSampleValuesFromEntityPropertyAsync(
+            String spaceId,
+            String entitySlug,
+            String propertyName,
+            final ApiCallback<ListSampleValuesFromEntityProperty200Response> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                listSampleValuesFromEntityPropertyValidateBeforeCall(
+                        spaceId, entitySlug, propertyName, _callback);
+        Type localVarReturnType =
+                new TypeToken<ListSampleValuesFromEntityProperty200Response>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
      * Build call for listSampleValuesFromEventProperty
      *
      * @param spaceId (required)
@@ -902,6 +1619,598 @@ public class SpaceSchemaApi {
                         spaceId, eventName, propertyName, propertyType, _callback);
         Type localVarReturnType =
                 new TypeToken<ListSampleValuesFromEventProperty200Response>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for listSampleValuesFromTrait
+     *
+     * @param spaceId (required)
+     * @param traitKey (required)
+     * @param collection Collection to get trait values for. Defaults to &#39;users&#39;. This
+     *     parameter exists in alpha. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listSampleValuesFromTraitCall(
+            String spaceId, String traitKey, String collection, final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/spaces/{spaceId}/traits/{traitKey}/sample-values"
+                        .replace(
+                                "{" + "spaceId" + "}",
+                                localVarApiClient.escapeString(spaceId.toString()))
+                        .replace(
+                                "{" + "traitKey" + "}",
+                                localVarApiClient.escapeString(traitKey.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (collection != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("collection", collection));
+        }
+
+        final String[] localVarAccepts = {
+            "application/vnd.segment.v1alpha+json", "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"token"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listSampleValuesFromTraitValidateBeforeCall(
+            String spaceId, String traitKey, String collection, final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'spaceId' when calling"
+                            + " listSampleValuesFromTrait(Async)");
+        }
+
+        // verify the required parameter 'traitKey' is set
+        if (traitKey == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'traitKey' when calling"
+                            + " listSampleValuesFromTrait(Async)");
+        }
+
+        return listSampleValuesFromTraitCall(spaceId, traitKey, collection, _callback);
+    }
+
+    /**
+     * List Sample Values from Trait Returns sample values for a Trait in a Space. • This endpoint
+     * is in **Alpha** testing. Please submit any feedback by sending an email to
+     * friends@segment.com. The rate limit for this endpoint is 25 requests per minute, which is
+     * lower than the default due to access pattern restrictions. Once reached, this endpoint will
+     * respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate
+     * Limiting](/#tag/Rate-Limits) for more information.
+     *
+     * @param spaceId (required)
+     * @param traitKey (required)
+     * @param collection Collection to get trait values for. Defaults to &#39;users&#39;. This
+     *     parameter exists in alpha. (optional)
+     * @return ListSampleValuesFromTrait200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ListSampleValuesFromTrait200Response listSampleValuesFromTrait(
+            String spaceId, String traitKey, String collection) throws ApiException {
+        ApiResponse<ListSampleValuesFromTrait200Response> localVarResp =
+                listSampleValuesFromTraitWithHttpInfo(spaceId, traitKey, collection);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List Sample Values from Trait Returns sample values for a Trait in a Space. • This endpoint
+     * is in **Alpha** testing. Please submit any feedback by sending an email to
+     * friends@segment.com. The rate limit for this endpoint is 25 requests per minute, which is
+     * lower than the default due to access pattern restrictions. Once reached, this endpoint will
+     * respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate
+     * Limiting](/#tag/Rate-Limits) for more information.
+     *
+     * @param spaceId (required)
+     * @param traitKey (required)
+     * @param collection Collection to get trait values for. Defaults to &#39;users&#39;. This
+     *     parameter exists in alpha. (optional)
+     * @return ApiResponse&lt;ListSampleValuesFromTrait200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<ListSampleValuesFromTrait200Response> listSampleValuesFromTraitWithHttpInfo(
+            String spaceId, String traitKey, String collection) throws ApiException {
+        okhttp3.Call localVarCall =
+                listSampleValuesFromTraitValidateBeforeCall(spaceId, traitKey, collection, null);
+        Type localVarReturnType =
+                new TypeToken<ListSampleValuesFromTrait200Response>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List Sample Values from Trait (asynchronously) Returns sample values for a Trait in a Space.
+     * • This endpoint is in **Alpha** testing. Please submit any feedback by sending an email to
+     * friends@segment.com. The rate limit for this endpoint is 25 requests per minute, which is
+     * lower than the default due to access pattern restrictions. Once reached, this endpoint will
+     * respond with the 429 HTTP status code with headers indicating the limit parameters. See [Rate
+     * Limiting](/#tag/Rate-Limits) for more information.
+     *
+     * @param spaceId (required)
+     * @param traitKey (required)
+     * @param collection Collection to get trait values for. Defaults to &#39;users&#39;. This
+     *     parameter exists in alpha. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body
+     *     object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listSampleValuesFromTraitAsync(
+            String spaceId,
+            String traitKey,
+            String collection,
+            final ApiCallback<ListSampleValuesFromTrait200Response> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                listSampleValuesFromTraitValidateBeforeCall(
+                        spaceId, traitKey, collection, _callback);
+        Type localVarReturnType =
+                new TypeToken<ListSampleValuesFromTrait200Response>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for listTraits
+     *
+     * @param spaceId (required)
+     * @param pagination Pagination params. Defaults to count 200. This parameter exists in alpha.
+     *     (optional)
+     * @param sortBy Field to sort by. Defaults to &#39;trait&#39;. This parameter exists in alpha.
+     *     (optional)
+     * @param sortDir Sort direction. Defaults to &#39;asc&#39;. This parameter exists in alpha.
+     *     (optional)
+     * @param search Filter traits by key substring. This parameter exists in alpha. (optional)
+     * @param collection Collection to list traits for. Defaults to &#39;users&#39;. This parameter
+     *     exists in alpha. (optional)
+     * @param includeSampleValues When true, include sample values for each trait. Defaults to
+     *     false. This parameter exists in alpha. (optional)
+     * @param samplesCount Max number of sample values to return per trait. Defaults to 20, min 1,
+     *     max 100. This parameter exists in alpha. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listTraitsCall(
+            String spaceId,
+            PaginationInput pagination,
+            String sortBy,
+            String sortDir,
+            String search,
+            String collection,
+            Boolean includeSampleValues,
+            BigDecimal samplesCount,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/spaces/{spaceId}/traits"
+                        .replace(
+                                "{" + "spaceId" + "}",
+                                localVarApiClient.escapeString(spaceId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (pagination != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pagination", pagination));
+        }
+
+        if (sortBy != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sortBy", sortBy));
+        }
+
+        if (sortDir != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sortDir", sortDir));
+        }
+
+        if (search != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("search", search));
+        }
+
+        if (collection != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("collection", collection));
+        }
+
+        if (includeSampleValues != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("includeSampleValues", includeSampleValues));
+        }
+
+        if (samplesCount != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("samplesCount", samplesCount));
+        }
+
+        final String[] localVarAccepts = {
+            "application/vnd.segment.v1alpha+json", "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"token"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listTraitsValidateBeforeCall(
+            String spaceId,
+            PaginationInput pagination,
+            String sortBy,
+            String sortDir,
+            String search,
+            String collection,
+            Boolean includeSampleValues,
+            BigDecimal samplesCount,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'spaceId' when calling listTraits(Async)");
+        }
+
+        return listTraitsCall(
+                spaceId,
+                pagination,
+                sortBy,
+                sortDir,
+                search,
+                collection,
+                includeSampleValues,
+                samplesCount,
+                _callback);
+    }
+
+    /**
+     * List Traits Returns a list of Traits for a Space. • This endpoint is in **Alpha** testing.
+     * Please submit any feedback by sending an email to friends@segment.com. &lt;div
+     * style&#x3D;\&quot;background-color: #e8f4fd; border: 1px solid #90caf9; border-radius: 6px;
+     * padding: 16px; margin: 16px 0; color: #0d47a1; line-height: 1.5;\&quot;&gt; &lt;ul
+     * style&#x3D;\&quot;margin: 0; padding-left: 20px; font-size: 13px;\&quot;&gt; &lt;li
+     * style&#x3D;\&quot;margin-bottom: 6px;\&quot;&gt;&lt;strong&gt;Forward-only
+     * pagination&lt;/strong&gt;: this endpoint does not support backward traversal. The
+     * &lt;code&gt;pagination.previous&lt;/code&gt; field is always absent; use
+     * &lt;code&gt;pagination.next&lt;/code&gt; to advance through pages.&lt;/li&gt; &lt;li
+     * style&#x3D;\&quot;margin-bottom: 6px;\&quot;&gt;&lt;strong&gt;Approximate total
+     * count&lt;/strong&gt;: &lt;code&gt;pagination.totalEntries&lt;/code&gt; is an upper bound that
+     * decreases as you paginate — the final page reflects the exact deduplicated count.&lt;/li&gt;
+     * &lt;li style&#x3D;\&quot;margin-bottom: 6px;\&quot;&gt;&lt;strong&gt;Duplicate
+     * entries&lt;/strong&gt;: when sorting by &lt;code&gt;lastSeenAt&lt;/code&gt;, duplicate trait
+     * entries may appear across pages for Spaces with more than 2,500 traits. Sorting by
+     * &lt;code&gt;trait&lt;/code&gt; is not affected.&lt;/li&gt; &lt;/ul&gt; &lt;/div&gt; The rate
+     * limit for this endpoint is 25 requests per minute, which is lower than the default due to
+     * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
+     * status code with headers indicating the limit parameters. See [Rate
+     * Limiting](/#tag/Rate-Limits) for more information.
+     *
+     * @param spaceId (required)
+     * @param pagination Pagination params. Defaults to count 200. This parameter exists in alpha.
+     *     (optional)
+     * @param sortBy Field to sort by. Defaults to &#39;trait&#39;. This parameter exists in alpha.
+     *     (optional)
+     * @param sortDir Sort direction. Defaults to &#39;asc&#39;. This parameter exists in alpha.
+     *     (optional)
+     * @param search Filter traits by key substring. This parameter exists in alpha. (optional)
+     * @param collection Collection to list traits for. Defaults to &#39;users&#39;. This parameter
+     *     exists in alpha. (optional)
+     * @param includeSampleValues When true, include sample values for each trait. Defaults to
+     *     false. This parameter exists in alpha. (optional)
+     * @param samplesCount Max number of sample values to return per trait. Defaults to 20, min 1,
+     *     max 100. This parameter exists in alpha. (optional)
+     * @return ListTraits200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ListTraits200Response listTraits(
+            String spaceId,
+            PaginationInput pagination,
+            String sortBy,
+            String sortDir,
+            String search,
+            String collection,
+            Boolean includeSampleValues,
+            BigDecimal samplesCount)
+            throws ApiException {
+        ApiResponse<ListTraits200Response> localVarResp =
+                listTraitsWithHttpInfo(
+                        spaceId,
+                        pagination,
+                        sortBy,
+                        sortDir,
+                        search,
+                        collection,
+                        includeSampleValues,
+                        samplesCount);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List Traits Returns a list of Traits for a Space. • This endpoint is in **Alpha** testing.
+     * Please submit any feedback by sending an email to friends@segment.com. &lt;div
+     * style&#x3D;\&quot;background-color: #e8f4fd; border: 1px solid #90caf9; border-radius: 6px;
+     * padding: 16px; margin: 16px 0; color: #0d47a1; line-height: 1.5;\&quot;&gt; &lt;ul
+     * style&#x3D;\&quot;margin: 0; padding-left: 20px; font-size: 13px;\&quot;&gt; &lt;li
+     * style&#x3D;\&quot;margin-bottom: 6px;\&quot;&gt;&lt;strong&gt;Forward-only
+     * pagination&lt;/strong&gt;: this endpoint does not support backward traversal. The
+     * &lt;code&gt;pagination.previous&lt;/code&gt; field is always absent; use
+     * &lt;code&gt;pagination.next&lt;/code&gt; to advance through pages.&lt;/li&gt; &lt;li
+     * style&#x3D;\&quot;margin-bottom: 6px;\&quot;&gt;&lt;strong&gt;Approximate total
+     * count&lt;/strong&gt;: &lt;code&gt;pagination.totalEntries&lt;/code&gt; is an upper bound that
+     * decreases as you paginate — the final page reflects the exact deduplicated count.&lt;/li&gt;
+     * &lt;li style&#x3D;\&quot;margin-bottom: 6px;\&quot;&gt;&lt;strong&gt;Duplicate
+     * entries&lt;/strong&gt;: when sorting by &lt;code&gt;lastSeenAt&lt;/code&gt;, duplicate trait
+     * entries may appear across pages for Spaces with more than 2,500 traits. Sorting by
+     * &lt;code&gt;trait&lt;/code&gt; is not affected.&lt;/li&gt; &lt;/ul&gt; &lt;/div&gt; The rate
+     * limit for this endpoint is 25 requests per minute, which is lower than the default due to
+     * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
+     * status code with headers indicating the limit parameters. See [Rate
+     * Limiting](/#tag/Rate-Limits) for more information.
+     *
+     * @param spaceId (required)
+     * @param pagination Pagination params. Defaults to count 200. This parameter exists in alpha.
+     *     (optional)
+     * @param sortBy Field to sort by. Defaults to &#39;trait&#39;. This parameter exists in alpha.
+     *     (optional)
+     * @param sortDir Sort direction. Defaults to &#39;asc&#39;. This parameter exists in alpha.
+     *     (optional)
+     * @param search Filter traits by key substring. This parameter exists in alpha. (optional)
+     * @param collection Collection to list traits for. Defaults to &#39;users&#39;. This parameter
+     *     exists in alpha. (optional)
+     * @param includeSampleValues When true, include sample values for each trait. Defaults to
+     *     false. This parameter exists in alpha. (optional)
+     * @param samplesCount Max number of sample values to return per trait. Defaults to 20, min 1,
+     *     max 100. This parameter exists in alpha. (optional)
+     * @return ApiResponse&lt;ListTraits200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<ListTraits200Response> listTraitsWithHttpInfo(
+            String spaceId,
+            PaginationInput pagination,
+            String sortBy,
+            String sortDir,
+            String search,
+            String collection,
+            Boolean includeSampleValues,
+            BigDecimal samplesCount)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                listTraitsValidateBeforeCall(
+                        spaceId,
+                        pagination,
+                        sortBy,
+                        sortDir,
+                        search,
+                        collection,
+                        includeSampleValues,
+                        samplesCount,
+                        null);
+        Type localVarReturnType = new TypeToken<ListTraits200Response>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List Traits (asynchronously) Returns a list of Traits for a Space. • This endpoint is in
+     * **Alpha** testing. Please submit any feedback by sending an email to friends@segment.com.
+     * &lt;div style&#x3D;\&quot;background-color: #e8f4fd; border: 1px solid #90caf9;
+     * border-radius: 6px; padding: 16px; margin: 16px 0; color: #0d47a1; line-height:
+     * 1.5;\&quot;&gt; &lt;ul style&#x3D;\&quot;margin: 0; padding-left: 20px; font-size:
+     * 13px;\&quot;&gt; &lt;li style&#x3D;\&quot;margin-bottom:
+     * 6px;\&quot;&gt;&lt;strong&gt;Forward-only pagination&lt;/strong&gt;: this endpoint does not
+     * support backward traversal. The &lt;code&gt;pagination.previous&lt;/code&gt; field is always
+     * absent; use &lt;code&gt;pagination.next&lt;/code&gt; to advance through pages.&lt;/li&gt;
+     * &lt;li style&#x3D;\&quot;margin-bottom: 6px;\&quot;&gt;&lt;strong&gt;Approximate total
+     * count&lt;/strong&gt;: &lt;code&gt;pagination.totalEntries&lt;/code&gt; is an upper bound that
+     * decreases as you paginate — the final page reflects the exact deduplicated count.&lt;/li&gt;
+     * &lt;li style&#x3D;\&quot;margin-bottom: 6px;\&quot;&gt;&lt;strong&gt;Duplicate
+     * entries&lt;/strong&gt;: when sorting by &lt;code&gt;lastSeenAt&lt;/code&gt;, duplicate trait
+     * entries may appear across pages for Spaces with more than 2,500 traits. Sorting by
+     * &lt;code&gt;trait&lt;/code&gt; is not affected.&lt;/li&gt; &lt;/ul&gt; &lt;/div&gt; The rate
+     * limit for this endpoint is 25 requests per minute, which is lower than the default due to
+     * access pattern restrictions. Once reached, this endpoint will respond with the 429 HTTP
+     * status code with headers indicating the limit parameters. See [Rate
+     * Limiting](/#tag/Rate-Limits) for more information.
+     *
+     * @param spaceId (required)
+     * @param pagination Pagination params. Defaults to count 200. This parameter exists in alpha.
+     *     (optional)
+     * @param sortBy Field to sort by. Defaults to &#39;trait&#39;. This parameter exists in alpha.
+     *     (optional)
+     * @param sortDir Sort direction. Defaults to &#39;asc&#39;. This parameter exists in alpha.
+     *     (optional)
+     * @param search Filter traits by key substring. This parameter exists in alpha. (optional)
+     * @param collection Collection to list traits for. Defaults to &#39;users&#39;. This parameter
+     *     exists in alpha. (optional)
+     * @param includeSampleValues When true, include sample values for each trait. Defaults to
+     *     false. This parameter exists in alpha. (optional)
+     * @param samplesCount Max number of sample values to return per trait. Defaults to 20, min 1,
+     *     max 100. This parameter exists in alpha. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body
+     *     object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listTraitsAsync(
+            String spaceId,
+            PaginationInput pagination,
+            String sortBy,
+            String sortDir,
+            String search,
+            String collection,
+            Boolean includeSampleValues,
+            BigDecimal samplesCount,
+            final ApiCallback<ListTraits200Response> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                listTraitsValidateBeforeCall(
+                        spaceId,
+                        pagination,
+                        sortBy,
+                        sortDir,
+                        search,
+                        collection,
+                        includeSampleValues,
+                        samplesCount,
+                        _callback);
+        Type localVarReturnType = new TypeToken<ListTraits200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
