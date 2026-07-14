@@ -30,7 +30,7 @@ import java.util.Set;
 
 /**
  * Defines a reusable Credential that can be used to connect one or more Warehouses to a data
- * warehouse.
+ * Warehouse.
  */
 public class CredentialV1 {
     public static final String SERIALIZED_NAME_ID = "id";
@@ -141,7 +141,7 @@ public class CredentialV1 {
 
     /**
      * A key-value object that contains type-specific settings for a Credential, plus a required
-     * &#x60;type&#x60; discriminator (e.g. &#x60;Snowflake&#x60;, &#x60;Redshift&#x60;) that
+     * &#x60;type&#x60; discriminator (for example &#x60;Snowflake&#x60;, &#x60;Redshift&#x60;) that
      * determines which fields are expected.
      *
      * @return settings

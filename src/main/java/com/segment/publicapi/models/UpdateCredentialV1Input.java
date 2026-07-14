@@ -81,7 +81,7 @@ public class UpdateCredentialV1Input {
 
     /**
      * A key-value object that contains type-specific settings for a Credential, plus a required
-     * &#x60;type&#x60; discriminator (e.g. &#x60;Snowflake&#x60;, &#x60;Redshift&#x60;) that
+     * &#x60;type&#x60; discriminator (for example &#x60;Snowflake&#x60;, &#x60;Redshift&#x60;) that
      * determines which fields are expected.
      *
      * @return settings
