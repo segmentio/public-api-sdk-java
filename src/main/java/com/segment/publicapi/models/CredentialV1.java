@@ -112,7 +112,7 @@ public class CredentialV1 {
     }
 
     /**
-     * An optional human-readable name for this Credential.
+     * A human-readable name for this Credential.
      *
      * @return name
      */
