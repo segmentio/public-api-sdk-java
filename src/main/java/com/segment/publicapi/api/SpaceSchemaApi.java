@@ -35,16 +35,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class DataGraphSchemaApi {
+public class SpaceSchemaApi {
     private ApiClient localVarApiClient;
     private int localHostIndex;
     private String localCustomBaseUrl;
 
-    public DataGraphSchemaApi() {
+    public SpaceSchemaApi() {
         this(Configuration.getDefaultApiClient());
     }
 
-    public DataGraphSchemaApi(ApiClient apiClient) {
+    public SpaceSchemaApi(ApiClient apiClient) {
         this.localVarApiClient = apiClient;
     }
 
