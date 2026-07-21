@@ -1,17 +1,17 @@
-# SpaceSchemaApi
+# SpaceSchemaApiApi
 
 All URIs are relative to *https://api.segmentapis.com*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**listEntityPaths**](SpaceSchemaApi.md#listEntityPaths) | **GET** /spaces/{spaceId}/entity-paths | List Entity Paths |
-| [**listEvents**](SpaceSchemaApi.md#listEvents) | **GET** /spaces/{spaceId}/events | List Events |
-| [**listPropertiesFromEntity**](SpaceSchemaApi.md#listPropertiesFromEntity) | **GET** /spaces/{spaceId}/entities/{entitySlug}/properties | List Properties from Entity |
-| [**listPropertiesFromEvent**](SpaceSchemaApi.md#listPropertiesFromEvent) | **GET** /spaces/{spaceId}/events/{eventName}/properties | List Properties from Event |
-| [**listSampleValuesFromEntityProperty**](SpaceSchemaApi.md#listSampleValuesFromEntityProperty) | **GET** /spaces/{spaceId}/entities/{entitySlug}/properties/{propertyName}/sample-values | List Sample Values from Entity Property |
-| [**listSampleValuesFromEventProperty**](SpaceSchemaApi.md#listSampleValuesFromEventProperty) | **GET** /spaces/{spaceId}/events/{eventName}/properties/{propertyName}/sample-values | List Sample Values from Event Property |
-| [**listSampleValuesFromTrait**](SpaceSchemaApi.md#listSampleValuesFromTrait) | **GET** /spaces/{spaceId}/traits/{traitKey}/sample-values | List Sample Values from Trait |
-| [**listTraits**](SpaceSchemaApi.md#listTraits) | **GET** /spaces/{spaceId}/traits | List Traits |
+| [**listEntityPaths**](SpaceSchemaApiApi.md#listEntityPaths) | **GET** /spaces/{spaceId}/entity-paths | List Entity Paths |
+| [**listEvents**](SpaceSchemaApiApi.md#listEvents) | **GET** /spaces/{spaceId}/events | List Events |
+| [**listPropertiesFromEntity**](SpaceSchemaApiApi.md#listPropertiesFromEntity) | **GET** /spaces/{spaceId}/entities/{entitySlug}/properties | List Properties from Entity |
+| [**listPropertiesFromEvent**](SpaceSchemaApiApi.md#listPropertiesFromEvent) | **GET** /spaces/{spaceId}/events/{eventName}/properties | List Properties from Event |
+| [**listSampleValuesFromEntityProperty**](SpaceSchemaApiApi.md#listSampleValuesFromEntityProperty) | **GET** /spaces/{spaceId}/entities/{entitySlug}/properties/{propertyName}/sample-values | List Sample Values from Entity Property |
+| [**listSampleValuesFromEventProperty**](SpaceSchemaApiApi.md#listSampleValuesFromEventProperty) | **GET** /spaces/{spaceId}/events/{eventName}/properties/{propertyName}/sample-values | List Sample Values from Event Property |
+| [**listSampleValuesFromTrait**](SpaceSchemaApiApi.md#listSampleValuesFromTrait) | **GET** /spaces/{spaceId}/traits/{traitKey}/sample-values | List Sample Values from Trait |
+| [**listTraits**](SpaceSchemaApiApi.md#listTraits) | **GET** /spaces/{spaceId}/traits | List Traits |
 
 
 
@@ -32,7 +32,7 @@ import com.segment.publicapi.ApiException;
 import com.segment.publicapi.Configuration;
 import com.segment.publicapi.auth.*;
 import com.segment.publicapi.models.*;
-import com.segment.publicapi.api.SpaceSchemaApi;
+import com.segment.publicapi.api.SpaceSchemaApiApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -42,7 +42,7 @@ public class Example {
         HttpBearerAuth token = (HttpBearerAuth) defaultClient.getAuthentication("token");
         token.setBearerToken("BEARER TOKEN");
 
-        SpaceSchemaApi apiInstance = new SpaceSchemaApi(defaultClient);
+        SpaceSchemaApiApi apiInstance = new SpaceSchemaApiApi(defaultClient);
         String spaceId = "spaceId"; // String | 
         PaginationInput pagination = new PaginationInput(); // PaginationInput | Pagination params. Defaults to count 200.  This parameter exists in alpha.
         String search = "search_example"; // String | Filter paths by entity name or path name.  This parameter exists in alpha.
@@ -50,7 +50,7 @@ public class Example {
             ListEntityPaths200Response result = apiInstance.listEntityPaths(spaceId, pagination, search);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SpaceSchemaApi#listEntityPaths");
+            System.err.println("Exception when calling SpaceSchemaApiApi#listEntityPaths");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -109,7 +109,7 @@ import com.segment.publicapi.ApiException;
 import com.segment.publicapi.Configuration;
 import com.segment.publicapi.auth.*;
 import com.segment.publicapi.models.*;
-import com.segment.publicapi.api.SpaceSchemaApi;
+import com.segment.publicapi.api.SpaceSchemaApiApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -119,7 +119,7 @@ public class Example {
         HttpBearerAuth token = (HttpBearerAuth) defaultClient.getAuthentication("token");
         token.setBearerToken("BEARER TOKEN");
 
-        SpaceSchemaApi apiInstance = new SpaceSchemaApi(defaultClient);
+        SpaceSchemaApiApi apiInstance = new SpaceSchemaApiApi(defaultClient);
         String spaceId = "spaceId"; // String | 
         PaginationInput pagination = new PaginationInput(); // PaginationInput | Pagination params. Defaults to count 200.  This parameter exists in alpha.
         String sortBy = "lastSeenAt"; // String | Field to sort by. Defaults to 'lastSeenAt'.  This parameter exists in alpha.
@@ -129,7 +129,7 @@ public class Example {
             ListEvents200Response result = apiInstance.listEvents(spaceId, pagination, sortBy, sortDir, search);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SpaceSchemaApi#listEvents");
+            System.err.println("Exception when calling SpaceSchemaApiApi#listEvents");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -190,7 +190,7 @@ import com.segment.publicapi.ApiException;
 import com.segment.publicapi.Configuration;
 import com.segment.publicapi.auth.*;
 import com.segment.publicapi.models.*;
-import com.segment.publicapi.api.SpaceSchemaApi;
+import com.segment.publicapi.api.SpaceSchemaApiApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -200,7 +200,7 @@ public class Example {
         HttpBearerAuth token = (HttpBearerAuth) defaultClient.getAuthentication("token");
         token.setBearerToken("BEARER TOKEN");
 
-        SpaceSchemaApi apiInstance = new SpaceSchemaApi(defaultClient);
+        SpaceSchemaApiApi apiInstance = new SpaceSchemaApiApi(defaultClient);
         String spaceId = "spaceId"; // String | 
         String entitySlug = "my-entity"; // String | 
         PaginationInput pagination = new PaginationInput(); // PaginationInput | Pagination params. Defaults to count 200.  This parameter exists in alpha.
@@ -210,7 +210,7 @@ public class Example {
             ListPropertiesFromEntity200Response result = apiInstance.listPropertiesFromEntity(spaceId, entitySlug, pagination, includeSampleValues, samplesCount);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SpaceSchemaApi#listPropertiesFromEntity");
+            System.err.println("Exception when calling SpaceSchemaApiApi#listPropertiesFromEntity");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -271,7 +271,7 @@ import com.segment.publicapi.ApiException;
 import com.segment.publicapi.Configuration;
 import com.segment.publicapi.auth.*;
 import com.segment.publicapi.models.*;
-import com.segment.publicapi.api.SpaceSchemaApi;
+import com.segment.publicapi.api.SpaceSchemaApiApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -281,7 +281,7 @@ public class Example {
         HttpBearerAuth token = (HttpBearerAuth) defaultClient.getAuthentication("token");
         token.setBearerToken("BEARER TOKEN");
 
-        SpaceSchemaApi apiInstance = new SpaceSchemaApi(defaultClient);
+        SpaceSchemaApiApi apiInstance = new SpaceSchemaApiApi(defaultClient);
         String spaceId = "spaceId"; // String | 
         String eventName = "Order Completed"; // String | 
         PaginationInput pagination = new PaginationInput(); // PaginationInput | Pagination params. Defaults to count 200.  This parameter exists in alpha.
@@ -294,7 +294,7 @@ public class Example {
             ListPropertiesFromEvent200Response result = apiInstance.listPropertiesFromEvent(spaceId, eventName, pagination, sortBy, sortDir, search, includeSampleValues, samplesCount);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SpaceSchemaApi#listPropertiesFromEvent");
+            System.err.println("Exception when calling SpaceSchemaApiApi#listPropertiesFromEvent");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -358,7 +358,7 @@ import com.segment.publicapi.ApiException;
 import com.segment.publicapi.Configuration;
 import com.segment.publicapi.auth.*;
 import com.segment.publicapi.models.*;
-import com.segment.publicapi.api.SpaceSchemaApi;
+import com.segment.publicapi.api.SpaceSchemaApiApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -368,7 +368,7 @@ public class Example {
         HttpBearerAuth token = (HttpBearerAuth) defaultClient.getAuthentication("token");
         token.setBearerToken("BEARER TOKEN");
 
-        SpaceSchemaApi apiInstance = new SpaceSchemaApi(defaultClient);
+        SpaceSchemaApiApi apiInstance = new SpaceSchemaApiApi(defaultClient);
         String spaceId = "spaceId"; // String | 
         String entitySlug = "my-entity"; // String | 
         String propertyName = "email"; // String | 
@@ -376,7 +376,7 @@ public class Example {
             ListSampleValuesFromEntityProperty200Response result = apiInstance.listSampleValuesFromEntityProperty(spaceId, entitySlug, propertyName);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SpaceSchemaApi#listSampleValuesFromEntityProperty");
+            System.err.println("Exception when calling SpaceSchemaApiApi#listSampleValuesFromEntityProperty");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -435,7 +435,7 @@ import com.segment.publicapi.ApiException;
 import com.segment.publicapi.Configuration;
 import com.segment.publicapi.auth.*;
 import com.segment.publicapi.models.*;
-import com.segment.publicapi.api.SpaceSchemaApi;
+import com.segment.publicapi.api.SpaceSchemaApiApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -445,7 +445,7 @@ public class Example {
         HttpBearerAuth token = (HttpBearerAuth) defaultClient.getAuthentication("token");
         token.setBearerToken("BEARER TOKEN");
 
-        SpaceSchemaApi apiInstance = new SpaceSchemaApi(defaultClient);
+        SpaceSchemaApiApi apiInstance = new SpaceSchemaApiApi(defaultClient);
         String spaceId = "spaceId"; // String | 
         String eventName = "Order Completed"; // String | 
         String propertyName = "revenue"; // String | 
@@ -454,7 +454,7 @@ public class Example {
             ListSampleValuesFromEventProperty200Response result = apiInstance.listSampleValuesFromEventProperty(spaceId, eventName, propertyName, propertyType);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SpaceSchemaApi#listSampleValuesFromEventProperty");
+            System.err.println("Exception when calling SpaceSchemaApiApi#listSampleValuesFromEventProperty");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -514,7 +514,7 @@ import com.segment.publicapi.ApiException;
 import com.segment.publicapi.Configuration;
 import com.segment.publicapi.auth.*;
 import com.segment.publicapi.models.*;
-import com.segment.publicapi.api.SpaceSchemaApi;
+import com.segment.publicapi.api.SpaceSchemaApiApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -524,7 +524,7 @@ public class Example {
         HttpBearerAuth token = (HttpBearerAuth) defaultClient.getAuthentication("token");
         token.setBearerToken("BEARER TOKEN");
 
-        SpaceSchemaApi apiInstance = new SpaceSchemaApi(defaultClient);
+        SpaceSchemaApiApi apiInstance = new SpaceSchemaApiApi(defaultClient);
         String spaceId = "spaceId"; // String | 
         String traitKey = "email"; // String | 
         String collection = "accounts"; // String | Collection to get trait values for. Defaults to 'users'.  This parameter exists in alpha.
@@ -532,7 +532,7 @@ public class Example {
             ListSampleValuesFromTrait200Response result = apiInstance.listSampleValuesFromTrait(spaceId, traitKey, collection);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SpaceSchemaApi#listSampleValuesFromTrait");
+            System.err.println("Exception when calling SpaceSchemaApiApi#listSampleValuesFromTrait");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -591,7 +591,7 @@ import com.segment.publicapi.ApiException;
 import com.segment.publicapi.Configuration;
 import com.segment.publicapi.auth.*;
 import com.segment.publicapi.models.*;
-import com.segment.publicapi.api.SpaceSchemaApi;
+import com.segment.publicapi.api.SpaceSchemaApiApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -601,7 +601,7 @@ public class Example {
         HttpBearerAuth token = (HttpBearerAuth) defaultClient.getAuthentication("token");
         token.setBearerToken("BEARER TOKEN");
 
-        SpaceSchemaApi apiInstance = new SpaceSchemaApi(defaultClient);
+        SpaceSchemaApiApi apiInstance = new SpaceSchemaApiApi(defaultClient);
         String spaceId = "spaceId"; // String | 
         PaginationInput pagination = new PaginationInput(); // PaginationInput | Pagination params. Defaults to count 200.  This parameter exists in alpha.
         String sortBy = "lastSeenAt"; // String | Field to sort by. Defaults to 'trait'.  This parameter exists in alpha.
@@ -614,7 +614,7 @@ public class Example {
             ListTraits200Response result = apiInstance.listTraits(spaceId, pagination, sortBy, sortDir, search, collection, includeSampleValues, samplesCount);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling SpaceSchemaApi#listTraits");
+            System.err.println("Exception when calling SpaceSchemaApiApi#listTraits");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
