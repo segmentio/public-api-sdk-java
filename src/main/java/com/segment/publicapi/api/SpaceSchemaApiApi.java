@@ -35,16 +35,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class SpaceSchemaApi {
+public class SpaceSchemaApiApi {
     private ApiClient localVarApiClient;
     private int localHostIndex;
     private String localCustomBaseUrl;
 
-    public SpaceSchemaApi() {
+    public SpaceSchemaApiApi() {
         this(Configuration.getDefaultApiClient());
     }
 
-    public SpaceSchemaApi(ApiClient apiClient) {
+    public SpaceSchemaApiApi(ApiClient apiClient) {
         this.localVarApiClient = apiClient;
     }
 
