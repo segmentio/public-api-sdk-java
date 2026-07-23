@@ -20,6 +20,11 @@ import com.segment.publicapi.Configuration;
 import com.segment.publicapi.Pair;
 import com.segment.publicapi.models.CreateCredential201Response;
 import com.segment.publicapi.models.CreateCredentialV1Input;
+import com.segment.publicapi.models.DeleteCredential200Response;
+import com.segment.publicapi.models.GetCredential200Response;
+import com.segment.publicapi.models.ListCredentialConsumers200Response;
+import com.segment.publicapi.models.ListCredentials200Response;
+import com.segment.publicapi.models.PaginationInput;
 import com.segment.publicapi.models.UpdateCredential200Response;
 import com.segment.publicapi.models.UpdateCredentialV1Input;
 import java.lang.reflect.Type;
@@ -224,6 +229,691 @@ public class CredentialsApi {
         okhttp3.Call localVarCall =
                 createCredentialValidateBeforeCall(createCredentialV1Input, _callback);
         Type localVarReturnType = new TypeToken<CreateCredential201Response>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for deleteCredential
+     *
+     * @param credentialId (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call deleteCredentialCall(String credentialId, final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/credentials/{credentialId}"
+                        .replace(
+                                "{" + "credentialId" + "}",
+                                localVarApiClient.escapeString(credentialId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/vnd.segment.v1+json", "application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"token"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "DELETE",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteCredentialValidateBeforeCall(
+            String credentialId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'credentialId' is set
+        if (credentialId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'credentialId' when calling"
+                            + " deleteCredential(Async)");
+        }
+
+        return deleteCredentialCall(credentialId, _callback);
+    }
+
+    /**
+     * Delete Credential Deletes an existing Credential. Fails if the Credential is still in use by
+     * a Warehouse or Source.
+     *
+     * @param credentialId (required)
+     * @return DeleteCredential200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public DeleteCredential200Response deleteCredential(String credentialId) throws ApiException {
+        ApiResponse<DeleteCredential200Response> localVarResp =
+                deleteCredentialWithHttpInfo(credentialId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Delete Credential Deletes an existing Credential. Fails if the Credential is still in use by
+     * a Warehouse or Source.
+     *
+     * @param credentialId (required)
+     * @return ApiResponse&lt;DeleteCredential200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<DeleteCredential200Response> deleteCredentialWithHttpInfo(
+            String credentialId) throws ApiException {
+        okhttp3.Call localVarCall = deleteCredentialValidateBeforeCall(credentialId, null);
+        Type localVarReturnType = new TypeToken<DeleteCredential200Response>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Delete Credential (asynchronously) Deletes an existing Credential. Fails if the Credential is
+     * still in use by a Warehouse or Source.
+     *
+     * @param credentialId (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body
+     *     object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call deleteCredentialAsync(
+            String credentialId, final ApiCallback<DeleteCredential200Response> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall = deleteCredentialValidateBeforeCall(credentialId, _callback);
+        Type localVarReturnType = new TypeToken<DeleteCredential200Response>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getCredential
+     *
+     * @param credentialId (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getCredentialCall(String credentialId, final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/credentials/{credentialId}"
+                        .replace(
+                                "{" + "credentialId" + "}",
+                                localVarApiClient.escapeString(credentialId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/vnd.segment.v1+json", "application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"token"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getCredentialValidateBeforeCall(
+            String credentialId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'credentialId' is set
+        if (credentialId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'credentialId' when calling"
+                            + " getCredential(Async)");
+        }
+
+        return getCredentialCall(credentialId, _callback);
+    }
+
+    /**
+     * Get Credential Returns a Credential by its id.
+     *
+     * @param credentialId (required)
+     * @return GetCredential200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public GetCredential200Response getCredential(String credentialId) throws ApiException {
+        ApiResponse<GetCredential200Response> localVarResp =
+                getCredentialWithHttpInfo(credentialId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get Credential Returns a Credential by its id.
+     *
+     * @param credentialId (required)
+     * @return ApiResponse&lt;GetCredential200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<GetCredential200Response> getCredentialWithHttpInfo(String credentialId)
+            throws ApiException {
+        okhttp3.Call localVarCall = getCredentialValidateBeforeCall(credentialId, null);
+        Type localVarReturnType = new TypeToken<GetCredential200Response>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get Credential (asynchronously) Returns a Credential by its id.
+     *
+     * @param credentialId (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body
+     *     object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getCredentialAsync(
+            String credentialId, final ApiCallback<GetCredential200Response> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall = getCredentialValidateBeforeCall(credentialId, _callback);
+        Type localVarReturnType = new TypeToken<GetCredential200Response>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for listCredentialConsumers
+     *
+     * @param credentialId (required)
+     * @param warehousesPagination Defines the pagination parameters for the list of Warehouses.
+     *     This parameter exists in v1. (optional)
+     * @param sourcesPagination Defines the pagination parameters for the list of Sources. This
+     *     parameter exists in v1. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listCredentialConsumersCall(
+            String credentialId,
+            PaginationInput warehousesPagination,
+            PaginationInput sourcesPagination,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/credentials/{credentialId}/consumers"
+                        .replace(
+                                "{" + "credentialId" + "}",
+                                localVarApiClient.escapeString(credentialId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (warehousesPagination != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair(
+                            "warehousesPagination", warehousesPagination));
+        }
+
+        if (sourcesPagination != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("sourcesPagination", sourcesPagination));
+        }
+
+        final String[] localVarAccepts = {"application/vnd.segment.v1+json", "application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"token"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listCredentialConsumersValidateBeforeCall(
+            String credentialId,
+            PaginationInput warehousesPagination,
+            PaginationInput sourcesPagination,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'credentialId' is set
+        if (credentialId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'credentialId' when calling"
+                            + " listCredentialConsumers(Async)");
+        }
+
+        return listCredentialConsumersCall(
+                credentialId, warehousesPagination, sourcesPagination, _callback);
+    }
+
+    /**
+     * List Credential Consumers Returns the Warehouses and Sources that use a Credential.
+     *
+     * @param credentialId (required)
+     * @param warehousesPagination Defines the pagination parameters for the list of Warehouses.
+     *     This parameter exists in v1. (optional)
+     * @param sourcesPagination Defines the pagination parameters for the list of Sources. This
+     *     parameter exists in v1. (optional)
+     * @return ListCredentialConsumers200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ListCredentialConsumers200Response listCredentialConsumers(
+            String credentialId,
+            PaginationInput warehousesPagination,
+            PaginationInput sourcesPagination)
+            throws ApiException {
+        ApiResponse<ListCredentialConsumers200Response> localVarResp =
+                listCredentialConsumersWithHttpInfo(
+                        credentialId, warehousesPagination, sourcesPagination);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List Credential Consumers Returns the Warehouses and Sources that use a Credential.
+     *
+     * @param credentialId (required)
+     * @param warehousesPagination Defines the pagination parameters for the list of Warehouses.
+     *     This parameter exists in v1. (optional)
+     * @param sourcesPagination Defines the pagination parameters for the list of Sources. This
+     *     parameter exists in v1. (optional)
+     * @return ApiResponse&lt;ListCredentialConsumers200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<ListCredentialConsumers200Response> listCredentialConsumersWithHttpInfo(
+            String credentialId,
+            PaginationInput warehousesPagination,
+            PaginationInput sourcesPagination)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                listCredentialConsumersValidateBeforeCall(
+                        credentialId, warehousesPagination, sourcesPagination, null);
+        Type localVarReturnType = new TypeToken<ListCredentialConsumers200Response>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List Credential Consumers (asynchronously) Returns the Warehouses and Sources that use a
+     * Credential.
+     *
+     * @param credentialId (required)
+     * @param warehousesPagination Defines the pagination parameters for the list of Warehouses.
+     *     This parameter exists in v1. (optional)
+     * @param sourcesPagination Defines the pagination parameters for the list of Sources. This
+     *     parameter exists in v1. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body
+     *     object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listCredentialConsumersAsync(
+            String credentialId,
+            PaginationInput warehousesPagination,
+            PaginationInput sourcesPagination,
+            final ApiCallback<ListCredentialConsumers200Response> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                listCredentialConsumersValidateBeforeCall(
+                        credentialId, warehousesPagination, sourcesPagination, _callback);
+        Type localVarReturnType = new TypeToken<ListCredentialConsumers200Response>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for listCredentials
+     *
+     * @param pagination Defines the pagination parameters. This parameter exists in v1. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listCredentialsCall(PaginationInput pagination, final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/credentials";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (pagination != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pagination", pagination));
+        }
+
+        final String[] localVarAccepts = {"application/vnd.segment.v1+json", "application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"token"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listCredentialsValidateBeforeCall(
+            PaginationInput pagination, final ApiCallback _callback) throws ApiException {
+        return listCredentialsCall(pagination, _callback);
+    }
+
+    /**
+     * List Credentials Returns a list of Credentials.
+     *
+     * @param pagination Defines the pagination parameters. This parameter exists in v1. (optional)
+     * @return ListCredentials200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ListCredentials200Response listCredentials(PaginationInput pagination)
+            throws ApiException {
+        ApiResponse<ListCredentials200Response> localVarResp =
+                listCredentialsWithHttpInfo(pagination);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List Credentials Returns a list of Credentials.
+     *
+     * @param pagination Defines the pagination parameters. This parameter exists in v1. (optional)
+     * @return ApiResponse&lt;ListCredentials200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<ListCredentials200Response> listCredentialsWithHttpInfo(
+            PaginationInput pagination) throws ApiException {
+        okhttp3.Call localVarCall = listCredentialsValidateBeforeCall(pagination, null);
+        Type localVarReturnType = new TypeToken<ListCredentials200Response>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List Credentials (asynchronously) Returns a list of Credentials.
+     *
+     * @param pagination Defines the pagination parameters. This parameter exists in v1. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body
+     *     object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listCredentialsAsync(
+            PaginationInput pagination, final ApiCallback<ListCredentials200Response> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall = listCredentialsValidateBeforeCall(pagination, _callback);
+        Type localVarReturnType = new TypeToken<ListCredentials200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
