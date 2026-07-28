@@ -158,7 +158,9 @@ public class CredentialsApi {
     }
 
     /**
-     * Create Credential Creates a new Credential.
+     * Create Credential Creates a new Credential. This endpoint requires the user to have at least
+     * the following permission(s): * Workspace Owner * Warehouse Admin * Source Admin * Entities
+     * Admin * Unify and Engage Admin
      *
      * @param createCredentialV1Input (required)
      * @return CreateCredential201Response
@@ -181,7 +183,9 @@ public class CredentialsApi {
     }
 
     /**
-     * Create Credential Creates a new Credential.
+     * Create Credential Creates a new Credential. This endpoint requires the user to have at least
+     * the following permission(s): * Workspace Owner * Warehouse Admin * Source Admin * Entities
+     * Admin * Unify and Engage Admin
      *
      * @param createCredentialV1Input (required)
      * @return ApiResponse&lt;CreateCredential201Response&gt;
@@ -205,7 +209,9 @@ public class CredentialsApi {
     }
 
     /**
-     * Create Credential (asynchronously) Creates a new Credential.
+     * Create Credential (asynchronously) Creates a new Credential. This endpoint requires the user
+     * to have at least the following permission(s): * Workspace Owner * Warehouse Admin * Source
+     * Admin * Entities Admin * Unify and Engage Admin
      *
      * @param createCredentialV1Input (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -322,7 +328,8 @@ public class CredentialsApi {
 
     /**
      * Delete Credential Deletes an existing Credential. Fails if the Credential is still in use by
-     * a Warehouse or Source.
+     * a Warehouse or Source. This endpoint requires the user to have at least the following
+     * permission(s): * Workspace Owner
      *
      * @param credentialId (required)
      * @return DeleteCredential200Response
@@ -345,7 +352,8 @@ public class CredentialsApi {
 
     /**
      * Delete Credential Deletes an existing Credential. Fails if the Credential is still in use by
-     * a Warehouse or Source.
+     * a Warehouse or Source. This endpoint requires the user to have at least the following
+     * permission(s): * Workspace Owner
      *
      * @param credentialId (required)
      * @return ApiResponse&lt;DeleteCredential200Response&gt;
@@ -369,7 +377,8 @@ public class CredentialsApi {
 
     /**
      * Delete Credential (asynchronously) Deletes an existing Credential. Fails if the Credential is
-     * still in use by a Warehouse or Source.
+     * still in use by a Warehouse or Source. This endpoint requires the user to have at least the
+     * following permission(s): * Workspace Owner
      *
      * @param credentialId (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -483,7 +492,9 @@ public class CredentialsApi {
     }
 
     /**
-     * Get Credential Returns a Credential by its id.
+     * Get Credential Returns a Credential by its id. This endpoint requires the user to have at
+     * least the following permission(s): * Workspace Owner * Warehouse Admin * Source Admin *
+     * Entities Admin * Unify and Engage Admin
      *
      * @param credentialId (required)
      * @return GetCredential200Response
@@ -505,7 +516,9 @@ public class CredentialsApi {
     }
 
     /**
-     * Get Credential Returns a Credential by its id.
+     * Get Credential Returns a Credential by its id. This endpoint requires the user to have at
+     * least the following permission(s): * Workspace Owner * Warehouse Admin * Source Admin *
+     * Entities Admin * Unify and Engage Admin
      *
      * @param credentialId (required)
      * @return ApiResponse&lt;GetCredential200Response&gt;
@@ -528,7 +541,9 @@ public class CredentialsApi {
     }
 
     /**
-     * Get Credential (asynchronously) Returns a Credential by its id.
+     * Get Credential (asynchronously) Returns a Credential by its id. This endpoint requires the
+     * user to have at least the following permission(s): * Workspace Owner * Warehouse Admin *
+     * Source Admin * Entities Admin * Unify and Engage Admin
      *
      * @param credentialId (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -666,7 +681,9 @@ public class CredentialsApi {
     }
 
     /**
-     * List Credential Consumers Returns the Warehouses and Sources that use a Credential.
+     * List Credential Consumers Returns the Warehouses and Sources that use a Credential. This
+     * endpoint requires the user to have at least the following permission(s): * Workspace Owner *
+     * Warehouse Admin * Source Admin * Entities Admin * Unify and Engage Admin
      *
      * @param credentialId (required)
      * @param warehousesPagination Defines the pagination parameters for the list of Warehouses.
@@ -697,7 +714,9 @@ public class CredentialsApi {
     }
 
     /**
-     * List Credential Consumers Returns the Warehouses and Sources that use a Credential.
+     * List Credential Consumers Returns the Warehouses and Sources that use a Credential. This
+     * endpoint requires the user to have at least the following permission(s): * Workspace Owner *
+     * Warehouse Admin * Source Admin * Entities Admin * Unify and Engage Admin
      *
      * @param credentialId (required)
      * @param warehousesPagination Defines the pagination parameters for the list of Warehouses.
@@ -730,7 +749,8 @@ public class CredentialsApi {
 
     /**
      * List Credential Consumers (asynchronously) Returns the Warehouses and Sources that use a
-     * Credential.
+     * Credential. This endpoint requires the user to have at least the following permission(s): *
+     * Workspace Owner * Warehouse Admin * Source Admin * Entities Admin * Unify and Engage Admin
      *
      * @param credentialId (required)
      * @param warehousesPagination Defines the pagination parameters for the list of Warehouses.
@@ -846,7 +866,9 @@ public class CredentialsApi {
     }
 
     /**
-     * List Credentials Returns a list of Credentials.
+     * List Credentials Returns a list of Credentials. This endpoint requires the user to have at
+     * least the following permission(s): * Workspace Owner * Warehouse Admin * Source Admin *
+     * Entities Admin * Unify and Engage Admin
      *
      * @param pagination Defines the pagination parameters. This parameter exists in v1. (optional)
      * @return ListCredentials200Response
@@ -869,7 +891,9 @@ public class CredentialsApi {
     }
 
     /**
-     * List Credentials Returns a list of Credentials.
+     * List Credentials Returns a list of Credentials. This endpoint requires the user to have at
+     * least the following permission(s): * Workspace Owner * Warehouse Admin * Source Admin *
+     * Entities Admin * Unify and Engage Admin
      *
      * @param pagination Defines the pagination parameters. This parameter exists in v1. (optional)
      * @return ApiResponse&lt;ListCredentials200Response&gt;
@@ -892,7 +916,9 @@ public class CredentialsApi {
     }
 
     /**
-     * List Credentials (asynchronously) Returns a list of Credentials.
+     * List Credentials (asynchronously) Returns a list of Credentials. This endpoint requires the
+     * user to have at least the following permission(s): * Workspace Owner * Warehouse Admin *
+     * Source Admin * Entities Admin * Unify and Engage Admin
      *
      * @param pagination Defines the pagination parameters. This parameter exists in v1. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -1023,7 +1049,8 @@ public class CredentialsApi {
 
     /**
      * Update Credential Updates an existing Credential. All Warehouses using this Credential are
-     * affected immediately.
+     * affected immediately. This endpoint requires the user to have at least the following
+     * permission(s): * Workspace Owner
      *
      * @param credentialId (required)
      * @param updateCredentialV1Input (required)
@@ -1049,7 +1076,8 @@ public class CredentialsApi {
 
     /**
      * Update Credential Updates an existing Credential. All Warehouses using this Credential are
-     * affected immediately.
+     * affected immediately. This endpoint requires the user to have at least the following
+     * permission(s): * Workspace Owner
      *
      * @param credentialId (required)
      * @param updateCredentialV1Input (required)
@@ -1076,7 +1104,8 @@ public class CredentialsApi {
 
     /**
      * Update Credential (asynchronously) Updates an existing Credential. All Warehouses using this
-     * Credential are affected immediately.
+     * Credential are affected immediately. This endpoint requires the user to have at least the
+     * following permission(s): * Workspace Owner
      *
      * @param credentialId (required)
      * @param updateCredentialV1Input (required)
