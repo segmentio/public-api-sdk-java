@@ -22,9 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
@@ -35,11 +33,6 @@ public class GetCredentialV1Output {
 
     @SerializedName(SERIALIZED_NAME_CREDENTIAL)
     private CredentialV1 credential;
-
-    public static final String SERIALIZED_NAME_DISABLED_FIELDS = "disabledFields";
-
-    @SerializedName(SERIALIZED_NAME_DISABLED_FIELDS)
-    private List<String> disabledFields;
 
     public GetCredentialV1Output() {}
 
@@ -63,35 +56,6 @@ public class GetCredentialV1Output {
         this.credential = credential;
     }
 
-    public GetCredentialV1Output disabledFields(List<String> disabledFields) {
-
-        this.disabledFields = disabledFields;
-        return this;
-    }
-
-    public GetCredentialV1Output addDisabledFieldsItem(String disabledFieldsItem) {
-        if (this.disabledFields == null) {
-            this.disabledFields = new ArrayList<>();
-        }
-        this.disabledFields.add(disabledFieldsItem);
-        return this;
-    }
-
-    /**
-     * The list of setting names (in this Credential&#39;s public &#x60;settings&#x60; shape) that
-     * cannot be changed after creation, if any.
-     *
-     * @return disabledFields
-     */
-    @javax.annotation.Nullable
-    public List<String> getDisabledFields() {
-        return disabledFields;
-    }
-
-    public void setDisabledFields(List<String> disabledFields) {
-        this.disabledFields = disabledFields;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -101,13 +65,12 @@ public class GetCredentialV1Output {
             return false;
         }
         GetCredentialV1Output getCredentialV1Output = (GetCredentialV1Output) o;
-        return Objects.equals(this.credential, getCredentialV1Output.credential)
-                && Objects.equals(this.disabledFields, getCredentialV1Output.disabledFields);
+        return Objects.equals(this.credential, getCredentialV1Output.credential);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(credential, disabledFields);
+        return Objects.hash(credential);
     }
 
     @Override
@@ -115,7 +78,6 @@ public class GetCredentialV1Output {
         StringBuilder sb = new StringBuilder();
         sb.append("class GetCredentialV1Output {\n");
         sb.append("    credential: ").append(toIndentedString(credential)).append("\n");
-        sb.append("    disabledFields: ").append(toIndentedString(disabledFields)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -138,7 +100,6 @@ public class GetCredentialV1Output {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
         openapiFields.add("credential");
-        openapiFields.add("disabledFields");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
@@ -187,16 +148,6 @@ public class GetCredentialV1Output {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the required field `credential`
         CredentialV1.validateJsonElement(jsonObj.get("credential"));
-        // ensure the optional json data is an array if present
-        if (jsonObj.get("disabledFields") != null
-                && !jsonObj.get("disabledFields").isJsonNull()
-                && !jsonObj.get("disabledFields").isJsonArray()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `disabledFields` to be an array in the JSON string"
-                                    + " but got `%s`",
-                            jsonObj.get("disabledFields").toString()));
-        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
