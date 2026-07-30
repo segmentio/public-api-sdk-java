@@ -88,7 +88,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: createInvites
@@ -161,7 +161,7 @@ public class Example {
 | **201** | Created |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: deleteInvites
@@ -234,7 +234,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: deleteUsers
@@ -307,7 +307,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: getUser
@@ -380,7 +380,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: listInvites
@@ -453,7 +453,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: listUserGroupsFromUser
@@ -528,7 +528,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: listUsers
@@ -601,7 +601,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: replacePermissionsForUser
@@ -676,5 +676,5 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 

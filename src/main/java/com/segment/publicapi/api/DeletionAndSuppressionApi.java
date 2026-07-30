@@ -86,7 +86,7 @@ public class DeletionAndSuppressionApi {
      * <tr><td> 200 </td><td> OK </td><td>  * X-RateLimit-Remaining - Remaining requests in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Consumed - Number of requests consumed in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Reset - RFC 5322 timestamp indicating when the regulation quota resets for the specific regulation type category. <br>  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call createCloudSourceRegulationCall(
@@ -208,7 +208,7 @@ public class DeletionAndSuppressionApi {
      * <tr><td> 200 </td><td> OK </td><td>  * X-RateLimit-Remaining - Remaining requests in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Consumed - Number of requests consumed in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Reset - RFC 5322 timestamp indicating when the regulation quota resets for the specific regulation type category. <br>  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public CreateCloudSourceRegulation200Response createCloudSourceRegulation(
@@ -244,7 +244,7 @@ public class DeletionAndSuppressionApi {
      * <tr><td> 200 </td><td> OK </td><td>  * X-RateLimit-Remaining - Remaining requests in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Consumed - Number of requests consumed in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Reset - RFC 5322 timestamp indicating when the regulation quota resets for the specific regulation type category. <br>  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ApiResponse<CreateCloudSourceRegulation200Response>
@@ -286,7 +286,7 @@ public class DeletionAndSuppressionApi {
      * <tr><td> 200 </td><td> OK </td><td>  * X-RateLimit-Remaining - Remaining requests in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Consumed - Number of requests consumed in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Reset - RFC 5322 timestamp indicating when the regulation quota resets for the specific regulation type category. <br>  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call createCloudSourceRegulationAsync(
@@ -318,7 +318,7 @@ public class DeletionAndSuppressionApi {
      * <tr><td> 200 </td><td> OK </td><td>  * X-RateLimit-Remaining - Remaining requests in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Consumed - Number of requests consumed in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Reset - RFC 5322 timestamp indicating when the regulation quota resets for the specific regulation type category. <br>  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call createSourceRegulationCall(
@@ -439,7 +439,7 @@ public class DeletionAndSuppressionApi {
      * <tr><td> 200 </td><td> OK </td><td>  * X-RateLimit-Remaining - Remaining requests in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Consumed - Number of requests consumed in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Reset - RFC 5322 timestamp indicating when the regulation quota resets for the specific regulation type category. <br>  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public CreateSourceRegulation200Response createSourceRegulation(
@@ -474,7 +474,7 @@ public class DeletionAndSuppressionApi {
      * <tr><td> 200 </td><td> OK </td><td>  * X-RateLimit-Remaining - Remaining requests in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Consumed - Number of requests consumed in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Reset - RFC 5322 timestamp indicating when the regulation quota resets for the specific regulation type category. <br>  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ApiResponse<CreateSourceRegulation200Response> createSourceRegulationWithHttpInfo(
@@ -512,7 +512,7 @@ public class DeletionAndSuppressionApi {
      * <tr><td> 200 </td><td> OK </td><td>  * X-RateLimit-Remaining - Remaining requests in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Consumed - Number of requests consumed in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Reset - RFC 5322 timestamp indicating when the regulation quota resets for the specific regulation type category. <br>  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call createSourceRegulationAsync(
@@ -542,7 +542,7 @@ public class DeletionAndSuppressionApi {
      * <tr><td> 200 </td><td> OK </td><td>  * X-RateLimit-Remaining - Remaining requests in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Consumed - Number of requests consumed in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Reset - RFC 5322 timestamp indicating when the regulation quota resets for the specific regulation type category. <br>  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call createWorkspaceRegulationCall(
@@ -646,7 +646,7 @@ public class DeletionAndSuppressionApi {
      * <tr><td> 200 </td><td> OK </td><td>  * X-RateLimit-Remaining - Remaining requests in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Consumed - Number of requests consumed in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Reset - RFC 5322 timestamp indicating when the regulation quota resets for the specific regulation type category. <br>  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public CreateWorkspaceRegulation200Response createWorkspaceRegulation(
@@ -676,7 +676,7 @@ public class DeletionAndSuppressionApi {
      * <tr><td> 200 </td><td> OK </td><td>  * X-RateLimit-Remaining - Remaining requests in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Consumed - Number of requests consumed in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Reset - RFC 5322 timestamp indicating when the regulation quota resets for the specific regulation type category. <br>  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ApiResponse<CreateWorkspaceRegulation200Response> createWorkspaceRegulationWithHttpInfo(
@@ -709,7 +709,7 @@ public class DeletionAndSuppressionApi {
      * <tr><td> 200 </td><td> OK </td><td>  * X-RateLimit-Remaining - Remaining requests in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Consumed - Number of requests consumed in the current period for the regulation type category. Tracked separately for Segment-only vs Segment &amp; Destination regulation types. <br>  * X-RateLimit-Reset - RFC 5322 timestamp indicating when the regulation quota resets for the specific regulation type category. <br>  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call createWorkspaceRegulationAsync(
@@ -739,7 +739,7 @@ public class DeletionAndSuppressionApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call getRegulationCall(String regulateId, final ApiCallback _callback)
@@ -832,7 +832,7 @@ public class DeletionAndSuppressionApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public GetRegulation200Response getRegulation(String regulateId) throws ApiException {
@@ -854,7 +854,7 @@ public class DeletionAndSuppressionApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ApiResponse<GetRegulation200Response> getRegulationWithHttpInfo(String regulateId)
@@ -879,7 +879,7 @@ public class DeletionAndSuppressionApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call getRegulationAsync(
@@ -910,7 +910,7 @@ public class DeletionAndSuppressionApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call listRegulationsFromSourceCall(
@@ -1034,7 +1034,7 @@ public class DeletionAndSuppressionApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ListRegulationsFromSource200Response listRegulationsFromSource(
@@ -1069,7 +1069,7 @@ public class DeletionAndSuppressionApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ApiResponse<ListRegulationsFromSource200Response> listRegulationsFromSourceWithHttpInfo(
@@ -1108,7 +1108,7 @@ public class DeletionAndSuppressionApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call listRegulationsFromSourceAsync(
@@ -1141,7 +1141,7 @@ public class DeletionAndSuppressionApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call listSuppressionsCall(
@@ -1226,7 +1226,7 @@ public class DeletionAndSuppressionApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ListSuppressions200Response listSuppressions(PaginationInput pagination)
@@ -1249,7 +1249,7 @@ public class DeletionAndSuppressionApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ApiResponse<ListSuppressions200Response> listSuppressionsWithHttpInfo(
@@ -1273,7 +1273,7 @@ public class DeletionAndSuppressionApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call listSuppressionsAsync(
@@ -1303,7 +1303,7 @@ public class DeletionAndSuppressionApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call listWorkspaceRegulationsCall(
@@ -1412,7 +1412,7 @@ public class DeletionAndSuppressionApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ListWorkspaceRegulations200Response listWorkspaceRegulations(
@@ -1442,7 +1442,7 @@ public class DeletionAndSuppressionApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ApiResponse<ListWorkspaceRegulations200Response> listWorkspaceRegulationsWithHttpInfo(
@@ -1476,7 +1476,7 @@ public class DeletionAndSuppressionApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call listWorkspaceRegulationsAsync(
