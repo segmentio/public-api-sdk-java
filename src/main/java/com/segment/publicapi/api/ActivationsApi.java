@@ -92,7 +92,7 @@ public class ActivationsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call addActivationToAudienceCall(
@@ -232,7 +232,7 @@ public class ActivationsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public AddActivationToAudience200Response addActivationToAudience(
@@ -273,7 +273,7 @@ public class ActivationsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ApiResponse<AddActivationToAudience200Response> addActivationToAudienceWithHttpInfo(
@@ -317,7 +317,7 @@ public class ActivationsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call addActivationToAudienceAsync(
@@ -355,7 +355,7 @@ public class ActivationsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call addDestinationToAudienceCall(
@@ -483,7 +483,7 @@ public class ActivationsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public AddDestinationToAudience200Response addDestinationToAudience(
@@ -523,7 +523,7 @@ public class ActivationsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ApiResponse<AddDestinationToAudience200Response> addDestinationToAudienceWithHttpInfo(
@@ -566,7 +566,7 @@ public class ActivationsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call addDestinationToAudienceAsync(
@@ -599,7 +599,7 @@ public class ActivationsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call getActivationFromAudienceCall(
@@ -714,7 +714,7 @@ public class ActivationsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public GetActivationFromAudience200Response getActivationFromAudience(
@@ -743,7 +743,7 @@ public class ActivationsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ApiResponse<GetActivationFromAudience200Response> getActivationFromAudienceWithHttpInfo(
@@ -775,7 +775,7 @@ public class ActivationsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call getActivationFromAudienceAsync(
@@ -808,7 +808,7 @@ public class ActivationsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call listActivationsFromAudienceCall(
@@ -924,7 +924,7 @@ public class ActivationsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ListActivationsFromAudience200Response listActivationsFromAudience(
@@ -952,7 +952,7 @@ public class ActivationsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ApiResponse<ListActivationsFromAudience200Response>
@@ -987,7 +987,7 @@ public class ActivationsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call listActivationsFromAudienceAsync(
@@ -1021,7 +1021,7 @@ public class ActivationsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call listDestinationsFromAudienceCall(
@@ -1143,7 +1143,7 @@ public class ActivationsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ListDestinationsFromAudience200Response listDestinationsFromAudience(
@@ -1177,7 +1177,7 @@ public class ActivationsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ApiResponse<ListDestinationsFromAudience200Response>
@@ -1217,7 +1217,7 @@ public class ActivationsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call listDestinationsFromAudienceAsync(
@@ -1254,7 +1254,7 @@ public class ActivationsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call listSupportedDestinationsFromAudienceCall(
@@ -1386,7 +1386,7 @@ public class ActivationsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ListSupportedDestinationsFromAudience200Response listSupportedDestinationsFromAudience(
@@ -1424,7 +1424,7 @@ public class ActivationsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ApiResponse<ListSupportedDestinationsFromAudience200Response>
@@ -1467,7 +1467,7 @@ public class ActivationsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call listSupportedDestinationsFromAudienceAsync(
@@ -1502,7 +1502,7 @@ public class ActivationsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call removeActivationFromAudienceCall(
@@ -1616,7 +1616,7 @@ public class ActivationsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public RemoveActivationFromAudience200Response removeActivationFromAudience(
@@ -1644,7 +1644,7 @@ public class ActivationsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ApiResponse<RemoveActivationFromAudience200Response>
@@ -1677,7 +1677,7 @@ public class ActivationsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call removeActivationFromAudienceAsync(
@@ -1710,7 +1710,7 @@ public class ActivationsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call removeDestinationFromAudienceCall(
@@ -1829,7 +1829,7 @@ public class ActivationsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public RemoveDestinationFromAudience200Response removeDestinationFromAudience(
@@ -1860,7 +1860,7 @@ public class ActivationsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ApiResponse<RemoveDestinationFromAudience200Response>
@@ -1896,7 +1896,7 @@ public class ActivationsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call removeDestinationFromAudienceAsync(
@@ -1931,7 +1931,7 @@ public class ActivationsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call updateActivationForAudienceCall(
@@ -2062,7 +2062,7 @@ public class ActivationsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public UpdateActivationForAudience200Response updateActivationForAudience(
@@ -2096,7 +2096,7 @@ public class ActivationsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ApiResponse<UpdateActivationForAudience200Response>
@@ -2135,7 +2135,7 @@ public class ActivationsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call updateActivationForAudienceAsync(
@@ -2171,7 +2171,7 @@ public class ActivationsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call updateDestinationForAudienceCall(
@@ -2310,7 +2310,7 @@ public class ActivationsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public UpdateDestinationForAudience200Response updateDestinationForAudience(
@@ -2346,7 +2346,7 @@ public class ActivationsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ApiResponse<UpdateDestinationForAudience200Response>
@@ -2390,7 +2390,7 @@ public class ActivationsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call updateDestinationForAudienceAsync(

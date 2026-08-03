@@ -76,7 +76,7 @@ public class IamRolesApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call listRolesCall(PaginationInput pagination, final ApiCallback _callback)
@@ -161,7 +161,7 @@ public class IamRolesApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ListRoles200Response listRoles(PaginationInput pagination) throws ApiException {
@@ -182,7 +182,7 @@ public class IamRolesApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ApiResponse<ListRoles200Response> listRolesWithHttpInfo(PaginationInput pagination)
@@ -207,7 +207,7 @@ public class IamRolesApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call listRolesAsync(

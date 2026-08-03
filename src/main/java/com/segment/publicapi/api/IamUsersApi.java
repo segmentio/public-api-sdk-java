@@ -88,7 +88,7 @@ public class IamUsersApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call addPermissionsToUserCall(
@@ -204,7 +204,7 @@ public class IamUsersApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public AddPermissionsToUser200Response addPermissionsToUser(
@@ -234,7 +234,7 @@ public class IamUsersApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ApiResponse<AddPermissionsToUser200Response> addPermissionsToUserWithHttpInfo(
@@ -267,7 +267,7 @@ public class IamUsersApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call addPermissionsToUserAsync(
@@ -297,7 +297,7 @@ public class IamUsersApi {
      * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call createInvitesCall(
@@ -398,7 +398,7 @@ public class IamUsersApi {
      * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public CreateInvites201Response createInvites(CreateInvitesV1Input createInvitesV1Input)
@@ -427,7 +427,7 @@ public class IamUsersApi {
      * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ApiResponse<CreateInvites201Response> createInvitesWithHttpInfo(
@@ -457,7 +457,7 @@ public class IamUsersApi {
      * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call createInvitesAsync(
@@ -486,7 +486,7 @@ public class IamUsersApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call deleteInvitesCall(List<String> emails, final ApiCallback _callback)
@@ -584,7 +584,7 @@ public class IamUsersApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public DeleteInvites200Response deleteInvites(List<String> emails) throws ApiException {
@@ -611,7 +611,7 @@ public class IamUsersApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ApiResponse<DeleteInvites200Response> deleteInvitesWithHttpInfo(List<String> emails)
@@ -642,7 +642,7 @@ public class IamUsersApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call deleteInvitesAsync(
@@ -668,7 +668,7 @@ public class IamUsersApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call deleteUsersCall(List<String> userIds, final ApiCallback _callback)
@@ -765,7 +765,7 @@ public class IamUsersApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public DeleteUsers200Response deleteUsers(List<String> userIds) throws ApiException {
@@ -791,7 +791,7 @@ public class IamUsersApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ApiResponse<DeleteUsers200Response> deleteUsersWithHttpInfo(List<String> userIds)
@@ -820,7 +820,7 @@ public class IamUsersApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call deleteUsersAsync(
@@ -846,7 +846,7 @@ public class IamUsersApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call getUserCall(String userId, final ApiCallback _callback)
@@ -937,7 +937,7 @@ public class IamUsersApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public GetUser200Response getUser(String userId) throws ApiException {
@@ -958,7 +958,7 @@ public class IamUsersApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ApiResponse<GetUser200Response> getUserWithHttpInfo(String userId) throws ApiException {
@@ -981,7 +981,7 @@ public class IamUsersApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call getUserAsync(String userId, final ApiCallback<GetUser200Response> _callback)
@@ -1006,7 +1006,7 @@ public class IamUsersApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call listInvitesCall(PaginationInput pagination, final ApiCallback _callback)
@@ -1092,7 +1092,7 @@ public class IamUsersApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ListInvites200Response listInvites(PaginationInput pagination) throws ApiException {
@@ -1114,7 +1114,7 @@ public class IamUsersApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ApiResponse<ListInvites200Response> listInvitesWithHttpInfo(PaginationInput pagination)
@@ -1139,7 +1139,7 @@ public class IamUsersApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call listInvitesAsync(
@@ -1166,7 +1166,7 @@ public class IamUsersApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call listUserGroupsFromUserCall(
@@ -1265,7 +1265,7 @@ public class IamUsersApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ListUserGroupsFromUser200Response listUserGroupsFromUser(
@@ -1289,7 +1289,7 @@ public class IamUsersApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ApiResponse<ListUserGroupsFromUser200Response> listUserGroupsFromUserWithHttpInfo(
@@ -1315,7 +1315,7 @@ public class IamUsersApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call listUserGroupsFromUserAsync(
@@ -1344,7 +1344,7 @@ public class IamUsersApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call listUsersCall(PaginationInput pagination, final ApiCallback _callback)
@@ -1429,7 +1429,7 @@ public class IamUsersApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ListUsers200Response listUsers(PaginationInput pagination) throws ApiException {
@@ -1450,7 +1450,7 @@ public class IamUsersApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ApiResponse<ListUsers200Response> listUsersWithHttpInfo(PaginationInput pagination)
@@ -1474,7 +1474,7 @@ public class IamUsersApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call listUsersAsync(
@@ -1501,7 +1501,7 @@ public class IamUsersApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call replacePermissionsForUserCall(
@@ -1617,7 +1617,7 @@ public class IamUsersApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ReplacePermissionsForUser200Response replacePermissionsForUser(
@@ -1647,7 +1647,7 @@ public class IamUsersApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ApiResponse<ReplacePermissionsForUser200Response> replacePermissionsForUserWithHttpInfo(
@@ -1681,7 +1681,7 @@ public class IamUsersApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call replacePermissionsForUserAsync(

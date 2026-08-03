@@ -79,7 +79,7 @@ public class LivePluginsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call createLivePluginCall(
@@ -186,7 +186,7 @@ public class LivePluginsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public CreateLivePlugin200Response createLivePlugin(
@@ -215,7 +215,7 @@ public class LivePluginsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ApiResponse<CreateLivePlugin200Response> createLivePluginWithHttpInfo(
@@ -246,7 +246,7 @@ public class LivePluginsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call createLivePluginAsync(
@@ -275,7 +275,7 @@ public class LivePluginsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call deleteLivePluginCodeCall(String sourceId, final ApiCallback _callback)
@@ -368,7 +368,7 @@ public class LivePluginsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public DeleteLivePluginCode200Response deleteLivePluginCode(String sourceId)
@@ -395,7 +395,7 @@ public class LivePluginsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ApiResponse<DeleteLivePluginCode200Response> deleteLivePluginCodeWithHttpInfo(
@@ -424,7 +424,7 @@ public class LivePluginsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call deleteLivePluginCodeAsync(
@@ -450,7 +450,7 @@ public class LivePluginsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call getLatestFromLivePluginsCall(String sourceId, final ApiCallback _callback)
@@ -543,7 +543,7 @@ public class LivePluginsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public GetLatestFromLivePlugins200Response getLatestFromLivePlugins(String sourceId)
@@ -570,7 +570,7 @@ public class LivePluginsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ApiResponse<GetLatestFromLivePlugins200Response> getLatestFromLivePluginsWithHttpInfo(
@@ -598,7 +598,7 @@ public class LivePluginsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call getLatestFromLivePluginsAsync(

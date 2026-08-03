@@ -95,7 +95,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: createAudience
@@ -170,7 +170,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: createAudiencePreview
@@ -245,7 +245,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: forceExecuteAudienceRun
@@ -320,7 +320,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: getAudience
@@ -397,7 +397,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: getAudiencePreview
@@ -472,7 +472,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: getAudienceScheduleFromSpaceAndAudience
@@ -549,7 +549,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: listAudienceConsumersFromSpaceAndAudience
@@ -630,7 +630,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: listAudienceSchedulesFromSpaceAndAudience
@@ -705,7 +705,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: listAudiences
@@ -784,7 +784,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: removeAudienceFromSpace
@@ -859,7 +859,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: removeAudienceScheduleFromAudience
@@ -936,7 +936,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: updateAudienceForSpace
@@ -1013,7 +1013,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: updateAudienceScheduleForAudience
@@ -1092,5 +1092,5 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 

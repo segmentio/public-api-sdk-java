@@ -91,7 +91,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: createTrackingPlan
@@ -164,7 +164,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: deleteTrackingPlan
@@ -237,7 +237,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: getTrackingPlan
@@ -310,7 +310,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: listRulesFromTrackingPlan
@@ -385,7 +385,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: listSourcesFromTrackingPlan
@@ -460,7 +460,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: listTrackingPlans
@@ -535,7 +535,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: removeRulesFromTrackingPlan
@@ -610,7 +610,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: removeSourceFromTrackingPlan
@@ -685,7 +685,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: replaceRulesInTrackingPlan
@@ -760,7 +760,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: updateRulesInTrackingPlan
@@ -835,7 +835,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: updateTrackingPlan
@@ -910,5 +910,5 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 

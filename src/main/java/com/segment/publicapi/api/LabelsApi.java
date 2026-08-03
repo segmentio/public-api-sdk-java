@@ -78,7 +78,7 @@ public class LabelsApi {
      * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call createLabelCall(
@@ -178,7 +178,7 @@ public class LabelsApi {
      * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public CreateLabel201Response createLabel(CreateLabelV1Input createLabelV1Input)
@@ -206,7 +206,7 @@ public class LabelsApi {
      * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ApiResponse<CreateLabel201Response> createLabelWithHttpInfo(
@@ -235,7 +235,7 @@ public class LabelsApi {
      * <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call createLabelAsync(
@@ -263,7 +263,7 @@ public class LabelsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call deleteLabelCall(String key, String value, final ApiCallback _callback)
@@ -367,7 +367,7 @@ public class LabelsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public DeleteLabel200Response deleteLabel(String key, String value) throws ApiException {
@@ -394,7 +394,7 @@ public class LabelsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ApiResponse<DeleteLabel200Response> deleteLabelWithHttpInfo(String key, String value)
@@ -424,7 +424,7 @@ public class LabelsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call deleteLabelAsync(
@@ -449,7 +449,7 @@ public class LabelsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call listLabelsCall(final ApiCallback _callback) throws ApiException {
@@ -528,7 +528,7 @@ public class LabelsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ListLabels200Response listLabels() throws ApiException {
@@ -548,7 +548,7 @@ public class LabelsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public ApiResponse<ListLabels200Response> listLabelsWithHttpInfo() throws ApiException {
@@ -570,7 +570,7 @@ public class LabelsApi {
      * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
      * </table>
      */
     public okhttp3.Call listLabelsAsync(final ApiCallback<ListLabels200Response> _callback)

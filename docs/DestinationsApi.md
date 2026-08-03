@@ -88,7 +88,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: createDestinationSubscription
@@ -163,7 +163,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: deleteDestination
@@ -236,7 +236,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: getDestination
@@ -309,7 +309,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: getSubscriptionFromDestination
@@ -384,7 +384,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: listDeliveryMetricsSummaryFromDestination
@@ -465,7 +465,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: listDestinations
@@ -538,7 +538,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: listSubscriptionsFromDestination
@@ -613,7 +613,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: removeSubscriptionFromDestination
@@ -688,7 +688,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: updateDestination
@@ -763,7 +763,7 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: updateSubscriptionForDestination
@@ -840,5 +840,5 @@ public class Example {
 | **200** | OK |  -  |
 | **404** | Resource not found |  -  |
 | **422** | Validation failure |  -  |
-| **429** | Too many requests |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
