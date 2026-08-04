@@ -7,7 +7,7 @@ on:
 jobs:
   delete-old-branches:
     name: Delete old branches
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest-large
     permissions:
       contents: write
       pull-requests: read
