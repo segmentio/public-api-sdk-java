@@ -8,14 +8,38 @@ jobs:
   delete-old-branches:
     name: Delete old branches
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: read
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      - name: Run delete-old-branches-action
-        uses: beatlabs/delete-old-branches-action@v0.0.10
-        with:
-          repo_token: ${{ github.token }}
-          date: '7 days ago'
-          dry_run: false
-          default_branches: main,master,staging
-          exclude_open_pr_branches: true
+      - name: Delete branches with no activity in 7+ days
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          PROTECTED: 'main master staging'
+          CUTOFF_DAYS: '7'
+        run: |
+          set -euo pipefail
+
+          cutoff_epoch=$(date -u -d "${CUTOFF_DAYS} days ago" +%s)
+
+          # Branches with open PRs (head refs) — never delete these.
+          open_pr_branches=$(gh api --paginate "repos/${REPO}/pulls?state=open&per_page=100" \
+            --jq '.[].head.ref' | sort -u)
+
+          # All branches with their tip commit date, paginated.
+          gh api --paginate "repos/${REPO}/branches?per_page=100" --jq '.[].name' | while read -r branch; do
+            case " ${PROTECTED} " in *" ${branch} "*) continue ;; esac
+            if grep -Fxq "${branch}" <<< "${open_pr_branches}"; then
+              continue
+            fi
+
+            committed_at=$(gh api "repos/${REPO}/branches/${branch}" \
+              --jq '.commit.commit.committer.date')
+            committed_epoch=$(date -u -d "${committed_at}" +%s)
+
+            if [ "${committed_epoch}" -lt "${cutoff_epoch}" ]; then
+              echo "Deleting ${branch} (last commit ${committed_at})"
+              gh api -X DELETE "repos/${REPO}/git/refs/heads/${branch}"
+            fi
+          done
