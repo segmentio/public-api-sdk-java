@@ -19,7 +19,7 @@ All URIs are relative to *https://api.segmentapis.com*
 
 Create Credential
 
-Creates a new Credential.    This endpoint requires the user to have at least the following permission(s):   * Workspace Owner  * Warehouse Admin  * Source Admin  * Entities Admin  * Unify and Engage Admin
+Creates a new Credential.    • When called, this endpoint may generate the &#x60;Warehouse Credential Created&#x60; event in the [audit trail](/tag/Audit-Trail).    This endpoint requires the user to have at least the following permission(s):   * Workspace Owner  * Warehouse Admin  * Source Admin  * Entities Admin  * Unify and Engage Admin
 
 ### Example
 
@@ -92,7 +92,7 @@ public class Example {
 
 Delete Credential
 
-Deletes an existing Credential. Fails if the Credential is still in use by a Warehouse or Source.    This endpoint requires the user to have at least the following permission(s):   * Workspace Owner
+Deletes an existing Credential. Fails with a &#x60;409 Conflict&#x60; if the Credential is still in use by a Warehouse or Source (including a disabled one). This check isn&#39;t atomic with the delete — a Warehouse or Source that attaches to this Credential in between would be orphaned rather than blocking the delete.    • When called, this endpoint may generate the &#x60;Warehouse Credential Deleted&#x60; event in the [audit trail](/tag/Audit-Trail).    This endpoint requires the user to have at least the following permission(s):   * Workspace Owner
 
 ### Example
 
@@ -388,7 +388,7 @@ public class Example {
 
 Update Credential
 
-Updates an existing Credential. All Warehouses using this Credential are affected immediately.    This endpoint requires the user to have at least the following permission(s):   * Workspace Owner
+Updates an existing Credential. All Warehouses using this Credential are affected immediately.    • When called, this endpoint may generate the &#x60;Warehouse Credential Modified&#x60; event in the [audit trail](/tag/Audit-Trail).    This endpoint requires the user to have at least the following permission(s):   * Workspace Owner
 
 ### Example
 

@@ -30,7 +30,10 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Returns the Warehouses and Sources that consume a Credential, each paginated independently. */
+/**
+ * Returns the Warehouses and Sources that consume a Credential. The two lists are paginated
+ * independently, so a caller can page through one without affecting the other.
+ */
 public class ListCredentialConsumersV1Output {
     public static final String SERIALIZED_NAME_WAREHOUSES = "warehouses";
 
