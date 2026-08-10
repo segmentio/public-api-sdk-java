@@ -90,7 +90,8 @@ public class UpdateActivationForAudienceAlphaInput {
     }
 
     /**
-     * Activation name. For Warehouse Destinations, this is used as the table name.
+     * Activation name. For Warehouse Destinations, this is used as the table name. Omit this field
+     * to leave the name unchanged. An empty string is ignored rather than applied.
      *
      * @return activationName
      */

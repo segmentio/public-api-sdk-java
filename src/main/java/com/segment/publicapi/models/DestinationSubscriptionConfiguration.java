@@ -49,7 +49,9 @@ public class DestinationSubscriptionConfiguration {
     }
 
     /**
-     * The id for the action that Segment should perform on the Destination.
+     * The id for the action that Segment should perform on the Destination. The action cannot be
+     * changed once the Activation exists. When updating, this field is still required, but
+     * supplying a different value has no effect.
      *
      * @return actionId
      */

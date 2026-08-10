@@ -58,7 +58,7 @@ public class PersonalizationInputEntity {
     }
 
     /**
-     * Get properties
+     * The entity properties to include in the event sent to the Destination.
      *
      * @return properties
      */

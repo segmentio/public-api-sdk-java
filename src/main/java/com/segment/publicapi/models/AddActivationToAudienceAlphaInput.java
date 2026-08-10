@@ -27,7 +27,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** AddActivationToAudienceAlphaInput */
+/** Input to create an activation. */
 public class AddActivationToAudienceAlphaInput {
     public static final String SERIALIZED_NAME_ENABLED = "enabled";
 

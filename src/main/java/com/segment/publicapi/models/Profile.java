@@ -30,7 +30,11 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Profile Object. */
+/**
+ * The profile traits included in the event sent to the Destination. Applies to both Classic and
+ * Linked Audiences. For a Classic audience this is the only form of personalization available,
+ * whereas a Linked Audience can also personalize on entities.
+ */
 public class Profile {
     public static final String SERIALIZED_NAME_PROPERTIES = "properties";
 
@@ -59,7 +63,7 @@ public class Profile {
     }
 
     /**
-     * Get properties
+     * The profile traits to include in the event sent to the Destination.
      *
      * @return properties
      */
@@ -87,7 +91,8 @@ public class Profile {
     }
 
     /**
-     * Get mapping
+     * Maps a profile trait to the name it should be sent under. Each key is a trait, and each value
+     * is the name used in the event.
      *
      * @return mapping
      */

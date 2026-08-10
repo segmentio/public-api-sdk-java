@@ -85,7 +85,9 @@ public class PersonalizationInput {
     }
 
     /**
-     * Entities V2 Object.
+     * The entities, and the properties of each entity, to include in the event sent to the
+     * Destination. Only applicable to Linked Audiences. Providing entities for a Classic audience
+     * returns a 400 error, as Classic audiences support profile properties only.
      *
      * @return entities
      */
