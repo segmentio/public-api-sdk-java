@@ -185,7 +185,7 @@ public class AddActivationToAudienceAlphaInput {
      *
      * @return personalization
      */
-    @javax.annotation.Nonnull
+    @javax.annotation.Nullable
     public PersonalizationInput getPersonalization() {
         return personalization;
     }
@@ -299,7 +299,6 @@ public class AddActivationToAudienceAlphaInput {
         openapiRequiredFields.add("performResync");
         openapiRequiredFields.add("activationType");
         openapiRequiredFields.add("activationName");
-        openapiRequiredFields.add("personalization");
     }
 
     /**
@@ -366,8 +365,11 @@ public class AddActivationToAudienceAlphaInput {
                                     + " string but got `%s`",
                             jsonObj.get("displayName").toString()));
         }
-        // validate the required field `personalization`
-        PersonalizationInput.validateJsonElement(jsonObj.get("personalization"));
+        // validate the optional field `personalization`
+        if (jsonObj.get("personalization") != null
+                && !jsonObj.get("personalization").isJsonNull()) {
+            PersonalizationInput.validateJsonElement(jsonObj.get("personalization"));
+        }
         // validate the optional field `destinationMapping`
         if (jsonObj.get("destinationMapping") != null
                 && !jsonObj.get("destinationMapping").isJsonNull()) {

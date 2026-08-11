@@ -79,7 +79,7 @@ public class ActivationOutput {
     public static final String SERIALIZED_NAME_PERSONALIZATION = "personalization";
 
     @SerializedName(SERIALIZED_NAME_PERSONALIZATION)
-    private PersonalizationInput personalization;
+    private PersonalizationOutput personalization;
 
     public static final String SERIALIZED_NAME_DESTINATION_MAPPING = "destinationMapping";
 
@@ -279,7 +279,7 @@ public class ActivationOutput {
         this.displayName = displayName;
     }
 
-    public ActivationOutput personalization(PersonalizationInput personalization) {
+    public ActivationOutput personalization(PersonalizationOutput personalization) {
 
         this.personalization = personalization;
         return this;
@@ -291,11 +291,11 @@ public class ActivationOutput {
      * @return personalization
      */
     @javax.annotation.Nonnull
-    public PersonalizationInput getPersonalization() {
+    public PersonalizationOutput getPersonalization() {
         return personalization;
     }
 
-    public void setPersonalization(PersonalizationInput personalization) {
+    public void setPersonalization(PersonalizationOutput personalization) {
         this.personalization = personalization;
     }
 
@@ -559,7 +559,7 @@ public class ActivationOutput {
                             jsonObj.get("displayName").toString()));
         }
         // validate the required field `personalization`
-        PersonalizationInput.validateJsonElement(jsonObj.get("personalization"));
+        PersonalizationOutput.validateJsonElement(jsonObj.get("personalization"));
         // validate the optional field `destinationMapping`
         if (jsonObj.get("destinationMapping") != null
                 && !jsonObj.get("destinationMapping").isJsonNull()) {
