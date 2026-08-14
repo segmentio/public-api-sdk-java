@@ -30,12 +30,16 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Profile Object. */
+/**
+ * The profile traits included in the event sent to the Destination. Applies to both Classic and
+ * Linked Audiences. For a Classic audience this is the only form of personalization available,
+ * whereas a Linked Audience can also personalize on entities.
+ */
 public class Profile {
     public static final String SERIALIZED_NAME_PROPERTIES = "properties";
 
     @SerializedName(SERIALIZED_NAME_PROPERTIES)
-    private List<String> properties = new ArrayList<>();
+    private List<String> properties;
 
     public static final String SERIALIZED_NAME_MAPPING = "mapping";
 
@@ -59,11 +63,11 @@ public class Profile {
     }
 
     /**
-     * Get properties
+     * The profile traits to include in the event sent to the Destination.
      *
      * @return properties
      */
-    @javax.annotation.Nonnull
+    @javax.annotation.Nullable
     public List<String> getProperties() {
         return properties;
     }
@@ -87,7 +91,8 @@ public class Profile {
     }
 
     /**
-     * Get mapping
+     * Maps a profile trait to the name it should be sent under. Each key is a trait, and each value
+     * is the name used in the event.
      *
      * @return mapping
      */
@@ -150,7 +155,6 @@ public class Profile {
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("properties");
     }
 
     /**
@@ -182,23 +186,11 @@ public class Profile {
                                 entry.getKey(), jsonElement.toString()));
             }
         }
-
-        // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : Profile.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-                throw new IllegalArgumentException(
-                        String.format(
-                                "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonElement.toString()));
-            }
-        }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        // ensure the required json array is present
-        if (jsonObj.get("properties") == null) {
-            throw new IllegalArgumentException(
-                    "Expected the field `linkedContent` to be an array in the JSON string but got"
-                            + " `null`");
-        } else if (!jsonObj.get("properties").isJsonArray()) {
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("properties") != null
+                && !jsonObj.get("properties").isJsonNull()
+                && !jsonObj.get("properties").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
                             "Expected the field `properties` to be an array in the JSON string but"

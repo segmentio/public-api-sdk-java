@@ -30,12 +30,12 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** The Personalization Input Object. */
-public class PersonalizationInput {
+/** The Personalization Object. */
+public class PersonalizationOutput {
     public static final String SERIALIZED_NAME_PROFILE = "profile";
 
     @SerializedName(SERIALIZED_NAME_PROFILE)
-    private Profile profile;
+    private Profile1 profile;
 
     public static final String SERIALIZED_NAME_ENTITIES = "entities";
 
@@ -48,9 +48,9 @@ public class PersonalizationInput {
     @SerializedName(SERIALIZED_NAME_SYNC_ENTITY_PROPERTY_CHANGES)
     private Boolean syncEntityPropertyChanges;
 
-    public PersonalizationInput() {}
+    public PersonalizationOutput() {}
 
-    public PersonalizationInput profile(Profile profile) {
+    public PersonalizationOutput profile(Profile1 profile) {
 
         this.profile = profile;
         return this;
@@ -61,22 +61,22 @@ public class PersonalizationInput {
      *
      * @return profile
      */
-    @javax.annotation.Nullable
-    public Profile getProfile() {
+    @javax.annotation.Nonnull
+    public Profile1 getProfile() {
         return profile;
     }
 
-    public void setProfile(Profile profile) {
+    public void setProfile(Profile1 profile) {
         this.profile = profile;
     }
 
-    public PersonalizationInput entities(List<PersonalizationInputEntity> entities) {
+    public PersonalizationOutput entities(List<PersonalizationInputEntity> entities) {
 
         this.entities = entities;
         return this;
     }
 
-    public PersonalizationInput addEntitiesItem(PersonalizationInputEntity entitiesItem) {
+    public PersonalizationOutput addEntitiesItem(PersonalizationInputEntity entitiesItem) {
         if (this.entities == null) {
             this.entities = new ArrayList<>();
         }
@@ -85,9 +85,8 @@ public class PersonalizationInput {
     }
 
     /**
-     * The entities, and the properties of each entity, to include in the event sent to the
-     * Destination. Only applicable to Linked Audiences. Providing entities for a Classic audience
-     * returns a 400 error, as Classic audiences support profile properties only.
+     * The entities, and the properties of each entity, included in the event sent to the
+     * Destination. Only applicable to Linked Audiences.
      *
      * @return entities
      */
@@ -100,7 +99,7 @@ public class PersonalizationInput {
         this.entities = entities;
     }
 
-    public PersonalizationInput syncEntityPropertyChanges(Boolean syncEntityPropertyChanges) {
+    public PersonalizationOutput syncEntityPropertyChanges(Boolean syncEntityPropertyChanges) {
 
         this.syncEntityPropertyChanges = syncEntityPropertyChanges;
         return this;
@@ -129,12 +128,12 @@ public class PersonalizationInput {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        PersonalizationInput personalizationInput = (PersonalizationInput) o;
-        return Objects.equals(this.profile, personalizationInput.profile)
-                && Objects.equals(this.entities, personalizationInput.entities)
+        PersonalizationOutput personalizationOutput = (PersonalizationOutput) o;
+        return Objects.equals(this.profile, personalizationOutput.profile)
+                && Objects.equals(this.entities, personalizationOutput.entities)
                 && Objects.equals(
                         this.syncEntityPropertyChanges,
-                        personalizationInput.syncEntityPropertyChanges);
+                        personalizationOutput.syncEntityPropertyChanges);
     }
 
     @Override
@@ -145,7 +144,7 @@ public class PersonalizationInput {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class PersonalizationInput {\n");
+        sb.append("class PersonalizationOutput {\n");
         sb.append("    profile: ").append(toIndentedString(profile)).append("\n");
         sb.append("    entities: ").append(toIndentedString(entities)).append("\n");
         sb.append("    syncEntityPropertyChanges: ")
@@ -178,42 +177,51 @@ public class PersonalizationInput {
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
+        openapiRequiredFields.add("profile");
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to PersonalizationInput
+     * @throws IOException if the JSON Element is invalid with respect to PersonalizationOutput
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!PersonalizationInput.openapiRequiredFields
+            if (!PersonalizationOutput.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in PersonalizationInput is not found in"
+                                "The required field(s) %s in PersonalizationOutput is not found in"
                                         + " the empty JSON string",
-                                PersonalizationInput.openapiRequiredFields.toString()));
+                                PersonalizationOutput.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!PersonalizationInput.openapiFields.contains(entry.getKey())) {
+            if (!PersonalizationOutput.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `PersonalizationInput` properties. JSON: %s",
+                                        + " `PersonalizationOutput` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-        // validate the optional field `profile`
-        if (jsonObj.get("profile") != null && !jsonObj.get("profile").isJsonNull()) {
-            Profile.validateJsonElement(jsonObj.get("profile"));
+
+        // check to make sure all required properties/fields are present in the JSON string
+        for (String requiredField : PersonalizationOutput.openapiRequiredFields) {
+            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+                throw new IllegalArgumentException(
+                        String.format(
+                                "The required field `%s` is not found in the JSON string: %s",
+                                requiredField, jsonElement.toString()));
+            }
         }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+        // validate the required field `profile`
+        Profile1.validateJsonElement(jsonObj.get("profile"));
         if (jsonObj.get("entities") != null && !jsonObj.get("entities").isJsonNull()) {
             JsonArray jsonArrayentities = jsonObj.getAsJsonArray("entities");
             if (jsonArrayentities != null) {
@@ -239,24 +247,24 @@ public class PersonalizationInput {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!PersonalizationInput.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'PersonalizationInput' and its subtypes
+            if (!PersonalizationOutput.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'PersonalizationOutput' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<PersonalizationInput> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(PersonalizationInput.class));
+            final TypeAdapter<PersonalizationOutput> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(PersonalizationOutput.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<PersonalizationInput>() {
+                    new TypeAdapter<PersonalizationOutput>() {
                         @Override
-                        public void write(JsonWriter out, PersonalizationInput value)
+                        public void write(JsonWriter out, PersonalizationOutput value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public PersonalizationInput read(JsonReader in) throws IOException {
+                        public PersonalizationOutput read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -266,18 +274,18 @@ public class PersonalizationInput {
     }
 
     /**
-     * Create an instance of PersonalizationInput given an JSON string
+     * Create an instance of PersonalizationOutput given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of PersonalizationInput
-     * @throws IOException if the JSON string is invalid with respect to PersonalizationInput
+     * @return An instance of PersonalizationOutput
+     * @throws IOException if the JSON string is invalid with respect to PersonalizationOutput
      */
-    public static PersonalizationInput fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, PersonalizationInput.class);
+    public static PersonalizationOutput fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, PersonalizationOutput.class);
     }
 
     /**
-     * Convert an instance of PersonalizationInput to an JSON string
+     * Convert an instance of PersonalizationOutput to an JSON string
      *
      * @return JSON string
      */
