@@ -79,7 +79,7 @@ public class ActivationOutput {
     public static final String SERIALIZED_NAME_PERSONALIZATION = "personalization";
 
     @SerializedName(SERIALIZED_NAME_PERSONALIZATION)
-    private PersonalizationInput personalization;
+    private PersonalizationOutput personalization;
 
     public static final String SERIALIZED_NAME_DESTINATION_MAPPING = "destinationMapping";
 
@@ -221,11 +221,10 @@ public class ActivationOutput {
 
     /**
      * Determines when an event is sent to the Destination. Possible values: Audience Entered: Sends
-     * an event when a profile or entity enters the audience. Audience Exited: Sends an event when a
-     * profile or entity exits the audience. Audience Membership Changed: Sends an event for both
-     * entries and exits. This does not apply to entities. Note that events are sent for the
-     * profile, unless the audience is a Linked Audience. In that case, events are sent for the
-     * target entity defined for that audience.
+     * an event when a profile enters the audience. Audience Exited: Sends an event when a profile
+     * exits the audience. Audience Membership Changed: Sends an event for both profile entries and
+     * profile exits. Entity Added: Sends an event when an entity enters the audience. Entity
+     * Removed: Sends an event when an entity exits the audience.
      *
      * @return activationType
      */
@@ -279,7 +278,7 @@ public class ActivationOutput {
         this.displayName = displayName;
     }
 
-    public ActivationOutput personalization(PersonalizationInput personalization) {
+    public ActivationOutput personalization(PersonalizationOutput personalization) {
 
         this.personalization = personalization;
         return this;
@@ -291,11 +290,11 @@ public class ActivationOutput {
      * @return personalization
      */
     @javax.annotation.Nonnull
-    public PersonalizationInput getPersonalization() {
+    public PersonalizationOutput getPersonalization() {
         return personalization;
     }
 
-    public void setPersonalization(PersonalizationInput personalization) {
+    public void setPersonalization(PersonalizationOutput personalization) {
         this.personalization = personalization;
     }
 
@@ -559,7 +558,7 @@ public class ActivationOutput {
                             jsonObj.get("displayName").toString()));
         }
         // validate the required field `personalization`
-        PersonalizationInput.validateJsonElement(jsonObj.get("personalization"));
+        PersonalizationOutput.validateJsonElement(jsonObj.get("personalization"));
         // validate the optional field `destinationMapping`
         if (jsonObj.get("destinationMapping") != null
                 && !jsonObj.get("destinationMapping").isJsonNull()) {

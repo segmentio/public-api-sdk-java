@@ -22,74 +22,87 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Destination Subscription Configuration. */
-public class DestinationSubscriptionConfiguration {
-    public static final String SERIALIZED_NAME_ACTION_ID = "actionId";
+/**
+ * The profile traits included in the event sent to the Destination. Applies to both Classic and
+ * Linked Audiences. For a Classic audience this is the only form of personalization available,
+ * whereas a Linked Audience can also personalize on entities.
+ */
+public class Profile1 {
+    public static final String SERIALIZED_NAME_PROPERTIES = "properties";
 
-    @SerializedName(SERIALIZED_NAME_ACTION_ID)
-    private String actionId;
+    @SerializedName(SERIALIZED_NAME_PROPERTIES)
+    private List<String> properties = new ArrayList<>();
 
-    public static final String SERIALIZED_NAME_SETTINGS = "settings";
+    public static final String SERIALIZED_NAME_MAPPING = "mapping";
 
-    @SerializedName(SERIALIZED_NAME_SETTINGS)
-    private Map<String, Object> settings;
+    @SerializedName(SERIALIZED_NAME_MAPPING)
+    private Map<String, String> mapping = new HashMap<>();
 
-    public DestinationSubscriptionConfiguration() {}
+    public Profile1() {}
 
-    public DestinationSubscriptionConfiguration actionId(String actionId) {
+    public Profile1 properties(List<String> properties) {
 
-        this.actionId = actionId;
+        this.properties = properties;
+        return this;
+    }
+
+    public Profile1 addPropertiesItem(String propertiesItem) {
+        if (this.properties == null) {
+            this.properties = new ArrayList<>();
+        }
+        this.properties.add(propertiesItem);
         return this;
     }
 
     /**
-     * The id for the action that Segment should perform on the Destination. The action cannot be
-     * changed once the Activation exists. When updating, this field is still required, but
-     * supplying a different value has no effect.
+     * The profile traits included in the event sent to the Destination.
      *
-     * @return actionId
+     * @return properties
      */
     @javax.annotation.Nonnull
-    public String getActionId() {
-        return actionId;
+    public List<String> getProperties() {
+        return properties;
     }
 
-    public void setActionId(String actionId) {
-        this.actionId = actionId;
+    public void setProperties(List<String> properties) {
+        this.properties = properties;
     }
 
-    public DestinationSubscriptionConfiguration settings(Map<String, Object> settings) {
+    public Profile1 mapping(Map<String, String> mapping) {
 
-        this.settings = settings;
+        this.mapping = mapping;
         return this;
     }
 
-    public DestinationSubscriptionConfiguration putSettingsItem(String key, Object settingsItem) {
-        if (this.settings == null) {
-            this.settings = new HashMap<>();
+    public Profile1 putMappingItem(String key, String mappingItem) {
+        if (this.mapping == null) {
+            this.mapping = new HashMap<>();
         }
-        this.settings.put(key, settingsItem);
+        this.mapping.put(key, mappingItem);
         return this;
     }
 
     /**
-     * Represents settings used to configure an action subscription.
+     * Maps a profile trait to the name it should be sent under. Each key is a trait, and each value
+     * is the name used in the event.
      *
-     * @return settings
+     * @return mapping
      */
     @javax.annotation.Nullable
-    public Map<String, Object> getSettings() {
-        return settings;
+    public Map<String, String> getMapping() {
+        return mapping;
     }
 
-    public void setSettings(Map<String, Object> settings) {
-        this.settings = settings;
+    public void setMapping(Map<String, String> mapping) {
+        this.mapping = mapping;
     }
 
     @Override
@@ -100,23 +113,22 @@ public class DestinationSubscriptionConfiguration {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        DestinationSubscriptionConfiguration destinationSubscriptionConfiguration =
-                (DestinationSubscriptionConfiguration) o;
-        return Objects.equals(this.actionId, destinationSubscriptionConfiguration.actionId)
-                && Objects.equals(this.settings, destinationSubscriptionConfiguration.settings);
+        Profile1 profile1 = (Profile1) o;
+        return Objects.equals(this.properties, profile1.properties)
+                && Objects.equals(this.mapping, profile1.mapping);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(actionId, settings);
+        return Objects.hash(properties, mapping);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class DestinationSubscriptionConfiguration {\n");
-        sb.append("    actionId: ").append(toIndentedString(actionId)).append("\n");
-        sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
+        sb.append("class Profile1 {\n");
+        sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
+        sb.append("    mapping: ").append(toIndentedString(mapping)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -138,49 +150,46 @@ public class DestinationSubscriptionConfiguration {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("actionId");
-        openapiFields.add("settings");
+        openapiFields.add("properties");
+        openapiFields.add("mapping");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("actionId");
+        openapiRequiredFields.add("properties");
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to
-     *     DestinationSubscriptionConfiguration
+     * @throws IOException if the JSON Element is invalid with respect to Profile1
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!DestinationSubscriptionConfiguration.openapiRequiredFields
+            if (!Profile1.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in DestinationSubscriptionConfiguration"
-                                        + " is not found in the empty JSON string",
-                                DestinationSubscriptionConfiguration.openapiRequiredFields
-                                        .toString()));
+                                "The required field(s) %s in Profile1 is not found in the empty"
+                                        + " JSON string",
+                                Profile1.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!DestinationSubscriptionConfiguration.openapiFields.contains(entry.getKey())) {
+            if (!Profile1.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
-                                "The field `%s` in the JSON string is not defined in the"
-                                    + " `DestinationSubscriptionConfiguration` properties. JSON:"
-                                    + " %s",
+                                "The field `%s` in the JSON string is not defined in the `Profile1`"
+                                        + " properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : DestinationSubscriptionConfiguration.openapiRequiredFields) {
+        for (String requiredField : Profile1.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -189,12 +198,17 @@ public class DestinationSubscriptionConfiguration {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if (!jsonObj.get("actionId").isJsonPrimitive()) {
+        // ensure the required json array is present
+        if (jsonObj.get("properties") == null) {
+            throw new IllegalArgumentException(
+                    "Expected the field `linkedContent` to be an array in the JSON string but got"
+                            + " `null`");
+        } else if (!jsonObj.get("properties").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Expected the field `actionId` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
-                            jsonObj.get("actionId").toString()));
+                            "Expected the field `properties` to be an array in the JSON string but"
+                                    + " got `%s`",
+                            jsonObj.get("properties").toString()));
         }
     }
 
@@ -202,28 +216,23 @@ public class DestinationSubscriptionConfiguration {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!DestinationSubscriptionConfiguration.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'DestinationSubscriptionConfiguration'
-                // and its subtypes
+            if (!Profile1.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'Profile1' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<DestinationSubscriptionConfiguration> thisAdapter =
-                    gson.getDelegateAdapter(
-                            this, TypeToken.get(DestinationSubscriptionConfiguration.class));
+            final TypeAdapter<Profile1> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(Profile1.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<DestinationSubscriptionConfiguration>() {
+                    new TypeAdapter<Profile1>() {
                         @Override
-                        public void write(
-                                JsonWriter out, DestinationSubscriptionConfiguration value)
-                                throws IOException {
+                        public void write(JsonWriter out, Profile1 value) throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public DestinationSubscriptionConfiguration read(JsonReader in)
-                                throws IOException {
+                        public Profile1 read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -233,20 +242,18 @@ public class DestinationSubscriptionConfiguration {
     }
 
     /**
-     * Create an instance of DestinationSubscriptionConfiguration given an JSON string
+     * Create an instance of Profile1 given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of DestinationSubscriptionConfiguration
-     * @throws IOException if the JSON string is invalid with respect to
-     *     DestinationSubscriptionConfiguration
+     * @return An instance of Profile1
+     * @throws IOException if the JSON string is invalid with respect to Profile1
      */
-    public static DestinationSubscriptionConfiguration fromJson(String jsonString)
-            throws IOException {
-        return JSON.getGson().fromJson(jsonString, DestinationSubscriptionConfiguration.class);
+    public static Profile1 fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, Profile1.class);
     }
 
     /**
-     * Convert an instance of DestinationSubscriptionConfiguration to an JSON string
+     * Convert an instance of Profile1 to an JSON string
      *
      * @return JSON string
      */
