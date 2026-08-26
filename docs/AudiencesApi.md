@@ -6,9 +6,11 @@ All URIs are relative to *https://api.segmentapis.com*
 |------------- | ------------- | -------------|
 | [**addAudienceScheduleToAudience**](AudiencesApi.md#addAudienceScheduleToAudience) | **POST** /spaces/{spaceId}/audiences/{id}/schedules | Add Audience Schedule to Audience |
 | [**createAudience**](AudiencesApi.md#createAudience) | **POST** /spaces/{spaceId}/audiences | Create Audience |
+| [**createAudienceCsvExportForAudience**](AudiencesApi.md#createAudienceCsvExportForAudience) | **POST** /spaces/{spaceId}/audiences/{id}/csv-exports | Create Audience Csv Export for Audience |
 | [**createAudiencePreview**](AudiencesApi.md#createAudiencePreview) | **POST** /spaces/{spaceId}/audiences/previews | Create Audience Preview |
 | [**forceExecuteAudienceRun**](AudiencesApi.md#forceExecuteAudienceRun) | **POST** /spaces/{spaceId}/audiences/{audienceId}/runs | Force Execute Audience Run |
 | [**getAudience**](AudiencesApi.md#getAudience) | **GET** /spaces/{spaceId}/audiences/{id} | Get Audience |
+| [**getAudienceCsvExportFromSpaceAndAudience**](AudiencesApi.md#getAudienceCsvExportFromSpaceAndAudience) | **GET** /spaces/{spaceId}/audiences/{id}/csv-exports/{exportId} | Get Audience Csv Export from Space And Audience |
 | [**getAudiencePreview**](AudiencesApi.md#getAudiencePreview) | **GET** /spaces/{spaceId}/audiences/previews/{id} | Get Audience Preview |
 | [**getAudienceScheduleFromSpaceAndAudience**](AudiencesApi.md#getAudienceScheduleFromSpaceAndAudience) | **GET** /spaces/{spaceId}/audiences/{id}/schedules/{scheduleId} | Get Audience Schedule from Space And Audience |
 | [**listAudienceConsumersFromSpaceAndAudience**](AudiencesApi.md#listAudienceConsumersFromSpaceAndAudience) | **GET** /spaces/{spaceId}/audiences/{id}/audience-references | List Audience Consumers from Space And Audience |
@@ -162,6 +164,81 @@ public class Example {
 
 - **Content-Type**: application/json, application/vnd.segment.v1+json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
 - **Accept**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **404** | Resource not found |  -  |
+| **422** | Validation failure |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
+
+
+## Operation: createAudienceCsvExportForAudience
+
+> CreateAudienceCsvExportForAudience200Response createAudienceCsvExportForAudience(spaceId, id)
+
+Create Audience Csv Export for Audience
+
+Starts a CSV export of an Audience&#39;s membership. The export runs asynchronously: this returns immediately with an export id, and does not return the CSV itself. Poll &#x60;getAudienceCsvExportFromSpaceAndAudience&#x60; with that id for status and download URLs.  • In order to successfully call this endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach out to your customer success manager for more information.
+
+### Example
+
+```java
+// Import classes:
+import com.segment.publicapi.ApiClient;
+import com.segment.publicapi.ApiException;
+import com.segment.publicapi.Configuration;
+import com.segment.publicapi.auth.*;
+import com.segment.publicapi.models.*;
+import com.segment.publicapi.api.AudiencesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        
+        // Configure HTTP bearer authorization: token
+        HttpBearerAuth token = (HttpBearerAuth) defaultClient.getAuthentication("token");
+        token.setBearerToken("BEARER TOKEN");
+
+        AudiencesApi apiInstance = new AudiencesApi(defaultClient);
+        String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
+        String id = "aud_0ujsszwN8NRY24YaXiTIE2VWDTS"; // String | 
+        try {
+            CreateAudienceCsvExportForAudience200Response result = apiInstance.createAudienceCsvExportForAudience(spaceId, id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AudiencesApi#createAudienceCsvExportForAudience");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **spaceId** | **String**|  | |
+| **id** | **String**|  | |
+
+### Return type
+
+[**CreateAudienceCsvExportForAudience200Response**](CreateAudienceCsvExportForAudience200Response.md)
+
+### Authorization
+
+[token](../README.md#token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/vnd.segment.v1alpha+json, application/json
 
 
 ### HTTP response details
@@ -389,6 +466,83 @@ public class Example {
 
 - **Content-Type**: Not defined
 - **Accept**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **404** | Resource not found |  -  |
+| **422** | Validation failure |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
+
+
+## Operation: getAudienceCsvExportFromSpaceAndAudience
+
+> GetAudienceCsvExportFromSpaceAndAudience200Response getAudienceCsvExportFromSpaceAndAudience(spaceId, id, exportId)
+
+Get Audience Csv Export from Space And Audience
+
+Returns the status of an Audience CSV export. While the export is running, &#x60;status&#x60; is IN_PROGRESS and no URLs are returned. Once &#x60;status&#x60; is SUCCESS, &#x60;urls&#x60; contains presigned download links created when the export completed. Repeated polling returns the same links.  • In order to successfully call this endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach out to your customer success manager for more information.
+
+### Example
+
+```java
+// Import classes:
+import com.segment.publicapi.ApiClient;
+import com.segment.publicapi.ApiException;
+import com.segment.publicapi.Configuration;
+import com.segment.publicapi.auth.*;
+import com.segment.publicapi.models.*;
+import com.segment.publicapi.api.AudiencesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        
+        // Configure HTTP bearer authorization: token
+        HttpBearerAuth token = (HttpBearerAuth) defaultClient.getAuthentication("token");
+        token.setBearerToken("BEARER TOKEN");
+
+        AudiencesApi apiInstance = new AudiencesApi(defaultClient);
+        String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
+        String id = "aud_0ujsszwN8NRY24YaXiTIE2VWDTS"; // String | 
+        String exportId = "csv_export_123"; // String | 
+        try {
+            GetAudienceCsvExportFromSpaceAndAudience200Response result = apiInstance.getAudienceCsvExportFromSpaceAndAudience(spaceId, id, exportId);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AudiencesApi#getAudienceCsvExportFromSpaceAndAudience");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **spaceId** | **String**|  | |
+| **id** | **String**|  | |
+| **exportId** | **String**|  | |
+
+### Return type
+
+[**GetAudienceCsvExportFromSpaceAndAudience200Response**](GetAudienceCsvExportFromSpaceAndAudience200Response.md)
+
+### Authorization
+
+[token](../README.md#token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/vnd.segment.v1alpha+json, application/json
 
 
 ### HTTP response details
