@@ -27,17 +27,17 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** CreateAudienceCsvExportForAudience200Response */
-public class CreateAudienceCsvExportForAudience200Response {
+/** AddAudienceCsvExportToAudience200Response */
+public class AddAudienceCsvExportToAudience200Response {
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    private CreateAudienceCsvExportForAudienceAlphaOutput data;
+    private AddAudienceCsvExportToAudienceAlphaOutput data;
 
-    public CreateAudienceCsvExportForAudience200Response() {}
+    public AddAudienceCsvExportToAudience200Response() {}
 
-    public CreateAudienceCsvExportForAudience200Response data(
-            CreateAudienceCsvExportForAudienceAlphaOutput data) {
+    public AddAudienceCsvExportToAudience200Response data(
+            AddAudienceCsvExportToAudienceAlphaOutput data) {
 
         this.data = data;
         return this;
@@ -49,11 +49,11 @@ public class CreateAudienceCsvExportForAudience200Response {
      * @return data
      */
     @javax.annotation.Nullable
-    public CreateAudienceCsvExportForAudienceAlphaOutput getData() {
+    public AddAudienceCsvExportToAudienceAlphaOutput getData() {
         return data;
     }
 
-    public void setData(CreateAudienceCsvExportForAudienceAlphaOutput data) {
+    public void setData(AddAudienceCsvExportToAudienceAlphaOutput data) {
         this.data = data;
     }
 
@@ -65,10 +65,9 @@ public class CreateAudienceCsvExportForAudience200Response {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        CreateAudienceCsvExportForAudience200Response
-                createAudienceCsvExportForAudience200Response =
-                        (CreateAudienceCsvExportForAudience200Response) o;
-        return Objects.equals(this.data, createAudienceCsvExportForAudience200Response.data);
+        AddAudienceCsvExportToAudience200Response addAudienceCsvExportToAudience200Response =
+                (AddAudienceCsvExportToAudience200Response) o;
+        return Objects.equals(this.data, addAudienceCsvExportToAudience200Response.data);
     }
 
     @Override
@@ -79,7 +78,7 @@ public class CreateAudienceCsvExportForAudience200Response {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class CreateAudienceCsvExportForAudience200Response {\n");
+        sb.append("class AddAudienceCsvExportToAudience200Response {\n");
         sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -113,18 +112,18 @@ public class CreateAudienceCsvExportForAudience200Response {
      *
      * @param jsonElement JSON Element
      * @throws IOException if the JSON Element is invalid with respect to
-     *     CreateAudienceCsvExportForAudience200Response
+     *     AddAudienceCsvExportToAudience200Response
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!CreateAudienceCsvExportForAudience200Response.openapiRequiredFields
+            if (!AddAudienceCsvExportToAudience200Response.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in"
-                                    + " CreateAudienceCsvExportForAudience200Response is not found"
-                                    + " in the empty JSON string",
-                                CreateAudienceCsvExportForAudience200Response.openapiRequiredFields
+                                    + " AddAudienceCsvExportToAudience200Response is not found in"
+                                    + " the empty JSON string",
+                                AddAudienceCsvExportToAudience200Response.openapiRequiredFields
                                         .toString()));
             }
         }
@@ -132,20 +131,19 @@ public class CreateAudienceCsvExportForAudience200Response {
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!CreateAudienceCsvExportForAudience200Response.openapiFields.contains(
-                    entry.getKey())) {
+            if (!AddAudienceCsvExportToAudience200Response.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                    + " `CreateAudienceCsvExportForAudience200Response` properties."
-                                    + " JSON: %s",
+                                        + " `AddAudienceCsvExportToAudience200Response` properties."
+                                        + " JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the optional field `data`
         if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-            CreateAudienceCsvExportForAudienceAlphaOutput.validateJsonElement(jsonObj.get("data"));
+            AddAudienceCsvExportToAudienceAlphaOutput.validateJsonElement(jsonObj.get("data"));
         }
     }
 
@@ -153,29 +151,28 @@ public class CreateAudienceCsvExportForAudience200Response {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!CreateAudienceCsvExportForAudience200Response.class.isAssignableFrom(
+            if (!AddAudienceCsvExportToAudience200Response.class.isAssignableFrom(
                     type.getRawType())) {
                 return null; // this class only serializes
-                // 'CreateAudienceCsvExportForAudience200Response' and its subtypes
+                // 'AddAudienceCsvExportToAudience200Response' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<CreateAudienceCsvExportForAudience200Response> thisAdapter =
+            final TypeAdapter<AddAudienceCsvExportToAudience200Response> thisAdapter =
                     gson.getDelegateAdapter(
-                            this,
-                            TypeToken.get(CreateAudienceCsvExportForAudience200Response.class));
+                            this, TypeToken.get(AddAudienceCsvExportToAudience200Response.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<CreateAudienceCsvExportForAudience200Response>() {
+                    new TypeAdapter<AddAudienceCsvExportToAudience200Response>() {
                         @Override
                         public void write(
-                                JsonWriter out, CreateAudienceCsvExportForAudience200Response value)
+                                JsonWriter out, AddAudienceCsvExportToAudience200Response value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public CreateAudienceCsvExportForAudience200Response read(JsonReader in)
+                        public AddAudienceCsvExportToAudience200Response read(JsonReader in)
                                 throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
@@ -186,21 +183,20 @@ public class CreateAudienceCsvExportForAudience200Response {
     }
 
     /**
-     * Create an instance of CreateAudienceCsvExportForAudience200Response given an JSON string
+     * Create an instance of AddAudienceCsvExportToAudience200Response given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of CreateAudienceCsvExportForAudience200Response
+     * @return An instance of AddAudienceCsvExportToAudience200Response
      * @throws IOException if the JSON string is invalid with respect to
-     *     CreateAudienceCsvExportForAudience200Response
+     *     AddAudienceCsvExportToAudience200Response
      */
-    public static CreateAudienceCsvExportForAudience200Response fromJson(String jsonString)
+    public static AddAudienceCsvExportToAudience200Response fromJson(String jsonString)
             throws IOException {
-        return JSON.getGson()
-                .fromJson(jsonString, CreateAudienceCsvExportForAudience200Response.class);
+        return JSON.getGson().fromJson(jsonString, AddAudienceCsvExportToAudience200Response.class);
     }
 
     /**
-     * Convert an instance of CreateAudienceCsvExportForAudience200Response to an JSON string
+     * Convert an instance of AddAudienceCsvExportToAudience200Response to an JSON string
      *
      * @return JSON string
      */

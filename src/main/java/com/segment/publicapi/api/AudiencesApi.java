@@ -18,10 +18,10 @@ import com.segment.publicapi.ApiException;
 import com.segment.publicapi.ApiResponse;
 import com.segment.publicapi.Configuration;
 import com.segment.publicapi.Pair;
+import com.segment.publicapi.models.AddAudienceCsvExportToAudience200Response;
 import com.segment.publicapi.models.AddAudienceScheduleToAudience200Response;
 import com.segment.publicapi.models.AddAudienceScheduleToAudienceInput;
 import com.segment.publicapi.models.CreateAudience200Response;
-import com.segment.publicapi.models.CreateAudienceCsvExportForAudience200Response;
 import com.segment.publicapi.models.CreateAudienceInput;
 import com.segment.publicapi.models.CreateAudiencePreview200Response;
 import com.segment.publicapi.models.CreateAudiencePreviewInput;
@@ -84,6 +84,202 @@ public class AudiencesApi {
 
     public void setCustomBaseUrl(String customBaseUrl) {
         this.localCustomBaseUrl = customBaseUrl;
+    }
+
+    /**
+     * Build call for addAudienceCsvExportToAudience
+     *
+     * @param spaceId (required)
+     * @param id (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call addAudienceCsvExportToAudienceCall(
+            String spaceId, String id, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/spaces/{spaceId}/audiences/{id}/csv-exports"
+                        .replace(
+                                "{" + "spaceId" + "}",
+                                localVarApiClient.escapeString(spaceId.toString()))
+                        .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.segment.v1alpha+json", "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"token"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call addAudienceCsvExportToAudienceValidateBeforeCall(
+            String spaceId, String id, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'spaceId' is set
+        if (spaceId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'spaceId' when calling"
+                            + " addAudienceCsvExportToAudience(Async)");
+        }
+
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'id' when calling"
+                            + " addAudienceCsvExportToAudience(Async)");
+        }
+
+        return addAudienceCsvExportToAudienceCall(spaceId, id, _callback);
+    }
+
+    /**
+     * Add Audience Csv Export to Audience Starts a CSV export of an Audience&#39;s membership. The
+     * export runs asynchronously: this returns immediately with an export id, and does not return
+     * the CSV itself. Poll &#x60;getAudienceCsvExportFromSpaceAndAudience&#x60; with that id for
+     * status and download URLs. • In order to successfully call this endpoint, the specified
+     * Workspace needs to have the Audience feature enabled. Please reach out to your customer
+     * success manager for more information.
+     *
+     * @param spaceId (required)
+     * @param id (required)
+     * @return AddAudienceCsvExportToAudience200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
+     * </table>
+     */
+    public AddAudienceCsvExportToAudience200Response addAudienceCsvExportToAudience(
+            String spaceId, String id) throws ApiException {
+        ApiResponse<AddAudienceCsvExportToAudience200Response> localVarResp =
+                addAudienceCsvExportToAudienceWithHttpInfo(spaceId, id);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Add Audience Csv Export to Audience Starts a CSV export of an Audience&#39;s membership. The
+     * export runs asynchronously: this returns immediately with an export id, and does not return
+     * the CSV itself. Poll &#x60;getAudienceCsvExportFromSpaceAndAudience&#x60; with that id for
+     * status and download URLs. • In order to successfully call this endpoint, the specified
+     * Workspace needs to have the Audience feature enabled. Please reach out to your customer
+     * success manager for more information.
+     *
+     * @param spaceId (required)
+     * @param id (required)
+     * @return ApiResponse&lt;AddAudienceCsvExportToAudience200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
+     *     response body
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
+     * </table>
+     */
+    public ApiResponse<AddAudienceCsvExportToAudience200Response>
+            addAudienceCsvExportToAudienceWithHttpInfo(String spaceId, String id)
+                    throws ApiException {
+        okhttp3.Call localVarCall =
+                addAudienceCsvExportToAudienceValidateBeforeCall(spaceId, id, null);
+        Type localVarReturnType =
+                new TypeToken<AddAudienceCsvExportToAudience200Response>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Add Audience Csv Export to Audience (asynchronously) Starts a CSV export of an Audience&#39;s
+     * membership. The export runs asynchronously: this returns immediately with an export id, and
+     * does not return the CSV itself. Poll &#x60;getAudienceCsvExportFromSpaceAndAudience&#x60;
+     * with that id for status and download URLs. • In order to successfully call this endpoint, the
+     * specified Workspace needs to have the Audience feature enabled. Please reach out to your
+     * customer success manager for more information.
+     *
+     * @param spaceId (required)
+     * @param id (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body
+     *     object
+     * @http.response.details
+     *     <table summary="Response Details" border="1">
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
+     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call addAudienceCsvExportToAudienceAsync(
+            String spaceId,
+            String id,
+            final ApiCallback<AddAudienceCsvExportToAudience200Response> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                addAudienceCsvExportToAudienceValidateBeforeCall(spaceId, id, _callback);
+        Type localVarReturnType =
+                new TypeToken<AddAudienceCsvExportToAudience200Response>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
     }
 
     /**
@@ -530,203 +726,6 @@ public class AudiencesApi {
         okhttp3.Call localVarCall =
                 createAudienceValidateBeforeCall(spaceId, createAudienceInput, _callback);
         Type localVarReturnType = new TypeToken<CreateAudience200Response>() {}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-
-    /**
-     * Build call for createAudienceCsvExportForAudience
-     *
-     * @param spaceId (required)
-     * @param id (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createAudienceCsvExportForAudienceCall(
-            String spaceId, String id, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {};
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null) {
-            basePath = localCustomBaseUrl;
-        } else if (localBasePaths.length > 0) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath =
-                "/spaces/{spaceId}/audiences/{id}/csv-exports"
-                        .replace(
-                                "{" + "spaceId" + "}",
-                                localVarApiClient.escapeString(spaceId.toString()))
-                        .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/vnd.segment.v1alpha+json", "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {};
-        final String localVarContentType =
-                localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {"token"};
-        return localVarApiClient.buildCall(
-                basePath,
-                localVarPath,
-                "POST",
-                localVarQueryParams,
-                localVarCollectionQueryParams,
-                localVarPostBody,
-                localVarHeaderParams,
-                localVarCookieParams,
-                localVarFormParams,
-                localVarAuthNames,
-                _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call createAudienceCsvExportForAudienceValidateBeforeCall(
-            String spaceId, String id, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'spaceId' is set
-        if (spaceId == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'spaceId' when calling"
-                            + " createAudienceCsvExportForAudience(Async)");
-        }
-
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'id' when calling"
-                            + " createAudienceCsvExportForAudience(Async)");
-        }
-
-        return createAudienceCsvExportForAudienceCall(spaceId, id, _callback);
-    }
-
-    /**
-     * Create Audience Csv Export for Audience Starts a CSV export of an Audience&#39;s membership.
-     * The export runs asynchronously: this returns immediately with an export id, and does not
-     * return the CSV itself. Poll &#x60;getAudienceCsvExportFromSpaceAndAudience&#x60; with that id
-     * for status and download URLs. • In order to successfully call this endpoint, the specified
-     * Workspace needs to have the Audience feature enabled. Please reach out to your customer
-     * success manager for more information.
-     *
-     * @param spaceId (required)
-     * @param id (required)
-     * @return CreateAudienceCsvExportForAudience200Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
-     *     response body
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
-     * </table>
-     */
-    public CreateAudienceCsvExportForAudience200Response createAudienceCsvExportForAudience(
-            String spaceId, String id) throws ApiException {
-        ApiResponse<CreateAudienceCsvExportForAudience200Response> localVarResp =
-                createAudienceCsvExportForAudienceWithHttpInfo(spaceId, id);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create Audience Csv Export for Audience Starts a CSV export of an Audience&#39;s membership.
-     * The export runs asynchronously: this returns immediately with an export id, and does not
-     * return the CSV itself. Poll &#x60;getAudienceCsvExportFromSpaceAndAudience&#x60; with that id
-     * for status and download URLs. • In order to successfully call this endpoint, the specified
-     * Workspace needs to have the Audience feature enabled. Please reach out to your customer
-     * success manager for more information.
-     *
-     * @param spaceId (required)
-     * @param id (required)
-     * @return ApiResponse&lt;CreateAudienceCsvExportForAudience200Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
-     *     response body
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
-     * </table>
-     */
-    public ApiResponse<CreateAudienceCsvExportForAudience200Response>
-            createAudienceCsvExportForAudienceWithHttpInfo(String spaceId, String id)
-                    throws ApiException {
-        okhttp3.Call localVarCall =
-                createAudienceCsvExportForAudienceValidateBeforeCall(spaceId, id, null);
-        Type localVarReturnType =
-                new TypeToken<CreateAudienceCsvExportForAudience200Response>() {}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Create Audience Csv Export for Audience (asynchronously) Starts a CSV export of an
-     * Audience&#39;s membership. The export runs asynchronously: this returns immediately with an
-     * export id, and does not return the CSV itself. Poll
-     * &#x60;getAudienceCsvExportFromSpaceAndAudience&#x60; with that id for status and download
-     * URLs. • In order to successfully call this endpoint, the specified Workspace needs to have
-     * the Audience feature enabled. Please reach out to your customer success manager for more
-     * information.
-     *
-     * @param spaceId (required)
-     * @param id (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body
-     *     object
-     * @http.response.details
-     *     <table summary="Response Details" border="1">
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-     * <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-     * <tr><td> 422 </td><td> Validation failure </td><td>  -  </td></tr>
-     * <tr><td> 429 </td><td> Too many requests </td><td>  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call createAudienceCsvExportForAudienceAsync(
-            String spaceId,
-            String id,
-            final ApiCallback<CreateAudienceCsvExportForAudience200Response> _callback)
-            throws ApiException {
-
-        okhttp3.Call localVarCall =
-                createAudienceCsvExportForAudienceValidateBeforeCall(spaceId, id, _callback);
-        Type localVarReturnType =
-                new TypeToken<CreateAudienceCsvExportForAudience200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

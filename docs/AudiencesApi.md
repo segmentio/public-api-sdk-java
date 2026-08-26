@@ -4,9 +4,9 @@ All URIs are relative to *https://api.segmentapis.com*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
+| [**addAudienceCsvExportToAudience**](AudiencesApi.md#addAudienceCsvExportToAudience) | **POST** /spaces/{spaceId}/audiences/{id}/csv-exports | Add Audience Csv Export to Audience |
 | [**addAudienceScheduleToAudience**](AudiencesApi.md#addAudienceScheduleToAudience) | **POST** /spaces/{spaceId}/audiences/{id}/schedules | Add Audience Schedule to Audience |
 | [**createAudience**](AudiencesApi.md#createAudience) | **POST** /spaces/{spaceId}/audiences | Create Audience |
-| [**createAudienceCsvExportForAudience**](AudiencesApi.md#createAudienceCsvExportForAudience) | **POST** /spaces/{spaceId}/audiences/{id}/csv-exports | Create Audience Csv Export for Audience |
 | [**createAudiencePreview**](AudiencesApi.md#createAudiencePreview) | **POST** /spaces/{spaceId}/audiences/previews | Create Audience Preview |
 | [**forceExecuteAudienceRun**](AudiencesApi.md#forceExecuteAudienceRun) | **POST** /spaces/{spaceId}/audiences/{audienceId}/runs | Force Execute Audience Run |
 | [**getAudience**](AudiencesApi.md#getAudience) | **GET** /spaces/{spaceId}/audiences/{id} | Get Audience |
@@ -21,6 +21,81 @@ All URIs are relative to *https://api.segmentapis.com*
 | [**updateAudienceForSpace**](AudiencesApi.md#updateAudienceForSpace) | **PATCH** /spaces/{spaceId}/audiences/{id} | Update Audience for Space |
 | [**updateAudienceScheduleForAudience**](AudiencesApi.md#updateAudienceScheduleForAudience) | **PATCH** /spaces/{spaceId}/audiences/{id}/schedules/{scheduleId} | Update Audience Schedule for Audience |
 
+
+
+## Operation: addAudienceCsvExportToAudience
+
+> AddAudienceCsvExportToAudience200Response addAudienceCsvExportToAudience(spaceId, id)
+
+Add Audience Csv Export to Audience
+
+Starts a CSV export of an Audience&#39;s membership. The export runs asynchronously: this returns immediately with an export id, and does not return the CSV itself. Poll &#x60;getAudienceCsvExportFromSpaceAndAudience&#x60; with that id for status and download URLs.  • In order to successfully call this endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach out to your customer success manager for more information.
+
+### Example
+
+```java
+// Import classes:
+import com.segment.publicapi.ApiClient;
+import com.segment.publicapi.ApiException;
+import com.segment.publicapi.Configuration;
+import com.segment.publicapi.auth.*;
+import com.segment.publicapi.models.*;
+import com.segment.publicapi.api.AudiencesApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        
+        // Configure HTTP bearer authorization: token
+        HttpBearerAuth token = (HttpBearerAuth) defaultClient.getAuthentication("token");
+        token.setBearerToken("BEARER TOKEN");
+
+        AudiencesApi apiInstance = new AudiencesApi(defaultClient);
+        String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
+        String id = "aud_0ujsszwN8NRY24YaXiTIE2VWDTS"; // String | 
+        try {
+            AddAudienceCsvExportToAudience200Response result = apiInstance.addAudienceCsvExportToAudience(spaceId, id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AudiencesApi#addAudienceCsvExportToAudience");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **spaceId** | **String**|  | |
+| **id** | **String**|  | |
+
+### Return type
+
+[**AddAudienceCsvExportToAudience200Response**](AddAudienceCsvExportToAudience200Response.md)
+
+### Authorization
+
+[token](../README.md#token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/vnd.segment.v1alpha+json, application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **404** | Resource not found |  -  |
+| **422** | Validation failure |  -  |
+| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
 
 
 ## Operation: addAudienceScheduleToAudience
@@ -164,81 +239,6 @@ public class Example {
 
 - **Content-Type**: application/json, application/vnd.segment.v1+json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
 - **Accept**: application/vnd.segment.v1+json, application/json, application/vnd.segment.v1beta+json, application/vnd.segment.v1alpha+json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **404** | Resource not found |  -  |
-| **422** | Validation failure |  -  |
-| **429** | Too many requests |  * Retry-After - Number of whole seconds to wait before retrying. Sent when the request was rejected because the authentication token is rate limited. Prefer this over your own backoff schedule when present. <br>  |
-
-
-## Operation: createAudienceCsvExportForAudience
-
-> CreateAudienceCsvExportForAudience200Response createAudienceCsvExportForAudience(spaceId, id)
-
-Create Audience Csv Export for Audience
-
-Starts a CSV export of an Audience&#39;s membership. The export runs asynchronously: this returns immediately with an export id, and does not return the CSV itself. Poll &#x60;getAudienceCsvExportFromSpaceAndAudience&#x60; with that id for status and download URLs.  • In order to successfully call this endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach out to your customer success manager for more information.
-
-### Example
-
-```java
-// Import classes:
-import com.segment.publicapi.ApiClient;
-import com.segment.publicapi.ApiException;
-import com.segment.publicapi.Configuration;
-import com.segment.publicapi.auth.*;
-import com.segment.publicapi.models.*;
-import com.segment.publicapi.api.AudiencesApi;
-
-public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        
-        // Configure HTTP bearer authorization: token
-        HttpBearerAuth token = (HttpBearerAuth) defaultClient.getAuthentication("token");
-        token.setBearerToken("BEARER TOKEN");
-
-        AudiencesApi apiInstance = new AudiencesApi(defaultClient);
-        String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
-        String id = "aud_0ujsszwN8NRY24YaXiTIE2VWDTS"; // String | 
-        try {
-            CreateAudienceCsvExportForAudience200Response result = apiInstance.createAudienceCsvExportForAudience(spaceId, id);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling AudiencesApi#createAudienceCsvExportForAudience");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-### Parameters
-
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **spaceId** | **String**|  | |
-| **id** | **String**|  | |
-
-### Return type
-
-[**CreateAudienceCsvExportForAudience200Response**](CreateAudienceCsvExportForAudience200Response.md)
-
-### Authorization
-
-[token](../README.md#token)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/vnd.segment.v1alpha+json, application/json
 
 
 ### HTTP response details
