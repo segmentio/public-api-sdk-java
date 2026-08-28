@@ -19,6 +19,7 @@ import com.segment.publicapi.ApiResponse;
 import com.segment.publicapi.Configuration;
 import com.segment.publicapi.Pair;
 import com.segment.publicapi.models.AddAudienceCsvExportToAudience200Response;
+import com.segment.publicapi.models.AddAudienceCsvExportToAudienceAlphaInput;
 import com.segment.publicapi.models.AddAudienceScheduleToAudience200Response;
 import com.segment.publicapi.models.AddAudienceScheduleToAudienceInput;
 import com.segment.publicapi.models.CreateAudience200Response;
@@ -91,6 +92,7 @@ public class AudiencesApi {
      *
      * @param spaceId (required)
      * @param id (required)
+     * @param addAudienceCsvExportToAudienceAlphaInput (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -104,7 +106,11 @@ public class AudiencesApi {
      * </table>
      */
     public okhttp3.Call addAudienceCsvExportToAudienceCall(
-            String spaceId, String id, final ApiCallback _callback) throws ApiException {
+            String spaceId,
+            String id,
+            AddAudienceCsvExportToAudienceAlphaInput addAudienceCsvExportToAudienceAlphaInput,
+            final ApiCallback _callback)
+            throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -118,7 +124,7 @@ public class AudiencesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = addAudienceCsvExportToAudienceAlphaInput;
 
         // create path and map variables
         String localVarPath =
@@ -142,7 +148,7 @@ public class AudiencesApi {
             localVarHeaderParams.put("Accept", localVarAccept);
         }
 
-        final String[] localVarContentTypes = {};
+        final String[] localVarContentTypes = {"application/vnd.segment.v1alpha+json"};
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -166,7 +172,11 @@ public class AudiencesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call addAudienceCsvExportToAudienceValidateBeforeCall(
-            String spaceId, String id, final ApiCallback _callback) throws ApiException {
+            String spaceId,
+            String id,
+            AddAudienceCsvExportToAudienceAlphaInput addAudienceCsvExportToAudienceAlphaInput,
+            final ApiCallback _callback)
+            throws ApiException {
         // verify the required parameter 'spaceId' is set
         if (spaceId == null) {
             throw new ApiException(
@@ -181,19 +191,32 @@ public class AudiencesApi {
                             + " addAudienceCsvExportToAudience(Async)");
         }
 
-        return addAudienceCsvExportToAudienceCall(spaceId, id, _callback);
+        // verify the required parameter 'addAudienceCsvExportToAudienceAlphaInput' is set
+        if (addAudienceCsvExportToAudienceAlphaInput == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'addAudienceCsvExportToAudienceAlphaInput' when"
+                            + " calling addAudienceCsvExportToAudience(Async)");
+        }
+
+        return addAudienceCsvExportToAudienceCall(
+                spaceId, id, addAudienceCsvExportToAudienceAlphaInput, _callback);
     }
 
     /**
-     * Add Audience Csv Export to Audience Starts a CSV export of an Audience&#39;s membership. The
-     * export runs asynchronously: this returns immediately with an export id, and does not return
-     * the CSV itself. Poll &#x60;getAudienceCsvExportFromSpaceAndAudience&#x60; with that id for
-     * status and download URLs. • In order to successfully call this endpoint, the specified
-     * Workspace needs to have the Audience feature enabled. Please reach out to your customer
-     * success manager for more information.
+     * Add Audience Csv Export to Audience Starts a CSV export of an Audience&#39;s membership.
+     * Optional personalization selections add profile traits and Linked Audience entity properties
+     * to the export; this endpoint accepts property selections, not raw Liquid or another template
+     * language. Entity selections are initially supported only for Linked Audiences. Omitting
+     * personalization preserves the default export behavior. The export runs asynchronously: this
+     * returns immediately with an export id, and does not return the CSV itself. Poll
+     * &#x60;getAudienceCsvExportFromSpaceAndAudience&#x60; with that id for status and download
+     * URLs. • In order to successfully call this endpoint, the specified Workspace needs to have
+     * the Audience feature enabled. Please reach out to your customer success manager for more
+     * information.
      *
      * @param spaceId (required)
      * @param id (required)
+     * @param addAudienceCsvExportToAudienceAlphaInput (required)
      * @return AddAudienceCsvExportToAudience200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -207,22 +230,31 @@ public class AudiencesApi {
      * </table>
      */
     public AddAudienceCsvExportToAudience200Response addAudienceCsvExportToAudience(
-            String spaceId, String id) throws ApiException {
+            String spaceId,
+            String id,
+            AddAudienceCsvExportToAudienceAlphaInput addAudienceCsvExportToAudienceAlphaInput)
+            throws ApiException {
         ApiResponse<AddAudienceCsvExportToAudience200Response> localVarResp =
-                addAudienceCsvExportToAudienceWithHttpInfo(spaceId, id);
+                addAudienceCsvExportToAudienceWithHttpInfo(
+                        spaceId, id, addAudienceCsvExportToAudienceAlphaInput);
         return localVarResp.getData();
     }
 
     /**
-     * Add Audience Csv Export to Audience Starts a CSV export of an Audience&#39;s membership. The
-     * export runs asynchronously: this returns immediately with an export id, and does not return
-     * the CSV itself. Poll &#x60;getAudienceCsvExportFromSpaceAndAudience&#x60; with that id for
-     * status and download URLs. • In order to successfully call this endpoint, the specified
-     * Workspace needs to have the Audience feature enabled. Please reach out to your customer
-     * success manager for more information.
+     * Add Audience Csv Export to Audience Starts a CSV export of an Audience&#39;s membership.
+     * Optional personalization selections add profile traits and Linked Audience entity properties
+     * to the export; this endpoint accepts property selections, not raw Liquid or another template
+     * language. Entity selections are initially supported only for Linked Audiences. Omitting
+     * personalization preserves the default export behavior. The export runs asynchronously: this
+     * returns immediately with an export id, and does not return the CSV itself. Poll
+     * &#x60;getAudienceCsvExportFromSpaceAndAudience&#x60; with that id for status and download
+     * URLs. • In order to successfully call this endpoint, the specified Workspace needs to have
+     * the Audience feature enabled. Please reach out to your customer success manager for more
+     * information.
      *
      * @param spaceId (required)
      * @param id (required)
+     * @param addAudienceCsvExportToAudienceAlphaInput (required)
      * @return ApiResponse&lt;AddAudienceCsvExportToAudience200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -236,10 +268,15 @@ public class AudiencesApi {
      * </table>
      */
     public ApiResponse<AddAudienceCsvExportToAudience200Response>
-            addAudienceCsvExportToAudienceWithHttpInfo(String spaceId, String id)
+            addAudienceCsvExportToAudienceWithHttpInfo(
+                    String spaceId,
+                    String id,
+                    AddAudienceCsvExportToAudienceAlphaInput
+                            addAudienceCsvExportToAudienceAlphaInput)
                     throws ApiException {
         okhttp3.Call localVarCall =
-                addAudienceCsvExportToAudienceValidateBeforeCall(spaceId, id, null);
+                addAudienceCsvExportToAudienceValidateBeforeCall(
+                        spaceId, id, addAudienceCsvExportToAudienceAlphaInput, null);
         Type localVarReturnType =
                 new TypeToken<AddAudienceCsvExportToAudience200Response>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -247,14 +284,19 @@ public class AudiencesApi {
 
     /**
      * Add Audience Csv Export to Audience (asynchronously) Starts a CSV export of an Audience&#39;s
-     * membership. The export runs asynchronously: this returns immediately with an export id, and
-     * does not return the CSV itself. Poll &#x60;getAudienceCsvExportFromSpaceAndAudience&#x60;
-     * with that id for status and download URLs. • In order to successfully call this endpoint, the
-     * specified Workspace needs to have the Audience feature enabled. Please reach out to your
-     * customer success manager for more information.
+     * membership. Optional personalization selections add profile traits and Linked Audience entity
+     * properties to the export; this endpoint accepts property selections, not raw Liquid or
+     * another template language. Entity selections are initially supported only for Linked
+     * Audiences. Omitting personalization preserves the default export behavior. The export runs
+     * asynchronously: this returns immediately with an export id, and does not return the CSV
+     * itself. Poll &#x60;getAudienceCsvExportFromSpaceAndAudience&#x60; with that id for status and
+     * download URLs. • In order to successfully call this endpoint, the specified Workspace needs
+     * to have the Audience feature enabled. Please reach out to your customer success manager for
+     * more information.
      *
      * @param spaceId (required)
      * @param id (required)
+     * @param addAudienceCsvExportToAudienceAlphaInput (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -271,11 +313,13 @@ public class AudiencesApi {
     public okhttp3.Call addAudienceCsvExportToAudienceAsync(
             String spaceId,
             String id,
+            AddAudienceCsvExportToAudienceAlphaInput addAudienceCsvExportToAudienceAlphaInput,
             final ApiCallback<AddAudienceCsvExportToAudience200Response> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
-                addAudienceCsvExportToAudienceValidateBeforeCall(spaceId, id, _callback);
+                addAudienceCsvExportToAudienceValidateBeforeCall(
+                        spaceId, id, addAudienceCsvExportToAudienceAlphaInput, _callback);
         Type localVarReturnType =
                 new TypeToken<AddAudienceCsvExportToAudience200Response>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);

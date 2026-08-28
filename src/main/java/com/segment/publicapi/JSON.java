@@ -110,6 +110,9 @@ public class JSON {
                 new com.segment.publicapi.models.AddAudienceCsvExportToAudience200Response
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new com.segment.publicapi.models.AddAudienceCsvExportToAudienceAlphaInput
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new com.segment.publicapi.models.AddAudienceCsvExportToAudienceAlphaOutput
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(

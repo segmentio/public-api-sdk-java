@@ -25,11 +25,11 @@ All URIs are relative to *https://api.segmentapis.com*
 
 ## Operation: addAudienceCsvExportToAudience
 
-> AddAudienceCsvExportToAudience200Response addAudienceCsvExportToAudience(spaceId, id)
+> AddAudienceCsvExportToAudience200Response addAudienceCsvExportToAudience(spaceId, id, addAudienceCsvExportToAudienceAlphaInput)
 
 Add Audience Csv Export to Audience
 
-Starts a CSV export of an Audience&#39;s membership. The export runs asynchronously: this returns immediately with an export id, and does not return the CSV itself. Poll &#x60;getAudienceCsvExportFromSpaceAndAudience&#x60; with that id for status and download URLs.  • In order to successfully call this endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach out to your customer success manager for more information.
+Starts a CSV export of an Audience&#39;s membership. Optional personalization selections add profile traits and Linked Audience entity properties to the export; this endpoint accepts property selections, not raw Liquid or another template language. Entity selections are initially supported only for Linked Audiences. Omitting personalization preserves the default export behavior. The export runs asynchronously: this returns immediately with an export id, and does not return the CSV itself. Poll &#x60;getAudienceCsvExportFromSpaceAndAudience&#x60; with that id for status and download URLs.  • In order to successfully call this endpoint, the specified Workspace needs to have the Audience feature enabled. Please reach out to your customer success manager for more information.
 
 ### Example
 
@@ -53,8 +53,9 @@ public class Example {
         AudiencesApi apiInstance = new AudiencesApi(defaultClient);
         String spaceId = "9aQ1Lj62S4bomZKLF4DPqW"; // String | 
         String id = "aud_0ujsszwN8NRY24YaXiTIE2VWDTS"; // String | 
+        AddAudienceCsvExportToAudienceAlphaInput addAudienceCsvExportToAudienceAlphaInput = new AddAudienceCsvExportToAudienceAlphaInput(); // AddAudienceCsvExportToAudienceAlphaInput | 
         try {
-            AddAudienceCsvExportToAudience200Response result = apiInstance.addAudienceCsvExportToAudience(spaceId, id);
+            AddAudienceCsvExportToAudience200Response result = apiInstance.addAudienceCsvExportToAudience(spaceId, id, addAudienceCsvExportToAudienceAlphaInput);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AudiencesApi#addAudienceCsvExportToAudience");
@@ -74,6 +75,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **spaceId** | **String**|  | |
 | **id** | **String**|  | |
+| **addAudienceCsvExportToAudienceAlphaInput** | [**AddAudienceCsvExportToAudienceAlphaInput**](AddAudienceCsvExportToAudienceAlphaInput.md)|  | |
 
 ### Return type
 
@@ -85,7 +87,7 @@ public class Example {
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/vnd.segment.v1alpha+json
 - **Accept**: application/vnd.segment.v1alpha+json, application/json
 
 

@@ -91,8 +91,8 @@ public class Profile {
     }
 
     /**
-     * Maps a profile trait to the name it should be sent under. Each key is a trait, and each value
-     * is the name used in the event.
+     * Maps destination fields to profile traits. Each key is the destination field, and each value
+     * is the source trait: &#x60;{ destinationField: sourceTrait }&#x60;.
      *
      * @return mapping
      */
