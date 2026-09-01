@@ -27,34 +27,58 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** ListAudienceConsumersFromSpaceAndAudience200Response */
-public class ListAudienceConsumersFromSpaceAndAudience200Response {
-    public static final String SERIALIZED_NAME_DATA = "data";
+/** ErrorsInner */
+public class ErrorsInner {
+    public static final String SERIALIZED_NAME_AUDIENCE_ID = "audienceId";
 
-    @SerializedName(SERIALIZED_NAME_DATA)
-    private ListAudienceConsumersFromSpaceAndAudienceOutput data;
+    @SerializedName(SERIALIZED_NAME_AUDIENCE_ID)
+    private String audienceId;
 
-    public ListAudienceConsumersFromSpaceAndAudience200Response() {}
+    public static final String SERIALIZED_NAME_MESSAGE = "message";
 
-    public ListAudienceConsumersFromSpaceAndAudience200Response data(
-            ListAudienceConsumersFromSpaceAndAudienceOutput data) {
+    @SerializedName(SERIALIZED_NAME_MESSAGE)
+    private String message;
 
-        this.data = data;
+    public ErrorsInner() {}
+
+    public ErrorsInner audienceId(String audienceId) {
+
+        this.audienceId = audienceId;
         return this;
     }
 
     /**
-     * Get data
+     * Get audienceId
      *
-     * @return data
+     * @return audienceId
      */
-    @javax.annotation.Nullable
-    public ListAudienceConsumersFromSpaceAndAudienceOutput getData() {
-        return data;
+    @javax.annotation.Nonnull
+    public String getAudienceId() {
+        return audienceId;
     }
 
-    public void setData(ListAudienceConsumersFromSpaceAndAudienceOutput data) {
-        this.data = data;
+    public void setAudienceId(String audienceId) {
+        this.audienceId = audienceId;
+    }
+
+    public ErrorsInner message(String message) {
+
+        this.message = message;
+        return this;
+    }
+
+    /**
+     * Get message
+     *
+     * @return message
+     */
+    @javax.annotation.Nonnull
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     @Override
@@ -65,22 +89,22 @@ public class ListAudienceConsumersFromSpaceAndAudience200Response {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        ListAudienceConsumersFromSpaceAndAudience200Response
-                listAudienceConsumersFromSpaceAndAudience200Response =
-                        (ListAudienceConsumersFromSpaceAndAudience200Response) o;
-        return Objects.equals(this.data, listAudienceConsumersFromSpaceAndAudience200Response.data);
+        ErrorsInner errorsInner = (ErrorsInner) o;
+        return Objects.equals(this.audienceId, errorsInner.audienceId)
+                && Objects.equals(this.message, errorsInner.message);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(data);
+        return Objects.hash(audienceId, message);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ListAudienceConsumersFromSpaceAndAudience200Response {\n");
-        sb.append("    data: ").append(toIndentedString(data)).append("\n");
+        sb.append("class ErrorsInner {\n");
+        sb.append("    audienceId: ").append(toIndentedString(audienceId)).append("\n");
+        sb.append("    message: ").append(toIndentedString(message)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -102,52 +126,68 @@ public class ListAudienceConsumersFromSpaceAndAudience200Response {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("data");
+        openapiFields.add("audienceId");
+        openapiFields.add("message");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
+        openapiRequiredFields.add("audienceId");
+        openapiRequiredFields.add("message");
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to
-     *     ListAudienceConsumersFromSpaceAndAudience200Response
+     * @throws IOException if the JSON Element is invalid with respect to ErrorsInner
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!ListAudienceConsumersFromSpaceAndAudience200Response.openapiRequiredFields
+            if (!ErrorsInner.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in"
-                                    + " ListAudienceConsumersFromSpaceAndAudience200Response is not"
-                                    + " found in the empty JSON string",
-                                ListAudienceConsumersFromSpaceAndAudience200Response
-                                        .openapiRequiredFields
-                                        .toString()));
+                                "The required field(s) %s in ErrorsInner is not found in the empty"
+                                        + " JSON string",
+                                ErrorsInner.openapiRequiredFields.toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!ListAudienceConsumersFromSpaceAndAudience200Response.openapiFields.contains(
-                    entry.getKey())) {
+            if (!ErrorsInner.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `ListAudienceConsumersFromSpaceAndAudience200Response`"
-                                        + " properties. JSON: %s",
+                                        + " `ErrorsInner` properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
+
+        // check to make sure all required properties/fields are present in the JSON string
+        for (String requiredField : ErrorsInner.openapiRequiredFields) {
+            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+                throw new IllegalArgumentException(
+                        String.format(
+                                "The required field `%s` is not found in the JSON string: %s",
+                                requiredField, jsonElement.toString()));
+            }
+        }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        // validate the optional field `data`
-        if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-            ListAudienceConsumersFromSpaceAndAudienceOutput.validateJsonElement(
-                    jsonObj.get("data"));
+        if (!jsonObj.get("audienceId").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `audienceId` to be a primitive type in the JSON"
+                                    + " string but got `%s`",
+                            jsonObj.get("audienceId").toString()));
+        }
+        if (!jsonObj.get("message").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `message` to be a primitive type in the JSON string"
+                                    + " but got `%s`",
+                            jsonObj.get("message").toString()));
         }
     }
 
@@ -155,33 +195,23 @@ public class ListAudienceConsumersFromSpaceAndAudience200Response {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!ListAudienceConsumersFromSpaceAndAudience200Response.class.isAssignableFrom(
-                    type.getRawType())) {
-                return null; // this class only serializes
-                // 'ListAudienceConsumersFromSpaceAndAudience200Response' and its
-                // subtypes
+            if (!ErrorsInner.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'ErrorsInner' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<ListAudienceConsumersFromSpaceAndAudience200Response> thisAdapter =
-                    gson.getDelegateAdapter(
-                            this,
-                            TypeToken.get(
-                                    ListAudienceConsumersFromSpaceAndAudience200Response.class));
+            final TypeAdapter<ErrorsInner> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(ErrorsInner.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<ListAudienceConsumersFromSpaceAndAudience200Response>() {
+                    new TypeAdapter<ErrorsInner>() {
                         @Override
-                        public void write(
-                                JsonWriter out,
-                                ListAudienceConsumersFromSpaceAndAudience200Response value)
-                                throws IOException {
+                        public void write(JsonWriter out, ErrorsInner value) throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public ListAudienceConsumersFromSpaceAndAudience200Response read(
-                                JsonReader in) throws IOException {
+                        public ErrorsInner read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -191,22 +221,18 @@ public class ListAudienceConsumersFromSpaceAndAudience200Response {
     }
 
     /**
-     * Create an instance of ListAudienceConsumersFromSpaceAndAudience200Response given an JSON
-     * string
+     * Create an instance of ErrorsInner given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of ListAudienceConsumersFromSpaceAndAudience200Response
-     * @throws IOException if the JSON string is invalid with respect to
-     *     ListAudienceConsumersFromSpaceAndAudience200Response
+     * @return An instance of ErrorsInner
+     * @throws IOException if the JSON string is invalid with respect to ErrorsInner
      */
-    public static ListAudienceConsumersFromSpaceAndAudience200Response fromJson(String jsonString)
-            throws IOException {
-        return JSON.getGson()
-                .fromJson(jsonString, ListAudienceConsumersFromSpaceAndAudience200Response.class);
+    public static ErrorsInner fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, ErrorsInner.class);
     }
 
     /**
-     * Convert an instance of ListAudienceConsumersFromSpaceAndAudience200Response to an JSON string
+     * Convert an instance of ErrorsInner to an JSON string
      *
      * @return JSON string
      */

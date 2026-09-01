@@ -27,17 +27,17 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** ListAudienceConsumersFromSpaceAndAudience200Response */
-public class ListAudienceConsumersFromSpaceAndAudience200Response {
+/** BatchQueryActivationsForSpace200Response */
+public class BatchQueryActivationsForSpace200Response {
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    private ListAudienceConsumersFromSpaceAndAudienceOutput data;
+    private BatchQueryActivationsForSpaceAlphaOutput data;
 
-    public ListAudienceConsumersFromSpaceAndAudience200Response() {}
+    public BatchQueryActivationsForSpace200Response() {}
 
-    public ListAudienceConsumersFromSpaceAndAudience200Response data(
-            ListAudienceConsumersFromSpaceAndAudienceOutput data) {
+    public BatchQueryActivationsForSpace200Response data(
+            BatchQueryActivationsForSpaceAlphaOutput data) {
 
         this.data = data;
         return this;
@@ -49,11 +49,11 @@ public class ListAudienceConsumersFromSpaceAndAudience200Response {
      * @return data
      */
     @javax.annotation.Nullable
-    public ListAudienceConsumersFromSpaceAndAudienceOutput getData() {
+    public BatchQueryActivationsForSpaceAlphaOutput getData() {
         return data;
     }
 
-    public void setData(ListAudienceConsumersFromSpaceAndAudienceOutput data) {
+    public void setData(BatchQueryActivationsForSpaceAlphaOutput data) {
         this.data = data;
     }
 
@@ -65,10 +65,9 @@ public class ListAudienceConsumersFromSpaceAndAudience200Response {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        ListAudienceConsumersFromSpaceAndAudience200Response
-                listAudienceConsumersFromSpaceAndAudience200Response =
-                        (ListAudienceConsumersFromSpaceAndAudience200Response) o;
-        return Objects.equals(this.data, listAudienceConsumersFromSpaceAndAudience200Response.data);
+        BatchQueryActivationsForSpace200Response batchQueryActivationsForSpace200Response =
+                (BatchQueryActivationsForSpace200Response) o;
+        return Objects.equals(this.data, batchQueryActivationsForSpace200Response.data);
     }
 
     @Override
@@ -79,7 +78,7 @@ public class ListAudienceConsumersFromSpaceAndAudience200Response {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ListAudienceConsumersFromSpaceAndAudience200Response {\n");
+        sb.append("class BatchQueryActivationsForSpace200Response {\n");
         sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -113,19 +112,18 @@ public class ListAudienceConsumersFromSpaceAndAudience200Response {
      *
      * @param jsonElement JSON Element
      * @throws IOException if the JSON Element is invalid with respect to
-     *     ListAudienceConsumersFromSpaceAndAudience200Response
+     *     BatchQueryActivationsForSpace200Response
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!ListAudienceConsumersFromSpaceAndAudience200Response.openapiRequiredFields
+            if (!BatchQueryActivationsForSpace200Response.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in"
-                                    + " ListAudienceConsumersFromSpaceAndAudience200Response is not"
-                                    + " found in the empty JSON string",
-                                ListAudienceConsumersFromSpaceAndAudience200Response
-                                        .openapiRequiredFields
+                                    + " BatchQueryActivationsForSpace200Response is not found in"
+                                    + " the empty JSON string",
+                                BatchQueryActivationsForSpace200Response.openapiRequiredFields
                                         .toString()));
             }
         }
@@ -133,21 +131,19 @@ public class ListAudienceConsumersFromSpaceAndAudience200Response {
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!ListAudienceConsumersFromSpaceAndAudience200Response.openapiFields.contains(
-                    entry.getKey())) {
+            if (!BatchQueryActivationsForSpace200Response.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `ListAudienceConsumersFromSpaceAndAudience200Response`"
-                                        + " properties. JSON: %s",
+                                        + " `BatchQueryActivationsForSpace200Response` properties."
+                                        + " JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the optional field `data`
         if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-            ListAudienceConsumersFromSpaceAndAudienceOutput.validateJsonElement(
-                    jsonObj.get("data"));
+            BatchQueryActivationsForSpaceAlphaOutput.validateJsonElement(jsonObj.get("data"));
         }
     }
 
@@ -155,33 +151,29 @@ public class ListAudienceConsumersFromSpaceAndAudience200Response {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!ListAudienceConsumersFromSpaceAndAudience200Response.class.isAssignableFrom(
+            if (!BatchQueryActivationsForSpace200Response.class.isAssignableFrom(
                     type.getRawType())) {
                 return null; // this class only serializes
-                // 'ListAudienceConsumersFromSpaceAndAudience200Response' and its
-                // subtypes
+                // 'BatchQueryActivationsForSpace200Response' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<ListAudienceConsumersFromSpaceAndAudience200Response> thisAdapter =
+            final TypeAdapter<BatchQueryActivationsForSpace200Response> thisAdapter =
                     gson.getDelegateAdapter(
-                            this,
-                            TypeToken.get(
-                                    ListAudienceConsumersFromSpaceAndAudience200Response.class));
+                            this, TypeToken.get(BatchQueryActivationsForSpace200Response.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<ListAudienceConsumersFromSpaceAndAudience200Response>() {
+                    new TypeAdapter<BatchQueryActivationsForSpace200Response>() {
                         @Override
                         public void write(
-                                JsonWriter out,
-                                ListAudienceConsumersFromSpaceAndAudience200Response value)
+                                JsonWriter out, BatchQueryActivationsForSpace200Response value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public ListAudienceConsumersFromSpaceAndAudience200Response read(
-                                JsonReader in) throws IOException {
+                        public BatchQueryActivationsForSpace200Response read(JsonReader in)
+                                throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -191,22 +183,20 @@ public class ListAudienceConsumersFromSpaceAndAudience200Response {
     }
 
     /**
-     * Create an instance of ListAudienceConsumersFromSpaceAndAudience200Response given an JSON
-     * string
+     * Create an instance of BatchQueryActivationsForSpace200Response given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of ListAudienceConsumersFromSpaceAndAudience200Response
+     * @return An instance of BatchQueryActivationsForSpace200Response
      * @throws IOException if the JSON string is invalid with respect to
-     *     ListAudienceConsumersFromSpaceAndAudience200Response
+     *     BatchQueryActivationsForSpace200Response
      */
-    public static ListAudienceConsumersFromSpaceAndAudience200Response fromJson(String jsonString)
+    public static BatchQueryActivationsForSpace200Response fromJson(String jsonString)
             throws IOException {
-        return JSON.getGson()
-                .fromJson(jsonString, ListAudienceConsumersFromSpaceAndAudience200Response.class);
+        return JSON.getGson().fromJson(jsonString, BatchQueryActivationsForSpace200Response.class);
     }
 
     /**
-     * Convert an instance of ListAudienceConsumersFromSpaceAndAudience200Response to an JSON string
+     * Convert an instance of BatchQueryActivationsForSpace200Response to an JSON string
      *
      * @return JSON string
      */
