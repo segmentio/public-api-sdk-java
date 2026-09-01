@@ -129,8 +129,7 @@ public class WarehousesApi {
             "application/vnd.segment.v1+json",
             "application/json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v2+json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -317,8 +316,7 @@ public class WarehousesApi {
             "application/vnd.segment.v1+json",
             "application/json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v2+json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -329,8 +327,7 @@ public class WarehousesApi {
             "application/json",
             "application/vnd.segment.v1+json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v2+json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
@@ -504,8 +501,7 @@ public class WarehousesApi {
             "application/vnd.segment.v1+json",
             "application/json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v2+json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -516,8 +512,7 @@ public class WarehousesApi {
             "application/json",
             "application/vnd.segment.v1+json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v2+json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
@@ -683,8 +678,7 @@ public class WarehousesApi {
             "application/vnd.segment.v1+json",
             "application/json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v2+json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -852,8 +846,7 @@ public class WarehousesApi {
             "application/vnd.segment.v1+json",
             "application/json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v2+json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1035,8 +1028,7 @@ public class WarehousesApi {
             "application/vnd.segment.v1+json",
             "application/json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v2+json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1205,8 +1197,7 @@ public class WarehousesApi {
             "application/vnd.segment.v1+json",
             "application/json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v2+json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1339,7 +1330,7 @@ public class WarehousesApi {
     /**
      * Build call for listWarehouses
      *
-     * @param pagination Defines the pagination parameters. This parameter exists in v2. (optional)
+     * @param pagination Defines the pagination parameters. This parameter exists in v1. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1386,8 +1377,7 @@ public class WarehousesApi {
             "application/vnd.segment.v1+json",
             "application/json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v2+json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1425,7 +1415,7 @@ public class WarehousesApi {
     /**
      * List Warehouses Returns a list of Warehouses.
      *
-     * @param pagination Defines the pagination parameters. This parameter exists in v2. (optional)
+     * @param pagination Defines the pagination parameters. This parameter exists in v1. (optional)
      * @return ListWarehouses200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1448,7 +1438,7 @@ public class WarehousesApi {
     /**
      * List Warehouses Returns a list of Warehouses.
      *
-     * @param pagination Defines the pagination parameters. This parameter exists in v2. (optional)
+     * @param pagination Defines the pagination parameters. This parameter exists in v1. (optional)
      * @return ApiResponse&lt;ListWarehouses200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the
      *     response body
@@ -1471,7 +1461,7 @@ public class WarehousesApi {
     /**
      * List Warehouses (asynchronously) Returns a list of Warehouses.
      *
-     * @param pagination Defines the pagination parameters. This parameter exists in v2. (optional)
+     * @param pagination Defines the pagination parameters. This parameter exists in v1. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body
@@ -1549,8 +1539,7 @@ public class WarehousesApi {
             "application/vnd.segment.v1+json",
             "application/json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v2+json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1738,8 +1727,7 @@ public class WarehousesApi {
             "application/vnd.segment.v1+json",
             "application/json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v2+json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1750,8 +1738,7 @@ public class WarehousesApi {
             "application/json",
             "application/vnd.segment.v1+json",
             "application/vnd.segment.v1beta+json",
-            "application/vnd.segment.v1alpha+json",
-            "application/vnd.segment.v2+json"
+            "application/vnd.segment.v1alpha+json"
         };
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);

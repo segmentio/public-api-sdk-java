@@ -22,64 +22,39 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.segment.publicapi.JSON;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** Summary of a created event-triggered journey draft. */
-public class EventTriggeredJourneySummary {
-    public static final String SERIALIZED_NAME_CONTAINER_ID = "containerId";
+/** BatchQueryActivationsForSpace200Response */
+public class BatchQueryActivationsForSpace200Response {
+    public static final String SERIALIZED_NAME_DATA = "data";
 
-    @SerializedName(SERIALIZED_NAME_CONTAINER_ID)
-    private String containerId;
+    @SerializedName(SERIALIZED_NAME_DATA)
+    private BatchQueryActivationsForSpaceAlphaOutput data;
 
-    public static final String SERIALIZED_NAME_VERSION_NUMBER = "versionNumber";
+    public BatchQueryActivationsForSpace200Response() {}
 
-    @SerializedName(SERIALIZED_NAME_VERSION_NUMBER)
-    private BigDecimal versionNumber;
+    public BatchQueryActivationsForSpace200Response data(
+            BatchQueryActivationsForSpaceAlphaOutput data) {
 
-    public EventTriggeredJourneySummary() {}
-
-    public EventTriggeredJourneySummary containerId(String containerId) {
-
-        this.containerId = containerId;
+        this.data = data;
         return this;
     }
 
     /**
-     * Container id of the created journey draft.
+     * Get data
      *
-     * @return containerId
+     * @return data
      */
-    @javax.annotation.Nonnull
-    public String getContainerId() {
-        return containerId;
+    @javax.annotation.Nullable
+    public BatchQueryActivationsForSpaceAlphaOutput getData() {
+        return data;
     }
 
-    public void setContainerId(String containerId) {
-        this.containerId = containerId;
-    }
-
-    public EventTriggeredJourneySummary versionNumber(BigDecimal versionNumber) {
-
-        this.versionNumber = versionNumber;
-        return this;
-    }
-
-    /**
-     * Version number of the created draft.
-     *
-     * @return versionNumber
-     */
-    @javax.annotation.Nonnull
-    public BigDecimal getVersionNumber() {
-        return versionNumber;
-    }
-
-    public void setVersionNumber(BigDecimal versionNumber) {
-        this.versionNumber = versionNumber;
+    public void setData(BatchQueryActivationsForSpaceAlphaOutput data) {
+        this.data = data;
     }
 
     @Override
@@ -90,23 +65,21 @@ public class EventTriggeredJourneySummary {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        EventTriggeredJourneySummary eventTriggeredJourneySummary =
-                (EventTriggeredJourneySummary) o;
-        return Objects.equals(this.containerId, eventTriggeredJourneySummary.containerId)
-                && Objects.equals(this.versionNumber, eventTriggeredJourneySummary.versionNumber);
+        BatchQueryActivationsForSpace200Response batchQueryActivationsForSpace200Response =
+                (BatchQueryActivationsForSpace200Response) o;
+        return Objects.equals(this.data, batchQueryActivationsForSpace200Response.data);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(containerId, versionNumber);
+        return Objects.hash(data);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class EventTriggeredJourneySummary {\n");
-        sb.append("    containerId: ").append(toIndentedString(containerId)).append("\n");
-        sb.append("    versionNumber: ").append(toIndentedString(versionNumber)).append("\n");
+        sb.append("class BatchQueryActivationsForSpace200Response {\n");
+        sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -128,13 +101,10 @@ public class EventTriggeredJourneySummary {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields = new HashSet<String>();
-        openapiFields.add("containerId");
-        openapiFields.add("versionNumber");
+        openapiFields.add("data");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
-        openapiRequiredFields.add("containerId");
-        openapiRequiredFields.add("versionNumber");
     }
 
     /**
@@ -142,48 +112,38 @@ public class EventTriggeredJourneySummary {
      *
      * @param jsonElement JSON Element
      * @throws IOException if the JSON Element is invalid with respect to
-     *     EventTriggeredJourneySummary
+     *     BatchQueryActivationsForSpace200Response
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!EventTriggeredJourneySummary.openapiRequiredFields
+            if (!BatchQueryActivationsForSpace200Response.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
-                                "The required field(s) %s in EventTriggeredJourneySummary is not"
-                                        + " found in the empty JSON string",
-                                EventTriggeredJourneySummary.openapiRequiredFields.toString()));
+                                "The required field(s) %s in"
+                                    + " BatchQueryActivationsForSpace200Response is not found in"
+                                    + " the empty JSON string",
+                                BatchQueryActivationsForSpace200Response.openapiRequiredFields
+                                        .toString()));
             }
         }
 
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!EventTriggeredJourneySummary.openapiFields.contains(entry.getKey())) {
+            if (!BatchQueryActivationsForSpace200Response.openapiFields.contains(entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `EventTriggeredJourneySummary` properties. JSON: %s",
+                                        + " `BatchQueryActivationsForSpace200Response` properties."
+                                        + " JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
         }
-
-        // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : EventTriggeredJourneySummary.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-                throw new IllegalArgumentException(
-                        String.format(
-                                "The required field `%s` is not found in the JSON string: %s",
-                                requiredField, jsonElement.toString()));
-            }
-        }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if (!jsonObj.get("containerId").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            "Expected the field `containerId` to be a primitive type in the JSON"
-                                    + " string but got `%s`",
-                            jsonObj.get("containerId").toString()));
+        // validate the optional field `data`
+        if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
+            BatchQueryActivationsForSpaceAlphaOutput.validateJsonElement(jsonObj.get("data"));
         }
     }
 
@@ -191,26 +151,29 @@ public class EventTriggeredJourneySummary {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!EventTriggeredJourneySummary.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'EventTriggeredJourneySummary' and its
-                // subtypes
+            if (!BatchQueryActivationsForSpace200Response.class.isAssignableFrom(
+                    type.getRawType())) {
+                return null; // this class only serializes
+                // 'BatchQueryActivationsForSpace200Response' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<EventTriggeredJourneySummary> thisAdapter =
+            final TypeAdapter<BatchQueryActivationsForSpace200Response> thisAdapter =
                     gson.getDelegateAdapter(
-                            this, TypeToken.get(EventTriggeredJourneySummary.class));
+                            this, TypeToken.get(BatchQueryActivationsForSpace200Response.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<EventTriggeredJourneySummary>() {
+                    new TypeAdapter<BatchQueryActivationsForSpace200Response>() {
                         @Override
-                        public void write(JsonWriter out, EventTriggeredJourneySummary value)
+                        public void write(
+                                JsonWriter out, BatchQueryActivationsForSpace200Response value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public EventTriggeredJourneySummary read(JsonReader in) throws IOException {
+                        public BatchQueryActivationsForSpace200Response read(JsonReader in)
+                                throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -220,19 +183,20 @@ public class EventTriggeredJourneySummary {
     }
 
     /**
-     * Create an instance of EventTriggeredJourneySummary given an JSON string
+     * Create an instance of BatchQueryActivationsForSpace200Response given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of EventTriggeredJourneySummary
+     * @return An instance of BatchQueryActivationsForSpace200Response
      * @throws IOException if the JSON string is invalid with respect to
-     *     EventTriggeredJourneySummary
+     *     BatchQueryActivationsForSpace200Response
      */
-    public static EventTriggeredJourneySummary fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, EventTriggeredJourneySummary.class);
+    public static BatchQueryActivationsForSpace200Response fromJson(String jsonString)
+            throws IOException {
+        return JSON.getGson().fromJson(jsonString, BatchQueryActivationsForSpace200Response.class);
     }
 
     /**
-     * Convert an instance of EventTriggeredJourneySummary to an JSON string
+     * Convert an instance of BatchQueryActivationsForSpace200Response to an JSON string
      *
      * @return JSON string
      */
