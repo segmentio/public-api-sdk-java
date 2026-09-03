@@ -97,7 +97,9 @@ public class UpdateWarehouseV2Input {
 
     /**
      * The id of a Credential to connect this Warehouse to. Swapping the Credential re-derives this
-     * Warehouse&#39;s connection settings and re-validates the connection.
+     * Warehouse&#39;s connection settings and re-validates the connection. The Credential must be
+     * the same type as the Warehouse&#39;s existing type — a Warehouse&#39;s type cannot be changed
+     * after creation, so a mismatched Credential is rejected rather than silently ignored.
      *
      * @return credentialId
      */
