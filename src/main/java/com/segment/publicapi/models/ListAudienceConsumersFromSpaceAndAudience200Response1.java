@@ -27,17 +27,17 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-/** ListAudienceConsumersFromSpaceAndAudience200Response */
-public class ListAudienceConsumersFromSpaceAndAudience200Response {
+/** ListAudienceConsumersFromSpaceAndAudience200Response1 */
+public class ListAudienceConsumersFromSpaceAndAudience200Response1 {
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    private ListAudienceConsumersFromSpaceAndAudienceOutput data;
+    private ListAudienceConsumersFromSpaceAndAudienceAlphaOutput data;
 
-    public ListAudienceConsumersFromSpaceAndAudience200Response() {}
+    public ListAudienceConsumersFromSpaceAndAudience200Response1() {}
 
-    public ListAudienceConsumersFromSpaceAndAudience200Response data(
-            ListAudienceConsumersFromSpaceAndAudienceOutput data) {
+    public ListAudienceConsumersFromSpaceAndAudience200Response1 data(
+            ListAudienceConsumersFromSpaceAndAudienceAlphaOutput data) {
 
         this.data = data;
         return this;
@@ -49,11 +49,11 @@ public class ListAudienceConsumersFromSpaceAndAudience200Response {
      * @return data
      */
     @javax.annotation.Nullable
-    public ListAudienceConsumersFromSpaceAndAudienceOutput getData() {
+    public ListAudienceConsumersFromSpaceAndAudienceAlphaOutput getData() {
         return data;
     }
 
-    public void setData(ListAudienceConsumersFromSpaceAndAudienceOutput data) {
+    public void setData(ListAudienceConsumersFromSpaceAndAudienceAlphaOutput data) {
         this.data = data;
     }
 
@@ -65,10 +65,11 @@ public class ListAudienceConsumersFromSpaceAndAudience200Response {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        ListAudienceConsumersFromSpaceAndAudience200Response
-                listAudienceConsumersFromSpaceAndAudience200Response =
-                        (ListAudienceConsumersFromSpaceAndAudience200Response) o;
-        return Objects.equals(this.data, listAudienceConsumersFromSpaceAndAudience200Response.data);
+        ListAudienceConsumersFromSpaceAndAudience200Response1
+                listAudienceConsumersFromSpaceAndAudience200Response1 =
+                        (ListAudienceConsumersFromSpaceAndAudience200Response1) o;
+        return Objects.equals(
+                this.data, listAudienceConsumersFromSpaceAndAudience200Response1.data);
     }
 
     @Override
@@ -79,7 +80,7 @@ public class ListAudienceConsumersFromSpaceAndAudience200Response {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ListAudienceConsumersFromSpaceAndAudience200Response {\n");
+        sb.append("class ListAudienceConsumersFromSpaceAndAudience200Response1 {\n");
         sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -113,18 +114,18 @@ public class ListAudienceConsumersFromSpaceAndAudience200Response {
      *
      * @param jsonElement JSON Element
      * @throws IOException if the JSON Element is invalid with respect to
-     *     ListAudienceConsumersFromSpaceAndAudience200Response
+     *     ListAudienceConsumersFromSpaceAndAudience200Response1
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!ListAudienceConsumersFromSpaceAndAudience200Response.openapiRequiredFields
+            if (!ListAudienceConsumersFromSpaceAndAudience200Response1.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
                                 "The required field(s) %s in"
-                                    + " ListAudienceConsumersFromSpaceAndAudience200Response is not"
-                                    + " found in the empty JSON string",
-                                ListAudienceConsumersFromSpaceAndAudience200Response
+                                    + " ListAudienceConsumersFromSpaceAndAudience200Response1 is"
+                                    + " not found in the empty JSON string",
+                                ListAudienceConsumersFromSpaceAndAudience200Response1
                                         .openapiRequiredFields
                                         .toString()));
             }
@@ -133,12 +134,12 @@ public class ListAudienceConsumersFromSpaceAndAudience200Response {
         Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
         // check to see if the JSON string contains additional fields
         for (Map.Entry<String, JsonElement> entry : entries) {
-            if (!ListAudienceConsumersFromSpaceAndAudience200Response.openapiFields.contains(
+            if (!ListAudienceConsumersFromSpaceAndAudience200Response1.openapiFields.contains(
                     entry.getKey())) {
                 throw new IllegalArgumentException(
                         String.format(
                                 "The field `%s` in the JSON string is not defined in the"
-                                        + " `ListAudienceConsumersFromSpaceAndAudience200Response`"
+                                        + " `ListAudienceConsumersFromSpaceAndAudience200Response1`"
                                         + " properties. JSON: %s",
                                 entry.getKey(), jsonElement.toString()));
             }
@@ -146,7 +147,7 @@ public class ListAudienceConsumersFromSpaceAndAudience200Response {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the optional field `data`
         if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-            ListAudienceConsumersFromSpaceAndAudienceOutput.validateJsonElement(
+            ListAudienceConsumersFromSpaceAndAudienceAlphaOutput.validateJsonElement(
                     jsonObj.get("data"));
         }
     }
@@ -155,32 +156,32 @@ public class ListAudienceConsumersFromSpaceAndAudience200Response {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!ListAudienceConsumersFromSpaceAndAudience200Response.class.isAssignableFrom(
+            if (!ListAudienceConsumersFromSpaceAndAudience200Response1.class.isAssignableFrom(
                     type.getRawType())) {
                 return null; // this class only serializes
-                // 'ListAudienceConsumersFromSpaceAndAudience200Response' and its
+                // 'ListAudienceConsumersFromSpaceAndAudience200Response1' and its
                 // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<ListAudienceConsumersFromSpaceAndAudience200Response> thisAdapter =
+            final TypeAdapter<ListAudienceConsumersFromSpaceAndAudience200Response1> thisAdapter =
                     gson.getDelegateAdapter(
                             this,
                             TypeToken.get(
-                                    ListAudienceConsumersFromSpaceAndAudience200Response.class));
+                                    ListAudienceConsumersFromSpaceAndAudience200Response1.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<ListAudienceConsumersFromSpaceAndAudience200Response>() {
+                    new TypeAdapter<ListAudienceConsumersFromSpaceAndAudience200Response1>() {
                         @Override
                         public void write(
                                 JsonWriter out,
-                                ListAudienceConsumersFromSpaceAndAudience200Response value)
+                                ListAudienceConsumersFromSpaceAndAudience200Response1 value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public ListAudienceConsumersFromSpaceAndAudience200Response read(
+                        public ListAudienceConsumersFromSpaceAndAudience200Response1 read(
                                 JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
@@ -191,22 +192,23 @@ public class ListAudienceConsumersFromSpaceAndAudience200Response {
     }
 
     /**
-     * Create an instance of ListAudienceConsumersFromSpaceAndAudience200Response given an JSON
+     * Create an instance of ListAudienceConsumersFromSpaceAndAudience200Response1 given an JSON
      * string
      *
      * @param jsonString JSON string
-     * @return An instance of ListAudienceConsumersFromSpaceAndAudience200Response
+     * @return An instance of ListAudienceConsumersFromSpaceAndAudience200Response1
      * @throws IOException if the JSON string is invalid with respect to
-     *     ListAudienceConsumersFromSpaceAndAudience200Response
+     *     ListAudienceConsumersFromSpaceAndAudience200Response1
      */
-    public static ListAudienceConsumersFromSpaceAndAudience200Response fromJson(String jsonString)
+    public static ListAudienceConsumersFromSpaceAndAudience200Response1 fromJson(String jsonString)
             throws IOException {
         return JSON.getGson()
-                .fromJson(jsonString, ListAudienceConsumersFromSpaceAndAudience200Response.class);
+                .fromJson(jsonString, ListAudienceConsumersFromSpaceAndAudience200Response1.class);
     }
 
     /**
-     * Convert an instance of ListAudienceConsumersFromSpaceAndAudience200Response to an JSON string
+     * Convert an instance of ListAudienceConsumersFromSpaceAndAudience200Response1 to an JSON
+     * string
      *
      * @return JSON string
      */
