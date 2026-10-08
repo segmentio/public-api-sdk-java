@@ -124,7 +124,10 @@ public class AddActivationToAudienceAlphaInput {
      * Events**: Sends events for all trigger conditions (enters, exits, and entity value changes
      * for freshness Destinations; enters and exits only for non-freshness Destinations). Note that
      * events are sent for the profile, unless the audience is a Linked Audience. In that case,
-     * events are sent for the target entity defined for that audience.
+     * events are sent for the target entity defined for that audience. Activations on Warehouse
+     * Destinations support only track-based activation types. **Audience Membership Changed** is
+     * identify-based, so requests using it for a Warehouse Destination are rejected. Use **Audience
+     * Entered** or **Audience Exited** instead.
      *
      * @return activationType
      */
