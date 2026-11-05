@@ -19,7 +19,7 @@ All URIs are relative to *https://api.segmentapis.com*
 
 Create Profiles Warehouse
 
-Creates a new Profiles Warehouse.    • When called, this endpoint may generate the &#x60;Profiles Sync Warehouse Created&#x60; event in the [audit trail](/tag/Audit-Trail).       
+Creates a new Profiles Warehouse.  &lt;div style&#x3D;\&quot;background-color: #e8f4fd; border: 1px solid #90caf9; border-radius: 6px; padding: 16px; margin: 16px 0; color: #0d47a1; line-height: 1.5;\&quot;&gt;   &lt;ul style&#x3D;\&quot;margin: 0; padding-left: 20px; font-size: 13px;\&quot;&gt;     &lt;li style&#x3D;\&quot;margin-bottom: 6px;\&quot;&gt;&lt;strong&gt;WARN&lt;/strong&gt;: Please be careful to not use this API to link multiple Warehouses to a single Space. This is not officially supported. Although the Warehouse will be linked, it won&#39;t show up on the UI and can lead to various other unforeseen issues.&lt;/li&gt;   &lt;/ul&gt; &lt;/div&gt;    • When called, this endpoint may generate the &#x60;Profiles Sync Warehouse Created&#x60; event in the [audit trail](/tag/Audit-Trail).       
 
 ### Example
 
