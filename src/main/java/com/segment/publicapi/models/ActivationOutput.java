@@ -91,6 +91,16 @@ public class ActivationOutput {
     @SerializedName(SERIALIZED_NAME_PERFORM_RESYNC)
     private Boolean performResync;
 
+    public static final String SERIALIZED_NAME_CREATED_AT = "createdAt";
+
+    @SerializedName(SERIALIZED_NAME_CREATED_AT)
+    private String createdAt;
+
+    public static final String SERIALIZED_NAME_UPDATED_AT = "updatedAt";
+
+    @SerializedName(SERIALIZED_NAME_UPDATED_AT)
+    private String updatedAt;
+
     public ActivationOutput() {}
 
     public ActivationOutput id(String id) {
@@ -345,6 +355,47 @@ public class ActivationOutput {
         this.performResync = performResync;
     }
 
+    public ActivationOutput createdAt(String createdAt) {
+
+        this.createdAt = createdAt;
+        return this;
+    }
+
+    /**
+     * When the activation was created, as an ISO-8601 string.
+     *
+     * @return createdAt
+     */
+    @javax.annotation.Nonnull
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public ActivationOutput updatedAt(String updatedAt) {
+
+        this.updatedAt = updatedAt;
+        return this;
+    }
+
+    /**
+     * When the activation was last updated, as an ISO-8601 string. Advances on every update,
+     * including changes to only the personalization or destinationMapping.
+     *
+     * @return updatedAt
+     */
+    @javax.annotation.Nonnull
+    public String getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -365,7 +416,9 @@ public class ActivationOutput {
                 && Objects.equals(this.displayName, activationOutput.displayName)
                 && Objects.equals(this.personalization, activationOutput.personalization)
                 && Objects.equals(this.destinationMapping, activationOutput.destinationMapping)
-                && Objects.equals(this.performResync, activationOutput.performResync);
+                && Objects.equals(this.performResync, activationOutput.performResync)
+                && Objects.equals(this.createdAt, activationOutput.createdAt)
+                && Objects.equals(this.updatedAt, activationOutput.updatedAt);
     }
 
     private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -391,7 +444,9 @@ public class ActivationOutput {
                 displayName,
                 personalization,
                 destinationMapping,
-                performResync);
+                performResync,
+                createdAt,
+                updatedAt);
     }
 
     private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -419,6 +474,8 @@ public class ActivationOutput {
                 .append(toIndentedString(destinationMapping))
                 .append("\n");
         sb.append("    performResync: ").append(toIndentedString(performResync)).append("\n");
+        sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+        sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -452,6 +509,8 @@ public class ActivationOutput {
         openapiFields.add("personalization");
         openapiFields.add("destinationMapping");
         openapiFields.add("performResync");
+        openapiFields.add("createdAt");
+        openapiFields.add("updatedAt");
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>();
@@ -464,6 +523,8 @@ public class ActivationOutput {
         openapiRequiredFields.add("activationType");
         openapiRequiredFields.add("activationName");
         openapiRequiredFields.add("personalization");
+        openapiRequiredFields.add("createdAt");
+        openapiRequiredFields.add("updatedAt");
     }
 
     /**
@@ -570,6 +631,20 @@ public class ActivationOutput {
                 && !jsonObj.get("destinationMapping").isJsonNull()) {
             DestinationSubscriptionConfiguration.validateJsonElement(
                     jsonObj.get("destinationMapping"));
+        }
+        if (!jsonObj.get("createdAt").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `createdAt` to be a primitive type in the JSON"
+                                    + " string but got `%s`",
+                            jsonObj.get("createdAt").toString()));
+        }
+        if (!jsonObj.get("updatedAt").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "Expected the field `updatedAt` to be a primitive type in the JSON"
+                                    + " string but got `%s`",
+                            jsonObj.get("updatedAt").toString()));
         }
     }
 
